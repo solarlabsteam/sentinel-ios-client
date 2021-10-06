@@ -50,8 +50,8 @@ extension ModulesFactory {
         AccountCreationCoordinator(context: context, mode: mode, navigation: navigation, window: window).start()
     }
 
-    func makeHomeModule(for navigation: UINavigationController) {
-        HomeCoordinator(context: context, navigation: navigation).start()
+    func makeConnectionModule(for navigation: UINavigationController) {
+        ConnectionCoordinator(context: context, navigation: navigation).start()
     }
 
     func makeLocationSelectionModule(for window: UIWindow) {
@@ -83,13 +83,13 @@ extension ModulesFactory {
 
 /// Scenes previews
 extension ModulesFactory {
-    func getHomeScene() -> HomeView {
-        let coordinator = HomeCoordinator(context: context, navigation: UINavigationController())
-        let viewModel = HomeViewModel(
-            model: HomeModel(context: context),
+    func getConnectionScene() -> ConnectionView {
+        let coordinator = ConnectionCoordinator(context: context, navigation: UINavigationController())
+        let viewModel = ConnectionViewModel(
+            model: ConnectionModel(context: context),
             router: coordinator.asRouter()
         )
-        let view = HomeView(viewModel: viewModel)
+        let view = ConnectionView(viewModel: viewModel)
 
         return view
     }

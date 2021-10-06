@@ -109,7 +109,7 @@ struct LocationSelectionRowView_Previews: PreviewProvider {
                         title: "Test",
                         subtitle: "mfq9rph",
                         price: 0.7,
-                        speed: Asset.Home.Wifi.scales1.image,
+                        speed: Asset.Connection.Wifi.scales1.image,
                         latency: 0.2,
                         peers: 0.3
                     ),

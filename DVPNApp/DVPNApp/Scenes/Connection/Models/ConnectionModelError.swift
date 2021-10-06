@@ -1,5 +1,5 @@
 //
-//  HomeModelError.swift
+//  ConnectionModelError.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 06.09.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HomeModelError: LocalizedError {
+enum ConnectionModelError: LocalizedError {
     case signatureGenerationFailed
     case invalidURL
     case connectionParsingFailed

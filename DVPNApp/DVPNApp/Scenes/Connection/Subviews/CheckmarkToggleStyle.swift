@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConnectionToggleStyle: ToggleStyle {
-    typealias ImageSource = Asset.Home.Toggle
+    typealias ImageSource = Asset.Connection.Toggle
     @Binding var isLoading: Bool
 
     func makeBody(configuration: Configuration) -> some View {
@@ -23,7 +23,7 @@ struct ConnectionToggleStyle: ToggleStyle {
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
                             } else {
-                                Image(uiImage: Asset.Home.Toggle.Arrow.up.image)
+                                Image(uiImage: Asset.Connection.Toggle.Arrow.up.image)
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
                             }
@@ -52,7 +52,7 @@ struct ConnectionToggleStyle: ToggleStyle {
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
                             } else {
-                                Image(uiImage: Asset.Home.Toggle.Arrow.down.image)
+                                Image(uiImage: Asset.Connection.Toggle.Arrow.down.image)
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
                             }

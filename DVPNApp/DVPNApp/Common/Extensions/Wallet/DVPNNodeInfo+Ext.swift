@@ -27,16 +27,16 @@ extension Bandwidth {
     var speedImage: UIImage {
         let avg = averageSpeedPercentage
         if avg < 0.25 {
-            return Asset.Home.Wifi.scales1.image
+            return Asset.Connection.Wifi.scales1.image
         }
         if avg < 0.5 {
-            return Asset.Home.Wifi.scales2.image
+            return Asset.Connection.Wifi.scales2.image
         }
         if avg < 0.75 {
-            return Asset.Home.Wifi.scales3.image
+            return Asset.Connection.Wifi.scales3.image
         }
 
-        return Asset.Home.Wifi.scales4.image
+        return Asset.Connection.Wifi.scales4.image
     }
 }
 

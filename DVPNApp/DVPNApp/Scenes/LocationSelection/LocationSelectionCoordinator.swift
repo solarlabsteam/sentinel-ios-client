@@ -55,7 +55,7 @@ extension LocationSelectionCoordinator: RouterType {
         case .accountInfo:
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case .connect:
-            ModulesFactory.shared.makeHomeModule(for: navigation)
+            ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
             ModulesFactory.shared.makeNodeDetailsModule(for: navigation, configuration: .init(node: node, isSubscribed: isSubscribed))
         case let .subscribe(node):

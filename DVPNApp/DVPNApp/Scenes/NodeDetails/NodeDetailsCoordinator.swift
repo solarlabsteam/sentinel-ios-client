@@ -59,7 +59,7 @@ extension NodeDetailsCoordinator: RouterType {
         case let .subscribe(node: nodeInfo):
             ModulesFactory.shared.makePlansModule(node: nodeInfo, for: navigation)
         case .connect:
-            ModulesFactory.shared.makeHomeModule(for: navigation)
+            ModulesFactory.shared.makeConnectionModule(for: navigation)
         }
     }
 }

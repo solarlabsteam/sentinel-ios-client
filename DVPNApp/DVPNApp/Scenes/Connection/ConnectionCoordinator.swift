@@ -1,5 +1,5 @@
 //
-//  HomeCoordinator.swift
+//  ConnectionCoordinator.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 04.08.2021.
@@ -10,21 +10,21 @@ import SwiftUI
 import SentinelWallet
 import SwiftMessages
 
-final class HomeCoordinator: CoordinatorType {
+final class ConnectionCoordinator: CoordinatorType {
     private weak var navigation: UINavigationController?
     private weak var rootController: UIViewController?
 
-    private let context: HomeModel.Context
+    private let context: ConnectionModel.Context
 
-    init(context: HomeModel.Context, navigation: UINavigationController) {
+    init(context: ConnectionModel.Context, navigation: UINavigationController) {
         self.context = context
         self.navigation = navigation
     }
 
     func start() {
-        let homeModel = HomeModel(context: context)
-        let homeViewModel = HomeViewModel(model: homeModel, router: asRouter())
-        let homeView = HomeView(viewModel: homeViewModel)
+        let homeModel = ConnectionModel(context: context)
+        let homeViewModel = ConnectionViewModel(model: homeModel, router: asRouter())
+        let homeView = ConnectionView(viewModel: homeViewModel)
         let controller = UIHostingController(rootView: homeView)
         rootController = controller
         navigation?.pushViewController(controller, animated: true)
@@ -40,8 +40,8 @@ final class HomeCoordinator: CoordinatorType {
     }
 }
 
-extension HomeCoordinator: RouterType {
-    func play(event: HomeViewModel.Route) {
+extension ConnectionCoordinator: RouterType {
+    func play(event: ConnectionViewModel.Route) {
         guard let navigation = navigation else { return }
         switch event {
         case .error(let error):

@@ -206,7 +206,7 @@ struct AccountInfoView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct AccountInfoView_Previews: PreviewProvider {
     static var previews: some View {
         ModulesFactory.shared.getAccountInfoScene()
     }
