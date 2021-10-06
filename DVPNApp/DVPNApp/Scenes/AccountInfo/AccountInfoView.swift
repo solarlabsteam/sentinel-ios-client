@@ -35,13 +35,13 @@ struct AccountInfoView: View {
     }
     
     // TODO: @tori Move as a separate view and reuse
-    // TODO: Localize all text in this file
+    
     var shareButton: some View {
         Button {
             viewModel.didTapShare()
         } label: {
             HStack(spacing: 3) {
-                Text("Share")
+                Text(L10n.AccountInfo.share)
                     .font(.system(size: 11, weight: .medium))
                     .foregroundColor(.white)
             }
@@ -63,7 +63,7 @@ struct AccountInfoView: View {
             openURL(viewModel.solarPayURL)
         } label: {
             HStack {
-                Text("TOPUP WITH SOLAR PAY")
+                Text(L10n.AccountInfo.topUp)
                     .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
                     .font(.system(size: 11, weight: .semibold))
             }
@@ -82,7 +82,7 @@ struct AccountInfoView: View {
             viewModel.didTapCopy()
         } label: {
             HStack(spacing: 3) {
-                Text("Copy")
+                Text(L10n.AccountInfo.copy)
                     .font(.system(size: 11, weight: .medium))
                     .foregroundColor(.white)
             }
@@ -117,7 +117,7 @@ struct AccountInfoView: View {
     
     var currentPrice: some View {
         HStack {
-            Text("Current price")
+            Text(L10n.AccountInfo.currentPrice)
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.white)
             

@@ -55,33 +55,21 @@ internal enum L10n {
   }
 
   internal enum AccountInfo {
+    /// Copy
+    internal static let copy = L10n.tr("Localizable", "AccountInfo.Copy")
+    /// Current price
+    internal static let currentPrice = L10n.tr("Localizable", "AccountInfo.CurrentPrice")
     /// Scan QR code to receive
     internal static let qr = L10n.tr("Localizable", "AccountInfo.QR")
+    /// Share
+    internal static let share = L10n.tr("Localizable", "AccountInfo.Share")
+    /// TOPUP WITH SOLAR PAY
+    internal static let topUp = L10n.tr("Localizable", "AccountInfo.TopUp")
     internal enum Balance {
-      /// Your have: 
-      internal static let title = L10n.tr("Localizable", "AccountInfo.Balance.Title")
       internal enum Loading {
         /// - DVPN
         internal static let title = L10n.tr("Localizable", "AccountInfo.Balance.Loading.Title")
       }
-    }
-    internal enum Copyright {
-      /// Copyright 2021
-      internal static let subtitle = L10n.tr("Localizable", "AccountInfo.Copyright.Subtitle")
-      /// Sentinel V 1.0
-      internal static let title = L10n.tr("Localizable", "AccountInfo.Copyright.Title")
-    }
-    internal enum Dns {
-      /// Cloudflare
-      internal static let cloudflare = L10n.tr("Localizable", "AccountInfo.DNS.Cloudflare")
-      /// Freenom
-      internal static let freenom = L10n.tr("Localizable", "AccountInfo.DNS.Freenom")
-      /// Google
-      internal static let google = L10n.tr("Localizable", "AccountInfo.DNS.Google")
-      /// Handshake
-      internal static let handshake = L10n.tr("Localizable", "AccountInfo.DNS.Handshake")
-      /// Default DNS Server
-      internal static let title = L10n.tr("Localizable", "AccountInfo.DNS.Title")
     }
     internal enum Wallet {
       /// Balance

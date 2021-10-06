@@ -61,17 +61,13 @@
 "LocationSelection.Extra.Button.More" = "Learn more";
 "LocationSelection.Extra.Build" = "Built by";
 
-"AccountInfo.DNS.Title" = "Default DNS Server";
 "AccountInfo.Wallet.Title" = "Balance";
-"AccountInfo.Balance.Title" = "Your have: ";
-"AccountInfo.Balance.Loading.Title" = "- DVPN";
-"AccountInfo.DNS.Handshake" = "Handshake";
-"AccountInfo.DNS.Cloudflare" = "Cloudflare";
-"AccountInfo.DNS.Google" = "Google";
-"AccountInfo.DNS.Freenom" = "Freenom";
-"AccountInfo.Copyright.Title" = "Sentinel V 1.0";
-"AccountInfo.Copyright.Subtitle" = "Copyright 2021";
 "AccountInfo.QR" = "Scan QR code to receive";
+"AccountInfo.Balance.Loading.Title" = "- DVPN";
+"AccountInfo.Copy" = "Copy";
+"AccountInfo.Share" = "Share";
+"AccountInfo.TopUp" = "TOPUP WITH SOLAR PAY";
+"AccountInfo.CurrentPrice" = "Current price";
 
 "Plans.Buy" = "Buy";
 "Plans.Subscribe.Title" = "Subscribe to %@?";
