@@ -23,6 +23,7 @@ extension FontFamily.Poppins {
         case italic
         case light
         case bold
+        case semibold
 
         var fontConvertible: FontConvertible {
             let baseFont = FontFamily.Poppins.self
@@ -37,6 +38,8 @@ extension FontFamily.Poppins {
                 return baseFont.light
             case .bold:
                 return baseFont.bold
+            case .semibold:
+                return baseFont.semiBold
             }
         }
     }

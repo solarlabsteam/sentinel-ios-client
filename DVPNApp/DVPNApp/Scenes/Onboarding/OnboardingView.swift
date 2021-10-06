@@ -58,11 +58,11 @@ struct OnboardingView: View {
     var importView: some View {
         HStack(spacing: 2) {
             Text(L10n.Onboarding.Button.ImportNow.text)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 12))
+                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
 
             Button(action: viewModel.didTapImportButton) {
                 Text(L10n.Onboarding.Button.ImportNow.action)
-                    .applyTextStyle(.navyBluePoppins(ofSize: 12))
+                    .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
                     .underline()
             }
         }

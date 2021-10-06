@@ -21,7 +21,7 @@ struct AccountCreationView: View {
     var walletAddress: some View {
         ZStack(alignment: .leading) {
             Text(viewModel.address ?? "")
-                .font(.system(size: 11, weight: .medium))
+                .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
                 .padding(.bottom, 10)
                 .padding([.horizontal, .top], 8)
                 .border(Asset.Colors.Redesign.borderGray.color.asColor, width: 1)
@@ -31,9 +31,8 @@ struct AccountCreationView: View {
             HStack {
                 Spacer().frame(width: 10, height: 10)
                 Text(L10n.AccountCreation.walletAddress)
+                    .applyTextStyle(.textBody)
                     .padding([.horizontal], 5)
-                    .font(.system(size: 10, weight: .regular))
-                    .foregroundColor(Asset.Colors.Redesign.borderGray.color.asColor)
                     .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
             }
             .padding(.bottom, 12)
@@ -53,8 +52,7 @@ struct AccountCreationView: View {
             HStack {
                 Spacer()
                 Text(viewModel.mode.buttonTitle.uppercased())
-                    .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                    .font(.system(size: 13, weight: .semibold))
+                    .applyTextStyle(.mainButton)
 
                 Spacer()
             }
@@ -77,12 +75,11 @@ struct AccountCreationView: View {
             }
 
             Text(L10n.AccountCreation.Terms.text)
-                .font(.system(size: 12, weight: .light))
+                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
 
             Button(action: viewModel.didTapTerms) {
                 Text(L10n.AccountCreation.Terms.button)
-                    .foregroundColor(.white)
-                    .font(.system(size: 12, weight: .medium))
+                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .semibold))
             }
 
             Spacer()
@@ -92,12 +89,11 @@ struct AccountCreationView: View {
     var importView: some View {
         HStack(spacing: 2) {
             Text(L10n.AccountCreation.Button.ImportNow.text)
-                .font(.system(size: 12, weight: .light))
+                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
 
             Button(action: viewModel.didTapChangeMode) {
                 Text(L10n.AccountCreation.Button.ImportNow.action)
-                    .foregroundColor(Asset.Colors.Redesign.navyBlue.color.asColor)
-                    .font(.system(size: 12, weight: .medium))
+                    .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
                     .underline()
             }
         }
@@ -115,8 +111,7 @@ struct AccountCreationView: View {
                 HStack {
                     Button(action: viewModel.didTapPaste) {
                         Text(L10n.AccountCreation.Import.Button.paste)
-                            .foregroundColor(.white)
-                            .font(.system(size: 14, weight: .regular))
+                            .applyTextStyle(.whitePoppins(ofSize: 12))
                             .padding(.horizontal, 15)
                             .padding(.vertical, 10)
                             .border(Asset.Colors.Redesign.navyBlue.color.asColor, width: 1)
@@ -137,7 +132,7 @@ struct AccountCreationView: View {
                 HStack {
                     Spacer()
                     Text(L10n.AccountCreation.warning)
-                        .font(.system(size: 10, weight: .regular))
+                        .applyTextStyle(.textBody)
                         .padding(.vertical)
                         .multilineTextAlignment(.center)
                     Spacer()
