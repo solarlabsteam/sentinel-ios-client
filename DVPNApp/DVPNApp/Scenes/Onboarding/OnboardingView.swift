@@ -23,9 +23,8 @@ struct OnboardingView: View {
     var skipButton: some View {
         Button(action: viewModel.didTapCreateButton) {
             Text(L10n.Onboarding.Button.skip)
+                .applyTextStyle(.secondaryButton)
                 .padding(.horizontal)
-                .foregroundColor(.white)
-                .font(.system(size: 14, weight: .regular))
         }
         .padding()
     }
@@ -33,9 +32,8 @@ struct OnboardingView: View {
     var nextButton: some View {
         Button(action: viewModel.didTapNextButton) {
             Text(L10n.Onboarding.Button.next.uppercased())
+                .applyTextStyle(.mainButton)
                 .padding(.horizontal)
-                .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                .font(.system(size: 13, weight: .semibold))
         }
         .padding()
         .background(Asset.Colors.Redesign.navyBlue.color.asColor)
@@ -46,9 +44,8 @@ struct OnboardingView: View {
         Button(action: viewModel.didTapCreateButton) {
             HStack {
                 Spacer()
-                Text(L10n.Onboarding.Button.start)
-                    .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                    .font(.system(size: 13, weight: .semibold))
+                Text(L10n.Onboarding.Button.start.uppercased())
+                    .applyTextStyle(.mainButton)
 
                 Spacer()
             }
@@ -61,12 +58,11 @@ struct OnboardingView: View {
     var importView: some View {
         HStack(spacing: 2) {
             Text(L10n.Onboarding.Button.ImportNow.text)
-                .font(.system(size: 12, weight: .light))
+                .applyTextStyle(.lightGrayPoppins(ofSize: 12))
 
             Button(action: viewModel.didTapImportButton) {
                 Text(L10n.Onboarding.Button.ImportNow.action)
-                    .foregroundColor(Asset.Colors.Redesign.navyBlue.color.asColor)
-                    .font(.system(size: 12, weight: .medium))
+                    .applyTextStyle(.navyBluePoppins(ofSize: 12))
                     .underline()
             }
         }

@@ -19,14 +19,12 @@ struct OnboardingStepView: View {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 Text(model.title)
-                    .font(.system(size: 24, weight: .semibold))
-                    .foregroundColor(.white)
+                    .applyTextStyle(.title)
                     .padding()
 
                 Text(model.description)
-                    .font(.system(size: 16, weight: .light))
+                    .applyTextStyle(.descriptionText)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(Asset.Colors.Redesign.lightGray.color.asColor)
                     .padding()
 
                 Spacer()

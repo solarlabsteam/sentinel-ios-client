@@ -30,6 +30,11 @@ extension TextStyle {
         color: Asset.Colors.Redesign.backgroundColor.color,
         kern: 3.25
     )
+    static let secondaryButton = TextStyle(
+        font: FontFamily.Poppins.regular.font(size: 14),
+        color: .white,
+        kern: 0
+    )
 }
 
 // MARK: - Convinient functions for creation text styles
@@ -67,6 +72,18 @@ extension TextStyle {
         TextStyle(
             font: weight.fontConvertible.font(size: size),
             color: Asset.Colors.Redesign.backgroundColor.color,
+            kern: kern
+        )
+    }
+
+    static func navyBluePoppins(
+        ofSize size: CGFloat,
+        weight: FontFamily.Poppins.weight = .regular,
+        kern: Double = 0
+    ) -> TextStyle {
+        TextStyle(
+            font: weight.fontConvertible.font(size: size),
+            color: Asset.Colors.Redesign.navyBlue.color,
             kern: kern
         )
     }
