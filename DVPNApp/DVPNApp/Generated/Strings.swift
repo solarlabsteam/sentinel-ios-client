@@ -25,7 +25,7 @@ internal enum L10n {
       }
     }
     internal enum Create {
-      /// Create Account
+      /// Create an Account
       internal static let button = L10n.tr("Localizable", "AccountCreation.Create.Button")
       /// Create a new Account
       internal static let title = L10n.tr("Localizable", "AccountCreation.Create.Title")
@@ -176,7 +176,7 @@ internal enum L10n {
       internal static let next = L10n.tr("Localizable", "Onboarding.Button.Next")
       /// Skip
       internal static let skip = L10n.tr("Localizable", "Onboarding.Button.Skip")
-      /// Get started
+      /// Create an account
       internal static let start = L10n.tr("Localizable", "Onboarding.Button.Start")
       internal enum ImportNow {
         /// Import Now

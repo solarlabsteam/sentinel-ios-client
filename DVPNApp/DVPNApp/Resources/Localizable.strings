@@ -10,7 +10,7 @@
 "Onboarding.Description.2" = "The Sentinel dVPN can prove that your connection is being end-to-end encrypted with no exceptions";
 "Onboarding.Title.3" = "Enjoy Simply";
 "Onboarding.Description.3" = "The Sentinel dVPN doesn't control and own the exit-servers that you trust to safely and securely browse the internet.";
-"Onboarding.Button.Start" = "Get started";
+"Onboarding.Button.Start" = "Create an account";
 "Onboarding.Button.Skip" = "Skip";
 "Onboarding.Button.Next" = "Next";
 "Onboarding.Button.ImportNow.Text" = "Already have an account?";
@@ -21,7 +21,7 @@
 "AccountCreation.Terms.Text" = "I understand and agree to";
 "AccountCreation.Terms.Button" = "terms and conditions";
 "AccountCreation.Create.Title" = "Create a new Account";
-"AccountCreation.Create.Button" = "Create Account";
+"AccountCreation.Create.Button" = "Create an Account";
 "AccountCreation.Import.Title" = "Import security Phrases";
 "AccountCreation.Import.Button" = "Import Account";
 "AccountCreation.Import.Button.Paste" = "Paste";

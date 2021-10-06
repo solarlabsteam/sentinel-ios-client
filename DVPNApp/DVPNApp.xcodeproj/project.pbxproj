@@ -81,6 +81,9 @@
 		755F5F08270DB51B00D416ED /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF6270DB51B00D416ED /* Poppins-Italic.ttf */; };
 		755F5F09270DB51B00D416ED /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF7270DB51B00D416ED /* Poppins-MediumItalic.ttf */; };
 		755F5F0B270DB5B200D416ED /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F0A270DB5B200D416ED /* Fonts.swift */; };
+		755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F13270DE77800D416ED /* Font+Ext.swift */; };
+		755F5F18270DE78600D416ED /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F16270DE78600D416ED /* TextStyles.swift */; };
+		755F5F19270DE78600D416ED /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F17270DE78600D416ED /* TextStyle.swift */; };
 		755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 755FBF0526AF0E6F00E9D408 /* SwiftKeychainWrapper */; };
 		755FBF0926AF0F1600E9D408 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FBF0826AF0F1600E9D408 /* SecurityService.swift */; };
 		757F0B7E26D8D6CE000C0865 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F0B7D26D8D6CE000C0865 /* Connectivity.swift */; };
@@ -257,6 +260,9 @@
 		755F5EF6270DB51B00D416ED /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		755F5EF7270DB51B00D416ED /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		755F5F0A270DB5B200D416ED /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		755F5F13270DE77800D416ED /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
+		755F5F16270DE78600D416ED /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
+		755F5F17270DE78600D416ED /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		755FBF0826AF0F1600E9D408 /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
 		757F0B7D26D8D6CE000C0865 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
@@ -434,6 +440,7 @@
 		7504EA63267B4CE900023D42 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				755F5F15270DE78600D416ED /* ThemesSupport */,
 				75D6560E26BE880F000056B4 /* Views */,
 				7504EA99267B96A100023D42 /* Utilities */,
 				7504EA97267B8BA500023D42 /* Extensions */,
@@ -623,6 +630,15 @@
 			path = Poppins;
 			sourceTree = "<group>";
 		};
+		755F5F15270DE78600D416ED /* ThemesSupport */ = {
+			isa = PBXGroup;
+			children = (
+				755F5F17270DE78600D416ED /* TextStyle.swift */,
+				755F5F16270DE78600D416ED /* TextStyles.swift */,
+			);
+			path = ThemesSupport;
+			sourceTree = "<group>";
+		};
 		755FBF0726AF0F0100E9D408 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,10 +672,11 @@
 		75B0D55726CBB341009ECAFC /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */,
-				75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */,
+				755F5F13270DE77800D416ED /* Font+Ext.swift */,
 				75359D3026FCA41600CFEBCD /* UIColor+SwiftUI.swift */,
 				755F5EE2270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift */,
+				75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */,
+				75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1121,6 +1138,7 @@
 				93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */,
 				7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */,
 				75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */,
+				755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */,
 				75B0D56026CD265E009ECAFC /* UserDefaultsStorageStrategy.swift in Sources */,
 				75568D7226E5C62100166E5F /* HomeModelError.swift in Sources */,
 				75D6563B26C4DBA9000056B4 /* OnboardingModel.swift in Sources */,
@@ -1176,12 +1194,14 @@
 				7504EA4D267A390A00023D42 /* Keychain.swift in Sources */,
 				75E5BDFD26DCDBDA00C345B9 /* OnboardingStepModel.swift in Sources */,
 				7504EA88267B715800023D42 /* PeersModel.swift in Sources */,
+				755F5F19270DE78600D416ED /* TextStyle.swift in Sources */,
 				75B0D56726CD27EC009ECAFC /* GeneralSettingsStorage.swift in Sources */,
 				75359D2F26FC9D0300CFEBCD /* MainGradient.swift in Sources */,
 				75359D3126FCA41600CFEBCD /* UIColor+SwiftUI.swift in Sources */,
 				7504EA4E267A390D00023D42 /* NotificationToken.swift in Sources */,
 				75D6563526C4DB8A000056B4 /* OnboardingView.swift in Sources */,
 				752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */,
+				755F5F18270DE78600D416ED /* TextStyles.swift in Sources */,
 				752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */,
 				C64ED32F26C57FE900222CA4 /* PlanRowViewModel.swift in Sources */,
 			);
