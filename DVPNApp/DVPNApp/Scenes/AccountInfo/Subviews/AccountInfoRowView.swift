@@ -1,5 +1,5 @@
 //
-//  SettingsRowView.swift
+//  AccountInfoRowView.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-struct SettingsRowView: View {
-
-    private var viewModel: SettingsRowViewModel
+struct AccountInfoRowView: View {
+    private var viewModel: AccountInfoRowViewModel
     private var toggleSelection: () -> Void
 
     init(
-        viewModel: SettingsRowViewModel,
+        viewModel: AccountInfoRowViewModel,
         toggleSelection: @escaping () -> Void
     ) {
         self.viewModel = viewModel

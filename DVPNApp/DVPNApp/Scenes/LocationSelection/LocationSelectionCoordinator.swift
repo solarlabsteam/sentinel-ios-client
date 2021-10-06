@@ -41,7 +41,7 @@ final class LocationSelectionCoordinator: CoordinatorType {
             image: Asset.Navigation.account.image,
             style: .plain,
             target: viewModel,
-            action: #selector(viewModel.didTapSettingsButton)
+            action: #selector(viewModel.didTapAccountInfoButton)
         )
     }
 }
@@ -52,8 +52,8 @@ extension LocationSelectionCoordinator: RouterType {
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)
-        case .settings:
-            ModulesFactory.shared.makeSettingsModule(for: navigation)
+        case .accountInfo:
+            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case .connect:
             ModulesFactory.shared.makeHomeModule(for: navigation)
         case let .details(node, isSubscribed):

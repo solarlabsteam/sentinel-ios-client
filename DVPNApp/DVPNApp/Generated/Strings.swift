@@ -54,6 +54,41 @@ internal enum L10n {
     }
   }
 
+  internal enum AccountInfo {
+    /// Scan QR code to receive
+    internal static let qr = L10n.tr("Localizable", "AccountInfo.QR")
+    internal enum Balance {
+      /// Your have: 
+      internal static let title = L10n.tr("Localizable", "AccountInfo.Balance.Title")
+      internal enum Loading {
+        /// - DVPN
+        internal static let title = L10n.tr("Localizable", "AccountInfo.Balance.Loading.Title")
+      }
+    }
+    internal enum Copyright {
+      /// Copyright 2021
+      internal static let subtitle = L10n.tr("Localizable", "AccountInfo.Copyright.Subtitle")
+      /// Sentinel V 1.0
+      internal static let title = L10n.tr("Localizable", "AccountInfo.Copyright.Title")
+    }
+    internal enum Dns {
+      /// Cloudflare
+      internal static let cloudflare = L10n.tr("Localizable", "AccountInfo.DNS.Cloudflare")
+      /// Freenom
+      internal static let freenom = L10n.tr("Localizable", "AccountInfo.DNS.Freenom")
+      /// Google
+      internal static let google = L10n.tr("Localizable", "AccountInfo.DNS.Google")
+      /// Handshake
+      internal static let handshake = L10n.tr("Localizable", "AccountInfo.DNS.Handshake")
+      /// Default DNS Server
+      internal static let title = L10n.tr("Localizable", "AccountInfo.DNS.Title")
+    }
+    internal enum Wallet {
+      /// Balance
+      internal static let title = L10n.tr("Localizable", "AccountInfo.Wallet.Title")
+    }
+  }
+
   internal enum Common {
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "Common.Cancel")
@@ -243,41 +278,6 @@ internal enum L10n {
     internal enum Error {
       /// Couldn't process the broadcast. Please, check your balance and try again later
       internal static let broadcastFailed = L10n.tr("Localizable", "SentinelService.Error.BroadcastFailed")
-    }
-  }
-
-  internal enum Settings {
-    /// Scan QR code to receive
-    internal static let qr = L10n.tr("Localizable", "Settings.QR")
-    internal enum Balance {
-      /// Your have: 
-      internal static let title = L10n.tr("Localizable", "Settings.Balance.Title")
-      internal enum Loading {
-        /// - DVPN
-        internal static let title = L10n.tr("Localizable", "Settings.Balance.Loading.Title")
-      }
-    }
-    internal enum Copyright {
-      /// Copyright 2021
-      internal static let subtitle = L10n.tr("Localizable", "Settings.Copyright.Subtitle")
-      /// Sentinel V 1.0
-      internal static let title = L10n.tr("Localizable", "Settings.Copyright.Title")
-    }
-    internal enum Dns {
-      /// Cloudflare
-      internal static let cloudflare = L10n.tr("Localizable", "Settings.DNS.Cloudflare")
-      /// Freenom
-      internal static let freenom = L10n.tr("Localizable", "Settings.DNS.Freenom")
-      /// Google
-      internal static let google = L10n.tr("Localizable", "Settings.DNS.Google")
-      /// Handshake
-      internal static let handshake = L10n.tr("Localizable", "Settings.DNS.Handshake")
-      /// Default DNS Server
-      internal static let title = L10n.tr("Localizable", "Settings.DNS.Title")
-    }
-    internal enum Wallet {
-      /// Balance
-      internal static let title = L10n.tr("Localizable", "Settings.Wallet.Title")
     }
   }
 

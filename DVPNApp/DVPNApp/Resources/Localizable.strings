@@ -61,17 +61,17 @@
 "LocationSelection.Extra.Button.More" = "Learn more";
 "LocationSelection.Extra.Build" = "Built by";
 
-"Settings.DNS.Title" = "Default DNS Server";
-"Settings.Wallet.Title" = "Balance";
-"Settings.Balance.Title" = "Your have: ";
-"Settings.Balance.Loading.Title" = "- DVPN";
-"Settings.DNS.Handshake" = "Handshake";
-"Settings.DNS.Cloudflare" = "Cloudflare";
-"Settings.DNS.Google" = "Google";
-"Settings.DNS.Freenom" = "Freenom";
-"Settings.Copyright.Title" = "Sentinel V 1.0";
-"Settings.Copyright.Subtitle" = "Copyright 2021";
-"Settings.QR" = "Scan QR code to receive";
+"AccountInfo.DNS.Title" = "Default DNS Server";
+"AccountInfo.Wallet.Title" = "Balance";
+"AccountInfo.Balance.Title" = "Your have: ";
+"AccountInfo.Balance.Loading.Title" = "- DVPN";
+"AccountInfo.DNS.Handshake" = "Handshake";
+"AccountInfo.DNS.Cloudflare" = "Cloudflare";
+"AccountInfo.DNS.Google" = "Google";
+"AccountInfo.DNS.Freenom" = "Freenom";
+"AccountInfo.Copyright.Title" = "Sentinel V 1.0";
+"AccountInfo.Copyright.Subtitle" = "Copyright 2021";
+"AccountInfo.QR" = "Scan QR code to receive";
 
 "Plans.Buy" = "Buy";
 "Plans.Subscribe.Title" = "Subscribe to %@?";

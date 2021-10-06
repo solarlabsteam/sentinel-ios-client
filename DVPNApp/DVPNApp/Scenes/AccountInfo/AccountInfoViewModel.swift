@@ -1,5 +1,5 @@
 //
-//  SettingsViewModel.swift
+//  AccountInfoViewModel.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -12,7 +12,7 @@ import Combine
 import UIKit.UIImage
 import EFQRCode
 
-final class SettingsViewModel: ObservableObject {
+final class AccountInfoViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router
 
@@ -26,10 +26,10 @@ final class SettingsViewModel: ObservableObject {
     @Published private(set) var currentPrice: String?
     @Published private(set) var lastPriceUpdateInfo: String?
 
-    private let model: SettingsModel
+    private let model: AccountInfoModel
     private var cancellables = Set<AnyCancellable>()
 
-    init(model: SettingsModel, router: Router) {
+    init(model: AccountInfoModel, router: Router) {
         self.model = model
         self.router = router
         // TODO: make proper qr image
@@ -72,7 +72,7 @@ final class SettingsViewModel: ObservableObject {
     }
 }
 
-extension SettingsViewModel {
+extension AccountInfoViewModel {
     var solarPayURL: URL {
         .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
     }

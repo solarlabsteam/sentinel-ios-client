@@ -18,7 +18,7 @@ final class PlansViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case addTokensAlert
-        case settings
+        case accountInfo
         case subscribe(node: String, completion: (Bool) -> Void)
         case openConnection
         case close

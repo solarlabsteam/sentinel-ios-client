@@ -37,7 +37,7 @@ final class HomeViewModel: ObservableObject {
         case warning(Error)
         case subscribe(node: DVPNNodeInfo)
         case openPlans(for: DVPNNodeInfo)
-        case settings
+        case accountInfo
     }
     
     private let model: HomeModel
@@ -97,9 +97,9 @@ final class HomeViewModel: ObservableObject {
     }
 
     @objc
-    func didTapSettingsButton() {
+    func didTapAccountInfoButton() {
         UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .settings)
+        router.play(event: .accountInfo)
     }
 }
 

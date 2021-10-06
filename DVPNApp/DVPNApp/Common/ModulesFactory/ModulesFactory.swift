@@ -69,8 +69,8 @@ extension ModulesFactory {
         NodeDetailsCoordinator(context: context, navigation: navigation, configuration: configuration).start()
     }
 
-    func makeSettingsModule(for navigation: UINavigationController) {
-        SettingsCoordinator(context: context, navigation: navigation).start()
+    func makeAccountInfoModule(for navigation: UINavigationController) {
+        AccountInfoCoordinator(context: context, navigation: navigation).start()
     }
 
     func makePlansModule(
@@ -133,11 +133,11 @@ extension ModulesFactory {
         return view
     }
 
-    func getSettingsScene() -> SettingsView {
-        let coordinator = SettingsCoordinator(context: context, navigation: UINavigationController()).asRouter()
-        let model = SettingsModel(context: context)
-        let viewModel = SettingsViewModel(model: model, router: coordinator)
-        let view = SettingsView(viewModel: viewModel)
+    func getAccountInfoScene() -> AccountInfoView {
+        let coordinator = AccountInfoCoordinator(context: context, navigation: UINavigationController()).asRouter()
+        let model = AccountInfoModel(context: context)
+        let viewModel = AccountInfoViewModel(model: model, router: coordinator)
+        let view = AccountInfoView(viewModel: viewModel)
 
         return view
     }

@@ -46,7 +46,7 @@ final class LocationSelectionViewModel: ObservableObject {
         case connect
         case subscribe(node: DVPNNodeInfo)
         case details(Node, isSubscribed: Bool)
-        case settings
+        case accountInfo
         case sentinel
         case title(String)
     }
@@ -139,9 +139,9 @@ final class LocationSelectionViewModel: ObservableObject {
     }
 
     @objc
-    func didTapSettingsButton() {
+    func didTapAccountInfoButton() {
         UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .settings)
+        router.play(event: .accountInfo)
     }
 
     func viewWillAppear() {

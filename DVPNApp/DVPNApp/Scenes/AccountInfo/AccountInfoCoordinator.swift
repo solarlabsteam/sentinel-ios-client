@@ -1,31 +1,29 @@
 //
-//  SettingsCoordinator.swift
+//  AccountInfoCoordinator.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 03.10.2021.
 //
 
-import Foundation
-
 import UIKit
 import SwiftUI
 import SwiftMessages
 
-final class SettingsCoordinator: CoordinatorType {
+final class AccountInfoCoordinator: CoordinatorType {
     private weak var navigation: UINavigationController?
     private weak var rootController: UIViewController?
 
-    private let context: SettingsModel.Context
+    private let context: AccountInfoModel.Context
 
-    init(context: SettingsModel.Context, navigation: UINavigationController) {
+    init(context: AccountInfoModel.Context, navigation: UINavigationController) {
         self.context = context
         self.navigation = navigation
     }
 
     func start() {
-        let model = SettingsModel(context: context)
-        let viewModel = SettingsViewModel(model: model, router: asRouter())
-        let view = SettingsView(viewModel: viewModel)
+        let model = AccountInfoModel(context: context)
+        let viewModel = AccountInfoViewModel(model: model, router: asRouter())
+        let view = AccountInfoView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         rootController = controller
         navigation?.pushViewController(controller, animated: true)
@@ -34,8 +32,8 @@ final class SettingsCoordinator: CoordinatorType {
     }
 }
 
-extension SettingsCoordinator: RouterType {
-    func play(event: SettingsViewModel.Route) {
+extension AccountInfoCoordinator: RouterType {
+    func play(event: AccountInfoViewModel.Route) {
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)

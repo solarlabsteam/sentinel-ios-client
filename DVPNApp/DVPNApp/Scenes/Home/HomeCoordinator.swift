@@ -35,7 +35,7 @@ final class HomeCoordinator: CoordinatorType {
             image: Asset.Navigation.account.image,
             style: .plain,
             target: homeViewModel,
-            action: #selector(homeViewModel.didTapSettingsButton)
+            action: #selector(homeViewModel.didTapAccountInfoButton)
         )
     }
 }
@@ -52,8 +52,8 @@ extension HomeCoordinator: RouterType {
             ModulesFactory.shared.makePlansModule(node: node, for: navigation)
         case let .openPlans(node):
             ModulesFactory.shared.makePlansModule(node: node, for: navigation)
-        case .settings:
-            ModulesFactory.shared.makeSettingsModule(for: navigation)
+        case .accountInfo:
+            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         }
     }
 }

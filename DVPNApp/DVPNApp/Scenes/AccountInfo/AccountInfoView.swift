@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  AccountInfoView.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct AccountInfoView: View {
 
-    @ObservedObject private var viewModel: SettingsViewModel
+    @ObservedObject private var viewModel: AccountInfoViewModel
     
     @Environment(\.openURL) var openURL
 
-    init(viewModel: SettingsViewModel) {
+    init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
     }
 
@@ -109,7 +109,7 @@ struct SettingsView: View {
                 )
                 .frame(width: 150, height: 150)
             
-            Text(L10n.Settings.qr)
+            Text(L10n.AccountInfo.qr)
                 .font(.system(size: 12, weight: .regular))
                 .foregroundColor(Asset.Colors.lightGray.color.asColor)
         }
@@ -165,11 +165,11 @@ struct SettingsView: View {
                         height: 80
                     )
                 
-                Text(L10n.Settings.Wallet.title)
+                Text(L10n.AccountInfo.Wallet.title)
                     .font(.system(size: 12, weight: .regular))
                     .foregroundColor(Asset.Colors.lightGray.color.asColor)
                 
-                Text(viewModel.balance ?? L10n.Settings.Balance.Loading.title)
+                Text(viewModel.balance ?? L10n.AccountInfo.Balance.Loading.title)
                     .font(.system(size: 20, weight: .medium))
                     .foregroundColor(.white)
             }
@@ -208,6 +208,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesFactory.shared.getSettingsScene()
+        ModulesFactory.shared.getAccountInfoScene()
     }
 }

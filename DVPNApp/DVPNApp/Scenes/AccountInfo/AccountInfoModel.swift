@@ -1,5 +1,5 @@
 //
-//  SettingsModel.swift
+//  AccountInfoModel.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -14,18 +14,18 @@ private struct Constants {
 
 private let constants = Constants()
 
-enum SettingsModelEvent {
+enum AccountInfoModelEvent {
     case update(balance: String)
     case priceInfo(currentPrice: String, lastPriceUpdateInfo: String)
     case error(Error)
 }
 
-final class SettingsModel {
+final class AccountInfoModel {
     typealias Context = HasStorage & HasWalletService
     private let context: Context
 
-    private let eventSubject = PassthroughSubject<SettingsModelEvent, Never>()
-    var eventPublisher: AnyPublisher<SettingsModelEvent, Never> {
+    private let eventSubject = PassthroughSubject<AccountInfoModelEvent, Never>()
+    var eventPublisher: AnyPublisher<AccountInfoModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 
