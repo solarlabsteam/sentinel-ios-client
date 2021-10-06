@@ -1,0 +1,68 @@
+workflows:
+    ios-workflow:
+      name: iOS Workflow
+      environment:
+        vars:
+          XCODE_PROJECT: "DVPNApp/DVPNApp.xcodeproj"
+          XCODE_SCHEME: "DVPNApp"
+          BUNDLE_ID: "co.sentinel.dvpn"
+        xcode: latest
+        cocoapods: default
+      triggering:
+        events:
+          - push
+        branch_patterns:
+          - pattern: 'release'
+            include: true
+            source: true
+      scripts:
+        - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
+          script: |
+            keychain initialize
+        - name: Fetch signing files
+          script: |
+            app-store-connect fetch-signing-files $BUNDLE_ID --type IOS_APP_STORE --create
+        - name: Use system default keychain
+          script: |
+            keychain add-certificates
+        - name: Set up code signing settings on Xcode project
+          script: |
+            xcode-project use-profiles
+        - name: Increment build number
+          script: |
+            #!/bin/sh
+            set -e
+            set -x
+            cd $FCI_BUILD_DIR/DVPNApp
+            agvtool new-version -all $(($BUILD_NUMBER + 1))
+        - name: Add SSH key for GitHub
+          script: |
+            #!/bin/sh
+            mkdir -p ~/.ssh
+            for ip in $(dig @1.1.1.1 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
+            echo "$GITHUB_SSH_KEY" | base64 -D > ~/.ssh/github-ssh
+            chmod 600 ~/.ssh/github-ssh
+            ssh-add ~/.ssh/github-ssh
+        - name: Build ipa for distribution
+          script: |
+            xcode-project build-ipa --project "$XCODE_PROJECT" --scheme "$XCODE_SCHEME"
+      artifacts:
+        - build/ios/ipa/*.ipa
+        - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+      publishing:
+        app_store_connect:            
+          apple_id: $APPLE_ID_EMAIL   
+          password: $APP_SPECIFIC_PASSWORD
+        email:
+            recipients:
+              - ceo@solarlabs.ee
+            notify:
+              success: true
+              failure: true
+        slack:
+            channel: '#ios-builds'
+            notify_on_build_start: true
+            notify:
+              success: true
+              failure: true
+  
