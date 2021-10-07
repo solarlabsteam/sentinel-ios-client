@@ -54,7 +54,7 @@ struct PlansView: View {
         VStack {
             ScrollView {
                 VStack {
-                    Text("How much DVPN you want to spend?")
+                    Text("How much DVPN do you want to spend?")
                         .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 30)
