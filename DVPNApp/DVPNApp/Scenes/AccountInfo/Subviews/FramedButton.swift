@@ -1,5 +1,5 @@
 //
-//  AccentButton.swift
+//  FramedButton.swift
 //  DVPNApp
 //
 //  Created by Victoria Kostyleva on 07.10.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccentButton: View {
+struct FramedButton: View {
     var title: String
     var clicked: (() -> Void)
     
@@ -15,16 +15,16 @@ struct AccentButton: View {
         Button(action: clicked) {
             HStack {
                 Text(title)
-                    .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                    .font(.system(size: 11, weight: .semibold))
+                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .regular))
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 16)
         }
         .buttonStyle(PlainButtonStyle())
         .padding(.horizontal)
-        .frame(maxWidth: .infinity)
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
-        .cornerRadius(25)
+        .overlay(
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(Asset.Colors.Redesign.navyBlue.color.asColor, lineWidth: 1)
+        )
     }
 }

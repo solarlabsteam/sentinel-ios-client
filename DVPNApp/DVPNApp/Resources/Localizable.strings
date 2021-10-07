@@ -63,7 +63,6 @@
 
 "AccountInfo.Wallet.Title" = "Account Balance";
 "AccountInfo.QR" = "Scan QR code to receive";
-"AccountInfo.Balance.Loading.Title" = "- DVPN";
 "AccountInfo.Copy" = "Copy";
 "AccountInfo.Share" = "Share";
 "AccountInfo.TopUp" = "TOPUP WITH SOLAR PAY";

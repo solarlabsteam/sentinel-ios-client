@@ -65,12 +65,6 @@ internal enum L10n {
     internal static let share = L10n.tr("Localizable", "AccountInfo.Share")
     /// TOPUP WITH SOLAR PAY
     internal static let topUp = L10n.tr("Localizable", "AccountInfo.TopUp")
-    internal enum Balance {
-      internal enum Loading {
-        /// - DVPN
-        internal static let title = L10n.tr("Localizable", "AccountInfo.Balance.Loading.Title")
-      }
-    }
     internal enum Wallet {
       /// Account Balance
       internal static let title = L10n.tr("Localizable", "AccountInfo.Wallet.Title")

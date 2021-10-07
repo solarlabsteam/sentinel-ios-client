@@ -48,7 +48,7 @@ extension AccountInfoModel {
                 self.eventSubject.send(.error(error))
             case .success(let balances):
                 guard let balance = balances.first(where: { $0.denom == constants.denom }) else {
-                    self.eventSubject.send(.update(balance: "O " + L10n.Common.Dvpn.title))
+                    self.eventSubject.send(.update(balance: "0"))
                     return
                 }
 
