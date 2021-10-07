@@ -34,8 +34,7 @@ struct AccountInfoView: View {
             Spacer()
             
             Text(viewModel.address)
-                .font(.system(size: 11, weight: .medium))
-                .foregroundColor(.white)
+                .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
             
             Spacer()
         }
@@ -77,16 +76,14 @@ struct AccountInfoView: View {
                 .frame(width: 150, height: 150)
             
             Text(L10n.AccountInfo.qr)
-                .font(.system(size: 12, weight: .regular))
-                .foregroundColor(Asset.Colors.lightGray.color.asColor)
+                .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
         }
     }
     
     var currentPrice: some View {
         HStack {
             Text(L10n.AccountInfo.currentPrice)
-                .font(.system(size: 14, weight: .medium))
-                .foregroundColor(.white)
+                .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
             
             Spacer()
             
@@ -98,15 +95,14 @@ struct AccountInfoView: View {
                     width: 15,
                     height: 20
                 )
-                .padding(.vertical, 8)
+                .padding(.vertical, 16)
             
             VStack(spacing: 5) {
                 Text(viewModel.currentPrice ?? "")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
+                    .applyTextStyle(.whitePoppins(ofSize: 16, weight: .bold))
                 Text(viewModel.lastPriceUpdateInfo ?? "")
                     .font(.system(size: 12, weight: .regular))
-                    .foregroundColor(Asset.Colors.Redesign.borderGray.color.asColor)
+                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .regular))
             }
             .frame(width: 70, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
@@ -125,12 +121,17 @@ struct AccountInfoView: View {
                 accountImage
                 
                 Text(L10n.AccountInfo.Wallet.title)
-                    .font(.system(size: 12, weight: .regular))
-                    .foregroundColor(Asset.Colors.lightGray.color.asColor)
+                    .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
                 
-                Text(viewModel.balance ?? L10n.AccountInfo.Balance.Loading.title)
-                    .font(.system(size: 20, weight: .medium))
-                    .foregroundColor(.white)
+                HStack {
+                    Text(viewModel.balance ?? "-")
+                        .applyTextStyle(.whitePoppins(ofSize: 22, weight: .bold))
+                    
+                    Text(" " + L10n.Common.Dvpn.title)
+                        .font(.system(size: 20, weight: .medium))
+                        .foregroundColor(.white)
+                        .applyTextStyle(.whitePoppins(ofSize: 22, weight: .regular))
+                }
             }
             .padding(.bottom, 8)
             .padding(.horizontal, 16)

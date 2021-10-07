@@ -21,12 +21,6 @@ struct CounterView: View {
             .frame(width: 24, height: 24)
     }
     
-    var textContentView: some View {
-        Text(text)
-            .font(.system(size: 22, weight: .light))
-            .foregroundColor(.white)
-    }
-    
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
             icon
@@ -36,8 +30,11 @@ struct CounterView: View {
             
             Spacer()
             
-            textContentView
-                .padding(.trailing, 30)
+            HStack(spacing: 0) {
+                Text(text)
+                    .applyTextStyle(.whitePoppins(ofSize: 22, weight: .light))
+                    .padding(.trailing, 30)
+            }
             
             Spacer()
 

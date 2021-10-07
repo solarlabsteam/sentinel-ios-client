@@ -39,7 +39,7 @@ struct NodeDetailsView: View {
                 Spacer()
                 Text("CONNECT NOW")
                     .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                    .font(.system(size: 13, weight: .semibold))
+                    .applyTextStyle(.mainButton)
 
                 Spacer()
             }

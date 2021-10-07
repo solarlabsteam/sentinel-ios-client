@@ -597,6 +597,8 @@
 		7554E2C226D4BAE9001355F7 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				93785440270ECC810004483C /* AccentButton.swift */,
+				9378543E270ECA400004483C /* FramedButton.swift */,
 				7554E2C326D4BB03001355F7 /* AccountInfoRowView.swift */,
 				7554E2C526D4BB09001355F7 /* AccountInfoRowViewModel.swift */,
 			);
@@ -729,8 +731,6 @@
 		75D6560E26BE880F000056B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				93785440270ECC810004483C /* AccentButton.swift */,
-				9378543E270ECA400004483C /* FramedButton.swift */,
 				75D6560F26BE8817000056B4 /* ActivityIndicator.swift */,
 				75359D2E26FC9D0300CFEBCD /* MainGradient.swift */,
 				93C3EC3A270AF19400B9CA4D /* GridView.swift */,

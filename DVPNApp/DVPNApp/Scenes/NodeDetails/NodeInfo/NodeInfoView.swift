@@ -28,11 +28,10 @@ struct NodeInfoView: View {
         VStack(alignment: .center, spacing: 4) {
             Text(viewModel.type.title)
                 .font(.system(size: 10, weight: .light))
-                .foregroundColor(Asset.Colors.Redesign.borderGray.color.asColor)
+                .applyTextStyle(.grayPoppins(ofSize: 10, weight: .medium))
             
             Text(viewModel.value)
-                .font(.system(size: 12, weight: .medium))
-                .foregroundColor(.white)
+                .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
         }
         .frame(width: 174, height: 60)
     }

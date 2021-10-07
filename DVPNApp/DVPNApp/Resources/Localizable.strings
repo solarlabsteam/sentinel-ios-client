@@ -42,7 +42,7 @@
 "Connection.Status.Connection.TunnelUpdating" = "Preparing iOS VPN tunnel";
 "Connection.LocationSelector.Change" = "CHANGE";
 "Connection.LocationSelector.Select" = "Select a country";
-"Connection.Info.DataUser" = "DATA USED";
+"Connection.Info.DataUsed" = "DATA USED";
 "Connection.Error.SignatureGenerationFailed" = "Misconfigured wallet. Please, try again or re-import your mnemonic";
 "Connection.Error.InvalidURL" = "Misconfigured nodes. Please, try again or select another node";
 "Connection.Error.NotEnoughTokens" = "Not enough tokens to broadcast - you'll need at least 0.01 DVPN on your account. Please, check your balance and try again later";
@@ -63,7 +63,6 @@
 
 "AccountInfo.Wallet.Title" = "Account Balance";
 "AccountInfo.QR" = "Scan QR code to receive";
-"AccountInfo.Balance.Loading.Title" = "- DVPN";
 "AccountInfo.Copy" = "Copy";
 "AccountInfo.Share" = "Share";
 "AccountInfo.TopUp" = "TOPUP WITH SOLAR PAY";

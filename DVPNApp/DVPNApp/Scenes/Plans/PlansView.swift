@@ -16,14 +16,12 @@ struct PlansView: View {
     }
     
     var bandwidthView: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 0) {
             Text("\(viewModel.gbToBuy)")
-                .font(.system(size: 44, weight: .bold))
-                .foregroundColor(.white)
+                .applyTextStyle(.whitePoppins(ofSize: 44, weight: .bold))
             
             Text("GB")
-                .font(.system(size: 18, weight: .regular))
-                .foregroundColor(Asset.Colors.Redesign.veryLightGray.color.asColor)
+                .applyTextStyle(.lightGrayPoppins(ofSize: 18, weight: .regular))
         }
         .frame(width: 140, height: 140)
         .overlay(
@@ -39,9 +37,10 @@ struct PlansView: View {
                     ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
                 }
                 Spacer()
+                
                 Text("SUBSCRIBE")
-                    .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                    .font(.system(size: 13, weight: .semibold))
+                    .applyTextStyle(.mainButton)
+                
                 Spacer()
             }
         }
@@ -56,7 +55,7 @@ struct PlansView: View {
             ScrollView {
                 VStack {
                     Text("How much DVPN you want to spend?")
-                        .font(.system(size: 18, weight: .semibold))
+                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 30)
                         .padding(.horizontal)

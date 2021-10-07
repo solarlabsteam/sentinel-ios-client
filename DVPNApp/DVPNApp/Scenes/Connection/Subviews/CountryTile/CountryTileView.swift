@@ -20,12 +20,10 @@ struct CountryTileView: View {
             
             VStack(alignment: .leading, spacing: 6) {
                 Text(viewModel.title ?? "")
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.white)
+                    .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
                 
                 Text(viewModel.subtitle)
-                    .font(.system(size: 10, weight: .light))
-                    .foregroundColor(.white)
+                    .applyTextStyle(.grayPoppins(ofSize: 10, weight: .medium))
             }
             
             Spacer()
@@ -38,8 +36,7 @@ struct CountryTileView: View {
     var emptyCountry: some View {
         HStack(alignment: .center) {
             Text(L10n.Connection.LocationSelector.select)
-                .font(.system(size: 16, weight: .medium))
-                .foregroundColor(.white)
+                .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
             
             Spacer()
             
