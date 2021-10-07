@@ -99,6 +99,16 @@ internal enum L10n {
       /// DATA USED
       internal static let dataUsed = L10n.tr("Localizable", "Connection.Info.DataUsed")
     }
+    internal enum InfoType {
+      /// Bandwidth
+      internal static let bandwidth = L10n.tr("Localizable", "Connection.InfoType.Bandwidth")
+      /// Download
+      internal static let download = L10n.tr("Localizable", "Connection.InfoType.Download")
+      /// Duration
+      internal static let duration = L10n.tr("Localizable", "Connection.InfoType.Duration")
+      /// Upload
+      internal static let upload = L10n.tr("Localizable", "Connection.InfoType.Upload")
+    }
     internal enum LocationSelector {
       /// CHANGE
       internal static let change = L10n.tr("Localizable", "Connection.LocationSelector.Change")

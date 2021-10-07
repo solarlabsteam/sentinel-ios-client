@@ -4,7 +4,6 @@ import Combine
 struct ConnectionView: View {
     
     @ObservedObject private var viewModel: ConnectionViewModel
-    @State private var backgroundXFactor = 1
     
     private let navyColor = Asset.Colors.Redesign.navyBlue.color
     
@@ -32,7 +31,7 @@ struct ConnectionView: View {
                 Text(viewModel.bandwidthConsumedGB ?? "0")
                     .applyTextStyle(.whitePoppins(ofSize: 30, weight: .bold))
                 
-                Text("GB")
+                Text(L10n.Common.gb)
                     .applyTextStyle(.lightGrayPoppins(ofSize: 16, weight: .regular))
             }
             .frame(width: 160, height: 160)
@@ -46,16 +45,6 @@ struct ConnectionView: View {
             Text(L10n.Connection.Info.dataUsed)
                 .applyTextStyle(.grayPoppins(ofSize: 13, weight: .light))
         }
-    }
-    
-    var connectionInfoMainView: some View {
-        // TODO: @tori move to VM
-        GridView(models: [
-            .connectionInfo(.init(type: .download, value: viewModel.downloadSpeed ?? "", symbols: viewModel.downloadSpeedUnits)),
-            .connectionInfo(.init(type: .upload, value: viewModel.uploadSpeed ?? "", symbols: viewModel.uploadSpeedUnits)),
-            .connectionInfo(.init(type: .bandwidth, value: viewModel.initialBandwidthGB ?? "", symbols: "GB")),
-            .connectionInfo(.init(type: .duration, value: viewModel.duration ?? "-", symbols: ""))
-        ])
     }
     
     var connectionStatus: some View {
@@ -74,7 +63,7 @@ struct ConnectionView: View {
                         .padding(.top, 20)
                         .padding(.bottom, 50)
                     
-                    connectionInfoMainView
+                    GridView(models: viewModel.connectionInfoViewModels)
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(Asset.Colors.Redesign.lightBlue.color.asColor, lineWidth: 1)

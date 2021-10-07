@@ -30,24 +30,16 @@ extension ConnectionInfoType {
         }
     }
     
-    // TODO: Localize
     var title: String {
         switch self {
         case .download:
-            return "Download"
+            return L10n.Connection.InfoType.download
         case .upload:
-            return "Upload"
+            return L10n.Connection.InfoType.upload
         case .bandwidth:
-            return "Bandwidth"
+            return L10n.Connection.InfoType.bandwidth
         case .duration:
-            return "Duration"
+            return L10n.Connection.InfoType.duration
         }
     }
-}
-
-// MARK: - IconSide
-
-enum IconSide {
-    case left
-    case right
 }

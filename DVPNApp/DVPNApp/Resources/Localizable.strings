@@ -40,6 +40,10 @@
 "Connection.Status.Connection.SessionBroadcast" = "Waiting for confirmation";
 "Connection.Status.Connection.KeysExchange" = "Exchanging keys";
 "Connection.Status.Connection.TunnelUpdating" = "Preparing iOS VPN tunnel";
+"Connection.InfoType.Download" = "Download";
+"Connection.InfoType.Upload" = "Upload";
+"Connection.InfoType.Bandwidth" = "Bandwidth";
+"Connection.InfoType.Duration" = "Duration";
 "Connection.LocationSelector.Change" = "CHANGE";
 "Connection.LocationSelector.Select" = "Select a country";
 "Connection.Info.DataUsed" = "DATA USED";

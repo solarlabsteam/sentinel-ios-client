@@ -24,9 +24,9 @@ final class NodeDetailsViewModel: ObservableObject {
     }
     
     @Published private(set) var countryTileModel: CountryTileViewModel?
-    @Published private var nodeInfoViewModels: [NodeInfoViewModel] = []
+    @Published private(set) var nodeInfoViewModels: [NodeInfoViewModel] = []
     
-    @Published private var node: Node?
+    @Published private(set) var node: Node?
     
     private var cancellables = Set<AnyCancellable>()
     
