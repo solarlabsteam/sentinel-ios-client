@@ -92,6 +92,51 @@ internal enum L10n {
     }
   }
 
+  internal enum Connection {
+    internal enum Error {
+      /// Misconfigured nodes. Please, try again or select another node
+      internal static let invalidURL = L10n.tr("Localizable", "Connection.Error.InvalidURL")
+      /// Not enough tokens to broadcast - you'll need at least 0.01 DVPN on your account. Please, check your balance and try again later
+      internal static let notEnoughTokens = L10n.tr("Localizable", "Connection.Error.NotEnoughTokens")
+      /// Misconfigured wallet. Please, try again or re-import your mnemonic
+      internal static let signatureGenerationFailed = L10n.tr("Localizable", "Connection.Error.SignatureGenerationFailed")
+    }
+    internal enum Info {
+      /// DATA USED
+      internal static let dataUser = L10n.tr("Localizable", "Connection.Info.DataUser")
+    }
+    internal enum LocationSelector {
+      /// CHANGE
+      internal static let change = L10n.tr("Localizable", "Connection.LocationSelector.Change")
+      /// Select a country
+      internal static let select = L10n.tr("Localizable", "Connection.LocationSelector.Select")
+    }
+    internal enum Status {
+      internal enum Connection {
+        /// Checking balance
+        internal static let balanceCheck = L10n.tr("Localizable", "Connection.Status.Connection.BalanceCheck")
+        /// Connected
+        internal static let connected = L10n.tr("Localizable", "Connection.Status.Connection.Connected")
+        /// Disconnected
+        internal static let disconnected = L10n.tr("Localizable", "Connection.Status.Connection.Disconnected")
+        /// Exchanging keys
+        internal static let keysExchange = L10n.tr("Localizable", "Connection.Status.Connection.KeysExchange")
+        /// Poor or no internet connection
+        internal static let lost = L10n.tr("Localizable", "Connection.Status.Connection.Lost")
+        /// Checking node status
+        internal static let nodeStatus = L10n.tr("Localizable", "Connection.Status.Connection.NodeStatus")
+        /// Waiting for confirmation
+        internal static let sessionBroadcast = L10n.tr("Localizable", "Connection.Status.Connection.SessionBroadcast")
+        /// Checking last session status
+        internal static let sessionStatus = L10n.tr("Localizable", "Connection.Status.Connection.SessionStatus")
+        /// Fetching the subscription
+        internal static let subscriptionStatus = L10n.tr("Localizable", "Connection.Status.Connection.SubscriptionStatus")
+        /// Preparing iOS VPN tunnel
+        internal static let tunnelUpdating = L10n.tr("Localizable", "Connection.Status.Connection.TunnelUpdating")
+      }
+    }
+  }
+
   internal enum Error {
     /// Failed to start a session. Please, try again or select another node
     internal static let connectionParsingFailed = L10n.tr("Localizable", "Error.ConnectionParsingFailed")
@@ -100,55 +145,6 @@ internal enum L10n {
     internal enum GRPCError {
       /// Request timed-out. No internet connection.
       internal static let rpcTimedOut = L10n.tr("Localizable", "Error.GRPCError.RPCTimedOut")
-    }
-  }
-
-  internal enum Home {
-    internal enum Error {
-      /// Misconfigured nodes. Please, try again or select another node
-      internal static let invalidURL = L10n.tr("Localizable", "Home.Error.InvalidURL")
-      /// Not enough tokens to broadcast - you'll need at least 0.01 DVPN on your account. Please, check your balance and try again later
-      internal static let notEnoughTokens = L10n.tr("Localizable", "Home.Error.NotEnoughTokens")
-      /// Misconfigured wallet. Please, try again or re-import your mnemonic
-      internal static let signatureGenerationFailed = L10n.tr("Localizable", "Home.Error.SignatureGenerationFailed")
-    }
-    internal enum LocationSelector {
-      /// CHANGE
-      internal static let change = L10n.tr("Localizable", "Home.LocationSelector.Change")
-      /// Select a country
-      internal static let select = L10n.tr("Localizable", "Home.LocationSelector.Select")
-    }
-    internal enum Status {
-      internal enum Connection {
-        /// Checking balance
-        internal static let balanceCheck = L10n.tr("Localizable", "Home.Status.Connection.BalanceCheck")
-        /// Connected
-        internal static let connected = L10n.tr("Localizable", "Home.Status.Connection.Connected")
-        /// Disconnected
-        internal static let disconnected = L10n.tr("Localizable", "Home.Status.Connection.Disconnected")
-        /// Exchanging keys
-        internal static let keysExchange = L10n.tr("Localizable", "Home.Status.Connection.KeysExchange")
-        /// Poor or no internet connection
-        internal static let lost = L10n.tr("Localizable", "Home.Status.Connection.Lost")
-        /// Checking node status
-        internal static let nodeStatus = L10n.tr("Localizable", "Home.Status.Connection.NodeStatus")
-        /// Waiting for confirmation
-        internal static let sessionBroadcast = L10n.tr("Localizable", "Home.Status.Connection.SessionBroadcast")
-        /// Checking last session status
-        internal static let sessionStatus = L10n.tr("Localizable", "Home.Status.Connection.SessionStatus")
-        /// Fetching the subscription
-        internal static let subscriptionStatus = L10n.tr("Localizable", "Home.Status.Connection.SubscriptionStatus")
-        /// Preparing iOS VPN tunnel
-        internal static let tunnelUpdating = L10n.tr("Localizable", "Home.Status.Connection.TunnelUpdating")
-      }
-    }
-    internal enum Subscription {
-      internal enum Amount {
-        /// remaining of %d GB
-        internal static func description(_ p1: Int) -> String {
-          return L10n.tr("Localizable", "Home.Subscription.Amount.Description", p1)
-        }
-      }
     }
   }
 

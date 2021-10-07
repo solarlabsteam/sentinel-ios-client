@@ -164,7 +164,7 @@ extension ConnectionModel {
             if context.tunnelManager.startDeactivationOfActiveTunnel() != true {
                 stopLoading()
                 fetchIP()
-                eventSubject.send(.updateLocation(countryName: L10n.Home.LocationSelector.select, moniker: ""))
+                eventSubject.send(.updateLocation(countryName: L10n.Connection.LocationSelector.select, moniker: ""))
             }
             return
         }

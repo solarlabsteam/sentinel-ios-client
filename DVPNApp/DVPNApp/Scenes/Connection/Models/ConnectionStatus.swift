@@ -26,23 +26,23 @@ enum ConnectionStatus {
     var title: String {
         switch self {
         case .connected:
-            return L10n.Home.Status.Connection.connected
+            return L10n.Connection.Status.Connection.connected
         case .sessionStatus:
-            return L10n.Home.Status.Connection.sessionStatus
+            return L10n.Connection.Status.Connection.sessionStatus
         case .nodeStatus:
-            return L10n.Home.Status.Connection.nodeStatus
+            return L10n.Connection.Status.Connection.nodeStatus
         case .subscriptionStatus:
-            return L10n.Home.Status.Connection.subscriptionStatus
+            return L10n.Connection.Status.Connection.subscriptionStatus
         case .balanceCheck:
-            return L10n.Home.Status.Connection.balanceCheck
+            return L10n.Connection.Status.Connection.balanceCheck
         case .sessionBroadcast:
-            return L10n.Home.Status.Connection.sessionBroadcast
+            return L10n.Connection.Status.Connection.sessionBroadcast
         case .keysExchange:
-            return L10n.Home.Status.Connection.keysExchange
+            return L10n.Connection.Status.Connection.keysExchange
         case .tunnelUpdating:
-            return L10n.Home.Status.Connection.tunnelUpdating
+            return L10n.Connection.Status.Connection.tunnelUpdating
         case .disconnected:
-            return L10n.Home.Status.Connection.disconnected
+            return L10n.Connection.Status.Connection.disconnected
         }
     }
 

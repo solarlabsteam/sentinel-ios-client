@@ -45,7 +45,7 @@ struct ConnectionView: View {
             )
             .padding(.bottom, 10)
             
-            Text("DATA USED")
+            Text(L10n.Connection.Info.dataUser)
                 .font(.system(size: 13, weight: .light))
                 .foregroundColor(Asset.Colors.Redesign.textGray.color.asColor)
         }

@@ -80,7 +80,7 @@ extension NetworkService: NetworkServiceType {
                 switch response.result {
                 case .failure(let error):
                     log.error(error)
-                    completion(L10n.Home.Status.Connection.lost)
+                    completion(L10n.Connection.Status.Connection.lost)
                 case .success(let ipAddress):
                     completion(ipAddress)
                 }
