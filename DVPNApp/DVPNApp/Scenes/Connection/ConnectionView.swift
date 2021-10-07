@@ -30,12 +30,10 @@ struct ConnectionView: View {
         VStack(spacing: 10) {
             VStack(spacing: 4) {
                 Text(viewModel.bandwidthConsumedGB ?? "0")
-                    .font(.system(size: 30, weight: .medium))
-                    .foregroundColor(.white)
+                    .applyTextStyle(.whitePoppins(ofSize: 30, weight: .bold))
                 
                 Text("GB")
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(Asset.Colors.Redesign.lightGray.color.asColor)
+                    .applyTextStyle(.lightGrayPoppins(ofSize: 16, weight: .regular))
             }
             .frame(width: 160, height: 160)
             .overlay(
@@ -45,9 +43,8 @@ struct ConnectionView: View {
             )
             .padding(.bottom, 10)
             
-            Text(L10n.Connection.Info.dataUser)
-                .font(.system(size: 13, weight: .light))
-                .foregroundColor(Asset.Colors.Redesign.textGray.color.asColor)
+            Text(L10n.Connection.Info.dataUsed)
+                .applyTextStyle(.grayPoppins(ofSize: 13, weight: .light))
         }
     }
     
@@ -63,8 +60,7 @@ struct ConnectionView: View {
     
     var connectionStatus: some View {
         Text(viewModel.connectionStatus.title)
-            .font(.system(size: 12, weight: .regular))
-            .foregroundColor(Asset.Colors.Redesign.textGray.color.asColor)
+            .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
     }
 
     var body: some View {

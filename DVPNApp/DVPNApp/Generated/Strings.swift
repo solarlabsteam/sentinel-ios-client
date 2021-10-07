@@ -97,7 +97,7 @@ internal enum L10n {
     }
     internal enum Info {
       /// DATA USED
-      internal static let dataUser = L10n.tr("Localizable", "Connection.Info.DataUser")
+      internal static let dataUsed = L10n.tr("Localizable", "Connection.Info.DataUsed")
     }
     internal enum LocationSelector {
       /// CHANGE

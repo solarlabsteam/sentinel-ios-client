@@ -27,18 +27,15 @@ struct ConnectionInfoView: View {
     var textContentView: some View {
         VStack(alignment: .leading, spacing: 2) {
             HStack(alignment: .bottom, spacing: 2) {
-                Text(viewModel.value )
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.white)
+                Text(viewModel.value)
+                    .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
                 
                 Text(viewModel.symbols ?? "")
-                    .font(.system(size: 14, weight: .light))
-                    .foregroundColor(Asset.Colors.Redesign.veryLightGray.color.asColor)
+                    .applyTextStyle(.lightGrayPoppins(ofSize: 14, weight: .light))
             }
             
             Text(viewModel.type.title)
-                .font(.system(size: 14, weight: .light))
-                .foregroundColor(Asset.Colors.Redesign.borderGray.color.asColor)
+                .applyTextStyle(.grayPoppins(ofSize: 13, weight: .light))
         }
     }
     
