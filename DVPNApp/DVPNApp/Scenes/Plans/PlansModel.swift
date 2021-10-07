@@ -9,12 +9,6 @@ import Foundation
 import Combine
 import SentinelWallet
 
-private struct Constants {
-    let timeout: TimeInterval = 15
-}
-
-private let constants = Constants()
-
 enum PlansModelEvent {
     case error(Error)
     case updatePayment(countryName: String, price: String, fee: Int)
@@ -42,19 +36,21 @@ final class PlansModel {
     var eventPublisher: AnyPublisher<PlansModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
-
-    @Published private var node: DVPNNodeInfo
     private var cancellables = Set<AnyCancellable>()
-
-    var address: String {
-        context.walletService.accountAddress
-    }
+    
+    @Published private var node: DVPNNodeInfo
 
     init(context: Context, node: DVPNNodeInfo) {
         self.context = context
         self.node = node
     }
+}
 
+extension PlansModel {
+    var address: String {
+        context.walletService.accountAddress
+    }
+    
     func refresh() {
         $node.eraseToAnyPublisher()
             .map { [context] in
@@ -100,13 +96,15 @@ final class PlansModel {
     }
 }
 
-private extension PlansModel {
-    func show(error: Error) {
+// MARK: - Private
+
+extension PlansModel {
+    private func show(error: Error) {
         log.error(error)
         eventSubject.send(.error(error))
     }
 
-    func subscribe(to selectedPlan: SelectedPlan) {
+    private func subscribe(to selectedPlan: SelectedPlan) {
         context.sentinelService.subscribe(to: node.address, deposit: selectedPlan.deposit) { [weak self] result in
             switch result {
             case .failure(let error):

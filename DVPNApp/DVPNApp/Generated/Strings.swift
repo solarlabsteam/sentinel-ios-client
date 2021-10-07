@@ -244,17 +244,15 @@ internal enum L10n {
   }
 
   internal enum Plans {
-    /// Buy
-    internal static let buy = L10n.tr("Localizable", "Plans.Buy")
+    /// SUBSCRIBE
+    internal static let subscribe = L10n.tr("Localizable", "Plans.Subscribe")
+    /// How much DVPN you want to spend?
+    internal static let title = L10n.tr("Localizable", "Plans.Title")
     internal enum AddTokens {
       /// Top-up your wallet?
       internal static let subtitle = L10n.tr("Localizable", "Plans.AddTokens.Subtitle")
       /// Not enough tokens to subcribe
       internal static let title = L10n.tr("Localizable", "Plans.AddTokens.Title")
-    }
-    internal enum Amount {
-      /// Unlimited
-      internal static let title = L10n.tr("Localizable", "Plans.Amount.Title")
     }
     internal enum Error {
       internal enum Payment {

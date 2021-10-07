@@ -20,7 +20,7 @@ struct PlansView: View {
             Text("\(viewModel.gbToBuy)")
                 .applyTextStyle(.whitePoppins(ofSize: 44, weight: .bold))
             
-            Text("GB")
+            Text(L10n.Common.gb)
                 .applyTextStyle(.lightGrayPoppins(ofSize: 18, weight: .regular))
         }
         .frame(width: 140, height: 140)
@@ -38,7 +38,7 @@ struct PlansView: View {
                 }
                 Spacer()
                 
-                Text("SUBSCRIBE")
+                Text(L10n.Plans.subscribe)
                     .applyTextStyle(.mainButton)
                 
                 Spacer()
@@ -54,7 +54,7 @@ struct PlansView: View {
         VStack {
             ScrollView {
                 VStack {
-                    Text("How much DVPN you want to spend?")
+                    Text(L10n.Plans.title)
                         .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 30)

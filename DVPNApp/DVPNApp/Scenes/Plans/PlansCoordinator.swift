@@ -5,7 +5,6 @@
 //  Created by Lika Vorobyeva on 12.08.2021.
 //
 
-import UIKit
 import SwiftUI
 import SentinelWallet
 
@@ -34,6 +33,8 @@ final class PlansCoordinator: CoordinatorType {
     }
 }
 
+// MARK: - Handle events
+
 extension PlansCoordinator: RouterType {
     func play(event: PlansViewModel.Route) {
         switch event {
@@ -51,8 +52,12 @@ extension PlansCoordinator: RouterType {
             navigation?.dismiss(animated: true)
         }
     }
+}
 
-    func showSubscribeAlert(
+// MARK: - Private
+
+extension PlansCoordinator {
+    private func showSubscribeAlert(
         name: String,
         completion: @escaping (Bool) -> Void
     ) {
@@ -78,7 +83,7 @@ extension PlansCoordinator: RouterType {
         rootController?.present(alert, animated: true, completion: nil)
     }
 
-    func showNotEnoughTokensAlert() {
+    private func showNotEnoughTokensAlert() {
         let alert = UIAlertController(
             title: L10n.Plans.AddTokens.title,
             message: L10n.Plans.AddTokens.subtitle,
