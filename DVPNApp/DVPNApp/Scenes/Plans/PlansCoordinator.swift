@@ -45,8 +45,8 @@ extension PlansCoordinator: RouterType {
             showSubscribeAlert(name: node, completion: completion)
         case .openConnection:
             navigation?.popToRootViewController(animated: true)
-        case .settings:
-            ModulesFactory.shared.makeSettingsModule(for: navigation!)
+        case .accountInfo:
+            ModulesFactory.shared.makeAccountInfoModule(for: navigation!)
         case .close:
             navigation?.dismiss(animated: true)
         }
@@ -88,7 +88,7 @@ extension PlansCoordinator: RouterType {
         let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { [weak self] _ in
 //            self?.navigation?.dismiss(animated: true)
             UIImpactFeedbackGenerator.lightFeedback()
-            self?.play(event: .settings)
+            self?.play(event: .accountInfo)
         }
 
         let cancelAction = UIAlertAction(title: L10n.Common.cancel, style: .destructive) { _ in

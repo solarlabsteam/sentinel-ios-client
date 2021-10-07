@@ -10,7 +10,7 @@ private struct Constants {
 
 private let constants = Constants()
 
-enum HomeModelEvent {
+enum ConnectionModelEvent {
     case error(Error)
     case warning(Error)
 
@@ -26,7 +26,7 @@ enum HomeModelEvent {
     case openNodes
 }
 
-final class HomeModel {
+final class ConnectionModel {
     typealias Context = HasSentinelService & HasWalletService & HasStorage & HasTunnelManager
         & HasNetworkService
     private let context: Context
@@ -37,8 +37,8 @@ final class HomeModel {
 
     private var subscription: SentinelWallet.Subscription?
 
-    private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
-    var eventPublisher: AnyPublisher<HomeModelEvent, Never> {
+    private let eventSubject = PassthroughSubject<ConnectionModelEvent, Never>()
+    var eventPublisher: AnyPublisher<ConnectionModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 
@@ -131,7 +131,7 @@ final class HomeModel {
     }
 }
 
-extension HomeModel {
+extension ConnectionModel {
     private func refreshSubscriptions() {
         eventSubject.send(.setButton(isLoading: true))
 
@@ -164,7 +164,7 @@ extension HomeModel {
             if context.tunnelManager.startDeactivationOfActiveTunnel() != true {
                 stopLoading()
                 fetchIP()
-                eventSubject.send(.updateLocation(countryName: L10n.Home.LocationSelector.select, moniker: ""))
+                eventSubject.send(.updateLocation(countryName: L10n.Connection.LocationSelector.select, moniker: ""))
             }
             return
         }
@@ -253,7 +253,7 @@ extension HomeModel {
                     return
                 }
                 log.error(error)
-                self?.show(error: HomeModelError.nodeIsOffline)
+                self?.show(error: ConnectionModelError.nodeIsOffline)
             case .success(let node):
                 self?.eventSubject.send(
                     .updateLocation(countryName: node.info.location.country, moniker: node.info.moniker)
@@ -279,7 +279,7 @@ extension HomeModel {
                         .contains(
                             where: { $0.denom == constants.denom && Int($0.amount)! >= self.context.walletService.fee }
                         ) else {
-                    self.eventSubject.send(.warning(HomeModelError.notEnoughTokens))
+                    self.eventSubject.send(.warning(ConnectionModelError.notEnoughTokens))
                     self.stopLoading()
                     return
                 }
@@ -338,7 +338,7 @@ extension HomeModel {
 
 // MARK: - Private
 
-extension HomeModel {
+extension ConnectionModel {
     private func stopLoading() {
         eventSubject.send(.updateConnection(status: .init(from: isTunnelActive)))
         eventSubject.send(.setButton(isLoading: false))
@@ -361,7 +361,7 @@ extension HomeModel {
         let sessionIdData = Data(bytes: &int, count: 8)
 
         guard let signature = context.walletService.generateSignature(for: sessionIdData) else {
-            show(error: HomeModelError.signatureGenerationFailed)
+            show(error: ConnectionModelError.signatureGenerationFailed)
             return
         }
 
@@ -427,7 +427,7 @@ extension HomeModel {
 
 // MARK: - TunnelManagerDelegate
 
-extension HomeModel: TunnelManagerDelegate {
+extension ConnectionModel: TunnelManagerDelegate {
     func handleTunnelUpdatingStatus() {
         eventSubject.send(.updateConnection(status: .tunnelUpdating))
     }
@@ -447,7 +447,7 @@ extension HomeModel: TunnelManagerDelegate {
 
 // MARK: - TunnelsServiceStatusDelegate
 
-extension HomeModel: TunnelsServiceStatusDelegate {
+extension ConnectionModel: TunnelsServiceStatusDelegate {
     func activationAttemptFailed(for tunnel: TunnelContainer, with error: TunnelActivationError) {
         show(error: error)
     }

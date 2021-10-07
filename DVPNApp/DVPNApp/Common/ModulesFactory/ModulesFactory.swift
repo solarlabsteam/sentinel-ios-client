@@ -50,8 +50,8 @@ extension ModulesFactory {
         AccountCreationCoordinator(context: context, mode: mode, navigation: navigation, window: window).start()
     }
 
-    func makeHomeModule(for navigation: UINavigationController) {
-        HomeCoordinator(context: context, navigation: navigation).start()
+    func makeConnectionModule(for navigation: UINavigationController) {
+        ConnectionCoordinator(context: context, navigation: navigation).start()
     }
 
     func makeLocationSelectionModule(for window: UIWindow) {
@@ -69,8 +69,8 @@ extension ModulesFactory {
         NodeDetailsCoordinator(context: context, navigation: navigation, configuration: configuration).start()
     }
 
-    func makeSettingsModule(for navigation: UINavigationController) {
-        SettingsCoordinator(context: context, navigation: navigation).start()
+    func makeAccountInfoModule(for navigation: UINavigationController) {
+        AccountInfoCoordinator(context: context, navigation: navigation).start()
     }
 
     func makePlansModule(
@@ -83,13 +83,13 @@ extension ModulesFactory {
 
 /// Scenes previews
 extension ModulesFactory {
-    func getHomeScene() -> HomeView {
-        let coordinator = HomeCoordinator(context: context, navigation: UINavigationController())
-        let viewModel = HomeViewModel(
-            model: HomeModel(context: context),
+    func getConnectionScene() -> ConnectionView {
+        let coordinator = ConnectionCoordinator(context: context, navigation: UINavigationController())
+        let viewModel = ConnectionViewModel(
+            model: ConnectionModel(context: context),
             router: coordinator.asRouter()
         )
-        let view = HomeView(viewModel: viewModel)
+        let view = ConnectionView(viewModel: viewModel)
 
         return view
     }
@@ -133,11 +133,11 @@ extension ModulesFactory {
         return view
     }
 
-    func getSettingsScene() -> SettingsView {
-        let coordinator = SettingsCoordinator(context: context, navigation: UINavigationController()).asRouter()
-        let model = SettingsModel(context: context)
-        let viewModel = SettingsViewModel(model: model, router: coordinator)
-        let view = SettingsView(viewModel: viewModel)
+    func getAccountInfoScene() -> AccountInfoView {
+        let coordinator = AccountInfoCoordinator(context: context, navigation: UINavigationController()).asRouter()
+        let model = AccountInfoModel(context: context)
+        let viewModel = AccountInfoViewModel(model: model, router: coordinator)
+        let view = AccountInfoView(viewModel: viewModel)
 
         return view
     }

@@ -1,5 +1,5 @@
 //
-//  SettingsModel.swift
+//  AccountInfoModel.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -14,29 +14,31 @@ private struct Constants {
 
 private let constants = Constants()
 
-enum SettingsModelEvent {
+enum AccountInfoModelEvent {
     case update(balance: String)
     case priceInfo(currentPrice: String, lastPriceUpdateInfo: String)
     case error(Error)
 }
 
-final class SettingsModel {
+final class AccountInfoModel {
     typealias Context = HasStorage & HasWalletService
     private let context: Context
 
-    private let eventSubject = PassthroughSubject<SettingsModelEvent, Never>()
-    var eventPublisher: AnyPublisher<SettingsModelEvent, Never> {
+    private let eventSubject = PassthroughSubject<AccountInfoModelEvent, Never>()
+    var eventPublisher: AnyPublisher<AccountInfoModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
-    }
-
-    var address: String {
-        context.walletService.accountAddress
     }
 
     init(context: Context) {
         self.context = context
     }
+}
 
+extension AccountInfoModel {
+    var address: String {
+        context.walletService.accountAddress
+    }
+    
     func refresh() {
         context.walletService.fetchBalance { [weak self] result in
             guard let self = self else { return }
@@ -58,7 +60,9 @@ final class SettingsModel {
         
         loadPriceInfo()
     }
-    
+}
+
+extension AccountInfoModel {
     private func loadPriceInfo() {
         // Warning: We use only udvpn for this moment.
         context.walletService.getPrices(for: "udvpn") { [weak self] result in

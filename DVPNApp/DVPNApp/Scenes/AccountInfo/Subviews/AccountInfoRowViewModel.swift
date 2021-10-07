@@ -1,5 +1,5 @@
 //
-//  SettingsRowViewModel.swift
+//  AccountInfoRowViewModel.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -7,13 +7,12 @@
 
 import UIKit
 
-struct SettingsRowViewModel: Hashable {
+struct AccountInfoRowViewModel: Hashable {
+    let id: String
     let server: String
     var isSelected: Bool
     let icon: UIImage
     let title: String
-
-    let id: String
 
     init(
         id: String,

@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  AccountInfoView.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -7,14 +7,26 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct AccountInfoView: View {
 
-    @ObservedObject private var viewModel: SettingsViewModel
+    @ObservedObject private var viewModel: AccountInfoViewModel
     
     @Environment(\.openURL) var openURL
 
-    init(viewModel: SettingsViewModel) {
+    init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
+    }
+    
+    var accountImage: some View {
+        Image(uiImage: Asset.Navigation.account.image)
+            .antialiased(true)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .padding()
+            .frame(
+                width: 100,
+                height: 100
+            )
     }
 
     var addressView: some View {
@@ -34,68 +46,23 @@ struct SettingsView: View {
         )
     }
     
-    // TODO: @tori Move as a separate view and reuse
-    // TODO: Localize all text in this file
     var shareButton: some View {
-        Button {
+        FramedButton(title: L10n.AccountInfo.share) {
             viewModel.didTapShare()
-        } label: {
-            HStack(spacing: 3) {
-                Text("Share")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.white)
-            }
-            .padding(.horizontal, 30)
-            .padding(.vertical, 16)
-            .cornerRadius(6)
         }
-        .buttonStyle(PlainButtonStyle())
-        .padding(.horizontal)
-        .overlay(
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(Asset.Colors.Redesign.navyBlue.color.asColor, lineWidth: 1)
-        )
-    }
-    
-    var solarPayButton: some View {
-        Button {
-            UIImpactFeedbackGenerator.lightFeedback()
-            openURL(viewModel.solarPayURL)
-        } label: {
-            HStack {
-                Text("TOPUP WITH SOLAR PAY")
-                    .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                    .font(.system(size: 11, weight: .semibold))
-            }
-            .padding(.horizontal, 30)
-            .padding(.vertical, 16)
-        }
-        .buttonStyle(PlainButtonStyle())
-        .padding(.horizontal)
-        .frame(maxWidth: .infinity)
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
-        .cornerRadius(25)
     }
     
     var copyButton: some View {
-        Button {
+        FramedButton(title: L10n.AccountInfo.copy) {
             viewModel.didTapCopy()
-        } label: {
-            HStack(spacing: 3) {
-                Text("Copy")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.white)
-            }
-            .padding(.horizontal, 30)
-            .padding(.vertical, 16)
-            .cornerRadius(6)
         }
-        .buttonStyle(PlainButtonStyle())
-        .padding(.horizontal)
-        .overlay(
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(Asset.Colors.Redesign.navyBlue.color.asColor, lineWidth: 1)
-        )
+    }
+    
+    var solarPayButton: some View {
+        AccentButton(title: L10n.AccountInfo.topUp) {
+            UIImpactFeedbackGenerator.lightFeedback()
+            openURL(viewModel.solarPayURL)
+        }
     }
 
     var qrCode: some View {
@@ -109,7 +76,7 @@ struct SettingsView: View {
                 )
                 .frame(width: 150, height: 150)
             
-            Text(L10n.Settings.qr)
+            Text(L10n.AccountInfo.qr)
                 .font(.system(size: 12, weight: .regular))
                 .foregroundColor(Asset.Colors.lightGray.color.asColor)
         }
@@ -117,7 +84,7 @@ struct SettingsView: View {
     
     var currentPrice: some View {
         HStack {
-            Text("Current price")
+            Text(L10n.AccountInfo.currentPrice)
                 .font(.system(size: 14, weight: .medium))
                 .foregroundColor(.white)
             
@@ -155,25 +122,17 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             VStack {
-                Image(uiImage: Asset.Navigation.account.image)
-                    .antialiased(true)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding()
-                    .frame(
-                        width: 80,
-                        height: 80
-                    )
+                accountImage
                 
-                Text(L10n.Settings.Wallet.title)
+                Text(L10n.AccountInfo.Wallet.title)
                     .font(.system(size: 12, weight: .regular))
                     .foregroundColor(Asset.Colors.lightGray.color.asColor)
                 
-                Text(viewModel.balance ?? L10n.Settings.Balance.Loading.title)
+                Text(viewModel.balance ?? L10n.AccountInfo.Balance.Loading.title)
                     .font(.system(size: 20, weight: .medium))
                     .foregroundColor(.white)
             }
-            .padding(.vertical, 8)
+            .padding(.bottom, 8)
             .padding(.horizontal, 16)
             
             qrCode
@@ -206,8 +165,8 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct AccountInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesFactory.shared.getSettingsScene()
+        ModulesFactory.shared.getAccountInfoScene()
     }
 }

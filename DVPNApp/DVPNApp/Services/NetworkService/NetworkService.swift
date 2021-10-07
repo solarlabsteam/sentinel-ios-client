@@ -27,13 +27,13 @@ extension NetworkService: NetworkServiceType {
         completion: @escaping (Result<(Data, PrivateKey), Error>) -> Void
     ) {
         guard var components = URLComponents(string: remoteURLString) else {
-            completion(.failure(HomeModelError.invalidURL))
+            completion(.failure(ConnectionModelError.invalidURL))
             return
         }
         components.scheme = "http"
 
         guard let urlString = components.string, let remoteURL = URL(string: urlString) else {
-            completion(.failure(HomeModelError.invalidURL))
+            completion(.failure(ConnectionModelError.invalidURL))
             return
         }
 
@@ -61,11 +61,11 @@ extension NetworkService: NetworkServiceType {
                     completion(.failure(error))
                 case .success(let infoResult):
                     guard infoResult.success, let stringData = infoResult.result else {
-                        completion(.failure(HomeModelError.connectionParsingFailed))
+                        completion(.failure(ConnectionModelError.connectionParsingFailed))
                         return
                     }
                     guard let data = Data(base64Encoded: stringData), data.bytes.count == 58 else {
-                        completion(.failure(HomeModelError.connectionParsingFailed))
+                        completion(.failure(ConnectionModelError.connectionParsingFailed))
                         return
                     }
 
@@ -80,7 +80,7 @@ extension NetworkService: NetworkServiceType {
                 switch response.result {
                 case .failure(let error):
                     log.error(error)
-                    completion(L10n.Home.Status.Connection.lost)
+                    completion(L10n.Connection.Status.Connection.lost)
                 case .success(let ipAddress):
                     completion(ipAddress)
                 }

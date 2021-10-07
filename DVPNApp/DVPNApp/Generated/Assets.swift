@@ -49,25 +49,25 @@ internal enum Asset {
     }
     internal static let veryLightGrey = ColorAsset(name: "colors/veryLightGrey")
   }
+  internal enum Connection {
+    internal static let background = ImageAsset(name: "connection/background")
+    internal enum Toggle {
+      internal enum Arrow {
+        internal static let down = ImageAsset(name: "connection/toggle/arrow/down")
+        internal static let up = ImageAsset(name: "connection/toggle/arrow/up")
+      }
+      internal static let power = ImageAsset(name: "connection/toggle/power")
+    }
+    internal enum Wifi {
+      internal static let scales1 = ImageAsset(name: "connection/wifi/scales-1")
+      internal static let scales2 = ImageAsset(name: "connection/wifi/scales-2")
+      internal static let scales3 = ImageAsset(name: "connection/wifi/scales-3")
+      internal static let scales4 = ImageAsset(name: "connection/wifi/scales-4")
+    }
+  }
   internal enum Counter {
     internal static let minus = ImageAsset(name: "counter/minus")
     internal static let plus = ImageAsset(name: "counter/plus")
-  }
-  internal enum Home {
-    internal static let background = ImageAsset(name: "home/background")
-    internal enum Toggle {
-      internal enum Arrow {
-        internal static let down = ImageAsset(name: "home/toggle/arrow/down")
-        internal static let up = ImageAsset(name: "home/toggle/arrow/up")
-      }
-      internal static let power = ImageAsset(name: "home/toggle/power")
-    }
-    internal enum Wifi {
-      internal static let scales1 = ImageAsset(name: "home/wifi/scales-1")
-      internal static let scales2 = ImageAsset(name: "home/wifi/scales-2")
-      internal static let scales3 = ImageAsset(name: "home/wifi/scales-3")
-      internal static let scales4 = ImageAsset(name: "home/wifi/scales-4")
-    }
   }
   internal enum Icons {
     internal static let bandwidth = ImageAsset(name: "icons/bandwidth")

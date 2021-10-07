@@ -55,11 +55,11 @@ extension NodeDetailsCoordinator: RouterType {
         case let .error(error):
             show(message: error.localizedDescription)
         case .account:
-            ModulesFactory.shared.makeSettingsModule(for: navigation)
+            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case let .subscribe(node: nodeInfo):
             ModulesFactory.shared.makePlansModule(node: nodeInfo, for: navigation)
         case .connect:
-            ModulesFactory.shared.makeHomeModule(for: navigation)
+            ModulesFactory.shared.makeConnectionModule(for: navigation)
         }
     }
 }

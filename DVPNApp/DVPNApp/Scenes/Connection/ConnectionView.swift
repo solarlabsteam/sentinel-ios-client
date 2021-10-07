@@ -1,14 +1,14 @@
 import SwiftUI
 import Combine
 
-struct HomeView: View {
+struct ConnectionView: View {
     
-    @ObservedObject private var viewModel: HomeViewModel
+    @ObservedObject private var viewModel: ConnectionViewModel
     @State private var backgroundXFactor = 1
     
     private let navyColor = Asset.Colors.Redesign.navyBlue.color
     
-    init(viewModel: HomeViewModel) {
+    init(viewModel: ConnectionViewModel) {
         self.viewModel = viewModel
     }
     
@@ -45,7 +45,7 @@ struct HomeView: View {
             )
             .padding(.bottom, 10)
             
-            Text("DATA USED")
+            Text(L10n.Connection.Info.dataUser)
                 .font(.system(size: 13, weight: .light))
                 .foregroundColor(Asset.Colors.Redesign.textGray.color.asColor)
         }
@@ -111,8 +111,8 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct ConnectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesFactory.shared.getHomeScene()
+        ModulesFactory.shared.getConnectionScene()
     }
 }

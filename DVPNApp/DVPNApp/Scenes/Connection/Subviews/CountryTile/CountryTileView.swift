@@ -37,13 +37,13 @@ struct CountryTileView: View {
     
     var emptyCountry: some View {
         HStack(alignment: .center) {
-            Text(L10n.Home.LocationSelector.select)
+            Text(L10n.Connection.LocationSelector.select)
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white)
             
             Spacer()
             
-            Image(uiImage: Asset.Home.Wifi.scales1.image)
+            Image(uiImage: Asset.Connection.Wifi.scales1.image)
                 .frame(width: 20, height: viewHeight)
         }
     }
@@ -67,7 +67,7 @@ struct CountryTileView_Previews: PreviewProvider {
                         icon: Flag(countryCode: "EE")!.image(style: .roundedRect),
                         title: "Test",
                         subtitle: "8.8.8.8",
-                        speed: Asset.Home.Wifi.scales3.image
+                        speed: Asset.Connection.Wifi.scales3.image
                     )
         )
     }

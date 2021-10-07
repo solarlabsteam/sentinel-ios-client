@@ -1,11 +1,10 @@
-import Foundation
 import Combine
 import SentinelWallet
 import SwiftUI
 import FlagKit
 import GRPC
 
-final class HomeViewModel: ObservableObject {
+final class ConnectionViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router
     
@@ -37,15 +36,15 @@ final class HomeViewModel: ObservableObject {
         case warning(Error)
         case subscribe(node: DVPNNodeInfo)
         case openPlans(for: DVPNNodeInfo)
-        case settings
+        case accountInfo
     }
     
-    private let model: HomeModel
+    private let model: ConnectionModel
     private var cancellables = Set<AnyCancellable>()
     
     private var skipViewWillAppear = true
     
-    init(model: HomeModel, router: Router) {
+    init(model: ConnectionModel, router: Router) {
         self.model = model
         self.router = router
         
@@ -97,15 +96,15 @@ final class HomeViewModel: ObservableObject {
     }
 
     @objc
-    func didTapSettingsButton() {
+    func didTapAccountInfoButton() {
         UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .settings)
+        router.play(event: .accountInfo)
     }
 }
 
 // MARK: - Private
 
-extension HomeViewModel {
+extension ConnectionViewModel {
     private func show(error: Error) {
         router.play(event: .error(error))
     }

@@ -1,5 +1,5 @@
 //
-//  SettingsViewModel.swift
+//  AccountInfoViewModel.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
@@ -12,7 +12,7 @@ import Combine
 import UIKit.UIImage
 import EFQRCode
 
-final class SettingsViewModel: ObservableObject {
+final class AccountInfoViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router
 
@@ -26,13 +26,13 @@ final class SettingsViewModel: ObservableObject {
     @Published private(set) var currentPrice: String?
     @Published private(set) var lastPriceUpdateInfo: String?
 
-    private let model: SettingsModel
+    private let model: AccountInfoModel
     private var cancellables = Set<AnyCancellable>()
 
-    init(model: SettingsModel, router: Router) {
+    init(model: AccountInfoModel, router: Router) {
         self.model = model
         self.router = router
-        // TODO: make proper qr image
+        
         self.qrCode = UIImage(
             cgImage: EFQRCode.generate(
                 for: model.address,
@@ -58,7 +58,17 @@ final class SettingsViewModel: ObservableObject {
 
         model.refresh()
     }
+}
 
+extension AccountInfoViewModel {
+    var solarPayURL: URL {
+        .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
+    }
+}
+
+// MARK: - Buttons actions
+
+extension AccountInfoViewModel {
     func didTapCopy() {
         UIImpactFeedbackGenerator.lightFeedback()
         UIPasteboard.general.string = model.address
@@ -69,11 +79,5 @@ final class SettingsViewModel: ObservableObject {
         let activityVC = UIActivityViewController(activityItems: [address], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?
             .present(activityVC, animated: true, completion: nil)
-    }
-}
-
-extension SettingsViewModel {
-    var solarPayURL: URL {
-        .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
     }
 }
