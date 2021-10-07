@@ -41,7 +41,7 @@ final class PlansViewModel: ObservableObject {
     
     @Published private(set) var gbToBuy: Int {
         didSet {
-            prettyTokesToSpend = formatter.string(from: NSNumber(value: Double(tokesToSpend) * 0.000001)) ?? "\(tokesToSpend)"
+            prettyTokesToSpend = PriceFormatter.fullFormat(amount: tokesToSpend)
         }
     }
 
@@ -57,11 +57,6 @@ final class PlansViewModel: ObservableObject {
         
         selectedLocationName = ""
         gbToBuy = 1
-        
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 6
-        formatter.minimumFractionDigits = 0
-        formatter.decimalSeparator = "."
 
         self.model.eventPublisher
             .receive(on: DispatchQueue.main)

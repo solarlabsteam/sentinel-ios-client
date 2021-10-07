@@ -80,7 +80,7 @@
 "AccountInfo.TopUp" = "TOPUP WITH SOLAR PAY";
 "AccountInfo.CurrentPrice" = "Current price";
 
-"Plans.Title" = "How much DVPN you want to spend?";
+"Plans.Title" = "How much DVPN do you want to spend?";
 "Plans.Subscribe" = "SUBSCRIBE";
 "Plans.Subscribe.Title" = "Subscribe to %@?";
 "Plans.Error.Payment.Failed" = "Your transaction was unsuccessful. Please try again.";

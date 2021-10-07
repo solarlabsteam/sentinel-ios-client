@@ -67,7 +67,7 @@ struct PlansView: View {
                 
                 VStack {
                     CounterView(
-                        text: .constant(viewModel.prettyTokesToSpend + " " + L10n.Common.Dvpn.title),
+                        text: .constant(viewModel.prettyTokesToSpend),
                         togglePlus: viewModel.togglePlus,
                         toggleMinus: viewModel.toggleMinus
                     )

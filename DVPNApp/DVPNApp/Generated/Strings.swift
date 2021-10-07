@@ -246,7 +246,7 @@ internal enum L10n {
   internal enum Plans {
     /// SUBSCRIBE
     internal static let subscribe = L10n.tr("Localizable", "Plans.Subscribe")
-    /// How much DVPN you want to spend?
+    /// How much DVPN do you want to spend?
     internal static let title = L10n.tr("Localizable", "Plans.Title")
     internal enum AddTokens {
       /// Top-up your wallet?
