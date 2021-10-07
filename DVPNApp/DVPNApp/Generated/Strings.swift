@@ -72,7 +72,7 @@ internal enum L10n {
       }
     }
     internal enum Wallet {
-      /// Balance
+      /// Account Balance
       internal static let title = L10n.tr("Localizable", "AccountInfo.Wallet.Title")
     }
   }

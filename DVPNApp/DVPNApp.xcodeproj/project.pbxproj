@@ -125,6 +125,8 @@
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
 		9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA67270461D20062AFD3 /* NetworkServiceType.swift */; };
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
+		9378543F270ECA400004483C /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
+		93785441270ECC810004483C /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
 		938FBA5E27056A320059469B /* TunnelManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FBA5D27056A320059469B /* TunnelManagerType.swift */; };
 		939FA140270C3D960013ED75 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
 		93A6C0B8270A97B0009F1029 /* CountryTileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */; };
@@ -301,6 +303,8 @@
 		9312CA642704608D0062AFD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9312CA67270461D20062AFD3 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		9378543E270ECA400004483C /* FramedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramedButton.swift; sourceTree = "<group>"; };
+		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		938FBA5D27056A320059469B /* TunnelManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManagerType.swift; sourceTree = "<group>"; };
 		939FA13F270C3D960013ED75 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTileViewModel.swift; sourceTree = "<group>"; };
@@ -723,6 +727,8 @@
 		75D6560E26BE880F000056B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93785440270ECC810004483C /* AccentButton.swift */,
+				9378543E270ECA400004483C /* FramedButton.swift */,
 				75D6560F26BE8817000056B4 /* ActivityIndicator.swift */,
 				75359D2E26FC9D0300CFEBCD /* MainGradient.swift */,
 				93C3EC3A270AF19400B9CA4D /* GridView.swift */,
@@ -1094,12 +1100,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9378543F270ECA400004483C /* FramedButton.swift in Sources */,
 				7504EA6A267B4DD600023D42 /* ModulesFactory.swift in Sources */,
 				7504EA8C267B71C800023D42 /* TunnelChanges.swift in Sources */,
 				757F0B7E26D8D6CE000C0865 /* Connectivity.swift in Sources */,
 				75B0D55426CB9A85009ECAFC /* SelectedPlan.swift in Sources */,
 				93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */,
 				93FA0690270B4C5E0006A765 /* NodeInfoView.swift in Sources */,
+				93785441270ECC810004483C /* AccentButton.swift in Sources */,
 				75D6561026BE8818000056B4 /* ActivityIndicator.swift in Sources */,
 				C64B495E26B8B3F70004A692 /* ConnectionModel.swift in Sources */,
 				C64ED32D26C57FE900222CA4 /* PlansViewModel.swift in Sources */,

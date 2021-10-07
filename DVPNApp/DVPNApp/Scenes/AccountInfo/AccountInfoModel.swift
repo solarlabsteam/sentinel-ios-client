@@ -29,14 +29,16 @@ final class AccountInfoModel {
         eventSubject.eraseToAnyPublisher()
     }
 
-    var address: String {
-        context.walletService.accountAddress
-    }
-
     init(context: Context) {
         self.context = context
     }
+}
 
+extension AccountInfoModel {
+    var address: String {
+        context.walletService.accountAddress
+    }
+    
     func refresh() {
         context.walletService.fetchBalance { [weak self] result in
             guard let self = self else { return }
@@ -58,7 +60,9 @@ final class AccountInfoModel {
         
         loadPriceInfo()
     }
-    
+}
+
+extension AccountInfoModel {
     private func loadPriceInfo() {
         // Warning: We use only udvpn for this moment.
         context.walletService.getPrices(for: "udvpn") { [weak self] result in

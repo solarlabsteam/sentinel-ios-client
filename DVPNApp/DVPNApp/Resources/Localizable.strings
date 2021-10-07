@@ -61,7 +61,7 @@
 "LocationSelection.Extra.Button.More" = "Learn more";
 "LocationSelection.Extra.Build" = "Built by";
 
-"AccountInfo.Wallet.Title" = "Balance";
+"AccountInfo.Wallet.Title" = "Account Balance";
 "AccountInfo.QR" = "Scan QR code to receive";
 "AccountInfo.Balance.Loading.Title" = "- DVPN";
 "AccountInfo.Copy" = "Copy";

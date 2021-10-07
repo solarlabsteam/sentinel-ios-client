@@ -32,7 +32,7 @@ final class AccountInfoViewModel: ObservableObject {
     init(model: AccountInfoModel, router: Router) {
         self.model = model
         self.router = router
-        // TODO: make proper qr image
+        
         self.qrCode = UIImage(
             cgImage: EFQRCode.generate(
                 for: model.address,
@@ -58,7 +58,17 @@ final class AccountInfoViewModel: ObservableObject {
 
         model.refresh()
     }
+}
 
+extension AccountInfoViewModel {
+    var solarPayURL: URL {
+        .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
+    }
+}
+
+// MARK: - Buttons actions
+
+extension AccountInfoViewModel {
     func didTapCopy() {
         UIImpactFeedbackGenerator.lightFeedback()
         UIPasteboard.general.string = model.address
@@ -69,11 +79,5 @@ final class AccountInfoViewModel: ObservableObject {
         let activityVC = UIActivityViewController(activityItems: [address], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?
             .present(activityVC, animated: true, completion: nil)
-    }
-}
-
-extension AccountInfoViewModel {
-    var solarPayURL: URL {
-        .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
     }
 }

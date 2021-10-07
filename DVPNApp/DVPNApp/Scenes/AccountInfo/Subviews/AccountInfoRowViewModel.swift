@@ -8,12 +8,11 @@
 import UIKit
 
 struct AccountInfoRowViewModel: Hashable {
+    let id: String
     let server: String
     var isSelected: Bool
     let icon: UIImage
     let title: String
-
-    let id: String
 
     init(
         id: String,
