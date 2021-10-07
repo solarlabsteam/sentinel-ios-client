@@ -63,6 +63,18 @@ extension TextStyle {
             kern: kern
         )
     }
+    
+    static func grayPoppins(
+        ofSize size: CGFloat,
+        weight: FontFamily.Poppins.weight = .regular,
+        kern: Double = 0
+    ) -> TextStyle {
+        TextStyle(
+            font: weight.fontConvertible.font(size: size),
+            color: Asset.Colors.Redesign.textGray.color,
+            kern: kern
+        )
+    }
 
     static func darkPoppins(
         ofSize size: CGFloat,
