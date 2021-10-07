@@ -56,7 +56,7 @@
 "LocationSelection.Node.All.Title" = "All nodes";
 "LocationSelection.Node.Title" = "Nodes";
 "LocationSelection.Extra.Title" = "Extra";
-"LocationSelection.Extra.Text" = "The blockchain bandwidth Infrastructure for web 3.0";
+"LocationSelection.Extra.Text" = "The blockchain\nbandwidth Infrastructure for web 3.0";
 "LocationSelection.Extra.Subtitle" = "Sentinel P2P bandwidth market place";
 "LocationSelection.Extra.Button.More" = "Learn more";
 "LocationSelection.Extra.Build" = "Built by";

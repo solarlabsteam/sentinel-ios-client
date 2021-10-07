@@ -9,10 +9,15 @@ struct LocationSelectionRowViewModel: Hashable, Identifiable {
     let title: String
     let subtitle: String
 
-    let price: Double
     let speed: UIImage
-    let latency: Double
+
+    let price: Double
     let peers: Double
+    let latency: Double
+
+    var scales: [ScaleViewType] {
+        [.price(price), .peers(peers), .latency(latency)]
+    }
     
     init(
         id: String,
@@ -29,8 +34,9 @@ struct LocationSelectionRowViewModel: Hashable, Identifiable {
         self.title = title
         self.subtitle = subtitle
 
-        self.price = price
         self.speed = speed
+
+        self.price = price
         self.latency = latency
         self.peers = peers
     }

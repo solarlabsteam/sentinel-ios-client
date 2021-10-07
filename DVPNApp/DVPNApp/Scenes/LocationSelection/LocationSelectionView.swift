@@ -15,8 +15,7 @@ struct LocationSelectionView: View {
                 Spacer()
 
                 Text(L10n.LocationSelection.Node.Subscribed.notFound)
-                    .font(.system(size: 25, weight: .medium))
-                    .foregroundColor(.white)
+                    .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
                     .padding()
                     .multilineTextAlignment(.center)
 
@@ -58,8 +57,7 @@ struct LocationSelectionView: View {
                 Spacer()
 
                 Text(L10n.LocationSelection.Node.All.notFound)
-                    .font(.system(size: 20, weight: .medium))
-                    .foregroundColor(.white)
+                    .applyTextStyle(.whitePoppins(ofSize: 17, weight: .bold))
 
                 Spacer()
             } else {
@@ -130,21 +128,19 @@ struct LocationSelectionView: View {
     }
 
     var extraView: some View {
-        VStack {
+        VStack(spacing: 9) {
             Spacer()
             Image(uiImage: Asset.LocationSelector.globe.image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
             Text(L10n.LocationSelection.Extra.text)
-                .font(.system(size: 17, weight: .bold))
-                .foregroundColor(.white)
-                .padding()
+                .applyTextStyle(.whitePoppins(ofSize: 17, weight: .bold))
+                .padding([.horizontal, .top])
                 .multilineTextAlignment(.center)
 
             Text(L10n.LocationSelection.Extra.subtitle)
-                .font(.system(size: 14, weight: .regular))
-                .foregroundColor(Asset.Colors.Redesign.lightGray.color.asColor)
+                .applyTextStyle(.lightGrayPoppins(ofSize: 14))
                 .padding(.horizontal)
                 .multilineTextAlignment(.center)
 
@@ -154,8 +150,7 @@ struct LocationSelectionView: View {
                 HStack {
                     Spacer()
                     Text(L10n.LocationSelection.Extra.Button.more.uppercased())
-                        .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
-                        .font(.system(size: 13, weight: .semibold))
+                        .applyTextStyle(.mainButton)
 
                     Spacer()
                 }
@@ -167,24 +162,19 @@ struct LocationSelectionView: View {
 
             Spacer()
 
-
             HStack {
                 HStack(spacing: 0) {
                     Text(L10n.LocationSelection.Extra.build)
-                        .font(.system(size: 14, weight: .regular))
-                        .foregroundColor(Asset.Colors.Redesign.lightGray.color.asColor)
+                        .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
                         .padding(.horizontal)
-                        .multilineTextAlignment(.center)
 
                     Image(uiImage: Asset.Icons.exidio.image)
                         .resizable()
                         .frame(width: 25, height: 25)
 
                     Text("EXIDIO")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundColor(.white)
+                        .applyTextStyle(.whitePoppins(ofSize: 14, weight: .bold))
                         .padding(.horizontal, 5)
-                        .multilineTextAlignment(.center)
                 }
                 .padding()
 
@@ -192,10 +182,8 @@ struct LocationSelectionView: View {
 
 
                 Text("V\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1")")
-                    .font(.system(size: 14, weight: .regular))
-                    .foregroundColor(Asset.Colors.Redesign.lightGray.color.asColor)
+                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
                     .padding(.horizontal)
-                    .multilineTextAlignment(.center)
                     .padding()
             }
             .padding(.bottom)
@@ -235,7 +223,11 @@ extension LocationSelectionView {
             for: .selected
         )
         controlAppearance.setTitleTextAttributes(
-            [.foregroundColor: UIColor.white],
+            [
+                .font: FontFamily.Poppins.semiBold.font(size: 10),
+                .foregroundColor: UIColor.white,
+                .kern: 2.5
+            ],
             for: .normal
         )
     }

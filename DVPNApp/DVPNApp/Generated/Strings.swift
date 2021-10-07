@@ -135,7 +135,7 @@ internal enum L10n {
       internal static let build = L10n.tr("Localizable", "LocationSelection.Extra.Build")
       /// Sentinel P2P bandwidth market place
       internal static let subtitle = L10n.tr("Localizable", "LocationSelection.Extra.Subtitle")
-      /// The blockchain bandwidth Infrastructure for web 3.0
+      /// The blockchain\nbandwidth Infrastructure for web 3.0
       internal static let text = L10n.tr("Localizable", "LocationSelection.Extra.Text")
       /// Extra
       internal static let title = L10n.tr("Localizable", "LocationSelection.Extra.Title")
