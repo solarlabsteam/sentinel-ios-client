@@ -42,34 +42,32 @@ extension NodeInfoType {
         case .city:
             return Asset.Node.city.image
         case .features:
-            // TODO: nil?
             return UIImage()
         }
     }
-
-    // TODO: Localize
+    
     var title: String {
         switch self {
         case .address:
-            return "Node Address"
+            return L10n.NodeDetails.InfoType.address
         case .peers:
-            return "Connected peers count"
+            return L10n.NodeDetails.InfoType.peers
         case .uploadSpeed:
-            return "Upload speed"
+            return L10n.NodeDetails.InfoType.uploadSpeed
         case .provider:
-            return "Node provider"
+            return L10n.NodeDetails.InfoType.provider
         case .downloadSpeed:
-            return "Download speed"
+            return L10n.NodeDetails.InfoType.downloadSpeed
         case .version:
-            return "Version"
+            return L10n.NodeDetails.InfoType.version
         case .type:
-            return "Type of Node"
+            return L10n.NodeDetails.InfoType.typeOfNode
         case .country:
-            return "Country"
+            return L10n.NodeDetails.InfoType.country
         case .city:
-            return "City"
+            return L10n.NodeDetails.InfoType.city
         case .features:
-            return "Features"
+            return L10n.NodeDetails.InfoType.features
         }
     }
 }

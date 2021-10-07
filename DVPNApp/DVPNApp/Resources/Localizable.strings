@@ -61,6 +61,18 @@
 "LocationSelection.Extra.Button.More" = "Learn more";
 "LocationSelection.Extra.Build" = "Built by";
 
+"NodeDetails.Connect" = "CONNECT NOW";
+"NodeDetails.InfoType.Address" = "Node Address";
+"NodeDetails.InfoType.Peers" = "Connected peers count";
+"NodeDetails.InfoType.UploadSpeed" = "Upload speed";
+"NodeDetails.InfoType.Provider" = "Node provider";
+"NodeDetails.InfoType.DownloadSpeed" = "Download speed";
+"NodeDetails.InfoType.Version" = "Version";
+"NodeDetails.InfoType.TypeOfNode" = "Type of Node";
+"NodeDetails.InfoType.Country" = "Country";
+"NodeDetails.InfoType.City" = "City";
+"NodeDetails.InfoType.Features" = "Features";
+
 "AccountInfo.Wallet.Title" = "Account Balance";
 "AccountInfo.QR" = "Scan QR code to receive";
 "AccountInfo.Copy" = "Copy";

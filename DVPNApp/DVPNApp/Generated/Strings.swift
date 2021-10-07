@@ -183,6 +183,33 @@ internal enum L10n {
     }
   }
 
+  internal enum NodeDetails {
+    /// CONNECT NOW
+    internal static let connect = L10n.tr("Localizable", "NodeDetails.Connect")
+    internal enum InfoType {
+      /// Node Address
+      internal static let address = L10n.tr("Localizable", "NodeDetails.InfoType.Address")
+      /// City
+      internal static let city = L10n.tr("Localizable", "NodeDetails.InfoType.City")
+      /// Country
+      internal static let country = L10n.tr("Localizable", "NodeDetails.InfoType.Country")
+      /// Download speed
+      internal static let downloadSpeed = L10n.tr("Localizable", "NodeDetails.InfoType.DownloadSpeed")
+      /// Features
+      internal static let features = L10n.tr("Localizable", "NodeDetails.InfoType.Features")
+      /// Connected peers count
+      internal static let peers = L10n.tr("Localizable", "NodeDetails.InfoType.Peers")
+      /// Node provider
+      internal static let provider = L10n.tr("Localizable", "NodeDetails.InfoType.Provider")
+      /// Type of Node
+      internal static let typeOfNode = L10n.tr("Localizable", "NodeDetails.InfoType.TypeOfNode")
+      /// Upload speed
+      internal static let uploadSpeed = L10n.tr("Localizable", "NodeDetails.InfoType.UploadSpeed")
+      /// Version
+      internal static let version = L10n.tr("Localizable", "NodeDetails.InfoType.Version")
+    }
+  }
+
   internal enum Onboarding {
     internal enum Button {
       /// Next

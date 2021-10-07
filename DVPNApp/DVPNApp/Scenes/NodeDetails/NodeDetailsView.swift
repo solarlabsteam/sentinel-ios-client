@@ -32,12 +32,11 @@ struct NodeDetailsView: View {
         GridView(models: viewModel.gridViewModels)
     }
     
-    // TODO: Localize
     var mainButton: some View {
         Button(action: viewModel.didTapConnect) {
             HStack {
                 Spacer()
-                Text("CONNECT NOW")
+                Text(L10n.NodeDetails.connect)
                     .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
                     .applyTextStyle(.mainButton)
 
