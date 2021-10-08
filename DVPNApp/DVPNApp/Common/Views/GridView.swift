@@ -37,32 +37,16 @@ struct GridView: View {
                     }
                     
                     HStack {
-                        // TODO: @tori do not copy-pase
-                        
-                        let modelType0 = modelPair[safe: 0]
-                        
-                        if let modelType0 = modelType0 {
-                            switch modelType0 {
-                            case let .connectionInfo(model):
-                                ConnectionInfoView(viewModel: model)
-                            case let .nodeInfo(model):
-                                NodeInfoView(viewModel: model)
-                            }
+                        if let modelType0 = modelPair[safe: 0] {
+                            getItemView(from: modelType0)
                         }
                         
                         Rectangle()
                             .fill(borderColor)
                             .frame(width: 1)
                         
-                        let modelType1 = modelPair[safe: 1]
-                        
-                        if let modelType1 = modelType1 {
-                            switch modelType1 {
-                            case let .connectionInfo(model):
-                                ConnectionInfoView(viewModel: model)
-                            case let .nodeInfo(model):
-                                NodeInfoView(viewModel: model)
-                            }
+                        if let modelType1 = modelPair[safe: 1] {
+                            getItemView(from: modelType1)
                         }
                     }
                     
@@ -81,11 +65,23 @@ struct GridView_Previews: PreviewProvider {
     static var previews: some View {
         GridView(
             models: [
-                .connectionInfo(.init(type: .download, value: "test 1", symbols: "aa")),
-                .connectionInfo(.init(type: .upload, value: "test 2", symbols: "bb")),
-                .connectionInfo(.init(type: .bandwidth, value: "test 3", symbols: "dd")),
-                .connectionInfo(.init(type: .duration, value: "test 4", symbols: "cc"))
+                .connectionInfo(.init(type: .download, value: "59.8", symbols: "KB/s")),
+                .connectionInfo(.init(type: .upload, value: "19.8", symbols: "MB/s")),
+                .connectionInfo(.init(type: .bandwidth, value: "300", symbols: "GB")),
+                .connectionInfo(.init(type: .duration, value: "22 m 30 s", symbols: ""))
             ]
         )
+    }
+}
+
+extension GridView {
+    @ViewBuilder
+    private func getItemView(from gridViewModel: GridViewModelType) -> some View {
+        switch gridViewModel {
+        case let .connectionInfo(model):
+            ConnectionInfoView(viewModel: model)
+        case let .nodeInfo(model):
+            NodeInfoView(viewModel: model)
+        }
     }
 }
