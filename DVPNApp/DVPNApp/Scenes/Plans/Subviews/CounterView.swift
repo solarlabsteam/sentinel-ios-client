@@ -82,14 +82,3 @@ struct CounterView_Previews: PreviewProvider {
         CounterView(text: .constant("50 DVPN"), togglePlus: {}, toggleMinus: {})
     }
 }
-
-struct ExDivider: View {
-    let color: Color = .gray
-    let width: CGFloat = 2
-    var body: some View {
-        Rectangle()
-            .fill(color)
-            .frame(height: width)
-            .edgesIgnoringSafeArea(.horizontal)
-    }
-}

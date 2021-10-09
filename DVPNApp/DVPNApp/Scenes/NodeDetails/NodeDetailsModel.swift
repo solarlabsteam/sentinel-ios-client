@@ -5,7 +5,6 @@
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
 
-import Foundation
 import Combine
 import SentinelWallet
 
@@ -31,7 +30,9 @@ final class NodeDetailsModel {
         self.node = node
         self.isSubscribed = isSubscribed
     }
-    
+}
+
+extension NodeDetailsModel {
     func refresh() {
         self.eventSubject.send(.update(node: node))
     }

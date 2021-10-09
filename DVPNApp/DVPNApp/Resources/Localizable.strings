@@ -40,6 +40,10 @@
 "Connection.Status.Connection.SessionBroadcast" = "Waiting for confirmation";
 "Connection.Status.Connection.KeysExchange" = "Exchanging keys";
 "Connection.Status.Connection.TunnelUpdating" = "Preparing iOS VPN tunnel";
+"Connection.InfoType.Download" = "Download";
+"Connection.InfoType.Upload" = "Upload";
+"Connection.InfoType.Bandwidth" = "Bandwidth";
+"Connection.InfoType.Duration" = "Duration";
 "Connection.LocationSelector.Change" = "CHANGE";
 "Connection.LocationSelector.Select" = "Select a country";
 "Connection.Info.DataUsed" = "DATA USED";
@@ -61,6 +65,18 @@
 "LocationSelection.Extra.Button.More" = "Learn more";
 "LocationSelection.Extra.Build" = "Built by";
 
+"NodeDetails.Connect" = "CONNECT NOW";
+"NodeDetails.InfoType.Address" = "Node Address";
+"NodeDetails.InfoType.Peers" = "Connected peers count";
+"NodeDetails.InfoType.UploadSpeed" = "Upload speed";
+"NodeDetails.InfoType.Provider" = "Node provider";
+"NodeDetails.InfoType.DownloadSpeed" = "Download speed";
+"NodeDetails.InfoType.Version" = "Version";
+"NodeDetails.InfoType.TypeOfNode" = "Type of Node";
+"NodeDetails.InfoType.Country" = "Country";
+"NodeDetails.InfoType.City" = "City";
+"NodeDetails.InfoType.Features" = "Features";
+
 "AccountInfo.Wallet.Title" = "Account Balance";
 "AccountInfo.QR" = "Scan QR code to receive";
 "AccountInfo.Copy" = "Copy";
@@ -68,9 +84,9 @@
 "AccountInfo.TopUp" = "TOPUP WITH SOLAR PAY";
 "AccountInfo.CurrentPrice" = "Current price";
 
-"Plans.Buy" = "Buy";
+"Plans.Title" = "How much DVPN do you want to spend?";
+"Plans.Subscribe" = "SUBSCRIBE";
 "Plans.Subscribe.Title" = "Subscribe to %@?";
-"Plans.Amount.Title" = "Unlimited";
 "Plans.Error.Payment.Failed" = "Your transaction was unsuccessful. Please try again.";
 "Plans.AddTokens.Title" = "Not enough tokens to subcribe";
 "Plans.AddTokens.Subtitle" = "Top-up your wallet?";

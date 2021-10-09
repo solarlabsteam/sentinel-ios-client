@@ -16,6 +16,8 @@ struct NodeInfoView: View {
         self.viewModel = viewModel
     }
     
+    // MARK: - Common view
+    
     var icon: some View {
         Image(uiImage: viewModel.type.icon)
             .resizable()
@@ -36,20 +38,25 @@ struct NodeInfoView: View {
         .frame(width: 174, height: 60)
     }
     
+    // MARK: - Feature view
+    
+    struct FeatureIcon: View {
+        var asset: ImageAsset
+        
+        var body: some View {
+            Image(uiImage: asset.image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 26, height: 26)
+            .foregroundColor(.white)
+        }
+    }
+    
     var featuresView: some View {
         VStack(alignment: .center, spacing: 4) {
             HStack(alignment: .center) {
-                Image(uiImage: Asset.Node.Features.wireGuard.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 26, height: 26)
-                    .foregroundColor(.white)
-                
-                Image(uiImage: Asset.Node.Features.handshake.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 26, height: 26)
-                    .foregroundColor(.white)
+                FeatureIcon(asset: Asset.Node.Features.wireGuard)
+                FeatureIcon(asset: Asset.Node.Features.handshake)
             }.padding(.bottom, 3)
             
             Text(viewModel.type.title)
@@ -58,6 +65,8 @@ struct NodeInfoView: View {
         }
         .frame(width: 174, height: 60)
     }
+    
+    // MARK: - Body
     
     @ViewBuilder
     var body: some View {
@@ -75,11 +84,10 @@ struct NodeInfoView: View {
 struct NodeInfoView_Previews: PreviewProvider {
     static var previews: some View {
         NodeInfoView(
-            viewModel:
-                .init(
-                    type: .city,
-                    value: "Test one"
-                )
+            viewModel: .init(
+                type: .city,
+                value: "Test city"
+            )
         )
     }
 }

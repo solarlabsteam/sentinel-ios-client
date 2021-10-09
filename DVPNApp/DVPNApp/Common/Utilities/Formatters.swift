@@ -28,6 +28,10 @@ final class PriceFormatter {
         return formatter
     }()
     
+    static func fullFormat(amount: Int) -> String {
+        prettyFormat(amount: Double(amount), denom: "")
+    }
+    
     static func fullFormat(amount: String, denom: String, fee: Double? = nil) -> String {
         var amount = Double(amount) ?? 0
         if let fee = fee {

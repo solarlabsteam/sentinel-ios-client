@@ -11,8 +11,17 @@ import SentinelWallet
 import Combine
 import GRPC
 
+private struct Constants {
+    let stepGB = 1
+    let maxAllowedGB = 100
+    let minAllowedGB = 1
+}
+private let constants = Constants()
+
 final class PlansViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
+    
+    private let model: PlansModel
     private let router: Router
 
     enum Route {
@@ -24,24 +33,21 @@ final class PlansViewModel: ObservableObject {
         case close
     }
     
-    private let stepGB = 1
     private var fee: Int = 0
     private var price: Int = 0
     
     @Published private(set) var selectedLocationName: String
-    
     @Published private(set) var prettyTokesToSpend: String = "0"
     
     @Published private(set) var gbToBuy: Int {
         didSet {
-            prettyTokesToSpend = formatter.string(from: NSNumber(value: Double(tokesToSpend) * 0.000001)) ?? "\(tokesToSpend)"
+            prettyTokesToSpend = PriceFormatter.fullFormat(amount: tokesToSpend)
         }
     }
 
     @Published var isLoading: Bool = false
 
     private var cancellables = Set<AnyCancellable>()
-    private let model: PlansModel
     
     private let formatter = NumberFormatter()
     
@@ -51,11 +57,6 @@ final class PlansViewModel: ObservableObject {
         
         selectedLocationName = ""
         gbToBuy = 1
-        
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 6
-        formatter.minimumFractionDigits = 0
-        formatter.decimalSeparator = "."
 
         self.model.eventPublisher
             .receive(on: DispatchQueue.main)
@@ -70,7 +71,7 @@ final class PlansViewModel: ObservableObject {
                     switch result {
                     case .failure(let error):
                         self?.show(error: error)
-                    case .success(let info):
+                    case .success:
                         self?.router.play(event: .openConnection)
                     }
                 case .addTokens:
@@ -83,27 +84,35 @@ final class PlansViewModel: ObservableObject {
 
         self.model.refresh()
     }
+}
+
+// MARK: - Counter
     
+extension PlansViewModel {
     func togglePlus() {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard gbToBuy < 100 else {
+        guard gbToBuy < constants.maxAllowedGB else {
             return
         }
-        gbToBuy += stepGB
+        gbToBuy += constants.stepGB
     }
     
     func toggleMinus() {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard gbToBuy > 1 else {
+        guard gbToBuy > constants.minAllowedGB else {
             return
         }
-        gbToBuy -= stepGB
+        gbToBuy -= constants.stepGB
     }
     
     var tokesToSpend: Int {
         gbToBuy * price + fee
     }
+}
+
+// MARK: - Buttons actions
     
+extension PlansViewModel {
     func didTapSubscribe() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(
@@ -128,6 +137,8 @@ final class PlansViewModel: ObservableObject {
         router.play(event: .close)
     }
 }
+
+// MARK: - Private
 
 extension PlansViewModel {
     private func show(error: Error) {

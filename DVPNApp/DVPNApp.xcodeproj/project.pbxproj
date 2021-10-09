@@ -155,9 +155,6 @@
 		C64ED2FE26C50CAE00222CA4 /* LocationSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F926C50CAE00222CA4 /* LocationSelectionModel.swift */; };
 		C64ED32C26C57FE900222CA4 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32426C57FE900222CA4 /* PlansView.swift */; };
 		C64ED32D26C57FE900222CA4 /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
-		C64ED32E26C57FE900222CA4 /* DropdownSelectorTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32726C57FE900222CA4 /* DropdownSelectorTileView.swift */; };
-		C64ED32F26C57FE900222CA4 /* PlanRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32926C57FE900222CA4 /* PlanRowViewModel.swift */; };
-		C64ED33026C57FE900222CA4 /* PlanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32A26C57FE900222CA4 /* PlanRowView.swift */; };
 		C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32B26C57FE900222CA4 /* PlansModel.swift */; };
 		C64ED33426C5B26800222CA4 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = C64ED33326C5B26800222CA4 /* SwiftMessages */; };
 		C680E89C270DE0E90042453D /* SentinelWallet in Frameworks */ = {isa = PBXBuildFile; productRef = C680E89B270DE0E90042453D /* SentinelWallet */; };
@@ -334,9 +331,6 @@
 		C64ED2F926C50CAE00222CA4 /* LocationSelectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionModel.swift; sourceTree = "<group>"; };
 		C64ED32426C57FE900222CA4 /* PlansView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		C64ED32526C57FE900222CA4 /* PlansViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansViewModel.swift; sourceTree = "<group>"; };
-		C64ED32726C57FE900222CA4 /* DropdownSelectorTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownSelectorTileView.swift; sourceTree = "<group>"; };
-		C64ED32926C57FE900222CA4 /* PlanRowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanRowViewModel.swift; sourceTree = "<group>"; };
-		C64ED32A26C57FE900222CA4 /* PlanRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanRowView.swift; sourceTree = "<group>"; };
 		C64ED32B26C57FE900222CA4 /* PlansModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -889,7 +883,6 @@
 		C64ED32326C57FE900222CA4 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
-				939FA13F270C3D960013ED75 /* CounterView.swift */,
 				C64ED32626C57FE900222CA4 /* Subviews */,
 				755A4F2326C581F10057704C /* PlansCoordinator.swift */,
 				C64ED32B26C57FE900222CA4 /* PlansModel.swift */,
@@ -903,19 +896,9 @@
 		C64ED32626C57FE900222CA4 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				C64ED32726C57FE900222CA4 /* DropdownSelectorTileView.swift */,
-				C64ED32826C57FE900222CA4 /* PlanRow */,
+				939FA13F270C3D960013ED75 /* CounterView.swift */,
 			);
 			path = Subviews;
-			sourceTree = "<group>";
-		};
-		C64ED32826C57FE900222CA4 /* PlanRow */ = {
-			isa = PBXGroup;
-			children = (
-				C64ED32926C57FE900222CA4 /* PlanRowViewModel.swift */,
-				C64ED32A26C57FE900222CA4 /* PlanRowView.swift */,
-			);
-			path = PlanRow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1117,7 +1100,6 @@
 				C64ED32D26C57FE900222CA4 /* PlansViewModel.swift in Sources */,
 				75E5BDFF26DE16FC00C345B9 /* CheckmarkToggleStyle.swift in Sources */,
 				C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */,
-				C64ED33026C57FE900222CA4 /* PlanRowView.swift in Sources */,
 				C64ED2FE26C50CAE00222CA4 /* LocationSelectionModel.swift in Sources */,
 				7504EA79267B5B4600023D42 /* TunnelStatus.swift in Sources */,
 				75E5BE0226DE2FA400C345B9 /* View+Ext.swift in Sources */,
@@ -1191,7 +1173,6 @@
 				758B261226AFEC4A00BD711E /* RouterType.swift in Sources */,
 				7504EA92267B822A00023D42 /* TunnelContainer.swift in Sources */,
 				7504EA8F267B7BB200023D42 /* TunnelSavingError.swift in Sources */,
-				C64ED32E26C57FE900222CA4 /* DropdownSelectorTileView.swift in Sources */,
 				7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */,
 				758DD9CC270A0E73000CD59B /* LocationSelectionCoordinator.swift in Sources */,
 				93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */,
@@ -1215,7 +1196,6 @@
 				752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */,
 				755F5F18270DE78600D416ED /* TextStyles.swift in Sources */,
 				752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */,
-				C64ED32F26C57FE900222CA4 /* PlanRowViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

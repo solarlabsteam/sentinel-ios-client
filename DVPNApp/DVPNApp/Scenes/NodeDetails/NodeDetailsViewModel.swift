@@ -12,6 +12,8 @@ import Combine
 
 final class NodeDetailsViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
+    
+    private let model: NodeDetailsModel
     private let router: Router
 
     enum Route {
@@ -22,11 +24,10 @@ final class NodeDetailsViewModel: ObservableObject {
     }
     
     @Published private(set) var countryTileModel: CountryTileViewModel?
-    @Published private var nodeInfoViewModels: [NodeInfoViewModel] = []
+    @Published private(set) var nodeInfoViewModels: [NodeInfoViewModel] = []
     
-    @Published private var node: Node?
-
-    private let model: NodeDetailsModel
+    @Published private(set) var node: Node?
+    
     private var cancellables = Set<AnyCancellable>()
     
     init(model: NodeDetailsModel, router: Router) {
@@ -47,11 +48,13 @@ final class NodeDetailsViewModel: ObservableObject {
         
         model.refresh()
     }
-    
+}
+
+extension NodeDetailsViewModel {
     func update(node: Node) {
         self.node = node
-        let nodeInfo = node.info
         
+        let nodeInfo = node.info
         let countryCode = CountryFormatter.code(for: nodeInfo.location.country) ?? ""
         let icon = Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
         
@@ -84,13 +87,27 @@ final class NodeDetailsViewModel: ObservableObject {
     var gridViewModels: [GridViewModelType] {
         nodeInfoViewModels.map { GridViewModelType.nodeInfo($0) }
     }
-    
+}
+
+// MARK: - Buttons actions
+
+extension NodeDetailsViewModel {
     func didTapConnect() {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let node = node else { return }
         toggle(node: node)
     }
     
+    @objc
+    func didTapAccountButton() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .account)
+    }
+}
+
+// MARK: - Private
+
+extension NodeDetailsViewModel {
     private func toggle(node: Node) {
         guard model.isSubscribed else {
             router.play(event: .subscribe(node: node.info))
@@ -101,13 +118,6 @@ final class NodeDetailsViewModel: ObservableObject {
         router.play(event: .connect)
     }
     
-    @objc
-    func didTapAccountButton() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .account)
-    }
-    
-    // @tori Move
     private func makeString(from tuple: (String, String)) -> String {
         return tuple.0 + " " + tuple.1
     }

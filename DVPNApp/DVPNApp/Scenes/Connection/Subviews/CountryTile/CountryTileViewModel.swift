@@ -11,11 +11,9 @@ import FlagKit
 
 struct CountryTileViewModel: Hashable, Identifiable {
     let id: String
-
     let icon: UIImage
     let title: String?
     let subtitle: String
-    
     let speedImage: UIImage
     
     init(
@@ -29,7 +27,6 @@ struct CountryTileViewModel: Hashable, Identifiable {
         self.icon = icon
         self.title = title
         self.subtitle = subtitle
-        
         self.speedImage = speed
     }
 

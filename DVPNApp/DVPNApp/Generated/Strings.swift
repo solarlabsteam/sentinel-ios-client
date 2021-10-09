@@ -99,6 +99,16 @@ internal enum L10n {
       /// DATA USED
       internal static let dataUsed = L10n.tr("Localizable", "Connection.Info.DataUsed")
     }
+    internal enum InfoType {
+      /// Bandwidth
+      internal static let bandwidth = L10n.tr("Localizable", "Connection.InfoType.Bandwidth")
+      /// Download
+      internal static let download = L10n.tr("Localizable", "Connection.InfoType.Download")
+      /// Duration
+      internal static let duration = L10n.tr("Localizable", "Connection.InfoType.Duration")
+      /// Upload
+      internal static let upload = L10n.tr("Localizable", "Connection.InfoType.Upload")
+    }
     internal enum LocationSelector {
       /// CHANGE
       internal static let change = L10n.tr("Localizable", "Connection.LocationSelector.Change")
@@ -183,6 +193,33 @@ internal enum L10n {
     }
   }
 
+  internal enum NodeDetails {
+    /// CONNECT NOW
+    internal static let connect = L10n.tr("Localizable", "NodeDetails.Connect")
+    internal enum InfoType {
+      /// Node Address
+      internal static let address = L10n.tr("Localizable", "NodeDetails.InfoType.Address")
+      /// City
+      internal static let city = L10n.tr("Localizable", "NodeDetails.InfoType.City")
+      /// Country
+      internal static let country = L10n.tr("Localizable", "NodeDetails.InfoType.Country")
+      /// Download speed
+      internal static let downloadSpeed = L10n.tr("Localizable", "NodeDetails.InfoType.DownloadSpeed")
+      /// Features
+      internal static let features = L10n.tr("Localizable", "NodeDetails.InfoType.Features")
+      /// Connected peers count
+      internal static let peers = L10n.tr("Localizable", "NodeDetails.InfoType.Peers")
+      /// Node provider
+      internal static let provider = L10n.tr("Localizable", "NodeDetails.InfoType.Provider")
+      /// Type of Node
+      internal static let typeOfNode = L10n.tr("Localizable", "NodeDetails.InfoType.TypeOfNode")
+      /// Upload speed
+      internal static let uploadSpeed = L10n.tr("Localizable", "NodeDetails.InfoType.UploadSpeed")
+      /// Version
+      internal static let version = L10n.tr("Localizable", "NodeDetails.InfoType.Version")
+    }
+  }
+
   internal enum Onboarding {
     internal enum Button {
       /// Next
@@ -217,17 +254,15 @@ internal enum L10n {
   }
 
   internal enum Plans {
-    /// Buy
-    internal static let buy = L10n.tr("Localizable", "Plans.Buy")
+    /// SUBSCRIBE
+    internal static let subscribe = L10n.tr("Localizable", "Plans.Subscribe")
+    /// How much DVPN do you want to spend?
+    internal static let title = L10n.tr("Localizable", "Plans.Title")
     internal enum AddTokens {
       /// Top-up your wallet?
       internal static let subtitle = L10n.tr("Localizable", "Plans.AddTokens.Subtitle")
       /// Not enough tokens to subcribe
       internal static let title = L10n.tr("Localizable", "Plans.AddTokens.Title")
-    }
-    internal enum Amount {
-      /// Unlimited
-      internal static let title = L10n.tr("Localizable", "Plans.Amount.Title")
     }
     internal enum Error {
       internal enum Payment {
