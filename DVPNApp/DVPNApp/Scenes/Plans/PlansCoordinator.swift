@@ -27,7 +27,17 @@ final class PlansCoordinator: CoordinatorType {
         let addTokensView = PlansView(viewModel: addTokensViewModel)
         let controller = UIHostingController(rootView: addTokensView)
         rootController = controller
-        navigation?.pushViewController(controller, animated: true)
+        
+        let navigationController: UINavigationController = UINavigationController(rootViewController: controller)
+        navigation?.present(navigationController, animated: true)
+        navigation?.modalPresentationStyle = .overFullScreen
+        
+        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "multiply"),
+            style: .plain,
+            target: addTokensViewModel,
+            action: #selector(addTokensViewModel.didTapCrossButton)
+        )
 
         controller.makeNavigationBar(hidden: false, animated: false)
     }
@@ -91,7 +101,7 @@ extension PlansCoordinator {
         )
 
         let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { [weak self] _ in
-//            self?.navigation?.dismiss(animated: true)
+            self?.navigation?.dismiss(animated: true)
             UIImpactFeedbackGenerator.lightFeedback()
             self?.play(event: .accountInfo)
         }

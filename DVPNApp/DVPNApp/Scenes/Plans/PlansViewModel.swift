@@ -130,7 +130,6 @@ extension PlansViewModel {
         )
     }
     
-    // TODO: @tori
     @objc
     func didTapCrossButton() {
         UIImpactFeedbackGenerator.lightFeedback()
