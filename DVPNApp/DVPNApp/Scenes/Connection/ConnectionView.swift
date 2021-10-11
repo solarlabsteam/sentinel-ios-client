@@ -63,7 +63,7 @@ struct ConnectionView: View {
                         .padding(.top, 20)
                         .padding(.bottom, 50)
                     
-                    GridView(models: viewModel.connectionInfoViewModels)
+                    GridView(models: viewModel.gridViewModels)
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(Asset.Colors.Redesign.lightBlue.color.asColor, lineWidth: 1)

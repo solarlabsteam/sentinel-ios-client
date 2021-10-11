@@ -28,7 +28,7 @@ final class ConnectionViewModel: ObservableObject {
     @Published private(set) var isConnected: Bool = false
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
     
-    @Published private(set) var connectionInfoViewModels: [GridViewModelType] = []
+    @Published private(set) var connectionInfoViewModels: [ConnectionInfoViewModel] = []
 
     @Published var isLoading: Bool = false
 
@@ -91,6 +91,9 @@ final class ConnectionViewModel: ObservableObject {
 }
 
 extension ConnectionViewModel {
+    var gridViewModels: [GridViewModelType] {
+        connectionInfoViewModels.map { GridViewModelType.connectionInfo($0) }
+    }
     
     func toggleConnection(_ newState: Bool) {
         UIImpactFeedbackGenerator.lightFeedback()
@@ -117,11 +120,11 @@ extension ConnectionViewModel {
     
     private func setConnectionInfoViewModels() {
         connectionInfoViewModels = [
-           .connectionInfo(.init(type: .download, value: downloadSpeed ?? "", symbols: downloadSpeedUnits)),
-           .connectionInfo(.init(type: .upload, value: uploadSpeed ?? "", symbols: uploadSpeedUnits)),
-            .connectionInfo(.init(type: .bandwidth, value: initialBandwidthGB ?? "", symbols: L10n.Common.gb)),
-           .connectionInfo(.init(type: .duration, value: duration ?? "-", symbols: ""))
-       ]
+            .init(type: .download, value: downloadSpeed ?? "", symbols: downloadSpeedUnits),
+            .init(type: .upload, value: uploadSpeed ?? "", symbols: uploadSpeedUnits),
+            .init(type: .bandwidth, value: initialBandwidthGB ?? "", symbols: L10n.Common.gb),
+            .init(type: .duration, value: duration ?? "-", symbols: "")
+        ]
     }
 
     private func updateConnection(isConnected: Bool) {
@@ -146,6 +149,7 @@ extension ConnectionViewModel {
         (downloadSpeed, downloadSpeedUnits) = bandwidth.download.getBandwidthKBorMB
         (uploadSpeed, uploadSpeedUnits) = bandwidth.upload.getBandwidthKBorMB
         speedImage = bandwidth.speedImage
+        setConnectionInfoViewModels()
     }
 
     private func updateButton(isLoading: Bool) {
@@ -155,5 +159,6 @@ extension ConnectionViewModel {
     private func updateSubscription(initialBandwidth: String, bandwidthConsumed: String) {
         self.initialBandwidthGB = (Int64(initialBandwidth) ?? 0).bandwidthGBString
         self.bandwidthConsumedGB = (Int64(bandwidthConsumed) ?? 0).bandwidthGBString
+        setConnectionInfoViewModels()
     }
 }
