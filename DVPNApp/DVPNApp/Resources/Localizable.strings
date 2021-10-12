@@ -60,8 +60,9 @@
 "Home.Node.All.Title" = "All nodes";
 "Home.Node.Title" = "Nodes";
 "Home.Extra.Title" = "Extra";
-"Home.Extra.Text" = "The blockchain\nbandwidth Infrastructure for web 3.0";
-"Home.Extra.Subtitle" = "Sentinel P2P bandwidth market place";
+"Home.Extra.DNS" = "Default DNS";
+"Home.Extra.More.Title" = "Learn More";
+"Home.Extra.More.Subtitle" = "Sentinel P2P bandwidth market place";
 "Home.Extra.Button.More" = "Learn more";
 "Home.Extra.Build" = "Built by";
 

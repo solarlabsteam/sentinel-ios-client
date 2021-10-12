@@ -156,15 +156,19 @@ internal enum L10n {
     internal enum Extra {
       /// Built by
       internal static let build = L10n.tr("Localizable", "Home.Extra.Build")
-      /// Sentinel P2P bandwidth market place
-      internal static let subtitle = L10n.tr("Localizable", "Home.Extra.Subtitle")
-      /// The blockchain\nbandwidth Infrastructure for web 3.0
-      internal static let text = L10n.tr("Localizable", "Home.Extra.Text")
+      /// Default DNS
+      internal static let dns = L10n.tr("Localizable", "Home.Extra.DNS")
       /// Extra
       internal static let title = L10n.tr("Localizable", "Home.Extra.Title")
       internal enum Button {
         /// Learn more
         internal static let more = L10n.tr("Localizable", "Home.Extra.Button.More")
+      }
+      internal enum More {
+        /// Sentinel P2P bandwidth market place
+        internal static let subtitle = L10n.tr("Localizable", "Home.Extra.More.Subtitle")
+        /// Learn More
+        internal static let title = L10n.tr("Localizable", "Home.Extra.More.Title")
       }
     }
     internal enum Node {
