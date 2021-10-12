@@ -52,7 +52,7 @@ extension AccountInfoModel {
                     return
                 }
 
-                let prettyBalance = PriceFormatter.fullFormat(amount: balance.amount, denom: balance.denom)
+                let prettyBalance = PriceFormatter.fullFormat(amount: balance.amount, denom: "")
 
                 self.eventSubject.send(.update(balance: prettyBalance))
             }

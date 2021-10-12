@@ -116,7 +116,7 @@ struct AccountInfoView: View {
     }
 
     var body: some View {
-        VStack {
+        ScrollView {
             VStack {
                 accountImage
                 
