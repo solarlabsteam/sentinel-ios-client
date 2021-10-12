@@ -1,5 +1,5 @@
 //
-//  LocationSelectionModel.swift
+//  HomeModel.swift
 //  Test
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
@@ -16,7 +16,7 @@ private struct Constants {
 
 private let constants = Constants()
 
-enum LocationSelectionModelEvent {
+enum HomeModelEvent {
     case error(Error)
 
     case showLoadingNodes(state: Bool)
@@ -31,12 +31,12 @@ enum LocationSelectionModelEvent {
     case connect
 }
 
-final class LocationSelectionModel {
+final class HomeModel {
     typealias Context = HasSentinelService & HasWalletService & HasStorage & HasTunnelManager
     private let context: Context
 
-    private let eventSubject = PassthroughSubject<LocationSelectionModelEvent, Never>()
-    var eventPublisher: AnyPublisher<LocationSelectionModelEvent, Never> {
+    private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
+    var eventPublisher: AnyPublisher<HomeModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 
@@ -104,7 +104,7 @@ final class LocationSelectionModel {
     }
 }
 
-extension LocationSelectionModel {
+extension HomeModel {
     private func show(error: Error) {
         log.error(error)
         eventSubject.send(.error(error))

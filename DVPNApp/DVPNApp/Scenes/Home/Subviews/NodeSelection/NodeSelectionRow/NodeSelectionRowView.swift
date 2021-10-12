@@ -1,5 +1,5 @@
 //
-//  LocationSelectionRowView.swift
+//  NodeSelectionRowView.swift
 //  Test
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
@@ -8,13 +8,13 @@
 import SwiftUI
 import FlagKit
 
-struct LocationSelectionRowView: View {
-    private let viewModel: LocationSelectionRowViewModel
+struct NodeSelectionRowView: View {
+    private let viewModel: NodeSelectionRowViewModel
     private let toggleLocation: () -> Void
     private let openDetails: () -> Void
     
     init(
-        viewModel: LocationSelectionRowViewModel,
+        viewModel: NodeSelectionRowViewModel,
         toggleLocation: @escaping () -> Void,
         openDetails: @escaping () -> Void
     ) {
@@ -64,9 +64,9 @@ struct LocationSelectionRowView: View {
     }
 }
 
-struct LocationSelectionRowView_Previews: PreviewProvider {
+struct HomeRowView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSelectionRowView(
+        NodeSelectionRowView(
             viewModel:
                     .init(
                         id: "id",

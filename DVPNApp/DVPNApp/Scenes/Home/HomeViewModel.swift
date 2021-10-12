@@ -1,5 +1,5 @@
 //
-//  LocationSelectionViewModel.swift
+//  HomeViewModel.swift
 //  Test
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
@@ -19,14 +19,14 @@ enum NodeType: CaseIterable {
     var title: String {
         switch self {
         case .subscribed:
-            return L10n.LocationSelection.Node.Subscribed.title.uppercased()
+            return L10n.Home.Node.Subscribed.title.uppercased()
         case .available:
-            return L10n.LocationSelection.Node.All.title.uppercased()
+            return L10n.Home.Node.All.title.uppercased()
         }
     }
 }
 
-enum LocationSelectionViewModelError: LocalizedError {
+enum HomeViewModelError: LocalizedError {
     case unavailableNode
 
     var errorDescription: String? {
@@ -37,7 +37,7 @@ enum LocationSelectionViewModelError: LocalizedError {
     }
 }
 
-final class LocationSelectionViewModel: ObservableObject {
+final class HomeViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router
 
@@ -58,18 +58,18 @@ final class LocationSelectionViewModel: ObservableObject {
         var title: String {
             switch self {
             case .extra:
-                return L10n.LocationSelection.Extra.title
+                return L10n.Home.Extra.title
             case .selector:
-                return L10n.LocationSelection.Node.title
+                return L10n.Home.Node.title
             }
         }
     }
 
-    @Published private(set) var locations: [LocationSelectionRowViewModel] = []
-    private(set) var subscriptions: [LocationSelectionRowViewModel] = []
+    @Published private(set) var locations: [NodeSelectionRowViewModel] = []
+    private(set) var subscriptions: [NodeSelectionRowViewModel] = []
     private(set) var nodes: Set<Node> = []
     
-    private let model: LocationSelectionModel
+    private let model: HomeModel
     private var cancellables = Set<AnyCancellable>()
 
     @Published var isLoadingNodes: Bool = true
@@ -82,7 +82,7 @@ final class LocationSelectionViewModel: ObservableObject {
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
 
-    init(model: LocationSelectionModel, router: Router) {
+    init(model: HomeModel, router: Router) {
         self.model = model
         self.router = router
 
@@ -106,7 +106,7 @@ final class LocationSelectionViewModel: ObservableObject {
     func toggleLocation(with id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let node = nodes.first(where: { $0.info.address == id }) else {
-            router.play(event: .error(LocationSelectionViewModelError.unavailableNode))
+            router.play(event: .error(HomeViewModelError.unavailableNode))
             return
         }
 
@@ -151,7 +151,7 @@ final class LocationSelectionViewModel: ObservableObject {
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let node = nodes.first(where: { $0.info.address == id }) else {
-            router.play(event: .error(LocationSelectionViewModelError.unavailableNode))
+            router.play(event: .error(HomeViewModelError.unavailableNode))
             return
         }
         router.play(event: .details(node, isSubscribed: model.isSubscribed(to: node.info.address)))
@@ -163,7 +163,7 @@ final class LocationSelectionViewModel: ObservableObject {
     }
 }
 
-extension LocationSelectionViewModel {
+extension HomeViewModel {
     private func handeEvents() {
         model.eventPublisher
             .receive(on: DispatchQueue.main)
@@ -183,7 +183,7 @@ extension LocationSelectionViewModel {
                     self?.nodes.insert(subscribedNode)
                     let countryCode = CountryFormatter.code(for: subscribedNode.info.location.country) ?? ""
 
-                    let model = LocationSelectionRowViewModel(
+                    let model = NodeSelectionRowViewModel(
                         from: subscribedNode,
                         icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
                     )
@@ -214,10 +214,10 @@ extension LocationSelectionViewModel {
 
     private func update(nodes: Set<Node>) {
         let newNodes = nodes.subtracting(self.nodes)
-        let newLocations = newNodes.map { node -> LocationSelectionRowViewModel in
+        let newLocations = newNodes.map { node -> NodeSelectionRowViewModel in
             let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
 
-            return LocationSelectionRowViewModel(
+            return NodeSelectionRowViewModel(
                 from: node,
                 icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
             )
@@ -228,7 +228,7 @@ extension LocationSelectionViewModel {
 
     private func connectToRandomNode() {
         guard let node = nodes.first(where: { $0.latency < 1 }) ?? nodes.first else {
-            router.play(event: .error(LocationSelectionViewModelError.unavailableNode))
+            router.play(event: .error(HomeViewModelError.unavailableNode))
             return
         }
 

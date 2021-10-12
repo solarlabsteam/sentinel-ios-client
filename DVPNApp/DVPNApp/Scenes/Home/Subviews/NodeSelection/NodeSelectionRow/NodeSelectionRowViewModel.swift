@@ -2,7 +2,7 @@ import UIKit
 import SentinelWallet
 import FlagKit
 
-struct LocationSelectionRowViewModel: Hashable, Identifiable {
+struct NodeSelectionRowViewModel: Hashable, Identifiable {
     let id: String
 
     let icon: UIImage

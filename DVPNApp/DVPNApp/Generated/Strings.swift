@@ -152,43 +152,43 @@ internal enum L10n {
     }
   }
 
-  internal enum LocationSelection {
+  internal enum Home {
     internal enum Extra {
       /// Built by
-      internal static let build = L10n.tr("Localizable", "LocationSelection.Extra.Build")
+      internal static let build = L10n.tr("Localizable", "Home.Extra.Build")
       /// Sentinel P2P bandwidth market place
-      internal static let subtitle = L10n.tr("Localizable", "LocationSelection.Extra.Subtitle")
+      internal static let subtitle = L10n.tr("Localizable", "Home.Extra.Subtitle")
       /// The blockchain\nbandwidth Infrastructure for web 3.0
-      internal static let text = L10n.tr("Localizable", "LocationSelection.Extra.Text")
+      internal static let text = L10n.tr("Localizable", "Home.Extra.Text")
       /// Extra
-      internal static let title = L10n.tr("Localizable", "LocationSelection.Extra.Title")
+      internal static let title = L10n.tr("Localizable", "Home.Extra.Title")
       internal enum Button {
         /// Learn more
-        internal static let more = L10n.tr("Localizable", "LocationSelection.Extra.Button.More")
+        internal static let more = L10n.tr("Localizable", "Home.Extra.Button.More")
       }
     }
     internal enum Node {
       /// Nodes
-      internal static let title = L10n.tr("Localizable", "LocationSelection.Node.Title")
+      internal static let title = L10n.tr("Localizable", "Home.Node.Title")
       internal enum All {
         /// No available nodes found, please try later
-        internal static let notFound = L10n.tr("Localizable", "LocationSelection.Node.All.NotFound")
+        internal static let notFound = L10n.tr("Localizable", "Home.Node.All.NotFound")
         /// All nodes
-        internal static let title = L10n.tr("Localizable", "LocationSelection.Node.All.Title")
+        internal static let title = L10n.tr("Localizable", "Home.Node.All.Title")
       }
       internal enum Details {
         /// Latency
-        internal static let latency = L10n.tr("Localizable", "LocationSelection.Node.Details.Latency")
+        internal static let latency = L10n.tr("Localizable", "Home.Node.Details.Latency")
         /// Peers
-        internal static let peers = L10n.tr("Localizable", "LocationSelection.Node.Details.Peers")
+        internal static let peers = L10n.tr("Localizable", "Home.Node.Details.Peers")
         /// Price
-        internal static let price = L10n.tr("Localizable", "LocationSelection.Node.Details.Price")
+        internal static let price = L10n.tr("Localizable", "Home.Node.Details.Price")
       }
       internal enum Subscribed {
         /// You are not subscribed to any nodes
-        internal static let notFound = L10n.tr("Localizable", "LocationSelection.Node.Subscribed.NotFound")
+        internal static let notFound = L10n.tr("Localizable", "Home.Node.Subscribed.NotFound")
         /// Subscribed
-        internal static let title = L10n.tr("Localizable", "LocationSelection.Node.Subscribed.Title")
+        internal static let title = L10n.tr("Localizable", "Home.Node.Subscribed.Title")
       }
     }
   }

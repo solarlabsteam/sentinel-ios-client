@@ -1,5 +1,5 @@
 //
-//  LocationSelectionCoordinator.swift
+//  HomeCoordinator.swift
 //  DVPNApp
 //
 //  Created by Lika Vorobyeva on 03.10.2021.
@@ -15,27 +15,27 @@ private struct Constants {
 
 private let constants = Constants()
 
-final class LocationSelectionCoordinator: CoordinatorType {
+final class HomeCoordinator: CoordinatorType {
     private weak var navigation: UINavigationController?
     private weak var rootController: UIViewController?
 
-    private let context: LocationSelectionModel.Context
+    private let context: HomeModel.Context
 
-    init(context: LocationSelectionModel.Context, navigation: UINavigationController) {
+    init(context: HomeModel.Context, navigation: UINavigationController) {
         self.context = context
         self.navigation = navigation
     }
 
     func start() {
-        let model = LocationSelectionModel(context: context)
-        let viewModel = LocationSelectionViewModel(model: model, router: asRouter())
-        let view = LocationSelectionView(viewModel: viewModel)
+        let model = HomeModel(context: context)
+        let viewModel = HomeViewModel(model: model, router: asRouter())
+        let view = HomeView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         rootController = controller
         navigation?.viewControllers = [controller]
 
         controller.makeNavigationBar(hidden: false, animated: false)
-        controller.title = L10n.LocationSelection.Node.title
+        controller.title = L10n.Home.Node.title
 
         navigation?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
             image: Asset.Navigation.account.image,
@@ -46,8 +46,8 @@ final class LocationSelectionCoordinator: CoordinatorType {
     }
 }
 
-extension LocationSelectionCoordinator: RouterType {
-    func play(event: LocationSelectionViewModel.Route) {
+extension HomeCoordinator: RouterType {
+    func play(event: HomeViewModel.Route) {
         guard let navigation = navigation else { return }
         switch event {
         case let .error(error):
