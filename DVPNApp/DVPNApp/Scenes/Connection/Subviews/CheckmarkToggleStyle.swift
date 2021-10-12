@@ -30,7 +30,7 @@ struct ConnectionToggleStyle: ToggleStyle {
                         }
 
                         Circle()
-                            .foregroundColor(Asset.Colors.Redesign.navyBlue.color.asColor)
+                            .foregroundColor(Asset.Colors.navyBlue.color.asColor)
                             .overlay(
                                 Image(ImageSource.power.name)
                                     .resizable()
@@ -60,7 +60,7 @@ struct ConnectionToggleStyle: ToggleStyle {
                     }
                 )
                 .background(
-                    Asset.Colors.Redesign.prussianBlue.color.asColor
+                    Asset.Colors.prussianBlue.color.asColor
                 )
                 .cornerRadius(40)
                 .onTapGesture { configuration.isOn.toggle() }

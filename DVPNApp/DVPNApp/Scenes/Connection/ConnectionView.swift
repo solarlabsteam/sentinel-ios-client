@@ -5,7 +5,7 @@ struct ConnectionView: View {
     
     @ObservedObject private var viewModel: ConnectionViewModel
     
-    private let navyColor = Asset.Colors.Redesign.navyBlue.color
+    private let navyColor = Asset.Colors.navyBlue.color
     
     init(viewModel: ConnectionViewModel) {
         self.viewModel = viewModel
@@ -66,7 +66,7 @@ struct ConnectionView: View {
                     GridView(models: viewModel.gridViewModels)
                         .overlay(
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(Asset.Colors.Redesign.lightBlue.color.asColor, lineWidth: 1)
+                                .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 1)
                         )
                     
                     Spacer()
@@ -85,7 +85,7 @@ struct ConnectionView: View {
                     }
                 }
                 .padding(.bottom, 44)
-                .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
+                .background(Asset.Colors.accentColor.color.asColor)
             }
             .onAppear { viewModel.viewWillAppear() }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in

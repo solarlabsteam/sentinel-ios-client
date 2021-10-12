@@ -15,7 +15,7 @@ struct AccentButton: View {
         Button(action: clicked) {
             HStack {
                 Text(title)
-                    .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
+                    .foregroundColor(Asset.Colors.accentColor.color.asColor)
                     .applyTextStyle(.darkPoppins(ofSize: 11, weight: .semibold))
             }
             .padding(.horizontal, 30)
@@ -24,7 +24,7 @@ struct AccentButton: View {
         .buttonStyle(PlainButtonStyle())
         .padding(.horizontal)
         .frame(maxWidth: .infinity)
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
+        .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
     }
 }

@@ -41,7 +41,7 @@ struct AccountInfoView: View {
         .padding(.vertical, 16)
         .overlay(
             RoundedRectangle(cornerRadius: 2)
-                .stroke(Asset.Colors.Redesign.lightBlue.color.asColor, lineWidth: 0.5)
+                .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 0.5)
         )
     }
     
@@ -111,7 +111,7 @@ struct AccountInfoView: View {
         .padding(.vertical, 10)
         .overlay(
             RoundedRectangle(cornerRadius: 4)
-                .stroke(Asset.Colors.Redesign.lightGray.color.asColor, lineWidth: 0.5)
+                .stroke(Asset.Colors.lightGray.color.asColor, lineWidth: 0.5)
         )
     }
 
@@ -161,7 +161,7 @@ struct AccountInfoView: View {
             
         }
         .padding(.bottom, 30)
-        .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
+        .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
     }
 }

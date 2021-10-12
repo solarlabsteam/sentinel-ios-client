@@ -37,14 +37,14 @@ struct NodeDetailsView: View {
             HStack {
                 Spacer()
                 Text(L10n.NodeDetails.connect)
-                    .foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor)
+                    .foregroundColor(Asset.Colors.accentColor.color.asColor)
                     .applyTextStyle(.mainButton)
 
                 Spacer()
             }
         }
         .padding()
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
+        .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
     }
     
@@ -64,7 +64,7 @@ struct NodeDetailsView: View {
                 .padding(30)
             
         }
-        .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
+        .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
     }
 }

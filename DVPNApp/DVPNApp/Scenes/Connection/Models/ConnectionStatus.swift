@@ -60,7 +60,7 @@ enum ConnectionStatus {
     var powerColor: Color {
         switch self {
         case .connected:
-            return Asset.Colors.Redesign.navyBlue.color.asColor
+            return Asset.Colors.navyBlue.color.asColor
         case .disconnected:
             return .white
         default:

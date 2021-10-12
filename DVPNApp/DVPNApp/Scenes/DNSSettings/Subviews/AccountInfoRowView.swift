@@ -38,9 +38,9 @@ struct AccountInfoRowView: View {
 
             Spacer()
 
-            Image(
-                viewModel.isSelected ? Asset.Settings.radioButtonSelected.name : Asset.Settings.radioButtonUnselected.name
-            ).frame(width: 20, height: 20)
+//            Image(
+//                viewModel.isSelected ? Asset.Settings.radioButtonSelected.name : Asset.Settings.radioButtonUnselected.name
+//            ).frame(width: 20, height: 20)
             
         })
         .padding(.horizontal, 16)

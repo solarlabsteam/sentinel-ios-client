@@ -54,7 +54,7 @@ struct NodeSelectionRowView: View {
                     Button(action: toggleLocation) {
                         Image(systemName: "link")
                             .frame(width: 38, height: 38)
-                            .background(Rectangle().foregroundColor(Asset.Colors.Redesign.navyBlue.color.asColor))
+                            .background(Rectangle().foregroundColor(Asset.Colors.navyBlue.color.asColor))
                     }
                     .cornerRadius(4)
                 }
