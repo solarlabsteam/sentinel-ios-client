@@ -10,12 +10,12 @@ import SwiftUI
 struct ExtraView: View {
     private let openMore: () -> Void
     private let openServers: () -> Void
-    @Binding private var servers: String
+    @Binding private var servers: [DNSServerType]
 
     init(
         openServers: @escaping () -> Void,
         openMore: @escaping () -> Void,
-        servers: Binding<String>
+        servers: Binding<[DNSServerType]>
     ) {
         self.openMore = openMore
         self.openServers = openServers
@@ -25,20 +25,18 @@ struct ExtraView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack {
-                ExtraRowView(type: .dns(servers), action: openServers)
-                        .listRowBackground(Color.clear)
-                        .padding()
+                ExtraRowView(type: .dns(servers.map { $0.title }.joined(separator: ", ")), action: openServers)
+                    .padding()
 
                 Divider()
-                    .foregroundColor(Asset.Colors.navyBlue.color.asColor)
+                    .background(Asset.Colors.lightBlue.color.asColor)
                     .padding(.horizontal)
 
                 ExtraRowView(type: .more, action: openMore)
-                        .listRowBackground(Color.clear)
-                        .padding()
+                    .padding()
 
                 Divider()
-                    .foregroundColor(Asset.Colors.navyBlue.color.asColor)
+                    .background(Asset.Colors.lightBlue.color.asColor)
                     .padding(.horizontal)
             }
 
@@ -70,6 +68,6 @@ struct ExtraView: View {
 
 struct ExtraView_Previews: PreviewProvider {
     static var previews: some View {
-        ExtraView(openServers: {}, openMore: {}, servers: .constant("Freenom"))
+        ExtraView(openServers: {}, openMore: {}, servers: .constant([.default]))
     }
 }

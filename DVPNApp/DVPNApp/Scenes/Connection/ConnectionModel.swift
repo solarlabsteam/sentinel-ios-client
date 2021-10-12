@@ -124,11 +124,6 @@ final class ConnectionModel {
         eventSubject.send(.setButton(isLoading: true))
         context.tunnelManager.startDeactivation(of: tunnel)
     }
-
-    func update(server: String) {
-        context.storage.set(dns: server)
-        context.tunnelManager.update(with: server)
-    }
 }
 
 extension ConnectionModel {

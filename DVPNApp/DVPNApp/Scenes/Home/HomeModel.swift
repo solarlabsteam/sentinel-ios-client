@@ -29,6 +29,8 @@ enum HomeModelEvent {
     case reloadSubscriptions
 
     case connect
+
+    case select(servers: [DNSServerType])
 }
 
 final class HomeModel {
@@ -49,6 +51,8 @@ final class HomeModel {
 
         loadSubscriptions()
         fetchWalletInfo()
+
+        eventSubject.send(.select(servers: context.storage.selectedDNS()))
     }
 
     func loadNodes() {
@@ -103,6 +107,8 @@ final class HomeModel {
         context.tunnelManager.startDeactivationOfActiveTunnel()
     }
 }
+
+// MARK: - Private Methods
 
 extension HomeModel {
     private func show(error: Error) {

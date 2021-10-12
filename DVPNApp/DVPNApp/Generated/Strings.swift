@@ -141,6 +141,19 @@ internal enum L10n {
     }
   }
 
+  internal enum Dns {
+    /// Cloudflare
+    internal static let cloudflare = L10n.tr("Localizable", "DNS.Cloudflare")
+    /// Freenom
+    internal static let freenom = L10n.tr("Localizable", "DNS.Freenom")
+    /// Google
+    internal static let google = L10n.tr("Localizable", "DNS.Google")
+    /// Handshake
+    internal static let handshake = L10n.tr("Localizable", "DNS.Handshake")
+    /// Default DNS Server
+    internal static let title = L10n.tr("Localizable", "DNS.Title")
+  }
+
   internal enum Error {
     /// Failed to start a session. Please, try again or select another node
     internal static let connectionParsingFailed = L10n.tr("Localizable", "Error.ConnectionParsingFailed")

@@ -79,6 +79,14 @@ extension ModulesFactory {
     ) {
         PlansCoordinator(context: context, navigation: navigation, node: node).start()
     }
+
+    func makeDNSSettingsModule(
+        delegate: DNSSettingsViewModelDelegate?,
+        servers: [DNSServerType],
+        for navigation: UINavigationController
+    ) {
+        DNSSettingsCoordinator(context: context, delegate: delegate, servers: servers, navigation: navigation).start()
+    }
 }
 
 /// Scenes previews
@@ -138,6 +146,20 @@ extension ModulesFactory {
         let model = AccountInfoModel(context: context)
         let viewModel = AccountInfoViewModel(model: model, router: coordinator)
         let view = AccountInfoView(viewModel: viewModel)
+
+        return view
+    }
+
+    func getDNSSettingsScene(delegate: DNSSettingsViewModelDelegate? = nil) -> DNSSettingsView {
+        let coordinator = DNSSettingsCoordinator(
+            context: context,
+            delegate: delegate,
+            servers: [.default],
+            navigation: UINavigationController()
+        ).asRouter()
+        let model = DNSSettingsModel(context: context)
+        let viewModel = DNSSettingsViewModel(model: model, servers: [.default], delegate: delegate, router: coordinator)
+        let view = DNSSettingsView(viewModel: viewModel)
 
         return view
     }

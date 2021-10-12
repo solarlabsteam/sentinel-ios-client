@@ -49,7 +49,7 @@ final class HomeViewModel: ObservableObject {
         case accountInfo
         case sentinel
         case title(String)
-        case dns
+        case dns(DNSSettingsViewModelDelegate?, [DNSServerType])
     }
 
     enum PageType {
@@ -79,7 +79,7 @@ final class HomeViewModel: ObservableObject {
 
     @Published var currentPage: PageType = .selector
     @Published var selectedTab: NodeType = .subscribed
-    @Published var servers: String = "Freenom"
+    @Published var servers: [DNSServerType] = [.default]
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
@@ -105,6 +105,27 @@ final class HomeViewModel: ObservableObject {
         model.loadNodes()
     }
 
+    func viewWillAppear() {
+        model.connectIfNeeded()
+    }
+
+    func loadNodes() {
+        guard !isAllLoaded else { return }
+        model.loadNodes()
+    }
+}
+
+// MARK: - DNSSettingsViewModelDelegate
+
+extension HomeViewModel: DNSSettingsViewModelDelegate {
+    func update(to servers: [DNSServerType]) {
+        self.servers = servers
+    }
+}
+
+// MARK: - Buttons actions
+
+extension HomeViewModel {
     func toggleLocation(with id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let node = nodes.first(where: { $0.info.address == id }) else {
@@ -135,19 +156,10 @@ final class HomeViewModel: ObservableObject {
         toggleLocation(with: nodeId)
     }
 
-    func loadNodes() {
-        guard !isAllLoaded else { return }
-        model.loadNodes()
-    }
-
     @objc
     func didTapAccountInfoButton() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .accountInfo)
-    }
-
-    func viewWillAppear() {
-        model.connectIfNeeded()
     }
 
     func openDetails(for id: String) {
@@ -166,7 +178,7 @@ final class HomeViewModel: ObservableObject {
 
     func openDNSServersSelection() {
         UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .dns)
+        router.play(event: .dns(self, servers))
     }
 }
 
@@ -196,12 +208,13 @@ extension HomeViewModel {
                     )
 
                     self?.subscriptions.append(model)
-
                 case .connect:
                     self?.router.play(event: .connect)
                 case .reloadSubscriptions:
                     self?.subscriptions = []
                     self?.isLoadingSubscriptions = true
+                case let .select(servers):
+                    self?.update(to: servers)
                 }
             }
             .store(in: &cancellables)

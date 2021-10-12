@@ -6,12 +6,7 @@
 //
 
 import Foundation
-
-private struct Constants {
-    let defaultDNS = "10.8.0.1"
-}
-
-private let constants = Constants()
+import Accessibility
 
 private enum Keys: String {
     case needOpenPlans
@@ -71,11 +66,20 @@ final class GeneralSettingsStorage {
         settingsStorageStrategy.object(ofType: Int.self, forKey: Keys.lastSessionKey.rawValue)
     }
 
-    func set(dns: String) {
-        settingsStorageStrategy.setObject(dns, forKey: Keys.dnsKey.rawValue)
+    func set(dns: [DNSServerType]) {
+        settingsStorageStrategy.setObject(dns.map { $0.rawValue }, forKey: Keys.dnsKey.rawValue)
     }
 
-    func selectedDNS() -> String {
-        settingsStorageStrategy.object(ofType: String.self, forKey: Keys.dnsKey.rawValue) ?? constants.defaultDNS
+    func selectedDNS() -> [DNSServerType] {
+        guard let rawValues = settingsStorageStrategy.object(ofType: [String].self, forKey: Keys.dnsKey.rawValue) else {
+            return [.default]
+        }
+        let servers = rawValues.compactMap({ DNSServerType(rawValue: $0) })
+
+        guard !servers.isEmpty else {
+            return [.default]
+        }
+
+        return servers
     }
 }

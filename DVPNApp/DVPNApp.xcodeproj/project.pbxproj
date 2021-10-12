@@ -47,6 +47,8 @@
 		7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		7504EAAB267B983800023D42 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */; };
+		751AD5F42715A33A004F5717 /* DNSSettingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */; };
+		751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */; };
 		752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */; };
 		752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */; };
 		752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF326F3286B001EA78D /* ConnectionStatus.swift */; };
@@ -61,8 +63,7 @@
 		7554E2BB26D4B810001355F7 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BA26D4B810001355F7 /* AccountInfoView.swift */; };
 		7554E2BD26D4B817001355F7 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */; };
 		7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */; };
-		7554E2C426D4BB03001355F7 /* AccountInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C326D4BB03001355F7 /* AccountInfoRowView.swift */; };
-		7554E2C626D4BB09001355F7 /* AccountInfoRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C526D4BB09001355F7 /* AccountInfoRowViewModel.swift */; };
+		7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */; };
 		75568D7226E5C62100166E5F /* ConnectionModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75568D7126E5C62100166E5F /* ConnectionModelError.swift */; };
 		755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A4F2326C581F10057704C /* PlansCoordinator.swift */; };
 		755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5EE2270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift */; };
@@ -100,6 +101,10 @@
 		758DD9E6270B72D2000CD59B /* AccountCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */; };
 		758DD9E7270B72D2000CD59B /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E1270B72D2000CD59B /* AccountCreationView.swift */; };
 		759DE5B92715754800DC7757 /* ExtraRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5B82715754800DC7757 /* ExtraRowViewType.swift */; };
+		759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */; };
+		759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */; };
+		759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */; };
+		759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5C327158B1E00DC7757 /* DNSServerType.swift */; };
 		75B0D55426CB9A85009ECAFC /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
 		75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */; };
 		75B0D55E26CBB633009ECAFC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */; };
@@ -229,6 +234,8 @@
 		7504EA9F267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NETunnelProviderProtocol+Extension.swift"; sourceTree = "<group>"; };
 		7504EAA9267B983800023D42 /* ConfigurationParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParseError.swift; sourceTree = "<group>"; };
 		7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NEVPNStatus+Ext.swift"; sourceTree = "<group>"; };
+		751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsRowViewModel.swift; sourceTree = "<group>"; };
+		751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsModel.swift; sourceTree = "<group>"; };
 		752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletErros+Ext.swift"; sourceTree = "<group>"; };
 		752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Ext.swift"; sourceTree = "<group>"; };
 		752FCFF326F3286B001EA78D /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
@@ -243,8 +250,7 @@
 		7554E2BA26D4B810001355F7 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
-		7554E2C326D4BB03001355F7 /* AccountInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRowView.swift; sourceTree = "<group>"; };
-		7554E2C526D4BB09001355F7 /* AccountInfoRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRowViewModel.swift; sourceTree = "<group>"; };
+		7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsRowView.swift; sourceTree = "<group>"; };
 		75568D7126E5C62100166E5F /* ConnectionModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModelError.swift; sourceTree = "<group>"; };
 		755A4F2326C581F10057704C /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		755F5EE2270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Ext.swift"; sourceTree = "<group>"; };
@@ -281,6 +287,10 @@
 		758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationCoordinator.swift; sourceTree = "<group>"; };
 		758DD9E1270B72D2000CD59B /* AccountCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationView.swift; sourceTree = "<group>"; };
 		759DE5B82715754800DC7757 /* ExtraRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraRowViewType.swift; sourceTree = "<group>"; };
+		759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsCoordinator.swift; sourceTree = "<group>"; };
+		759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsViewModel.swift; sourceTree = "<group>"; };
+		759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsView.swift; sourceTree = "<group>"; };
+		759DE5C327158B1E00DC7757 /* DNSServerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSServerType.swift; sourceTree = "<group>"; };
 		75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlan.swift; sourceTree = "<group>"; };
 		75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Styles.swift"; sourceTree = "<group>"; };
 		75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
@@ -767,6 +777,10 @@
 			isa = PBXGroup;
 			children = (
 				75BF4A412715723200DBC427 /* Subviews */,
+				759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */,
+				751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */,
+				759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */,
+				759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */,
 			);
 			path = DNSSettings;
 			sourceTree = "<group>";
@@ -774,8 +788,9 @@
 		75BF4A412715723200DBC427 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				7554E2C526D4BB09001355F7 /* AccountInfoRowViewModel.swift */,
-				7554E2C326D4BB03001355F7 /* AccountInfoRowView.swift */,
+				759DE5C327158B1E00DC7757 /* DNSServerType.swift */,
+				7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */,
+				751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -889,10 +904,10 @@
 		C64B495426B8B3F70004A692 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				75BF4A402715721800DBC427 /* DNSSettings */,
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				C64B495526B8B3F70004A692 /* Connection */,
+				75BF4A402715721800DBC427 /* DNSSettings */,
 				C64ED2F326C50CAE00222CA4 /* Home */,
 				93FA0685270B340A0006A765 /* NodeDetails */,
 				75D6563326C4CEB8000056B4 /* Onboarding */,
@@ -1143,6 +1158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751AD5F42715A33A004F5717 /* DNSSettingsRowViewModel.swift in Sources */,
 				9378543F270ECA400004483C /* FramedButton.swift in Sources */,
 				7504EA6A267B4DD600023D42 /* ModulesFactory.swift in Sources */,
 				7504EA8C267B71C800023D42 /* TunnelChanges.swift in Sources */,
@@ -1170,7 +1186,6 @@
 				C64B495C26B8B3F70004A692 /* ConnectionView.swift in Sources */,
 				75D6560826BBF436000056B4 /* Context.swift in Sources */,
 				758DD9E4270B72D2000CD59B /* AccountCreationViewModel.swift in Sources */,
-				7554E2C626D4BB09001355F7 /* AccountInfoRowViewModel.swift in Sources */,
 				75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */,
 				93FA0692270B4C690006A765 /* NodeInfoViewModel.swift in Sources */,
 				75D6564526C5493F000056B4 /* DVPNNodeInfo+Ext.swift in Sources */,
@@ -1186,6 +1201,7 @@
 				93FA068D270B34530006A765 /* NodeDetailsViewModel.swift in Sources */,
 				C64ED32C26C57FE900222CA4 /* PlansView.swift in Sources */,
 				93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */,
+				759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */,
 				7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */,
 				75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */,
 				753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */,
@@ -1198,6 +1214,7 @@
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
 				75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */,
+				751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */,
 				93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */,
 				75B0D56326CD2717009ECAFC /* SettingsStorageStrategyType.swift in Sources */,
 				7554E2BB26D4B810001355F7 /* AccountInfoView.swift in Sources */,
@@ -1216,6 +1233,7 @@
 				7504EA4B267A37FB00023D42 /* TunnelModel.swift in Sources */,
 				9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */,
 				753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */,
+				759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */,
 				75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */,
 				7504EA56267B408D00023D42 /* Config.swift in Sources */,
 				C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */,
@@ -1231,15 +1249,17 @@
 				758B261226AFEC4A00BD711E /* RouterType.swift in Sources */,
 				7504EA92267B822A00023D42 /* TunnelContainer.swift in Sources */,
 				7504EA8F267B7BB200023D42 /* TunnelSavingError.swift in Sources */,
+				759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */,
 				7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */,
 				758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */,
 				93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */,
 				752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */,
 				93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */,
-				7554E2C426D4BB03001355F7 /* AccountInfoRowView.swift in Sources */,
+				7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */,
 				75E5BDF926DCCF4B00C345B9 /* OnboardingStepView.swift in Sources */,
 				9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */,
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,
+				759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */,
 				C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */,
 				755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */,
 				7504EA4D267A390A00023D42 /* Keychain.swift in Sources */,

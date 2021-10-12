@@ -66,8 +66,8 @@ extension HomeCoordinator: RouterType {
             }
         case let .title(title):
             rootController?.title = title
-        case .dns:
-            #warning("TODO implement DNS server selection")
+        case let .dns(delegate, servers):
+            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, servers: servers, for: navigation)
         }
     }
 }

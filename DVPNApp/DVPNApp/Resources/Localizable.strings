@@ -106,3 +106,9 @@
 "WalletService.Error.NotEnoughTokens" = "Not enough tokens to broadcast. Please, check your balance and try again later";
 "WalletService.Error.MnemonicsDoNotMatch" = "Misconfigured wallet: mnemonic mismatch. Please, try again or re-import your mnemonic";
 "WalletService.Error.SavingError" = "Couldn't save wallet. Please, try again.";
+
+"DNS.Title" = "Default DNS Server";
+"DNS.Handshake" = "Handshake";
+"DNS.Cloudflare" = "Cloudflare";
+"DNS.Google" = "Google";
+"DNS.Freenom" = "Freenom";
