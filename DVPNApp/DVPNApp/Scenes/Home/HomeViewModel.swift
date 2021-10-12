@@ -49,6 +49,7 @@ final class HomeViewModel: ObservableObject {
         case accountInfo
         case sentinel
         case title(String)
+        case dns
     }
 
     enum PageType {
@@ -78,6 +79,7 @@ final class HomeViewModel: ObservableObject {
 
     @Published var currentPage: PageType = .selector
     @Published var selectedTab: NodeType = .subscribed
+    @Published var servers: String = "Freenom"
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
@@ -160,6 +162,11 @@ final class HomeViewModel: ObservableObject {
     func openMore() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .sentinel)
+    }
+
+    func openDNSServersSelection() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .dns)
     }
 }
 

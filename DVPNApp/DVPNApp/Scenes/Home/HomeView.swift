@@ -11,7 +11,11 @@ struct HomeView: View {
 
     var body: some View {
         TabView(selection: $viewModel.currentPage) {
-            ExtraView(openMore: viewModel.openMore)
+            ExtraView(
+                openServers: viewModel.openDNSServersSelection,
+                openMore: viewModel.openMore,
+                servers: $viewModel.servers
+            )
                 .rotationEffect(.degrees(-180))
                 .tag(HomeViewModel.PageType.extra)
 
@@ -21,7 +25,7 @@ struct HomeView: View {
         }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
-            .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
+            .background(Asset.Colors.accentColor.color.asColor)
             .rotationEffect(.degrees(-180))
             .edgesIgnoringSafeArea(.bottom)
             .onAppear(perform: viewModel.viewWillAppear)
@@ -35,9 +39,9 @@ extension HomeView {
 
         let controlAppearance = UISegmentedControl.appearance()
 
-        controlAppearance.selectedSegmentTintColor = Asset.Colors.Redesign.backgroundColor.color
+        controlAppearance.selectedSegmentTintColor = Asset.Colors.accentColor.color
         controlAppearance.setTitleTextAttributes(
-            [.foregroundColor: Asset.Colors.Redesign.navyBlue.color],
+            [.foregroundColor: Asset.Colors.navyBlue.color],
             for: .selected
         )
         controlAppearance.setTitleTextAttributes(

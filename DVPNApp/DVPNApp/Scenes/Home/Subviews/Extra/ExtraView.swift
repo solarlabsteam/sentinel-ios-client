@@ -9,78 +9,67 @@ import SwiftUI
 
 struct ExtraView: View {
     private let openMore: () -> Void
+    private let openServers: () -> Void
+    @Binding private var servers: String
 
-    init(openMore: @escaping () -> Void) {
+    init(
+        openServers: @escaping () -> Void,
+        openMore: @escaping () -> Void,
+        servers: Binding<String>
+    ) {
         self.openMore = openMore
+        self.openServers = openServers
+        self._servers = servers
     }
 
     var body: some View {
-        VStack(spacing: 9) {
-            Spacer()
-            Image(uiImage: Asset.LocationSelector.globe.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+        VStack(spacing: 0) {
+            VStack {
+                ExtraRowView(type: .dns(servers), action: openServers)
+                        .listRowBackground(Color.clear)
+                        .padding()
 
-            Text(L10n.Home.Extra.text)
-                .applyTextStyle(.whitePoppins(ofSize: 17, weight: .bold))
-                .padding([.horizontal, .top])
-                .multilineTextAlignment(.center)
+                Divider()
+                    .foregroundColor(Asset.Colors.navyBlue.color.asColor)
+                    .padding(.horizontal)
 
-            Text(L10n.Home.Extra.subtitle)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 14))
-                .padding(.horizontal)
-                .multilineTextAlignment(.center)
+                ExtraRowView(type: .more, action: openMore)
+                        .listRowBackground(Color.clear)
+                        .padding()
 
-            Spacer()
-
-            Button(action: openMore) {
-                HStack {
-                    Spacer()
-                    Text(L10n.Home.Extra.Button.more.uppercased())
-                        .applyTextStyle(.mainButton)
-
-                    Spacer()
-                }
+                Divider()
+                    .foregroundColor(Asset.Colors.navyBlue.color.asColor)
+                    .padding(.horizontal)
             }
-            .padding()
-            .background(Asset.Colors.Redesign.navyBlue.color.asColor)
-            .cornerRadius(25)
-            .padding(.horizontal, 40)
 
             Spacer()
 
             HStack {
-                HStack(spacing: 0) {
-                    Text(L10n.Home.Extra.build)
-                        .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
-                        .padding(.horizontal)
-
-                    Image(uiImage: Asset.Icons.exidio.image)
-                        .resizable()
-                        .frame(width: 25, height: 25)
-
-                    Text("EXIDIO")
-                        .applyTextStyle(.whitePoppins(ofSize: 14, weight: .bold))
-                        .padding(.horizontal, 5)
-                }
-                .padding()
+                Text(L10n.Home.Extra.build)
+                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .bold))
 
                 Spacer()
 
-
                 Text("V\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1")")
                     .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
-                    .padding(.horizontal)
-                    .padding()
             }
-            .padding(.bottom)
-            .background(Asset.Colors.Redesign.prussianBlue.color.asColor)
+            .padding(.horizontal)
+            .padding(.bottom, 5)
+
+            HStack {
+                Image(uiImage: Asset.Logo.cosmos.image)
+                Spacer()
+                Image(uiImage: Asset.Logo.exidio.image)
+            }
+            .padding()
+            .padding(.bottom, 10)
+            .background(Asset.Colors.prussianBlue.color.asColor)
         }
     }
 }
 
 struct ExtraView_Previews: PreviewProvider {
     static var previews: some View {
-        ExtraView(openMore: {})
+        ExtraView(openServers: {}, openMore: {}, servers: .constant("Freenom"))
     }
 }

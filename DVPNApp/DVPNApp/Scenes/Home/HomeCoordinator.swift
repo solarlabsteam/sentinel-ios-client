@@ -66,6 +66,8 @@ extension HomeCoordinator: RouterType {
             }
         case let .title(title):
             rootController?.title = title
+        case .dns:
+            #warning("TODO implement DNS server selection")
         }
     }
 }

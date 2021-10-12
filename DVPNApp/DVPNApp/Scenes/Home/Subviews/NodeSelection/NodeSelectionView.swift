@@ -46,7 +46,6 @@ struct NodeSelectionView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-                .listRowBackground(Color.green)
             }
 
             ActivityIndicator(
@@ -87,7 +86,6 @@ struct NodeSelectionView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-                .listRowBackground(Color.green)
             }
 
             ActivityIndicator(
