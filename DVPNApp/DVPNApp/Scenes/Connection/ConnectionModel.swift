@@ -21,14 +21,17 @@ enum ConnectionModelEvent {
     case updateLocation(countryName: String, moniker: String)
     case updateSubscription(initialBandwidth: String, bandwidthConsumed: String)
     case updateBandwidth(bandwidth: Bandwidth)
-
+    case updateDuration(durationInSeconds: Int64)
+    
+    /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
-    case openNodes
+    case nodeIsNotAvailable
 }
 
 final class ConnectionModel {
     typealias Context = HasSentinelService & HasWalletService & HasStorage & HasTunnelManager
         & HasNetworkService
+    
     private let context: Context
 
     private var isTunnelActive: Bool {
@@ -48,73 +51,54 @@ final class ConnectionModel {
 
         fetchWalletInfo()
     }
+}
 
+extension ConnectionModel {
+    /// Refreshes subscriptions. Should be called each time when the app leaves the background state.
     func refreshNodeState() {
         guard subscription != nil else {
             return
         }
         refreshSubscriptions()
     }
-
-    #warning("TODO @Tori")
-    // this one is called on screen opening after node selection and it will always reset sessionId even is node was not changged
-    // flow need to be reworked, shouldConnect need to only toggle the connection
-
+    
+    /// Should be called each time when the view appears
     func checkNodeForUpdate() {
-        guard let address = context.storage.lastSelectedNode(),
-              address != subscription?.node || context.storage.shouldConnect() else {
+        guard let address = context.storage.lastSelectedNode(), context.storage.shouldConnect() else {
             return
         }
-
-        context.storage.set(sessionId: nil)
+        
         context.storage.set(shouldConnect: false)
 
         eventSubject.send(.setButton(isLoading: true))
 
         context.sentinelService.queryNodeStatus(address: address, timeout: constants.timeout) { [weak self] response in
+            guard let self = self else { return }
+            
             switch response {
             case .failure(let error):
-                self?.show(error: error)
+                self.show(error: error)
             case .success(let node):
-                self?.change(to: node.info)
+                guard node.info.address != self.subscription?.node else { return }
+                self.eventSubject.send(.setButton(isLoading: true))
+                self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
+                self.context.storage.set(lastSelectedNode: node.info.address)
             }
         }
     }
-
-    #warning("TODO @Tori")
-    // this one should now be called on screen opening and is context.storage.shouldConnect() is set
-    // it now mean we need to connect to the node
-
-    func change(to node: DVPNNodeInfo) {
-        guard node.address != subscription?.node else { return }
-        context.storage.set(sessionId: nil)
-        eventSubject.send(.setButton(isLoading: true))
-        loadSubscriptions(selectedAddress: node.address, reconnect: true)
-        context.storage.set(lastSelectedNode: node.address)
-    }
-
+    
+    /// Should be called each time when we turn toggle to "on" state
     func connect() {
         guard let subscription = subscription else {
-            eventSubject.send(.openNodes)
+            eventSubject.send(.nodeIsNotAvailable)
             return
         }
         eventSubject.send(.setButton(isLoading: true))
-        detectConnection(considerStatus: false) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                log.error(error)
-                self.connect(to: subscription)
-            case .success(let isConnected):
-                guard isConnected, let tunnel = self.context.tunnelManager.lastTunnel else {
-                    self.connect(to: subscription)
-                    return
-                }
-                self.context.tunnelManager.startActivation(of: tunnel)
-            }
-        }
+        
+        detectConnectionAndHandle(considerStatus: false, reconnect: true, subscription: subscription)
     }
-
+    
+    /// Should be called each time when we turn toggle to "off" state
     func disconnect() {
         guard let tunnel = context.tunnelManager.lastTunnel, tunnel.status != .disconnected else {
             fetchIP()
@@ -124,12 +108,9 @@ final class ConnectionModel {
         eventSubject.send(.setButton(isLoading: true))
         context.tunnelManager.startDeactivation(of: tunnel)
     }
-
-    func update(server: String) {
-        context.storage.set(dns: server)
-        context.tunnelManager.update(with: server)
-    }
 }
+
+// MARK: - Subscriprion
 
 extension ConnectionModel {
     private func refreshSubscriptions() {
@@ -168,21 +149,8 @@ extension ConnectionModel {
             }
             return
         }
-
-        detectConnection { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                self.show(error: error)
-            case .success(let isConnected):
-                guard reconnect else {
-                    self.update(subscriptionInfo: subscription, status: .init(from: isConnected))
-                    return
-                }
-                self.connect(to: subscription)
-                self.updateLocation(address: subscription.node, id: subscription.id)
-            }
-        }
+        
+        detectConnectionAndHandle(reconnect: reconnect, subscription: subscription)
     }
 
     private func update(subscriptionInfo: SentinelWallet.Subscription, status: ConnectionStatus) {
@@ -300,43 +268,81 @@ extension ConnectionModel {
             }
         }
     }
-
-    private func detectConnection(considerStatus: Bool = true, completion: @escaping (Result<Bool, Error>) -> Void) {
-        eventSubject.send(.updateConnection(status: .sessionStatus))
-
-        guard let tunnel = context.tunnelManager.lastTunnel, let id = context.storage.lastSessionId() else {
-            completion(.success(false))
-            return
-        }
-
-        if considerStatus {
-            guard tunnel.status == .connected || tunnel.status == .connecting else {
-                completion(.success(false))
-                return
+    
+    private func detectConnectionAndHandle(
+        considerStatus: Bool = true,
+        reconnect: Bool,
+        subscription: SentinelWallet.Subscription
+    ) {
+        detectConnection { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let error):
+                log.error(error)
+                if reconnect {
+                    self.connect(to: subscription)
+                }
+                
+            case let .success((isTunnelActive, isSessionActive)):
+                switch (isTunnelActive, isSessionActive) {
+                case (true, true):
+                    self.update(subscriptionInfo: subscription, status: .connected)
+                case (false, true):
+                    if let tunnel = self.context.tunnelManager.lastTunnel {
+                        self.context.tunnelManager.startActivation(of: tunnel)
+                        self.update(subscriptionInfo: subscription, status: .connected)
+                    }
+                case (true, false), (false, false):
+                    self.connect(to: subscription)
+                    self.updateLocation(address: subscription.node, id: subscription.id)
+                }
             }
         }
+    }
+    
+    /// Checks if tunnel and session are active
+    private func detectConnection(
+        considerStatus: Bool = true,
+        completion: @escaping (Result<(Bool, Bool), Error>) -> Void
+    ) {
+        eventSubject.send(.updateConnection(status: .sessionStatus))
         
-        context.sentinelService.loadActiveSession { result in
+        var isTunnelActive: Bool
+
+        if let tunnel = context.tunnelManager.lastTunnel {
+            isTunnelActive = true
+            
+            if considerStatus {
+                isTunnelActive = tunnel.status == .connected || tunnel.status == .connecting
+            }
+        } else {
+            isTunnelActive = false
+        }
+        
+        context.sentinelService.loadActiveSession { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .failure(let error):
                 completion(.failure(error))
 
             case .success(let session):
-                // TODO: @tori Fix duration - it's always zero for now
-                print("session: ", session.id, "duration: ", session.durationInSeconds)
+                self.eventSubject.send(.updateDuration(durationInSeconds: session.durationInSeconds))
                 
-                guard session.id == id else {
-                    completion(.success(false))
+                guard let id = self.context.storage.lastSessionId(),
+                        session.id == id else {
+                    completion(.success((isTunnelActive, false)))
                     return
                 }
 
-                completion(.success(true))
+                completion(.success((isTunnelActive, true)))
             }
         }
     }
 }
 
-// MARK: - Private
+// MARK: - Events
 
 extension ConnectionModel {
     private func stopLoading() {
@@ -353,7 +359,11 @@ extension ConnectionModel {
             eventSubject.send(.update(isTunelActive: isTunnelActive))
         }
     }
+}
 
+// MARK: - Network and Wallet work
+
+extension ConnectionModel {
     private func fetchConnectionData(remoteURLString: String, id: UInt64) {
         eventSubject.send(.updateConnection(status: .keysExchange))
 
@@ -386,6 +396,26 @@ extension ConnectionModel {
         }
     }
 
+    private func updateIP() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.fetchIP(stopLoading: true)
+        }
+    }
+
+    private func fetchIP(stopLoading: Bool = false) {
+        context.networkService.fetchIP() { [weak self] ipAddress in
+            guard let self = self else { return }
+
+            self.eventSubject.send(.update(isTunelActive: self.isTunnelActive))
+
+            if stopLoading {
+                self.stopLoading()
+            }
+        }
+    }
+    
+    // MARK: - Wallet
+    
     private func fetchWalletInfo() {
         context.walletService.fetchAuthorization { [weak self] error in
             if let error = error {
@@ -402,24 +432,6 @@ extension ConnectionModel {
                 log.debug(info)
             case .failure(let error):
                 self?.show(error: error)
-            }
-        }
-    }
-
-    private func updateIP() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.fetchIP(stopLoading: true)
-        }
-    }
-
-    private func fetchIP(stopLoading: Bool = false) {
-        context.networkService.fetchIP() { [weak self] ipAddress in
-            guard let self = self else { return }
-
-            self.eventSubject.send(.update(isTunelActive: self.isTunnelActive))
-
-            if stopLoading {
-                self.stopLoading()
             }
         }
     }

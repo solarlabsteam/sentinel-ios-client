@@ -45,3 +45,12 @@ extension Int {
         return 1 - raw
     }
 }
+
+extension Int64 {
+    func secondsAsString(with style: DateComponentsFormatter.UnitsStyle = .abbreviated) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = style
+        return formatter.string(from: Double(self)) ?? ""
+    }
+}

@@ -48,12 +48,12 @@ extension ConnectionCoordinator: RouterType {
             show(message: error.localizedDescription)
         case .warning(let error):
             show(message: error.localizedDescription, theme: .warning)
-        case .subscribe(let node):
-            ModulesFactory.shared.makePlansModule(node: node, for: navigation)
         case let .openPlans(node):
             ModulesFactory.shared.makePlansModule(node: node, for: navigation)
         case .accountInfo:
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
+        case .nodeIsNotAvailable:
+            show(message: "The node is not available for this moment", theme: .warning)
         }
     }
 }
