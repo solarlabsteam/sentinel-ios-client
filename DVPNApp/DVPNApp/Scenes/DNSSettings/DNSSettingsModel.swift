@@ -13,7 +13,7 @@ import SentinelWallet
 enum DNSSettingsModelEvent { }
 
 final class DNSSettingsModel {
-    typealias Context = HasStorage
+    typealias Context = HasDNSServersStorage
     private let context: Context
 
     private let eventSubject = PassthroughSubject<DNSSettingsModelEvent, Never>()
@@ -26,6 +26,6 @@ final class DNSSettingsModel {
     }
 
     func save(servers: [DNSServerType]) {
-        context.storage.set(dns: servers)
+        context.dnsServersStorage.set(dns: servers)
     }
 }

@@ -50,8 +50,37 @@ final class CommonContext {
 
 extension CommonContext: NoContext {}
 
-protocol HasStorage { var storage: CommonContext.Storage { get } }
-extension CommonContext: HasStorage {}
+// MARK: - Storages
+
+protocol HasConnectionInfoStorage { var connectionInfoStorage: StoresConnectInfo { get } }
+extension CommonContext: HasConnectionInfoStorage {
+    var connectionInfoStorage: StoresConnectInfo {
+        storage as StoresConnectInfo
+    }
+}
+
+protocol HasGeneralInfoStorage { var generalInfoStorage: StoresGeneralInfo { get } }
+extension CommonContext: HasGeneralInfoStorage {
+    var generalInfoStorage: StoresGeneralInfo {
+        storage as StoresGeneralInfo
+    }
+}
+
+protocol HasWalletStorage { var walletStorage: StoresWallet { get } }
+extension CommonContext: HasWalletStorage {
+    var walletStorage: StoresWallet {
+        storage as StoresWallet
+    }
+}
+
+protocol HasDNSServersStorage { var dnsServersStorage: StoresDNSServers { get } }
+extension CommonContext: HasDNSServersStorage {
+    var dnsServersStorage: StoresDNSServers {
+        storage as StoresDNSServers
+    }
+}
+
+// MARK: - Services
 
 protocol HasWalletService { var walletService: WalletService { get } }
 extension CommonContext: HasWalletService {}
@@ -67,10 +96,3 @@ extension CommonContext: HasTunnelManager {}
 
 protocol HasNetworkService { var networkService: NetworkServiceType { get } }
 extension CommonContext: HasNetworkService {}
-
-typealias CommonContextProtocol = NoContext
-    & HasStorage
-    & HasWalletService
-    & HasSentinelService
-    & HasTunnelManager
-    & HasNetworkService

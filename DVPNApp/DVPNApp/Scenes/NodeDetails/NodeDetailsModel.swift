@@ -14,7 +14,7 @@ enum NodeDetailsModelEvent {
 }
 
 final class NodeDetailsModel {
-    typealias Context = HasStorage
+    typealias Context = HasConnectionInfoStorage
     private let context: Context
 
     private let eventSubject = PassthroughSubject<NodeDetailsModelEvent, Never>()
@@ -38,7 +38,7 @@ extension NodeDetailsModel {
     }
     
     func save(nodeAddress: String) {
-        context.storage.set(lastSelectedNode: nodeAddress)
-        context.storage.set(shouldConnect: true)
+        context.connectionInfoStorage.set(lastSelectedNode: nodeAddress)
+        context.connectionInfoStorage.set(shouldConnect: true)
     }
 }
