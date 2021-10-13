@@ -101,7 +101,7 @@ extension ConnectionModel {
     /// Should be called each time when we turn toggle to "off" state
     func disconnect() {
         guard let tunnel = context.tunnelManager.lastTunnel, tunnel.status != .disconnected else {
-            fetchIP()
+            setTunnelActivity()
             return
         }
 
@@ -144,7 +144,7 @@ extension ConnectionModel {
         guard let subscription = subscription else {
             if context.tunnelManager.startDeactivationOfActiveTunnel() != true {
                 stopLoading()
-                fetchIP()
+                setTunnelActivity()
                 eventSubject.send(.updateLocation(countryName: L10n.Connection.LocationSelector.select, moniker: ""))
             }
             return
@@ -163,7 +163,7 @@ extension ConnectionModel {
                 self.show(error: error)
 
             case .success(let quota):
-                self.update(quota: quota, for: subscriptionInfo)
+                self.update(quota: quota)
                 self.stopLoading()
             }
         }
@@ -180,8 +180,7 @@ extension ConnectionModel {
             case .failure(let error):
                 self.show(error: error)
 
-            case .success(let quota):
-                self.update(quota: quota, for: subscription)
+            case .success:
                 self.eventSubject.send(.updateConnection(status: .nodeStatus))
                 self.context.sentinelService.queryNodeStatus(
                     address: subscription.node,
@@ -198,8 +197,7 @@ extension ConnectionModel {
         }
     }
     
-    // TODO: delete subscription?
-    private func update(quota: Quota, for subscription: SentinelWallet.Subscription) {
+    private func update(quota: Quota) {
         let initialBandwidth = quota.allocated
         let bandwidthConsumed = quota.consumed
         
@@ -210,7 +208,7 @@ extension ConnectionModel {
             )
         )
 
-        fetchIP()
+        setTunnelActivity()
     }
 
     private func updateLocation(address: String, id: UInt64) {
@@ -331,11 +329,13 @@ extension ConnectionModel {
                 self.eventSubject.send(.updateDuration(durationInSeconds: session.durationInSeconds))
                 
                 guard let id = self.context.storage.lastSessionId(),
-                        session.id == id else {
-                    completion(.success((isTunnelActive, false)))
-                    return
-                }
-
+                      session.id == id,
+                      let node = self.context.storage.lastSelectedNode(),
+                      session.node == node else {
+                          completion(.success((isTunnelActive, false)))
+                          return
+                      }
+                
                 completion(.success((isTunnelActive, true)))
             }
         }
@@ -396,21 +396,17 @@ extension ConnectionModel {
         }
     }
 
-    private func updateIP() {
+    private func updateTunnelActivity() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.fetchIP(stopLoading: true)
+            self?.setTunnelActivity(stopLoading: true)
         }
     }
 
-    private func fetchIP(stopLoading: Bool = false) {
-        context.networkService.fetchIP() { [weak self] ipAddress in
-            guard let self = self else { return }
-
-            self.eventSubject.send(.update(isTunelActive: self.isTunnelActive))
-
-            if stopLoading {
-                self.stopLoading()
-            }
+    private func setTunnelActivity(stopLoading: Bool = false) {
+        eventSubject.send(.update(isTunelActive: self.isTunnelActive))
+        
+        if stopLoading {
+            self.stopLoading()
         }
     }
     
@@ -449,7 +445,7 @@ extension ConnectionModel: TunnelManagerDelegate {
     }
 
     func handleTunnelReconnection() {
-        fetchIP(stopLoading: true)
+        setTunnelActivity(stopLoading: true)
     }
     
     func handleTunnelServiceCreation() {
@@ -475,12 +471,12 @@ extension ConnectionModel: TunnelsServiceStatusDelegate {
     func activationSucceeded(for tunnel: TunnelContainer) {
         log.debug("\(tunnel.name) is succesfully activated")
 
-        updateIP()
+        updateTunnelActivity()
     }
 
     func deactivationSucceeded(for tunnel: TunnelContainer) {
         log.debug("\(tunnel.name) is succesfully deactivated")
 
-        updateIP()
+        updateTunnelActivity()
     }
 }

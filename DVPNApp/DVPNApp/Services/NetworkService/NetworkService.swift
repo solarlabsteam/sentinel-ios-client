@@ -9,13 +9,6 @@ import Foundation
 import Alamofire
 import WireGuardKit
 
-private struct Constants {
-    let ipTimeout: TimeInterval = 10
-    let apiCheckURL = "https://api.ipify.org"
-}
-
-private let constants = Constants()
-
 final class NetworkService {}
 
 extension NetworkService: NetworkServiceType {
@@ -70,19 +63,6 @@ extension NetworkService: NetworkServiceType {
                     }
 
                     completion(.success((data, wgKey)))
-                }
-            }
-    }
-    
-    func fetchIP(completion: @escaping (String) -> Void) {
-        AF.request(constants.apiCheckURL) { $0.timeoutInterval = constants.ipTimeout }
-            .responseString { response in
-                switch response.result {
-                case .failure(let error):
-                    log.error(error)
-                    completion(L10n.Connection.Status.Connection.lost)
-                case .success(let ipAddress):
-                    completion(ipAddress)
                 }
             }
     }

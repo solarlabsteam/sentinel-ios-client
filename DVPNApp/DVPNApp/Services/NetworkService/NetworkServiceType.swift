@@ -16,6 +16,4 @@ protocol NetworkServiceType {
         signature: String,
         completion: @escaping (Result<(Data, PrivateKey), Error>) -> Void
     )
-    
-    func fetchIP(completion: @escaping (String) -> Void)
 }
