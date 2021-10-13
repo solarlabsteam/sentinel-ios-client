@@ -22,10 +22,14 @@ private enum Keys: String {
 final class GeneralSettingsStorage {
     private let settingsStorageStrategy: SettingsStorageStrategyType
 
-    init(settingsStorageStrategy: SettingsStorageStrategyType) {
+    init(settingsStorageStrategy: SettingsStorageStrategyType = UserDefaultsStorageStrategy()) {
         self.settingsStorageStrategy = settingsStorageStrategy
     }
+}
 
+// MARK: - StoresGeneralInfo
+
+extension GeneralSettingsStorage: StoresGeneralInfo {
     func set(didPassOnboarding: Bool) {
         settingsStorageStrategy.setObject(didPassOnboarding, forKey: Keys.didPassOnboarding.rawValue)
     }
@@ -33,7 +37,11 @@ final class GeneralSettingsStorage {
     func didPassOnboarding() -> Bool {
         settingsStorageStrategy.object(ofType: Bool.self, forKey: Keys.didPassOnboarding.rawValue) ?? false
     }
+}
 
+// MARK: - StoresConnectInfo
+
+extension GeneralSettingsStorage: StoresConnectInfo {
     func set(shouldConnect: Bool) {
         settingsStorageStrategy.setObject(shouldConnect, forKey: Keys.shouldConnect.rawValue)
     }
@@ -50,14 +58,6 @@ final class GeneralSettingsStorage {
         settingsStorageStrategy.object(ofType: String.self, forKey: Keys.lastSelectedNodeKey.rawValue)
     }
 
-    func set(wallet: String) {
-        settingsStorageStrategy.setObject(wallet, forKey: Keys.walletKey.rawValue)
-    }
-
-    func walletAddress() -> String? {
-        settingsStorageStrategy.object(ofType: String.self, forKey: Keys.walletKey.rawValue)
-    }
-
     func set(sessionId: Int?) {
         settingsStorageStrategy.setObject(sessionId, forKey: Keys.lastSessionKey.rawValue)
     }
@@ -65,7 +65,23 @@ final class GeneralSettingsStorage {
     func lastSessionId() -> Int? {
         settingsStorageStrategy.object(ofType: Int.self, forKey: Keys.lastSessionKey.rawValue)
     }
+}
 
+// MARK: - StoresWallet
+
+extension GeneralSettingsStorage: StoresWallet {
+    func set(wallet: String) {
+        settingsStorageStrategy.setObject(wallet, forKey: Keys.walletKey.rawValue)
+    }
+    
+    func walletAddress() -> String? {
+        settingsStorageStrategy.object(ofType: String.self, forKey: Keys.walletKey.rawValue)
+    }
+}
+
+// MARK: - StoresDNSServers
+
+extension GeneralSettingsStorage: StoresDNSServers {
     func set(dns: [DNSServerType]) {
         settingsStorageStrategy.setObject(dns.map { $0.rawValue }, forKey: Keys.dnsKey.rawValue)
     }

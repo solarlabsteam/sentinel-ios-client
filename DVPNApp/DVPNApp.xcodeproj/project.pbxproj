@@ -147,6 +147,15 @@
 		93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3A270AF19400B9CA4D /* GridView.swift */; };
 		93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */; };
 		93DBF53D27167853006EBC65 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 93DBF53C27167853006EBC65 /* RealmSwift */; };
+		93DBF5412716940A006EBC65 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5402716940A006EBC65 /* RealmStorage.swift */; };
+		93DBF5432716A6B6006EBC65 /* StoresNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5422716A6B6006EBC65 /* StoresNodes.swift */; };
+		93DBF5492716C0B6006EBC65 /* RealmStorage+ProtocolImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */; };
+		93DBF54B2716D121006EBC65 /* StoresDNSServers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF54A2716D121006EBC65 /* StoresDNSServers.swift */; };
+		93DBF54D2716D3B4006EBC65 /* StoresWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF54C2716D3B4006EBC65 /* StoresWallet.swift */; };
+		93DBF54F2716D593006EBC65 /* StoresConnectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF54E2716D593006EBC65 /* StoresConnectInfo.swift */; };
+		93DBF5512716D626006EBC65 /* StoresGeneralInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5502716D626006EBC65 /* StoresGeneralInfo.swift */; };
+		93DBF5542716DBFB006EBC65 /* NodesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5532716DBFB006EBC65 /* NodesService.swift */; };
+		93DBF5562716DC08006EBC65 /* NodesServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5552716DC08006EBC65 /* NodesServiceType.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -331,6 +340,15 @@
 		93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoType.swift; sourceTree = "<group>"; };
 		93C3EC3A270AF19400B9CA4D /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		93DBF5402716940A006EBC65 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		93DBF5422716A6B6006EBC65 /* StoresNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresNodes.swift; sourceTree = "<group>"; };
+		93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmStorage+ProtocolImplementations.swift"; sourceTree = "<group>"; };
+		93DBF54A2716D121006EBC65 /* StoresDNSServers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresDNSServers.swift; sourceTree = "<group>"; };
+		93DBF54C2716D3B4006EBC65 /* StoresWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresWallet.swift; sourceTree = "<group>"; };
+		93DBF54E2716D593006EBC65 /* StoresConnectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresConnectInfo.swift; sourceTree = "<group>"; };
+		93DBF5502716D626006EBC65 /* StoresGeneralInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresGeneralInfo.swift; sourceTree = "<group>"; };
+		93DBF5532716DBFB006EBC65 /* NodesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesService.swift; sourceTree = "<group>"; };
+		93DBF5552716DC08006EBC65 /* NodesServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesServiceType.swift; sourceTree = "<group>"; };
 		93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
@@ -697,6 +715,7 @@
 		755FBF0726AF0F0100E9D408 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				93DBF5522716DBE7006EBC65 /* NodesService */,
 				9312CA662704609B0062AFD3 /* NetworkService */,
 				75B0D56126CD26F6009ECAFC /* Storage */,
 				755FBF0826AF0F1600E9D408 /* SecurityService.swift */,
@@ -768,9 +787,13 @@
 		75B0D56126CD26F6009ECAFC /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				75B0D55F26CD265E009ECAFC /* UserDefaultsStorageStrategy.swift */,
-				75B0D56226CD2717009ECAFC /* SettingsStorageStrategyType.swift */,
-				75B0D56626CD27EC009ECAFC /* GeneralSettingsStorage.swift */,
+				93DBF54E2716D593006EBC65 /* StoresConnectInfo.swift */,
+				93DBF54A2716D121006EBC65 /* StoresDNSServers.swift */,
+				93DBF5502716D626006EBC65 /* StoresGeneralInfo.swift */,
+				93DBF54C2716D3B4006EBC65 /* StoresWallet.swift */,
+				93DBF5422716A6B6006EBC65 /* StoresNodes.swift */,
+				93DBF53E271693B5006EBC65 /* GeneralSettingsStorage */,
+				93DBF53F271693D3006EBC65 /* RealmStorage */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -879,6 +902,34 @@
 				93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */,
 			);
 			path = ConnectionInfo;
+			sourceTree = "<group>";
+		};
+		93DBF53E271693B5006EBC65 /* GeneralSettingsStorage */ = {
+			isa = PBXGroup;
+			children = (
+				75B0D56626CD27EC009ECAFC /* GeneralSettingsStorage.swift */,
+				75B0D55F26CD265E009ECAFC /* UserDefaultsStorageStrategy.swift */,
+				75B0D56226CD2717009ECAFC /* SettingsStorageStrategyType.swift */,
+			);
+			path = GeneralSettingsStorage;
+			sourceTree = "<group>";
+		};
+		93DBF53F271693D3006EBC65 /* RealmStorage */ = {
+			isa = PBXGroup;
+			children = (
+				93DBF5402716940A006EBC65 /* RealmStorage.swift */,
+				93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */,
+			);
+			path = RealmStorage;
+			sourceTree = "<group>";
+		};
+		93DBF5522716DBE7006EBC65 /* NodesService */ = {
+			isa = PBXGroup;
+			children = (
+				93DBF5552716DC08006EBC65 /* NodesServiceType.swift */,
+				93DBF5532716DBFB006EBC65 /* NodesService.swift */,
+			);
+			path = NodesService;
 			sourceTree = "<group>";
 		};
 		93FA0685270B340A0006A765 /* NodeDetails */ = {
@@ -1165,8 +1216,10 @@
 				751AD5F42715A33A004F5717 /* DNSSettingsRowViewModel.swift in Sources */,
 				9378543F270ECA400004483C /* FramedButton.swift in Sources */,
 				7504EA6A267B4DD600023D42 /* ModulesFactory.swift in Sources */,
+				93DBF5542716DBFB006EBC65 /* NodesService.swift in Sources */,
 				7504EA8C267B71C800023D42 /* TunnelChanges.swift in Sources */,
 				757F0B7E26D8D6CE000C0865 /* Connectivity.swift in Sources */,
+				93DBF5432716A6B6006EBC65 /* StoresNodes.swift in Sources */,
 				75B0D55426CB9A85009ECAFC /* SelectedPlan.swift in Sources */,
 				93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */,
 				93FA0690270B4C5E0006A765 /* NodeInfoView.swift in Sources */,
@@ -1200,6 +1253,7 @@
 				7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */,
 				938FBA5E27056A320059469B /* TunnelManagerType.swift in Sources */,
 				7504EAA2267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift in Sources */,
+				93DBF54D2716D3B4006EBC65 /* StoresWallet.swift in Sources */,
 				93C3EC39270ACED500B9CA4D /* ConnectionInfoType.swift in Sources */,
 				9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */,
 				93FA068D270B34530006A765 /* NodeDetailsViewModel.swift in Sources */,
@@ -1214,6 +1268,7 @@
 				75568D7226E5C62100166E5F /* ConnectionModelError.swift in Sources */,
 				75D6563B26C4DBA9000056B4 /* OnboardingModel.swift in Sources */,
 				7504EA54267A3AF800023D42 /* TunnelsService.swift in Sources */,
+				93DBF5492716C0B6006EBC65 /* RealmStorage+ProtocolImplementations.swift in Sources */,
 				93C3EC35270ACD6700B9CA4D /* ConnectionInfoView.swift in Sources */,
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
@@ -1227,6 +1282,7 @@
 				75D6563726C4DB99000056B4 /* OnboardingViewModel.swift in Sources */,
 				755F5F0B270DB5B200D416ED /* Fonts.swift in Sources */,
 				7504EA85267B70F700023D42 /* TunnelInterfaceModel.swift in Sources */,
+				93DBF5412716940A006EBC65 /* RealmStorage.swift in Sources */,
 				7504EA76267B570A00023D42 /* TunnelsServiceStatusDelegate.swift in Sources */,
 				7554E2BD26D4B817001355F7 /* AccountInfoViewModel.swift in Sources */,
 				939FA140270C3D960013ED75 /* CounterView.swift in Sources */,
@@ -1238,6 +1294,7 @@
 				9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */,
 				753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */,
 				759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */,
+				93DBF54B2716D121006EBC65 /* StoresDNSServers.swift in Sources */,
 				75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */,
 				7504EA56267B408D00023D42 /* Config.swift in Sources */,
 				C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */,
@@ -1245,6 +1302,8 @@
 				9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */,
 				93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */,
 				75B0D56526CD2753009ECAFC /* Serializer.swift in Sources */,
+				93DBF54F2716D593006EBC65 /* StoresConnectInfo.swift in Sources */,
+				93DBF5562716DC08006EBC65 /* NodesServiceType.swift in Sources */,
 				93A6C0B8270A97B0009F1029 /* CountryTileViewModel.swift in Sources */,
 				93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */,
 				7504EA4F267A391000023D42 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
@@ -1252,6 +1311,7 @@
 				758DD9E5270B72D2000CD59B /* AccountCreationModel.swift in Sources */,
 				758B261226AFEC4A00BD711E /* RouterType.swift in Sources */,
 				7504EA92267B822A00023D42 /* TunnelContainer.swift in Sources */,
+				93DBF5512716D626006EBC65 /* StoresGeneralInfo.swift in Sources */,
 				7504EA8F267B7BB200023D42 /* TunnelSavingError.swift in Sources */,
 				759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */,
 				7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */,

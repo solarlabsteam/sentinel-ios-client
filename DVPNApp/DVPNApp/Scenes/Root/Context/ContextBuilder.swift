@@ -11,24 +11,33 @@ import SentinelWallet
 /// This class should configure all required services and inject them into a Context
 final class ContextBuilder {
     func buildContext() -> CommonContext {
-        let storage = GeneralSettingsStorage(settingsStorageStrategy: UserDefaultsStorageStrategy())
+        
+        RealmStorage.initialize()
+        guard let realmStorage = RealmStorage() else {
+            fatalError("Failed to create storage")
+        }
+       
+        let generalSettingsStorage = GeneralSettingsStorage()
+        
         let securityService = SecurityService()
-        let walletService = buildWalletService(storage: storage, securityService: securityService)
-        let tunnelManager = TunnelManager(storage: storage)
+        let walletService = buildWalletService(storage: generalSettingsStorage, securityService: securityService)
+        let tunnelManager = TunnelManager(storage: generalSettingsStorage)
         let networkService = NetworkService()
+        let nodesService = NodesService(nodesStorage: realmStorage)
 
         return CommonContext(
-            storage: storage,
+            storage: generalSettingsStorage,
             securityService: securityService,
             walletService: walletService,
             sentinelService: .init(walletService: walletService),
             tunnelManager: tunnelManager,
-            networkService: networkService
+            networkService: networkService,
+            nodesService: nodesService
         )
     }
 
     func buildWalletService(
-        storage: GeneralSettingsStorage,
+        storage: StoresWallet,
         securityService: SecurityService
     ) -> WalletService {
         guard let walletAddress = storage.walletAddress(), !walletAddress.isEmpty else {

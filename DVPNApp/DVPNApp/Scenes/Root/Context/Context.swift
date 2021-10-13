@@ -11,20 +11,24 @@ import SentinelWallet
 protocol NoContext {}
 
 final class CommonContext {
-    let storage: GeneralSettingsStorage
+    typealias Storage = StoresGeneralInfo & StoresConnectInfo & StoresWallet & StoresDNSServers
+    
+    let storage: Storage
     private(set) var walletService: WalletService
     private(set) var sentinelService: SentinelService
     let securityService: SecurityService
     let tunnelManager: TunnelManagerType
     let networkService: NetworkServiceType
+    let nodesService: NodesServiceType
 
     init(
-        storage: GeneralSettingsStorage,
+        storage: Storage,
         securityService: SecurityService,
         walletService: WalletService,
         sentinelService: SentinelService,
         tunnelManager: TunnelManagerType,
-        networkService: NetworkServiceType
+        networkService: NetworkServiceType,
+        nodesService: NodesServiceType
     ) {
         self.storage = storage
         self.securityService = securityService
@@ -32,6 +36,7 @@ final class CommonContext {
         self.sentinelService = sentinelService
         self.tunnelManager = tunnelManager
         self.networkService = networkService
+        self.nodesService = nodesService
     }
 
     func resetWalletContext() {
@@ -45,7 +50,7 @@ final class CommonContext {
 
 extension CommonContext: NoContext {}
 
-protocol HasStorage { var storage: GeneralSettingsStorage { get } }
+protocol HasStorage { var storage: CommonContext.Storage { get } }
 extension CommonContext: HasStorage {}
 
 protocol HasWalletService { var walletService: WalletService { get } }
