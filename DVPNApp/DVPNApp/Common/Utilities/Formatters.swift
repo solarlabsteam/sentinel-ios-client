@@ -69,7 +69,8 @@ extension PriceFormatter {
     
     private static func prettyFormat(amount: Double, denom: String) -> String {
         // For this moment we use dvpn only
-        return PriceFormatter.convertUDVPNtoDVPN(amount: amount) + " " + constants.denomShort.uppercased()
+        let denomString = denom == constants.denomShort ? " " + constants.denomShort.uppercased() : ""
+        return PriceFormatter.convertUDVPNtoDVPN(amount: amount) + denomString
     }
 }
 
