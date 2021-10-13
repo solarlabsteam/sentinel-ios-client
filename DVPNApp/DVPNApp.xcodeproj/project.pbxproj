@@ -146,6 +146,7 @@
 		93C3EC39270ACED500B9CA4D /* ConnectionInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */; };
 		93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3A270AF19400B9CA4D /* GridView.swift */; };
 		93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */; };
+		93DBF53D27167853006EBC65 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 93DBF53C27167853006EBC65 /* RealmSwift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -363,6 +364,7 @@
 				755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */,
 				C680E89C270DE0E90042453D /* SentinelWallet in Frameworks */,
 				7504E9F3267A1AA700023D42 /* NetworkExtension.framework in Frameworks */,
+				93DBF53D27167853006EBC65 /* RealmSwift in Frameworks */,
 				7504EA18267A26C800023D42 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1018,6 +1020,7 @@
 				75D6561C26C358F8000056B4 /* FlagKit */,
 				C64ED33326C5B26800222CA4 /* SwiftMessages */,
 				C680E89B270DE0E90042453D /* SentinelWallet */,
+				93DBF53C27167853006EBC65 /* RealmSwift */,
 			);
 			productName = DVPNApp;
 			productReference = 7504E9C7267A183D00023D42 /* DVPNApp.app */;
@@ -1083,6 +1086,7 @@
 				75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */,
 				C64ED33226C5B26800222CA4 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */,
+				93DBF53B27167853006EBC65 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -1656,6 +1660,14 @@
 				minimumVersion = 2.4.0;
 			};
 		};
+		93DBF53B27167853006EBC65 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
 		C64ED33226C5B26800222CA4 /* XCRemoteSwiftPackageReference "SwiftMessages" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftKickMobile/SwiftMessages.git";
@@ -1709,6 +1721,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */;
 			productName = FlagKit;
+		};
+		93DBF53C27167853006EBC65 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93DBF53B27167853006EBC65 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 		C64ED33326C5B26800222CA4 /* SwiftMessages */ = {
 			isa = XCSwiftPackageProductDependency;
