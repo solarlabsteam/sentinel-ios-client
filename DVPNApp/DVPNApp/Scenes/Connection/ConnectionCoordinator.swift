@@ -54,6 +54,18 @@ extension ConnectionCoordinator: RouterType {
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case .nodeIsNotAvailable:
             show(message: "The node is not available for this moment", theme: .warning)
+        case let .loading(isLoading):
+            setBackNavigationEnability(isLoading: isLoading)
         }
+    }
+}
+
+// MARK: - Private
+
+extension ConnectionCoordinator {
+    private func setBackNavigationEnability(isLoading: Bool) {
+        navigation?.interactivePopGestureRecognizer?.isEnabled = !isLoading
+        navigation?.navigationBar.isUserInteractionEnabled = !isLoading
+        navigation?.navigationBar.tintColor = isLoading ? .gray : .white
     }
 }

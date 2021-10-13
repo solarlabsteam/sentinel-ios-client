@@ -38,6 +38,7 @@ final class ConnectionViewModel: ObservableObject {
         case openPlans(for: DVPNNodeInfo)
         case accountInfo
         case nodeIsNotAvailable
+        case loading(Bool)
     }
     
     private let model: ConnectionModel
@@ -69,6 +70,7 @@ final class ConnectionViewModel: ObservableObject {
                     )
                 case let .setButton(isLoading):
                     self?.updateButton(isLoading: isLoading)
+                    self?.router.play(event: .loading(isLoading))
                 case let .error(error):
                     self?.show(error: error)
                 case let .openPlans(node):
