@@ -164,6 +164,7 @@ extension ConnectionModel {
 
             case .success(let quota):
                 self.update(quota: quota)
+                self.setTunnelActivity()
                 self.stopLoading()
             }
         }
@@ -180,7 +181,8 @@ extension ConnectionModel {
             case .failure(let error):
                 self.show(error: error)
 
-            case .success:
+            case let .success(quota):
+                self.update(quota: quota)
                 self.eventSubject.send(.updateConnection(status: .nodeStatus))
                 self.context.sentinelService.queryNodeStatus(
                     address: subscription.node,
@@ -207,8 +209,6 @@ extension ConnectionModel {
                 bandwidthConsumed: bandwidthConsumed
             )
         )
-
-        setTunnelActivity()
     }
 
     private func updateLocation(address: String, id: UInt64) {
