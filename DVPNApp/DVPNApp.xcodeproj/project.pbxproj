@@ -156,6 +156,9 @@
 		93DBF5512716D626006EBC65 /* StoresGeneralInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5502716D626006EBC65 /* StoresGeneralInfo.swift */; };
 		93DBF5542716DBFB006EBC65 /* NodesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5532716DBFB006EBC65 /* NodesService.swift */; };
 		93DBF5562716DC08006EBC65 /* NodesServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5552716DC08006EBC65 /* NodesServiceType.swift */; };
+		93DBF55A2717C395006EBC65 /* MarkerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5592717C395006EBC65 /* MarkerProtocols.swift */; };
+		93DBF5602717CF80006EBC65 /* AutoRealmObject.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF55F2717CF80006EBC65 /* AutoRealmObject.generated.swift */; };
+		93DBF5622717D302006EBC65 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5612717D302006EBC65 /* Persistable.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -349,6 +352,9 @@
 		93DBF5502716D626006EBC65 /* StoresGeneralInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresGeneralInfo.swift; sourceTree = "<group>"; };
 		93DBF5532716DBFB006EBC65 /* NodesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesService.swift; sourceTree = "<group>"; };
 		93DBF5552716DC08006EBC65 /* NodesServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesServiceType.swift; sourceTree = "<group>"; };
+		93DBF5592717C395006EBC65 /* MarkerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerProtocols.swift; sourceTree = "<group>"; };
+		93DBF55F2717CF80006EBC65 /* AutoRealmObject.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoRealmObject.generated.swift; sourceTree = "<group>"; };
+		93DBF5612717D302006EBC65 /* Persistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
 		93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
@@ -430,6 +436,7 @@
 				7504EA6D267B4E7B00023D42 /* Resources */,
 				C64B495426B8B3F70004A692 /* Scenes */,
 				755FBF0726AF0F0100E9D408 /* Services */,
+				93DBF55C2717CEB0006EBC65 /* Models */,
 				7504EA49267A37E400023D42 /* Tunnel */,
 			);
 			path = DVPNApp;
@@ -605,8 +612,10 @@
 		75359CE326FC7EC100CFEBCD /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				93DBF55B2717C3A2006EBC65 /* MarkerProtocols */,
 				75359CE426FC7EC100CFEBCD /* Strings.swift */,
 				75359CE526FC7EC100CFEBCD /* Assets.swift */,
+				93DBF55F2717CF80006EBC65 /* AutoRealmObject.generated.swift */,
 				755F5F0A270DB5B200D416ED /* Fonts.swift */,
 			);
 			path = Generated;
@@ -917,6 +926,7 @@
 		93DBF53F271693D3006EBC65 /* RealmStorage */ = {
 			isa = PBXGroup;
 			children = (
+				93DBF5612717D302006EBC65 /* Persistable.swift */,
 				93DBF5402716940A006EBC65 /* RealmStorage.swift */,
 				93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */,
 			);
@@ -930,6 +940,21 @@
 				93DBF5532716DBFB006EBC65 /* NodesService.swift */,
 			);
 			path = NodesService;
+			sourceTree = "<group>";
+		};
+		93DBF55B2717C3A2006EBC65 /* MarkerProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				93DBF5592717C395006EBC65 /* MarkerProtocols.swift */,
+			);
+			path = MarkerProtocols;
+			sourceTree = "<group>";
+		};
+		93DBF55C2717CEB0006EBC65 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		93FA0685270B340A0006A765 /* NodeDetails */ = {
@@ -1256,6 +1281,7 @@
 				7504EA73267B554C00023D42 /* NETunnelProviderManager+Ext.swift in Sources */,
 				75D655D926BAAAF4000056B4 /* ConnectionCoordinator.swift in Sources */,
 				7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */,
+				93DBF55A2717C395006EBC65 /* MarkerProtocols.swift in Sources */,
 				C64ED2FB26C50CAE00222CA4 /* HomeViewModel.swift in Sources */,
 				7504EA66267B4D0200023D42 /* CoordinatorType.swift in Sources */,
 				758DD9E3270B72D2000CD59B /* MnemonicLineView.swift in Sources */,
@@ -1282,6 +1308,7 @@
 				759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */,
 				7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */,
 				75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */,
+				93DBF5602717CF80006EBC65 /* AutoRealmObject.generated.swift in Sources */,
 				753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */,
 				755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */,
 				75B0D56026CD265E009ECAFC /* UserDefaultsStorageStrategy.swift in Sources */,
@@ -1290,6 +1317,7 @@
 				7504EA54267A3AF800023D42 /* TunnelsService.swift in Sources */,
 				93DBF5492716C0B6006EBC65 /* RealmStorage+ProtocolImplementations.swift in Sources */,
 				93C3EC35270ACD6700B9CA4D /* ConnectionInfoView.swift in Sources */,
+				93DBF5622717D302006EBC65 /* Persistable.swift in Sources */,
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
 				75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */,

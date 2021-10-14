@@ -36,7 +36,7 @@ public class {{type.name}}Object: Object {
 {% if p.isArray %}
     {% call printArray variableName typeName %}
 {% elif typeName == "Int" or typeName == "Bool" or typeName == "Float" or typeName == "Double" %}
-    let {{variableName}} = RealmOptional<{{typeName}}>()
+    let {{variableName}} = RealmProperty<{{typeName}}?>()
 {% else %}
     {% call printVar variableName typeName p.annotations.defaultValue %}
 {% endif %}
