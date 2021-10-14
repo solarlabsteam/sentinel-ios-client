@@ -26,20 +26,12 @@ final class PlansCoordinator: CoordinatorType {
         let addTokensViewModel = PlansViewModel(model: addTokensModel, router: asRouter())
         let addTokensView = PlansView(viewModel: addTokensViewModel)
         let controller = UIHostingController(rootView: addTokensView)
-        rootController = controller
-        
-        let navigationController: UINavigationController = UINavigationController(rootViewController: controller)
-        navigation?.present(navigationController, animated: true)
-        navigation?.modalPresentationStyle = .overFullScreen
-        
-        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "multiply"),
-            style: .plain,
-            target: addTokensViewModel,
-            action: #selector(addTokensViewModel.didTapCrossButton)
-        )
+        controller.view.backgroundColor = .clear
+        controller.modalPresentationStyle = .overCurrentContext
 
-        controller.makeNavigationBar(hidden: false, animated: false)
+        rootController = controller
+
+        navigation?.present(controller, animated: false)
     }
 }
 

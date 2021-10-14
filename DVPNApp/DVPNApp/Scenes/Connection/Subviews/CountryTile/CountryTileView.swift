@@ -35,7 +35,7 @@ struct CountryTileView: View {
     
     var emptyCountry: some View {
         HStack(alignment: .center) {
-            Text(L10n.Connection.LocationSelector.select)
+            Text(L10n.Connection.LocationSelector.fetching)
                 .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
             
             Spacer()

@@ -163,4 +163,13 @@ extension ModulesFactory {
 
         return view
     }
+
+//    func getPlansScene() -> PlansView {
+//        let coordinator = PlansCoordinator(context: context, navigation: UINavigationController(), node: nil)
+//        let model = PlansModel(context: context, node: nil)
+//        let viewModel = PlansViewModel(model: model, router: coordinator.asRouter())
+//        let view = PlansView(viewModel: viewModel)
+//
+//        return view
+//    }
 }

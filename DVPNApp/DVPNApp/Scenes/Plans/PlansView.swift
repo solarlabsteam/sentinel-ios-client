@@ -51,33 +51,50 @@ struct PlansView: View {
     }
 
     var body: some View {
-        VStack {
-            ScrollView {
+        VStack(spacing: 0) {
+            Spacer()
+
+            Button(action: viewModel.didTapCrossButton) {
+                Image(systemName: "multiply")
+                    .resizable()
+                    .frame(width: 18, height: 18)
+                    .foregroundColor(.white)
+            }
+
+            VStack(spacing: 0) {
                 VStack {
                     Text(L10n.Plans.title)
                         .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
                         .multilineTextAlignment(.center)
-                        .padding(.vertical, 30)
-                        .padding(.horizontal)
-                    
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding()
+
                     bandwidthView
-                        .padding(.bottom, 50)
                 }
                 .padding()
-                
+
                 VStack {
                     CounterView(
-                        text: .constant(viewModel.prettyTokesToSpend),
+                        text: $viewModel.prettyTokesToSpend,
                         togglePlus: viewModel.togglePlus,
                         toggleMinus: viewModel.toggleMinus
                     )
-                    
+
                     mainButton
-                        .padding(.all, 30)
+                        .padding()
                 }
+                .padding()
             }
+            .background(Asset.Colors.accentColor.color.asColor)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 1)
+            )
+            .padding(.all, 28)
+            .padding(.bottom)
         }
-        .background(Asset.Colors.accentColor.color.asColor)
+        .frame(maxWidth: .infinity)
+        .background(Asset.Colors.accentColor.color.asColor.opacity(0.85))
         .edgesIgnoringSafeArea(.bottom)
     }
 }

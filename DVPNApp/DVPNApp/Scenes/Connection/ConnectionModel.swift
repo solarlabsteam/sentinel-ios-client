@@ -16,7 +16,7 @@ enum ConnectionModelEvent {
 
     case setButton(isLoading: Bool)
 
-    case update(isTunelActive: Bool)
+    case update(isTunnelActive: Bool)
     case updateConnection(status: ConnectionStatus)
     case updateLocation(countryName: String, moniker: String)
     case updateSubscription(initialBandwidth: String, bandwidthConsumed: String)
@@ -25,7 +25,6 @@ enum ConnectionModelEvent {
     
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
-    case nodeIsNotAvailable
 }
 
 final class ConnectionModel {
@@ -80,7 +79,6 @@ extension ConnectionModel {
             case .failure(let error):
                 self.show(error: error)
             case .success(let node):
-                guard node.info.address != self.subscription?.node else { return }
                 self.eventSubject.send(.setButton(isLoading: true))
                 self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
                 self.context.connectionInfoStorage.set(lastSelectedNode: node.info.address)
@@ -91,7 +89,7 @@ extension ConnectionModel {
     /// Should be called each time when we turn toggle to "on" state
     func connect() {
         guard let subscription = subscription else {
-            eventSubject.send(.nodeIsNotAvailable)
+            eventSubject.send(.warning(ConnectionModelError.nodeIsOffline))
             return
         }
         eventSubject.send(.setButton(isLoading: true))
@@ -146,7 +144,6 @@ extension ConnectionModel {
             if context.tunnelManager.startDeactivationOfActiveTunnel() != true {
                 stopLoading()
                 setTunnelActivity()
-                eventSubject.send(.updateLocation(countryName: L10n.Connection.LocationSelector.select, moniker: ""))
             }
             return
         }
@@ -354,11 +351,8 @@ extension ConnectionModel {
     private func show(error: Error) {
         log.error(error)
         stopLoading()
+        eventSubject.send(.update(isTunnelActive: isTunnelActive))
         eventSubject.send(.error(error))
-
-        if !Connectivity.isConnectedToInternet() {
-            eventSubject.send(.update(isTunelActive: isTunnelActive))
-        }
     }
 }
 
@@ -404,7 +398,7 @@ extension ConnectionModel {
     }
 
     private func setTunnelActivity(stopLoading: Bool = false) {
-        eventSubject.send(.update(isTunelActive: self.isTunnelActive))
+        eventSubject.send(.update(isTunnelActive: self.isTunnelActive))
         
         if stopLoading {
             self.stopLoading()
