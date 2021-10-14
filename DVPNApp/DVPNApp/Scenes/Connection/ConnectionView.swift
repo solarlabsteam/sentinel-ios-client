@@ -28,7 +28,7 @@ struct ConnectionView: View {
     var bandwidthConsumedView: some View {
         VStack(spacing: 10) {
             VStack(spacing: 4) {
-                Text(viewModel.bandwidthConsumedGB ?? "0")
+                Text(viewModel.bandwidthConsumedGB ?? "-")
                     .applyTextStyle(.whitePoppins(ofSize: 30, weight: .bold))
                 
                 Text(L10n.Common.gb)

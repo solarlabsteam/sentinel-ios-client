@@ -121,10 +121,10 @@ extension ConnectionViewModel {
     
     private func setConnectionInfoViewModels() {
         connectionInfoViewModels = [
-            .init(type: .download, value: downloadSpeed ?? "", symbols: downloadSpeedUnits),
-            .init(type: .upload, value: uploadSpeed ?? "", symbols: uploadSpeedUnits),
-            .init(type: .bandwidth, value: initialBandwidthGB ?? "", symbols: L10n.Common.gb),
-            .init(type: .duration, value: duration ?? "", symbols: "")
+            .init(type: .download, value: downloadSpeed ?? "-", symbols: downloadSpeedUnits ?? "KB/s"),
+            .init(type: .upload, value: uploadSpeed ?? "-", symbols: uploadSpeedUnits ?? "KB/s"),
+            .init(type: .bandwidth, value: initialBandwidthGB ?? "-", symbols: L10n.Common.gb),
+            .init(type: .duration, value: duration ?? "-s", symbols: "")
         ]
     }
 

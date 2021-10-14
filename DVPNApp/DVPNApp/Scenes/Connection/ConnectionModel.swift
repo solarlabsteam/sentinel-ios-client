@@ -145,7 +145,6 @@ extension ConnectionModel {
             if context.tunnelManager.startDeactivationOfActiveTunnel() != true {
                 stopLoading()
                 setTunnelActivity()
-                eventSubject.send(.updateLocation(countryName: L10n.Connection.LocationSelector.select, moniker: ""))
             }
             return
         }
