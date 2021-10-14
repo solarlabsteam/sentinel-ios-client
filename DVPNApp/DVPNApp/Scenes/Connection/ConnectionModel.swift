@@ -350,11 +350,8 @@ extension ConnectionModel {
     private func show(error: Error) {
         log.error(error)
         stopLoading()
+        eventSubject.send(.update(isTunelActive: isTunnelActive))
         eventSubject.send(.error(error))
-
-        if !Connectivity.isConnectedToInternet() {
-            eventSubject.send(.update(isTunelActive: isTunnelActive))
-        }
     }
 }
 
