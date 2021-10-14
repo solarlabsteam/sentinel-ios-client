@@ -45,7 +45,7 @@
 "Connection.InfoType.Bandwidth" = "Bandwidth";
 "Connection.InfoType.Duration" = "Duration";
 "Connection.LocationSelector.Change" = "CHANGE";
-"Connection.LocationSelector.Select" = "Select a country";
+"Connection.LocationSelector.Fetching" = "Fetching the node info";
 "Connection.Info.DataUsed" = "DATA USED";
 "Connection.Error.SignatureGenerationFailed" = "Misconfigured wallet. Please, try again or re-import your mnemonic";
 "Connection.Error.InvalidURL" = "Misconfigured nodes. Please, try again or select another node";

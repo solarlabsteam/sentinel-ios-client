@@ -112,8 +112,8 @@ internal enum L10n {
     internal enum LocationSelector {
       /// CHANGE
       internal static let change = L10n.tr("Localizable", "Connection.LocationSelector.Change")
-      /// Select a country
-      internal static let select = L10n.tr("Localizable", "Connection.LocationSelector.Select")
+      /// Fetching the node info
+      internal static let fetching = L10n.tr("Localizable", "Connection.LocationSelector.Fetching")
     }
     internal enum Status {
       internal enum Connection {

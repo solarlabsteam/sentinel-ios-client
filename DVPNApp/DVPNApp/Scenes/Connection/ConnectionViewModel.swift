@@ -35,15 +35,13 @@ final class ConnectionViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case warning(Error)
-        case subscribe(node: DVPNNodeInfo)
         case openPlans(for: DVPNNodeInfo)
         case accountInfo
+        case dismiss(isEnabled: Bool)
     }
     
     private let model: ConnectionModel
     private var cancellables = Set<AnyCancellable>()
-    
-    private var skipViewWillAppear = true
     
     init(model: ConnectionModel, router: Router) {
         self.model = model
@@ -56,12 +54,14 @@ final class ConnectionViewModel: ObservableObject {
                 case let .updateConnection(status):
                     self?.updateConnection(status: status)
                     log.info("Status was changed to \(status)")
-                case let .update(isTunelActive):
-                    self?.updateConnection(isConnected: isTunelActive)
+                case let .update(isTunnelActive):
+                    self?.updateConnection(isConnected: isTunnelActive)
                 case let .updateLocation(countryName, moniker):
                     self?.updateLocation(countryName: countryName, moniker: moniker)
                 case let .updateBandwidth(bandwidth):
                     self?.updateBandwidth(bandwidth: bandwidth)
+                case let .updateDuration(durationInSeconds):
+                    self?.duration = durationInSeconds.secondsAsString()
                 case let .updateSubscription(initialBandwidth, bandwidthConsumed):
                     self?.updateSubscription(
                         initialBandwidth: initialBandwidth,
@@ -69,16 +69,14 @@ final class ConnectionViewModel: ObservableObject {
                     )
                 case let .setButton(isLoading):
                     self?.updateButton(isLoading: isLoading)
+                    self?.router.play(event: .dismiss(isEnabled: !isLoading))
                 case let .error(error):
                     self?.show(error: error)
                 case let .openPlans(node):
                     router.play(event: .openPlans(for: node))
                 case let .warning(error):
                     router.play(event: .warning(error))
-                case .openNodes:
-                    #warning("TODO handle node selection")
                 }
-                
             }
             .store(in: &cancellables)
         
@@ -120,10 +118,10 @@ extension ConnectionViewModel {
     
     private func setConnectionInfoViewModels() {
         connectionInfoViewModels = [
-            .init(type: .download, value: downloadSpeed ?? "", symbols: downloadSpeedUnits),
-            .init(type: .upload, value: uploadSpeed ?? "", symbols: uploadSpeedUnits),
-            .init(type: .bandwidth, value: initialBandwidthGB ?? "", symbols: L10n.Common.gb),
-            .init(type: .duration, value: duration ?? "-", symbols: "")
+            .init(type: .download, value: downloadSpeed ?? "-", symbols: downloadSpeedUnits ?? "KB/s"),
+            .init(type: .upload, value: uploadSpeed ?? "-", symbols: uploadSpeedUnits ?? "KB/s"),
+            .init(type: .bandwidth, value: initialBandwidthGB ?? "-", symbols: L10n.Common.gb),
+            .init(type: .duration, value: duration ?? "-s", symbols: "")
         ]
     }
 
