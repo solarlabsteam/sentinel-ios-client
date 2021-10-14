@@ -7,18 +7,31 @@
 
 import SwiftUI
 
+/// The union of all layout constants, colors, font sizes etc.
+
+private struct Constants {
+    let navyColor = Asset.Colors.navyBlue.color.asColor
+    let borderColor = Asset.Colors.lightBlue.color.asColor
+}
+
+private let constants = Constants()
+
 struct CounterView: View {
     @Binding var text: String
     var togglePlus: () -> Void
     var toggleMinus: () -> Void
-    
-    private let navyColor = Asset.Colors.navyBlue.color.asColor
-    private let borderColor = Asset.Colors.lightBlue.color.asColor
+
+    init(text: Binding<String>, togglePlus: @escaping () -> Void, toggleMinus: @escaping () -> Void) {
+        self._text = text
+        self.togglePlus = togglePlus
+        self.toggleMinus = toggleMinus
+    }
 
     var icon: some View {
         Image(uiImage: Asset.Tokens.dvpnBlue.image)
+            .resizable()
+            .frame(width: 24, height: 26)
             .aspectRatio(contentMode: .fit)
-            .frame(width: 24, height: 24)
     }
     
     var body: some View {
@@ -39,7 +52,7 @@ struct CounterView: View {
             Spacer()
 
             Rectangle()
-                .fill(borderColor)
+                .fill(constants.borderColor)
                 .frame(width: 1)
                 .edgesIgnoringSafeArea(.horizontal)
 
@@ -49,12 +62,12 @@ struct CounterView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 14)
-                        .foregroundColor(navyColor)
+                        .foregroundColor(constants.navyColor)
                 }
                 .padding(.horizontal, 20)
 
                 Rectangle()
-                    .fill(borderColor)
+                    .fill(constants.borderColor)
                     .frame(height: 1)
                     .edgesIgnoringSafeArea(.horizontal)
 
@@ -63,7 +76,7 @@ struct CounterView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 14)
-                        .foregroundColor(navyColor)
+                        .foregroundColor(constants.navyColor)
                 }
                 .padding(.horizontal, 20)
             }
@@ -71,7 +84,7 @@ struct CounterView: View {
         }
         .overlay(
             RoundedRectangle(cornerRadius: 4)
-                .stroke(borderColor, lineWidth: 1)
+                .stroke(constants.borderColor, lineWidth: 1)
         )
         .fixedSize()
     }

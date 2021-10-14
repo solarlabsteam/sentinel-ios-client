@@ -37,8 +37,8 @@ final class PlansViewModel: ObservableObject {
     private var price: Int = 0
     
     @Published private(set) var selectedLocationName: String
-    @Published private(set) var prettyTokesToSpend: String = "0"
-    
+    @Published var prettyTokesToSpend: String = "0"
+
     @Published private(set) var gbToBuy: Int {
         didSet {
             prettyTokesToSpend = PriceFormatter.fullFormat(amount: tokesToSpend)
@@ -130,7 +130,6 @@ extension PlansViewModel {
         )
     }
     
-    @objc
     func didTapCrossButton() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .close)
