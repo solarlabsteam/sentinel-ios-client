@@ -54,8 +54,8 @@ final class ConnectionViewModel: ObservableObject {
                 case let .updateConnection(status):
                     self?.updateConnection(status: status)
                     log.info("Status was changed to \(status)")
-                case let .update(isTunelActive):
-                    self?.updateConnection(isConnected: isTunelActive)
+                case let .update(isTunnelActive):
+                    self?.updateConnection(isConnected: isTunnelActive)
                 case let .updateLocation(countryName, moniker):
                     self?.updateLocation(countryName: countryName, moniker: moniker)
                 case let .updateBandwidth(bandwidth):

@@ -16,7 +16,7 @@ enum ConnectionModelEvent {
 
     case setButton(isLoading: Bool)
 
-    case update(isTunelActive: Bool)
+    case update(isTunnelActive: Bool)
     case updateConnection(status: ConnectionStatus)
     case updateLocation(countryName: String, moniker: String)
     case updateSubscription(initialBandwidth: String, bandwidthConsumed: String)
@@ -350,7 +350,7 @@ extension ConnectionModel {
     private func show(error: Error) {
         log.error(error)
         stopLoading()
-        eventSubject.send(.update(isTunelActive: isTunnelActive))
+        eventSubject.send(.update(isTunnelActive: isTunnelActive))
         eventSubject.send(.error(error))
     }
 }
@@ -397,7 +397,7 @@ extension ConnectionModel {
     }
 
     private func setTunnelActivity(stopLoading: Bool = false) {
-        eventSubject.send(.update(isTunelActive: self.isTunnelActive))
+        eventSubject.send(.update(isTunnelActive: self.isTunnelActive))
         
         if stopLoading {
             self.stopLoading()
