@@ -16,7 +16,7 @@ struct OnboardingView: View {
     
     init(viewModel: OnboardingViewModel) {
         self.viewModel = viewModel
-        UIPageControl.appearance().currentPageIndicatorTintColor = Asset.Colors.Redesign.navyBlue.color
+        UIPageControl.appearance().currentPageIndicatorTintColor = Asset.Colors.navyBlue.color
         UIPageControl.appearance().pageIndicatorTintColor = Asset.Colors.prussianBlue.color
     }
 
@@ -36,7 +36,7 @@ struct OnboardingView: View {
                 .padding(.horizontal)
         }
         .padding()
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
+        .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
     }
 
@@ -51,7 +51,7 @@ struct OnboardingView: View {
             }
         }
         .padding()
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
+        .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
     }
 

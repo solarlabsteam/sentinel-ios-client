@@ -47,18 +47,23 @@
 		7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		7504EAAB267B983800023D42 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */; };
+		751AD5F42715A33A004F5717 /* DNSSettingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */; };
+		751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */; };
 		752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */; };
 		752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */; };
 		752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF326F3286B001EA78D /* ConnectionStatus.swift */; };
 		75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE426FC7EC100CFEBCD /* Strings.swift */; };
 		75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE526FC7EC100CFEBCD /* Assets.swift */; };
-		75359D2F26FC9D0300CFEBCD /* MainGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359D2E26FC9D0300CFEBCD /* MainGradient.swift */; };
 		75359D3126FCA41600CFEBCD /* UIColor+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359D3026FCA41600CFEBCD /* UIColor+SwiftUI.swift */; };
+		753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF52715633A00DA76F8 /* NodeSelectionView.swift */; };
+		753EDDFE2715633A00DA76F8 /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF72715633A00DA76F8 /* ScaleView.swift */; };
+		753EDDFF2715633A00DA76F8 /* NodeSelectionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF82715633A00DA76F8 /* NodeSelectionRowViewModel.swift */; };
+		753EDE002715633A00DA76F8 /* NodeSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF92715633A00DA76F8 /* NodeSelectionRowView.swift */; };
+		753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDFC2715633A00DA76F8 /* ExtraView.swift */; };
 		7554E2BB26D4B810001355F7 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BA26D4B810001355F7 /* AccountInfoView.swift */; };
 		7554E2BD26D4B817001355F7 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */; };
 		7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */; };
-		7554E2C426D4BB03001355F7 /* AccountInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C326D4BB03001355F7 /* AccountInfoRowView.swift */; };
-		7554E2C626D4BB09001355F7 /* AccountInfoRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C526D4BB09001355F7 /* AccountInfoRowViewModel.swift */; };
+		7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */; };
 		75568D7226E5C62100166E5F /* ConnectionModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75568D7126E5C62100166E5F /* ConnectionModelError.swift */; };
 		755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A4F2326C581F10057704C /* PlansCoordinator.swift */; };
 		755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5EE2270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift */; };
@@ -84,18 +89,22 @@
 		755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F13270DE77800D416ED /* Font+Ext.swift */; };
 		755F5F18270DE78600D416ED /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F16270DE78600D416ED /* TextStyles.swift */; };
 		755F5F19270DE78600D416ED /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F17270DE78600D416ED /* TextStyle.swift */; };
-		755F5F1B270ED78D00D416ED /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F1A270ED78D00D416ED /* ScaleView.swift */; };
 		755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 755FBF0526AF0E6F00E9D408 /* SwiftKeychainWrapper */; };
 		755FBF0926AF0F1600E9D408 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FBF0826AF0F1600E9D408 /* SecurityService.swift */; };
 		757F0B7E26D8D6CE000C0865 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F0B7D26D8D6CE000C0865 /* Connectivity.swift */; };
 		758B261226AFEC4A00BD711E /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B261126AFEC4A00BD711E /* RouterType.swift */; };
-		758DD9CC270A0E73000CD59B /* LocationSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CB270A0E73000CD59B /* LocationSelectionCoordinator.swift */; };
+		758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */; };
 		758DD9CE270A1269000CD59B /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */; };
 		758DD9E3270B72D2000CD59B /* MnemonicLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */; };
 		758DD9E4270B72D2000CD59B /* AccountCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */; };
 		758DD9E5270B72D2000CD59B /* AccountCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */; };
 		758DD9E6270B72D2000CD59B /* AccountCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */; };
 		758DD9E7270B72D2000CD59B /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E1270B72D2000CD59B /* AccountCreationView.swift */; };
+		759DE5B92715754800DC7757 /* ExtraRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5B82715754800DC7757 /* ExtraRowViewType.swift */; };
+		759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */; };
+		759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */; };
+		759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */; };
+		759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5C327158B1E00DC7757 /* DNSServerType.swift */; };
 		75B0D55426CB9A85009ECAFC /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
 		75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */; };
 		75B0D55E26CBB633009ECAFC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */; };
@@ -103,6 +112,7 @@
 		75B0D56326CD2717009ECAFC /* SettingsStorageStrategyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56226CD2717009ECAFC /* SettingsStorageStrategyType.swift */; };
 		75B0D56526CD2753009ECAFC /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56426CD2753009ECAFC /* Serializer.swift */; };
 		75B0D56726CD27EC009ECAFC /* GeneralSettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56626CD27EC009ECAFC /* GeneralSettingsStorage.swift */; };
+		75BF4A422715742300DBC427 /* ExtraRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF4A3E2715701800DBC427 /* ExtraRowView.swift */; };
 		75D655D926BAAAF4000056B4 /* ConnectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D655D826BAAAF4000056B4 /* ConnectionCoordinator.swift */; };
 		75D6560826BBF436000056B4 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6560726BBF436000056B4 /* Context.swift */; };
 		75D6560A26BBF521000056B4 /* ContextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6560926BBF521000056B4 /* ContextBuilder.swift */; };
@@ -148,11 +158,9 @@
 		C64B495C26B8B3F70004A692 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495726B8B3F70004A692 /* ConnectionView.swift */; };
 		C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495926B8B3F70004A692 /* CountryTileView.swift */; };
 		C64B495E26B8B3F70004A692 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495A26B8B3F70004A692 /* ConnectionModel.swift */; };
-		C64ED2FA26C50CAE00222CA4 /* LocationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F426C50CAE00222CA4 /* LocationSelectionView.swift */; };
-		C64ED2FB26C50CAE00222CA4 /* LocationSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F526C50CAE00222CA4 /* LocationSelectionViewModel.swift */; };
-		C64ED2FC26C50CAE00222CA4 /* LocationSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F726C50CAE00222CA4 /* LocationSelectionRowView.swift */; };
-		C64ED2FD26C50CAE00222CA4 /* LocationSelectionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F826C50CAE00222CA4 /* LocationSelectionRowViewModel.swift */; };
-		C64ED2FE26C50CAE00222CA4 /* LocationSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F926C50CAE00222CA4 /* LocationSelectionModel.swift */; };
+		C64ED2FA26C50CAE00222CA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F426C50CAE00222CA4 /* HomeView.swift */; };
+		C64ED2FB26C50CAE00222CA4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F526C50CAE00222CA4 /* HomeViewModel.swift */; };
+		C64ED2FE26C50CAE00222CA4 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F926C50CAE00222CA4 /* HomeModel.swift */; };
 		C64ED32C26C57FE900222CA4 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32426C57FE900222CA4 /* PlansView.swift */; };
 		C64ED32D26C57FE900222CA4 /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
 		C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32B26C57FE900222CA4 /* PlansModel.swift */; };
@@ -226,18 +234,23 @@
 		7504EA9F267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NETunnelProviderProtocol+Extension.swift"; sourceTree = "<group>"; };
 		7504EAA9267B983800023D42 /* ConfigurationParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParseError.swift; sourceTree = "<group>"; };
 		7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NEVPNStatus+Ext.swift"; sourceTree = "<group>"; };
+		751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsRowViewModel.swift; sourceTree = "<group>"; };
+		751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsModel.swift; sourceTree = "<group>"; };
 		752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletErros+Ext.swift"; sourceTree = "<group>"; };
 		752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Ext.swift"; sourceTree = "<group>"; };
 		752FCFF326F3286B001EA78D /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		75359CE426FC7EC100CFEBCD /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		75359CE526FC7EC100CFEBCD /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
-		75359D2E26FC9D0300CFEBCD /* MainGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGradient.swift; sourceTree = "<group>"; };
 		75359D3026FCA41600CFEBCD /* UIColor+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SwiftUI.swift"; sourceTree = "<group>"; };
+		753EDDF52715633A00DA76F8 /* NodeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSelectionView.swift; sourceTree = "<group>"; };
+		753EDDF72715633A00DA76F8 /* ScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleView.swift; sourceTree = "<group>"; };
+		753EDDF82715633A00DA76F8 /* NodeSelectionRowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSelectionRowViewModel.swift; sourceTree = "<group>"; };
+		753EDDF92715633A00DA76F8 /* NodeSelectionRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSelectionRowView.swift; sourceTree = "<group>"; };
+		753EDDFC2715633A00DA76F8 /* ExtraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraView.swift; sourceTree = "<group>"; };
 		7554E2BA26D4B810001355F7 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
-		7554E2C326D4BB03001355F7 /* AccountInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRowView.swift; sourceTree = "<group>"; };
-		7554E2C526D4BB09001355F7 /* AccountInfoRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRowViewModel.swift; sourceTree = "<group>"; };
+		7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsRowView.swift; sourceTree = "<group>"; };
 		75568D7126E5C62100166E5F /* ConnectionModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModelError.swift; sourceTree = "<group>"; };
 		755A4F2326C581F10057704C /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		755F5EE2270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Ext.swift"; sourceTree = "<group>"; };
@@ -263,17 +276,21 @@
 		755F5F13270DE77800D416ED /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		755F5F16270DE78600D416ED /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		755F5F17270DE78600D416ED /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		755F5F1A270ED78D00D416ED /* ScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleView.swift; sourceTree = "<group>"; };
 		755FBF0826AF0F1600E9D408 /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
 		757F0B7D26D8D6CE000C0865 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
-		758DD9CB270A0E73000CD59B /* LocationSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionCoordinator.swift; sourceTree = "<group>"; };
+		758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
 		758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicLineView.swift; sourceTree = "<group>"; };
 		758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationViewModel.swift; sourceTree = "<group>"; };
 		758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationModel.swift; sourceTree = "<group>"; };
 		758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationCoordinator.swift; sourceTree = "<group>"; };
 		758DD9E1270B72D2000CD59B /* AccountCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationView.swift; sourceTree = "<group>"; };
+		759DE5B82715754800DC7757 /* ExtraRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraRowViewType.swift; sourceTree = "<group>"; };
+		759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsCoordinator.swift; sourceTree = "<group>"; };
+		759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsViewModel.swift; sourceTree = "<group>"; };
+		759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsView.swift; sourceTree = "<group>"; };
+		759DE5C327158B1E00DC7757 /* DNSServerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSServerType.swift; sourceTree = "<group>"; };
 		75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlan.swift; sourceTree = "<group>"; };
 		75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Styles.swift"; sourceTree = "<group>"; };
 		75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
@@ -281,6 +298,7 @@
 		75B0D56226CD2717009ECAFC /* SettingsStorageStrategyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorageStrategyType.swift; sourceTree = "<group>"; };
 		75B0D56426CD2753009ECAFC /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
 		75B0D56626CD27EC009ECAFC /* GeneralSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsStorage.swift; sourceTree = "<group>"; };
+		75BF4A3E2715701800DBC427 /* ExtraRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraRowView.swift; sourceTree = "<group>"; };
 		75D655D826BAAAF4000056B4 /* ConnectionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionCoordinator.swift; sourceTree = "<group>"; };
 		75D6560726BBF436000056B4 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		75D6560926BBF521000056B4 /* ContextBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextBuilder.swift; sourceTree = "<group>"; };
@@ -324,11 +342,9 @@
 		C64B495726B8B3F70004A692 /* ConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		C64B495926B8B3F70004A692 /* CountryTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTileView.swift; sourceTree = "<group>"; };
 		C64B495A26B8B3F70004A692 /* ConnectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionModel.swift; sourceTree = "<group>"; };
-		C64ED2F426C50CAE00222CA4 /* LocationSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionView.swift; sourceTree = "<group>"; };
-		C64ED2F526C50CAE00222CA4 /* LocationSelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionViewModel.swift; sourceTree = "<group>"; };
-		C64ED2F726C50CAE00222CA4 /* LocationSelectionRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionRowView.swift; sourceTree = "<group>"; };
-		C64ED2F826C50CAE00222CA4 /* LocationSelectionRowViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionRowViewModel.swift; sourceTree = "<group>"; };
-		C64ED2F926C50CAE00222CA4 /* LocationSelectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionModel.swift; sourceTree = "<group>"; };
+		C64ED2F426C50CAE00222CA4 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C64ED2F526C50CAE00222CA4 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C64ED2F926C50CAE00222CA4 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		C64ED32426C57FE900222CA4 /* PlansView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		C64ED32526C57FE900222CA4 /* PlansViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansViewModel.swift; sourceTree = "<group>"; };
 		C64ED32B26C57FE900222CA4 /* PlansModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansModel.swift; sourceTree = "<group>"; };
@@ -576,6 +592,43 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		753EDDF32715633A00DA76F8 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				753EDDF42715633A00DA76F8 /* NodeSelection */,
+				753EDDFB2715633A00DA76F8 /* Extra */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		753EDDF42715633A00DA76F8 /* NodeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				753EDDF62715633A00DA76F8 /* Row */,
+				753EDDF52715633A00DA76F8 /* NodeSelectionView.swift */,
+			);
+			path = NodeSelection;
+			sourceTree = "<group>";
+		};
+		753EDDF62715633A00DA76F8 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				753EDDF92715633A00DA76F8 /* NodeSelectionRowView.swift */,
+				753EDDF82715633A00DA76F8 /* NodeSelectionRowViewModel.swift */,
+				753EDDF72715633A00DA76F8 /* ScaleView.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		753EDDFB2715633A00DA76F8 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				759DE5B72715753000DC7757 /* Row */,
+				753EDDFC2715633A00DA76F8 /* ExtraView.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
 		7554E2B826D4B7ED001355F7 /* AccountInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,8 +646,6 @@
 			children = (
 				93785440270ECC810004483C /* AccentButton.swift */,
 				9378543E270ECA400004483C /* FramedButton.swift */,
-				7554E2C326D4BB03001355F7 /* AccountInfoRowView.swift */,
-				7554E2C526D4BB09001355F7 /* AccountInfoRowViewModel.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -671,6 +722,15 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		759DE5B72715753000DC7757 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				75BF4A3E2715701800DBC427 /* ExtraRowView.swift */,
+				759DE5B82715754800DC7757 /* ExtraRowViewType.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
 		75B0D55726CBB341009ECAFC /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,6 +773,28 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		75BF4A402715721800DBC427 /* DNSSettings */ = {
+			isa = PBXGroup;
+			children = (
+				75BF4A412715723200DBC427 /* Subviews */,
+				759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */,
+				751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */,
+				759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */,
+				759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */,
+			);
+			path = DNSSettings;
+			sourceTree = "<group>";
+		};
+		75BF4A412715723200DBC427 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				759DE5C327158B1E00DC7757 /* DNSServerType.swift */,
+				7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */,
+				751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		75D6560626BBF42B000056B4 /* Context */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,7 +808,6 @@
 			isa = PBXGroup;
 			children = (
 				75D6560F26BE8817000056B4 /* ActivityIndicator.swift */,
-				75359D2E26FC9D0300CFEBCD /* MainGradient.swift */,
 				93C3EC3A270AF19400B9CA4D /* GridView.swift */,
 			);
 			path = Views;
@@ -824,13 +905,14 @@
 			isa = PBXGroup;
 			children = (
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
+				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				C64B495526B8B3F70004A692 /* Connection */,
-				C64ED2F326C50CAE00222CA4 /* LocationSelection */,
+				75BF4A402715721800DBC427 /* DNSSettings */,
+				C64ED2F326C50CAE00222CA4 /* Home */,
 				93FA0685270B340A0006A765 /* NodeDetails */,
 				75D6563326C4CEB8000056B4 /* Onboarding */,
 				C64ED32326C57FE900222CA4 /* Plans */,
 				7504EA6C267B4E6700023D42 /* Root */,
-				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -858,26 +940,16 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		C64ED2F326C50CAE00222CA4 /* LocationSelection */ = {
+		C64ED2F326C50CAE00222CA4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C64ED2F626C50CAE00222CA4 /* Subviews */,
-				758DD9CB270A0E73000CD59B /* LocationSelectionCoordinator.swift */,
-				C64ED2F926C50CAE00222CA4 /* LocationSelectionModel.swift */,
-				C64ED2F426C50CAE00222CA4 /* LocationSelectionView.swift */,
-				C64ED2F526C50CAE00222CA4 /* LocationSelectionViewModel.swift */,
+				753EDDF32715633A00DA76F8 /* Subviews */,
+				758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */,
+				C64ED2F926C50CAE00222CA4 /* HomeModel.swift */,
+				C64ED2F426C50CAE00222CA4 /* HomeView.swift */,
+				C64ED2F526C50CAE00222CA4 /* HomeViewModel.swift */,
 			);
-			path = LocationSelection;
-			sourceTree = "<group>";
-		};
-		C64ED2F626C50CAE00222CA4 /* Subviews */ = {
-			isa = PBXGroup;
-			children = (
-				C64ED2F726C50CAE00222CA4 /* LocationSelectionRowView.swift */,
-				C64ED2F826C50CAE00222CA4 /* LocationSelectionRowViewModel.swift */,
-				755F5F1A270ED78D00D416ED /* ScaleView.swift */,
-			);
-			path = Subviews;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		C64ED32326C57FE900222CA4 /* Plans */ = {
@@ -1086,11 +1158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751AD5F42715A33A004F5717 /* DNSSettingsRowViewModel.swift in Sources */,
 				9378543F270ECA400004483C /* FramedButton.swift in Sources */,
 				7504EA6A267B4DD600023D42 /* ModulesFactory.swift in Sources */,
 				7504EA8C267B71C800023D42 /* TunnelChanges.swift in Sources */,
 				757F0B7E26D8D6CE000C0865 /* Connectivity.swift in Sources */,
-				755F5F1B270ED78D00D416ED /* ScaleView.swift in Sources */,
 				75B0D55426CB9A85009ECAFC /* SelectedPlan.swift in Sources */,
 				93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */,
 				93FA0690270B4C5E0006A765 /* NodeInfoView.swift in Sources */,
@@ -1100,20 +1172,20 @@
 				C64ED32D26C57FE900222CA4 /* PlansViewModel.swift in Sources */,
 				75E5BDFF26DE16FC00C345B9 /* CheckmarkToggleStyle.swift in Sources */,
 				C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */,
-				C64ED2FE26C50CAE00222CA4 /* LocationSelectionModel.swift in Sources */,
+				C64ED2FE26C50CAE00222CA4 /* HomeModel.swift in Sources */,
 				7504EA79267B5B4600023D42 /* TunnelStatus.swift in Sources */,
 				75E5BE0226DE2FA400C345B9 /* View+Ext.swift in Sources */,
 				758DD9E7270B72D2000CD59B /* AccountCreationView.swift in Sources */,
 				7504EA73267B554C00023D42 /* NETunnelProviderManager+Ext.swift in Sources */,
 				75D655D926BAAAF4000056B4 /* ConnectionCoordinator.swift in Sources */,
 				7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */,
-				C64ED2FB26C50CAE00222CA4 /* LocationSelectionViewModel.swift in Sources */,
+				C64ED2FB26C50CAE00222CA4 /* HomeViewModel.swift in Sources */,
 				7504EA66267B4D0200023D42 /* CoordinatorType.swift in Sources */,
 				758DD9E3270B72D2000CD59B /* MnemonicLineView.swift in Sources */,
+				753EDE002715633A00DA76F8 /* NodeSelectionRowView.swift in Sources */,
 				C64B495C26B8B3F70004A692 /* ConnectionView.swift in Sources */,
 				75D6560826BBF436000056B4 /* Context.swift in Sources */,
 				758DD9E4270B72D2000CD59B /* AccountCreationViewModel.swift in Sources */,
-				7554E2C626D4BB09001355F7 /* AccountInfoRowViewModel.swift in Sources */,
 				75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */,
 				93FA0692270B4C690006A765 /* NodeInfoViewModel.swift in Sources */,
 				75D6564526C5493F000056B4 /* DVPNNodeInfo+Ext.swift in Sources */,
@@ -1128,10 +1200,11 @@
 				9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */,
 				93FA068D270B34530006A765 /* NodeDetailsViewModel.swift in Sources */,
 				C64ED32C26C57FE900222CA4 /* PlansView.swift in Sources */,
-				C64ED2FC26C50CAE00222CA4 /* LocationSelectionRowView.swift in Sources */,
 				93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */,
+				759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */,
 				7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */,
 				75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */,
+				753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */,
 				755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */,
 				75B0D56026CD265E009ECAFC /* UserDefaultsStorageStrategy.swift in Sources */,
 				75568D7226E5C62100166E5F /* ConnectionModelError.swift in Sources */,
@@ -1141,9 +1214,11 @@
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
 				75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */,
+				751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */,
 				93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */,
 				75B0D56326CD2717009ECAFC /* SettingsStorageStrategyType.swift in Sources */,
 				7554E2BB26D4B810001355F7 /* AccountInfoView.swift in Sources */,
+				753EDDFE2715633A00DA76F8 /* ScaleView.swift in Sources */,
 				75D6560A26BBF521000056B4 /* ContextBuilder.swift in Sources */,
 				75D6563726C4DB99000056B4 /* OnboardingViewModel.swift in Sources */,
 				755F5F0B270DB5B200D416ED /* Fonts.swift in Sources */,
@@ -1151,13 +1226,14 @@
 				7504EA76267B570A00023D42 /* TunnelsServiceStatusDelegate.swift in Sources */,
 				7554E2BD26D4B817001355F7 /* AccountInfoViewModel.swift in Sources */,
 				939FA140270C3D960013ED75 /* CounterView.swift in Sources */,
-				C64ED2FA26C50CAE00222CA4 /* LocationSelectionView.swift in Sources */,
+				C64ED2FA26C50CAE00222CA4 /* HomeView.swift in Sources */,
 				755FBF0926AF0F1600E9D408 /* SecurityService.swift in Sources */,
 				758DD9E6270B72D2000CD59B /* AccountCreationCoordinator.swift in Sources */,
 				75B0D55E26CBB633009ECAFC /* UIViewController+NavigationBar.swift in Sources */,
-				C64ED2FD26C50CAE00222CA4 /* LocationSelectionRowViewModel.swift in Sources */,
 				7504EA4B267A37FB00023D42 /* TunnelModel.swift in Sources */,
 				9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */,
+				753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */,
+				759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */,
 				75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */,
 				7504EA56267B408D00023D42 /* Config.swift in Sources */,
 				C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */,
@@ -1173,24 +1249,28 @@
 				758B261226AFEC4A00BD711E /* RouterType.swift in Sources */,
 				7504EA92267B822A00023D42 /* TunnelContainer.swift in Sources */,
 				7504EA8F267B7BB200023D42 /* TunnelSavingError.swift in Sources */,
+				759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */,
 				7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */,
-				758DD9CC270A0E73000CD59B /* LocationSelectionCoordinator.swift in Sources */,
+				758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */,
 				93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */,
 				752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */,
 				93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */,
-				7554E2C426D4BB03001355F7 /* AccountInfoRowView.swift in Sources */,
+				7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */,
 				75E5BDF926DCCF4B00C345B9 /* OnboardingStepView.swift in Sources */,
 				9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */,
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,
+				759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */,
 				C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */,
 				755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */,
 				7504EA4D267A390A00023D42 /* Keychain.swift in Sources */,
+				753EDDFF2715633A00DA76F8 /* NodeSelectionRowViewModel.swift in Sources */,
 				75E5BDFD26DCDBDA00C345B9 /* OnboardingStepModel.swift in Sources */,
 				7504EA88267B715800023D42 /* PeersModel.swift in Sources */,
+				75BF4A422715742300DBC427 /* ExtraRowView.swift in Sources */,
 				755F5F19270DE78600D416ED /* TextStyle.swift in Sources */,
 				75B0D56726CD27EC009ECAFC /* GeneralSettingsStorage.swift in Sources */,
-				75359D2F26FC9D0300CFEBCD /* MainGradient.swift in Sources */,
 				75359D3126FCA41600CFEBCD /* UIColor+SwiftUI.swift in Sources */,
+				759DE5B92715754800DC7757 /* ExtraRowViewType.swift in Sources */,
 				7504EA4E267A390D00023D42 /* NotificationToken.swift in Sources */,
 				75D6563526C4DB8A000056B4 /* OnboardingView.swift in Sources */,
 				752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */,

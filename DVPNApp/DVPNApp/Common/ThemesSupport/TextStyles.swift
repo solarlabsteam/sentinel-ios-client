@@ -22,12 +22,12 @@ extension TextStyle {
     )
     static let descriptionText = TextStyle(
         font: FontFamily.Poppins.light.font(size: 16),
-        color: Asset.Colors.Redesign.lightGray.color,
+        color: Asset.Colors.lightGray.color,
         kern: 0
     )
     static let mainButton = TextStyle(
         font: FontFamily.Poppins.semiBold.font(size: 13),
-        color: Asset.Colors.Redesign.backgroundColor.color,
+        color: Asset.Colors.accentColor.color,
         kern: 3.25
     )
     static let secondaryButton = TextStyle(
@@ -59,7 +59,7 @@ extension TextStyle {
     ) -> TextStyle {
         TextStyle(
             font: weight.fontConvertible.font(size: size),
-            color: Asset.Colors.Redesign.lightGray.color,
+            color: Asset.Colors.lightGray.color,
             kern: kern
         )
     }
@@ -71,7 +71,7 @@ extension TextStyle {
     ) -> TextStyle {
         TextStyle(
             font: weight.fontConvertible.font(size: size),
-            color: Asset.Colors.Redesign.textGray.color,
+            color: Asset.Colors.textGray.color,
             kern: kern
         )
     }
@@ -83,7 +83,7 @@ extension TextStyle {
     ) -> TextStyle {
         TextStyle(
             font: weight.fontConvertible.font(size: size),
-            color: Asset.Colors.Redesign.backgroundColor.color,
+            color: Asset.Colors.accentColor.color,
             kern: kern
         )
     }
@@ -95,7 +95,7 @@ extension TextStyle {
     ) -> TextStyle {
         TextStyle(
             font: weight.fontConvertible.font(size: size),
-            color: Asset.Colors.Redesign.navyBlue.color,
+            color: Asset.Colors.navyBlue.color,
             kern: kern
         )
     }

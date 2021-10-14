@@ -26,7 +26,7 @@ struct PlansView: View {
         .frame(width: 140, height: 140)
         .overlay(
             RoundedRectangle(cornerRadius: 70)
-                .stroke(Asset.Colors.Redesign.navyBlue.color.asColor, lineWidth: 6)
+                .stroke(Asset.Colors.navyBlue.color.asColor, lineWidth: 6)
         )
     }
     
@@ -45,7 +45,7 @@ struct PlansView: View {
             }
         }
         .padding()
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
+        .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
         .disabled(viewModel.isLoading)
     }

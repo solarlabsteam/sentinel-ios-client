@@ -24,7 +24,7 @@ struct MnemonicLineView: View {
                         .autocapitalization(.none)
                         .padding(.bottom, 10)
                         .padding([.horizontal, .top], 8)
-                        .border(Asset.Colors.Redesign.borderGray.color.asColor, width: 1)
+                        .border(Asset.Colors.borderGray.color.asColor, width: 1)
                         .cornerRadius(2)
                         .padding(.top, 20)
                         .disabled(!isEnabled)
@@ -34,7 +34,7 @@ struct MnemonicLineView: View {
                         Text(value + 1 < 10 ? "0\(value + 1)" : "\(value + 1)")
                             .applyTextStyle(.textBody)
                             .padding([.horizontal], 5)
-                            .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
+                            .background(Asset.Colors.accentColor.color.asColor)
                     }
                     .padding(.bottom, 12)
                 }

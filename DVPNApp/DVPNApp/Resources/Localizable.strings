@@ -51,19 +51,20 @@
 "Connection.Error.InvalidURL" = "Misconfigured nodes. Please, try again or select another node";
 "Connection.Error.NotEnoughTokens" = "Not enough tokens to broadcast - you'll need at least 0.01 DVPN on your account. Please, check your balance and try again later";
 
-"LocationSelection.Node.Details.Price" = "Price";
-"LocationSelection.Node.Details.Latency" = "Latency";
-"LocationSelection.Node.Details.Peers" = "Peers";
-"LocationSelection.Node.Subscribed.NotFound" = "You are not subscribed to any nodes";
-"LocationSelection.Node.Subscribed.Title" = "Subscribed";
-"LocationSelection.Node.All.NotFound" = "No available nodes found, please try later";
-"LocationSelection.Node.All.Title" = "All nodes";
-"LocationSelection.Node.Title" = "Nodes";
-"LocationSelection.Extra.Title" = "Extra";
-"LocationSelection.Extra.Text" = "The blockchain\nbandwidth Infrastructure for web 3.0";
-"LocationSelection.Extra.Subtitle" = "Sentinel P2P bandwidth market place";
-"LocationSelection.Extra.Button.More" = "Learn more";
-"LocationSelection.Extra.Build" = "Built by";
+"Home.Node.Details.Price" = "Price";
+"Home.Node.Details.Latency" = "Latency";
+"Home.Node.Details.Peers" = "Peers";
+"Home.Node.Subscribed.NotFound" = "You are not subscribed to any nodes";
+"Home.Node.Subscribed.Title" = "Subscribed";
+"Home.Node.All.NotFound" = "No available nodes found, please try later";
+"Home.Node.All.Title" = "All nodes";
+"Home.Node.Title" = "Nodes";
+"Home.Extra.Title" = "Extra";
+"Home.Extra.DNS" = "Default DNS";
+"Home.Extra.More.Title" = "Learn More";
+"Home.Extra.More.Subtitle" = "Sentinel P2P bandwidth market place";
+"Home.Extra.Button.More" = "Learn more";
+"Home.Extra.Build" = "Built by";
 
 "NodeDetails.Connect" = "CONNECT NOW";
 "NodeDetails.InfoType.Address" = "Node Address";
@@ -105,3 +106,9 @@
 "WalletService.Error.NotEnoughTokens" = "Not enough tokens to broadcast. Please, check your balance and try again later";
 "WalletService.Error.MnemonicsDoNotMatch" = "Misconfigured wallet: mnemonic mismatch. Please, try again or re-import your mnemonic";
 "WalletService.Error.SavingError" = "Couldn't save wallet. Please, try again.";
+
+"DNS.Title" = "Default DNS Server";
+"DNS.Handshake" = "Handshake";
+"DNS.Cloudflare" = "Cloudflare";
+"DNS.Google" = "Google";
+"DNS.Freenom" = "Freenom";

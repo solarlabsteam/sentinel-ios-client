@@ -57,7 +57,7 @@ extension AccountCreationCoordinator: RouterType {
                 UIApplication.shared.open(url, options: [:])
             }
         case .openNodes:
-            ModulesFactory.shared.makeLocationSelectionModule(for: window!)
+            ModulesFactory.shared.makeHomeModule(for: window!)
         case let .title(title):
             rootController?.title = title
         }

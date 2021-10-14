@@ -12,8 +12,8 @@ struct CounterView: View {
     var togglePlus: () -> Void
     var toggleMinus: () -> Void
     
-    private let navyColor = Asset.Colors.Redesign.navyBlue.color.asColor
-    private let borderColor = Asset.Colors.Redesign.lightBlue.color.asColor
+    private let navyColor = Asset.Colors.navyBlue.color.asColor
+    private let borderColor = Asset.Colors.lightBlue.color.asColor
 
     var icon: some View {
         Image(uiImage: Asset.Tokens.dvpnBlue.image)

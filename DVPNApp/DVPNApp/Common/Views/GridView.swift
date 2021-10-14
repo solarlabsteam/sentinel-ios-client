@@ -15,7 +15,7 @@ enum GridViewModelType: Hashable {
 struct GridView: View {
     private let chunkedModels: [[GridViewModelType]]
     
-    private let borderColor = Asset.Colors.Redesign.gridBorder.color.asColor
+    private let borderColor = Asset.Colors.gridBorder.color.asColor
     
     init(
         models: [GridViewModelType]
@@ -31,7 +31,7 @@ struct GridView: View {
                     if index > 0, index < chunkedModels.count {
                         Circle()
                             .strokeBorder(borderColor, lineWidth: 1)
-                            .background(Circle().foregroundColor(Asset.Colors.Redesign.backgroundColor.color.asColor))
+                            .background(Circle().foregroundColor(Asset.Colors.accentColor.color.asColor))
                             .frame(width: 16, height: 16)
                             .padding(.top, -8)
                     }

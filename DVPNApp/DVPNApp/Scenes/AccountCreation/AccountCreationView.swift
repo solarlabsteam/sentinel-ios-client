@@ -24,7 +24,7 @@ struct AccountCreationView: View {
                 .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
                 .padding(.bottom, 10)
                 .padding([.horizontal, .top], 8)
-                .border(Asset.Colors.Redesign.borderGray.color.asColor, width: 1)
+                .border(Asset.Colors.borderGray.color.asColor, width: 1)
                 .cornerRadius(2)
                 .padding(.top, 20)
 
@@ -33,7 +33,7 @@ struct AccountCreationView: View {
                 Text(L10n.AccountCreation.walletAddress)
                     .applyTextStyle(.textBody)
                     .padding([.horizontal], 5)
-                    .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
+                    .background(Asset.Colors.accentColor.color.asColor)
             }
             .padding(.bottom, 12)
         }
@@ -58,7 +58,7 @@ struct AccountCreationView: View {
             }
         }
         .padding()
-        .background(Asset.Colors.Redesign.navyBlue.color.asColor)
+        .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
     }
 
@@ -67,10 +67,10 @@ struct AccountCreationView: View {
             Button(action: viewModel.didCheckTerms) {
                 if viewModel.isTermsChecked {
                     Image(systemName: "checkmark.square.fill")
-                        .foregroundColor(Asset.Colors.Redesign.navyBlue.color.asColor)
+                        .foregroundColor(Asset.Colors.navyBlue.color.asColor)
                 } else {
                     Image(systemName: "square")
-                        .foregroundColor(Asset.Colors.Redesign.borderGray.color.asColor)
+                        .foregroundColor(Asset.Colors.borderGray.color.asColor)
                 }
             }
 
@@ -114,7 +114,7 @@ struct AccountCreationView: View {
                             .applyTextStyle(.whitePoppins(ofSize: 12))
                             .padding(.horizontal, 15)
                             .padding(.vertical, 10)
-                            .border(Asset.Colors.Redesign.navyBlue.color.asColor, width: 1)
+                            .border(Asset.Colors.navyBlue.color.asColor, width: 1)
                             .cornerRadius(2)
                             .padding()
                     }
@@ -137,7 +137,7 @@ struct AccountCreationView: View {
                         .multilineTextAlignment(.center)
                     Spacer()
                 }
-                .border(Asset.Colors.Redesign.borderGray.color.asColor, width: 1)
+                .border(Asset.Colors.borderGray.color.asColor, width: 1)
                 .cornerRadius(2)
                 .padding(.vertical)
             }
@@ -160,7 +160,7 @@ struct AccountCreationView: View {
             }
         }
         .padding()
-        .background(Asset.Colors.Redesign.backgroundColor.color.asColor)
+        .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
     }
 }

@@ -24,30 +24,15 @@ internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal enum Colors {
     internal static let accentColor = ColorAsset(name: "colors/accentColor")
-    internal enum Background {
-      internal static let plans = ColorAsset(name: "colors/background/plans")
-    }
-    internal static let darkGrey = ColorAsset(name: "colors/darkGrey")
-    internal enum Gradient {
-      internal static let darkBlue = ColorAsset(name: "colors/gradient/darkBlue")
-      internal static let lightBlue = ColorAsset(name: "colors/gradient/lightBlue")
-    }
+    internal static let borderGray = ColorAsset(name: "colors/borderGray")
+    internal static let deepBlue = ColorAsset(name: "colors/deepBlue")
+    internal static let gridBorder = ColorAsset(name: "colors/gridBorder")
     internal static let lightBlue = ColorAsset(name: "colors/lightBlue")
     internal static let lightGray = ColorAsset(name: "colors/lightGray")
-    internal static let mainGreen = ColorAsset(name: "colors/mainGreen")
+    internal static let navyBlue = ColorAsset(name: "colors/navyBlue")
     internal static let prussianBlue = ColorAsset(name: "colors/prussianBlue")
-    internal enum Redesign {
-      internal static let backgroundColor = ColorAsset(name: "colors/redesign/backgroundColor")
-      internal static let borderGray = ColorAsset(name: "colors/redesign/borderGray")
-      internal static let gridBorder = ColorAsset(name: "colors/redesign/gridBorder")
-      internal static let lightBlue = ColorAsset(name: "colors/redesign/lightBlue")
-      internal static let lightGray = ColorAsset(name: "colors/redesign/lightGray")
-      internal static let navyBlue = ColorAsset(name: "colors/redesign/navyBlue")
-      internal static let prussianBlue = ColorAsset(name: "colors/redesign/prussianBlue")
-      internal static let textGray = ColorAsset(name: "colors/redesign/textGray")
-      internal static let veryLightGray = ColorAsset(name: "colors/redesign/veryLightGray")
-    }
-    internal static let veryLightGrey = ColorAsset(name: "colors/veryLightGrey")
+    internal static let textGray = ColorAsset(name: "colors/textGray")
+    internal static let veryLightGray = ColorAsset(name: "colors/veryLightGray")
   }
   internal enum Connection {
     internal static let background = ImageAsset(name: "connection/background")
@@ -69,12 +54,21 @@ internal enum Asset {
     internal static let minus = ImageAsset(name: "counter/minus")
     internal static let plus = ImageAsset(name: "counter/plus")
   }
+  internal enum Dns {
+    internal static let cloudflare = ImageAsset(name: "dns/cloudflare")
+    internal static let freenom = ImageAsset(name: "dns/freenom")
+    internal static let google = ImageAsset(name: "dns/google")
+    internal static let handshake = ImageAsset(name: "dns/handshake")
+  }
+  internal enum Extra {
+    internal static let dns = ImageAsset(name: "extra/dns")
+    internal static let info = ImageAsset(name: "extra/info")
+  }
   internal enum Icons {
     internal static let bandwidth = ImageAsset(name: "icons/bandwidth")
     internal static let copy = ImageAsset(name: "icons/copy")
     internal static let downArrow = ImageAsset(name: "icons/downArrow")
     internal static let duration = ImageAsset(name: "icons/duration")
-    internal static let exidio = ImageAsset(name: "icons/exidio")
     internal static let next = ImageAsset(name: "icons/next")
     internal static let upArrow = ImageAsset(name: "icons/upArrow")
   }
@@ -85,7 +79,10 @@ internal enum Asset {
   }
   internal enum LocationSelector {
     internal static let empty = ImageAsset(name: "locationSelector/empty")
-    internal static let globe = ImageAsset(name: "locationSelector/globe")
+  }
+  internal enum Logo {
+    internal static let cosmos = ImageAsset(name: "logo/cosmos")
+    internal static let exidio = ImageAsset(name: "logo/exidio")
   }
   internal enum Navigation {
     internal static let account = ImageAsset(name: "navigation/account")
@@ -116,14 +113,6 @@ internal enum Asset {
     internal static let failure = ImageAsset(name: "payment/failure")
     internal static let success = ImageAsset(name: "payment/success")
     internal static let ticket = ImageAsset(name: "payment/ticket")
-  }
-  internal enum Settings {
-    internal static let cloudflare = ImageAsset(name: "settings/cloudflare")
-    internal static let freenom = ImageAsset(name: "settings/freenom")
-    internal static let google = ImageAsset(name: "settings/google")
-    internal static let handshake = ImageAsset(name: "settings/handshake")
-    internal static let radioButtonSelected = ImageAsset(name: "settings/radioButtonSelected")
-    internal static let radioButtonUnselected = ImageAsset(name: "settings/radioButtonUnselected")
   }
   internal enum Tokens {
     internal static let dvpnBlue = ImageAsset(name: "tokens/dvpn-blue")

@@ -35,7 +35,7 @@ extension ModulesFactory {
             return
         }
 
-        makeLocationSelectionModule(for: window)
+        makeHomeModule(for: window)
     }
 
     func makeOnboardingModule(for window: UIWindow) {
@@ -54,7 +54,7 @@ extension ModulesFactory {
         ConnectionCoordinator(context: context, navigation: navigation).start()
     }
 
-    func makeLocationSelectionModule(for window: UIWindow) {
+    func makeHomeModule(for window: UIWindow) {
         let navigation = UINavigationController()
         window.rootViewController = navigation
 
@@ -62,7 +62,7 @@ extension ModulesFactory {
             context.storage.set(didPassOnboarding: true)
         }
 
-        LocationSelectionCoordinator(context: context, navigation: navigation).start()
+        HomeCoordinator(context: context, navigation: navigation).start()
     }
     
     func makeNodeDetailsModule(for navigation: UINavigationController, configuration: NodeDetailsCoordinator.Configuration) {
@@ -78,6 +78,14 @@ extension ModulesFactory {
         for navigation: UINavigationController
     ) {
         PlansCoordinator(context: context, navigation: navigation, node: node).start()
+    }
+
+    func makeDNSSettingsModule(
+        delegate: DNSSettingsViewModelDelegate?,
+        servers: [DNSServerType],
+        for navigation: UINavigationController
+    ) {
+        DNSSettingsCoordinator(context: context, delegate: delegate, servers: servers, navigation: navigation).start()
     }
 }
 
@@ -121,14 +129,14 @@ extension ModulesFactory {
         return view
     }
 
-    func getLocationSelectionScene() -> LocationSelectionView {
-        let coordinator = LocationSelectionCoordinator(
+    func getHomeScene() -> HomeView {
+        let coordinator = HomeCoordinator(
             context: context,
             navigation: UINavigationController()
         ).asRouter()
-        let model = LocationSelectionModel(context: context)
-        let viewModel = LocationSelectionViewModel(model: model, router: coordinator)
-        let view = LocationSelectionView(viewModel: viewModel)
+        let model = HomeModel(context: context)
+        let viewModel = HomeViewModel(model: model, router: coordinator)
+        let view = HomeView(viewModel: viewModel)
 
         return view
     }
@@ -138,6 +146,20 @@ extension ModulesFactory {
         let model = AccountInfoModel(context: context)
         let viewModel = AccountInfoViewModel(model: model, router: coordinator)
         let view = AccountInfoView(viewModel: viewModel)
+
+        return view
+    }
+
+    func getDNSSettingsScene(delegate: DNSSettingsViewModelDelegate? = nil) -> DNSSettingsView {
+        let coordinator = DNSSettingsCoordinator(
+            context: context,
+            delegate: delegate,
+            servers: [.default],
+            navigation: UINavigationController()
+        ).asRouter()
+        let model = DNSSettingsModel(context: context)
+        let viewModel = DNSSettingsViewModel(model: model, servers: [.default], delegate: delegate, router: coordinator)
+        let view = DNSSettingsView(viewModel: viewModel)
 
         return view
     }

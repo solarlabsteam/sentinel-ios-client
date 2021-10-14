@@ -141,6 +141,19 @@ internal enum L10n {
     }
   }
 
+  internal enum Dns {
+    /// Cloudflare
+    internal static let cloudflare = L10n.tr("Localizable", "DNS.Cloudflare")
+    /// Freenom
+    internal static let freenom = L10n.tr("Localizable", "DNS.Freenom")
+    /// Google
+    internal static let google = L10n.tr("Localizable", "DNS.Google")
+    /// Handshake
+    internal static let handshake = L10n.tr("Localizable", "DNS.Handshake")
+    /// Default DNS Server
+    internal static let title = L10n.tr("Localizable", "DNS.Title")
+  }
+
   internal enum Error {
     /// Failed to start a session. Please, try again or select another node
     internal static let connectionParsingFailed = L10n.tr("Localizable", "Error.ConnectionParsingFailed")
@@ -152,43 +165,47 @@ internal enum L10n {
     }
   }
 
-  internal enum LocationSelection {
+  internal enum Home {
     internal enum Extra {
       /// Built by
-      internal static let build = L10n.tr("Localizable", "LocationSelection.Extra.Build")
-      /// Sentinel P2P bandwidth market place
-      internal static let subtitle = L10n.tr("Localizable", "LocationSelection.Extra.Subtitle")
-      /// The blockchain\nbandwidth Infrastructure for web 3.0
-      internal static let text = L10n.tr("Localizable", "LocationSelection.Extra.Text")
+      internal static let build = L10n.tr("Localizable", "Home.Extra.Build")
+      /// Default DNS
+      internal static let dns = L10n.tr("Localizable", "Home.Extra.DNS")
       /// Extra
-      internal static let title = L10n.tr("Localizable", "LocationSelection.Extra.Title")
+      internal static let title = L10n.tr("Localizable", "Home.Extra.Title")
       internal enum Button {
         /// Learn more
-        internal static let more = L10n.tr("Localizable", "LocationSelection.Extra.Button.More")
+        internal static let more = L10n.tr("Localizable", "Home.Extra.Button.More")
+      }
+      internal enum More {
+        /// Sentinel P2P bandwidth market place
+        internal static let subtitle = L10n.tr("Localizable", "Home.Extra.More.Subtitle")
+        /// Learn More
+        internal static let title = L10n.tr("Localizable", "Home.Extra.More.Title")
       }
     }
     internal enum Node {
       /// Nodes
-      internal static let title = L10n.tr("Localizable", "LocationSelection.Node.Title")
+      internal static let title = L10n.tr("Localizable", "Home.Node.Title")
       internal enum All {
         /// No available nodes found, please try later
-        internal static let notFound = L10n.tr("Localizable", "LocationSelection.Node.All.NotFound")
+        internal static let notFound = L10n.tr("Localizable", "Home.Node.All.NotFound")
         /// All nodes
-        internal static let title = L10n.tr("Localizable", "LocationSelection.Node.All.Title")
+        internal static let title = L10n.tr("Localizable", "Home.Node.All.Title")
       }
       internal enum Details {
         /// Latency
-        internal static let latency = L10n.tr("Localizable", "LocationSelection.Node.Details.Latency")
+        internal static let latency = L10n.tr("Localizable", "Home.Node.Details.Latency")
         /// Peers
-        internal static let peers = L10n.tr("Localizable", "LocationSelection.Node.Details.Peers")
+        internal static let peers = L10n.tr("Localizable", "Home.Node.Details.Peers")
         /// Price
-        internal static let price = L10n.tr("Localizable", "LocationSelection.Node.Details.Price")
+        internal static let price = L10n.tr("Localizable", "Home.Node.Details.Price")
       }
       internal enum Subscribed {
         /// You are not subscribed to any nodes
-        internal static let notFound = L10n.tr("Localizable", "LocationSelection.Node.Subscribed.NotFound")
+        internal static let notFound = L10n.tr("Localizable", "Home.Node.Subscribed.NotFound")
         /// Subscribed
-        internal static let title = L10n.tr("Localizable", "LocationSelection.Node.Subscribed.Title")
+        internal static let title = L10n.tr("Localizable", "Home.Node.Subscribed.Title")
       }
     }
   }
