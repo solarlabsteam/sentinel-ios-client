@@ -1,0 +1,214 @@
+import Foundation
+import RealmSwift
+
+// swiftlint:disable force_unwrapping
+
+// MARK: - Realm.Object wrappers for structs
+{% for type in types.implementing.AutoRealmObject|struct %}
+{% set ObjectSubclass %}{{type.name}}Object{% endset %}
+{% set hasLinkingSubjectVariablesCount %}{{type.storedVariables|annotated:"linkingSubjectTypes"|count}}{% endset %}
+
+// MARK: - {{ObjectSubclass}}
+{% if type.annotations.linkingValue %}
+public class {{type.name}}Object: Object, HasLinkingOwner {
+{% elif hasLinkingSubjectVariablesCount != "0" %}
+public class {{type.name}}Object: Object, HasLinkingSubjectTypes {
+{% else %}
+public class {{type.name}}Object: Object {
+{% endif %}
+{% for p in type.storedVariables|!annotated:"skipRealmObject" %}
+{% set variableName %}{{p.annotations.realmKey|default:p.name}}{% endset %}
+{% set typeName %}{% if p.isArray %}{{p.typeName.array.elementTypeName}}{% else %}{{p.unwrappedTypeName}}{% endif %}{% endset %}
+{% macro printArray v t %}
+    {% if t == "Int" or t == "Bool" or t == "Float" or t == "String" or t == "Date" or t == "Double" %}
+    let {{v}} = List<{{t}}>()
+    {% else %}
+    let {{v}} = List<{{t}}Object>()
+    {% endif %}
+{% endmacro %}
+{% macro printVar v t dv %}
+    {% if t == "Int" or t == "Bool" or t == "Float" or t == "String" or t == "Date" or t == "Double" %}
+    @objc dynamic var {{v}}: {{t}}{% if dv %} = {{dv}}{% else %}?{% endif %}
+    {% else %}
+    @objc dynamic var {{v}}: {{t}}Object?
+    {% endif %}
+{% endmacro %}
+{% if p.isArray %}
+    {% call printArray variableName typeName %}
+{% elif typeName == "Int" or typeName == "Bool" or typeName == "Float" or typeName == "Double" %}
+    let {{variableName}} = RealmOptional<{{typeName}}>()
+{% else %}
+    {% call printVar variableName typeName p.annotations.defaultValue %}
+{% endif %}
+{% endfor %}
+{% if type.annotations.RealmShared %}
+    @objc dynamic var pKey = sharedPrimaryKey
+{% endif %}
+{% if type.annotations.linkingValue %}
+
+    let linkingOwnerObjects = LinkingObjects(fromType: {{type.annotations.linkingValueType}}Object.self, property: "{{type.annotations.linkingValue}}")
+{% endif %}
+{% if hasLinkingSubjectVariablesCount != "0" %}
+    static var linkingSubjectTypes: [Object.Type] = [{% for subject in type.storedVariables|annotated:"linkingSubjectTypes"%}
+        {% set subjectTypeName %}{% if subject.isArray %}{{subject.typeName.array.elementTypeName}}{% else %}{{subject.unwrappedTypeName}}{% endif %}{% endset %}
+        {{subjectTypeName}}Object.self{% if not forloop.last %},{% endif %}
+    {% endfor %}]
+{% endif %}
+
+    override public static func primaryKey() -> String? {
+{% if type.annotations.RealmShared %}
+        return "pKey"
+{% elif type.storedVariables|annotated:"primaryKey" %}
+    {% for p in type.storedVariables %}
+        {% if p.annotations.primaryKey %}
+        return "{{p.name}}"
+        {% endif %}
+    {% endfor %}
+{% else %}
+        return nil
+{% endif %}
+    }
+
+{% if type.storedVariables|annotated:"indexedKey" %}
+    public override static func indexedProperties() -> [String] {
+{% map type.storedVariables|annotated:"indexedKey" into transformedArray using field %}"{{ field.name }}"{% endmap %}
+        return [{{transformedArray|join:", "}}]
+    }
+{% endif %}
+}
+
+{% set hasDeletingOnCascadeProperties %}
+{% for propertyToDelete in type.storedVariables %}
+{% if propertyToDelete.isArray %}
+    {% if propertyToDelete.typeName.array.elementType.annotations.deleteOnCascade and not propertyToDelete.annotations.skipRealmObject %}1{% endif %}
+{% else %}
+    {% if propertyToDelete.type.annotations.deleteOnCascade and not propertyToDelete.annotations.skipRealmObject %}1{% endif %}
+{% endif %}
+{% endfor %}
+{% endset %}
+{% if hasDeletingOnCascadeProperties|contains:"1" %}
+extension {{ObjectSubclass}}: HasDeletingOnCascadeProperties {
+    var deleteOnCascade: [Object] {
+        var objects: [Object] = []
+{% for propertyToDelete in type.storedVariables %}
+{% if not propertyToDelete.isArray %}
+    {% if propertyToDelete.type.annotations.deleteOnCascade and not propertyToDelete.annotations.skipRealmObject %}
+        if let propertyToDelete = {{ propertyToDelete.name }} { objects.append(propertyToDelete) }
+    {% endif %}
+{% else %}
+    {% if propertyToDelete.typeName.array.elementType.annotations.deleteOnCascade and not propertyToDelete.annotations.skipRealmObject %}
+        objects.append(contentsOf: {{ propertyToDelete.name }}.toArray())
+    {% endif %}
+{% endif %}
+{% endfor %}
+        return objects
+    }
+}
+
+{% endif %}
+{% if type.annotations.RealmShared %}
+// MARK: {{type.name}}: RealmShared
+extension {{ObjectSubclass}}: HasSharedPrimaryKey {
+    static let sharedPrimaryKey = "{{ObjectSubclass|capitalize}}_KEY"
+}
+
+{% endif %}
+// MARK: {{type.name}}: Persistable
+{% macro initArray a v t maybeComma %}
+    {% if t == "Int" or t == "Bool" or t == "Float" or t == "String" or t == "Date" or t == "Double" %}
+            {{a}}: managedObject.{{v}}.toArray(){{ maybeComma }}
+    {% else %}
+            {{a}}: managedObject.{{v}}.toArray().map({{t}}.init){{ maybeComma }}
+    {% endif %}
+{% endmacro %}
+{% macro initOptional a v t maybeComma %}
+    {% if t == "Int" or t == "Bool" or t == "Float" or t == "Double" %}
+            {{a}}: managedObject.{{v}}.value{{ maybeComma }}
+    {% else %}
+            {{a}}: managedObject.{{v}}{{ maybeComma }}
+    {% endif %}
+{% endmacro %}
+{% macro initVar a v t dv maybeComma %}
+    {% if t == "Int" or t == "Bool" or t == "Float" or t == "Double" %}
+            {{a}}: managedObject.{{v}}.value!{{ maybeComma }}
+    {% else %}
+            {{a}}: managedObject.{{v}}{% if not dv %}!{% endif %}{{ maybeComma }}
+    {% endif %}
+{% endmacro %}
+{% macro initPersistableVar a v t maybeComma %}
+            {{a}}: {{t}}(managedObject: managedObject.{{v}}!){{ maybeComma }}
+{% endmacro %}
+{% macro initPersistableOptionalVar a v t maybeComma %}
+            {{a}}: managedObject.{{v}}.flatMap { {{t}}(managedObject: $0) } ?? nil{{ maybeComma }}
+{% endmacro %}
+extension {{type.name}}: Persistable {
+    public init(managedObject: {{ObjectSubclass}}) {
+        self.init(
+{% for p in type.storedVariables %}
+    {% set variableName %}{{p.annotations.realmKey|default:p.name}}{% endset %}
+    {% set typeName %}{% if p.isArray %}{{p.typeName.array.elementTypeName}}{% else %}{{p.unwrappedTypeName}}{% endif %}{% endset %}
+    {% set maybeComma %}{% if type.storedVariables.last.name != p.name %},{% endif %}{% endset %}
+    {% if p.annotations.skipRealmObject %}
+            {{p.name}}: nil{{ maybeComma }}
+    {% else %}
+        {% if p.isArray %}
+            {% call initArray p.name variableName typeName maybeComma %}
+        {% elif p.type.implements.AutoRealmObject and p.isOptional %}
+            {% call initPersistableOptionalVar p.name variableName typeName maybeComma %}
+        {% elif p.type.implements.AutoRealmObject %}
+            {% call initPersistableVar p.name variableName typeName maybeComma %}
+        {% elif p.type.implements.ManualRealmObject %}
+            {% call initPersistableVar p.name variableName typeName maybeComma %}
+        {% elif p.isOptional %}
+            {% call initOptional p.name variableName typeName maybeComma %}
+        {% else %}
+            {% call initVar p.name variableName typeName p.annotations.defaultValue maybeComma %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+        )
+    }
+
+    public func toManagedObject() -> {{ObjectSubclass}} {
+        let obj = {{ObjectSubclass}}()
+
+    {% for p in type.storedVariables|!annotated:"skipRealmObject" %}
+        {% set variableName %}{{p.annotations.realmKey|default:p.name}}{% endset %}
+        {% set typeName %}{% if p.isArray %}{{p.typeName.array.elementTypeName}}{% else %}{{p.unwrappedTypeName}}{% endif %}{% endset %}
+        {% if p.isArray %}
+            {% if p.isOptional %}
+        if let list = {{p.name}} {
+                {% if typeName == "Int" or typeName == "Bool" or typeName == "Float" or typeName == "String" or typeName == "Date" or typeName == "Double" %}
+            obj.{{variableName}}.append(objectsIn: list)
+                {% else %}
+            obj.{{variableName}}.append(objectsIn: list.map { $0.toManagedObject() })
+                {% endif %}
+        }
+            {% else %}
+                {% if typeName == "Int" or typeName == "Bool" or typeName == "Float" or typeName == "String" or typeName == "Date" or typeName == "Double" %}
+        obj.{{variableName}}.append(objectsIn: {{p.name}})
+                {% else %}
+        obj.{{variableName}}.append(objectsIn: {{p.name}}.map { $0.toManagedObject() })
+                {% endif %}
+            {% endif %}
+        {% elif p.type.implements.AutoRealmObject or p.type.implements.ManualRealmObject %}
+            {% if p.isOptional %}
+        obj.{{variableName}} = {{p.name}}?.toManagedObject()
+            {% else %}
+        obj.{{variableName}} = {{p.name}}.toManagedObject()
+            {% endif %}
+        {% else %}
+            {% if typeName == "Int" or typeName == "Bool" or typeName == "Float" or typeName == "Double" %}
+        obj.{{variableName}}.value = {{p.name}}
+            {% else %}
+        obj.{{variableName}} = {{p.name}}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+        return obj
+    }
+}
+{% endfor %}
+
+// swiftlint:enable force_unwrapping

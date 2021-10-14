@@ -1050,11 +1050,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7504E9DB267A184000023D42 /* Build configuration list for PBXNativeTarget "DVPNApp" */;
 			buildPhases = (
-				75359CDB26FC6A7200CFEBCD /* ShellScript */,
 				7504E9C3267A183D00023D42 /* Sources */,
 				7504E9C4267A183D00023D42 /* Frameworks */,
 				7504E9C5267A183D00023D42 /* Resources */,
 				7504E9F1267A196900023D42 /* Embed App Extensions */,
+				75359CDB26FC6A7200CFEBCD /* Run Script [SwiftGen] */,
+				93DBF5582717BE21006EBC65 /* Run Script [Sourcery] */,
 			);
 			buildRules = (
 			);
@@ -1189,7 +1190,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		75359CDB26FC6A7200CFEBCD /* ShellScript */ = {
+		75359CDB26FC6A7200CFEBCD /* Run Script [SwiftGen] */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
@@ -1198,6 +1199,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script [SwiftGen]";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1205,6 +1207,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nSDKROOT=iphoneos4.0\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release --package-path Tools/SwiftGenerator swiftgen\n";
+		};
+		93DBF5582717BE21006EBC65 /* Run Script [Sourcery] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script [Sourcery]";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CI ]\nthen\n    echo \"Sourcery is disabled in CI\"\nelse\n    \"$SRCROOT/Tools/Sourcery/bin/sourcery\" --sources \"$SRCROOT/DVPNApp\" --templates \"$SRCROOT/Tools/Sourcery/Templates\" --output \"$SRCROOT/DVPNApp/Generated\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
