@@ -25,7 +25,6 @@ enum ConnectionModelEvent {
     
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
-    case nodeIsNotAvailable
 }
 
 final class ConnectionModel {
@@ -79,7 +78,6 @@ extension ConnectionModel {
             case .failure(let error):
                 self.show(error: error)
             case .success(let node):
-                guard node.info.address != self.subscription?.node else { return }
                 self.eventSubject.send(.setButton(isLoading: true))
                 self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
                 self.context.storage.set(lastSelectedNode: node.info.address)
@@ -90,7 +88,7 @@ extension ConnectionModel {
     /// Should be called each time when we turn toggle to "on" state
     func connect() {
         guard let subscription = subscription else {
-            eventSubject.send(.nodeIsNotAvailable)
+            eventSubject.send(.warning(ConnectionModelError.nodeIsOffline))
             return
         }
         eventSubject.send(.setButton(isLoading: true))

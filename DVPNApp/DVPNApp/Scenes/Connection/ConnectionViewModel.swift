@@ -37,8 +37,7 @@ final class ConnectionViewModel: ObservableObject {
         case warning(Error)
         case openPlans(for: DVPNNodeInfo)
         case accountInfo
-        case nodeIsNotAvailable
-        case loading(Bool)
+        case dismiss(isEnabled: Bool)
     }
     
     private let model: ConnectionModel
@@ -70,15 +69,13 @@ final class ConnectionViewModel: ObservableObject {
                     )
                 case let .setButton(isLoading):
                     self?.updateButton(isLoading: isLoading)
-                    self?.router.play(event: .loading(isLoading))
+                    self?.router.play(event: .dismiss(isEnabled: !isLoading))
                 case let .error(error):
                     self?.show(error: error)
                 case let .openPlans(node):
                     router.play(event: .openPlans(for: node))
                 case let .warning(error):
                     router.play(event: .warning(error))
-                case .nodeIsNotAvailable:
-                    router.play(event: .nodeIsNotAvailable)
                 }
             }
             .store(in: &cancellables)

@@ -52,10 +52,8 @@ extension ConnectionCoordinator: RouterType {
             ModulesFactory.shared.makePlansModule(node: node, for: navigation)
         case .accountInfo:
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
-        case .nodeIsNotAvailable:
-            show(message: "The node is not available for this moment", theme: .warning)
-        case let .loading(isLoading):
-            setBackNavigationEnability(isLoading: isLoading)
+        case let .dismiss(isEnabled):
+            setBackNavigationEnability(isEnabled: isEnabled)
         }
     }
 }
@@ -63,9 +61,9 @@ extension ConnectionCoordinator: RouterType {
 // MARK: - Private
 
 extension ConnectionCoordinator {
-    private func setBackNavigationEnability(isLoading: Bool) {
-        navigation?.interactivePopGestureRecognizer?.isEnabled = !isLoading
-        navigation?.navigationBar.isUserInteractionEnabled = !isLoading
-        navigation?.navigationBar.tintColor = isLoading ? .gray : .white
+    private func setBackNavigationEnability(isEnabled: Bool) {
+        navigation?.interactivePopGestureRecognizer?.isEnabled = isEnabled
+        navigation?.navigationBar.isUserInteractionEnabled = isEnabled
+        navigation?.navigationBar.tintColor = isEnabled ? .white : .gray
     }
 }
