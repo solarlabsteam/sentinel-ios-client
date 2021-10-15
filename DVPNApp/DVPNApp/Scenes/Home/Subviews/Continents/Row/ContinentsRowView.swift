@@ -1,18 +1,20 @@
 //
-//  ExtraRowView.swift
+//  ContinentsRowView.swift
 //  DVPNApp
 //
-//  Created by Lika Vorobyeva on 12.10.2021.
+//  Created by Victoria Kostyleva on 14.10.2021.
 //
 
 import SwiftUI
 
-struct ExtraRowView: View {
-    private let type: ExtraRowViewType
+struct ContinentsRowView: View {
+    private let type: Continent
+    @Binding var count: Int
     private let action: () -> Void
 
-    init(type: ExtraRowViewType, action: @escaping () -> Void) {
+    init(type: Continent, count: Binding<Int>, action: @escaping () -> Void) {
         self.type = type
+        self._count = count
         self.action = action
     }
 
@@ -25,7 +27,7 @@ struct ExtraRowView: View {
                     VStack(alignment: .leading) {
                         Text(type.title)
                             .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
-                        Text(type.subtitle)
+                        Text(L10n.Continents.availableNodes(count))
                             .applyTextStyle(.grayPoppins(ofSize: 11))
                     }
 
@@ -39,8 +41,8 @@ struct ExtraRowView: View {
     }
 }
 
-struct ExtraRowView_Previews: PreviewProvider {
+struct ContinentsRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExtraRowView(type: .more, action: {})
+        ContinentsRowView(type: .AS, count: .constant(60), action: {})
     }
 }

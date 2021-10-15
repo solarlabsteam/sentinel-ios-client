@@ -141,6 +141,13 @@ internal enum L10n {
     }
   }
 
+  internal enum Continents {
+    /// %d available nodes
+    internal static func availableNodes(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "Continents.AvailableNodes", p1)
+    }
+  }
+
   internal enum Dns {
     /// Cloudflare
     internal static let cloudflare = L10n.tr("Localizable", "DNS.Cloudflare")

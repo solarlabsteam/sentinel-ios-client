@@ -66,6 +66,8 @@
 "Home.Extra.Button.More" = "Learn more";
 "Home.Extra.Build" = "Built by";
 
+"Continents.AvailableNodes" = "%d available nodes";
+
 "NodeDetails.Connect" = "CONNECT NOW";
 "NodeDetails.InfoType.Address" = "Node Address";
 "NodeDetails.InfoType.Peers" = "Connected peers count";
