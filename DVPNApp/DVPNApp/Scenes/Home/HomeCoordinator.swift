@@ -68,6 +68,8 @@ extension HomeCoordinator: RouterType {
             rootController?.title = title
         case let .dns(delegate, servers):
             ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, servers: servers, for: navigation)
+        case let .openNodes(continent):
+            ModulesFactory.shared.makeAvailableNodesModule(continent: continent, for: navigation)
         }
     }
 }

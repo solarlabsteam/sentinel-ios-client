@@ -23,6 +23,9 @@ struct ContinentsRowView: View {
             VStack {
                 HStack {
                     type.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
 
                     VStack(alignment: .leading) {
                         Text(type.title)

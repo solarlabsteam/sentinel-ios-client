@@ -56,6 +56,7 @@ final class HomeModel {
         eventSubject.send(.select(servers: context.dnsServersStorage.selectedDNS()))
     }
 
+    // TODO: @Tori get from database
     func loadNodes() {
         eventSubject.send(.showLoadingNodes(state: true))
 

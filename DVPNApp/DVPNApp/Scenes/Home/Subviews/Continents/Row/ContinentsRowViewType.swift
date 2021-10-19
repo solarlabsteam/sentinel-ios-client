@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Continent: String {
+enum Continent: String, CaseIterable {
     case AF
     case SA
     case NA

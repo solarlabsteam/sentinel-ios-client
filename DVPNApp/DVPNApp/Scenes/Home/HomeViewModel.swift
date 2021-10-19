@@ -50,6 +50,7 @@ final class HomeViewModel: ObservableObject {
         case sentinel
         case title(String)
         case dns(DNSSettingsViewModelDelegate?, [DNSServerType])
+        case openNodes(Continent)
     }
 
     enum PageType {
@@ -80,6 +81,8 @@ final class HomeViewModel: ObservableObject {
     @Published var currentPage: PageType = .selector
     @Published var selectedTab: NodeType = .subscribed
     @Published var servers: [DNSServerType] = [.default]
+    
+    let continents = Continent.allCases
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
@@ -169,6 +172,11 @@ extension HomeViewModel {
             return
         }
         router.play(event: .details(node, isSubscribed: model.isSubscribed(to: node.info.address)))
+    }
+    
+    func openNodes(for continent: Continent) {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .openNodes(continent))
     }
 
     func openMore() {

@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct ContinentsView: View {
-    private let continents: [Continent]
+    @ObservedObject private var viewModel: HomeViewModel
 
-    init(
-        continents: [Continent]
-    ) {
-        self.continents = continents
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
     }
 
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(continents, id: \.self) { continent in
-                ContinentsRowView(type: continent, count: .constant(5), action: {})
+            ForEach(viewModel.continents, id: \.self) { continent in
+                ContinentsRowView(
+                    type: continent,
+                    count: .constant(0),
+                    action: {
+                        viewModel.openNodes(for: continent)
+                    })
                     .padding()
                 
                 Divider()
@@ -29,11 +32,5 @@ struct ContinentsView: View {
             
             Spacer()
         }
-    }
-}
-
-struct ContinentsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContinentsView(continents: [.AN, .AF, .EU])
     }
 }

@@ -87,6 +87,10 @@ extension ModulesFactory {
     ) {
         DNSSettingsCoordinator(context: context, delegate: delegate, servers: servers, navigation: navigation).start()
     }
+    
+    func makeAvailableNodesModule(continent: Continent, for navigation: UINavigationController) {
+        AvailableNodesCoordinator(context: context, navigation: navigation, continent: continent).start()
+    }
 }
 
 /// Scenes previews
