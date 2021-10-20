@@ -25,7 +25,7 @@ final class RealmStorage {
         }
     }
     
-    static func initialize() {
+    static func prepare() {
         let currentSchemaVersion: UInt64 = 1
         
         let config = Realm.Configuration(
@@ -43,6 +43,6 @@ final class RealmStorage {
     }
 }
 
-// MARK: - Magrations
+// MARK: - Migrations
 
 enum RealmMigrator {}
