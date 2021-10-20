@@ -85,14 +85,10 @@ extension AccountInfoModel {
                 
                 let roundedPercent = String(priceInfo.dailyPriceChangePercentage.roundToDecimal(2))
                 
-                let formatter = DateFormatterCache.getFormatter(type: .dateWithISO8601TimeZone)
-                
-                let hours = formatter.date(from: exchangeRate.lastUpdated)?.hours(from: Date()) ?? 0
-                
                 self?.eventSubject.send(
                     .priceInfo(
                         currentPrice: "\(denom) \(roundedPrice)",
-                        lastPriceUpdateInfo: "\(roundedPercent)% (\(hours)h)"
+                        lastPriceUpdateInfo: "\(roundedPercent)% (24h)"
                     )
                 )
             }
