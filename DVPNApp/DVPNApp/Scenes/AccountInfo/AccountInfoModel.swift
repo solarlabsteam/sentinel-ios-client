@@ -81,13 +81,11 @@ extension AccountInfoModel {
                 // TODO: We need enum of denoms in wallet repo
                 let denom = priceInfo.currency == "usd" ? "$" : "?"
                 
-                let price = priceInfo.currentPrice
-                // TODO: Move to a func, probably round in other way
-                let roundedPrice = String(format: "%.3f", price)
+                let roundedPrice = String(priceInfo.currentPrice.roundToDecimal(3))
                 
-                let roundedPercent = String(format: "%.2f", priceInfo.dailyPriceChangePercentage)
+                let roundedPercent = String(priceInfo.dailyPriceChangePercentage.roundToDecimal(2))
                 
-                let formatter = DateFormatterCache.getFormatter(type: .backend)
+                let formatter = DateFormatterCache.getFormatter(type: .dateWithISO8601TimeZone)
                 
                 let hours = formatter.date(from: exchangeRate.lastUpdated)?.hours(from: Date()) ?? 0
                 

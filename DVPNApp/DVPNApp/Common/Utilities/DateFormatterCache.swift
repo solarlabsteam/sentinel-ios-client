@@ -11,7 +11,7 @@ enum DateFormatterType: String {
     case dateWithYear = "dd MMM yyyy"
     case dateWithYearAndTime = "dd MMM yyyy HH:mm"
     
-    case backend = "yyyy-MM-dd'T'HH:mm:ssZ"
+    case dateWithISO8601TimeZone = "yyyy-MM-dd'T'HH:mm:ssZ"
 }
 
 enum DateFormatterCache {

@@ -146,6 +146,7 @@
 		93C3EC39270ACED500B9CA4D /* ConnectionInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */; };
 		93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3A270AF19400B9CA4D /* GridView.swift */; };
 		93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */; };
+		93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD4272036C800A35BCA /* Double+Ext.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -330,6 +331,7 @@
 		93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoType.swift; sourceTree = "<group>"; };
 		93C3EC3A270AF19400B9CA4D /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		93D29CD4272036C800A35BCA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
@@ -565,10 +567,11 @@
 		752FCFEF26EB5F01001EA78D /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */,
-				9344B7EC27057FB900321AAA /* Date+Ext.swift */,
 				93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */,
 				93FA0695270B5A800006A765 /* Collection+Ext.swift */,
+				9344B7EC27057FB900321AAA /* Date+Ext.swift */,
+				93D29CD4272036C800A35BCA /* Double+Ext.swift */,
+				752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -1232,6 +1235,7 @@
 				75B0D55E26CBB633009ECAFC /* UIViewController+NavigationBar.swift in Sources */,
 				7504EA4B267A37FB00023D42 /* TunnelModel.swift in Sources */,
 				9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */,
+				93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */,
 				753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */,
 				759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */,
 				75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */,
