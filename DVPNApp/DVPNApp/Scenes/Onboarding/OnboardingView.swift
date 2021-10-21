@@ -16,8 +16,6 @@ struct OnboardingView: View {
     
     init(viewModel: OnboardingViewModel) {
         self.viewModel = viewModel
-        UIPageControl.appearance().currentPageIndicatorTintColor = Asset.Colors.navyBlue.color
-        UIPageControl.appearance().pageIndicatorTintColor = Asset.Colors.prussianBlue.color
     }
 
     var skipButton: some View {
@@ -68,7 +66,6 @@ struct OnboardingView: View {
         }
     }
 
-    #warning("TODO @Lika implement nice page control")
     var tabView: some View {
         TabView(selection: $viewModel.currentPage,
                 content:  {
@@ -78,39 +75,45 @@ struct OnboardingView: View {
                             .padding()
                     }
                 })
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+            .tabViewStyle(.page(indexDisplayMode: .never))
     }
 
     var body: some View {
         GeometryReader { geo in
-            VStack {
-                VStack(spacing: 0) {
-                    Spacer()
-                    tabView
+            VStack(spacing: 0) {
+                Spacer()
+                tabView
+                    .frame(
+                        width: geo.size.width,
+                        height: geo.size.height * 2 / 3
+                    )
 
-                    if viewModel.isLastPage {
-                        mainButton
-                            .padding()
-                        importView
-                            .padding()
-                    } else {
-                        HStack {
-                            Spacer()
-                            skipButton
-                            Spacer()
-                            nextButton
-                            Spacer()
-                        }
-                        .padding(.vertical)
+                Spacer()
+
+                PageIndicator(pages: [Int](0...viewModel.steps.count), currentPage: $viewModel.currentPage)
+
+                Spacer()
+
+                if viewModel.isLastPage {
+                    mainButton
+                        .padding()
+                    importView
+                        .padding()
+                } else {
+                    HStack {
+                        Spacer()
+                        skipButton
+                        Spacer()
+                        nextButton
+                        Spacer()
                     }
-
-                    Spacer()
+                    .padding(.vertical)
                 }
-                .background(Asset.Colors.accentColor.color.asColor)
             }
-            .edgesIgnoringSafeArea(.all)
+            .padding(.vertical)
+            .background(Asset.Colors.accentColor.color.asColor)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

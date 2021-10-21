@@ -10,25 +10,30 @@ struct HomeView: View {
     }
 
     var body: some View {
-        TabView(selection: $viewModel.currentPage) {
-            ExtraView(
-                openServers: viewModel.openDNSServersSelection,
-                openMore: viewModel.openMore,
-                servers: $viewModel.servers
-            )
-                .rotationEffect(.degrees(-180))
-                .tag(HomeViewModel.PageType.extra)
+        VStack(spacing: 0) {
+            PageIndicator(pages: HomeViewModel.PageType.allCases, currentPage: $viewModel.currentPage)
+                .padding()
 
-            NodeSelectionView(viewModel: viewModel)
-                .rotationEffect(.degrees(-180))
-                .tag(HomeViewModel.PageType.selector)
-        }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
-            .background(Asset.Colors.accentColor.color.asColor)
+            TabView(selection: $viewModel.currentPage) {
+                ExtraView(
+                    openServers: viewModel.openDNSServersSelection,
+                    openMore: viewModel.openMore,
+                    openSolarLabs: viewModel.openSolarLabs,
+                    servers: $viewModel.servers
+                )
+                    .tag(HomeViewModel.PageType.extra)
+                    .rotationEffect(.degrees(-180))
+
+                NodeSelectionView(viewModel: viewModel)
+                    .tag(HomeViewModel.PageType.selector)
+                    .rotationEffect(.degrees(-180))
+            }
             .rotationEffect(.degrees(-180))
-            .edgesIgnoringSafeArea(.bottom)
-            .onAppear(perform: viewModel.viewWillAppear)
+            .tabViewStyle(.page(indexDisplayMode: .never))
+        }
+        .background(Asset.Colors.accentColor.color.asColor)
+        .edgesIgnoringSafeArea(.bottom)
+        .onAppear(perform: viewModel.viewWillAppear)
     }
 }
 

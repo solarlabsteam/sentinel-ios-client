@@ -48,13 +48,14 @@ final class HomeViewModel: ObservableObject {
         case details(Node, isSubscribed: Bool)
         case accountInfo
         case sentinel
+        case solarLabs
         case title(String)
         case dns(DNSSettingsViewModelDelegate?, [DNSServerType])
     }
 
-    enum PageType {
-        case extra
+    enum PageType: Int, CaseIterable, Equatable {
         case selector
+        case extra
 
         var title: String {
             switch self {
@@ -174,6 +175,11 @@ extension HomeViewModel {
     func openMore() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .sentinel)
+    }
+
+    func openSolarLabs() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .solarLabs)
     }
 
     func openDNSServersSelection() {
