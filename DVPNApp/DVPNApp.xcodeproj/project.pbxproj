@@ -135,6 +135,10 @@
 		9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */; };
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
 		9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA67270461D20062AFD3 /* NetworkServiceType.swift */; };
+		932D0AF8272174560064AEE4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AF7272174560064AEE4 /* UserService.swift */; };
+		932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFC272176620064AEE4 /* PreloadService.swift */; };
+		932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */; };
+		932D0B04272197D10064AEE4 /* EmptyScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */; };
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
 		9378543F270ECA400004483C /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93785441270ECC810004483C /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
@@ -320,6 +324,10 @@
 		9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
 		9312CA642704608D0062AFD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9312CA67270461D20062AFD3 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
+		932D0AF7272174560064AEE4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		932D0AFC272176620064AEE4 /* PreloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadService.swift; sourceTree = "<group>"; };
+		932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadServiceType.swift; sourceTree = "<group>"; };
+		932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyScreen.storyboard; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		9378543E270ECA400004483C /* FramedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramedButton.swift; sourceTree = "<group>"; };
 		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
@@ -698,6 +706,8 @@
 		755FBF0726AF0F0100E9D408 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				932D0AFB272176520064AEE4 /* PreloadService */,
+				932D0AF62721743F0064AEE4 /* UserService */,
 				9312CA662704609B0062AFD3 /* NetworkService */,
 				75B0D56126CD26F6009ECAFC /* Storage */,
 				755FBF0826AF0F1600E9D408 /* SecurityService.swift */,
@@ -863,6 +873,31 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
+		932D0AF62721743F0064AEE4 /* UserService */ = {
+			isa = PBXGroup;
+			children = (
+				932D0AF7272174560064AEE4 /* UserService.swift */,
+			);
+			path = UserService;
+			sourceTree = "<group>";
+		};
+		932D0AFB272176520064AEE4 /* PreloadService */ = {
+			isa = PBXGroup;
+			children = (
+				932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */,
+				932D0AFC272176620064AEE4 /* PreloadService.swift */,
+			);
+			path = PreloadService;
+			sourceTree = "<group>";
+		};
+		932D0B002721977D0064AEE4 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */,
+			);
+			path = Empty;
+			sourceTree = "<group>";
+		};
 		93C3EC32270ACB8300B9CA4D /* CountryTile */ = {
 			isa = PBXGroup;
 			children = (
@@ -907,6 +942,7 @@
 		C64B495426B8B3F70004A692 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				932D0B002721977D0064AEE4 /* Empty */,
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				C64B495526B8B3F70004A692 /* Connection */,
@@ -1107,6 +1143,7 @@
 				755F5F05270DB51B00D416ED /* Poppins-Black.ttf in Resources */,
 				755F5F03270DB51B00D416ED /* Poppins-LightItalic.ttf in Resources */,
 				755F5F06270DB51B00D416ED /* Poppins-Thin.ttf in Resources */,
+				932D0B04272197D10064AEE4 /* EmptyScreen.storyboard in Resources */,
 				755F5F01270DB51B00D416ED /* Poppins-BlackItalic.ttf in Resources */,
 				755F5F07270DB51B00D416ED /* Poppins-SemiBold.ttf in Resources */,
 				755F5F04270DB51B00D416ED /* Poppins-Bold.ttf in Resources */,
@@ -1238,6 +1275,7 @@
 				93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */,
 				753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */,
 				759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */,
+				932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */,
 				75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */,
 				7504EA56267B408D00023D42 /* Config.swift in Sources */,
 				C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */,
@@ -1261,6 +1299,7 @@
 				93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */,
 				7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */,
 				75E5BDF926DCCF4B00C345B9 /* OnboardingStepView.swift in Sources */,
+				932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */,
 				9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */,
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,
 				759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */,
@@ -1277,6 +1316,7 @@
 				759DE5B92715754800DC7757 /* ExtraRowViewType.swift in Sources */,
 				7504EA4E267A390D00023D42 /* NotificationToken.swift in Sources */,
 				75D6563526C4DB8A000056B4 /* OnboardingView.swift in Sources */,
+				932D0AF8272174560064AEE4 /* UserService.swift in Sources */,
 				752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */,
 				755F5F18270DE78600D416ED /* TextStyles.swift in Sources */,
 				752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */,

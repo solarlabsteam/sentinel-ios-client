@@ -8,12 +8,6 @@
 import Foundation
 import Combine
 
-private struct Constants {
-    let denom = "udvpn"
-}
-
-private let constants = Constants()
-
 enum AccountInfoModelEvent {
     case update(balance: String)
     case priceInfo(currentPrice: String, lastPriceUpdateInfo: String)
@@ -21,13 +15,15 @@ enum AccountInfoModelEvent {
 }
 
 final class AccountInfoModel {
-    typealias Context = HasStorage & HasWalletService
+    typealias Context = HasStorage & HasWalletService & HasUserService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<AccountInfoModelEvent, Never>()
     var eventPublisher: AnyPublisher<AccountInfoModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
+    
+    private var cancellables = Set<AnyCancellable>()
 
     init(context: Context) {
         self.context = context
@@ -39,24 +35,23 @@ extension AccountInfoModel {
         context.walletService.accountAddress
     }
     
+    func setInitialBalance() {
+        eventSubject.send(.update(balance: context.userService.balance))
+    }
+    
     func refresh() {
-        context.walletService.fetchBalance { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                log.error(error)
-                self.eventSubject.send(.error(error))
-            case .success(let balances):
-                guard let balance = balances.first(where: { $0.denom == constants.denom }) else {
-                    self.eventSubject.send(.update(balance: "0"))
-                    return
+        context.userService.loadBalance()
+            .eraseToAnyPublisher()
+            .sink(
+                receiveCompletion: { [weak self] result in
+                    if case let .failure(error) = result {
+                        self?.eventSubject.send(.error(error))
+                    }
+                },
+                receiveValue: { [weak self] balance in
+                    self?.eventSubject.send(.update(balance: balance))
                 }
-
-                let prettyBalance = PriceFormatter.fullFormat(amount: balance.amount, denom: "")
-
-                self.eventSubject.send(.update(balance: prettyBalance))
-            }
-        }
+            ).store(in: &cancellables)
         
         loadPriceInfo()
     }

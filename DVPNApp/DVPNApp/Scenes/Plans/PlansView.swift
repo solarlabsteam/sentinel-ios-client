@@ -35,6 +35,7 @@ struct PlansView: View {
             HStack {
                 if viewModel.isLoading {
                     ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+                        .frame(width: 15, height: 15)
                 }
                 Spacer()
                 

@@ -30,13 +30,17 @@ struct AccountInfoView: View {
     }
 
     var addressView: some View {
-        HStack(alignment: .center, spacing: 3) {
-            Spacer()
-            
-            Text(viewModel.address)
-                .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
-            
-            Spacer()
+        Button(action: viewModel.didTapCopy) {
+            HStack(alignment: .center, spacing: 3) {
+                Spacer()
+                
+                Text(viewModel.address)
+                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
+                    .lineLimit(1)
+                    .truncationMode(.middle)
+                
+                Spacer()
+            }
         }
         .padding(.vertical, 16)
         .overlay(
@@ -159,6 +163,9 @@ struct AccountInfoView: View {
                 .padding(.vertical, 20)
                 .padding(.horizontal, 20)
             
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            viewModel.refresh()
         }
         .padding(.bottom, 30)
         .background(Asset.Colors.accentColor.color.asColor)

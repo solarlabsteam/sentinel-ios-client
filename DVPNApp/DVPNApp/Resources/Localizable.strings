@@ -81,6 +81,7 @@
 "AccountInfo.Wallet.Title" = "Account Balance";
 "AccountInfo.QR" = "Scan QR code to receive";
 "AccountInfo.Copy" = "Copy";
+"AccountInfo.TextCopied" = "Copied";
 "AccountInfo.Share" = "Share";
 "AccountInfo.TopUp" = "TOP-UP WITH SOLAR PAY";
 "AccountInfo.CurrentPrice" = "Current price";

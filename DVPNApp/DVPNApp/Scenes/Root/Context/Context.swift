@@ -17,6 +17,8 @@ final class CommonContext {
     let securityService: SecurityService
     let tunnelManager: TunnelManagerType
     let networkService: NetworkServiceType
+    let userService: UserService
+    let preloadService: PreloadServiceType
 
     init(
         storage: GeneralSettingsStorage,
@@ -24,7 +26,9 @@ final class CommonContext {
         walletService: WalletService,
         sentinelService: SentinelService,
         tunnelManager: TunnelManagerType,
-        networkService: NetworkServiceType
+        networkService: NetworkServiceType,
+        userService: UserService,
+        preloadService: PreloadServiceType
     ) {
         self.storage = storage
         self.securityService = securityService
@@ -32,6 +36,8 @@ final class CommonContext {
         self.sentinelService = sentinelService
         self.tunnelManager = tunnelManager
         self.networkService = networkService
+        self.userService = userService
+        self.preloadService = preloadService
     }
 
     func resetWalletContext() {
@@ -62,6 +68,12 @@ extension CommonContext: HasTunnelManager {}
 
 protocol HasNetworkService { var networkService: NetworkServiceType { get } }
 extension CommonContext: HasNetworkService {}
+
+protocol HasUserService { var userService: UserService { get } }
+extension CommonContext: HasUserService {}
+
+protocol HasPreloadService { var preloadService: PreloadServiceType { get } }
+extension CommonContext: HasPreloadService {}
 
 typealias CommonContextProtocol = NoContext
     & HasStorage
