@@ -35,6 +35,8 @@ struct AccountInfoView: View {
             
             Text(viewModel.address)
                 .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
+                .lineLimit(1)
+                .truncationMode(.middle)
             
             Spacer()
         }
