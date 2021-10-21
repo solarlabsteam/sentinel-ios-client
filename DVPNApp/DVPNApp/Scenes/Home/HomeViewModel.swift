@@ -48,6 +48,7 @@ final class HomeViewModel: ObservableObject {
         case details(Node, isSubscribed: Bool)
         case accountInfo
         case sentinel
+        case solarLabs
         case title(String)
         case dns(DNSSettingsViewModelDelegate?, [DNSServerType])
     }
@@ -174,6 +175,11 @@ extension HomeViewModel {
     func openMore() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .sentinel)
+    }
+
+    func openSolarLabs() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .solarLabs)
     }
 
     func openDNSServersSelection() {

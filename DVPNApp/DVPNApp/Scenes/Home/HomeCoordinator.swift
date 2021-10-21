@@ -11,6 +11,7 @@ import SwiftMessages
 
 private struct Constants {
     let sentinelURL = URL(string: "https://sentinel.co/")
+    let solarLabsURL = URL(string: "http://labs.solar")
 }
 
 private let constants = Constants()
@@ -62,6 +63,10 @@ extension HomeCoordinator: RouterType {
             ModulesFactory.shared.makePlansModule(node: node, for: navigation)
         case .sentinel:
             if let url = constants.sentinelURL, UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:])
+            }
+        case .solarLabs:
+            if let url = constants.solarLabsURL, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:])
             }
         case let .title(title):

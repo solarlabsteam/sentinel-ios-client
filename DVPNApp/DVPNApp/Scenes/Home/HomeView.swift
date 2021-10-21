@@ -10,22 +10,25 @@ struct HomeView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             PageIndicator(pages: HomeViewModel.PageType.allCases, currentPage: $viewModel.currentPage)
                 .padding()
 
             TabView(selection: $viewModel.currentPage) {
-                NodeSelectionView(viewModel: viewModel)
-                    .tag(HomeViewModel.PageType.selector)
-
                 ExtraView(
                     openServers: viewModel.openDNSServersSelection,
                     openMore: viewModel.openMore,
+                    openSolarLabs: viewModel.openSolarLabs,
                     servers: $viewModel.servers
                 )
                     .tag(HomeViewModel.PageType.extra)
+                    .rotationEffect(.degrees(-180))
 
+                NodeSelectionView(viewModel: viewModel)
+                    .tag(HomeViewModel.PageType.selector)
+                    .rotationEffect(.degrees(-180))
             }
+            .rotationEffect(.degrees(-180))
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
         .background(Asset.Colors.accentColor.color.asColor)
