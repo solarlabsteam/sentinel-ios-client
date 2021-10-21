@@ -30,15 +30,17 @@ struct AccountInfoView: View {
     }
 
     var addressView: some View {
-        HStack(alignment: .center, spacing: 3) {
-            Spacer()
-            
-            Text(viewModel.address)
-                .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
-                .lineLimit(1)
-                .truncationMode(.middle)
-            
-            Spacer()
+        Button(action: viewModel.didTapCopy) {
+            HStack(alignment: .center, spacing: 3) {
+                Spacer()
+                
+                Text(viewModel.address)
+                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
+                    .lineLimit(1)
+                    .truncationMode(.middle)
+                
+                Spacer()
+            }
         }
         .padding(.vertical, 16)
         .overlay(
