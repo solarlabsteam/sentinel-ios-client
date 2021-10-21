@@ -14,6 +14,7 @@ private let constants = Constants()
 import UIKit
 import SentinelWallet
 import SwiftUI
+import Combine
 
 final class ModulesFactory {
     private(set) static var shared = ModulesFactory()
@@ -34,8 +35,12 @@ extension ModulesFactory {
             makeOnboardingModule(for: window)
             return
         }
-
-        makeHomeModule(for: window)
+        
+        makeEmptyModule(for: window)
+        
+        context.preloadService.loadData() { [weak self] in
+            self?.makeHomeModule(for: window)
+        }
     }
 
     func makeOnboardingModule(for window: UIWindow) {
@@ -63,6 +68,13 @@ extension ModulesFactory {
         }
 
         HomeCoordinator(context: context, navigation: navigation).start()
+    }
+    
+    func makeEmptyModule(for window: UIWindow) {
+        let storyboard = UIStoryboard(name: "EmptyScreen", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "EmptyViewController")
+        
+        window.rootViewController = controller
     }
     
     func makeNodeDetailsModule(for navigation: UINavigationController, configuration: NodeDetailsCoordinator.Configuration) {

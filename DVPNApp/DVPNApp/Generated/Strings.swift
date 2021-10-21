@@ -63,7 +63,9 @@ internal enum L10n {
     internal static let qr = L10n.tr("Localizable", "AccountInfo.QR")
     /// Share
     internal static let share = L10n.tr("Localizable", "AccountInfo.Share")
-    /// TOPUP WITH SOLAR PAY
+    /// Copied
+    internal static let textCopied = L10n.tr("Localizable", "AccountInfo.TextCopied")
+    /// TOP-UP WITH SOLAR PAY
     internal static let topUp = L10n.tr("Localizable", "AccountInfo.TopUp")
     internal enum Wallet {
       /// Account Balance
