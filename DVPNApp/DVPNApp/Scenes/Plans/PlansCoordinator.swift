@@ -47,7 +47,9 @@ extension PlansCoordinator: RouterType {
         case let .subscribe(node, completion):
             showSubscribeAlert(name: node, completion: completion)
         case .openConnection:
-            navigation?.popToRootViewController(animated: true)
+            navigation?.dismiss(animated: true) { [weak self] in
+                self?.navigation?.popToRootViewController(animated: true)
+            }
         case .accountInfo:
             ModulesFactory.shared.makeAccountInfoModule(for: navigation!)
         case .close:

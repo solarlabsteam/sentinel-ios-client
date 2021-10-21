@@ -52,9 +52,9 @@ final class HomeViewModel: ObservableObject {
         case dns(DNSSettingsViewModelDelegate?, [DNSServerType])
     }
 
-    enum PageType {
-        case extra
+    enum PageType: Int, CaseIterable, Equatable {
         case selector
+        case extra
 
         var title: String {
             switch self {
