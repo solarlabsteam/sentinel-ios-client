@@ -37,6 +37,8 @@ extension AccountInfoCoordinator: RouterType {
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)
+        case let .info(message):
+            show(message: message, theme: .success)
         }
     }
 }

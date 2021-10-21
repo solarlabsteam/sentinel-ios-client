@@ -18,6 +18,7 @@ final class AccountInfoViewModel: ObservableObject {
 
     enum Route {
         case error(Error)
+        case info(String)
     }
     
     @Published private(set) var qrCode: UIImage
@@ -70,6 +71,8 @@ extension AccountInfoViewModel {
 
 extension AccountInfoViewModel {
     func didTapCopy() {
+        router.play(event: .info(L10n.AccountInfo.textCopied))
+        
         UIImpactFeedbackGenerator.lightFeedback()
         UIPasteboard.general.string = model.address
     }
