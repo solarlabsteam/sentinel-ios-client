@@ -10,25 +10,27 @@ struct HomeView: View {
     }
 
     var body: some View {
-        TabView(selection: $viewModel.currentPage) {
-            ExtraView(
-                openServers: viewModel.openDNSServersSelection,
-                openMore: viewModel.openMore,
-                servers: $viewModel.servers
-            )
-                .rotationEffect(.degrees(-180))
-                .tag(HomeViewModel.PageType.extra)
+        VStack {
+            PageIndicator(pages: HomeViewModel.PageType.allCases, currentPage: $viewModel.currentPage)
+                .padding()
 
-            NodeSelectionView(viewModel: viewModel)
-                .rotationEffect(.degrees(-180))
-                .tag(HomeViewModel.PageType.selector)
+            TabView(selection: $viewModel.currentPage) {
+                NodeSelectionView(viewModel: viewModel)
+                    .tag(HomeViewModel.PageType.selector)
+
+                ExtraView(
+                    openServers: viewModel.openDNSServersSelection,
+                    openMore: viewModel.openMore,
+                    servers: $viewModel.servers
+                )
+                    .tag(HomeViewModel.PageType.extra)
+
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
         }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
-            .background(Asset.Colors.accentColor.color.asColor)
-            .rotationEffect(.degrees(-180))
-            .edgesIgnoringSafeArea(.bottom)
-            .onAppear(perform: viewModel.viewWillAppear)
+        .background(Asset.Colors.accentColor.color.asColor)
+        .edgesIgnoringSafeArea(.bottom)
+        .onAppear(perform: viewModel.viewWillAppear)
     }
 }
 
