@@ -38,6 +38,8 @@ extension ModulesFactory {
             return
         }
         
+        makeEmptyModule(for: window)
+        
         context.preloadService.loadData()
             .sink(
                 receiveCompletion: { [weak self] result in
@@ -74,6 +76,13 @@ extension ModulesFactory {
         }
 
         HomeCoordinator(context: context, navigation: navigation).start()
+    }
+    
+    func makeEmptyModule(for window: UIWindow) {
+        let storyboard = UIStoryboard(name: "EmptyScreen", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "EmptyViewController")
+        
+        window.rootViewController = controller
     }
     
     func makeNodeDetailsModule(for navigation: UINavigationController, configuration: NodeDetailsCoordinator.Configuration) {
