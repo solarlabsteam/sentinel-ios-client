@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol PreloadServiceType {
-    func loadData() -> Future<Void, Error>
+    func loadData(completion: @escaping () -> Void)
 }

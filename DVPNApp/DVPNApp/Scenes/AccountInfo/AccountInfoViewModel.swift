@@ -57,7 +57,7 @@ final class AccountInfoViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        model.subscribeToEvent()
+        model.setInitialBalance()
         refresh()
     }
 }

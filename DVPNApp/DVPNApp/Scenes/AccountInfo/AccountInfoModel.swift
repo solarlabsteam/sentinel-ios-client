@@ -35,12 +35,8 @@ extension AccountInfoModel {
         context.walletService.accountAddress
     }
     
-    func subscribeToEvent() {
-        context.userService
-            .$balance
-            .map { .update(balance: $0) }
-            .subscribe(eventSubject)
-            .store(in: &cancellables)
+    func setInitialBalance() {
+        eventSubject.send(.update(balance: context.userService.balance))
     }
     
     func refresh() {
@@ -52,7 +48,9 @@ extension AccountInfoModel {
                         self?.eventSubject.send(.error(error))
                     }
                 },
-                receiveValue: { _ in }
+                receiveValue: { [weak self] balance in
+                    self?.eventSubject.send(.update(balance: balance))
+                }
             ).store(in: &cancellables)
         
         loadPriceInfo()

@@ -14,7 +14,7 @@ final class UserService {
     
     let denom = "udvpn"
     
-    @Published private(set) var balance: String = "-"
+    private(set) var balance: String = "-"
 
     init(walletService: WalletService) {
         self.walletService = walletService
@@ -22,7 +22,7 @@ final class UserService {
 }
 
 extension UserService {
-    func loadBalance() -> Future<Void, Error> {
+    func loadBalance() -> Future<String, Error> {
         return Future { [weak self] promise in
             guard let self = self else { return }
             
@@ -37,7 +37,7 @@ extension UserService {
                     guard let balance = balances.first(where: { $0.denom == self.denom }) else {
                         self.balance = "0"
                 
-                        promise(.success(()))
+                        promise(.success(self.balance))
                         
                         return
                     }
@@ -45,7 +45,7 @@ extension UserService {
                     let prettyBalance = PriceFormatter.fullFormat(amount: balance.amount, denom: "")
 
                     self.balance = prettyBalance
-                    promise(.success(()))
+                    promise(.success(prettyBalance))
                 }
             }
         }

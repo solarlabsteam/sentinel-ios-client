@@ -19,8 +19,6 @@ import Combine
 final class ModulesFactory {
     private(set) static var shared = ModulesFactory()
     private let context: CommonContext
-    
-    private var cancellables = Set<AnyCancellable>()
 
     private init() {
         context = ContextBuilder().buildContext()
@@ -40,15 +38,9 @@ extension ModulesFactory {
         
         makeEmptyModule(for: window)
         
-        context.preloadService.loadData()
-            .sink(
-                receiveCompletion: { [weak self] result in
-                    DispatchQueue.main.async {
-                        self?.makeHomeModule(for: window)
-                    }
-                },
-                receiveValue: { _ in }
-            ).store(in: &cancellables)
+        context.preloadService.loadData() { [weak self] in
+            self?.makeHomeModule(for: window)
+        }
     }
 
     func makeOnboardingModule(for window: UIWindow) {
