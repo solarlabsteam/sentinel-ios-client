@@ -14,10 +14,13 @@ private let constants = Constants()
 import UIKit
 import SentinelWallet
 import SwiftUI
+import Combine
 
 final class ModulesFactory {
     private(set) static var shared = ModulesFactory()
     private let context: CommonContext
+    
+    private var cancellables = Set<AnyCancellable>()
 
     private init() {
         context = ContextBuilder().buildContext()
@@ -34,8 +37,16 @@ extension ModulesFactory {
             makeOnboardingModule(for: window)
             return
         }
-
-        makeHomeModule(for: window)
+        
+        context.preloadService.loadData()
+            .sink(
+                receiveCompletion: { [weak self] result in
+                    DispatchQueue.main.async {
+                        self?.makeHomeModule(for: window)
+                    }
+                },
+                receiveValue: { _ in }
+            ).store(in: &cancellables)
     }
 
     func makeOnboardingModule(for window: UIWindow) {

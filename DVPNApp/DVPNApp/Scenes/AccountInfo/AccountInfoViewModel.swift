@@ -56,14 +56,19 @@ final class AccountInfoViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-
-        model.refresh()
+        
+        model.subscribeToEvent()
+        refresh()
     }
 }
 
 extension AccountInfoViewModel {
     var solarPayURL: URL {
         .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
+    }
+    
+    func refresh() {
+        model.refresh()
     }
 }
 

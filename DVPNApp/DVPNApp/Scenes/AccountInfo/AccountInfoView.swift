@@ -162,6 +162,9 @@ struct AccountInfoView: View {
                 .padding(.horizontal, 20)
             
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            viewModel.refresh()
+        }
         .padding(.bottom, 30)
         .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
