@@ -26,7 +26,7 @@ final class PlansViewModel: ObservableObject {
 
     enum Route {
         case error(Error)
-        case addTokensAlert
+        case addTokensAlert(completion: (Bool) -> Void)
         case accountInfo
         case subscribe(node: String, completion: (Bool) -> Void)
         case openConnection
@@ -75,7 +75,7 @@ final class PlansViewModel: ObservableObject {
                         self?.router.play(event: .openConnection)
                     }
                 case .addTokens:
-                    router.play(event: .addTokensAlert)
+                    self?.showAddTokens()
                 case .openConnection:
                     router.play(event: .openConnection)
                 }
@@ -111,8 +111,17 @@ extension PlansViewModel {
 }
 
 // MARK: - Buttons actions
-    
+
 extension PlansViewModel {
+    func showAddTokens() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .addTokensAlert { [weak self] result in
+            self?.isLoading = false
+            guard result else { return }
+            self?.router.play(event: .accountInfo)
+        })
+    }
+
     func didTapSubscribe() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(

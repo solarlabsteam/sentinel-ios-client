@@ -40,10 +40,10 @@ final class PlansCoordinator: CoordinatorType {
 extension PlansCoordinator: RouterType {
     func play(event: PlansViewModel.Route) {
         switch event {
-        case .error(let error):
+        case let .error(error):
             show(message: error.localizedDescription)
-        case .addTokensAlert:
-            showNotEnoughTokensAlert()
+        case let .addTokensAlert(completion: completion):
+            showNotEnoughTokensAlert(completion: completion)
         case let .subscribe(node, completion):
             showSubscribeAlert(name: node, completion: completion)
         case .openConnection:
@@ -51,6 +51,7 @@ extension PlansCoordinator: RouterType {
                 self?.navigation?.popToRootViewController(animated: true)
             }
         case .accountInfo:
+            navigation?.dismiss(animated: true)
             ModulesFactory.shared.makeAccountInfoModule(for: navigation!)
         case .close:
             navigation?.dismiss(animated: true)
@@ -87,7 +88,7 @@ extension PlansCoordinator {
         rootController?.present(alert, animated: true, completion: nil)
     }
 
-    private func showNotEnoughTokensAlert() {
+    private func showNotEnoughTokensAlert(completion: @escaping (Bool) -> Void) {
         let alert = UIAlertController(
             title: L10n.Plans.AddTokens.title,
             message: L10n.Plans.AddTokens.subtitle,
@@ -95,13 +96,13 @@ extension PlansCoordinator {
         )
 
         let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { [weak self] _ in
-            self?.navigation?.dismiss(animated: true)
             UIImpactFeedbackGenerator.lightFeedback()
-            self?.play(event: .accountInfo)
+            completion(true)
         }
 
         let cancelAction = UIAlertAction(title: L10n.Common.cancel, style: .destructive) { _ in
             UIImpactFeedbackGenerator.lightFeedback()
+            completion(false)
         }
 
         alert.addAction(okAction)
