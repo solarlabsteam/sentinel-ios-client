@@ -12,7 +12,6 @@ struct HomeView: View {
     var body: some View {
         VStack(spacing: 0) {
             PageIndicator(pages: HomeViewModel.PageType.allCases, currentPage: $viewModel.currentPage)
-                .padding()
 
             TabView(selection: $viewModel.currentPage) {
                 ExtraView(
@@ -41,6 +40,8 @@ extension HomeView {
     private func customize() {
         UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
+
+        UIScrollView.appearance().bounces = false
 
         let controlAppearance = UISegmentedControl.appearance()
 

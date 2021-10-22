@@ -14,16 +14,23 @@ final class PlansCoordinator: CoordinatorType {
 
     private let context: PlansModel.Context
     private let node: DVPNNodeInfo
+    private weak var delegate: PlansViewModelDelegate?
 
-    init(context: PlansModel.Context, navigation: UINavigationController, node: DVPNNodeInfo) {
+    init(
+        context: PlansModel.Context,
+        navigation: UINavigationController,
+        node: DVPNNodeInfo,
+        delegate: PlansViewModelDelegate?
+    ) {
         self.context = context
         self.navigation = navigation
         self.node = node
+        self.delegate = delegate
     }
 
     func start() {
         let addTokensModel = PlansModel(context: context, node: node)
-        let addTokensViewModel = PlansViewModel(model: addTokensModel, router: asRouter())
+        let addTokensViewModel = PlansViewModel(model: addTokensModel, router: asRouter(), delegate: delegate)
         let addTokensView = PlansView(viewModel: addTokensViewModel)
         let controller = UIHostingController(rootView: addTokensView)
         controller.view.backgroundColor = .clear
@@ -46,10 +53,6 @@ extension PlansCoordinator: RouterType {
             showNotEnoughTokensAlert(completion: completion)
         case let .subscribe(node, completion):
             showSubscribeAlert(name: node, completion: completion)
-        case .openConnection:
-            navigation?.dismiss(animated: true) { [weak self] in
-                self?.navigation?.popToRootViewController(animated: true)
-            }
         case .accountInfo:
             navigation?.dismiss(animated: true)
             ModulesFactory.shared.makeAccountInfoModule(for: navigation!)
@@ -95,7 +98,7 @@ extension PlansCoordinator {
             preferredStyle: .alert
         )
 
-        let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { [weak self] _ in
+        let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { _ in
             UIImpactFeedbackGenerator.lightFeedback()
             completion(true)
         }

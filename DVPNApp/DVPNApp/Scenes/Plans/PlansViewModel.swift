@@ -18,18 +18,23 @@ private struct Constants {
 }
 private let constants = Constants()
 
+protocol PlansViewModelDelegate: AnyObject {
+    func openConnection()
+}
+
 final class PlansViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     
     private let model: PlansModel
     private let router: Router
 
+    private weak var delegate: PlansViewModelDelegate?
+
     enum Route {
         case error(Error)
         case addTokensAlert(completion: (Bool) -> Void)
         case accountInfo
         case subscribe(node: String, completion: (Bool) -> Void)
-        case openConnection
         case close
     }
     
@@ -51,9 +56,10 @@ final class PlansViewModel: ObservableObject {
     
     private let formatter = NumberFormatter()
     
-    init(model: PlansModel, router: Router) {
+    init(model: PlansModel, router: Router, delegate: PlansViewModelDelegate?) {
         self.model = model
         self.router = router
+        self.delegate = delegate
         
         selectedLocationName = ""
         gbToBuy = 1
@@ -72,12 +78,12 @@ final class PlansViewModel: ObservableObject {
                     case .failure(let error):
                         self?.show(error: error)
                     case .success:
-                        self?.router.play(event: .openConnection)
+                        self?.openConnection()
                     }
                 case .addTokens:
                     self?.showAddTokens()
                 case .openConnection:
-                    router.play(event: .openConnection)
+                    self?.openConnection()
                 }
             }
             .store(in: &cancellables)
@@ -163,5 +169,10 @@ extension PlansViewModel {
         self.fee = fee
         self.price = PriceFormatter.rawFormat(price: price).price
         self.gbToBuy = gbToBuy
+    }
+
+    private func openConnection() {
+        delegate?.openConnection()
+        router.play(event: .close)
     }
 }

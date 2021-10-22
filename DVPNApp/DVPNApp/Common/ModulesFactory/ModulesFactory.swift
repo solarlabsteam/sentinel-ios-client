@@ -87,9 +87,10 @@ extension ModulesFactory {
 
     func makePlansModule(
         node: DVPNNodeInfo,
+        delegate: PlansViewModelDelegate?,
         for navigation: UINavigationController
     ) {
-        PlansCoordinator(context: context, navigation: navigation, node: node).start()
+        PlansCoordinator(context: context, navigation: navigation, node: node, delegate: delegate).start()
     }
 
     func makeDNSSettingsModule(
