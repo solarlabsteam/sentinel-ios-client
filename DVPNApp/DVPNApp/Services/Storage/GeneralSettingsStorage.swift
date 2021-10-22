@@ -66,20 +66,19 @@ final class GeneralSettingsStorage {
         settingsStorageStrategy.object(ofType: Int.self, forKey: Keys.lastSessionKey.rawValue)
     }
 
-    func set(dns: [DNSServerType]) {
-        settingsStorageStrategy.setObject(dns.map { $0.rawValue }, forKey: Keys.dnsKey.rawValue)
+    func set(dns: DNSServerType) {
+        settingsStorageStrategy.setObject(dns.rawValue, forKey: Keys.dnsKey.rawValue)
     }
 
-    func selectedDNS() -> [DNSServerType] {
-        guard let rawValues = settingsStorageStrategy.object(ofType: [String].self, forKey: Keys.dnsKey.rawValue) else {
-            return [.default]
-        }
-        let servers = rawValues.compactMap({ DNSServerType(rawValue: $0) })
-
-        guard !servers.isEmpty else {
-            return [.default]
+    func selectedDNS() -> DNSServerType {
+        guard let rawValue = settingsStorageStrategy.object(ofType: String.self, forKey: Keys.dnsKey.rawValue) else {
+            return .default
         }
 
-        return servers
+        guard let server = DNSServerType(rawValue: rawValue) else {
+            return .default
+        }
+
+        return server
     }
 }
