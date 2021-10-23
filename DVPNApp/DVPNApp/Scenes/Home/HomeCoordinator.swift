@@ -59,8 +59,8 @@ extension HomeCoordinator: RouterType {
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
             ModulesFactory.shared.makeNodeDetailsModule(for: navigation, configuration: .init(node: node, isSubscribed: isSubscribed))
-        case let .subscribe(node):
-            ModulesFactory.shared.makePlansModule(node: node, for: navigation)
+        case let .subscribe(node, delegate):
+            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .sentinel:
             if let url = constants.sentinelURL, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:])

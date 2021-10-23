@@ -44,7 +44,7 @@ final class HomeViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case connect
-        case subscribe(node: DVPNNodeInfo)
+        case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
         case details(Node, isSubscribed: Bool)
         case accountInfo
         case sentinel
@@ -122,6 +122,14 @@ final class HomeViewModel: ObservableObject {
 extension HomeViewModel: DNSSettingsViewModelDelegate {
     func update(to server: DNSServerType) {
         self.server = server
+    }
+}
+
+// MARK: - PlansViewModelDelegate
+
+extension HomeViewModel: PlansViewModelDelegate {
+    func openConnection() {
+        model.connectIfNeeded()
     }
 }
 
@@ -265,7 +273,7 @@ extension HomeViewModel {
     private func toggle(node: Node) {
         let isSubscribedToNode = model.isSubscribed(to: node.info.address)
         guard isSubscribedToNode else {
-            router.play(event: .subscribe(node: node.info))
+            router.play(event: .subscribe(node: node.info, delegate: self))
             return
         }
 
