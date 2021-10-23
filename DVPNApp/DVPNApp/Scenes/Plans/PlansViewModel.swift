@@ -119,15 +119,6 @@ extension PlansViewModel {
 // MARK: - Buttons actions
 
 extension PlansViewModel {
-    func showAddTokens() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .addTokensAlert { [weak self] result in
-            self?.isLoading = false
-            guard result else { return }
-            self?.router.play(event: .accountInfo)
-        })
-    }
-
     func didTapSubscribe() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(
@@ -174,5 +165,14 @@ extension PlansViewModel {
     private func openConnection() {
         delegate?.openConnection()
         router.play(event: .close)
+    }
+
+    private func showAddTokens() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .addTokensAlert { [weak self] result in
+            self?.isLoading = false
+            guard result else { return }
+            self?.router.play(event: .accountInfo)
+        })
     }
 }
