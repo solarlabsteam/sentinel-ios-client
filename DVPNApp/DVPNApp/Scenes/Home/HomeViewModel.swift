@@ -50,7 +50,7 @@ final class HomeViewModel: ObservableObject {
         case sentinel
         case solarLabs
         case title(String)
-        case dns(DNSSettingsViewModelDelegate?, [DNSServerType])
+        case dns(DNSSettingsViewModelDelegate?, DNSServerType)
     }
 
     enum PageType: Int, CaseIterable, Equatable {
@@ -80,7 +80,7 @@ final class HomeViewModel: ObservableObject {
 
     @Published var currentPage: PageType = .selector
     @Published var selectedTab: NodeType = .subscribed
-    @Published var servers: [DNSServerType] = [.default]
+    @Published var server: DNSServerType = .default
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
@@ -103,6 +103,7 @@ final class HomeViewModel: ObservableObject {
             .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback()})
             .store(in: &cancellables)
 
+        model.refreshDNS()
         model.loadNodes()
     }
 
@@ -119,8 +120,8 @@ final class HomeViewModel: ObservableObject {
 // MARK: - DNSSettingsViewModelDelegate
 
 extension HomeViewModel: DNSSettingsViewModelDelegate {
-    func update(to servers: [DNSServerType]) {
-        self.servers = servers
+    func update(to server: DNSServerType) {
+        self.server = server
     }
 }
 
@@ -184,7 +185,7 @@ extension HomeViewModel {
 
     func openDNSServersSelection() {
         UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .dns(self, servers))
+        router.play(event: .dns(self, server))
     }
 }
 
@@ -219,8 +220,8 @@ extension HomeViewModel {
                 case .reloadSubscriptions:
                     self?.subscriptions = []
                     self?.isLoadingSubscriptions = true
-                case let .select(servers):
-                    self?.update(to: servers)
+                case let .select(server):
+                    self?.update(to: server)
                 }
             }
             .store(in: &cancellables)

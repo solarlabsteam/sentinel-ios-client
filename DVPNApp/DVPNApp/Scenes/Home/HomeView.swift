@@ -19,7 +19,7 @@ struct HomeView: View {
                     openServers: viewModel.openDNSServersSelection,
                     openMore: viewModel.openMore,
                     openSolarLabs: viewModel.openSolarLabs,
-                    servers: $viewModel.servers
+                    server: $viewModel.server
                 )
                     .tag(HomeViewModel.PageType.extra)
                     .rotationEffect(.degrees(-180))

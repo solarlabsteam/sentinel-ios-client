@@ -71,8 +71,8 @@ extension HomeCoordinator: RouterType {
             }
         case let .title(title):
             rootController?.title = title
-        case let .dns(delegate, servers):
-            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, servers: servers, for: navigation)
+        case let .dns(delegate, server):
+            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)
         }
     }
 }

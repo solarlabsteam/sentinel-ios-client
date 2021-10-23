@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol DNSSettingsViewModelDelegate: AnyObject {
-    func update(to servers: [DNSServerType])
+    func update(to server: DNSServerType)
 }
 
 final class DNSSettingsViewModel: ObservableObject {
@@ -26,25 +26,25 @@ final class DNSSettingsViewModel: ObservableObject {
 
     @Published private(set) var items: [DNSSettingsRowViewModel]
 
-    init(model: DNSSettingsModel, servers: [DNSServerType], delegate: DNSSettingsViewModelDelegate?, router: Router) {
+    init(model: DNSSettingsModel, server: DNSServerType, delegate: DNSSettingsViewModelDelegate?, router: Router) {
         self.model = model
         self.delegate = delegate
         self.router = router
 
-        items = DNSServerType.allCases.map { .init(type: $0, isSelected: servers.contains($0)) }
+        items = DNSServerType.allCases.map { .init(type: $0, isSelected: $0 == server) }
     }
 
     func toggleSelection(with server: DNSServerType) {
-        guard let index = items.firstIndex(where: { $0.type == server }) else { return }
+        guard let index = items.firstIndex(where: { $0.type == server }), !items[index].isSelected else { return }
 
-        if items[index].isSelected, items.filter({ $0.isSelected }).count == 1 { return }
-        items[index].isSelected = !items[index].isSelected
+        items.indices.forEach { items[$0].isSelected = false }
+        items[index].isSelected = true
     }
 
     func didTapClose() {
-        let servers = items.filter({ $0.isSelected }).map { $0.type }
-        model.save(servers: servers)
-        delegate?.update(to: servers)
+        let server = items.first(where: { $0.isSelected }).map { $0.type } ?? .default
+        model.save(server: server)
+        delegate?.update(to: server)
         
         router.play(event: .close)
     }

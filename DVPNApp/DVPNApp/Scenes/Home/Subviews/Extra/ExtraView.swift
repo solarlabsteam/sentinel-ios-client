@@ -11,24 +11,24 @@ struct ExtraView: View {
     private let openMore: () -> Void
     private let openServers: () -> Void
     private let openSolarLabs: () -> Void
-    @Binding private var servers: [DNSServerType]
+    @Binding private var server: DNSServerType
 
     init(
         openServers: @escaping () -> Void,
         openMore: @escaping () -> Void,
         openSolarLabs: @escaping () -> Void,
-        servers: Binding<[DNSServerType]>
+        server: Binding<DNSServerType>
     ) {
         self.openMore = openMore
         self.openServers = openServers
         self.openSolarLabs = openSolarLabs
-        self._servers = servers
+        self._server = server
     }
 
     var body: some View {
         VStack(spacing: 0) {
             VStack {
-                ExtraRowView(type: .dns(servers.map { $0.title }.joined(separator: ", ")), action: openServers)
+                ExtraRowView(type: .dns(server.title), action: openServers)
                     .padding()
 
                 Divider()
@@ -73,6 +73,6 @@ struct ExtraView: View {
 
 struct ExtraView_Previews: PreviewProvider {
     static var previews: some View {
-        ExtraView(openServers: {}, openMore: {}, openSolarLabs: {}, servers: .constant([.default]))
+        ExtraView(openServers: {}, openMore: {}, openSolarLabs: {}, server: .constant(.default))
     }
 }

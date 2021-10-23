@@ -30,7 +30,7 @@ enum HomeModelEvent {
 
     case connect
 
-    case select(servers: [DNSServerType])
+    case select(server: DNSServerType)
 }
 
 final class HomeModel {
@@ -51,8 +51,10 @@ final class HomeModel {
 
         loadSubscriptions()
         fetchWalletInfo()
+    }
 
-        eventSubject.send(.select(servers: context.storage.selectedDNS()))
+    func refreshDNS() {
+        eventSubject.send(.select(server: context.storage.selectedDNS()))
     }
 
     func loadNodes() {
