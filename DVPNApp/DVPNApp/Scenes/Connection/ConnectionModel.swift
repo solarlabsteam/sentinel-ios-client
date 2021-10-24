@@ -29,7 +29,7 @@ enum ConnectionModelEvent {
 }
 
 final class ConnectionModel {
-    typealias Context = HasSentinelService & HasWalletService & HasStorage & HasTunnelManager
+    typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage & HasTunnelManager
         & HasNetworkService
     
     private let context: Context
@@ -64,11 +64,12 @@ extension ConnectionModel {
     
     /// Should be called each time when the view appears
     func checkNodeForUpdate() {
-        guard let address = context.storage.lastSelectedNode(), context.storage.shouldConnect() else {
+        guard let address = context.connectionInfoStorage.lastSelectedNode(),
+              context.connectionInfoStorage.shouldConnect() else {
             return
         }
         
-        context.storage.set(shouldConnect: false)
+        context.connectionInfoStorage.set(shouldConnect: false)
 
         eventSubject.send(.setButton(isLoading: true))
 
@@ -81,7 +82,7 @@ extension ConnectionModel {
             case .success(let node):
                 self.eventSubject.send(.setButton(isLoading: true))
                 self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
-                self.context.storage.set(lastSelectedNode: node.info.address)
+                self.context.connectionInfoStorage.set(lastSelectedNode: node.info.address)
             }
         }
     }
@@ -115,7 +116,7 @@ extension ConnectionModel {
     private func refreshSubscriptions() {
         eventSubject.send(.setButton(isLoading: true))
 
-        loadSubscriptions(selectedAddress: context.storage.lastSelectedNode())
+        loadSubscriptions(selectedAddress: context.connectionInfoStorage.lastSelectedNode())
     }
 
     private func loadSubscriptions(selectedAddress: String? = nil, reconnect: Bool = false) {
@@ -326,9 +327,9 @@ extension ConnectionModel {
             case .success(let session):
                 self.eventSubject.send(.updateDuration(durationInSeconds: session.durationInSeconds))
                 
-                guard let id = self.context.storage.lastSessionId(),
+                guard let id = self.context.connectionInfoStorage.lastSessionId(),
                       session.id == id,
-                      let node = self.context.storage.lastSelectedNode(),
+                      let node = self.context.connectionInfoStorage.lastSelectedNode(),
                       session.node == node else {
                           completion(.success((isTunnelActive, false)))
                           return
@@ -382,7 +383,7 @@ extension ConnectionModel {
             case let .failure(error):
                 self.show(error: error)
             case let .success((data, wgKey)):
-                self.context.storage.set(sessionId: Int(id))
+                self.context.connectionInfoStorage.set(sessionId: Int(id))
                 self.context.tunnelManager.createNewProfile(
                     from: data,
                     with: wgKey

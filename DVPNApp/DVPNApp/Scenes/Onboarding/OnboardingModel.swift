@@ -14,7 +14,7 @@ enum OnboardingModelEvent {
 }
 
 final class OnboardingModel {
-    typealias Context = HasSecurityService & HasStorage
+    typealias Context = HasSecurityService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<OnboardingModelEvent, Never>()

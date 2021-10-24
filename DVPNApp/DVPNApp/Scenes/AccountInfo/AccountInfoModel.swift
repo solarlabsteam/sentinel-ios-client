@@ -15,7 +15,7 @@ enum AccountInfoModelEvent {
 }
 
 final class AccountInfoModel {
-    typealias Context = HasStorage & HasWalletService & HasUserService
+    typealias Context = HasWalletService & HasUserService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<AccountInfoModelEvent, Never>()

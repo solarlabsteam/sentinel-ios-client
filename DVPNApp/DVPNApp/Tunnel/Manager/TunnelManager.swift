@@ -24,7 +24,7 @@ protocol TunnelManagerDelegate: AnyObject {
 }
 
 final public class TunnelManager {
-    private let storage: GeneralSettingsStorage
+    private let storage: StoresDNSServers
     
     private var tunnelModel: TunnelModel
     private var tunnelsService: TunnelsService?
@@ -36,7 +36,7 @@ final public class TunnelManager {
     }
 
     init(
-        storage: GeneralSettingsStorage,
+        storage: StoresDNSServers,
         tunnelModel: TunnelModel = TunnelModel(tunnelConfiguration: nil)
     ) {
         self.storage = storage

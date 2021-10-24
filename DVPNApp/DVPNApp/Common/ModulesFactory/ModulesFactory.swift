@@ -31,7 +31,7 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule(for window: UIWindow) {
-        guard context.storage.didPassOnboarding() else {
+        guard context.generalInfoStorage.didPassOnboarding() else {
             makeOnboardingModule(for: window)
             return
         }
@@ -63,8 +63,8 @@ extension ModulesFactory {
         let navigation = UINavigationController()
         window.rootViewController = navigation
 
-        if !context.storage.didPassOnboarding() {
-            context.storage.set(didPassOnboarding: true)
+        if !context.generalInfoStorage.didPassOnboarding() {
+            context.generalInfoStorage.set(didPassOnboarding: true)
         }
 
         HomeCoordinator(context: context, navigation: navigation).start()

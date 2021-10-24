@@ -34,7 +34,8 @@ enum HomeModelEvent {
 }
 
 final class HomeModel {
-    typealias Context = HasSentinelService & HasWalletService & HasStorage & HasTunnelManager
+    typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
+        & HasDNSServersStorage & HasTunnelManager
     private let context: Context
 
     private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
@@ -54,7 +55,7 @@ final class HomeModel {
     }
 
     func refreshDNS() {
-        eventSubject.send(.select(server: context.storage.selectedDNS()))
+        eventSubject.send(.select(server: context.dnsServersStorage.selectedDNS()))
     }
 
     func loadNodes() {
@@ -83,8 +84,8 @@ final class HomeModel {
     }
 
     func save(nodeAddress: String) {
-        context.storage.set(lastSelectedNode: nodeAddress)
-        context.storage.set(shouldConnect: true)
+        context.connectionInfoStorage.set(lastSelectedNode: nodeAddress)
+        context.connectionInfoStorage.set(shouldConnect: true)
         eventSubject.send(.connect)
     }
 
@@ -93,7 +94,7 @@ final class HomeModel {
     }
 
     func connectIfNeeded() {
-        if context.storage.shouldConnect() {
+        if context.connectionInfoStorage.shouldConnect() {
             eventSubject.send(.connect)
             reloadOnNextAppear = true
         }

@@ -38,7 +38,7 @@ enum AccountCreationModelError: LocalizedError {
 }
 
 final class AccountCreationModel {
-    typealias Context = HasSecurityService & HasStorage
+    typealias Context = HasSecurityService & HasWalletStorage
     private let context: Context
 
     private let eventSubject = PassthroughSubject<AccountCreationModelEvent, Never>()
@@ -53,7 +53,7 @@ final class AccountCreationModel {
     func change(to mode: CreationMode) {
         switch mode {
         case .create:
-            guard let address = context.storage.walletAddress() else {
+            guard let address = context.walletStorage.walletAddress() else {
                 eventSubject.send(.error(AccountCreationModelError.creationFailed))
                 return
             }
@@ -92,7 +92,7 @@ final class AccountCreationModel {
                 eventSubject.send(.error(AccountCreationModelError.creationFailed))
                 return
             }
-            context.storage.set(wallet: result)
+            context.walletStorage.set(wallet: result)
             ModulesFactory.shared.resetWalletContext()
 
             eventSubject.send(.updateWallet)
