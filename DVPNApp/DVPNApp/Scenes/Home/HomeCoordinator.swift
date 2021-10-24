@@ -11,6 +11,7 @@ import SwiftMessages
 
 private struct Constants {
     let sentinelURL = URL(string: "https://sentinel.co/")
+    let solarLabsURL = URL(string: "http://labs.solar")
 }
 
 private let constants = Constants()
@@ -58,18 +59,25 @@ extension HomeCoordinator: RouterType {
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
             ModulesFactory.shared.makeNodeDetailsModule(for: navigation, configuration: .init(node: node, isSubscribed: isSubscribed))
-        case let .subscribe(node):
-            ModulesFactory.shared.makePlansModule(node: node, for: navigation)
+        case let .subscribe(node, delegate):
+            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .sentinel:
             if let url = constants.sentinelURL, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:])
             }
+        case .solarLabs:
+            if let url = constants.solarLabsURL, UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:])
+            }
         case let .title(title):
             rootController?.title = title
-        case let .dns(delegate, servers):
-            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, servers: servers, for: navigation)
-        case let .openNodes(continent):
-            ModulesFactory.shared.makeAvailableNodesModule(continent: continent, for: navigation)
+        case let .dns(delegate, server):
+            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)
+        case let .openNodes(continent, delegate):
+            //++++
+            ModulesFactory.shared.makeAvailableNodesModule(
+                continent: continent, delegate: delegate, for: navigation
+            )
         }
     }
 }

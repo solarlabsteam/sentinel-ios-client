@@ -11,11 +11,18 @@ import SwiftMessages
 
 final class AvailableNodesCoordinator: CoordinatorType {
     private let context: AvailableNodesModel.Context
+    private weak var delegate: PlansViewModelDelegate?
     private weak var navigation: UINavigationController?
     private let continent: Continent
 
-    init(context: AvailableNodesModel.Context, navigation: UINavigationController, continent: Continent) {
+    init(
+        context: AvailableNodesModel.Context,
+        delegate: PlansViewModelDelegate?,
+        navigation: UINavigationController,
+        continent: Continent
+    ) {
         self.context = context
+        self.delegate = delegate
         self.navigation = navigation
         self.continent = continent
     }
@@ -47,8 +54,8 @@ extension AvailableNodesCoordinator: RouterType {
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)
-        case let .subscribe(node: nodeInfo):
-            ModulesFactory.shared.makePlansModule(node: nodeInfo, for: navigation)
+        case let .subscribe(nodeInfo):
+            ModulesFactory.shared.makePlansModule(node: nodeInfo, delegate: delegate, for: navigation)
         case .connect:
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):

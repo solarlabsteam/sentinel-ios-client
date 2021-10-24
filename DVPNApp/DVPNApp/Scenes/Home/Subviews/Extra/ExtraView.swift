@@ -10,22 +10,25 @@ import SwiftUI
 struct ExtraView: View {
     private let openMore: () -> Void
     private let openServers: () -> Void
-    @Binding private var servers: [DNSServerType]
+    private let openSolarLabs: () -> Void
+    @Binding private var server: DNSServerType
 
     init(
         openServers: @escaping () -> Void,
         openMore: @escaping () -> Void,
-        servers: Binding<[DNSServerType]>
+        openSolarLabs: @escaping () -> Void,
+        server: Binding<DNSServerType>
     ) {
         self.openMore = openMore
         self.openServers = openServers
-        self._servers = servers
+        self.openSolarLabs = openSolarLabs
+        self._server = server
     }
 
     var body: some View {
         VStack(spacing: 0) {
             VStack {
-                ExtraRowView(type: .dns(servers.map { $0.title }.joined(separator: ", ")), action: openServers)
+                ExtraRowView(type: .dns(server.title), action: openServers)
                     .padding()
 
                 Divider()
@@ -55,7 +58,9 @@ struct ExtraView: View {
             .padding(.bottom, 5)
 
             HStack {
-                Image(uiImage: Asset.Logo.cosmos.image)
+                Button(action: openSolarLabs) {
+                    Image(uiImage: Asset.Logo.solarLabs.image)
+                }
                 Spacer()
                 Image(uiImage: Asset.Logo.exidio.image)
             }
@@ -68,6 +73,6 @@ struct ExtraView: View {
 
 struct ExtraView_Previews: PreviewProvider {
     static var previews: some View {
-        ExtraView(openServers: {}, openMore: {}, servers: .constant([.default]))
+        ExtraView(openServers: {}, openMore: {}, openSolarLabs: {}, server: .constant(.default))
     }
 }

@@ -25,7 +25,7 @@ final class DNSSettingsModel {
         self.context = context
     }
 
-    func save(servers: [DNSServerType]) {
-        context.dnsServersStorage.set(dns: servers)
+    func save(server: DNSServerType) {
+        context.dnsServersStorage.set(dns: server)
     }
 }

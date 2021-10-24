@@ -14,24 +14,24 @@ final class DNSSettingsCoordinator: CoordinatorType {
     private weak var rootController: UIViewController?
 
     private let context: DNSSettingsModel.Context
-    private let servers: [DNSServerType]
+    private let server: DNSServerType
     private weak var delegate: DNSSettingsViewModelDelegate?
 
     init(
         context: DNSSettingsModel.Context,
         delegate: DNSSettingsViewModelDelegate?,
-        servers: [DNSServerType],
+        server: DNSServerType,
         navigation: UINavigationController
     ) {
         self.context = context
         self.delegate = delegate
-        self.servers = servers
+        self.server = server
         self.navigation = navigation
     }
 
     func start() {
         let model = DNSSettingsModel(context: context)
-        let viewModel = DNSSettingsViewModel(model: model, servers: servers, delegate: delegate, router: asRouter())
+        let viewModel = DNSSettingsViewModel(model: model, server: server, delegate: delegate, router: asRouter())
         let view = DNSSettingsView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         controller.view.backgroundColor = .clear

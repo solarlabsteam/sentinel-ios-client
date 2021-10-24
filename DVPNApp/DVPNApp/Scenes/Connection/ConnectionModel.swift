@@ -22,7 +22,8 @@ enum ConnectionModelEvent {
     case updateSubscription(initialBandwidth: String, bandwidthConsumed: String)
     case updateBandwidth(bandwidth: Bandwidth)
     case updateDuration(durationInSeconds: Int64)
-    
+
+    #warning("TODO @Tori sent this event if no quota is left on connect() call")
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
 }

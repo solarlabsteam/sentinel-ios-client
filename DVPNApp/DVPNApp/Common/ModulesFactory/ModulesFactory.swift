@@ -90,21 +90,28 @@ extension ModulesFactory {
 
     func makePlansModule(
         node: DVPNNodeInfo,
+        delegate: PlansViewModelDelegate?,
         for navigation: UINavigationController
     ) {
-        PlansCoordinator(context: context, navigation: navigation, node: node).start()
+        PlansCoordinator(context: context, navigation: navigation, node: node, delegate: delegate).start()
     }
 
     func makeDNSSettingsModule(
         delegate: DNSSettingsViewModelDelegate?,
-        servers: [DNSServerType],
+        server: DNSServerType,
         for navigation: UINavigationController
     ) {
-        DNSSettingsCoordinator(context: context, delegate: delegate, servers: servers, navigation: navigation).start()
+        DNSSettingsCoordinator(context: context, delegate: delegate, server: server, navigation: navigation).start()
     }
     
-    func makeAvailableNodesModule(continent: Continent, for navigation: UINavigationController) {
-        AvailableNodesCoordinator(context: context, navigation: navigation, continent: continent).start()
+    func makeAvailableNodesModule(
+        continent: Continent,
+        delegate: PlansViewModelDelegate?,
+        for navigation: UINavigationController
+    ) {
+        AvailableNodesCoordinator(
+            context: context, delegate: delegate, navigation: navigation, continent: continent
+        ).start()
     }
 }
 
@@ -173,11 +180,11 @@ extension ModulesFactory {
         let coordinator = DNSSettingsCoordinator(
             context: context,
             delegate: delegate,
-            servers: [.default],
+            server: .default,
             navigation: UINavigationController()
         ).asRouter()
         let model = DNSSettingsModel(context: context)
-        let viewModel = DNSSettingsViewModel(model: model, servers: [.default], delegate: delegate, router: coordinator)
+        let viewModel = DNSSettingsViewModel(model: model, server: .default, delegate: delegate, router: coordinator)
         let view = DNSSettingsView(viewModel: viewModel)
 
         return view

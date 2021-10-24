@@ -47,6 +47,7 @@
 		7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		7504EAAB267B983800023D42 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */; };
+		7517DF1827218BFA007E56CA /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517DF1727218BFA007E56CA /* PageIndicator.swift */; };
 		751AD5F42715A33A004F5717 /* DNSSettingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */; };
 		751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */; };
 		752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */; };
@@ -266,6 +267,7 @@
 		7504EA9F267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NETunnelProviderProtocol+Extension.swift"; sourceTree = "<group>"; };
 		7504EAA9267B983800023D42 /* ConfigurationParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParseError.swift; sourceTree = "<group>"; };
 		7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NEVPNStatus+Ext.swift"; sourceTree = "<group>"; };
+		7517DF1727218BFA007E56CA /* PageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
 		751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsRowViewModel.swift; sourceTree = "<group>"; };
 		751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsModel.swift; sourceTree = "<group>"; };
 		752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletErros+Ext.swift"; sourceTree = "<group>"; };
@@ -886,6 +888,7 @@
 			children = (
 				75D6560F26BE8817000056B4 /* ActivityIndicator.swift */,
 				93C3EC3A270AF19400B9CA4D /* GridView.swift */,
+				7517DF1727218BFA007E56CA /* PageIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1483,6 +1486,7 @@
 				7504EA4F267A391000023D42 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
 				758DD9CE270A1269000CD59B /* AccountInfoCoordinator.swift in Sources */,
 				93DBF56B271882B2006EBC65 /* ContinentsView.swift in Sources */,
+				7517DF1827218BFA007E56CA /* PageIndicator.swift in Sources */,
 				758DD9E5270B72D2000CD59B /* AccountCreationModel.swift in Sources */,
 				758B261226AFEC4A00BD711E /* RouterType.swift in Sources */,
 				7504EA92267B822A00023D42 /* TunnelContainer.swift in Sources */,

@@ -14,16 +14,23 @@ final class PlansCoordinator: CoordinatorType {
 
     private let context: PlansModel.Context
     private let node: DVPNNodeInfo
+    private weak var delegate: PlansViewModelDelegate?
 
-    init(context: PlansModel.Context, navigation: UINavigationController, node: DVPNNodeInfo) {
+    init(
+        context: PlansModel.Context,
+        navigation: UINavigationController,
+        node: DVPNNodeInfo,
+        delegate: PlansViewModelDelegate?
+    ) {
         self.context = context
         self.navigation = navigation
         self.node = node
+        self.delegate = delegate
     }
 
     func start() {
         let addTokensModel = PlansModel(context: context, node: node)
-        let addTokensViewModel = PlansViewModel(model: addTokensModel, router: asRouter())
+        let addTokensViewModel = PlansViewModel(model: addTokensModel, router: asRouter(), delegate: delegate)
         let addTokensView = PlansView(viewModel: addTokensViewModel)
         let controller = UIHostingController(rootView: addTokensView)
         controller.view.backgroundColor = .clear
@@ -40,15 +47,14 @@ final class PlansCoordinator: CoordinatorType {
 extension PlansCoordinator: RouterType {
     func play(event: PlansViewModel.Route) {
         switch event {
-        case .error(let error):
+        case let .error(error):
             show(message: error.localizedDescription)
-        case .addTokensAlert:
-            showNotEnoughTokensAlert()
+        case let .addTokensAlert(completion: completion):
+            showNotEnoughTokensAlert(completion: completion)
         case let .subscribe(node, completion):
             showSubscribeAlert(name: node, completion: completion)
-        case .openConnection:
-            navigation?.popToRootViewController(animated: true)
         case .accountInfo:
+            navigation?.dismiss(animated: true)
             ModulesFactory.shared.makeAccountInfoModule(for: navigation!)
         case .close:
             navigation?.dismiss(animated: true)
@@ -85,21 +91,21 @@ extension PlansCoordinator {
         rootController?.present(alert, animated: true, completion: nil)
     }
 
-    private func showNotEnoughTokensAlert() {
+    private func showNotEnoughTokensAlert(completion: @escaping (Bool) -> Void) {
         let alert = UIAlertController(
             title: L10n.Plans.AddTokens.title,
             message: L10n.Plans.AddTokens.subtitle,
             preferredStyle: .alert
         )
 
-        let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { [weak self] _ in
-            self?.navigation?.dismiss(animated: true)
+        let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { _ in
             UIImpactFeedbackGenerator.lightFeedback()
-            self?.play(event: .accountInfo)
+            completion(true)
         }
 
         let cancelAction = UIAlertAction(title: L10n.Common.cancel, style: .destructive) { _ in
             UIImpactFeedbackGenerator.lightFeedback()
+            completion(false)
         }
 
         alert.addAction(okAction)

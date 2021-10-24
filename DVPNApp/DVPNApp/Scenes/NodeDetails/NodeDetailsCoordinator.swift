@@ -56,10 +56,12 @@ extension NodeDetailsCoordinator: RouterType {
             show(message: error.localizedDescription)
         case .account:
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
-        case let .subscribe(node: nodeInfo):
-            ModulesFactory.shared.makePlansModule(node: nodeInfo, for: navigation)
+        case let .subscribe(node, delegate):
+            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .connect:
             ModulesFactory.shared.makeConnectionModule(for: navigation)
+        case .dismiss:
+            navigation.popToRootViewController(animated: true)
         }
     }
 }

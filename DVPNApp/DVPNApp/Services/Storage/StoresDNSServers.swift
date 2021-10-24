@@ -8,6 +8,6 @@
 import Foundation
 
 protocol StoresDNSServers {
-    func set(dns: [DNSServerType])
-    func selectedDNS() -> [DNSServerType]
+    func set(dns: DNSServerType)
+    func selectedDNS() -> DNSServerType
 }

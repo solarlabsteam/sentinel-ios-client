@@ -90,8 +90,8 @@ internal enum Asset {
     internal static let empty = ImageAsset(name: "locationSelector/empty")
   }
   internal enum Logo {
-    internal static let cosmos = ImageAsset(name: "logo/cosmos")
     internal static let exidio = ImageAsset(name: "logo/exidio")
+    internal static let solarLabs = ImageAsset(name: "logo/solarLabs")
   }
   internal enum Navigation {
     internal static let account = ImageAsset(name: "navigation/account")

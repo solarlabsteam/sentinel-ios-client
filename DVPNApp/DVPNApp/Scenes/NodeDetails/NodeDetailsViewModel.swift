@@ -19,7 +19,8 @@ final class NodeDetailsViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case account
-        case subscribe(node: DVPNNodeInfo)
+        case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
+        case dismiss
         case connect
     }
     
@@ -105,12 +106,20 @@ extension NodeDetailsViewModel {
     }
 }
 
+// MARK: - PlansViewModelDelegate
+
+extension NodeDetailsViewModel: PlansViewModelDelegate {
+    func openConnection() {
+        router.play(event: .dismiss)
+    }
+}
+
 // MARK: - Private
 
 extension NodeDetailsViewModel {
     private func toggle(node: Node) {
         guard model.isSubscribed else {
-            router.play(event: .subscribe(node: node.info))
+            router.play(event: .subscribe(node: node.info, delegate: self))
             return
         }
         

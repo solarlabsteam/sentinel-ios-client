@@ -35,7 +35,7 @@ final class ConnectionViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case warning(Error)
-        case openPlans(for: DVPNNodeInfo)
+        case openPlans(for: DVPNNodeInfo, delegate: PlansViewModelDelegate?)
         case accountInfo
         case dismiss(isEnabled: Bool)
     }
@@ -73,7 +73,7 @@ final class ConnectionViewModel: ObservableObject {
                 case let .error(error):
                     self?.show(error: error)
                 case let .openPlans(node):
-                    router.play(event: .openPlans(for: node))
+                    router.play(event: .openPlans(for: node, delegate: self))
                 case let .warning(error):
                     router.play(event: .warning(error))
                 }
@@ -106,6 +106,14 @@ extension ConnectionViewModel {
     func didTapAccountInfoButton() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .accountInfo)
+    }
+}
+
+// MARK: - PlansViewModelDelegate
+
+extension ConnectionViewModel: PlansViewModelDelegate {
+    func openConnection() {
+        model.connect()
     }
 }
 

@@ -12,7 +12,7 @@ import SentinelWallet
 final class ContextBuilder {
     func buildContext() -> CommonContext {
         
-        RealmStorage.initialize()
+        RealmStorage.prepare()
         guard let realmStorage = RealmStorage() else {
             fatalError("Failed to create storage")
         }
