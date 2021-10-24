@@ -23,6 +23,8 @@ final class ContextBuilder {
         let walletService = buildWalletService(storage: generalSettingsStorage, securityService: securityService)
         let tunnelManager = TunnelManager(storage: generalSettingsStorage)
         let networkService = NetworkService()
+        let userService = UserService(walletService: walletService)
+        let preloadService = PreloadService(userService: userService)
         let nodesService = NodesService(nodesStorage: realmStorage)
 
         return CommonContext(
@@ -32,6 +34,8 @@ final class ContextBuilder {
             sentinelService: .init(walletService: walletService),
             tunnelManager: tunnelManager,
             networkService: networkService,
+            userService: userService,
+            preloadService: preloadService,
             nodesService: nodesService
         )
     }

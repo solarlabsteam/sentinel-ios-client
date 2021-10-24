@@ -40,7 +40,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World’s first truly decentralized VPN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctA-yq-144">
                                         <rect key="frame" x="0.0" y="50" width="263" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                                        <color key="textColor" name="colors/redesign/lightGray"/>
+                                        <color key="textColor" name="colors/lightGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -83,7 +83,7 @@
         <image name="launch/exidio-logo" width="329" height="86"/>
         <image name="launch/sentinelBig" width="117" height="126"/>
         <image name="launch/wave" width="374" height="268"/>
-        <namedColor name="colors/redesign/lightGray">
+        <namedColor name="colors/lightGray">
             <color red="0.75300002098083496" green="0.78799998760223389" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

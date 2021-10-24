@@ -48,8 +48,8 @@ extension ConnectionCoordinator: RouterType {
             show(message: error.localizedDescription)
         case .warning(let error):
             show(message: error.localizedDescription, theme: .warning)
-        case let .openPlans(node):
-            ModulesFactory.shared.makePlansModule(node: node, for: navigation)
+        case let .openPlans(node, delegate):
+            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .accountInfo:
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case let .dismiss(isEnabled):

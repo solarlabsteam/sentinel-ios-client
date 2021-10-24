@@ -44,17 +44,18 @@ final class HomeViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case connect
-        case subscribe(node: DVPNNodeInfo)
+        case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
         case details(Node, isSubscribed: Bool)
         case accountInfo
         case sentinel
+        case solarLabs
         case title(String)
-        case dns(DNSSettingsViewModelDelegate?, [DNSServerType])
+        case dns(DNSSettingsViewModelDelegate?, DNSServerType)
     }
 
-    enum PageType {
-        case extra
+    enum PageType: Int, CaseIterable, Equatable {
         case selector
+        case extra
 
         var title: String {
             switch self {
@@ -79,7 +80,7 @@ final class HomeViewModel: ObservableObject {
 
     @Published var currentPage: PageType = .selector
     @Published var selectedTab: NodeType = .subscribed
-    @Published var servers: [DNSServerType] = [.default]
+    @Published var server: DNSServerType = .default
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
@@ -102,6 +103,7 @@ final class HomeViewModel: ObservableObject {
             .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback()})
             .store(in: &cancellables)
 
+        model.refreshDNS()
         model.loadNodes()
     }
 
@@ -118,8 +120,16 @@ final class HomeViewModel: ObservableObject {
 // MARK: - DNSSettingsViewModelDelegate
 
 extension HomeViewModel: DNSSettingsViewModelDelegate {
-    func update(to servers: [DNSServerType]) {
-        self.servers = servers
+    func update(to server: DNSServerType) {
+        self.server = server
+    }
+}
+
+// MARK: - PlansViewModelDelegate
+
+extension HomeViewModel: PlansViewModelDelegate {
+    func openConnection() {
+        model.connectIfNeeded()
     }
 }
 
@@ -176,9 +186,14 @@ extension HomeViewModel {
         router.play(event: .sentinel)
     }
 
+    func openSolarLabs() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .solarLabs)
+    }
+
     func openDNSServersSelection() {
         UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .dns(self, servers))
+        router.play(event: .dns(self, server))
     }
 }
 
@@ -213,8 +228,8 @@ extension HomeViewModel {
                 case .reloadSubscriptions:
                     self?.subscriptions = []
                     self?.isLoadingSubscriptions = true
-                case let .select(servers):
-                    self?.update(to: servers)
+                case let .select(server):
+                    self?.update(to: server)
                 }
             }
             .store(in: &cancellables)
@@ -258,7 +273,7 @@ extension HomeViewModel {
     private func toggle(node: Node) {
         let isSubscribedToNode = model.isSubscribed(to: node.info.address)
         guard isSubscribedToNode else {
-            router.play(event: .subscribe(node: node.info))
+            router.play(event: .subscribe(node: node.info, delegate: self))
             return
         }
 

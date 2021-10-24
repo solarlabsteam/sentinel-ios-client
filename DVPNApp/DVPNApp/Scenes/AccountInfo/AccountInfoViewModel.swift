@@ -18,6 +18,7 @@ final class AccountInfoViewModel: ObservableObject {
 
     enum Route {
         case error(Error)
+        case info(String)
     }
     
     @Published private(set) var qrCode: UIImage
@@ -55,8 +56,9 @@ final class AccountInfoViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-
-        model.refresh()
+        
+        model.setInitialBalance()
+        refresh()
     }
 }
 
@@ -64,12 +66,18 @@ extension AccountInfoViewModel {
     var solarPayURL: URL {
         .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
     }
+    
+    func refresh() {
+        model.refresh()
+    }
 }
 
 // MARK: - Buttons actions
 
 extension AccountInfoViewModel {
     func didTapCopy() {
+        router.play(event: .info(L10n.AccountInfo.textCopied))
+        
         UIImpactFeedbackGenerator.lightFeedback()
         UIPasteboard.general.string = model.address
     }

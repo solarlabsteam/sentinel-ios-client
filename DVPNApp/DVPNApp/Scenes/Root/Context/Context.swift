@@ -19,6 +19,8 @@ final class CommonContext {
     let securityService: SecurityService
     let tunnelManager: TunnelManagerType
     let networkService: NetworkServiceType
+    let userService: UserService
+    let preloadService: PreloadServiceType
     let nodesService: NodesServiceType
 
     init(
@@ -28,6 +30,8 @@ final class CommonContext {
         sentinelService: SentinelService,
         tunnelManager: TunnelManagerType,
         networkService: NetworkServiceType,
+        userService: UserService,
+        preloadService: PreloadServiceType,
         nodesService: NodesServiceType
     ) {
         self.storage = storage
@@ -36,6 +40,8 @@ final class CommonContext {
         self.sentinelService = sentinelService
         self.tunnelManager = tunnelManager
         self.networkService = networkService
+        self.userService = userService
+        self.preloadService = preloadService
         self.nodesService = nodesService
     }
 
@@ -96,3 +102,9 @@ extension CommonContext: HasTunnelManager {}
 
 protocol HasNetworkService { var networkService: NetworkServiceType { get } }
 extension CommonContext: HasNetworkService {}
+
+protocol HasUserService { var userService: UserService { get } }
+extension CommonContext: HasUserService {}
+
+protocol HasPreloadService { var preloadService: PreloadServiceType { get } }
+extension CommonContext: HasPreloadService {}

@@ -14,6 +14,7 @@ private let constants = Constants()
 import UIKit
 import SentinelWallet
 import SwiftUI
+import Combine
 
 final class ModulesFactory {
     private(set) static var shared = ModulesFactory()
@@ -34,8 +35,12 @@ extension ModulesFactory {
             makeOnboardingModule(for: window)
             return
         }
-
-        makeHomeModule(for: window)
+        
+        makeEmptyModule(for: window)
+        
+        context.preloadService.loadData() { [weak self] in
+            self?.makeHomeModule(for: window)
+        }
     }
 
     func makeOnboardingModule(for window: UIWindow) {
@@ -65,6 +70,13 @@ extension ModulesFactory {
         HomeCoordinator(context: context, navigation: navigation).start()
     }
     
+    func makeEmptyModule(for window: UIWindow) {
+        let storyboard = UIStoryboard(name: "EmptyScreen", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "EmptyViewController")
+        
+        window.rootViewController = controller
+    }
+    
     func makeNodeDetailsModule(for navigation: UINavigationController, configuration: NodeDetailsCoordinator.Configuration) {
         NodeDetailsCoordinator(context: context, navigation: navigation, configuration: configuration).start()
     }
@@ -75,17 +87,18 @@ extension ModulesFactory {
 
     func makePlansModule(
         node: DVPNNodeInfo,
+        delegate: PlansViewModelDelegate?,
         for navigation: UINavigationController
     ) {
-        PlansCoordinator(context: context, navigation: navigation, node: node).start()
+        PlansCoordinator(context: context, navigation: navigation, node: node, delegate: delegate).start()
     }
 
     func makeDNSSettingsModule(
         delegate: DNSSettingsViewModelDelegate?,
-        servers: [DNSServerType],
+        server: DNSServerType,
         for navigation: UINavigationController
     ) {
-        DNSSettingsCoordinator(context: context, delegate: delegate, servers: servers, navigation: navigation).start()
+        DNSSettingsCoordinator(context: context, delegate: delegate, server: server, navigation: navigation).start()
     }
 }
 
@@ -154,11 +167,11 @@ extension ModulesFactory {
         let coordinator = DNSSettingsCoordinator(
             context: context,
             delegate: delegate,
-            servers: [.default],
+            server: .default,
             navigation: UINavigationController()
         ).asRouter()
         let model = DNSSettingsModel(context: context)
-        let viewModel = DNSSettingsViewModel(model: model, servers: [.default], delegate: delegate, router: coordinator)
+        let viewModel = DNSSettingsViewModel(model: model, server: .default, delegate: delegate, router: coordinator)
         let view = DNSSettingsView(viewModel: viewModel)
 
         return view
