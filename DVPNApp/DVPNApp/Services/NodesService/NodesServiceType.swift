@@ -6,6 +6,18 @@
 //
 
 import Foundation
+import SentinelWallet
 
 protocol NodesServiceType {
+    func loadAllNodesIfNeeded()
+    func loadNodesInfo(for continent: Continent?)
+    func nodesCount(for continent: Continent) -> Int
+    
+    var nodes: [SentinelNode] { get }
+}
+
+extension NodesServiceType {
+    func loadNodesInfo() {
+        loadNodesInfo(for: nil)
+    }
 }

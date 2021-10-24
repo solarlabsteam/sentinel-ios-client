@@ -108,3 +108,6 @@ extension CommonContext: HasUserService {}
 
 protocol HasPreloadService { var preloadService: PreloadServiceType { get } }
 extension CommonContext: HasPreloadService {}
+
+protocol HasNodesService { var nodesService: NodesServiceType { get } }
+extension CommonContext: HasNodesService {}

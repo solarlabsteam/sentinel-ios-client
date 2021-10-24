@@ -136,25 +136,32 @@
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
 		9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA67270461D20062AFD3 /* NetworkServiceType.swift */; };
 		931636D4271DC62B00A8C18C /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931636D3271DC62B00A8C18C /* AvailableNodesView.swift */; };
-		932EEBD5271D4D800098A2D7 /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */; };
-		932EEBD7271D4D980098A2D7 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
-		932EEBD9271D4DAA0098A2D7 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
 		932D0AF8272174560064AEE4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AF7272174560064AEE4 /* UserService.swift */; };
 		932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFC272176620064AEE4 /* PreloadService.swift */; };
 		932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */; };
 		932D0B04272197D10064AEE4 /* EmptyScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */; };
+		932D0B082721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */; };
+		932EEBD5271D4D800098A2D7 /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */; };
+		932EEBD7271D4D980098A2D7 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
+		932EEBD9271D4DAA0098A2D7 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
 		9378543F270ECA400004483C /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93785441270ECC810004483C /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
+		93843B472724993000CE6D34 /* SentinelNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843B462724993000CE6D34 /* SentinelNode+Ext.swift */; };
 		938FBA5E27056A320059469B /* TunnelManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FBA5D27056A320059469B /* TunnelManagerType.swift */; };
 		939FA140270C3D960013ED75 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
 		93A6C0B8270A97B0009F1029 /* CountryTileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */; };
+		93BFB0FC2722960400848912 /* ContinentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BFB0FB2722960400848912 /* ContinentDecoder.swift */; };
 		93C3EC35270ACD6700B9CA4D /* ConnectionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC34270ACD6700B9CA4D /* ConnectionInfoView.swift */; };
 		93C3EC37270ACE7200B9CA4D /* ConnectionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */; };
 		93C3EC39270ACED500B9CA4D /* ConnectionInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */; };
 		93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3A270AF19400B9CA4D /* GridView.swift */; };
 		93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */; };
-		93DBF53D27167853006EBC65 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 93DBF53C27167853006EBC65 /* RealmSwift */; };
+		93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD4272036C800A35BCA /* Double+Ext.swift */; };
+		93D29CD9272117EF00A35BCA /* AutoRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD8272117EF00A35BCA /* AutoRealmObject.swift */; };
+		93D29CDB2721203200A35BCA /* RealmStorage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CDA2721203200A35BCA /* RealmStorage+Ext.swift */; };
+		93D29CDE272127BF00A35BCA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 93D29CDD272127BF00A35BCA /* Realm */; };
+		93D29CE0272127BF00A35BCA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 93D29CDF272127BF00A35BCA /* RealmSwift */; };
 		93DBF5412716940A006EBC65 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5402716940A006EBC65 /* RealmStorage.swift */; };
 		93DBF5432716A6B6006EBC65 /* StoresNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5422716A6B6006EBC65 /* StoresNodes.swift */; };
 		93DBF5492716C0B6006EBC65 /* RealmStorage+ProtocolImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */; };
@@ -171,7 +178,6 @@
 		93DBF56D2718889A006EBC65 /* ContinentsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */; };
 		93DBF570271888B8006EBC65 /* ContinentsRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */; };
 		93DBF574271939EF006EBC65 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 93DBF576271939EF006EBC65 /* Localizable.stringsdict */; };
-		93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD4272036C800A35BCA /* Double+Ext.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -346,24 +352,30 @@
 		9312CA642704608D0062AFD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9312CA67270461D20062AFD3 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
 		931636D3271DC62B00A8C18C /* AvailableNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesView.swift; sourceTree = "<group>"; };
-		932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
-		932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
-		932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
 		932D0AF7272174560064AEE4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		932D0AFC272176620064AEE4 /* PreloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadService.swift; sourceTree = "<group>"; };
 		932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadServiceType.swift; sourceTree = "<group>"; };
 		932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyScreen.storyboard; sourceTree = "<group>"; };
+		932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = co.sentinel.sentinellite.regional.countries_extras.json; sourceTree = "<group>"; };
+		932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
+		932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
+		932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		9378543E270ECA400004483C /* FramedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramedButton.swift; sourceTree = "<group>"; };
 		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
+		93843B462724993000CE6D34 /* SentinelNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SentinelNode+Ext.swift"; sourceTree = "<group>"; };
 		938FBA5D27056A320059469B /* TunnelManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManagerType.swift; sourceTree = "<group>"; };
 		939FA13F270C3D960013ED75 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTileViewModel.swift; sourceTree = "<group>"; };
+		93BFB0FB2722960400848912 /* ContinentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentDecoder.swift; sourceTree = "<group>"; };
 		93C3EC34270ACD6700B9CA4D /* ConnectionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoView.swift; sourceTree = "<group>"; };
 		93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoViewModel.swift; sourceTree = "<group>"; };
 		93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoType.swift; sourceTree = "<group>"; };
 		93C3EC3A270AF19400B9CA4D /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		93D29CD4272036C800A35BCA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
+		93D29CD8272117EF00A35BCA /* AutoRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoRealmObject.swift; sourceTree = "<group>"; };
+		93D29CDA2721203200A35BCA /* RealmStorage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmStorage+Ext.swift"; sourceTree = "<group>"; };
 		93DBF5402716940A006EBC65 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		93DBF5422716A6B6006EBC65 /* StoresNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresNodes.swift; sourceTree = "<group>"; };
 		93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmStorage+ProtocolImplementations.swift"; sourceTree = "<group>"; };
@@ -380,7 +392,6 @@
 		93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowView.swift; sourceTree = "<group>"; };
 		93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowViewType.swift; sourceTree = "<group>"; };
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		93D29CD4272036C800A35BCA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
@@ -410,11 +421,12 @@
 				C64ED33426C5B26800222CA4 /* SwiftMessages in Frameworks */,
 				7504E9F6267A1AFD00023D42 /* WireGuardKit in Frameworks */,
 				75D6561626C02897000056B4 /* EFQRCode in Frameworks */,
+				93D29CDE272127BF00A35BCA /* Realm in Frameworks */,
 				7504EA71267B4FD000023D42 /* SnapKit in Frameworks */,
 				755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */,
 				C680E89C270DE0E90042453D /* SentinelWallet in Frameworks */,
+				93D29CE0272127BF00A35BCA /* RealmSwift in Frameworks */,
 				7504E9F3267A1AA700023D42 /* NetworkExtension.framework in Frameworks */,
-				93DBF53D27167853006EBC65 /* RealmSwift in Frameworks */,
 				7504EA18267A26C800023D42 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,7 +474,7 @@
 				7504EA6D267B4E7B00023D42 /* Resources */,
 				C64B495426B8B3F70004A692 /* Scenes */,
 				755FBF0726AF0F0100E9D408 /* Services */,
-				93DBF55C2717CEB0006EBC65 /* Models */,
+				93843B45272498F200CE6D34 /* Models */,
 				7504EA49267A37E400023D42 /* Tunnel */,
 			);
 			path = DVPNApp;
@@ -550,6 +562,7 @@
 		7504EA6D267B4E7B00023D42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */,
 				7504E9D3267A184000023D42 /* Assets.xcassets */,
 				755F5EE4270DB51B00D416ED /* Fonts */,
 				93DBF57327193035006EBC65 /* Localization */,
@@ -596,6 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				757F0B7D26D8D6CE000C0865 /* Connectivity.swift */,
+				93BFB0FB2722960400848912 /* ContinentDecoder.swift */,
 				9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */,
 				75D6562826C3A9FF000056B4 /* Formatters.swift */,
 				7504EA24267A2DCA00023D42 /* NotificationToken.swift */,
@@ -923,17 +937,6 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
-		932EEBD3271D4B5C0098A2D7 /* AvailableNodes */ = {
-			isa = PBXGroup;
-			children = (
-				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
-				932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */,
-				932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */,
-				931636D3271DC62B00A8C18C /* AvailableNodesView.swift */,
-			);
-			path = AvailableNodes;
-			sourceTree = "<group>";
-		};
 		932D0AF62721743F0064AEE4 /* UserService */ = {
 			isa = PBXGroup;
 			children = (
@@ -957,6 +960,25 @@
 				932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */,
 			);
 			path = Empty;
+			sourceTree = "<group>";
+		};
+		932EEBD3271D4B5C0098A2D7 /* AvailableNodes */ = {
+			isa = PBXGroup;
+			children = (
+				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
+				932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */,
+				932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */,
+				931636D3271DC62B00A8C18C /* AvailableNodesView.swift */,
+			);
+			path = AvailableNodes;
+			sourceTree = "<group>";
+		};
+		93843B45272498F200CE6D34 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93843B462724993000CE6D34 /* SentinelNode+Ext.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		93C3EC32270ACB8300B9CA4D /* CountryTile */ = {
@@ -991,8 +1013,10 @@
 		93DBF53F271693D3006EBC65 /* RealmStorage */ = {
 			isa = PBXGroup;
 			children = (
+				93D29CD8272117EF00A35BCA /* AutoRealmObject.swift */,
 				93DBF5612717D302006EBC65 /* Persistable.swift */,
 				93DBF5402716940A006EBC65 /* RealmStorage.swift */,
+				93D29CDA2721203200A35BCA /* RealmStorage+Ext.swift */,
 				93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */,
 			);
 			path = RealmStorage;
@@ -1013,13 +1037,6 @@
 				93DBF5592717C395006EBC65 /* MarkerProtocols.swift */,
 			);
 			path = MarkerProtocols;
-			sourceTree = "<group>";
-		};
-		93DBF55C2717CEB0006EBC65 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		93DBF5632718827A006EBC65 /* Continents */ = {
@@ -1192,7 +1209,8 @@
 				75D6561C26C358F8000056B4 /* FlagKit */,
 				C64ED33326C5B26800222CA4 /* SwiftMessages */,
 				C680E89B270DE0E90042453D /* SentinelWallet */,
-				93DBF53C27167853006EBC65 /* RealmSwift */,
+				93D29CDD272127BF00A35BCA /* Realm */,
+				93D29CDF272127BF00A35BCA /* RealmSwift */,
 			);
 			productName = DVPNApp;
 			productReference = 7504E9C7267A183D00023D42 /* DVPNApp.app */;
@@ -1258,7 +1276,7 @@
 				75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */,
 				C64ED33226C5B26800222CA4 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */,
-				93DBF53B27167853006EBC65 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -1290,6 +1308,7 @@
 				755F5EFC270DB51B00D416ED /* Poppins-Light.ttf in Resources */,
 				755F5F00270DB51B00D416ED /* Poppins-ExtraBold.ttf in Resources */,
 				7504E9D7267A184000023D42 /* LaunchScreen.storyboard in Resources */,
+				932D0B082721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */,
 				755F5EFE270DB51B00D416ED /* Poppins-SemiBoldItalic.ttf in Resources */,
 				755F5EFF270DB51B00D416ED /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				755F5F02270DB51B00D416ED /* Poppins-Regular.ttf in Resources */,
@@ -1406,8 +1425,10 @@
 				93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */,
 				759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */,
 				7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */,
+				93D29CD9272117EF00A35BCA /* AutoRealmObject.swift in Sources */,
 				75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */,
 				93DBF5602717CF80006EBC65 /* AutoRealmObject.generated.swift in Sources */,
+				93D29CDB2721203200A35BCA /* RealmStorage+Ext.swift in Sources */,
 				753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */,
 				755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */,
 				75B0D56026CD265E009ECAFC /* UserDefaultsStorageStrategy.swift in Sources */,
@@ -1424,6 +1445,7 @@
 				751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */,
 				93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */,
 				75B0D56326CD2717009ECAFC /* SettingsStorageStrategyType.swift in Sources */,
+				93BFB0FC2722960400848912 /* ContinentDecoder.swift in Sources */,
 				7554E2BB26D4B810001355F7 /* AccountInfoView.swift in Sources */,
 				753EDDFE2715633A00DA76F8 /* ScaleView.swift in Sources */,
 				75D6560A26BBF521000056B4 /* ContextBuilder.swift in Sources */,
@@ -1452,6 +1474,7 @@
 				7504EA52267A391700023D42 /* String+ArrayConversion.swift in Sources */,
 				9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */,
 				93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */,
+				93843B472724993000CE6D34 /* SentinelNode+Ext.swift in Sources */,
 				75B0D56526CD2753009ECAFC /* Serializer.swift in Sources */,
 				93DBF54F2716D593006EBC65 /* StoresConnectInfo.swift in Sources */,
 				93DBF5562716DC08006EBC65 /* NodesServiceType.swift in Sources */,
@@ -1884,7 +1907,7 @@
 				minimumVersion = 2.4.0;
 			};
 		};
-		93DBF53B27167853006EBC65 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
@@ -1904,8 +1927,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/solarlabsteam/sentinel-wallet-sdk-ios.git";
 			requirement = {
-				kind = revision;
-				revision = 2344476a64ceecbfba872bd57ace8a654a5a3cc1;
+				branch = develop;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1946,9 +1969,14 @@
 			package = 75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */;
 			productName = FlagKit;
 		};
-		93DBF53C27167853006EBC65 /* RealmSwift */ = {
+		93D29CDD272127BF00A35BCA /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 93DBF53B27167853006EBC65 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = 93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		93D29CDF272127BF00A35BCA /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
 		};
 		C64ED33326C5B26800222CA4 /* SwiftMessages */ = {

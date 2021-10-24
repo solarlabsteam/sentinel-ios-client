@@ -80,8 +80,8 @@ extension ConnectionModel {
                 self.show(error: error)
             case .success(let node):
                 self.eventSubject.send(.setButton(isLoading: true))
-                self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
-                self.context.connectionInfoStorage.set(lastSelectedNode: node.info.address)
+                self.loadSubscriptions(selectedAddress: node.node!.info.address, reconnect: true)
+                self.context.connectionInfoStorage.set(lastSelectedNode: node.node!.info.address)
             }
         }
     }
@@ -220,10 +220,11 @@ extension ConnectionModel {
                 self?.show(error: ConnectionModelError.nodeIsOffline)
             case .success(let node):
                 self?.eventSubject.send(
-                    .updateLocation(countryName: node.info.location.country, moniker: node.info.moniker)
+                    .updateLocation(countryName: node.node!.info.location.country,
+                                    moniker: node.node!.info.moniker)
                 )
                 self?.eventSubject.send(
-                    .updateBandwidth(bandwidth: node.info.bandwidth)
+                    .updateBandwidth(bandwidth: node.node!.info.bandwidth)
                 )
             }
         }

@@ -16,7 +16,6 @@ final class ContextBuilder {
         guard let realmStorage = RealmStorage() else {
             fatalError("Failed to create storage")
         }
-       
         let generalSettingsStorage = GeneralSettingsStorage()
         
         let securityService = SecurityService()
@@ -24,14 +23,15 @@ final class ContextBuilder {
         let tunnelManager = TunnelManager(storage: generalSettingsStorage)
         let networkService = NetworkService()
         let userService = UserService(walletService: walletService)
+        let sentinelService = SentinelService(walletService: walletService)
+        let nodesService = NodesService(nodesStorage: realmStorage, sentinelService: sentinelService)
         let preloadService = PreloadService(userService: userService)
-        let nodesService = NodesService(nodesStorage: realmStorage)
 
         return CommonContext(
             storage: generalSettingsStorage,
             securityService: securityService,
             walletService: walletService,
-            sentinelService: .init(walletService: walletService),
+            sentinelService: sentinelService,
             tunnelManager: tunnelManager,
             networkService: networkService,
             userService: userService,

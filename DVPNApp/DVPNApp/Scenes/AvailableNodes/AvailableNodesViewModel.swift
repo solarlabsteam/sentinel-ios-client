@@ -20,12 +20,12 @@ final class AvailableNodesViewModel: ObservableObject {
         case error(Error)
         case connect
         case subscribe(node: DVPNNodeInfo)
-        case details(Node, isSubscribed: Bool)
+        case details(SentinelNode, isSubscribed: Bool)
         case accountInfo
     }
 
     @Published private(set) var locations: [NodeSelectionRowViewModel] = []
-    private(set) var nodes: Set<Node> = []
+    private(set) var nodes: Set<SentinelNode> = []
     
     private let model: AvailableNodesModel
     private var cancellables = Set<AnyCancellable>()
@@ -55,11 +55,11 @@ final class AvailableNodesViewModel: ObservableObject {
 extension AvailableNodesViewModel {
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard let node = nodes.first(where: { $0.info.address == id }) else {
+        guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
             return
         }
-        router.play(event: .details(node, isSubscribed: model.isSubscribed(to: node.info.address)))
+        router.play(event: .details(node, isSubscribed: model.isSubscribed(to: node.node!.info.address)))
     }
     
     @objc
@@ -92,13 +92,13 @@ extension AvailableNodesViewModel {
             .store(in: &cancellables)
     }
 
-    private func update(nodes: Set<Node>) {
+    private func update(nodes: Set<SentinelNode>) {
         let newNodes = nodes.subtracting(self.nodes)
         let newLocations = newNodes.map { node -> NodeSelectionRowViewModel in
-            let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
+            let countryCode = CountryFormatter.code(for: node.node!.info.location.country) ?? ""
 
             return NodeSelectionRowViewModel(
-                from: node,
+                from: node.node!,
                 icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
             )
         }

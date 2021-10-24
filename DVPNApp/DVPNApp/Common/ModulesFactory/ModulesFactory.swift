@@ -41,6 +41,9 @@ extension ModulesFactory {
         context.preloadService.loadData() { [weak self] in
             self?.makeHomeModule(for: window)
         }
+        
+        // TODO: @Tori need to call it also when user passed onbording
+        context.nodesService.loadAllNodesIfNeeded()
     }
 
     func makeOnboardingModule(for window: UIWindow) {

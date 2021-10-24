@@ -41,7 +41,7 @@ final class NodeDetailsViewModel: ObservableObject {
                 case let .error(error):
                     self?.router.play(event: .error(error))
                 case let .update(node):
-                    self?.update(node: node)
+                    self?.update(sentinelNode: node)
                 }
             }
             .store(in: &cancellables)
@@ -51,10 +51,10 @@ final class NodeDetailsViewModel: ObservableObject {
 }
 
 extension NodeDetailsViewModel {
-    func update(node: Node) {
-        self.node = node
+    func update(sentinelNode: SentinelNode) {
+        self.node = sentinelNode.node
         
-        let nodeInfo = node.info
+        let nodeInfo = self.node!.info
         let countryCode = CountryFormatter.code(for: nodeInfo.location.country) ?? ""
         let icon = Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
         
@@ -63,10 +63,10 @@ extension NodeDetailsViewModel {
             icon: icon,
             title: nodeInfo.moniker,
             subtitle: String(nodeInfo.address.suffix(6)),
-            speed: node.info.bandwidth.speedImage
+            speed: self.node!.info.bandwidth.speedImage
         )
         
-        let domain = URL(string: node.remoteURL)?.host ?? ""
+        let domain = URL(string: sentinelNode.remoteURL)?.host ?? ""
         let upload = nodeInfo.bandwidth.upload.getBandwidthKBorMB
         let download = nodeInfo.bandwidth.download.getBandwidthKBorMB
         

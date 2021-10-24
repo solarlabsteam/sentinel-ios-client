@@ -23,13 +23,13 @@ enum AvailableNodesModelEvent {
 
     case allLoaded
     
-    case update(locations: [Node])
+    case update(locations: [SentinelNode])
     case connect
 }
 
 final class AvailableNodesModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
-        & HasDNSServersStorage & HasTunnelManager
+        & HasDNSServersStorage & HasTunnelManager & HasNodesService
     private let context: Context
     private let continent: Continent
 
@@ -48,30 +48,13 @@ final class AvailableNodesModel {
 }
 
 extension AvailableNodesModel {
-    // TODO: @Tori get nodes for continent
     func loadNodes() {
-        eventSubject.send(.showLoadingNodes(state: true))
-
-        context.sentinelService.queryNodes(
-            offset: offset,
-            limit: constants.limit,
-            timeout: constants.timeout
-        ) { [weak self] result in
-            guard let self = self else { return }
-            self.eventSubject.send(.showLoadingNodes(state: false))
-
-            switch result {
-            case .failure(let error):
-                log.error(error)
-            case .success(let nodes):
-                guard !nodes.isEmpty else {
-                    self.eventSubject.send(.allLoaded)
-                    return
-                }
-                self.offset += UInt64(nodes.count)
-                self.eventSubject.send(.update(locations: nodes))
-            }
-        }
+        // TODO: @Tori update nodes in db, pagination
+        let nodes = context.nodesService.nodes
+            .filter { $0.node != nil }
+            .filter { ContinentDecoder().isInContinent(node: $0.node!, continent: continent) }
+        
+        self.eventSubject.send(.update(locations: nodes))
     }
 
     func save(nodeAddress: String) {

@@ -21,11 +21,9 @@ enum HomeModelEvent {
 
     case showLoadingNodes(state: Bool)
     case showLoadingSubscriptions(state: Bool)
-
-    case allLoaded
     
-    case update(locations: [Node])
-    case append(subscribedNode: Node)
+    case update(locations: [SentinelNode])
+    case append(subscribedNode: SentinelNode)
     case reloadSubscriptions
 
     case connect
@@ -35,7 +33,7 @@ enum HomeModelEvent {
 
 final class HomeModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
-        & HasDNSServersStorage & HasTunnelManager
+        & HasDNSServersStorage & HasTunnelManager & HasNodesService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
@@ -54,32 +52,22 @@ final class HomeModel {
         fetchWalletInfo()
 
         eventSubject.send(.select(servers: context.dnsServersStorage.selectedDNS()))
+        
+        context.nodesService.loadNodesInfo()
     }
-
-    // TODO: @Tori get from database
-    func loadNodes() {
-        eventSubject.send(.showLoadingNodes(state: true))
-
-        context.sentinelService.queryNodes(
-            offset: offset,
-            limit: constants.limit,
-            timeout: constants.timeout
-        ) { [weak self] result in
-            guard let self = self else { return }
-            self.eventSubject.send(.showLoadingNodes(state: false))
-
-            switch result {
-            case .failure(let error):
-                log.error(error)
-            case .success(let nodes):
-                guard !nodes.isEmpty else {
-                    self.eventSubject.send(.allLoaded)
-                    return
-                }
-                self.offset += UInt64(nodes.count)
-                self.eventSubject.send(.update(locations: nodes))
-            }
+    
+    func setNumberOfNodesInContinent() -> [Continent: Int] {
+        var numberOfNodesInContinent: [Continent: Int] = [:]
+        
+        Continent.allCases.forEach {
+            numberOfNodesInContinent[$0] = context.nodesService.nodesCount(for: $0)
         }
+        
+        return numberOfNodesInContinent
+    }
+    
+    func loadNodes() {
+        self.eventSubject.send(.update(locations: context.nodesService.nodes))
     }
 
     func save(nodeAddress: String) {

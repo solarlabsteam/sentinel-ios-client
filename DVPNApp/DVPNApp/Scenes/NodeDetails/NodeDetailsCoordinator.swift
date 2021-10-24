@@ -17,7 +17,7 @@ final class NodeDetailsCoordinator: CoordinatorType {
     private let context: NodeDetailsModel.Context
     
     struct Configuration {
-        let node: Node
+        let node: SentinelNode
         let isSubscribed: Bool
     }
     private let configuration: Configuration

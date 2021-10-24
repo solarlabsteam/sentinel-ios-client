@@ -23,7 +23,7 @@ extension PreloadService: PreloadServiceType {
         userService.loadBalance()
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { [weak self] _ in
+                receiveCompletion: { _ in
                     completion()
                 },
                 receiveValue: { _ in }

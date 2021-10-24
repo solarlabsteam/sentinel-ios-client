@@ -16,15 +16,16 @@ struct ContinentsView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(viewModel.continents, id: \.self) { continent in
+            ForEach(viewModel.numberOfNodesInContinent.sorted { $0.key.title > $1.key.title },
+                    id: \.key) { key, value in
                 ContinentsRowView(
-                    type: continent,
-                    count: .constant(0),
+                    type: key,
+                    count: .constant(value),
                     action: {
-                        viewModel.openNodes(for: continent)
+                        viewModel.openNodes(for: key)
                     })
                     .padding()
-                
+
                 Divider()
                     .background(Asset.Colors.lightBlue.color.asColor)
                     .padding(.horizontal)
