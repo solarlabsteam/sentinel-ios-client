@@ -68,6 +68,8 @@
 
 "Continents.AvailableNodes" = "%d available nodes";
 
+"AvailableNodes.Title" = "Nodes in %@";
+
 "NodeDetails.Connect" = "CONNECT NOW";
 "NodeDetails.InfoType.Address" = "Node Address";
 "NodeDetails.InfoType.Peers" = "Connected peers count";

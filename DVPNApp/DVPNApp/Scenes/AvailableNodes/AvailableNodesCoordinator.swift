@@ -29,7 +29,7 @@ final class AvailableNodesCoordinator: CoordinatorType {
 
     func start() {
         let model = AvailableNodesModel(context: context, continent: continent)
-        let viewModel = AvailableNodesViewModel(model: model, router: asRouter())
+        let viewModel = AvailableNodesViewModel(continent: continent, model: model, router: asRouter())
         let view = AvailableNodesView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         navigation?.pushViewController(controller, animated: true)

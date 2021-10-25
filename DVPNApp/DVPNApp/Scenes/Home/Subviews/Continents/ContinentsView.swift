@@ -16,7 +16,7 @@ struct ContinentsView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(viewModel.numberOfNodesInContinent.sorted { $0.key.title > $1.key.title },
+            ForEach(viewModel.numberOfNodesInContinent.sorted { $0.key.index < $1.key.index },
                     id: \.key) { key, value in
                 ContinentsRowView(
                     type: key,

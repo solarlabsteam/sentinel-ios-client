@@ -41,4 +41,16 @@ extension Continent {
         case .AN: return Image(uiImage: Asset.Continents.antarctica.image)
         }
     }
+    
+    var index: Int {
+        switch self {
+        case .AF: return 5
+        case .SA: return 4
+        case .NA: return 0
+        case .OC: return 3
+        case .AS: return 2
+        case .EU: return 1
+        case .AN: return 6
+        }
+    }
 }

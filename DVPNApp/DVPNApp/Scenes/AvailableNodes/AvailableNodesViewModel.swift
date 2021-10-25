@@ -32,10 +32,13 @@ final class AvailableNodesViewModel: ObservableObject {
 
     @Published var isLoadingNodes: Bool = true
     @Published var isAllLoaded: Bool = false
+    
+    let continent: Continent
 
     private var statusObservationToken: NotificationToken?
 
-    init(model: AvailableNodesModel, router: Router) {
+    init(continent: Continent, model: AvailableNodesModel, router: Router) {
+        self.continent = continent
         self.model = model
         self.router = router
 

@@ -73,6 +73,13 @@ internal enum L10n {
     }
   }
 
+  internal enum AvailableNodes {
+    /// Nodes in %@
+    internal static func title(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "AvailableNodes.Title", String(describing: p1))
+    }
+  }
+
   internal enum Common {
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "Common.Cancel")

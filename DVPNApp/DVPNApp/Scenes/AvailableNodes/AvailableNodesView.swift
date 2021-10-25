@@ -15,7 +15,12 @@ struct AvailableNodesView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text(L10n.AvailableNodes.title(viewModel.continent.title))
+                .applyTextStyle(.grayPoppins(ofSize: 12, weight: .medium))
+                .multilineTextAlignment(.leading)
+                .padding(.horizontal)
+            
             if viewModel.isAllLoaded && viewModel.locations.isEmpty {
                 Spacer()
 
