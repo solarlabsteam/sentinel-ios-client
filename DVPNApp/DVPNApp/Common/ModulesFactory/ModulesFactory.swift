@@ -110,7 +110,10 @@ extension ModulesFactory {
         for navigation: UINavigationController
     ) {
         AvailableNodesCoordinator(
-            context: context, delegate: delegate, navigation: navigation, continent: continent
+            context: context,
+            delegate: delegate,
+            navigation: navigation,
+            continent: continent
         ).start()
     }
 }

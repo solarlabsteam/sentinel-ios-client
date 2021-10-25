@@ -13,11 +13,12 @@ import SentinelWallet
 public class SentinelNodeObject: Object {
     @objc dynamic var address: String?
     @objc dynamic var provider: String?
+    let price = List<CoinTokenObject>()
     @objc dynamic var remoteURL: String?
     @objc dynamic var node: NodeObject?
 
     override public static func primaryKey() -> String? {
-        return "address"
+        "address"
     }
 }
 
@@ -27,7 +28,7 @@ extension SentinelNode: Persistable {
         self.init(
             address: managedObject.address!,
             provider: managedObject.provider!,
-            price: [],
+            price: Array(managedObject.price).map(CoinToken.init),
             remoteURL: managedObject.remoteURL!,
             node: managedObject.node.flatMap { Node(managedObject: $0) } ?? nil
         )
@@ -38,6 +39,7 @@ extension SentinelNode: Persistable {
         
         obj.address = address
         obj.provider = provider
+        obj.price.append(objectsIn: price.map { $0.toManagedObject() })
         obj.remoteURL = remoteURL
         obj.node = node?.toManagedObject()
         
@@ -52,7 +54,7 @@ public class NodeObject: Object {
     dynamic var latency: Double?
 
     override public static func primaryKey() -> String? {
-        return nil
+        nil
     }
 }
 
@@ -81,7 +83,7 @@ public class BandwidthObject: Object {
     let upload = RealmProperty<Int?>()
 
     override public static func primaryKey() -> String? {
-        return nil
+        nil
     }
 }
 
@@ -123,7 +125,7 @@ public class DVPNNodeInfoObject: Object {
     @objc dynamic var version: String?
 
     override public static func primaryKey() -> String? {
-        return nil
+        "address"
     }
 }
 
@@ -178,7 +180,7 @@ public class HandshakeObject: Object {
     let peers = RealmProperty<Int?>()
 
     override public static func primaryKey() -> String? {
-        return nil
+        nil
     }
 }
 
@@ -207,7 +209,7 @@ public class LocationObject: Object {
     @objc dynamic var country: String?
 
     override public static func primaryKey() -> String? {
-        return nil
+        nil
     }
 }
 
@@ -237,7 +239,7 @@ public class QOSObject: Object {
     let maxPeers = RealmProperty<Int?>()
 
     override public static func primaryKey() -> String? {
-        return nil
+        nil
     }
 }
 
@@ -253,6 +255,35 @@ extension QOS: Persistable {
         let obj = QOSObject()
 
         obj.maxPeers.value = maxPeers
+
+        return obj
+    }
+}
+
+// MARK: - CoinTokenObject
+public class CoinTokenObject: Object {
+    @objc dynamic var denom: String?
+    @objc dynamic var amount: String?
+
+    override public static func primaryKey() -> String? {
+        nil
+    }
+}
+
+// MARK: CoinToken: Persistable
+extension CoinToken: Persistable {
+    public init(managedObject: CoinTokenObject) {
+        self.init(
+            denom: managedObject.denom!,
+            amount: managedObject.amount!
+        )
+    }
+
+    public func toManagedObject() -> CoinTokenObject {
+        let obj = CoinTokenObject()
+
+        obj.denom = denom
+        obj.amount = amount
 
         return obj
     }

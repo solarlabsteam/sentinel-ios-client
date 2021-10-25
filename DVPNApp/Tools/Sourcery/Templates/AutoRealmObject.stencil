@@ -57,15 +57,15 @@ public class {{type.name}}Object: Object {
 
     override public static func primaryKey() -> String? {
 {% if type.annotations.RealmShared %}
-        return "pKey"
+        "pKey"
 {% elif type.storedVariables|annotated:"primaryKey" %}
     {% for p in type.storedVariables %}
         {% if p.annotations.primaryKey %}
-        return "{{p.name}}"
+        "{{p.name}}"
         {% endif %}
     {% endfor %}
 {% else %}
-        return nil
+        nil
 {% endif %}
     }
 

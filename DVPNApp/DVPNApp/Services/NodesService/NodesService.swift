@@ -8,11 +8,15 @@
 import Foundation
 import SentinelWallet
 
+private struct Constants {
+    let timeout: TimeInterval = 5
+}
+
+private let constants = Constants()
+
 final class NodesService {
     private let nodesStorage: StoresNodes
     private let sentinelService: SentinelService
-    
-    private let timeout: TimeInterval = 5
     
     init(nodesStorage: StoresNodes, sentinelService: SentinelService) {
         self.nodesStorage = nodesStorage
@@ -34,7 +38,6 @@ extension NodesService: NodesServiceType {
             sentinelNodes = nodesStorage.sentinelNodes
                 .filter { $0.node != nil }
                 .filter { ContinentDecoder.shared.isInContinent(node: $0.node!, continent: continent) }
-            
         } else {
             sentinelNodes = nodesStorage.sentinelNodes.filter { $0.node == nil }
         }
@@ -72,7 +75,7 @@ extension NodesService: NodesServiceType {
 extension NodesService {
     private func loadAllNodes() {
         sentinelService.queryNodes(
-            timeout: self.timeout
+            timeout: constants.timeout
         ) { [weak self] result in
             guard let self = self else { return }
             
@@ -81,7 +84,7 @@ extension NodesService {
                 log.error(error)
                 // TODO: @Tori Do sth if error - retry when opens continents
             case .success(let nodes):
-                self.nodesStorage.saveSentinelNodes(nodes)
+                self.nodesStorage.save(sentinelNodes: nodes)
             }
         }
     }
@@ -110,7 +113,7 @@ extension NodesService {
         completion: @escaping () -> Void
     ) {
         self.sentinelService.fetchInfo(
-            for: sentinelNode, timeout: self.timeout
+            for: sentinelNode, timeout: constants.timeout
         ) { [weak self] result in
             guard let self = self else { return }
             
@@ -118,7 +121,7 @@ extension NodesService {
             case .failure(let error):
                 log.error(error)
             case .success(let node):
-                self.nodesStorage.saveNode(node, for: sentinelNode)
+                self.nodesStorage.save(node: node, for: sentinelNode)
                 completion()
             }
         }

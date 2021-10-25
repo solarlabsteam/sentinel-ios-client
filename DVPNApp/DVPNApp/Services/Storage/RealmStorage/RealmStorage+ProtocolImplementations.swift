@@ -20,7 +20,7 @@ extension RealmStorage: StoresNodes {
         realm.objects(SentinelNodeObject.self).map { SentinelNode(managedObject: $0) }
     }
     
-    func saveSentinelNodes(_ sentinelNodes: [SentinelNode]) {
+    func save(sentinelNodes: [SentinelNode]) {
         do {
             try realm.safeWrite() {
                 try save(collection: sentinelNodes)
@@ -30,7 +30,7 @@ extension RealmStorage: StoresNodes {
         }
     }
     
-    func saveNode(_ node: Node, for sentinelNode: SentinelNode) {
+    func save(node: Node, for sentinelNode: SentinelNode) {
         let fullSentinelNode = sentinelNode.set(node: node)
         
         do {

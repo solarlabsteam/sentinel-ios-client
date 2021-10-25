@@ -11,19 +11,21 @@ import Realm
 
 extension RealmStorage {
     func save<T: Persistable>(object: T) throws {
-        if T.ManagedObject.primaryKey() != nil {
+        guard T.ManagedObject.primaryKey() == nil else {
             realm.add(object.toManagedObject(), update: .modified)
-        } else {
-            realm.add(object.toManagedObject())
+            return
         }
+        
+        realm.add(object.toManagedObject())
     }
     
     func save<T: Collection>(collection: T) throws where T.Element: Persistable {
-        if T.Element.managedObjectType.primaryKey() != nil {
-            realm.add(collection.map { $0.toManagedObject() }, update: .modified)
-        } else {
+        guard T.Element.managedObjectType.primaryKey() == nil else {
             realm.add(collection.map { $0.toManagedObject() })
+            return
         }
+        
+        realm.add(collection.map { $0.toManagedObject() }, update: .modified)
     }
 }
 
@@ -31,13 +33,14 @@ extension RealmStorage {
 
 extension Realm {
     func safeWrite(
-        withoutNotifyingIfIsNotInWriteTransaction withoutNotifying: [RealmSwift.NotificationToken] = [],
+        withoutNotifying: [RealmSwift.NotificationToken] = [],
         _ block: (() throws -> Void)
     ) throws {
-        if isInWriteTransaction {
-            try block()
-        } else {
+        guard isInWriteTransaction else {
             try write(withoutNotifying: withoutNotifying, block)
+            return
         }
+        
+        try block()
     }
 }

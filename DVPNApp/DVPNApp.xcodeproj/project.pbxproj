@@ -934,8 +934,8 @@
 		9312CA662704609B0062AFD3 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				9312CA67270461D20062AFD3 /* NetworkServiceType.swift */,
 				9312CA642704608D0062AFD3 /* NetworkService.swift */,
+				9312CA67270461D20062AFD3 /* NetworkServiceType.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -951,8 +951,8 @@
 		932D0AFB272176520064AEE4 /* PreloadService */ = {
 			isa = PBXGroup;
 			children = (
-				932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */,
 				932D0AFC272176620064AEE4 /* PreloadService.swift */,
+				932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */,
 			);
 			path = PreloadService;
 			sourceTree = "<group>";
@@ -970,8 +970,8 @@
 			children = (
 				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
 				932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */,
-				932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */,
 				931636D3271DC62B00A8C18C /* AvailableNodesView.swift */,
+				932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */,
 			);
 			path = AvailableNodes;
 			sourceTree = "<group>";
@@ -1028,8 +1028,8 @@
 		93DBF5522716DBE7006EBC65 /* NodesService */ = {
 			isa = PBXGroup;
 			children = (
-				93DBF5552716DC08006EBC65 /* NodesServiceType.swift */,
 				93DBF5532716DBFB006EBC65 /* NodesService.swift */,
+				93DBF5552716DC08006EBC65 /* NodesServiceType.swift */,
 			);
 			path = NodesService;
 			sourceTree = "<group>";
@@ -1094,14 +1094,14 @@
 		C64B495426B8B3F70004A692 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				932D0B002721977D0064AEE4 /* Empty */,
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
+				932EEBD3271D4B5C0098A2D7 /* AvailableNodes */,
 				C64B495526B8B3F70004A692 /* Connection */,
 				75BF4A402715721800DBC427 /* DNSSettings */,
+				932D0B002721977D0064AEE4 /* Empty */,
 				C64ED2F326C50CAE00222CA4 /* Home */,
 				93FA0685270B340A0006A765 /* NodeDetails */,
-				932EEBD3271D4B5C0098A2D7 /* AvailableNodes */,
 				753EDDF42715633A00DA76F8 /* NodeSelection */,
 				75D6563326C4CEB8000056B4 /* Onboarding */,
 				C64ED32326C57FE900222CA4 /* Plans */,
@@ -1139,8 +1139,8 @@
 				753EDDF32715633A00DA76F8 /* Subviews */,
 				758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */,
 				C64ED2F926C50CAE00222CA4 /* HomeModel.swift */,
-				C64ED2F526C50CAE00222CA4 /* HomeViewModel.swift */,
 				C64ED2F426C50CAE00222CA4 /* HomeView.swift */,
+				C64ED2F526C50CAE00222CA4 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

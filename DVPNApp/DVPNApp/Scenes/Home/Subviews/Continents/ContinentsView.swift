@@ -13,11 +13,13 @@ struct ContinentsView: View {
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
-
+    
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(viewModel.numberOfNodesInContinent.sorted { $0.key.index < $1.key.index },
-                    id: \.key) { key, value in
+            ForEach(
+                viewModel.numberOfNodesInContinent.sorted { $0.key.index < $1.key.index },
+                id: \.key
+            ) { key, value in
                 ContinentsRowView(
                     type: key,
                     count: .constant(value),
@@ -25,7 +27,7 @@ struct ContinentsView: View {
                         viewModel.openNodes(for: key)
                     })
                     .padding()
-
+                
                 Divider()
                     .background(Asset.Colors.lightBlue.color.asColor)
                     .padding(.horizontal)
