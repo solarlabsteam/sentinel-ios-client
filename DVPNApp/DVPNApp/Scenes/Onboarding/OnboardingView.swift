@@ -90,7 +90,7 @@ struct OnboardingView: View {
 
                 Spacer()
 
-                PageIndicator(pages: [Int](0...viewModel.steps.count), currentPage: $viewModel.currentPage)
+                PageIndicator(pages: [Int](0...viewModel.steps.count - 1), currentPage: $viewModel.currentPage)
 
                 Spacer()
 

@@ -448,7 +448,6 @@
 				7504EA6D267B4E7B00023D42 /* Resources */,
 				C64B495426B8B3F70004A692 /* Scenes */,
 				755FBF0726AF0F0100E9D408 /* Services */,
-				93DBF55C2717CEB0006EBC65 /* Models */,
 				7504EA49267A37E400023D42 /* Tunnel */,
 			);
 			path = DVPNApp;
@@ -989,13 +988,6 @@
 				93DBF5592717C395006EBC65 /* MarkerProtocols.swift */,
 			);
 			path = MarkerProtocols;
-			sourceTree = "<group>";
-		};
-		93DBF55C2717CEB0006EBC65 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		93FA0685270B340A0006A765 /* NodeDetails */ = {
