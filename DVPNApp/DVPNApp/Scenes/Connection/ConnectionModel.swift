@@ -44,6 +44,8 @@ final class ConnectionModel {
     var eventPublisher: AnyPublisher<ConnectionModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
+    
+    private var selectedNode: DVPNNodeInfo?
 
     init(context: Context) {
         self.context = context
@@ -59,6 +61,8 @@ extension ConnectionModel {
                 .first(where: { $0.address == context.connectionInfoStorage.lastSelectedNode() }) else {
                     return
                 }
+        
+        selectedNode = node.node?.info
         
         eventSubject.send(.updateLocation(
             countryName: node.node!.info.location.country,
@@ -127,6 +131,16 @@ extension ConnectionModel {
 // MARK: - Subscriprion
 
 extension ConnectionModel {
+    private func checkQuotaAndSubscription(hasQuota: Bool) {
+        guard hasQuota, subscription?.isActive ?? false else {
+            guard let selectedNode = selectedNode else {
+                return
+            }
+            eventSubject.send(.openPlans(for: selectedNode))
+            return
+        }
+    }
+    
     private func refreshSubscriptions() {
         eventSubject.send(.setButton(isLoading: true))
 
@@ -222,6 +236,10 @@ extension ConnectionModel {
                 bandwidthConsumed: bandwidthConsumed
             )
         )
+        
+        let bandwidthLeft = (Int64(initialBandwidth) ?? 0) - (Int64(bandwidthConsumed) ?? 0)
+        
+        checkQuotaAndSubscription(hasQuota: bandwidthLeft != 0)
     }
 
     private func updateLocation(address: String, id: UInt64) {
@@ -234,6 +252,7 @@ extension ConnectionModel {
                 log.error(error)
                 self?.show(error: ConnectionModelError.nodeIsOffline)
             case .success(let node):
+                self?.selectedNode = node.node?.info
                 self?.eventSubject.send(
                     .updateLocation(countryName: node.node!.info.location.country,
                                     moniker: node.node!.info.moniker)
