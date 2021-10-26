@@ -74,8 +74,7 @@ final class HomeViewModel: ObservableObject {
     
     private let model: HomeModel
     private var cancellables = Set<AnyCancellable>()
-
-    @Published var isLoadingNodes: Bool = true
+    
     @Published var isLoadingSubscriptions: Bool = true
 
     @Published var currentPage: PageType = .selector
@@ -108,8 +107,9 @@ final class HomeViewModel: ObservableObject {
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
 
         model.refreshDNS()
-}
-
+        model.subscribeToEvents()
+    }
+    
     func viewWillAppear() {
         model.connectIfNeeded()
     }
@@ -211,20 +211,10 @@ extension HomeViewModel {
                     self?.router.play(event: .error(error))
                 case let .update(nodes):
                     self?.update(nodes: Set(nodes))
-                case let .showLoadingNodes(state):
-                    self?.isLoadingNodes = state
                 case let .showLoadingSubscriptions(state):
                     self?.isLoadingSubscriptions = state
-                case let .append(subscribedNode):
-                    self?.nodes.insert(subscribedNode)
-                    let countryCode = CountryFormatter.code(for: subscribedNode.node!.info.location.country) ?? ""
-
-                    let model = NodeSelectionRowViewModel(
-                        from: subscribedNode.node!,
-                        icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
-                    )
-
-                    self?.subscriptions.append(model)
+                case let .set(subscribedNodes):
+                    self?.set(subscribedNodes: subscribedNodes)
                 case .connect:
                     self?.router.play(event: .connect)
                 case .reloadSubscriptions:
@@ -235,6 +225,24 @@ extension HomeViewModel {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func set(subscribedNodes: [SentinelNode]) {
+        subscribedNodes.forEach { subscribedNode in
+            guard !nodes.contains(where: { $0.address == subscribedNode.address }) else {
+                return
+            }
+            
+            nodes.insert(subscribedNode)
+            let countryCode = CountryFormatter.code(for: subscribedNode.node!.info.location.country) ?? ""
+
+            let model = NodeSelectionRowViewModel(
+                from: subscribedNode.node!,
+                icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
+            )
+
+            subscriptions.append(model)
+        }
     }
 
     private func startObservingStatuses() {

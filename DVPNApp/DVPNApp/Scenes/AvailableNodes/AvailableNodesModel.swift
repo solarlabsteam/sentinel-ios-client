@@ -9,13 +9,6 @@ import Foundation
 import Combine
 import SentinelWallet
 
-private struct Constants {
-    let timeout: TimeInterval = 5
-    let limit: UInt64 = 20
-}
-
-private let constants = Constants()
-
 enum AvailableNodesModelEvent {
     case error(Error)
 
@@ -41,7 +34,6 @@ final class AvailableNodesModel {
     private var cancellables = Set<AnyCancellable>()
 
     private var subscriptions: [SentinelWallet.Subscription] = []
-    private var offset: UInt64 = 0
 
     init(context: Context, continent: Continent) {
         self.context = context

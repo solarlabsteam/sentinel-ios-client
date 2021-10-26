@@ -23,6 +23,9 @@ final class NodesService {
     @Published private(set) var _loadedNodesCount: Int = 0
     @Published private(set) var _isAllLoaded: Void = ()
     
+    @Published private(set) var _subscribedNodes: [SentinelNode] = []
+    @Published private(set) var _isLoadingSubscriptions: Bool = true
+    
     init(nodesStorage: StoresNodes, sentinelService: SentinelService) {
         self.nodesStorage = nodesStorage
         self.sentinelService = sentinelService
@@ -40,6 +43,14 @@ extension NodesService: NodesServiceType {
     
     var isAllLoaded: Published<Void>.Publisher {
         $_isAllLoaded
+    }
+    
+    var subscribedNodes: Published<[SentinelNode]>.Publisher {
+        $_subscribedNodes
+    }
+    
+    var isLoadingSubscriptions: Published<Bool>.Publisher {
+        $_isLoadingSubscriptions
     }
     
     func loadAllNodesIfNeeded(completion: @escaping (() -> Void)) {
@@ -113,6 +124,24 @@ extension NodesService: NodesServiceType {
     
     var nodes: [SentinelNode] {
         nodesStorage.sentinelNodes
+    }
+    
+    func loadSubscriptions() {
+        _isLoadingSubscriptions = true
+        
+        sentinelService.fetchSubscriptions { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                log.error(error)
+            case .success(let subscriptions):
+                guard !subscriptions.isEmpty else {
+                    self._isLoadingSubscriptions = false
+                    return
+                }
+                self.loadNodes(from: Set(subscriptions.map { $0.node }))
+            }
+        }
     }
 }
 
@@ -191,6 +220,27 @@ extension NodesService {
             case .success(let node):
                 self.nodesStorage.save(node: node, for: sentinelNode)
                 completion(.success(node))
+            }
+        }
+    }
+    
+    /// Use for loading nodes from subscriptions
+    private func loadNodes(from addresses: Set<String>) {
+        addresses.enumerated().forEach { index, address in
+            sentinelService.queryNodeStatus(
+                address: address,
+                timeout: constants.timeout
+            ) { [weak self] result in
+                guard let self = self else { return }
+                if index == addresses.count - 1 {
+                    self._isLoadingSubscriptions = false
+                }
+                switch result {
+                case .failure(let error):
+                    log.error(error)
+                case .success(let node):
+                    self._subscribedNodes.append(node)
+                }
             }
         }
     }

@@ -18,6 +18,10 @@ protocol NodesServiceType {
     func loadAllNodes(completion: (() -> Void)?)
     func loadNodesInfo(for continent: Continent?)
     func nodesCount(for continent: Continent) -> Int
+    func loadSubscriptions()
+    
+    var subscribedNodes: Published<[SentinelNode]>.Publisher { get }
+    var isLoadingSubscriptions: Published<Bool>.Publisher { get }
 }
 
 extension NodesServiceType {
