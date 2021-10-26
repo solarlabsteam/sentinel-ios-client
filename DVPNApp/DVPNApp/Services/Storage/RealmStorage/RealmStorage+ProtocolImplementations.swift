@@ -13,6 +13,7 @@ import SentinelWallet
 
 enum NodesServiceError: Error {
     case databaseFailure(String)
+    case failToLoadData
 }
 
 extension RealmStorage: StoresNodes {
@@ -27,6 +28,16 @@ extension RealmStorage: StoresNodes {
             }
         } catch {
             log.error(NodesServiceError.databaseFailure("Failed to save sentinelNodes \(sentinelNodes)"))
+        }
+    }
+    
+    func save(sentinelNode: SentinelNode) {
+        do {
+            try realm.safeWrite() {
+                try save(object: sentinelNode)
+            }
+        } catch {
+            log.error(NodesServiceError.databaseFailure("Failed to save sentinelNode \(sentinelNode)"))
         }
     }
     

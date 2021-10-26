@@ -19,7 +19,7 @@ private let constants = Constants()
 enum AvailableNodesModelEvent {
     case error(Error)
 
-    case showLoadingNodes(state: Bool)
+    case setLoadedNodesCount(_ count: Int)
 
     case allLoaded
     
@@ -37,6 +37,8 @@ final class AvailableNodesModel {
     var eventPublisher: AnyPublisher<AvailableNodesModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
+    
+    private var cancellables = Set<AnyCancellable>()
 
     private var subscriptions: [SentinelWallet.Subscription] = []
     private var offset: UInt64 = 0
@@ -49,12 +51,24 @@ final class AvailableNodesModel {
 
 extension AvailableNodesModel {
     func loadNodes() {
-        // TODO: @Tori update nodes in db, pagination
-        let nodes = context.nodesService.nodes
-            .filter { $0.node != nil }
-            .filter { ContinentDecoder().isInContinent(node: $0.node!, continent: continent) }
+        context.nodesService.loadNodesInfo(for: continent)
+    }
+    
+    func subscribeToEvents() {
+        context.nodesService.availableNodesOfSelectedContinent
+            .map { .update(locations: $0) }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
         
-        self.eventSubject.send(.update(locations: nodes))
+        context.nodesService.isAllLoaded
+            .map { .allLoaded }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
+        
+        context.nodesService.loadedNodesCount
+            .map { .setLoadedNodesCount($0) }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
     }
 
     func save(nodeAddress: String) {

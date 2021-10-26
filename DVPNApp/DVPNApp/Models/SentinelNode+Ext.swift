@@ -17,6 +17,16 @@ extension SentinelNode {
             node: node
         )
     }
+    
+    func setFields(from sentinelNode: SentinelNode) -> SentinelNode {
+        return .init(
+            address: sentinelNode.address,
+            provider: sentinelNode.provider,
+            price: sentinelNode.price,
+            remoteURL: sentinelNode.remoteURL,
+            node: self.node
+        )
+    }
 }
 
 // MARK: - Hashable

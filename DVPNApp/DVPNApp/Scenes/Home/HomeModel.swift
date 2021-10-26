@@ -51,7 +51,9 @@ final class HomeModel {
         loadSubscriptions()
         fetchWalletInfo()
         
-        context.nodesService.loadNodesInfo()
+        context.nodesService.loadAllNodesIfNeeded() {
+            context.nodesService.loadNodesInfo()
+        }
     }
     
     func setNumberOfNodesInContinent() -> [Continent: Int] {

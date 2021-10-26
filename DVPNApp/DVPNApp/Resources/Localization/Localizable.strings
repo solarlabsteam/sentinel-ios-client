@@ -56,7 +56,7 @@
 "Home.Node.Details.Peers" = "Peers";
 "Home.Node.Subscribed.NotFound" = "You are not subscribed to any nodes";
 "Home.Node.Subscribed.Title" = "Subscribed";
-"Home.Node.All.NotFound" = "No available nodes found, please try later";
+"Home.Node.All.NotFound" = "No available nodes found in this continent";
 "Home.Node.All.Title" = "All nodes";
 "Home.Node.Title" = "Nodes";
 "Home.Extra.Title" = "Extra";

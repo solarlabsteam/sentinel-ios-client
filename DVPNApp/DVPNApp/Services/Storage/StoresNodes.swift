@@ -11,5 +11,6 @@ import SentinelWallet
 protocol StoresNodes: AnyObject {
     var sentinelNodes: [SentinelNode] { get }
     func save(sentinelNodes: [SentinelNode])
+    func save(sentinelNode: SentinelNode)
     func save(node: Node, for sentinelNode: SentinelNode)
 }

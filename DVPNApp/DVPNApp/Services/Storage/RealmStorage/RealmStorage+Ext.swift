@@ -21,11 +21,11 @@ extension RealmStorage {
     
     func save<T: Collection>(collection: T) throws where T.Element: Persistable {
         guard T.Element.managedObjectType.primaryKey() == nil else {
-            realm.add(collection.map { $0.toManagedObject() })
+            realm.add(collection.map { $0.toManagedObject() }, update: .modified)
             return
         }
         
-        realm.add(collection.map { $0.toManagedObject() }, update: .modified)
+        realm.add(collection.map { $0.toManagedObject() })
     }
 }
 

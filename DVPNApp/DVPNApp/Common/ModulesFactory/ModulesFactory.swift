@@ -31,6 +31,10 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule(for window: UIWindow) {
+        context.nodesService.loadAllNodes() { [weak self] in
+            self?.context.nodesService.loadNodesInfo()
+        }
+        
         guard context.generalInfoStorage.didPassOnboarding() else {
             makeOnboardingModule(for: window)
             return
@@ -41,9 +45,6 @@ extension ModulesFactory {
         context.preloadService.loadData() { [weak self] in
             self?.makeHomeModule(for: window)
         }
-        
-        // TODO: @Tori need to call it also when user passed onbording
-        context.nodesService.loadAllNodesIfNeeded()
     }
 
     func makeOnboardingModule(for window: UIWindow) {

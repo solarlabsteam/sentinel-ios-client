@@ -9,14 +9,22 @@ import Foundation
 import SentinelWallet
 
 protocol NodesServiceType {
-    func loadAllNodesIfNeeded()
+    var availableNodesOfSelectedContinent: Published<[SentinelNode]>.Publisher { get }
+    var loadedNodesCount: Published<Int>.Publisher { get }
+    var isAllLoaded: Published<Void>.Publisher { get }
+    var nodes: [SentinelNode] { get }
+    
+    func loadAllNodesIfNeeded(completion: @escaping (() -> Void))
+    func loadAllNodes(completion: (() -> Void)?)
     func loadNodesInfo(for continent: Continent?)
     func nodesCount(for continent: Continent) -> Int
-    
-    var nodes: [SentinelNode] { get }
 }
 
 extension NodesServiceType {
+    func loadAllNodes() {
+        loadAllNodes(completion: nil)
+    }
+    
     func loadNodesInfo() {
         loadNodesInfo(for: nil)
     }

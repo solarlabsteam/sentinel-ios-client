@@ -15,17 +15,22 @@ struct AvailableNodesView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(L10n.AvailableNodes.title(viewModel.continent.title))
-                .applyTextStyle(.grayPoppins(ofSize: 12, weight: .medium))
-                .multilineTextAlignment(.leading)
-                .padding(.horizontal)
+        VStack {
+            HStack {
+                Text(L10n.AvailableNodes.title(viewModel.continent.title))
+                    .applyTextStyle(.grayPoppins(ofSize: 12, weight: .medium))
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal)
+                
+                Spacer()
+            }
             
-            if viewModel.isAllLoaded && viewModel.locations.isEmpty {
+            if viewModel.locations.isEmpty {
                 Spacer()
 
                 Text(L10n.Home.Node.All.notFound)
                     .applyTextStyle(.whitePoppins(ofSize: 17, weight: .bold))
+                    .frame(maxWidth: .infinity)
 
                 Spacer()
             } else {
@@ -34,16 +39,15 @@ struct AvailableNodesView: View {
                         NodeSelectionRowView(
                             viewModel: vm,
                             toggleLocation: {
-//                            TODO: @Tori
-//                                viewModel.toggleLocation(with: vm.id)
+                                viewModel.toggleLocation(with: vm.id)
                             },
                             openDetails: {
                                 viewModel.openDetails(for:  vm.id)
                             }
                         )
                             .onAppear {
-                                if index == viewModel.locations.count - 1, !viewModel.isLoadingNodes, !viewModel.isAllLoaded {
-                                    viewModel.loadNodes()
+                                if index <= viewModel.loadedNodesCount - 1 {
+                                    viewModel.setLoadingNodes()
                                 }
                             }
                             .listRowBackground(Color.clear)

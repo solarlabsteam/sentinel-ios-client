@@ -25,7 +25,9 @@ final class AvailableNodesViewModel: ObservableObject {
     }
 
     @Published private(set) var locations: [NodeSelectionRowViewModel] = []
+    
     private(set) var nodes: Set<SentinelNode> = []
+    private(set) var loadedNodesCount: Int = 0
     
     private let model: AvailableNodesModel
     private var cancellables = Set<AnyCancellable>()
@@ -45,17 +47,34 @@ final class AvailableNodesViewModel: ObservableObject {
         handeEvents()
 
         model.loadNodes()
+        model.subscribeToEvents()
     }
     
     func loadNodes() {
         guard !isAllLoaded else { return }
         model.loadNodes()
     }
+    
+    func setLoadingNodes() {
+        if !isAllLoaded {
+            self.isLoadingNodes = true
+        }
+    }
 }
 
 // MARK: - Buttons actions
 
 extension AvailableNodesViewModel {
+    func toggleLocation(with id: String) {
+        UIImpactFeedbackGenerator.lightFeedback()
+        guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
+            router.play(event: .error(HomeViewModelError.unavailableNode))
+            return
+        }
+
+        toggle(node: node.node!)
+    }
+    
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
@@ -84,8 +103,8 @@ extension AvailableNodesViewModel {
                     self?.router.play(event: .error(error))
                 case let .update(nodes):
                     self?.update(nodes: Set(nodes))
-                case let .showLoadingNodes(state):
-                    self?.isLoadingNodes = state
+                case let .setLoadedNodesCount(loadedNodesCount):
+                    self?.set(loadedNodesCount: loadedNodesCount)
                 case .allLoaded:
                     self?.isAllLoaded = true
                 case .connect:
@@ -117,5 +136,12 @@ extension AvailableNodesViewModel {
         }
 
         model.save(nodeAddress: node.info.address)
+    }
+    
+    private func set(loadedNodesCount: Int) {
+        self.loadedNodesCount = loadedNodesCount
+        if loadedNodesCount >= self.nodes.count {
+            self.isLoadingNodes = false
+        }
     }
 }
