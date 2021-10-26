@@ -7,10 +7,11 @@
 
 import Foundation
 import Combine
+import SentinelWallet
 
 enum AccountInfoModelEvent {
     case update(balance: String)
-    case priceInfo(currentPrice: String, lastPriceUpdateInfo: String)
+    case set(exchangeRates: [ExchangeRates])
     case error(Error)
 }
 
@@ -66,26 +67,7 @@ extension AccountInfoModel {
                 log.error(error)
                 self?.eventSubject.send(.error(error))
             case .success(let exchangeRates):
-                let exchangeRate = exchangeRates.first
-                
-                guard let exchangeRate = exchangeRate, let priceInfo = exchangeRate.prices.first else {
-                    log.error("Loaded price is nil")
-                    return
-                }
-                
-                // TODO: We need enum of denoms in wallet repo
-                let denom = priceInfo.currency == "usd" ? "$" : "?"
-                
-                let roundedPrice = String(priceInfo.currentPrice.roundToDecimal(3))
-                
-                let roundedPercent = String(priceInfo.dailyPriceChangePercentage.roundToDecimal(2))
-                
-                self?.eventSubject.send(
-                    .priceInfo(
-                        currentPrice: "\(denom) \(roundedPrice)",
-                        lastPriceUpdateInfo: "\(roundedPercent)% (24h)"
-                    )
-                )
+                self?.eventSubject.send(.set(exchangeRates: exchangeRates))
             }
         }
     }
