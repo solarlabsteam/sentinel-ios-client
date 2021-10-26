@@ -81,6 +81,7 @@ final class ConnectionViewModel: ObservableObject {
             .store(in: &cancellables)
         
         setConnectionInfoViewModels()
+        model.setInitNodeInfo()
     }
     
     func viewWillAppear() {
