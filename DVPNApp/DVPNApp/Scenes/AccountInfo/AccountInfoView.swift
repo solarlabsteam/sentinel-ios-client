@@ -91,7 +91,7 @@ struct AccountInfoView: View {
             
             Spacer()
             
-            Image(uiImage: Asset.Icons.upArrow.image)
+            Image(uiImage: viewModel.priceArrowImage ?? UIImage())
                 .antialiased(true)
                 .resizable()
                 .aspectRatio(contentMode: .fit)

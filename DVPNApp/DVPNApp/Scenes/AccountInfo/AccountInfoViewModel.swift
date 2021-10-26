@@ -26,6 +26,7 @@ final class AccountInfoViewModel: ObservableObject {
     @Published private(set) var balance: String?
     @Published private(set) var currentPrice: String?
     @Published private(set) var lastPriceUpdateInfo: String?
+    @Published private(set) var priceArrowImage: UIImage?
 
     private let model: AccountInfoModel
     private var cancellables = Set<AnyCancellable>()
@@ -50,9 +51,8 @@ final class AccountInfoViewModel: ObservableObject {
                     self?.router.play(event: .error(error))
                 case let .update(balance):
                     self?.balance = balance
-                case let .priceInfo(currentPrice, lastPriceUpdateInfo):
-                    self?.currentPrice = currentPrice
-                    self?.lastPriceUpdateInfo = lastPriceUpdateInfo
+                case let .set(exchangeRates):
+                    self?.setPriceInfo(exchangeRates)
                 }
             }
             .store(in: &cancellables)
@@ -87,5 +87,29 @@ extension AccountInfoViewModel {
         let activityVC = UIActivityViewController(activityItems: [address], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?
             .present(activityVC, animated: true, completion: nil)
+    }
+}
+
+extension AccountInfoViewModel {
+    private func setPriceInfo(_ exchangeRates: [ExchangeRates]) {
+        let exchangeRate = exchangeRates.first
+        
+        guard let exchangeRate = exchangeRate, let priceInfo = exchangeRate.prices.first else {
+            log.error("Loaded price is nil")
+            return
+        }
+        
+        let denom = priceInfo.currency == "usd" ? "$" : "?"
+        
+        let roundedPriceString = String(priceInfo.currentPrice.roundToDecimal(3))
+        
+        let roundedPercent = priceInfo.dailyPriceChangePercentage.roundToDecimal(2)
+        
+        let roundedPercentString = String(roundedPercent)
+        
+        currentPrice = "\(denom) \(roundedPriceString)"
+        lastPriceUpdateInfo = "\(roundedPercentString)% (24h)"
+        
+        priceArrowImage = roundedPercent >= 0 ? Asset.Icons.upArrow.image : Asset.Icons.downArrow.image
     }
 }
