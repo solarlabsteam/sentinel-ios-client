@@ -56,7 +56,7 @@
 "Home.Node.Details.Peers" = "Peers";
 "Home.Node.Subscribed.NotFound" = "You are not subscribed to any nodes";
 "Home.Node.Subscribed.Title" = "Subscribed";
-"Home.Node.All.NotFound" = "No available nodes found, please try later";
+"Home.Node.All.NotFound" = "No available nodes found";
 "Home.Node.All.Title" = "All nodes";
 "Home.Node.Title" = "Nodes";
 "Home.Extra.Title" = "Extra";
@@ -65,6 +65,10 @@
 "Home.Extra.More.Subtitle" = "Sentinel P2P bandwidth market place";
 "Home.Extra.Button.More" = "Learn more";
 "Home.Extra.Build" = "Built by";
+
+"Continents.AvailableNodes" = "%d available nodes";
+
+"AvailableNodes.Title" = "Nodes in %@";
 
 "NodeDetails.Connect" = "CONNECT NOW";
 "NodeDetails.InfoType.Address" = "Node Address";

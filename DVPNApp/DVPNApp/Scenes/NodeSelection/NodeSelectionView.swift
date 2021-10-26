@@ -39,7 +39,7 @@ struct NodeSelectionView: View {
                                 viewModel.toggleLocation(with: vm.id)
                             },
                             openDetails: {
-                                viewModel.openDetails(for:  vm.id)
+                                viewModel.openDetails(for: vm.id)
                             }
                         )
                         .listRowBackground(Color.clear)
@@ -54,45 +54,9 @@ struct NodeSelectionView: View {
             )
         }
     }
-
-    var availableNodes: some View {
-        VStack {
-            if viewModel.isAllLoaded && viewModel.locations.isEmpty {
-                Spacer()
-
-                Text(L10n.Home.Node.All.notFound)
-                    .applyTextStyle(.whitePoppins(ofSize: 17, weight: .bold))
-
-                Spacer()
-            } else {
-                List {
-                    ForEach(Array(zip(viewModel.locations.indices, viewModel.locations)), id: \.0) { index, vm in
-                        NodeSelectionRowView(
-                            viewModel: vm,
-                            toggleLocation: {
-                                viewModel.toggleLocation(with: vm.id)
-                            },
-                            openDetails: {
-                                viewModel.openDetails(for:  vm.id)
-                            }
-                        )
-                            .onAppear {
-                                if index == viewModel.locations.count - 1, !viewModel.isLoadingNodes, !viewModel.isAllLoaded {
-                                    viewModel.loadNodes()
-                                }
-                            }
-                            .listRowBackground(Color.clear)
-
-                    }
-                }
-                .listStyle(PlainListStyle())
-            }
-
-            ActivityIndicator(
-                isAnimating: $viewModel.isLoadingNodes,
-                style: .medium
-            )
-        }
+    
+    var continentsView: some View {
+        ContinentsView(viewModel: viewModel)
     }
 
     var body: some View {
@@ -102,7 +66,7 @@ struct NodeSelectionView: View {
                 case .subscribed:
                     subscribedNodes
                 case .available:
-                    availableNodes
+                    continentsView
                 }
             }
 

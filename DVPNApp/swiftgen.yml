@@ -1,5 +1,5 @@
 strings:
-  inputs: DVPNApp/Resources/Localizable.strings
+  inputs: DVPNApp/Resources/Localization/Localizable.strings
   outputs:
     - templatePath: DVPNApp/Generated/templates/strings/structured-swift5.stencil
       output: DVPNApp/Generated/Strings.swift

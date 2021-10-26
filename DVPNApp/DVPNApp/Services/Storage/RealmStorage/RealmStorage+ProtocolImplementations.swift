@@ -7,7 +7,49 @@
 
 import Foundation
 import RealmSwift
+import SentinelWallet
+
+// MARK: - StoresNodes
+
+enum NodesServiceError: Error {
+    case databaseFailure(String)
+    case failToLoadData
+}
 
 extension RealmStorage: StoresNodes {
+    var sentinelNodes: [SentinelNode] {
+        realm.objects(SentinelNodeObject.self).map { SentinelNode(managedObject: $0) }
+    }
     
+    func save(sentinelNodes: [SentinelNode]) {
+        do {
+            try realm.safeWrite() {
+                try save(collection: sentinelNodes)
+            }
+        } catch {
+            log.error(NodesServiceError.databaseFailure("Failed to save sentinelNodes \(sentinelNodes)"))
+        }
+    }
+    
+    func save(sentinelNode: SentinelNode) {
+        do {
+            try realm.safeWrite() {
+                try save(object: sentinelNode)
+            }
+        } catch {
+            log.error(NodesServiceError.databaseFailure("Failed to save sentinelNode \(sentinelNode)"))
+        }
+    }
+    
+    func save(node: Node, for sentinelNode: SentinelNode) {
+        let fullSentinelNode = sentinelNode.set(node: node)
+        
+        do {
+            try realm.safeWrite() {
+                try save(object: fullSentinelNode)
+            }
+        } catch {
+            log.error(NodesServiceError.databaseFailure("Failed to save node \(node)"))
+        }
+    }
 }

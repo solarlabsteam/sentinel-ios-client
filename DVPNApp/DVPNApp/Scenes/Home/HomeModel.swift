@@ -9,23 +9,13 @@ import Foundation
 import Combine
 import SentinelWallet
 
-private struct Constants {
-    let timeout: TimeInterval = 5
-    let limit: UInt64 = 20
-}
-
-private let constants = Constants()
-
 enum HomeModelEvent {
     case error(Error)
-
-    case showLoadingNodes(state: Bool)
-    case showLoadingSubscriptions(state: Bool)
-
-    case allLoaded
     
-    case update(locations: [Node])
-    case append(subscribedNode: Node)
+    case showLoadingSubscriptions(state: Bool)
+    
+    case update(locations: [SentinelNode])
+    case set(subscribedNodes: [SentinelNode])
     case reloadSubscriptions
 
     case connect
@@ -35,7 +25,7 @@ enum HomeModelEvent {
 
 final class HomeModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
-        & HasDNSServersStorage & HasTunnelManager
+        & HasDNSServersStorage & HasTunnelManager & HasNodesService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
@@ -44,43 +34,49 @@ final class HomeModel {
     }
 
     private var subscriptions: [SentinelWallet.Subscription] = []
-    private var offset: UInt64 = 0
     private var reloadOnNextAppear = false
+    
+    private var cancellables = Set<AnyCancellable>()
 
     init(context: Context) {
         self.context = context
 
         loadSubscriptions()
         fetchWalletInfo()
+        
+        context.nodesService.loadAllNodesIfNeeded() {
+            context.nodesService.loadNodesInfo()
+        }
     }
-
+    
+    func subscribeToEvents() {
+        context.nodesService.isLoadingSubscriptions
+            .map { .showLoadingSubscriptions(state: $0) }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
+        
+        context.nodesService.subscribedNodes
+            .map { .set(subscribedNodes: $0) }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
+    }
+    
+    func setNumberOfNodesInContinent() -> [Continent: Int] {
+        var numberOfNodesInContinent: [Continent: Int] = [:]
+        
+        Continent.allCases.forEach {
+            numberOfNodesInContinent[$0] = context.nodesService.nodesCount(for: $0)
+        }
+        
+        return numberOfNodesInContinent
+    }
+    
     func refreshDNS() {
         eventSubject.send(.select(server: context.dnsServersStorage.selectedDNS()))
     }
 
-    func loadNodes() {
-        eventSubject.send(.showLoadingNodes(state: true))
-
-        context.sentinelService.queryNodes(
-            offset: offset,
-            limit: constants.limit,
-            timeout: constants.timeout
-        ) { [weak self] result in
-            guard let self = self else { return }
-            self.eventSubject.send(.showLoadingNodes(state: false))
-
-            switch result {
-            case .failure(let error):
-                log.error(error)
-            case .success(let nodes):
-                guard !nodes.isEmpty else {
-                    self.eventSubject.send(.allLoaded)
-                    return
-                }
-                self.offset += UInt64(nodes.count)
-                self.eventSubject.send(.update(locations: nodes))
-            }
-        }
+    func setNodes() {
+        eventSubject.send(.update(locations: context.nodesService.nodes))
     }
 
     func save(nodeAddress: String) {
@@ -102,6 +98,8 @@ final class HomeModel {
         if reloadOnNextAppear {
             eventSubject.send(.reloadSubscriptions)
             loadSubscriptions()
+            loadSubscriptions()
+            
             reloadOnNextAppear = false
         }
     }
@@ -118,22 +116,10 @@ extension HomeModel {
         log.error(error)
         eventSubject.send(.error(error))
     }
-
+    
     private func loadSubscriptions() {
-        eventSubject.send(.showLoadingSubscriptions(state: true))
-        context.sentinelService.fetchSubscriptions { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .failure(let error):
-                log.error(error)
-            case .success(let subscriptions):
-                self.subscriptions = subscriptions
-                guard !subscriptions.isEmpty else {
-                    self.eventSubject.send(.showLoadingSubscriptions(state: false))
-                    return
-                }
-                self.loadNodes(from: Set(subscriptions.map { $0.node }))
-            }
+        context.nodesService.loadSubscriptions() { [weak self] subscriptions in
+            self?.subscriptions = subscriptions
         }
     }
 
@@ -148,22 +134,6 @@ extension HomeModel {
                 log.debug(info)
             case .failure(let error):
                 self?.show(error: error)
-            }
-        }
-    }
-    
-    private func loadNodes(from addresses: Set<String>) {
-        addresses.enumerated().forEach { index, address in
-            context.sentinelService.queryNodeStatus(address: address, timeout: constants.timeout) { [weak self] result in
-                if index == addresses.count - 1 {
-                    self?.eventSubject.send(.showLoadingSubscriptions(state: false))
-                }
-                switch result {
-                case .failure(let error):
-                    log.error(error)
-                case .success(let node):
-                    self?.eventSubject.send(.append(subscribedNode: node))
-                }
             }
         }
     }

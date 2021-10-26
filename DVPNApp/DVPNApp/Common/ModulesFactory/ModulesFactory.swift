@@ -31,6 +31,10 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule(for window: UIWindow) {
+        context.nodesService.loadAllNodes() { [weak self] in
+            self?.context.nodesService.loadNodesInfo()
+        }
+        
         guard context.generalInfoStorage.didPassOnboarding() else {
             makeOnboardingModule(for: window)
             return
@@ -99,6 +103,19 @@ extension ModulesFactory {
         for navigation: UINavigationController
     ) {
         DNSSettingsCoordinator(context: context, delegate: delegate, server: server, navigation: navigation).start()
+    }
+    
+    func makeAvailableNodesModule(
+        continent: Continent,
+        delegate: PlansViewModelDelegate?,
+        for navigation: UINavigationController
+    ) {
+        AvailableNodesCoordinator(
+            context: context,
+            delegate: delegate,
+            navigation: navigation,
+            continent: continent
+        ).start()
     }
 }
 

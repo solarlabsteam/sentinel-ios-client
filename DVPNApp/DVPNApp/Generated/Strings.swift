@@ -73,6 +73,13 @@ internal enum L10n {
     }
   }
 
+  internal enum AvailableNodes {
+    /// Nodes in %@
+    internal static func title(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "AvailableNodes.Title", String(describing: p1))
+    }
+  }
+
   internal enum Common {
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "Common.Cancel")
@@ -143,6 +150,13 @@ internal enum L10n {
     }
   }
 
+  internal enum Continents {
+    /// %d available nodes
+    internal static func availableNodes(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "Continents.AvailableNodes", p1)
+    }
+  }
+
   internal enum Dns {
     /// Cloudflare
     internal static let cloudflare = L10n.tr("Localizable", "DNS.Cloudflare")
@@ -190,7 +204,7 @@ internal enum L10n {
       /// Nodes
       internal static let title = L10n.tr("Localizable", "Home.Node.Title")
       internal enum All {
-        /// No available nodes found, please try later
+        /// No available nodes found
         internal static let notFound = L10n.tr("Localizable", "Home.Node.All.NotFound")
         /// All nodes
         internal static let title = L10n.tr("Localizable", "Home.Node.All.Title")

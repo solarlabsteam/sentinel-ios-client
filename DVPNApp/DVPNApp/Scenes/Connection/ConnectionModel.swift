@@ -30,7 +30,7 @@ enum ConnectionModelEvent {
 
 final class ConnectionModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage & HasTunnelManager
-        & HasNetworkService
+        & HasNetworkService & HasNodesService
     
     private let context: Context
 
@@ -54,6 +54,20 @@ final class ConnectionModel {
 }
 
 extension ConnectionModel {
+    func setInitNodeInfo() {
+        guard let node = context.nodesService.nodes
+                .first(where: { $0.address == context.connectionInfoStorage.lastSelectedNode() }) else {
+                    return
+                }
+        
+        eventSubject.send(.updateLocation(
+            countryName: node.node!.info.location.country,
+            moniker: node.node!.info.moniker)
+        )
+        
+        eventSubject.send(.updateBandwidth(bandwidth: node.node!.info.bandwidth))
+    }
+    
     /// Refreshes subscriptions. Should be called each time when the app leaves the background state.
     func refreshNodeState() {
         guard subscription != nil else {
@@ -81,8 +95,8 @@ extension ConnectionModel {
                 self.show(error: error)
             case .success(let node):
                 self.eventSubject.send(.setButton(isLoading: true))
-                self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
-                self.context.connectionInfoStorage.set(lastSelectedNode: node.info.address)
+                self.loadSubscriptions(selectedAddress: node.node!.info.address, reconnect: true)
+                self.context.connectionInfoStorage.set(lastSelectedNode: node.node!.info.address)
             }
         }
     }
@@ -221,10 +235,11 @@ extension ConnectionModel {
                 self?.show(error: ConnectionModelError.nodeIsOffline)
             case .success(let node):
                 self?.eventSubject.send(
-                    .updateLocation(countryName: node.info.location.country, moniker: node.info.moniker)
+                    .updateLocation(countryName: node.node!.info.location.country,
+                                    moniker: node.node!.info.moniker)
                 )
                 self?.eventSubject.send(
-                    .updateBandwidth(bandwidth: node.info.bandwidth)
+                    .updateBandwidth(bandwidth: node.node!.info.bandwidth)
                 )
             }
         }

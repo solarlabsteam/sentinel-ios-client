@@ -9,7 +9,7 @@ import Combine
 import SentinelWallet
 
 enum NodeDetailsModelEvent {
-    case update(node: Node)
+    case update(node: SentinelNode)
     case error(Error)
 }
 
@@ -22,10 +22,10 @@ final class NodeDetailsModel {
         eventSubject.eraseToAnyPublisher()
     }
     
-    private let node: Node
+    private let node: SentinelNode
     let isSubscribed: Bool
 
-    init(context: Context, node: Node, isSubscribed: Bool) {
+    init(context: Context, node: SentinelNode, isSubscribed: Bool) {
         self.context = context
         self.node = node
         self.isSubscribed = isSubscribed

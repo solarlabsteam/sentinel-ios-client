@@ -50,6 +50,15 @@ internal enum Asset {
       internal static let scales4 = ImageAsset(name: "connection/wifi/scales-4")
     }
   }
+  internal enum Continents {
+    internal static let africa = ImageAsset(name: "continents/africa")
+    internal static let antarctica = ImageAsset(name: "continents/antarctica")
+    internal static let asia = ImageAsset(name: "continents/asia")
+    internal static let europe = ImageAsset(name: "continents/europe")
+    internal static let northAmerica = ImageAsset(name: "continents/north-america")
+    internal static let oceania = ImageAsset(name: "continents/oceania")
+    internal static let southAmerica = ImageAsset(name: "continents/south-america")
+  }
   internal enum Counter {
     internal static let minus = ImageAsset(name: "counter/minus")
     internal static let plus = ImageAsset(name: "counter/plus")
