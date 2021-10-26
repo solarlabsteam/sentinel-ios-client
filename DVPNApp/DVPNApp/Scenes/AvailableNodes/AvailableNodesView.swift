@@ -27,10 +27,16 @@ struct AvailableNodesView: View {
             
             if viewModel.locations.isEmpty {
                 Spacer()
-
+                
                 Text(L10n.Home.Node.All.notFound)
-                    .applyTextStyle(.whitePoppins(ofSize: 17, weight: .bold))
-                    .frame(maxWidth: .infinity)
+                    .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                    .padding()
+                    .multilineTextAlignment(.center)
+                
+                Image(uiImage: Asset.LocationSelector.empty.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 250)
 
                 Spacer()
             } else {
