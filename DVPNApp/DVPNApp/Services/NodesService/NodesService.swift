@@ -126,7 +126,9 @@ extension NodesService: NodesServiceType {
         nodesStorage.sentinelNodes
     }
     
-    func loadSubscriptions() {
+    func loadSubscriptions(
+        completion: @escaping (([Subscription]) -> Void)
+    ) {
         _isLoadingSubscriptions = true
         
         sentinelService.fetchSubscriptions { [weak self] result in
@@ -135,6 +137,7 @@ extension NodesService: NodesServiceType {
             case .failure(let error):
                 log.error(error)
             case .success(let subscriptions):
+                completion(subscriptions)
                 guard !subscriptions.isEmpty else {
                     self._isLoadingSubscriptions = false
                     return

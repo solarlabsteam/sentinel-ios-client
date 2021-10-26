@@ -98,7 +98,7 @@ final class HomeModel {
         if reloadOnNextAppear {
             eventSubject.send(.reloadSubscriptions)
             loadSubscriptions()
-            context.nodesService.loadSubscriptions()
+            loadSubscriptions()
             
             reloadOnNextAppear = false
         }
@@ -118,7 +118,9 @@ extension HomeModel {
     }
     
     private func loadSubscriptions() {
-        context.nodesService.loadSubscriptions()
+        context.nodesService.loadSubscriptions() { [weak self] subscriptions in
+            self?.subscriptions = subscriptions
+        }
     }
 
     private func fetchWalletInfo() {
