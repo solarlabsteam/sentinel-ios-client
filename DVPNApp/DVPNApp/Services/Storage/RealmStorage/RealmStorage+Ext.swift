@@ -10,7 +10,7 @@ import RealmSwift
 import Realm
 
 extension RealmStorage {
-    func save<T: Persistable>(object: T) throws {
+    func save<T: Persistable>(object: T, to realm: Realm) throws {
         guard T.ManagedObject.primaryKey() == nil else {
             realm.add(object.toManagedObject(), update: .modified)
             return
@@ -19,7 +19,7 @@ extension RealmStorage {
         realm.add(object.toManagedObject())
     }
     
-    func save<T: Collection>(collection: T) throws where T.Element: Persistable {
+    func save<T: Collection>(collection: T, to realm: Realm) throws where T.Element: Persistable {
         guard T.Element.managedObjectType.primaryKey() == nil else {
             realm.add(collection.map { $0.toManagedObject() }, update: .modified)
             return

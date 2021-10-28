@@ -9,16 +9,9 @@ import Foundation
 import RealmSwift
 
 final class RealmStorage {
-    private(set) var realm: Realm
-    
-    private init(realm: Realm) {
-        self.realm = realm
-    }
-    
-    convenience init?() {
+    func initRealm() -> Realm? {
         do {
-            let realm = try Realm()
-            self.init(realm: realm)
+            return try Realm()
         } catch {
             log.error("Failed to init Realm: \(error)")
             return nil
