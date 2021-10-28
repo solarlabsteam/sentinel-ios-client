@@ -13,9 +13,8 @@ final class ContextBuilder {
     func buildContext() -> CommonContext {
         
         RealmStorage.prepare()
-        guard let realmStorage = RealmStorage() else {
-            fatalError("Failed to create storage")
-        }
+        let realmStorage = RealmStorage()
+         
         let generalSettingsStorage = GeneralSettingsStorage()
         
         let securityService = SecurityService()

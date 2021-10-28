@@ -18,38 +18,52 @@ enum NodesServiceError: Error {
 
 extension RealmStorage: StoresNodes {
     var sentinelNodes: [SentinelNode] {
-        realm.objects(SentinelNodeObject.self).map { SentinelNode(managedObject: $0) }
+        guard let realm = initRealm() else { return [] }
+            
+        return realm.objects(SentinelNodeObject.self).map { SentinelNode(managedObject: $0) }
     }
     
     func save(sentinelNodes: [SentinelNode]) {
-        do {
-            try realm.safeWrite() {
-                try save(collection: sentinelNodes)
+        DispatchQueue.global().async { [weak self] in
+            guard let realm = self?.initRealm() else { return }
+            
+            do {
+                try realm.safeWrite() {
+                    try self?.save(collection: sentinelNodes, to: realm)
+                }
+            } catch {
+                log.error(NodesServiceError.databaseFailure("Failed to save sentinelNodes \(sentinelNodes)"))
             }
-        } catch {
-            log.error(NodesServiceError.databaseFailure("Failed to save sentinelNodes \(sentinelNodes)"))
         }
     }
     
     func save(sentinelNode: SentinelNode) {
-        do {
-            try realm.safeWrite() {
-                try save(object: sentinelNode)
+        DispatchQueue.global().async { [weak self] in
+            guard let realm = self?.initRealm() else { return }
+            
+            do {
+                try realm.safeWrite() {
+                    try self?.save(object: sentinelNode, to: realm)
+                }
+            } catch {
+                log.error(NodesServiceError.databaseFailure("Failed to save sentinelNode \(sentinelNode)"))
             }
-        } catch {
-            log.error(NodesServiceError.databaseFailure("Failed to save sentinelNode \(sentinelNode)"))
         }
     }
     
     func save(node: Node, for sentinelNode: SentinelNode) {
         let fullSentinelNode = sentinelNode.set(node: node)
         
-        do {
-            try realm.safeWrite() {
-                try save(object: fullSentinelNode)
+        DispatchQueue.global().async { [weak self] in
+            guard let realm = self?.initRealm() else { return }
+            
+            do {
+                try realm.safeWrite() {
+                    try self?.save(object: fullSentinelNode, to: realm)
+                }
+            } catch {
+                log.error(NodesServiceError.databaseFailure("Failed to save node \(node)"))
             }
-        } catch {
-            log.error(NodesServiceError.databaseFailure("Failed to save node \(node)"))
         }
     }
 }
