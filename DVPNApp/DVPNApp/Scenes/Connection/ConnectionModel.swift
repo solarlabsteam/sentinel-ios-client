@@ -22,8 +22,7 @@ enum ConnectionModelEvent {
     case updateSubscription(initialBandwidth: String, bandwidthConsumed: String)
     case updateBandwidth(bandwidth: Bandwidth)
     case updateDuration(durationInSeconds: Int64)
-
-    #warning("TODO @Tori sent this event if no quota is left on connect() call")
+    
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
 }
@@ -131,14 +130,20 @@ extension ConnectionModel {
 // MARK: - Subscriprion
 
 extension ConnectionModel {
-    private func checkQuotaAndSubscription(hasQuota: Bool) {
+    /// Returns false if no quota
+    private func checkQuotaAndSubscription(hasQuota: Bool) -> Bool {
         guard hasQuota, subscription?.isActive ?? false else {
             guard let selectedNode = selectedNode else {
-                return
+                return false
             }
+            
             eventSubject.send(.openPlans(for: selectedNode))
-            return
+            eventSubject.send(.updateConnection(status: .disconnected))
+            eventSubject.send(.setButton(isLoading: false))
+            return false
         }
+        
+        return true
     }
     
     private func refreshSubscriptions() {
@@ -190,7 +195,9 @@ extension ConnectionModel {
                 self.show(error: error)
 
             case .success(let quota):
-                self.update(quota: quota)
+                guard self.update(quota: quota) else {
+                    return
+                }
                 self.setTunnelActivity()
                 self.stopLoading()
             }
@@ -209,7 +216,9 @@ extension ConnectionModel {
                 self.show(error: error)
 
             case let .success(quota):
-                self.update(quota: quota)
+                guard self.update(quota: quota) else {
+                    return
+                }
                 self.eventSubject.send(.updateConnection(status: .nodeStatus))
                 self.context.sentinelService.queryNodeStatus(
                     address: subscription.node,
@@ -226,7 +235,7 @@ extension ConnectionModel {
         }
     }
     
-    private func update(quota: Quota) {
+    private func update(quota: Quota) -> Bool {
         let initialBandwidth = quota.allocated
         let bandwidthConsumed = quota.consumed
         
@@ -239,7 +248,7 @@ extension ConnectionModel {
         
         let bandwidthLeft = (Int64(initialBandwidth) ?? 0) - (Int64(bandwidthConsumed) ?? 0)
         
-        checkQuotaAndSubscription(hasQuota: bandwidthLeft != 0)
+        return checkQuotaAndSubscription(hasQuota: bandwidthLeft != 0)
     }
 
     private func updateLocation(address: String, id: UInt64) {
