@@ -32,17 +32,19 @@ struct PlansView: View {
     
     var mainButton: some View {
         Button(action: viewModel.didTapSubscribe) {
-            HStack {
+            ZStack(alignment: .leading) {
                 if viewModel.isLoading {
                     ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
                         .frame(width: 15, height: 15)
                 }
-                Spacer()
-                
-                Text(L10n.Plans.subscribe)
-                    .applyTextStyle(.mainButton)
-                
-                Spacer()
+                HStack {
+                    Spacer()
+                    
+                    Text(L10n.Plans.subscribe)
+                        .applyTextStyle(.mainButton)
+                    
+                    Spacer()
+                }
             }
         }
         .padding()
