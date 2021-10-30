@@ -125,7 +125,7 @@ extension NodesService: NodesServiceType {
     }
     
     func loadSubscriptions(
-        completion: @escaping (([Subscription]) -> Void)
+        completion: @escaping ((Result<[Subscription], Error>) -> Void)
     ) {
         _isLoadingSubscriptions = true
         
@@ -134,8 +134,10 @@ extension NodesService: NodesServiceType {
             switch result {
             case .failure(let error):
                 log.error(error)
+                self._isLoadingSubscriptions = false
+                completion(.failure(error))
             case .success(let subscriptions):
-                completion(subscriptions)
+                completion(.success(subscriptions))
                 guard !subscriptions.isEmpty else {
                     self._isLoadingSubscriptions = false
                     return

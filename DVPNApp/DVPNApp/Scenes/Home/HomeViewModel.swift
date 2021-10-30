@@ -85,6 +85,8 @@ final class HomeViewModel: ObservableObject {
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
+    
+    @Published private(set) var subscriptionsState: SubscriptionsState = .empty
 
     init(model: HomeModel, router: Router) {
         self.model = model
@@ -215,6 +217,8 @@ extension HomeViewModel {
                     self?.isLoadingSubscriptions = state
                 case let .set(subscribedNodes):
                     self?.set(subscribedNodes: subscribedNodes)
+                case let .setSubscriptionsState(state):
+                    self?.subscriptionsState = state
                 case .connect:
                     self?.router.play(event: .connect)
                 case .reloadSubscriptions:
@@ -234,10 +238,13 @@ extension HomeViewModel {
             }
             
             nodes.insert(subscribedNode)
-            let countryCode = CountryFormatter.code(for: subscribedNode.node!.info.location.country) ?? ""
+            
+            guard let node = subscribedNode.node else { return }
+            
+            let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
 
             let model = NodeSelectionRowViewModel(
-                from: subscribedNode.node!,
+                from: node,
                 icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
             )
 

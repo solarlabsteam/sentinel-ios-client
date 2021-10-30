@@ -19,7 +19,7 @@ struct NodeSelectionView: View {
             if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
                 Spacer()
 
-                Text(L10n.Home.Node.Subscribed.notFound)
+                Text(viewModel.subscriptionsState.title)
                     .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
                     .padding()
                     .multilineTextAlignment(.center)

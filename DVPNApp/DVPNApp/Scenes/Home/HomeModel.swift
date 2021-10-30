@@ -9,6 +9,20 @@ import Foundation
 import Combine
 import SentinelWallet
 
+enum SubscriptionsState {
+    case empty
+    case noConnection
+    
+    var title: String {
+        switch self {
+        case .empty:
+            return L10n.Home.Node.Subscribed.notFound
+        case .noConnection:
+            return L10n.Home.Node.Subscribed.noConnection
+        }
+    }
+}
+
 enum HomeModelEvent {
     case error(Error)
     
@@ -16,6 +30,7 @@ enum HomeModelEvent {
     
     case update(locations: [SentinelNode])
     case set(subscribedNodes: [SentinelNode])
+    case setSubscriptionsState(_ state: SubscriptionsState)
     case reloadSubscriptions
 
     case connect
@@ -98,7 +113,6 @@ final class HomeModel {
         if reloadOnNextAppear {
             eventSubject.send(.reloadSubscriptions)
             loadSubscriptions()
-            loadSubscriptions()
             
             reloadOnNextAppear = false
         }
@@ -118,8 +132,13 @@ extension HomeModel {
     }
     
     private func loadSubscriptions() {
-        context.nodesService.loadSubscriptions() { [weak self] subscriptions in
-            self?.subscriptions = subscriptions
+        context.nodesService.loadSubscriptions() { [weak self] result in
+            switch result {
+            case let .success(subscriptions):
+                self?.subscriptions = subscriptions
+            case .failure:
+                self?.eventSubject.send(.setSubscriptionsState(.noConnection))
+            }
         }
     }
 

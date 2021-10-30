@@ -55,6 +55,7 @@
 "Home.Node.Details.Latency" = "Latency";
 "Home.Node.Details.Peers" = "Peers";
 "Home.Node.Subscribed.NotFound" = "You are not subscribed to any nodes";
+"Home.Node.Subscribed.NoConnection" = "Fail to load nodes";
 "Home.Node.Subscribed.Title" = "Subscribed";
 "Home.Node.All.NotFound" = "No available nodes found";
 "Home.Node.All.Title" = "All nodes";
