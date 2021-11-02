@@ -23,6 +23,7 @@ final class NodesService {
     @Published private(set) var _loadedNodesCount: Int = 0
     @Published private(set) var _isAllLoaded: Void = ()
     
+    @Published private(set) var _subscriptions: [Subscription] = []
     @Published private(set) var _subscribedNodes: [SentinelNode] = []
     @Published private(set) var _isLoadingSubscriptions: Bool = true
     
@@ -43,6 +44,10 @@ extension NodesService: NodesServiceType {
     
     var isAllLoaded: Published<Void>.Publisher {
         $_isAllLoaded
+    }
+    
+    var subscriptions: Published<[Subscription]>.Publisher {
+        $_subscriptions
     }
     
     var subscribedNodes: Published<[SentinelNode]>.Publisher {
@@ -137,7 +142,10 @@ extension NodesService: NodesServiceType {
                 self._isLoadingSubscriptions = false
                 completion(.failure(error))
             case .success(let subscriptions):
+                self._subscriptions = subscriptions
+                
                 completion(.success(subscriptions))
+                
                 guard !subscriptions.isEmpty else {
                     self._isLoadingSubscriptions = false
                     return

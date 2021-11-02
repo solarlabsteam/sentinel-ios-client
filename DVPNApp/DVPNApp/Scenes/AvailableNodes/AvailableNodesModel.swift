@@ -38,6 +38,12 @@ final class AvailableNodesModel {
     init(context: Context, continent: Continent) {
         self.context = context
         self.continent = continent
+        
+        context.nodesService.subscriptions
+            .sink(receiveValue: { [weak self] subscriptions in
+                self?.subscriptions = subscriptions
+            })
+            .store(in: &cancellables)
     }
 }
 

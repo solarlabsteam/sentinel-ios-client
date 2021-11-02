@@ -130,6 +130,7 @@ extension AvailableNodesViewModel {
 
     private func toggle(node: Node) {
         let isSubscribedToNode = model.isSubscribed(to: node.info.address)
+        
         guard isSubscribedToNode else {
             router.play(event: .subscribe(node: node.info))
             return
