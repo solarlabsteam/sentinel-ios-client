@@ -73,10 +73,10 @@ struct HomeRowView_Previews: PreviewProvider {
                         icon: Flag(countryCode: "EE")!.image(style: .roundedRect),
                         title: "Test",
                         subtitle: "mfq9rph",
-                        price: 0.7,
+                        price: 100,
                         speed: Asset.Connection.Wifi.scales1.image,
-                        latency: 0.2,
-                        peers: 0.3
+                        latency: 300,
+                        peers: 4
                     ),
             toggleLocation: {},
             openDetails: {}
