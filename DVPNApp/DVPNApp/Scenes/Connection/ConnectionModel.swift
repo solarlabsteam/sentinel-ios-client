@@ -182,11 +182,18 @@ extension ConnectionModel {
             return
         }
         
-        detectConnectionAndHandle(reconnect: reconnect, subscription: subscription)
+        if reconnect {
+            detectConnectionAndHandle(reconnect: reconnect, subscription: subscription)
+        } else {
+            update(subscriptionInfo: subscription)
+        }
     }
 
-    private func update(subscriptionInfo: SentinelWallet.Subscription, status: ConnectionStatus) {
-        eventSubject.send(.updateConnection(status: .subscriptionStatus))
+    private func update(subscriptionInfo: SentinelWallet.Subscription, status: ConnectionStatus? = nil) {
+        if let status = status {
+            eventSubject.send(.updateConnection(status: status))
+        }
+        
         context.sentinelService.queryQuota(subscriptionID: subscriptionInfo.id) { [weak self] result in
             guard let self = self else { return }
 
@@ -203,7 +210,7 @@ extension ConnectionModel {
             }
         }
 
-        updateLocation(address: subscriptionInfo.node, id: subscriptionInfo.id)
+        updateLocation(address: subscriptionInfo.node)
     }
 
     private func connect(to subscription: SentinelWallet.Subscription) {
@@ -251,7 +258,7 @@ extension ConnectionModel {
         return checkQuotaAndSubscription(hasQuota: bandwidthLeft != 0)
     }
 
-    private func updateLocation(address: String, id: UInt64) {
+    private func updateLocation(address: String) {
         context.sentinelService.queryNodeStatus(address: address, timeout: constants.timeout) { [weak self] response in
             switch response {
             case .failure(let error):
@@ -335,7 +342,7 @@ extension ConnectionModel {
                     }
                 case (true, false), (false, false):
                     self.connect(to: subscription)
-                    self.updateLocation(address: subscription.node, id: subscription.id)
+                    self.updateLocation(address: subscription.node)
                 }
             }
         }
@@ -368,6 +375,7 @@ extension ConnectionModel {
                 completion(.failure(error))
 
             case .success(let session):
+                // @Tori it won't be used sinse we get a timer for duration
                 self.eventSubject.send(.updateDuration(durationInSeconds: session.durationInSeconds))
                 
                 guard let id = self.context.connectionInfoStorage.lastSessionId(),
