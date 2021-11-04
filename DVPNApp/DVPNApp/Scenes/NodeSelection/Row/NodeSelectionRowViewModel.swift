@@ -11,10 +11,11 @@ struct NodeSelectionRowViewModel: Hashable, Identifiable {
 
     let speed: UIImage
 
-    let price: Double
-    let peers: Double
-    let latency: Double
-
+    let price: Int
+    let peers: Int
+    /// in ms
+    let latency: Int
+    
     var scales: [ScaleViewType] {
         [.price(price), .peers(peers), .latency(latency)]
     }
@@ -24,10 +25,10 @@ struct NodeSelectionRowViewModel: Hashable, Identifiable {
         icon: UIImage,
         title: String,
         subtitle: String,
-        price: Double,
+        price: Int,
         speed: UIImage,
-        latency: Double,
-        peers: Double
+        latency: Int,
+        peers: Int
     ) {
         self.id = id
         self.icon = icon
@@ -42,7 +43,8 @@ struct NodeSelectionRowViewModel: Hashable, Identifiable {
     }
 
     init(from node: Node, icon: UIImage) {
-        let price = PriceFormatter.rawFormat(price: node.info.price).price.pricePersentage
+        let price = PriceFormatter.rawFormat(price: node.info.price).price
+        
         self.init(
             id: node.info.address,
             icon: icon,
@@ -50,8 +52,8 @@ struct NodeSelectionRowViewModel: Hashable, Identifiable {
             subtitle: String(node.info.address.suffix(6)),
             price: price,
             speed: node.info.bandwidth.speedImage,
-            latency: node.latency.latencyPercentage,
-            peers: 1 - Double(node.info.peers) / Double(node.info.qos?.maxPeers ?? 100)
+            latency: Int((node.latency.truncatingRemainder(dividingBy: 1)) * 1000),
+            peers: node.info.peers
         )
     }
 }
