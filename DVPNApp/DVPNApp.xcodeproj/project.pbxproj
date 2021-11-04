@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22DD3CFC2733CB6A00E1925C /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */; };
 		7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CA267A183D00023D42 /* AppDelegate.swift */; };
 		7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CC267A183D00023D42 /* SceneDelegate.swift */; };
 		7504E9D4267A184000023D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7504E9D3267A184000023D42 /* Assets.xcassets */; };
@@ -203,6 +204,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		22DD3CE62731908A00E1925C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22DD3CE227318FA900E1925C;
+			remoteInfo = WireGuardGoBridgeMacOS;
+		};
 		7504E9EB267A196900023D42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
@@ -234,6 +242,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		22DD3CEC2733CB1E00E1925C /* SentinelDVPNmacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentinelDVPNmacOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		7504E9C7267A183D00023D42 /* DVPNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVPNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7504E9CA267A183D00023D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7504E9CC267A183D00023D42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -415,6 +425,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		22DD3CE92733CB1E00E1925C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22DD3CFC2733CB6A00E1925C /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7504E9C4267A183D00023D42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,6 +480,7 @@
 			children = (
 				7504E9C7267A183D00023D42 /* DVPNApp.app */,
 				7504E9E2267A196900023D42 /* DVPNAppNetworkExtension.appex */,
+				22DD3CEC2733CB1E00E1925C /* SentinelDVPNmacOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -485,6 +504,7 @@
 		7504E9E3267A196900023D42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */,
 				7504E9E4267A196900023D42 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
@@ -1169,6 +1189,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
+		22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 22DD3CE527318FA900E1925C /* Build configuration list for PBXLegacyTarget "WireGuardGoBridgeMacOS" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = WireGuardKitGo;
+			dependencies = (
+			);
+			name = WireGuardGoBridgeMacOS;
+			passBuildSettingsInEnvironment = 1;
+			productName = WireGuardGoBridgeMacOS;
+		};
 		7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION)";
@@ -1186,6 +1220,23 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
+		22DD3CEB2733CB1E00E1925C /* SentinelDVPNmacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22DD3CF82733CB1F00E1925C /* Build configuration list for PBXNativeTarget "SentinelDVPNmacOS" */;
+			buildPhases = (
+				22DD3CE82733CB1E00E1925C /* Sources */,
+				22DD3CE92733CB1E00E1925C /* Frameworks */,
+				22DD3CEA2733CB1E00E1925C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SentinelDVPNmacOS;
+			productName = SentinelDVPNnacOS;
+			productReference = 22DD3CEC2733CB1E00E1925C /* SentinelDVPNmacOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7504E9C6267A183D00023D42 /* DVPNApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7504E9DB267A184000023D42 /* Build configuration list for PBXNativeTarget "DVPNApp" */;
@@ -1230,6 +1281,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				22DD3CE72731908A00E1925C /* PBXTargetDependency */,
 				7504E9FC267A1B5E00023D42 /* PBXTargetDependency */,
 			);
 			name = DVPNAppNetworkExtension;
@@ -1247,9 +1299,15 @@
 		7504E9BF267A183D00023D42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					22DD3CE227318FA900E1925C = {
+						CreatedOnToolsVersion = 13.2;
+					};
+					22DD3CEB2733CB1E00E1925C = {
+						CreatedOnToolsVersion = 13.2;
+					};
 					7504E9C6267A183D00023D42 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -1288,11 +1346,20 @@
 				7504E9C6267A183D00023D42 /* DVPNApp */,
 				7504E9E1267A196900023D42 /* DVPNAppNetworkExtension */,
 				7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */,
+				22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */,
+				22DD3CEB2733CB1E00E1925C /* SentinelDVPNmacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		22DD3CEA2733CB1E00E1925C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7504E9C5267A183D00023D42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1373,6 +1440,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		22DD3CE82733CB1E00E1925C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7504E9C3267A183D00023D42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1544,6 +1618,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		22DD3CE72731908A00E1925C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */;
+			targetProxy = 22DD3CE62731908A00E1925C /* PBXContainerItemProxy */;
+		};
 		7504E9EC267A196900023D42 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7504E9E1267A196900023D42 /* DVPNAppNetworkExtension */;
@@ -1576,6 +1655,97 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		22DD3CE327318FA900E1925C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = G49975RHAR;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		22DD3CE427318FA900E1925C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = G49975RHAR;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		22DD3CF92733CB1F00E1925C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = SentinelDVPNnacOS/SentinelDVPNnacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = G49975RHAR;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exidio.SentinelDVPNmacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		22DD3CFA2733CB1F00E1925C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = SentinelDVPNnacOS/SentinelDVPNnacOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = G49975RHAR;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exidio.SentinelDVPNmacOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		7504E9D9267A184000023D42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1824,6 +1994,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		22DD3CE527318FA900E1925C /* Build configuration list for PBXLegacyTarget "WireGuardGoBridgeMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22DD3CE327318FA900E1925C /* Debug */,
+				22DD3CE427318FA900E1925C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22DD3CF82733CB1F00E1925C /* Build configuration list for PBXNativeTarget "SentinelDVPNmacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22DD3CF92733CB1F00E1925C /* Debug */,
+				22DD3CFA2733CB1F00E1925C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7504E9C2267A183D00023D42 /* Build configuration list for PBXProject "DVPNApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
