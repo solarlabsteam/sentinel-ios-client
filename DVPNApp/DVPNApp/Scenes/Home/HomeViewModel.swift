@@ -69,7 +69,7 @@ final class HomeViewModel: ObservableObject {
     }
 
     @Published private(set) var locations: [NodeSelectionRowViewModel] = []
-    private(set) var subscriptions: [NodeSelectionRowViewModel] = []
+    @Published private(set) var subscriptions: [NodeSelectionRowViewModel] = []
     private(set) var nodes: Set<SentinelNode> = []
     
     private let model: HomeModel
