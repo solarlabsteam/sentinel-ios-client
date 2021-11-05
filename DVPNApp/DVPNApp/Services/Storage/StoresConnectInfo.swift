@@ -14,4 +14,6 @@ protocol StoresConnectInfo {
     func lastSelectedNode() -> String?
     func set(sessionId: Int?)
     func lastSessionId() -> Int?
+    func set(sessionStart: Date?)
+    func lastSessionStart() -> Date?
 }
