@@ -51,6 +51,7 @@ final class CommonContext {
         }
         walletService = WalletService(for: walletAddress, securityService: securityService)
         sentinelService = SentinelService(walletService: walletService)
+        nodesService.update(sentinelService: sentinelService)
     }
 }
 

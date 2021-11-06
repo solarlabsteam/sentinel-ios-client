@@ -17,7 +17,7 @@ private let constants = Constants()
 
 final class NodesService {
     private let nodesStorage: StoresNodes
-    private let sentinelService: SentinelService
+    private var sentinelService: SentinelService
     
     @Published private(set) var _availableNodesOfSelectedContinent: [SentinelNode] = []
     @Published private(set) var _loadedNodesCount: Int = 0
@@ -34,6 +34,10 @@ final class NodesService {
 }
 
 extension NodesService: NodesServiceType {
+    func update(sentinelService: SentinelService) {
+        self.sentinelService = sentinelService
+    }
+    
     var availableNodesOfSelectedContinent: Published<[SentinelNode]>.Publisher {
         $_availableNodesOfSelectedContinent
     }
