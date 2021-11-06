@@ -226,6 +226,8 @@ extension HomeViewModel {
                     self?.isLoadingSubscriptions = true
                 case let .select(server):
                     self?.update(to: server)
+                case let .setNumberOfNodesInContinent(numberOfNodesInContinent):
+                    self?.numberOfNodesInContinent = numberOfNodesInContinent
                 }
             }
             .store(in: &cancellables)

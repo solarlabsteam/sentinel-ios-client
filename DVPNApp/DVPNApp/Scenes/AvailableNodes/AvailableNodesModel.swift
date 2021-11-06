@@ -14,7 +14,7 @@ enum AvailableNodesModelEvent {
 
     case setLoadedNodesCount(_ count: Int)
 
-    case allLoaded
+    case allLoaded(Bool)
     
     case update(locations: [SentinelNode])
     case connect
@@ -59,7 +59,7 @@ extension AvailableNodesModel {
             .store(in: &cancellables)
         
         context.nodesService.isAllLoaded
-            .map { .allLoaded }
+            .map { .allLoaded($0) }
             .subscribe(eventSubject)
             .store(in: &cancellables)
         

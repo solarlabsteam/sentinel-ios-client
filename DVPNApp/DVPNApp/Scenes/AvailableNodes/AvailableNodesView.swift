@@ -52,7 +52,7 @@ struct AvailableNodesView: View {
                             }
                         )
                             .onAppear {
-                                if index <= viewModel.loadedNodesCount - 1 {
+                                if !viewModel.isAllLoaded && index <= viewModel.loadedNodesCount - 1 {
                                     viewModel.setLoadingNodes()
                                 }
                             }

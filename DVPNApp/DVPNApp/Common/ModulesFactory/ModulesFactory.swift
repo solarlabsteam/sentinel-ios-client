@@ -31,8 +31,10 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule(for window: UIWindow) {
-        context.nodesService.loadAllNodes() { [weak self] in
-            self?.context.nodesService.loadNodesInfo()
+        context.nodesService.loadAllNodes() { [weak self] result in
+            if case let .success(nodes) = result {
+                self?.context.nodesService.loadNodesInfo(for: nodes)
+            }
         }
         
         guard context.generalInfoStorage.didPassOnboarding() else {
