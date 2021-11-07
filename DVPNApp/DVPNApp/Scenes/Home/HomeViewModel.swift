@@ -213,7 +213,7 @@ extension HomeViewModel {
                 case let .error(error):
                     self?.router.play(event: .error(error))
                 case let .update(nodes):
-                    self?.update(nodes: Set(nodes))
+                    self?.nodes.formUnion(nodes)
                 case let .showLoadingSubscriptions(state):
                     self?.isLoadingSubscriptions = state
                 case let .set(subscribedNodes):
@@ -263,10 +263,6 @@ extension HomeViewModel {
                 self?.connectionStatus = .init(from: session.status == .connected)
             }
         }
-    }
-
-    private func update(nodes: Set<SentinelNode>) {
-        self.nodes.formUnion(nodes)
     }
 
     private func connectToRandomNode() {

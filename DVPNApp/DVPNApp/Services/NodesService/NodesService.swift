@@ -96,7 +96,7 @@ extension NodesService: NodesServiceType {
     func loadNodesInfo(for nodes: [SentinelNode]) {
         _isAllLoaded = false
         
-        self._loadedNodesCount = 0
+        _loadedNodesCount = 0
         
         let chunked = nodes.chunked(into: constants.stepToLoad)
         
