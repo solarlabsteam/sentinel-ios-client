@@ -59,7 +59,10 @@ extension AvailableNodesCoordinator: RouterType {
         case .connect:
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
-            ModulesFactory.shared.makeNodeDetailsModule(for: navigation, configuration: .init(node: node, isSubscribed: isSubscribed))
+            ModulesFactory.shared.makeNodeDetailsModule(
+                for: navigation,
+                configuration: .init(node: node, isSubscribed: isSubscribed)
+            )
         case .accountInfo:
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         }

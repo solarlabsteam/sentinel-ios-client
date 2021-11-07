@@ -121,8 +121,7 @@ struct AccountCreationView: View {
 
                     Spacer()
                 }
-
-
+                
                 if viewModel.address != nil {
                     walletAddress
                 }

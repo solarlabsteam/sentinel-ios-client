@@ -102,7 +102,7 @@ final class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
 
         $selectedTab
-            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback()})
+            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback() })
             .store(in: &cancellables)
         
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
@@ -175,7 +175,7 @@ extension HomeViewModel {
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         
-        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id}) else {
+        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id }) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
             return
         }

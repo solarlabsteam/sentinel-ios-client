@@ -71,7 +71,7 @@ extension NodesService: NodesServiceType {
     func loadAllNodes(
         completion: ((Result<[SentinelNode], Error>) -> Void)?
     ) {
-        sentinelService.queryNodes() { [weak self] result in
+        sentinelService.queryNodes { [weak self] result in
             switch result {
             case .failure(let error):
                 log.error(error)
@@ -102,7 +102,7 @@ extension NodesService: NodesServiceType {
         
         let group = DispatchGroup()
         
-        chunked.enumerated().forEach { (index, littlePortion) in
+        chunked.enumerated().forEach { index, littlePortion in
             group.enter()
             
             loadLittlePortion(sentinelNodes: littlePortion) { [weak self] in

@@ -82,7 +82,8 @@ extension PlansModel {
             case .failure(let error):
                 self.eventSubject.send(.processPayment(.failure(error)))
             case .success(let balances):
-                let balance = balances.filter { $0.denom == deposit.denom }.first
+                let balance = balances
+                    .first(where: { $0.denom == deposit.denom })
                 
                 guard let balance = balance,
                       Int(balance.amount)! >= (Int(deposit.amount)! + self.context.walletService.fee) else {

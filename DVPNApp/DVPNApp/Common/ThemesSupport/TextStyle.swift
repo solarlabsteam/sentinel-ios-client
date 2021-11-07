@@ -39,7 +39,6 @@ extension Text: TextStyleApplicable {
     }
 }
 
-
 // MARK: - TextField
 
 extension TextField: TextStyleApplicable {

@@ -68,7 +68,7 @@ struct OnboardingView: View {
 
     var tabView: some View {
         TabView(selection: $viewModel.currentPage,
-                content:  {
+                content: {
                     ForEach(viewModel.steps, id: \.self) { model in
                         OnboardingStepView(model: model)
                             .tag(model.tag)

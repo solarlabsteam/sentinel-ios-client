@@ -31,7 +31,7 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule(for window: UIWindow) {
-        context.nodesService.loadAllNodes() { [weak self] result in
+        context.nodesService.loadAllNodes { [weak self] result in
             if case let .success(nodes) = result {
                 self?.context.nodesService.loadNodesInfo(for: nodes)
             }
@@ -44,7 +44,7 @@ extension ModulesFactory {
         
         makeEmptyModule(for: window)
         
-        context.preloadService.loadData() { [weak self] in
+        context.preloadService.loadData { [weak self] in
             self?.makeHomeModule(for: window)
         }
     }
@@ -83,7 +83,10 @@ extension ModulesFactory {
         window.rootViewController = controller
     }
     
-    func makeNodeDetailsModule(for navigation: UINavigationController, configuration: NodeDetailsCoordinator.Configuration) {
+    func makeNodeDetailsModule(
+        for navigation: UINavigationController,
+        configuration: NodeDetailsCoordinator.Configuration
+    ) {
         NodeDetailsCoordinator(context: context, navigation: navigation, configuration: configuration).start()
     }
 

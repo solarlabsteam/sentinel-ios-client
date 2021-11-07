@@ -161,7 +161,7 @@ extension ConnectionModel {
 
             case .success(let subscriptions):
                 guard let selectedAddress = selectedAddress,
-                      let subscription = subscriptions.last(where: { $0.node == selectedAddress}) else {
+                      let subscription = subscriptions.last(where: { $0.node == selectedAddress }) else {
                     self.subscription = subscriptions.sorted(by: { $0.id > $1.id }).first
                     self.handleConnection(reconnect: reconnect)
                     return

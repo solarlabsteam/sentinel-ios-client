@@ -40,7 +40,8 @@ final public class TunnelsService {
             queue: OperationQueue.main
         ) { [weak self] _ in
             DispatchQueue.main.async { [weak self] in
-                // We schedule reload() in a subsequent runloop to ensure that the completion handler of loadAllFromPreferences
+                // We schedule reload() in a subsequent runloop to ensure
+                // that the completion handler of loadAllFromPreferences
                 // is called after the completion handler of the saveToPreferences or removeFromPreferences call,
                 // if any, that caused this notification to fire. This notification can also fire
                 // as a result of a tunnel getting added or removed outside of the app.
@@ -288,7 +289,8 @@ private extension TunnelsService {
             guard let self = self else { return }
 
             if tunnel.status == .disconnected {
-                self.tunnels.first(where: { $0.status == .waiting })?.startActivation(statusDelegate: self.statusDelegate)
+                self.tunnels.first(where: { $0.status == .waiting })?
+                    .startActivation(statusDelegate: self.statusDelegate)
                 self.awaitingObservationToken = nil
             }
         }
@@ -305,8 +307,9 @@ private extension TunnelsService {
                 let tunnelProvider = session.manager as? NETunnelProviderManager,
                 let tunnel = self.tunnels.first(where: { $0.tunnelProvider == tunnelProvider })
             else { return }
-
-            log.debug("Tunnel '\(tunnel.name)' status changed to '\(tunnel.tunnelProvider.connection.status.description)'")
+            
+            let description = tunnel.tunnelProvider.connection.status.description
+            log.debug("Tunnel '\(tunnel.name)' status changed to '\(description)'")
 
             if tunnel.isAttemptingActivation {
                 switch session.status {

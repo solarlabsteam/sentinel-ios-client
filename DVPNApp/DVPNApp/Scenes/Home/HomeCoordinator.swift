@@ -58,7 +58,10 @@ extension HomeCoordinator: RouterType {
         case .connect:
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
-            ModulesFactory.shared.makeNodeDetailsModule(for: navigation, configuration: .init(node: node, isSubscribed: isSubscribed))
+            ModulesFactory.shared.makeNodeDetailsModule(
+                for: navigation,
+                configuration: .init(node: node, isSubscribed: isSubscribed)
+            )
         case let .subscribe(node, delegate):
             ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .sentinel:

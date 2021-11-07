@@ -28,7 +28,7 @@ extension RealmStorage: StoresNodes {
             guard let realm = self?.initRealm() else { return }
             
             do {
-                try realm.safeWrite() {
+                try realm.safeWrite {
                     self?.save(collection: sentinelNodes, to: realm)
                 }
             } catch {
@@ -42,7 +42,7 @@ extension RealmStorage: StoresNodes {
             guard let realm = self?.initRealm() else { return }
             
             do {
-                try realm.safeWrite() {
+                try realm.safeWrite {
                     self?.save(object: sentinelNode, to: realm)
                 }
             } catch {
@@ -58,7 +58,7 @@ extension RealmStorage: StoresNodes {
             guard let realm = self?.initRealm() else { return }
             
             do {
-                try realm.safeWrite() {
+                try realm.safeWrite {
                     self?.save(object: fullSentinelNode, to: realm)
                 }
             } catch {
@@ -72,12 +72,12 @@ extension RealmStorage: StoresNodes {
             guard let realm = self?.initRealm() else { return }
             
             let objectToDelete = realm.objects(SentinelNodeObject.self)
-                .filter { $0.address == sentinelNode.address }.first
+                .first(where: { $0.address == sentinelNode.address })
             
             guard let objectToDelete = objectToDelete else { return }
             
             do {
-                try realm.safeWrite() {
+                try realm.safeWrite {
                     realm.delete(objectToDelete)
                 }
             } catch {

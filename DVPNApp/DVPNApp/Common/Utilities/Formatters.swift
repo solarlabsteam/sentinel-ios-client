@@ -76,7 +76,7 @@ extension PriceFormatter {
 
 // MARK: - CountryFormatter
 
-final class CountryFormatter {
+enum CountryFormatter {
     static func code(for fullCountryName: String) -> String? {
         NSLocale.isoCountryCodes.first(where: { code in
             let identifier = NSLocale(localeIdentifier: "en_US")

@@ -37,8 +37,8 @@ extension NetworkService: NetworkServiceType {
 
         let wgKey = PrivateKey()
         let parameters: [String: Any] = [
-            "key" : wgKey.publicKey.base64Key,
-            "signature" : signature
+            "key": wgKey.publicKey.base64Key,
+            "signature": signature
         ]
 
         struct Result: Codable {
@@ -48,7 +48,7 @@ extension NetworkService: NetworkServiceType {
 
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
-            .responseDecodable() { (response: DataResponse<Result, AFError>) in
+            .responseDecodable { (response: DataResponse<Result, AFError>) in
                 switch response.result {
                 case .failure(let error):
                     completion(.failure(error))
