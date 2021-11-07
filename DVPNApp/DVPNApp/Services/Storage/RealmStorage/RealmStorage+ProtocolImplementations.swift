@@ -71,9 +71,14 @@ extension RealmStorage: StoresNodes {
         DispatchQueue.global().async { [weak self] in
             guard let realm = self?.initRealm() else { return }
             
+            let objectToDelete = realm.objects(SentinelNodeObject.self)
+                .filter { $0.address == sentinelNode.address }.first
+            
+            guard let objectToDelete = objectToDelete else { return }
+            
             do {
                 try realm.safeWrite() {
-                    self?.delete(sentinelNode, from: realm)
+                    realm.delete(objectToDelete)
                 }
             } catch {
                 log.error(NodesServiceError.databaseFailure("Failed to delete node \(sentinelNode)"))
