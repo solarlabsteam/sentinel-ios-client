@@ -174,7 +174,7 @@ extension NodesService {
                 
                 newSentinelNodesMutated.remove(at: index)
             } else {
-                // TODO: @Tori delete node from db
+                nodesStorage.remove(sentinelNode: sentinelNodeInDB)
             }
         }
         

@@ -22,8 +22,8 @@ public class SentinelNodeObject: Object {
     }
 }
 
-// MARK: SentinelNode: Persistable
-extension SentinelNode: Persistable {
+// MARK: SentinelNode: Preservable
+extension SentinelNode: Preservable {
     init(managedObject: SentinelNodeObject) {
         self.init(
             address: managedObject.address!,
@@ -48,14 +48,9 @@ extension SentinelNode: Persistable {
 }
 
 // MARK: - NodeObject
-public class NodeObject: Object {
-    @objc dynamic var sentinelNode: SentinelNodeObject?
+public class NodeObject: EmbeddedObject {
     @objc dynamic var info: DVPNNodeInfoObject?
     dynamic var latency: Double?
-
-    override public static func primaryKey() -> String? {
-        nil
-    }
 }
 
 // MARK: Node: Persistable
@@ -78,13 +73,9 @@ extension Node: Persistable {
 }
 
 // MARK: - BandwidthObject
-public class BandwidthObject: Object {
+public class BandwidthObject: EmbeddedObject {
     let download = RealmProperty<Int?>()
     let upload = RealmProperty<Int?>()
-
-    override public static func primaryKey() -> String? {
-        nil
-    }
 }
 
 // MARK: Bandwidth: Persistable
@@ -107,7 +98,7 @@ extension Bandwidth: Persistable {
 }
 
 // MARK: - DVPNNodeInfoObject
-public class DVPNNodeInfoObject: Object {
+public class DVPNNodeInfoObject: EmbeddedObject {
     @objc dynamic var address: String?
     @objc dynamic var bandwidth: BandwidthObject?
     @objc dynamic var handshake: HandshakeObject?
@@ -123,10 +114,6 @@ public class DVPNNodeInfoObject: Object {
     @objc dynamic var qos: QOSObject?
     let type = RealmProperty<Int?>()
     @objc dynamic var version: String?
-
-    override public static func primaryKey() -> String? {
-        "address"
-    }
 }
 
 // MARK: DVPNNodeInfo: Persistable
@@ -175,13 +162,9 @@ extension DVPNNodeInfo: Persistable {
 }
 
 // MARK: - HandshakeObject
-public class HandshakeObject: Object {
+public class HandshakeObject: EmbeddedObject {
     let enable = RealmProperty<Bool?>()
     let peers = RealmProperty<Int?>()
-
-    override public static func primaryKey() -> String? {
-        nil
-    }
 }
 
 // MARK: Handshake: Persistable
@@ -204,13 +187,9 @@ extension Handshake: Persistable {
 }
 
 // MARK: - LocationObject
-public class LocationObject: Object {
+public class LocationObject: EmbeddedObject {
     @objc dynamic var city: String?
     @objc dynamic var country: String?
-
-    override public static func primaryKey() -> String? {
-        nil
-    }
 }
 
 // MARK: Location: Persistable
@@ -235,12 +214,8 @@ extension Location: Persistable {
 }
 
 // MARK: - QOSObject
-public class QOSObject: Object {
+public class QOSObject: EmbeddedObject {
     let maxPeers = RealmProperty<Int?>()
-
-    override public static func primaryKey() -> String? {
-        nil
-    }
 }
 
 // MARK: QOS: Persistable
@@ -261,13 +236,9 @@ extension QOS: Persistable {
 }
 
 // MARK: - CoinTokenObject
-public class CoinTokenObject: Object {
+public class CoinTokenObject: EmbeddedObject {
     @objc dynamic var denom: String?
     @objc dynamic var amount: String?
-
-    override public static func primaryKey() -> String? {
-        nil
-    }
 }
 
 // MARK: CoinToken: Persistable
