@@ -102,7 +102,7 @@ final class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
 
         $selectedTab
-            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback()})
+            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback() })
             .store(in: &cancellables)
         
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
@@ -138,12 +138,13 @@ extension HomeViewModel: PlansViewModelDelegate {
 extension HomeViewModel {
     func toggleLocation(with id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id }) else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
-
-        toggle(node: node.node!)
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
+        
+        toggle(node: node)
     }
 
     func toggleRandomLocation() {
@@ -175,12 +176,13 @@ extension HomeViewModel {
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         
-        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id}) else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
         
-        router.play(event: .details(node, isSubscribed: model.isSubscribed(to: node.node!.info.address)))
+        router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
     }
     
     func openNodes(for continent: Continent) {
@@ -266,12 +268,13 @@ extension HomeViewModel {
     }
 
     private func connectToRandomNode() {
-        guard let node = nodes.first(where: { $0.node!.latency < 1 }) ?? nodes.first else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
-
-        toggle(node: node.node!)
+        guard let sentinelNode = nodes.first(where: { $0.node?.latency ?? 0 < 1 }) ?? nodes.first,
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
+        
+        toggle(node: node)
     }
 
     private func toggle(node: Node) {

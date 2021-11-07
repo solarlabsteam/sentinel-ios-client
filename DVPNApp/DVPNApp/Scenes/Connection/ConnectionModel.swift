@@ -56,19 +56,24 @@ final class ConnectionModel {
 
 extension ConnectionModel {
     func setInitNodeInfo() {
-        guard let node = context.nodesService.nodes
+        guard let sentinelNode = context.nodesService.nodes
                 .first(where: { $0.address == context.connectionInfoStorage.lastSelectedNode() }) else {
                     return
                 }
         
-        selectedNode = node.node?.info
+        selectedNode = sentinelNode.node?.info
+        
+        guard let node = sentinelNode.node else {
+            log.error("Fail to set initial node info")
+            return
+        }
         
         eventSubject.send(.updateLocation(
-            countryName: node.node!.info.location.country,
-            moniker: node.node!.info.moniker)
+            countryName: node.info.location.country,
+            moniker: node.info.moniker)
         )
         
-        eventSubject.send(.updateBandwidth(bandwidth: node.node!.info.bandwidth))
+        eventSubject.send(.updateBandwidth(bandwidth: node.info.bandwidth))
     }
     
     /// Refreshes subscriptions. Should be called each time when the app leaves the background state.
@@ -96,10 +101,15 @@ extension ConnectionModel {
             switch response {
             case .failure(let error):
                 self.show(error: error)
-            case .success(let node):
+            case .success(let sentinelNode):
+                guard let node = sentinelNode.node else {
+                    log.error("Loaded sentinelNode do not contain node")
+                    return
+                }
+                
                 self.eventSubject.send(.setButton(isLoading: true))
-                self.loadSubscriptions(selectedAddress: node.node!.info.address, reconnect: true)
-                self.context.connectionInfoStorage.set(lastSelectedNode: node.node!.info.address)
+                self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
+                self.context.connectionInfoStorage.set(lastSelectedNode: node.info.address)
             }
         }
     }
@@ -161,7 +171,7 @@ extension ConnectionModel {
 
             case .success(let subscriptions):
                 guard let selectedAddress = selectedAddress,
-                      let subscription = subscriptions.last(where: { $0.node == selectedAddress}) else {
+                      let subscription = subscriptions.last(where: { $0.node == selectedAddress }) else {
                     self.subscription = subscriptions.sorted(by: { $0.id > $1.id }).first
                     self.handleConnection(reconnect: reconnect)
                     return
@@ -267,14 +277,20 @@ extension ConnectionModel {
                 }
                 log.error(error)
                 self?.show(error: ConnectionModelError.nodeIsOffline)
-            case .success(let node):
-                self?.selectedNode = node.node?.info
+            case .success(let sentinelNode):
+                self?.selectedNode = sentinelNode.node?.info
+                
+                guard let node = sentinelNode.node else {
+                    log.error("Loaded sentinelNode do not contain node")
+                    return
+                }
+                
                 self?.eventSubject.send(
-                    .updateLocation(countryName: node.node!.info.location.country,
-                                    moniker: node.node!.info.moniker)
+                    .updateLocation(countryName: node.info.location.country,
+                                    moniker: node.info.moniker)
                 )
                 self?.eventSubject.send(
-                    .updateBandwidth(bandwidth: node.node!.info.bandwidth)
+                    .updateBandwidth(bandwidth: node.info.bandwidth)
                 )
             }
         }
@@ -292,7 +308,8 @@ extension ConnectionModel {
             case .success(let balances):
                 guard balances
                         .contains(
-                            where: { $0.denom == constants.denom && Int($0.amount)! >= self.context.walletService.fee }
+                            where: { $0.denom == constants.denom
+                                && Int($0.amount) ?? 0 >= self.context.walletService.fee }
                         ) else {
                     self.eventSubject.send(.warning(ConnectionModelError.notEnoughTokens))
                     self.stopLoading()

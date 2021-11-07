@@ -35,12 +35,15 @@ final class AccountInfoViewModel: ObservableObject {
         self.model = model
         self.router = router
         
+        // swiftlint:disable force_unwrapping
         self.qrCode = UIImage(
             cgImage: EFQRCode.generate(
                 for: model.address,
                 backgroundColor: CGColor.init(gray: 0, alpha: 0)
             )!
         )
+        // swiftlint:enable force_unwrapping
+        
         self.address = model.address
 
         self.model.eventPublisher
@@ -63,9 +66,11 @@ final class AccountInfoViewModel: ObservableObject {
 }
 
 extension AccountInfoViewModel {
+    // swiftlint:disable force_unwrapping
     var solarPayURL: URL {
         .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
     }
+    // swiftlint:enable force_unwrapping
     
     func refresh() {
         model.refresh()

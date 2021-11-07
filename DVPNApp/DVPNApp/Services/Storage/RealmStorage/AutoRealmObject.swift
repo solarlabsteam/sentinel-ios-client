@@ -9,6 +9,8 @@ import Foundation
 import RealmSwift
 import SentinelWallet
 
+// swiftlint:disable force_unwrapping
+
 // MARK: - SentinelNodeObject
 public class SentinelNodeObject: Object {
     @objc dynamic var address: String?
@@ -30,7 +32,7 @@ extension SentinelNode: Preservable {
             provider: managedObject.provider!,
             price: Array(managedObject.price).map(CoinToken.init),
             remoteURL: managedObject.remoteURL!,
-            node: managedObject.node.flatMap { Node(managedObject: $0) } ?? nil
+            node: managedObject.node.flatMap { Node(managedObject: $0) }
         )
     }
     
@@ -132,7 +134,7 @@ extension DVPNNodeInfo: Persistable {
             peers: managedObject.peers.value!,
             price: managedObject.price!,
             provider: managedObject.provider!,
-            qos: managedObject.qos.flatMap { QOS(managedObject: $0) } ?? nil,
+            qos: managedObject.qos.flatMap { QOS(managedObject: $0) },
             type: managedObject.type.value!,
             version: managedObject.version!
         )
@@ -259,3 +261,5 @@ extension CoinToken: Persistable {
         return obj
     }
 }
+
+// swiftlint:enable force_unwrapping

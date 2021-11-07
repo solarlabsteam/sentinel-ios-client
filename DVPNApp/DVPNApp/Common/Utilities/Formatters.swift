@@ -17,7 +17,7 @@ private let constants = Constants()
 
 // MARK: - PriceFormatter
 
-final class PriceFormatter {
+enum PriceFormatter {
     private static let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -76,7 +76,7 @@ extension PriceFormatter {
 
 // MARK: - CountryFormatter
 
-final class CountryFormatter {
+enum CountryFormatter {
     static func code(for fullCountryName: String) -> String? {
         NSLocale.isoCountryCodes.first(where: { code in
             let identifier = NSLocale(localeIdentifier: "en_US")

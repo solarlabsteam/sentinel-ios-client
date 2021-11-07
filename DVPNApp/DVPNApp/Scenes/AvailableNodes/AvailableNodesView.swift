@@ -48,7 +48,7 @@ struct AvailableNodesView: View {
                                 viewModel.toggleLocation(with: vm.id)
                             },
                             openDetails: {
-                                viewModel.openDetails(for:  vm.id)
+                                viewModel.openDetails(for: vm.id)
                             }
                         )
                             .onAppear {

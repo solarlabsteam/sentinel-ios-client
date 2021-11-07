@@ -74,21 +74,24 @@ final class AvailableNodesViewModel: ObservableObject {
 extension AvailableNodesViewModel {
     func toggleLocation(with id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
-
-        toggle(node: node.node!)
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }),
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
+        
+        toggle(node: node)
     }
     
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
-        router.play(event: .details(node, isSubscribed: model.isSubscribed(to: node.node!.info.address)))
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }),
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
+        
+        router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
     }
     
     @objc
@@ -123,14 +126,19 @@ extension AvailableNodesViewModel {
 
     private func update(nodes: Set<SentinelNode>) {
         let newNodes = nodes.subtracting(self.nodes)
-        let newLocations = newNodes.map { node -> NodeSelectionRowViewModel in
-            let countryCode = CountryFormatter.code(for: node.node!.info.location.country) ?? ""
+        let newLocations = newNodes.map { sentinelNode -> NodeSelectionRowViewModel? in
+            guard let node = sentinelNode.node else {
+                return nil
+            }
+            
+            let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
 
             return NodeSelectionRowViewModel(
-                from: node.node!,
+                from: node,
                 icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
             )
-        }
+        }.compactMap { $0 }
+        
         locations.append(contentsOf: newLocations)
         self.nodes.formUnion(nodes)
     }

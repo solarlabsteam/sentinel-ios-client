@@ -62,7 +62,7 @@ struct NodeSelectionView: View {
     var body: some View {
         VStack {
             HStack {
-                switch(viewModel.selectedTab) {
+                switch viewModel.selectedTab {
                 case .subscribed:
                     subscribedNodes
                 case .available:
