@@ -8,14 +8,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
-        </array>
-        <array key="Poppins-Regular.ttf">
-            <string>Poppins-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="UOp-mQ-rdd">
@@ -29,17 +21,17 @@
                                 <rect key="frame" x="148.5" y="163.5" width="117" height="126"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="TfB-Tj-jUE">
-                                <rect key="frame" x="75.5" y="395" width="263" height="71"/>
+                                <rect key="frame" x="83" y="359.5" width="248" height="63"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentinel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ue-0d-KHM">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="35"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World’s first truly decentralized VPN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F52-7q-JVu">
-                                        <rect key="frame" x="0.0" y="50" width="263" height="21"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                        <rect key="frame" x="0.0" y="45" width="248" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" name="colors/lightGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -64,19 +56,18 @@
                             <constraint firstItem="BaF-rC-5nW" firstAttribute="centerX" secondItem="2h7-40-qZG" secondAttribute="centerX" id="8gL-vv-HX9"/>
                             <constraint firstItem="2h7-40-qZG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FC2-ux-LSP" secondAttribute="trailing" id="Dxg-c9-MQ6"/>
                             <constraint firstAttribute="bottom" secondItem="yMQ-Fy-46T" secondAttribute="bottom" id="a0R-EL-jkT"/>
-                            <constraint firstItem="TfB-Tj-jUE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FC2-ux-LSP" secondAttribute="bottom" constant="10" id="eXA-0d-tXV"/>
+                            <constraint firstItem="TfB-Tj-jUE" firstAttribute="top" secondItem="FC2-ux-LSP" secondAttribute="bottom" constant="70" id="eXA-0d-tXV"/>
                             <constraint firstItem="FC2-ux-LSP" firstAttribute="centerX" secondItem="2h7-40-qZG" secondAttribute="centerX" id="ogc-LS-7S5"/>
                             <constraint firstItem="2h7-40-qZG" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FC2-ux-LSP" secondAttribute="bottom" id="s1a-Zg-ACd"/>
                             <constraint firstItem="FC2-ux-LSP" firstAttribute="centerY" secondItem="2h7-40-qZG" secondAttribute="centerY" multiplier="0.5" id="t9v-pm-5tO"/>
                             <constraint firstItem="yMQ-Fy-46T" firstAttribute="leading" secondItem="2h7-40-qZG" secondAttribute="leading" id="vZ1-Ju-kC5"/>
-                            <constraint firstItem="TfB-Tj-jUE" firstAttribute="centerY" secondItem="2h7-40-qZG" secondAttribute="centerY" multiplier="0.95" id="vvv-6k-4WH"/>
                             <constraint firstItem="TfB-Tj-jUE" firstAttribute="centerX" secondItem="FC2-ux-LSP" secondAttribute="centerX" id="zA4-78-EKq"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKe-oL-UZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
