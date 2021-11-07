@@ -17,7 +17,7 @@ private let constants = Constants()
 
 // MARK: - PriceFormatter
 
-final class PriceFormatter {
+enum PriceFormatter {
     private static let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

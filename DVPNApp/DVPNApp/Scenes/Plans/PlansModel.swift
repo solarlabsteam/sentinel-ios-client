@@ -86,7 +86,7 @@ extension PlansModel {
                     .first(where: { $0.denom == deposit.denom })
                 
                 guard let balance = balance,
-                      Int(balance.amount)! >= (Int(deposit.amount)! + self.context.walletService.fee) else {
+                      Int(balance.amount) ?? 0 >= (Int(deposit.amount) ?? 0 + self.context.walletService.fee) else {
                     self.eventSubject.send(.addTokens)
                     return
                 }

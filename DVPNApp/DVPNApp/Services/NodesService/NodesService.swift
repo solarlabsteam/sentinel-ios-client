@@ -85,8 +85,12 @@ extension NodesService: NodesServiceType {
     
     func loadNodesInfo(for continent: Continent) {
         let sentinelNodes = nodesStorage.sentinelNodes
-            .filter { $0.node != nil }
-            .filter { ContinentDecoder.shared.isInContinent(node: $0.node!, continent: continent) }
+            .filter { sentinelNode in
+                guard let node = sentinelNode.node else {
+                    return false
+                }
+                return ContinentDecoder.shared.isInContinent(node: node, continent: continent)
+            }
         
         _availableNodesOfSelectedContinent = sentinelNodes
         

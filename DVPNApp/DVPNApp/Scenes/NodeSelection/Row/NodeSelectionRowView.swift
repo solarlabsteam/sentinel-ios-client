@@ -64,6 +64,8 @@ struct NodeSelectionRowView: View {
     }
 }
 
+// swiftlint:disable force_unwrapping
+
 struct HomeRowView_Previews: PreviewProvider {
     static var previews: some View {
         NodeSelectionRowView(
@@ -83,3 +85,5 @@ struct HomeRowView_Previews: PreviewProvider {
         )
     }
 }
+
+// swiftlint:enable force_unwrapping

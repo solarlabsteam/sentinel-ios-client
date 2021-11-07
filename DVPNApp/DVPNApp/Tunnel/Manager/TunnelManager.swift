@@ -108,7 +108,7 @@ extension TunnelManager: TunnelManagerType {
         let peerPubKeyBytes = data.bytes[26...57]
         let peerPubKeyData = Data(peerPubKeyBytes)
         let peerPubKey = PublicKey(rawValue: peerPubKeyData)
-        tunnelModel.peersModel[0][.publicKey] = peerPubKey!.base64Key
+        tunnelModel.peersModel[0][.publicKey] = peerPubKey?.base64Key ?? ""
 
         upsertTunnel()
     }

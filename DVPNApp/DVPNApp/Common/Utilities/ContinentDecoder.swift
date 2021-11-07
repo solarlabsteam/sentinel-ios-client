@@ -16,13 +16,18 @@ final class ContinentDecoder {
     private var countryCodeToContinent: [String: String] = [:]
     
     init() {
-        let countriesExtraURL = Bundle.main.url(forResource: "co.sentinel.sentinellite.regional.countries_extras", withExtension: "json")!
-        let countriesExtraData = try! Data(contentsOf: countriesExtraURL, options: [])
-        let countriesExtra = try! JSONDecoder().decode([CountryExtra].self, from: countriesExtraData)
-        
-        for countryExtra in countriesExtra {
-            countryCodeToContinent[countryExtra.alpha2.uppercased()] = countryExtra.continent
+        let fileName = "co.sentinel.sentinellite.regional.countries_extras"
+        guard let countriesExtraURL = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+            return
         }
+        do {
+            let countriesExtraData = try Data(contentsOf: countriesExtraURL, options: [])
+            let countriesExtra = try JSONDecoder().decode([CountryExtra].self, from: countriesExtraData)
+            
+            for countryExtra in countriesExtra {
+                countryCodeToContinent[countryExtra.alpha2.uppercased()] = countryExtra.continent
+            }
+        } catch {}
     }
     
     func isInContinent(node: Node, continent: Continent) -> Bool {

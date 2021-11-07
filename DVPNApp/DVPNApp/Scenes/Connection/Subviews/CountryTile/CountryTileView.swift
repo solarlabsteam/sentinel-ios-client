@@ -55,6 +55,8 @@ struct CountryTileView: View {
     }
 }
 
+// swiftlint:disable force_unwrapping
+
 struct CountryTileView_Previews: PreviewProvider {
     static var previews: some View {
         CountryTileView(
@@ -69,3 +71,5 @@ struct CountryTileView_Previews: PreviewProvider {
         )
     }
 }
+
+// swiftlint:enable force_unwrapping
