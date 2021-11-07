@@ -5,10 +5,11 @@
 //  Created by Victoria Kostyleva on 14.10.2021.
 //
 
+import Realm
 import RealmSwift
 
 protocol Persistable {
-    associatedtype ManagedObject: Object
+    associatedtype ManagedObject: RLMObjectBase
     
     static var managedObjectType: ManagedObject.Type { get }
     
@@ -21,4 +22,7 @@ extension Persistable {
     static var managedObjectType: ManagedObject.Type {
         return ManagedObject.self
     }
+}
+
+protocol Preservable: Persistable where ManagedObject: Object {
 }

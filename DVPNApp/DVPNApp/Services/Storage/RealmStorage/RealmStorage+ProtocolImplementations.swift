@@ -29,7 +29,7 @@ extension RealmStorage: StoresNodes {
             
             do {
                 try realm.safeWrite() {
-                    try self?.save(collection: sentinelNodes, to: realm)
+                    self?.save(collection: sentinelNodes, to: realm)
                 }
             } catch {
                 log.error(NodesServiceError.databaseFailure("Failed to save sentinelNodes \(sentinelNodes)"))
@@ -43,7 +43,7 @@ extension RealmStorage: StoresNodes {
             
             do {
                 try realm.safeWrite() {
-                    try self?.save(object: sentinelNode, to: realm)
+                    self?.save(object: sentinelNode, to: realm)
                 }
             } catch {
                 log.error(NodesServiceError.databaseFailure("Failed to save sentinelNode \(sentinelNode)"))
@@ -59,10 +59,29 @@ extension RealmStorage: StoresNodes {
             
             do {
                 try realm.safeWrite() {
-                    try self?.save(object: fullSentinelNode, to: realm)
+                    self?.save(object: fullSentinelNode, to: realm)
                 }
             } catch {
                 log.error(NodesServiceError.databaseFailure("Failed to save node \(node)"))
+            }
+        }
+    }
+    
+    func remove(sentinelNode: SentinelNode) {
+        DispatchQueue.global().async { [weak self] in
+            guard let realm = self?.initRealm() else { return }
+            
+            let objectToDelete = realm.objects(SentinelNodeObject.self)
+                .filter { $0.address == sentinelNode.address }.first
+            
+            guard let objectToDelete = objectToDelete else { return }
+            
+            do {
+                try realm.safeWrite() {
+                    realm.delete(objectToDelete)
+                }
+            } catch {
+                log.error(NodesServiceError.databaseFailure("Failed to delete node \(sentinelNode)"))
             }
         }
     }

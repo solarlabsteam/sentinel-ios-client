@@ -21,7 +21,7 @@ enum ConnectionModelEvent {
     case updateLocation(countryName: String, moniker: String)
     case updateSubscription(initialBandwidth: String, bandwidthConsumed: String)
     case updateBandwidth(bandwidth: Bandwidth)
-    case updateDuration(durationInSeconds: Int64)
+    case updateTimer(startDate: Date?)
     
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
@@ -308,9 +308,11 @@ extension ConnectionModel {
         context.sentinelService.startNewSession(on: subscription) { [weak self] result in
             switch result {
             case .failure(let error):
+                self?.set(sessionStart: nil)
                 self?.show(error: error)
 
             case .success(let id):
+                self?.set(sessionStart: Date())
                 self?.fetchConnectionData(remoteURLString: nodeURL, id: id)
             }
         }
@@ -334,8 +336,10 @@ extension ConnectionModel {
             case let .success((isTunnelActive, isSessionActive)):
                 switch (isTunnelActive, isSessionActive) {
                 case (true, true):
+                    self.getInitialSessionStart()
                     self.update(subscriptionInfo: subscription, status: .connected)
                 case (false, true):
+                    self.getInitialSessionStart()
                     if let tunnel = self.context.tunnelManager.lastTunnel {
                         self.context.tunnelManager.startActivation(of: tunnel)
                         self.update(subscriptionInfo: subscription, status: .connected)
@@ -375,9 +379,6 @@ extension ConnectionModel {
                 completion(.failure(error))
 
             case .success(let session):
-                // @Tori it won't be used sinse we get a timer for duration
-                self.eventSubject.send(.updateDuration(durationInSeconds: session.durationInSeconds))
-                
                 guard let id = self.context.connectionInfoStorage.lastSessionId(),
                       session.id == id,
                       let node = self.context.connectionInfoStorage.lastSelectedNode(),
@@ -389,6 +390,16 @@ extension ConnectionModel {
                 completion(.success((isTunnelActive, true)))
             }
         }
+    }
+    
+    private func getInitialSessionStart() {
+        let sessionStart = context.connectionInfoStorage.lastSessionStart()
+        eventSubject.send(.updateTimer(startDate: sessionStart))
+    }
+    
+    private func set(sessionStart: Date?) {
+        context.connectionInfoStorage.set(sessionStart: sessionStart)
+        eventSubject.send(.updateTimer(startDate: sessionStart))
     }
 }
 

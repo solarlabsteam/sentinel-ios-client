@@ -30,12 +30,13 @@ enum HomeModelEvent {
     
     case update(locations: [SentinelNode])
     case set(subscribedNodes: [SentinelNode])
-    case setSubscriptionsState(_ state: SubscriptionsState)
+    case setSubscriptionsState(SubscriptionsState)
     case reloadSubscriptions
 
     case connect
 
     case select(server: DNSServerType)
+    case setNumberOfNodesInContinent([Continent: Int])
 }
 
 final class HomeModel {
@@ -59,8 +60,10 @@ final class HomeModel {
         loadSubscriptions()
         fetchWalletInfo()
         
-        context.nodesService.loadAllNodesIfNeeded() {
-            context.nodesService.loadNodesInfo()
+        context.nodesService.loadAllNodesIfNeeded() { result in
+            if case let .success(nodes) = result {
+                context.nodesService.loadNodesInfo(for: nodes)
+            }
         }
     }
     

@@ -13,4 +13,5 @@ protocol StoresNodes: AnyObject {
     func save(sentinelNodes: [SentinelNode])
     func save(sentinelNode: SentinelNode)
     func save(node: Node, for sentinelNode: SentinelNode)
+    func remove(sentinelNode: SentinelNode)
 }

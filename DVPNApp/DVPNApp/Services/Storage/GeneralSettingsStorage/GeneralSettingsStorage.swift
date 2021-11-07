@@ -17,6 +17,7 @@ private enum Keys: String {
     case walletKey
     case lastSessionKey
     case dnsKey
+    case sessionStart
 }
 
 final class GeneralSettingsStorage {
@@ -64,6 +65,14 @@ extension GeneralSettingsStorage: StoresConnectInfo {
 
     func lastSessionId() -> Int? {
         settingsStorageStrategy.object(ofType: Int.self, forKey: Keys.lastSessionKey.rawValue)
+    }
+    
+    func set(sessionStart: Date?) {
+        settingsStorageStrategy.setObject(sessionStart, forKey: Keys.sessionStart.rawValue)
+    }
+    
+    func lastSessionStart() -> Date? {
+        settingsStorageStrategy.object(ofType: Date.self, forKey: Keys.sessionStart.rawValue)
     }
 }
 
