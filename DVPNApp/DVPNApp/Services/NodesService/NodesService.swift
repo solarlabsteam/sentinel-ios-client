@@ -17,12 +17,13 @@ private let constants = Constants()
 
 final class NodesService {
     private let nodesStorage: StoresNodes
-    private let sentinelService: SentinelService
+    private var sentinelService: SentinelService
     
     @Published private(set) var _availableNodesOfSelectedContinent: [SentinelNode] = []
     @Published private(set) var _loadedNodesCount: Int = 0
-    @Published private(set) var _isAllLoaded: Void = ()
+    @Published private(set) var _isAllLoaded: Bool = false
     
+    @Published private(set) var _subscriptions: [Subscription] = []
     @Published private(set) var _subscribedNodes: [SentinelNode] = []
     @Published private(set) var _isLoadingSubscriptions: Bool = true
     
@@ -33,6 +34,10 @@ final class NodesService {
 }
 
 extension NodesService: NodesServiceType {
+    func update(sentinelService: SentinelService) {
+        self.sentinelService = sentinelService
+    }
+    
     var availableNodesOfSelectedContinent: Published<[SentinelNode]>.Publisher {
         $_availableNodesOfSelectedContinent
     }
@@ -41,8 +46,12 @@ extension NodesService: NodesServiceType {
         $_loadedNodesCount
     }
     
-    var isAllLoaded: Published<Void>.Publisher {
+    var isAllLoaded: Published<Bool>.Publisher {
         $_isAllLoaded
+    }
+    
+    var subscriptions: Published<[Subscription]>.Publisher {
+        $_subscriptions
     }
     
     var subscribedNodes: Published<[SentinelNode]>.Publisher {
@@ -53,14 +62,14 @@ extension NodesService: NodesServiceType {
         $_isLoadingSubscriptions
     }
     
-    func loadAllNodesIfNeeded(completion: @escaping (() -> Void)) {
+    func loadAllNodesIfNeeded(completion: @escaping ((Result<[SentinelNode], Error>) -> Void)) {
         if nodesStorage.sentinelNodes.isEmpty {
             loadAllNodes(completion: completion)
         }
     }
     
     func loadAllNodes(
-        completion: (() -> Void)?
+        completion: ((Result<[SentinelNode], Error>) -> Void)?
     ) {
         sentinelService.queryNodes() { [weak self] result in
             switch result {
@@ -70,28 +79,26 @@ extension NodesService: NodesServiceType {
                 self?.save(newSentinelNodes: nodes)
             }
             
-            completion?()
+            completion?(result)
         }
     }
     
-    func loadNodesInfo(for continent: Continent?) {
-        let sentinelNodes: [SentinelNode]
+    func loadNodesInfo(for continent: Continent) {
+        let sentinelNodes = nodesStorage.sentinelNodes
+            .filter { $0.node != nil }
+            .filter { ContinentDecoder.shared.isInContinent(node: $0.node!, continent: continent) }
         
-        self._loadedNodesCount = 0
+        _availableNodesOfSelectedContinent = sentinelNodes
         
-        if let continent = continent {
-            sentinelNodes = nodesStorage.sentinelNodes
-                .filter { $0.node != nil }
-                .filter { ContinentDecoder.shared.isInContinent(node: $0.node!, continent: continent) }
-            
-            _availableNodesOfSelectedContinent = sentinelNodes
-        } else {
-            sentinelNodes = nodesStorage.sentinelNodes
-        }
+        loadNodesInfo(for: sentinelNodes)
+    }
+    
+    func loadNodesInfo(for nodes: [SentinelNode]) {
+        _isAllLoaded = false
         
-        _isAllLoaded = ()
+        _loadedNodesCount = 0
         
-        let chunked = sentinelNodes.chunked(into: constants.stepToLoad)
+        let chunked = nodes.chunked(into: constants.stepToLoad)
         
         let group = DispatchGroup()
         
@@ -108,7 +115,7 @@ extension NodesService: NodesServiceType {
         }
         
         group.notify(queue: .main) { [weak self] in
-            self?._isAllLoaded = ()
+            self?._isAllLoaded = true
         }
     }
     
@@ -137,7 +144,10 @@ extension NodesService: NodesServiceType {
                 self._isLoadingSubscriptions = false
                 completion(.failure(error))
             case .success(let subscriptions):
+                self._subscriptions = subscriptions
+                
                 completion(.success(subscriptions))
+                
                 guard !subscriptions.isEmpty else {
                     self._isLoadingSubscriptions = false
                     return
@@ -164,7 +174,7 @@ extension NodesService {
                 
                 newSentinelNodesMutated.remove(at: index)
             } else {
-                // TODO: @Tori delete node from db
+                nodesStorage.remove(sentinelNode: sentinelNodeInDB)
             }
         }
         

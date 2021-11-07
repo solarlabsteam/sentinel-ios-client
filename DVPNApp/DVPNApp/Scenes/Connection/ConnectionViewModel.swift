@@ -16,7 +16,11 @@ final class ConnectionViewModel: ObservableObject {
     @Published private var uploadSpeedUnits: String?
     
     @Published private var initialBandwidthGB: String?
-    @Published private var duration: String?
+    @Published private var duration: String? {
+        didSet {
+            connectionInfoViewModels[3] = .init(type: .duration, value: duration ?? "-s", symbols: "")
+        }
+    }
     
     // Location Selector
     @Published private(set) var countryImage: UIImage?
@@ -43,6 +47,8 @@ final class ConnectionViewModel: ObservableObject {
     private let model: ConnectionModel
     private var cancellables = Set<AnyCancellable>()
     
+    private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
+    
     init(model: ConnectionModel, router: Router) {
         self.model = model
         self.router = router
@@ -60,8 +66,8 @@ final class ConnectionViewModel: ObservableObject {
                     self?.updateLocation(countryName: countryName, moniker: moniker)
                 case let .updateBandwidth(bandwidth):
                     self?.updateBandwidth(bandwidth: bandwidth)
-                case let .updateDuration(durationInSeconds):
-                    self?.duration = durationInSeconds.secondsAsString()
+                case let .updateTimer(initialDate):
+                    self?.startDurationTracking(initialDate: initialDate)
                 case let .updateSubscription(initialBandwidth, bandwidthConsumed):
                     self?.updateSubscription(
                         initialBandwidth: initialBandwidth,
@@ -82,6 +88,10 @@ final class ConnectionViewModel: ObservableObject {
         
         setConnectionInfoViewModels()
         model.setInitNodeInfo()
+    }
+    
+    deinit {
+        timer?.upstream.connect().cancel()
     }
     
     func viewWillAppear() {
@@ -167,5 +177,26 @@ extension ConnectionViewModel {
         self.initialBandwidthGB = (Int64(initialBandwidth) ?? 0).bandwidthGBString
         self.bandwidthConsumedGB = (Int64(bandwidthConsumed) ?? 0).bandwidthGBString
         setConnectionInfoViewModels()
+    }
+    
+    func startDurationTracking(initialDate: Date?) {
+        guard let initialDate = initialDate else {
+            timer?.upstream.connect().cancel()
+            duration = nil
+            return
+        }
+        
+        timer = Timer.publish(every: 1, on: .main, in: .default)
+            .autoconnect()
+        
+        timer?
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                
+                let timeToShow = -Int64(initialDate.timeIntervalSinceNow)
+                self.duration = timeToShow.secondsAsString()
+            }
+            .store(in: &cancellables)
     }
 }

@@ -21,7 +21,7 @@ enum ConnectionModelEvent {
     case updateLocation(countryName: String, moniker: String)
     case updateSubscription(initialBandwidth: String, bandwidthConsumed: String)
     case updateBandwidth(bandwidth: Bandwidth)
-    case updateDuration(durationInSeconds: Int64)
+    case updateTimer(startDate: Date?)
     
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
@@ -182,11 +182,18 @@ extension ConnectionModel {
             return
         }
         
-        detectConnectionAndHandle(reconnect: reconnect, subscription: subscription)
+        if reconnect {
+            detectConnectionAndHandle(reconnect: reconnect, subscription: subscription)
+        } else {
+            update(subscriptionInfo: subscription)
+        }
     }
 
-    private func update(subscriptionInfo: SentinelWallet.Subscription, status: ConnectionStatus) {
-        eventSubject.send(.updateConnection(status: .subscriptionStatus))
+    private func update(subscriptionInfo: SentinelWallet.Subscription, status: ConnectionStatus? = nil) {
+        if let status = status {
+            eventSubject.send(.updateConnection(status: status))
+        }
+        
         context.sentinelService.queryQuota(subscriptionID: subscriptionInfo.id) { [weak self] result in
             guard let self = self else { return }
 
@@ -203,7 +210,7 @@ extension ConnectionModel {
             }
         }
 
-        updateLocation(address: subscriptionInfo.node, id: subscriptionInfo.id)
+        updateLocation(address: subscriptionInfo.node)
     }
 
     private func connect(to subscription: SentinelWallet.Subscription) {
@@ -251,7 +258,7 @@ extension ConnectionModel {
         return checkQuotaAndSubscription(hasQuota: bandwidthLeft != 0)
     }
 
-    private func updateLocation(address: String, id: UInt64) {
+    private func updateLocation(address: String) {
         context.sentinelService.queryNodeStatus(address: address, timeout: constants.timeout) { [weak self] response in
             switch response {
             case .failure(let error):
@@ -301,9 +308,11 @@ extension ConnectionModel {
         context.sentinelService.startNewSession(on: subscription) { [weak self] result in
             switch result {
             case .failure(let error):
+                self?.set(sessionStart: nil)
                 self?.show(error: error)
 
             case .success(let id):
+                self?.set(sessionStart: Date())
                 self?.fetchConnectionData(remoteURLString: nodeURL, id: id)
             }
         }
@@ -327,15 +336,17 @@ extension ConnectionModel {
             case let .success((isTunnelActive, isSessionActive)):
                 switch (isTunnelActive, isSessionActive) {
                 case (true, true):
+                    self.getInitialSessionStart()
                     self.update(subscriptionInfo: subscription, status: .connected)
                 case (false, true):
+                    self.getInitialSessionStart()
                     if let tunnel = self.context.tunnelManager.lastTunnel {
                         self.context.tunnelManager.startActivation(of: tunnel)
                         self.update(subscriptionInfo: subscription, status: .connected)
                     }
                 case (true, false), (false, false):
                     self.connect(to: subscription)
-                    self.updateLocation(address: subscription.node, id: subscription.id)
+                    self.updateLocation(address: subscription.node)
                 }
             }
         }
@@ -368,8 +379,6 @@ extension ConnectionModel {
                 completion(.failure(error))
 
             case .success(let session):
-                self.eventSubject.send(.updateDuration(durationInSeconds: session.durationInSeconds))
-                
                 guard let id = self.context.connectionInfoStorage.lastSessionId(),
                       session.id == id,
                       let node = self.context.connectionInfoStorage.lastSelectedNode(),
@@ -381,6 +390,16 @@ extension ConnectionModel {
                 completion(.success((isTunnelActive, true)))
             }
         }
+    }
+    
+    private func getInitialSessionStart() {
+        let sessionStart = context.connectionInfoStorage.lastSessionStart()
+        eventSubject.send(.updateTimer(startDate: sessionStart))
+    }
+    
+    private func set(sessionStart: Date?) {
+        context.connectionInfoStorage.set(sessionStart: sessionStart)
+        eventSubject.send(.updateTimer(startDate: sessionStart))
     }
 }
 

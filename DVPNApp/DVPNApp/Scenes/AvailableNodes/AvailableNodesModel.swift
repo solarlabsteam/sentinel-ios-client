@@ -14,7 +14,7 @@ enum AvailableNodesModelEvent {
 
     case setLoadedNodesCount(_ count: Int)
 
-    case allLoaded
+    case allLoaded(Bool)
     
     case update(locations: [SentinelNode])
     case connect
@@ -38,6 +38,12 @@ final class AvailableNodesModel {
     init(context: Context, continent: Continent) {
         self.context = context
         self.continent = continent
+        
+        context.nodesService.subscriptions
+            .sink(receiveValue: { [weak self] subscriptions in
+                self?.subscriptions = subscriptions
+            })
+            .store(in: &cancellables)
     }
 }
 
@@ -53,7 +59,7 @@ extension AvailableNodesModel {
             .store(in: &cancellables)
         
         context.nodesService.isAllLoaded
-            .map { .allLoaded }
+            .map { .allLoaded($0) }
             .subscribe(eventSubject)
             .store(in: &cancellables)
         

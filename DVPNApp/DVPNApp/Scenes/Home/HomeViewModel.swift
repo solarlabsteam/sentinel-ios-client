@@ -67,9 +67,8 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
-
-    @Published private(set) var locations: [NodeSelectionRowViewModel] = []
-    private(set) var subscriptions: [NodeSelectionRowViewModel] = []
+    
+    @Published private(set) var subscriptions: [NodeSelectionRowViewModel] = []
     private(set) var nodes: Set<SentinelNode> = []
     
     private let model: HomeModel
@@ -110,6 +109,7 @@ final class HomeViewModel: ObservableObject {
 
         model.refreshDNS()
         model.subscribeToEvents()
+        model.setNodes()
     }
     
     func viewWillAppear() {
@@ -138,7 +138,7 @@ extension HomeViewModel: PlansViewModelDelegate {
 extension HomeViewModel {
     func toggleLocation(with id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
+        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id }) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
             return
         }
@@ -174,7 +174,8 @@ extension HomeViewModel {
 
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
-        guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
+        
+        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id}) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
             return
         }
@@ -212,7 +213,7 @@ extension HomeViewModel {
                 case let .error(error):
                     self?.router.play(event: .error(error))
                 case let .update(nodes):
-                    self?.update(nodes: Set(nodes))
+                    self?.nodes.formUnion(nodes)
                 case let .showLoadingSubscriptions(state):
                     self?.isLoadingSubscriptions = state
                 case let .set(subscribedNodes):
@@ -226,6 +227,8 @@ extension HomeViewModel {
                     self?.isLoadingSubscriptions = true
                 case let .select(server):
                     self?.update(to: server)
+                case let .setNumberOfNodesInContinent(numberOfNodesInContinent):
+                    self?.numberOfNodesInContinent = numberOfNodesInContinent
                 }
             }
             .store(in: &cancellables)
@@ -233,10 +236,6 @@ extension HomeViewModel {
     
     private func set(subscribedNodes: [SentinelNode]) {
         subscribedNodes.forEach { subscribedNode in
-            guard !nodes.contains(where: { $0.address == subscribedNode.address }) else {
-                return
-            }
-            
             nodes.insert(subscribedNode)
             
             guard let node = subscribedNode.node else { return }
@@ -247,8 +246,10 @@ extension HomeViewModel {
                 from: node,
                 icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
             )
-
-            subscriptions.append(model)
+            
+            if !subscriptions.contains(where: { $0.id == model.id }) {
+                subscriptions.append(model)
+            }
         }
     }
 
@@ -262,20 +263,6 @@ extension HomeViewModel {
                 self?.connectionStatus = .init(from: session.status == .connected)
             }
         }
-    }
-
-    private func update(nodes: Set<SentinelNode>) {
-        let newNodes = nodes.subtracting(self.nodes)
-        let newLocations = newNodes.map { node -> NodeSelectionRowViewModel in
-            let countryCode = CountryFormatter.code(for: node.node!.info.location.country) ?? ""
-
-            return NodeSelectionRowViewModel(
-                from: node.node!,
-                icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
-            )
-        }
-        locations.append(contentsOf: newLocations)
-        self.nodes.formUnion(nodes)
     }
 
     private func connectToRandomNode() {

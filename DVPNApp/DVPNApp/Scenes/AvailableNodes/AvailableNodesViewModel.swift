@@ -33,7 +33,14 @@ final class AvailableNodesViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
 
     @Published var isLoadingNodes: Bool = true
-    @Published var isAllLoaded: Bool = false
+    
+    @Published var isAllLoaded: Bool = false {
+        didSet {
+            if isAllLoaded {
+                isLoadingNodes = false
+            }
+        }
+    }
     
     let continent: Continent
 
@@ -105,8 +112,8 @@ extension AvailableNodesViewModel {
                     self?.update(nodes: Set(nodes))
                 case let .setLoadedNodesCount(loadedNodesCount):
                     self?.set(loadedNodesCount: loadedNodesCount)
-                case .allLoaded:
-                    self?.isAllLoaded = true
+                case let .allLoaded(isAllLoaded):
+                    self?.isAllLoaded = isAllLoaded
                 case .connect:
                     self?.router.play(event: .connect)
                 }
@@ -130,6 +137,7 @@ extension AvailableNodesViewModel {
 
     private func toggle(node: Node) {
         let isSubscribedToNode = model.isSubscribed(to: node.info.address)
+        
         guard isSubscribedToNode else {
             router.play(event: .subscribe(node: node.info))
             return

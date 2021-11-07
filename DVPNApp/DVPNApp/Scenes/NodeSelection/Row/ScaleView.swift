@@ -8,14 +8,14 @@
 import SwiftUI
 
 private struct Constants {
-    let scales = [0, 0.2, 0.4, 0.6, 0.8]
+    let scales = [1, 2, 3, 4, 5]
 }
 private let constants = Constants()
 
 enum ScaleViewType: Hashable {
-    case price(Double)
-    case peers(Double)
-    case latency(Double)
+    case price(Int)
+    case peers(Int)
+    case latency(Int)
 
     var title: String {
         switch self {
@@ -28,10 +28,52 @@ enum ScaleViewType: Hashable {
         }
     }
 
-    var scale: Double {
+    var scale: Int {
         switch self {
-        case .price(let value), .peers(let value), .latency(let value):
-            return value
+        case let .price(value):
+            if value <= 1000 {
+                return 1
+            }
+            if value <= 10_000 {
+                return 2
+            }
+            if value <= 100_000 {
+                return 3
+            }
+            if value <= 1_000_000 {
+                return 4
+            }
+            return 5
+            
+        case let .peers(value):
+            if value <= 10 {
+                return 1
+            }
+            if value <= 25 {
+                return 2
+            }
+            if value <= 50 {
+                return 3
+            }
+            if value <= 100 {
+                return 4
+            }
+            return 5
+            
+        case let .latency(value):
+            if value <= 100 {
+                return 1
+            }
+            if value <= 200 {
+                return 2
+            }
+            if value <= 500 {
+                return 3
+            }
+            if value <= 1000 {
+                return 4
+            }
+            return 5
         }
     }
 }
@@ -47,7 +89,7 @@ struct ScaleView: View {
                 HStack(spacing: 2) {
                     ForEach(constants.scales, id: \.self) { value in
                         Rectangle()
-                            .foregroundColor(value < type.scale ? .white.opacity(value + 0.2) : .clear)
+                            .foregroundColor(value <= type.scale ? .white.opacity(Double(value + 1)) : .clear)
                             .frame(width: 8, height: 6)
                     }
                 }
