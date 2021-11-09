@@ -268,7 +268,7 @@ extension HomeViewModel {
     }
 
     private func connectToRandomNode() {
-        guard let sentinelNode = nodes.first(where: { $0.node?.latency ?? 0 < 1 }) ?? nodes.first,
+        guard let sentinelNode = nodes.filter({ $0.node?.latency ?? 0 < 1 }).randomElement() ?? nodes.first,
               let node = sentinelNode.node else {
                   router.play(event: .error(HomeViewModelError.unavailableNode))
                   return
