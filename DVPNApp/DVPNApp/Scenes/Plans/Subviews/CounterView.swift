@@ -86,7 +86,7 @@ struct CounterView: View {
             RoundedRectangle(cornerRadius: 4)
                 .stroke(constants.borderColor, lineWidth: 1)
         )
-        .fixedSize()
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 
