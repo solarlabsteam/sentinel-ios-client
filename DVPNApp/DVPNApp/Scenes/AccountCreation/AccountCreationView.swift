@@ -73,13 +73,15 @@ struct AccountCreationView: View {
                         .foregroundColor(Asset.Colors.borderGray.color.asColor)
                 }
             }
-
-            Text(L10n.AccountCreation.Terms.text)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
-
-            Button(action: viewModel.didTapTerms) {
-                Text(L10n.AccountCreation.Terms.button)
-                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .semibold))
+            
+            HStack(alignment: .top, spacing: 5) {
+                Text(L10n.AccountCreation.Terms.text)
+                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+                
+                Button(action: viewModel.didTapTerms) {
+                    Text(L10n.AccountCreation.Terms.button)
+                        .applyTextStyle(.whitePoppins(ofSize: 12, weight: .semibold))
+                }
             }
 
             Spacer()
