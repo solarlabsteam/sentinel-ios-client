@@ -60,7 +60,7 @@ final class HomeModel {
         loadSubscriptions()
         fetchWalletInfo()
         
-        context.nodesService.loadAllNodesIfNeeded() { result in
+        context.nodesService.loadAllNodesIfNeeded { result in
             if case let .success(nodes) = result {
                 context.nodesService.loadNodesInfo(for: nodes)
             }
@@ -135,7 +135,7 @@ extension HomeModel {
     }
     
     private func loadSubscriptions() {
-        context.nodesService.loadSubscriptions() { [weak self] result in
+        context.nodesService.loadSubscriptions { [weak self] result in
             switch result {
             case let .success(subscriptions):
                 self?.subscriptions = subscriptions
@@ -147,6 +147,10 @@ extension HomeModel {
 
     private func fetchWalletInfo() {
         context.walletService.fetchAuthorization { error in
+            guard let error = error else {
+                return
+            }
+
             log.error(error)
         }
 

@@ -96,20 +96,15 @@ final class HomeViewModel: ObservableObject {
 
         $currentPage
             .sink(receiveValue: {
-#if os(iOS)
                 UIImpactFeedbackGenerator.lightFeedback()
-#endif
                 router.play(event: .title($0.title))
             })
             .store(in: &cancellables)
 
-#if os(iOS)
         $selectedTab
-            .sink(receiveValue: { _ in
-                UIImpactFeedbackGenerator.lightFeedback()
-            })
+            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback() })
             .store(in: &cancellables)
-#endif
+        
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
 
         model.refreshDNS()
@@ -142,21 +137,18 @@ extension HomeViewModel: PlansViewModelDelegate {
 
 extension HomeViewModel {
     func toggleLocation(with id: String) {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
-        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id }) else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
-
-        toggle(node: node.node!)
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
+        
+        toggle(node: node)
     }
 
     func toggleRandomLocation() {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
         guard connectionStatus != .connected else {
             model.disconnect()
             return
@@ -177,50 +169,39 @@ extension HomeViewModel {
 
     @objc
     func didTapAccountInfoButton() {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
         router.play(event: .accountInfo)
     }
 
     func openDetails(for id: String) {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
         
-        guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id}) else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
         
-        router.play(event: .details(node, isSubscribed: model.isSubscribed(to: node.node!.info.address)))
+        router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
     }
     
     func openNodes(for continent: Continent) {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
         router.play(event: .openNodes(continent, delegate: self))
     }
 
     func openMore() {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
         router.play(event: .sentinel)
     }
 
     func openSolarLabs() {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
         router.play(event: .solarLabs)
     }
 
     func openDNSServersSelection() {
-#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-#endif
         router.play(event: .dns(self, server))
     }
 }
@@ -287,12 +268,13 @@ extension HomeViewModel {
     }
 
     private func connectToRandomNode() {
-        guard let node = nodes.first(where: { $0.node!.latency < 1 }) ?? nodes.first else {
-            router.play(event: .error(HomeViewModelError.unavailableNode))
-            return
-        }
-
-        toggle(node: node.node!)
+        guard let sentinelNode = nodes.filter({ $0.node?.latency ?? 0 < 1 }).randomElement() ?? nodes.first,
+              let node = sentinelNode.node else {
+                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  return
+              }
+        
+        toggle(node: node)
     }
 
     private func toggle(node: Node) {

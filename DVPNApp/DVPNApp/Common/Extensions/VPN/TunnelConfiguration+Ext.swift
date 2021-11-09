@@ -35,7 +35,9 @@ extension TunnelConfiguration {
             var value = ""
 
             if !line.isEmpty {
-                guard let equalsIndex = line.firstIndex(of: "=") else { throw ConfigurationParseError.invalidLine(line) }
+                guard let equalsIndex = line.firstIndex(of: "=") else {
+                    throw ConfigurationParseError.invalidLine(line)
+                }
                 key = String(line[..<equalsIndex])
                 value = String(line[line.index(equalsIndex, offsetBy: 1)...])
             }

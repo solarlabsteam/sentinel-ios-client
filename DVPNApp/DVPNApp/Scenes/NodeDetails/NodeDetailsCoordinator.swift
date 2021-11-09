@@ -29,7 +29,11 @@ final class NodeDetailsCoordinator: CoordinatorType {
     }
 
     func start() {
-        let model = NodeDetailsModel(context: context, node: configuration.node, isSubscribed: configuration.isSubscribed)
+        let model = NodeDetailsModel(
+            context: context,
+            node: configuration.node,
+            isSubscribed: configuration.isSubscribed
+        )
         let viewModel = NodeDetailsViewModel(model: model, router: asRouter())
         let view = NodeDetailsView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)

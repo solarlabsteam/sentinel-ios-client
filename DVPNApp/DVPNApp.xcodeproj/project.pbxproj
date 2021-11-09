@@ -1439,6 +1439,7 @@
 				7504E9F1267A196900023D42 /* Embed App Extensions */,
 				75359CDB26FC6A7200CFEBCD /* Run Script [SwiftGen] */,
 				93DBF5582717BE21006EBC65 /* Run Script [Sourcery] */,
+				936C645527384A550007840A /* Run Script [SwiftLint] */,
 			);
 			buildRules = (
 			);
@@ -1658,6 +1659,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nSDKROOT=iphoneos4.0\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release --package-path Tools/SwiftGenerator swiftgen\n";
+		};
+		936C645527384A550007840A /* Run Script [SwiftLint] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script [SwiftLint]";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if ! [ $CI ]\nthen\n    \"$SRCROOT\"/Tools/swiftlint/swiftlint --config \"$SRCROOT/.swiftlint.yml\" --path \"$SRCROOT\"\nelse\n    echo \"SwiftLint is inactive for CI\"\nfi\n";
 		};
 		93DBF5582717BE21006EBC65 /* Run Script [Sourcery] */ = {
 			isa = PBXShellScriptBuildPhase;

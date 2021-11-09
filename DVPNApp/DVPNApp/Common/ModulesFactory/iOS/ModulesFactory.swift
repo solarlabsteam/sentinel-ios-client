@@ -31,20 +31,20 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule(for window: UIWindow) {
-        context.nodesService.loadAllNodes() { [weak self] result in
+        context.nodesService.loadAllNodes { [weak self] result in
             if case let .success(nodes) = result {
                 self?.context.nodesService.loadNodesInfo(for: nodes)
             }
         }
-
+        
         guard context.generalInfoStorage.didPassOnboarding() else {
             makeOnboardingModule(for: window)
             return
         }
-
+        
         makeEmptyModule(for: window)
-
-        context.preloadService.loadData() { [weak self] in
+        
+        context.preloadService.loadData { [weak self] in
             self?.makeHomeModule(for: window)
         }
     }
@@ -75,15 +75,18 @@ extension ModulesFactory {
 
         HomeCoordinator(context: context, navigation: navigation).start()
     }
-
+    
     func makeEmptyModule(for window: UIWindow) {
         let storyboard = UIStoryboard(name: "EmptyScreen", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmptyViewController")
-
+        
         window.rootViewController = controller
     }
-
-    func makeNodeDetailsModule(for navigation: UINavigationController, configuration: NodeDetailsCoordinator.Configuration) {
+    
+    func makeNodeDetailsModule(
+        for navigation: UINavigationController,
+        configuration: NodeDetailsCoordinator.Configuration
+    ) {
         NodeDetailsCoordinator(context: context, navigation: navigation, configuration: configuration).start()
     }
 
@@ -106,7 +109,7 @@ extension ModulesFactory {
     ) {
         DNSSettingsCoordinator(context: context, delegate: delegate, server: server, navigation: navigation).start()
     }
-
+    
     func makeAvailableNodesModule(
         continent: Continent,
         delegate: PlansViewModelDelegate?,

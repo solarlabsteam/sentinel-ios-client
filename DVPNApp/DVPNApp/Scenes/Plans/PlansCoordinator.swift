@@ -55,7 +55,9 @@ extension PlansCoordinator: RouterType {
             showSubscribeAlert(name: node, completion: completion)
         case .accountInfo:
             navigation?.dismiss(animated: true)
-            ModulesFactory.shared.makeAccountInfoModule(for: navigation!)
+            if let navigation = navigation {
+                ModulesFactory.shared.makeAccountInfoModule(for: navigation)
+            }
         case .close:
             navigation?.dismiss(animated: true)
         }

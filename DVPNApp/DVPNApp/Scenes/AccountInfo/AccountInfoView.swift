@@ -110,8 +110,7 @@ struct AccountInfoView: View {
                     .font(.system(size: 12, weight: .regular))
                     .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .regular))
             }
-            .frame(width: 80, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
+            .frame(width: 80, height: 30, alignment: .center)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 10)

@@ -39,7 +39,9 @@ extension OnboardingCoordinator: RouterType {
         case let .error(error):
             show(message: error.localizedDescription)
         case let .createAccount(mode):
-            ModulesFactory.shared.makeAccountCreationModule(mode: mode, for: navigation!, window: window!)
+            if let navigation = navigation, let window = window {
+                ModulesFactory.shared.makeAccountCreationModule(mode: mode, for: navigation, window: window)
+            }
         }
     }
 }

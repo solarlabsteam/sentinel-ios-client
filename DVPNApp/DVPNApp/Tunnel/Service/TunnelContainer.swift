@@ -78,10 +78,14 @@ final public class TunnelContainer: NSObject {
         statusDelegate: TunnelsServiceStatusDelegate?
     ) {
         guard recursionCount < constants.maxRecursionCount else {
-            log.error("Failed after 8 attempts. Giving up with \(lastError!)")
+            guard let lastError = lastError else {
+                return
+            }
+            
+            log.error("Failed after 8 attempts. Giving up with \(lastError.localizedDescription)")
             statusDelegate?.activationAttemptFailed(
                 for: self,
-                with: .retryLimitReached(lastSystemError: lastError!)
+                with: .retryLimitReached(lastSystemError: lastError)
             )
             return
         }
