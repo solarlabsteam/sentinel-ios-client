@@ -5,32 +5,11 @@
 //  Created by Lika Vorobyeva on 04.10.2021.
 //
 
+#if os(iOS)
 import UIKit
+#endif
 import Combine
 import HDWallet
-
-enum CreationMode {
-    case restore
-    case create
-
-    var title: String {
-        switch self {
-        case .create:
-            return L10n.AccountCreation.Create.title
-        case .restore:
-            return L10n.AccountCreation.Import.title
-        }
-    }
-
-    var buttonTitle: String {
-        switch self {
-        case .create:
-            return L10n.AccountCreation.Create.button
-        case .restore:
-            return L10n.AccountCreation.Import.button
-        }
-    }
-}
 
 final class AccountCreationViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
@@ -83,7 +62,9 @@ final class AccountCreationViewModel: ObservableObject {
     }
 
     func didTapPaste() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         UIPasteboard.general.string?.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
             mnemonic[index] = value
         }
@@ -92,7 +73,9 @@ final class AccountCreationViewModel: ObservableObject {
     }
 
     func didTapMainButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
 
         switch mode {
         case .restore:
@@ -108,17 +91,23 @@ final class AccountCreationViewModel: ObservableObject {
     }
 
     func didCheckTerms() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         isTermsChecked = !isTermsChecked
     }
 
     func didTapTerms() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .privacy)
     }
 
     func didTapChangeMode() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         let newMode: CreationMode = mode == .create ? .restore : .create
 
         model.change(to: newMode)

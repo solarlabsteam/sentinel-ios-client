@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftUI
-import SentinelWallet
 
 final class OnboardingCoordinator: CoordinatorType {
     private weak var navigation: UINavigationController?

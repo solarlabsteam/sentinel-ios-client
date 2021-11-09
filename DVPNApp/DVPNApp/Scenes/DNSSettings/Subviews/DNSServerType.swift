@@ -5,7 +5,11 @@
 //  Created by Lika Vorobyeva on 12.10.2021.
 //
 
+#if os(macOS)
+import Cocoa
+#elseif os(iOS)
 import UIKit
+#endif
 
 enum DNSServerType: String, CaseIterable {
     case cloudflare
@@ -25,8 +29,8 @@ enum DNSServerType: String, CaseIterable {
             return L10n.Dns.handshake
         }
     }
-
-    var image: UIImage {
+    
+    var image: ImageAsset.Image {
         switch self {
         case .cloudflare:
             return Asset.Dns.cloudflare.image

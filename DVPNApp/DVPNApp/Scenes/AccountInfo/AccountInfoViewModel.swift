@@ -15,7 +15,7 @@ import EFQRCode
 final class AccountInfoViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router
-
+    
     enum Route {
         case error(Error)
         case info(String)
@@ -27,10 +27,10 @@ final class AccountInfoViewModel: ObservableObject {
     @Published private(set) var currentPrice: String?
     @Published private(set) var lastPriceUpdateInfo: String?
     @Published private(set) var priceArrowImage: UIImage?
-
+    
     private let model: AccountInfoModel
     private var cancellables = Set<AnyCancellable>()
-
+    
     init(model: AccountInfoModel, router: Router) {
         self.model = model
         self.router = router
@@ -38,11 +38,11 @@ final class AccountInfoViewModel: ObservableObject {
         self.qrCode = UIImage(
             cgImage: EFQRCode.generate(
                 for: model.address,
-                backgroundColor: CGColor.init(gray: 0, alpha: 0)
+                   backgroundColor: CGColor.init(gray: 0, alpha: 0)
             )!
         )
         self.address = model.address
-
+        
         self.model.eventPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
@@ -78,12 +78,16 @@ extension AccountInfoViewModel {
     func didTapCopy() {
         router.play(event: .info(L10n.AccountInfo.textCopied))
         
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         UIPasteboard.general.string = model.address
     }
     
     func didTapShare() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         let activityVC = UIActivityViewController(activityItems: [address], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?
             .present(activityVC, animated: true, completion: nil)

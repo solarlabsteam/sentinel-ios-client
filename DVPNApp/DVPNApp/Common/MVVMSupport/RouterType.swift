@@ -6,9 +6,12 @@
 //
 
 import Foundation
+#if os(macOS)
+#warning("handle messages on MacOS")
+#elseif os(iOS)
 import SwiftMessages
-
 import class UIKit.UIViewController
+#endif
 
 protocol RouterType {
     associatedtype Event
@@ -17,6 +20,7 @@ protocol RouterType {
     func play(event: Event)
 }
 
+#if os(iOS)
 extension RouterType {
     func show(
         message: String,
@@ -43,6 +47,7 @@ extension RouterType {
         SwiftMessages.show(config: config, view: view)
     }
 }
+#endif
 
 final class AnyRouter<Event>: RouterType {
     private let _playEvent: (Event) -> Void

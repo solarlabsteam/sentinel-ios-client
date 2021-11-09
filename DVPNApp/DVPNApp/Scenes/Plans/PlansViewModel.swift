@@ -93,10 +93,12 @@ final class PlansViewModel: ObservableObject {
 }
 
 // MARK: - Counter
-    
+
 extension PlansViewModel {
     func togglePlus() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard gbToBuy < constants.maxAllowedGB else {
             return
         }
@@ -104,7 +106,9 @@ extension PlansViewModel {
     }
     
     func toggleMinus() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard gbToBuy > constants.minAllowedGB else {
             return
         }
@@ -120,7 +124,9 @@ extension PlansViewModel {
 
 extension PlansViewModel {
     func didTapSubscribe() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(
             event: .subscribe(node: selectedLocationName) { [weak self] result in
                 guard let self = self, result else {
@@ -137,7 +143,9 @@ extension PlansViewModel {
     }
     
     func didTapCrossButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .close)
     }
 }
@@ -168,7 +176,9 @@ extension PlansViewModel {
     }
 
     private func showAddTokens() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .addTokensAlert { [weak self] result in
             self?.isLoading = false
             guard result else { return }

@@ -5,14 +5,11 @@
 //  Created by Lika Vorobyeva on 17.06.2021.
 //
 
-import UIKit
 import SwiftyBeaver
 
 let log = SwiftyBeaver.self
 
 public struct Config {
-    static let sharedContainerIdentifier: String = "group.\(Bundle.main.bundleIdentifier!)"
-
     static func setup() {
         LogsConfig.setupConsole()
         LogsConfig.setupFile()

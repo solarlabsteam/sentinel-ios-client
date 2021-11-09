@@ -94,14 +94,18 @@ extension NodeDetailsViewModel {
 
 extension NodeDetailsViewModel {
     func didTapConnect() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard let node = node else { return }
         toggle(node: node)
     }
     
     @objc
     func didTapAccountButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .account)
     }
 }

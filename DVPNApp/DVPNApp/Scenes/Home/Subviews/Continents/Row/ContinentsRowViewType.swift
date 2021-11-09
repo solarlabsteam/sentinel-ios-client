@@ -32,13 +32,13 @@ extension Continent {
     
     var image: Image {
         switch self {
-        case .AF: return Image(uiImage: Asset.Continents.africa.image)
-        case .SA: return Image(uiImage: Asset.Continents.southAmerica.image)
-        case .NA: return Image(uiImage: Asset.Continents.northAmerica.image)
-        case .OC: return Image(uiImage: Asset.Continents.oceania.image)
-        case .AS: return Image(uiImage: Asset.Continents.asia.image)
-        case .EU: return Image(uiImage: Asset.Continents.europe.image)
-        case .AN: return Image(uiImage: Asset.Continents.antarctica.image)
+        case .AF: return Asset.Continents.africa.image.asImage
+        case .SA: return Asset.Continents.southAmerica.image.asImage
+        case .NA: return Asset.Continents.northAmerica.image.asImage
+        case .OC: return Asset.Continents.oceania.image.asImage
+        case .AS: return Asset.Continents.asia.image.asImage
+        case .EU: return Asset.Continents.europe.image.asImage
+        case .AN: return Asset.Continents.antarctica.image.asImage
         }
     }
     

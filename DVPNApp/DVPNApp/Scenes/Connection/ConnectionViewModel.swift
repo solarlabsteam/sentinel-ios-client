@@ -105,7 +105,9 @@ extension ConnectionViewModel {
     }
     
     func toggleConnection(_ newState: Bool) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         newState ? model.connect() : model.disconnect()
     }
 
@@ -115,7 +117,9 @@ extension ConnectionViewModel {
 
     @objc
     func didTapAccountInfoButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .accountInfo)
     }
 }

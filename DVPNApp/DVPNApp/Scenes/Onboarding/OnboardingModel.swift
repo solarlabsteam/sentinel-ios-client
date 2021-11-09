@@ -5,7 +5,6 @@
 //  Created by Lika Vorobyeva on 11.08.2021.
 //
 
-import UIKit
 import Combine
 import SentinelWallet
 

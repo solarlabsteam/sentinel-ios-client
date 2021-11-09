@@ -7,7 +7,12 @@
 
 import Foundation
 import SentinelWallet
+#if os(macOS)
+import Cocoa
+#elseif os(iOS)
 import UIKit
+#endif
+
 
 extension Node: Hashable {
     public static func == (lhs: Node, rhs: Node) -> Bool {
@@ -24,7 +29,7 @@ extension Bandwidth {
         (Int64(upload + download) / 2).bandwidthMB / 40
     }
 
-    var speedImage: UIImage {
+    var speedImage: ImageAsset.Image {
         let avg = averageSpeedPercentage
         if avg < 0.25 {
             return Asset.Connection.Wifi.scales1.image

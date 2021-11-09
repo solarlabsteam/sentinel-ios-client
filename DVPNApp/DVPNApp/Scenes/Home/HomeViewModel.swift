@@ -96,15 +96,20 @@ final class HomeViewModel: ObservableObject {
 
         $currentPage
             .sink(receiveValue: {
+#if os(iOS)
                 UIImpactFeedbackGenerator.lightFeedback()
+#endif
                 router.play(event: .title($0.title))
             })
             .store(in: &cancellables)
 
+#if os(iOS)
         $selectedTab
-            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback()})
+            .sink(receiveValue: { _ in
+                UIImpactFeedbackGenerator.lightFeedback()
+            })
             .store(in: &cancellables)
-        
+#endif
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
 
         model.refreshDNS()
@@ -137,7 +142,9 @@ extension HomeViewModel: PlansViewModelDelegate {
 
 extension HomeViewModel {
     func toggleLocation(with id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id }) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
             return
@@ -147,7 +154,9 @@ extension HomeViewModel {
     }
 
     func toggleRandomLocation() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard connectionStatus != .connected else {
             model.disconnect()
             return
@@ -168,12 +177,16 @@ extension HomeViewModel {
 
     @objc
     func didTapAccountInfoButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .accountInfo)
     }
 
     func openDetails(for id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         
         guard let node = nodes.first(where: { $0.node?.info.address ?? "" == id}) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
@@ -184,22 +197,30 @@ extension HomeViewModel {
     }
     
     func openNodes(for continent: Continent) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .openNodes(continent, delegate: self))
     }
 
     func openMore() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .sentinel)
     }
 
     func openSolarLabs() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .solarLabs)
     }
 
     func openDNSServersSelection() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .dns(self, server))
     }
 }

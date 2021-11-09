@@ -4,8 +4,11 @@
 //
 //  Created by Lika Vorobyeva on 06.10.2021.
 //
-
+#if os(macOS)
+import Cocoa
+#elseif os(iOS)
 import UIKit
+#endif
 
 // MARK: - App-wide text styles
 

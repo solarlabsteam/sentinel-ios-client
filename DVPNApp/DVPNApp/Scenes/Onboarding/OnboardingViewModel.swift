@@ -5,7 +5,10 @@
 //  Created by Lika Vorobyeva on 11.08.2021.
 //
 
+#if os(iOS)
 import UIKit
+#endif
+
 import Combine
 import SwiftUI
 
@@ -65,7 +68,9 @@ final class OnboardingViewModel: ObservableObject {
             .sink(
                 receiveValue: { [weak self] in
                     guard let self = self else { return }
+#if os(iOS)
                     UIImpactFeedbackGenerator.lightFeedback()
+#endif
                     self.isLastPage = $0 == self.steps.count - 1
                 }
             )
@@ -73,12 +78,16 @@ final class OnboardingViewModel: ObservableObject {
     }
 
     func didTapCreateButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .createAccount(mode: .create))
     }
 
     func didTapImportButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .createAccount(mode: .restore))
     }
 

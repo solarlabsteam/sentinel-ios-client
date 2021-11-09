@@ -73,7 +73,9 @@ final class AvailableNodesViewModel: ObservableObject {
 
 extension AvailableNodesViewModel {
     func toggleLocation(with id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
             return
@@ -83,7 +85,9 @@ extension AvailableNodesViewModel {
     }
     
     func openDetails(for id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard let node = nodes.first(where: { $0.node!.info.address == id }) else {
             router.play(event: .error(HomeViewModelError.unavailableNode))
             return
@@ -93,7 +97,9 @@ extension AvailableNodesViewModel {
     
     @objc
     func didTapAccountInfoButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .accountInfo)
     }
 }

@@ -76,12 +76,16 @@ extension PlansCoordinator {
         )
 
         let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { _ in
+#if os(iOS)
             UIImpactFeedbackGenerator.lightFeedback()
+#endif
             completion(true)
         }
 
         let cancelAction = UIAlertAction(title: L10n.Common.cancel, style: .destructive) { _ in
+#if os(iOS)
             UIImpactFeedbackGenerator.lightFeedback()
+#endif
             completion(false)
         }
 
@@ -99,12 +103,16 @@ extension PlansCoordinator {
         )
 
         let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { _ in
+#if os(iOS)
             UIImpactFeedbackGenerator.lightFeedback()
+#endif
             completion(true)
         }
 
         let cancelAction = UIAlertAction(title: L10n.Common.cancel, style: .destructive) { _ in
+#if os(iOS)
             UIImpactFeedbackGenerator.lightFeedback()
+#endif
             completion(false)
         }
 

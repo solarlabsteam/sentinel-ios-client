@@ -8,11 +8,20 @@
 import Foundation
 import SwiftUI
 
+#if os(macOS)
+struct TextStyle {
+    let font: NSFont
+    let color: NSColor
+    let kern: Double
+}
+
+#elseif os(iOS)
 struct TextStyle {
     let font: UIFont
     let color: UIColor
     let kern: Double
 }
+#endif
 
 extension TextStyle {
     var attributes: [NSAttributedString.Key: Any] {
