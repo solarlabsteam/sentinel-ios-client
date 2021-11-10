@@ -36,8 +36,6 @@ final class OnboardingCoordinator: CoordinatorType {
 extension OnboardingCoordinator: RouterType {
     func play(event: OnboardingViewModel.Route) {
         switch event {
-        case let .error(error):
-            show(message: error.localizedDescription)
         case let .createAccount(mode):
             if let navigation = navigation, let window = window {
                 ModulesFactory.shared.makeAccountCreationModule(mode: mode, for: navigation, window: window)

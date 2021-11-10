@@ -25,6 +25,11 @@ extension ModulesFactory {
     func makeOnboardingModule(for window: NSWindow) {
         OnboardingCoordinator(context: context, window: window).start()
     }
+    
+    
+    func makeAccountCreationModule(mode: CreationMode, window: NSWindow) {
+        AccountCreationCoordinator(context: context, mode: mode, window: window).start()
+    }
 }
 
 /// Scenes previews
@@ -37,6 +42,19 @@ extension ModulesFactory {
         let model = OnboardingModel(context: context)
         let viewModel = OnboardingViewModel(model: model, router: coordinator)
         let view = OnboardingView(viewModel: viewModel)
+
+        return view
+    }
+    
+    func getAccountCreationScene(mode: CreationMode = .create) -> AccountCreationView {
+        let coordinator = AccountCreationCoordinator(
+            context: context,
+            mode: mode,
+            window: NSWindow()
+        ).asRouter()
+        let model = AccountCreationModel(context: context)
+        let viewModel = AccountCreationViewModel(model: model, mode: mode, router: coordinator)
+        let view = AccountCreationView(viewModel: viewModel)
 
         return view
     }

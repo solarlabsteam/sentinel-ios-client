@@ -5,16 +5,19 @@
 //  Created by Lika Vorobyeva on 04.10.2021.
 //
 
-#if os(iOS)
+#if os(macOS)
+import Cocoa
+#elseif os(iOS)
 import UIKit
 #endif
 import Combine
 import HDWallet
+import Foundation
 
 final class AccountCreationViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router
-
+    
     enum Route {
         case error(Error)
         case privacy
@@ -36,9 +39,11 @@ final class AccountCreationViewModel: ObservableObject {
         self.model = model
         self.router = router
         self.mode = mode
-
+        
         self.model.eventPublisher
+#if os(iOS)
             .receive(on: DispatchQueue.main)
+#endif
             .sink { [weak self] event in
                 switch event {
                 case let .error(error):
@@ -57,15 +62,18 @@ final class AccountCreationViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
-
+        
         model.change(to: mode)
     }
 
     func didTapPaste() {
 #if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+        let pasteboard = UIPasteboard.general.string
+#elseif os(macOS)
+        let pasteboard = NSPasteboard.general.string(forType: .string)
 #endif
-        UIPasteboard.general.string?.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
+        pasteboard.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
             mnemonic[index] = value
         }
 

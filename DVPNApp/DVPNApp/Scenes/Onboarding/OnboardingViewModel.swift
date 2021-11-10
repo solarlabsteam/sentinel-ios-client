@@ -17,7 +17,6 @@ final class OnboardingViewModel: ObservableObject {
     private let router: Router
 
     enum Route {
-        case error(Error)
         case createAccount(mode: CreationMode)
     }
 
@@ -53,16 +52,6 @@ final class OnboardingViewModel: ObservableObject {
                 description: L10n.Onboarding.Description._3
             )
         ]
-
-        self.model.eventPublisher
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] event in
-                switch event {
-                case let .error(error):
-                    self?.router.play(event: .error(error))
-                }
-            }
-            .store(in: &cancellables)
 
         $currentPage
             .sink(

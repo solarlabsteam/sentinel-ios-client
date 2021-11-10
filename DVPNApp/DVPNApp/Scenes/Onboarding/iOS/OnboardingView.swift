@@ -64,22 +64,9 @@ struct OnboardingView: View {
             }
         }
     }
-
-#if os(macOS)
+    
     var tabView: some View {
-        TabView(selection: $viewModel.currentPage,
-                content:  {
-            ForEach(viewModel.steps, id: \.self) { model in
-                OnboardingStepView(model: model)
-                    .tag(model.tag)
-                    .padding()
-            }
-        })
-    }
-#elseif os(iOS)
-    var tabView: some View {
-        TabView(selection: $viewModel.currentPage,
-                content:  {
+        TabView(selection: $viewModel.currentPage, content: {
             ForEach(viewModel.steps, id: \.self) { model in
                 OnboardingStepView(model: model)
                     .tag(model.tag)
@@ -88,7 +75,6 @@ struct OnboardingView: View {
         })
             .tabViewStyle(.page(indexDisplayMode: .never))
     }
-#endif
 
     var body: some View {
         GeometryReader { geo in

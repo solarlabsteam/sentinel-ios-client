@@ -14,8 +14,9 @@ struct AccountCreationView: View {
 
     init(viewModel: AccountCreationViewModel) {
         self.viewModel = viewModel
-
+#if os(iOS)
         UIScrollView.appearance().bounces = false
+#endif
     }
 
     var walletAddress: some View {
@@ -60,6 +61,7 @@ struct AccountCreationView: View {
         .padding()
         .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
+        .buttonStyle(PlainButtonStyle())
     }
 
     var termsView: some View {
@@ -73,6 +75,7 @@ struct AccountCreationView: View {
                         .foregroundColor(Asset.Colors.borderGray.color.asColor)
                 }
             }
+            .buttonStyle(PlainButtonStyle())
             
             HStack(alignment: .top, spacing: 5) {
                 Text(L10n.AccountCreation.Terms.text)
@@ -82,6 +85,7 @@ struct AccountCreationView: View {
                     Text(L10n.AccountCreation.Terms.button)
                         .applyTextStyle(.whitePoppins(ofSize: 12, weight: .semibold))
                 }
+                .buttonStyle(PlainButtonStyle())
             }
 
             Spacer()
@@ -98,6 +102,7 @@ struct AccountCreationView: View {
                     .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
                     .underline()
             }
+            .buttonStyle(PlainButtonStyle())
         }
     }
 
@@ -120,6 +125,7 @@ struct AccountCreationView: View {
                             .cornerRadius(2)
                             .padding()
                     }
+                    .buttonStyle(PlainButtonStyle())
 
                     Spacer()
                 }
