@@ -52,7 +52,7 @@ extension SentinelNode: Preservable {
 // MARK: - NodeObject
 public class NodeObject: EmbeddedObject {
     @objc dynamic var info: DVPNNodeInfoObject?
-    dynamic var latency: Double?
+    let latency = RealmProperty<Double?>()
 }
 
 // MARK: Node: Persistable
@@ -60,7 +60,7 @@ extension Node: Persistable {
     public init(managedObject: NodeObject) {
         self.init(
             info: DVPNNodeInfo(managedObject: managedObject.info!),
-            latency: managedObject.latency ?? 0
+            latency: managedObject.latency.value!
         )
     }
 
@@ -68,7 +68,7 @@ extension Node: Persistable {
         let obj = NodeObject()
         
         obj.info = info.toManagedObject()
-        obj.latency = latency
+        obj.latency.value = latency.truncatingRemainder(dividingBy: 1)
 
         return obj
     }
