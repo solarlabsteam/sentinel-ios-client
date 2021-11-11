@@ -26,9 +26,12 @@ extension ModulesFactory {
         OnboardingCoordinator(context: context, window: window).start()
     }
     
-    
     func makeAccountCreationModule(mode: CreationMode, window: NSWindow) {
         AccountCreationCoordinator(context: context, mode: mode, window: window).start()
+    }
+    
+    func makeHomeModule(for window: NSWindow) {
+        HomeCoordinator(context: context, window: window).start()
     }
 }
 
@@ -55,6 +58,18 @@ extension ModulesFactory {
         let model = AccountCreationModel(context: context)
         let viewModel = AccountCreationViewModel(model: model, mode: mode, router: coordinator)
         let view = AccountCreationView(viewModel: viewModel)
+
+        return view
+    }
+    
+    func getHomeScene() -> HomeView {
+        let coordinator = HomeCoordinator(
+            context: context,
+            window: NSWindow()
+        ).asRouter()
+        let model = HomeModel(context: context)
+        let viewModel = HomeViewModel(model: model, router: coordinator)
+        let view = HomeView(viewModel: viewModel)
 
         return view
     }

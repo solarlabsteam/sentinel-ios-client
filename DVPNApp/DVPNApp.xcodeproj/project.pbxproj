@@ -251,6 +251,23 @@
 		75E5BDFD26DCDBDA00C345B9 /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */; };
 		75E5BDFF26DE16FC00C345B9 /* CheckmarkToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */; };
 		75E5BE0226DE2FA400C345B9 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BE0126DE2FA400C345B9 /* View+Ext.swift */; };
+		92074C76273D411200CEA689 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C74273D411000CEA689 /* HomeCoordinator.swift */; };
+		92074C79273D412100CEA689 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C77273D411F00CEA689 /* HomeView.swift */; };
+		92074C7B273D44CB00CEA689 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C7A273D44CB00CEA689 /* UserConstants.swift */; };
+		92074C7C273D45BE00CEA689 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F926C50CAE00222CA4 /* HomeModel.swift */; };
+		92074C7D273D45C200CEA689 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED2F526C50CAE00222CA4 /* HomeViewModel.swift */; };
+		92074C7F273D4CFB00CEA689 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF326F3286B001EA78D /* ConnectionStatus.swift */; };
+		92074C81273D4E8000CEA689 /* PlansViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */; };
+		92074C82273D4E8400CEA689 /* PlansViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */; };
+		92074C84273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C83273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift */; };
+		92074C85273D4EF600CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C83273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift */; };
+		92074C87273D517900CEA689 /* ExtraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDFC2715633A00DA76F8 /* ExtraView.swift */; };
+		92074C88273D51A500CEA689 /* ExtraRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF4A3E2715701800DBC427 /* ExtraRowView.swift */; };
+		92074C89273D51AA00CEA689 /* ExtraRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5B82715754800DC7757 /* ExtraRowViewType.swift */; };
+		92074C8A273D530500CEA689 /* NodeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF52715633A00DA76F8 /* NodeSelectionView.swift */; };
+		92074C8C273D53C300CEA689 /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF72715633A00DA76F8 /* ScaleView.swift */; };
+		92074C8D273D58B900CEA689 /* NodeSelectionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF82715633A00DA76F8 /* NodeSelectionRowViewModel.swift */; };
+		92074C8E273D5A1300CEA689 /* NodeSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF92715633A00DA76F8 /* NodeSelectionRowView.swift */; };
 		9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA60270316880062AFD3 /* TunnelManager.swift */; };
 		9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */; };
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
@@ -495,6 +512,11 @@
 		75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepModel.swift; sourceTree = "<group>"; };
 		75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkToggleStyle.swift; sourceTree = "<group>"; };
 		75E5BE0126DE2FA400C345B9 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		92074C74273D411000CEA689 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		92074C77273D411F00CEA689 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		92074C7A273D44CB00CEA689 /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
+		92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModelDelegate.swift; sourceTree = "<group>"; };
+		92074C83273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsViewModelDelegate.swift; sourceTree = "<group>"; };
 		9312CA60270316880062AFD3 /* TunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManager.swift; sourceTree = "<group>"; };
 		9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
 		9312CA642704608D0062AFD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -859,8 +881,8 @@
 		751162AB273ACA6F005F9133 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				75D6563426C4DB8A000056B4 /* OnboardingView.swift */,
 				75D6563826C4DBA2000056B4 /* OnboardingCoordinator.swift */,
+				75D6563426C4DB8A000056B4 /* OnboardingView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1093,6 +1115,7 @@
 				93DBF5422716A6B6006EBC65 /* StoresNodes.swift */,
 				93DBF53E271693B5006EBC65 /* GeneralSettingsStorage */,
 				93DBF53F271693D3006EBC65 /* RealmStorage */,
+				92074C7A273D44CB00CEA689 /* UserConstants.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -1105,6 +1128,7 @@
 				751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */,
 				759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */,
 				759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */,
+				92074C83273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift */,
 			);
 			path = DNSSettings;
 			sourceTree = "<group>";
@@ -1141,11 +1165,11 @@
 		75D6563326C4CEB8000056B4 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				751162AA273ACA69005F9133 /* MacOS */,
 				751162AB273ACA6F005F9133 /* iOS */,
-				75E5BDF726DCCF2C00C345B9 /* Subviews */,
+				751162AA273ACA69005F9133 /* MacOS */,
 				75D6563A26C4DBA9000056B4 /* OnboardingModel.swift */,
 				75D6563626C4DB99000056B4 /* OnboardingViewModel.swift */,
+				75E5BDF726DCCF2C00C345B9 /* Subviews */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1166,6 +1190,24 @@
 				75E5BE0126DE2FA400C345B9 /* View+Ext.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		92074C72273D3DE400CEA689 /* MacOS */ = {
+			isa = PBXGroup;
+			children = (
+				92074C74273D411000CEA689 /* HomeCoordinator.swift */,
+				92074C77273D411F00CEA689 /* HomeView.swift */,
+			);
+			path = MacOS;
+			sourceTree = "<group>";
+		};
+		92074C73273D3E0100CEA689 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */,
+				C64ED2F426C50CAE00222CA4 /* HomeView.swift */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		9312CA5F270316770062AFD3 /* Manager */ = {
@@ -1382,10 +1424,10 @@
 		C64ED2F326C50CAE00222CA4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				92074C73273D3E0100CEA689 /* iOS */,
+				92074C72273D3DE400CEA689 /* MacOS */,
 				753EDDF32715633A00DA76F8 /* Subviews */,
-				758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */,
 				C64ED2F926C50CAE00222CA4 /* HomeModel.swift */,
-				C64ED2F426C50CAE00222CA4 /* HomeView.swift */,
 				C64ED2F526C50CAE00222CA4 /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -1400,6 +1442,7 @@
 				C64ED32426C57FE900222CA4 /* PlansView.swift */,
 				C64ED32526C57FE900222CA4 /* PlansViewModel.swift */,
 				75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */,
+				92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */,
 			);
 			path = Plans;
 			sourceTree = "<group>";
@@ -1778,6 +1821,7 @@
 				753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */,
 				755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */,
 				75B0D56026CD265E009ECAFC /* UserDefaultsStorageStrategy.swift in Sources */,
+				92074C84273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */,
 				75568D7226E5C62100166E5F /* ConnectionModelError.swift in Sources */,
 				75D6563B26C4DBA9000056B4 /* OnboardingModel.swift in Sources */,
 				7504EA54267A3AF800023D42 /* TunnelsService.swift in Sources */,
@@ -1841,6 +1885,7 @@
 				759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */,
 				7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */,
 				758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */,
+				92074C7B273D44CB00CEA689 /* UserConstants.swift in Sources */,
 				93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */,
 				752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */,
 				93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */,
@@ -1851,6 +1896,7 @@
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,
 				759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */,
 				C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */,
+				92074C81273D4E8000CEA689 /* PlansViewModelDelegate.swift in Sources */,
 				755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */,
 				7504EA4D267A390A00023D42 /* Keychain.swift in Sources */,
 				753EDDFF2715633A00DA76F8 /* NodeSelectionRowViewModel.swift in Sources */,
@@ -1894,6 +1940,7 @@
 				222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */,
 				7511621C273A98B0005F9133 /* Fonts.swift in Sources */,
 				75116259273AB011005F9133 /* RealmStorage.swift in Sources */,
+				92074C88273D51A500CEA689 /* ExtraRowView.swift in Sources */,
 				7511625D273AB026005F9133 /* PreloadServiceType.swift in Sources */,
 				7511625A273AB01D005F9133 /* NodesService.swift in Sources */,
 				75116230273AAEFE005F9133 /* Int64+Ext.swift in Sources */,
@@ -1907,16 +1954,20 @@
 				75116267273AB03A005F9133 /* UserDefaultsStorageStrategy.swift in Sources */,
 				7511622F273AAEFE005F9133 /* Double+Ext.swift in Sources */,
 				7511624C273AAF90005F9133 /* Keychain.swift in Sources */,
+				92074C8D273D58B900CEA689 /* NodeSelectionRowViewModel.swift in Sources */,
 				75116266273AB03A005F9133 /* GeneralSettingsStorage.swift in Sources */,
 				75116285273AB873005F9133 /* ContinentsRowViewType.swift in Sources */,
 				7511624F273AAFA2005F9133 /* NETunnelProviderManager+Ext.swift in Sources */,
 				7511625B273AB020005F9133 /* NodesServiceType.swift in Sources */,
+				92074C76273D411200CEA689 /* HomeCoordinator.swift in Sources */,
 				7511628E273ABD30005F9133 /* OnboardingViewModel.swift in Sources */,
 				75116256273AAFAD005F9133 /* RouterType.swift in Sources */,
 				7511621A273A983D005F9133 /* TextStyle.swift in Sources */,
 				7511624E273AAF90005F9133 /* NETunnelProviderProtocol+Extension.swift in Sources */,
+				92074C85273D4EF600CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */,
 				75116251273AAFA2005F9133 /* NEVPNStatus+Ext.swift in Sources */,
 				7511629F273AC3A8005F9133 /* OnboardingCoordinator.swift in Sources */,
+				92074C79273D412100CEA689 /* HomeView.swift in Sources */,
 				75116277273AB05E005F9133 /* TunnelContainer.swift in Sources */,
 				75116275273AB059005F9133 /* TunnelManagerType.swift in Sources */,
 				75116252273AAFA4005F9133 /* WalletErros+Ext.swift in Sources */,
@@ -1926,6 +1977,7 @@
 				75116250273AAFA2005F9133 /* TunnelConfiguration+Ext.swift in Sources */,
 				7511624B273AAF90005F9133 /* ConfigurationParseError.swift in Sources */,
 				75116261273AB036005F9133 /* StoresNodes.swift in Sources */,
+				92074C7C273D45BE00CEA689 /* HomeModel.swift in Sources */,
 				75116220273A98C1005F9133 /* AutoRealmObject.generated.swift in Sources */,
 				222D8C1D273C221A00542407 /* MnemonicLineView.swift in Sources */,
 				7511626A273AB042005F9133 /* Persistable.swift in Sources */,
@@ -1952,9 +2004,12 @@
 				7511628B273ABB28005F9133 /* ContinentDecoder.swift in Sources */,
 				75116276273AB05E005F9133 /* TunnelsServiceStatusDelegate.swift in Sources */,
 				7511626D273AB045005F9133 /* SecurityService.swift in Sources */,
+				92074C7F273D4CFB00CEA689 /* ConnectionStatus.swift in Sources */,
 				7511626B273AB042005F9133 /* RealmStorage+Ext.swift in Sources */,
 				222D8C1B273C200200542407 /* AccountCreationViewModel.swift in Sources */,
+				92074C8E273D5A1300CEA689 /* NodeSelectionRowView.swift in Sources */,
 				75116248273AAF7F005F9133 /* Context.swift in Sources */,
+				92074C8A273D530500CEA689 /* NodeSelectionView.swift in Sources */,
 				75116225273AAAA0005F9133 /* TextStyles.swift in Sources */,
 				75116215273A8B93005F9133 /* AppDelegate.swift in Sources */,
 				75116270273AB054005F9133 /* TunnelSavingError.swift in Sources */,
@@ -1964,17 +2019,22 @@
 				75116273273AB054005F9133 /* TunnelInterfaceModel.swift in Sources */,
 				7511628C273ABD1A005F9133 /* OnboardingModel.swift in Sources */,
 				75116283273AB82D005F9133 /* ConnectionModelError.swift in Sources */,
+				92074C89273D51AA00CEA689 /* ExtraRowViewType.swift in Sources */,
 				75116231273AAEFE005F9133 /* Collection+Ext.swift in Sources */,
 				751162A2273AC799005F9133 /* ModulesFactory.swift in Sources */,
 				7511625E273AB029005F9133 /* UserService.swift in Sources */,
+				92074C82273D4E8400CEA689 /* PlansViewModelDelegate.swift in Sources */,
 				7511625C273AB023005F9133 /* PreloadService.swift in Sources */,
 				75116286273AB8B6005F9133 /* Formatters.swift in Sources */,
 				75116271273AB054005F9133 /* TunnelChanges.swift in Sources */,
 				75116219273A9801005F9133 /* OnboardingStepModel.swift in Sources */,
 				75116211273A88FC005F9133 /* Config.swift in Sources */,
 				75116295273ABFC1005F9133 /* CreationMode.swift in Sources */,
+				92074C7D273D45C200CEA689 /* HomeViewModel.swift in Sources */,
 				222D8C1A273C200000542407 /* AccountCreationModel.swift in Sources */,
 				75116272273AB054005F9133 /* PeersModel.swift in Sources */,
+				92074C87273D517900CEA689 /* ExtraView.swift in Sources */,
+				92074C8C273D53C300CEA689 /* ScaleView.swift in Sources */,
 				75116278273AB05E005F9133 /* TunnelsService.swift in Sources */,
 				7511628A273ABB0D005F9133 /* Serializer.swift in Sources */,
 			);

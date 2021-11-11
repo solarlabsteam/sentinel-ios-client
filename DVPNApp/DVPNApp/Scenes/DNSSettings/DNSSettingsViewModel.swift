@@ -8,10 +8,6 @@
 import UIKit
 import Combine
 
-protocol DNSSettingsViewModelDelegate: AnyObject {
-    func update(to server: DNSServerType)
-}
-
 final class DNSSettingsViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router

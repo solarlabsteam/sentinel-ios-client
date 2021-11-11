@@ -59,10 +59,11 @@ struct ExtraView: View {
 
             HStack {
                 Button(action: openSolarLabs) {
-                    Image(uiImage: Asset.Logo.solarLabs.image)
+                    Asset.Logo.solarLabs.image.asImage
                 }
+                .buttonStyle(PlainButtonStyle())
                 Spacer()
-                Image(uiImage: Asset.Logo.exidio.image)
+                Asset.Logo.exidio.image.asImage
             }
             .padding()
             .padding(.bottom, 10)

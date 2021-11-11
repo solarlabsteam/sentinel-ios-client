@@ -27,7 +27,7 @@ struct NodeSelectionRowView: View {
         Button(action: openDetails) {
             VStack {
                 HStack(alignment: .bottom) {
-                    Image(uiImage: viewModel.icon)
+                    viewModel.icon.asImage
                         .resizable()
                         .frame(width: 50, height: 41)
                     
@@ -40,7 +40,7 @@ struct NodeSelectionRowView: View {
 
                     Spacer()
 
-                    Image(uiImage: viewModel.speed)
+                    viewModel.speed.asImage
                         .padding(.all, 5)
                 }
                 .padding(.vertical)
@@ -56,6 +56,7 @@ struct NodeSelectionRowView: View {
                             .frame(width: 38, height: 38)
                             .background(Rectangle().foregroundColor(Asset.Colors.navyBlue.color.asColor))
                     }
+                    .buttonStyle(PlainButtonStyle())
                     .cornerRadius(4)
                 }
                 .padding(.bottom)
@@ -66,6 +67,7 @@ struct NodeSelectionRowView: View {
 
 // swiftlint:disable force_unwrapping
 
+#if os(iOS)
 struct HomeRowView_Previews: PreviewProvider {
     static var previews: some View {
         NodeSelectionRowView(
@@ -85,5 +87,28 @@ struct HomeRowView_Previews: PreviewProvider {
         )
     }
 }
+#endif
+
+#if os(macOS)
+struct HomeRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        NodeSelectionRowView(
+            viewModel:
+                    .init(
+                        id: "id",
+                        icon: Flag(countryCode: "EE")!.originalImage,
+                        title: "Test",
+                        subtitle: "mfq9rph",
+                        price: 100,
+                        speed: Asset.Connection.Wifi.scales1.image,
+                        latency: 300,
+                        peers: 4
+                    ),
+            toggleLocation: {},
+            openDetails: {}
+        )
+    }
+}
+#endif
 
 // swiftlint:enable force_unwrapping

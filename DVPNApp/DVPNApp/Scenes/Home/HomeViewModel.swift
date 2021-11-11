@@ -5,11 +5,14 @@
 //  Created by Aleksandr Litreev on 12.08.2021.
 //
 
+#if os(iOS)
+import UIKit
+#endif
+
 import Foundation
 import FlagKit
 import SentinelWallet
 import Combine
-import UIKit.UIImage
 import NetworkExtension
 
 enum NodeType: CaseIterable {
@@ -96,13 +99,19 @@ final class HomeViewModel: ObservableObject {
 
         $currentPage
             .sink(receiveValue: {
+#if os(iOS)
                 UIImpactFeedbackGenerator.lightFeedback()
+#endif
                 router.play(event: .title($0.title))
             })
             .store(in: &cancellables)
 
         $selectedTab
-            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback() })
+            .sink(receiveValue: { _ in
+#if os(iOS)
+                UIImpactFeedbackGenerator.lightFeedback()
+#endif
+            })
             .store(in: &cancellables)
         
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
@@ -137,7 +146,9 @@ extension HomeViewModel: PlansViewModelDelegate {
 
 extension HomeViewModel {
     func toggleLocation(with id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
               let node = sentinelNode.node else {
                   router.play(event: .error(HomeViewModelError.unavailableNode))
@@ -148,7 +159,9 @@ extension HomeViewModel {
     }
 
     func toggleRandomLocation() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard connectionStatus != .connected else {
             model.disconnect()
             return
@@ -169,13 +182,16 @@ extension HomeViewModel {
 
     @objc
     func didTapAccountInfoButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .accountInfo)
     }
 
     func openDetails(for id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-        
+#endif
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
               let node = sentinelNode.node else {
                   router.play(event: .error(HomeViewModelError.unavailableNode))
@@ -186,22 +202,30 @@ extension HomeViewModel {
     }
     
     func openNodes(for continent: Continent) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .openNodes(continent, delegate: self))
     }
 
     func openMore() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .sentinel)
     }
 
     func openSolarLabs() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .solarLabs)
     }
 
     func openDNSServersSelection() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .dns(self, server))
     }
 }
@@ -243,10 +267,17 @@ extension HomeViewModel {
             guard let node = subscribedNode.node else { return }
             
             let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
-
+            
+            let flagImage: ImageAsset.Image?
+            
+#if os(iOS)
+            flagImage = Flag(countryCode: countryCode)?.image(style: .roundedRect)
+#elseif os(macOS)
+            flagImage = Flag(countryCode: countryCode)?.originalImage
+#endif
             let model = NodeSelectionRowViewModel(
                 from: node,
-                icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
+                icon: flagImage ?? Asset.Tokens.dvpn.image
             )
             
             if !subscriptions.contains(where: { $0.id == model.id }) {

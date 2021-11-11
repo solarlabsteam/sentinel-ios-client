@@ -18,10 +18,6 @@ private struct Constants {
 }
 private let constants = Constants()
 
-protocol PlansViewModelDelegate: AnyObject {
-    func openConnection()
-}
-
 final class PlansViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     

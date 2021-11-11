@@ -11,12 +11,12 @@ enum ExtraRowViewType {
     case dns(String)
     case more
 
-    var image: Image {
+    var image: ImageAsset.Image {
         switch self {
         case .dns:
-            return Image(uiImage: Asset.Extra.dns.image)
+            return Asset.Extra.dns.image
         case .more:
-            return Image(uiImage: Asset.Extra.info.image)
+            return Asset.Extra.info.image
         }
     }
 

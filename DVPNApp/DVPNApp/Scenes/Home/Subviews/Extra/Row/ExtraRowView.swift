@@ -20,7 +20,7 @@ struct ExtraRowView: View {
         Button(action: action) {
             VStack {
                 HStack {
-                    type.image
+                    type.image.asImage
 
                     VStack(alignment: .leading) {
                         Text(type.title)
@@ -36,6 +36,7 @@ struct ExtraRowView: View {
                 }
             }
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

@@ -24,7 +24,7 @@ struct NodeSelectionView: View {
                     .padding()
                     .multilineTextAlignment(.center)
 
-                Image(uiImage: Asset.LocationSelector.empty.image)
+                Asset.LocationSelector.empty.image.asImage
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300, height: 250)
@@ -48,15 +48,16 @@ struct NodeSelectionView: View {
                 .listStyle(PlainListStyle())
             }
 
-            ActivityIndicator(
-                isAnimating: $viewModel.isLoadingSubscriptions,
-                style: .medium
-            )
+//            ActivityIndicator(
+//                isAnimating: $viewModel.isLoadingSubscriptions,
+//                style: .medium
+//            )
         }
     }
     
     var continentsView: some View {
-        ContinentsView(viewModel: viewModel)
+        Text("Hello")
+//        ContinentsView(viewModel: viewModel)
     }
 
     var body: some View {

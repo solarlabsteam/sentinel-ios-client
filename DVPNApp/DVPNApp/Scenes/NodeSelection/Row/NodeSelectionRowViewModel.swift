@@ -1,15 +1,14 @@
-import UIKit
 import SentinelWallet
 import FlagKit
 
 struct NodeSelectionRowViewModel: Hashable, Identifiable {
     let id: String
 
-    let icon: UIImage
+    let icon: ImageAsset.Image
     let title: String
     let subtitle: String
 
-    let speed: UIImage
+    let speed: ImageAsset.Image
 
     let price: Int
     let peers: Int
@@ -22,11 +21,11 @@ struct NodeSelectionRowViewModel: Hashable, Identifiable {
     
     init(
         id: String,
-        icon: UIImage,
+        icon: ImageAsset.Image,
         title: String,
         subtitle: String,
         price: Int,
-        speed: UIImage,
+        speed: ImageAsset.Image,
         latency: Int,
         peers: Int
     ) {
@@ -42,7 +41,7 @@ struct NodeSelectionRowViewModel: Hashable, Identifiable {
         self.peers = peers
     }
 
-    init(from node: Node, icon: UIImage) {
+    init(from node: Node, icon: ImageAsset.Image) {
         let price = PriceFormatter.rawFormat(price: node.info.price).price
         
         self.init(
