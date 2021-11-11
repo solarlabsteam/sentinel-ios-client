@@ -55,6 +55,12 @@ final public class TunnelContainer: NSObject {
     var tunnelConfiguration: TunnelConfiguration? {
         return tunnelProvider.tunnelConfiguration
     }
+    
+#if os(macOS)
+    var isTunnelAvailableToUser: Bool {
+        tunnelProvider.provider?.providerConfiguration?["UID"] as? uid_t == getuid()
+    }
+#endif
 
     init(tunnel: NETunnelProviderManager) {
         name = tunnel.localizedDescription ?? "Unnamed"

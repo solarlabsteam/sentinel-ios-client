@@ -26,7 +26,9 @@ extension NETunnelProviderProtocol {
             previouslyReferencedBy: old?.passwordReference
         )
         guard passwordReference != nil else { return nil }
-
+#if os(macOS)
+        providerConfiguration = ["UID": getuid()]
+#endif
         let endpoints = tunnelConfiguration.peers.compactMap { $0.endpoint }
         if endpoints.isEmpty {
             serverAddress = "Unspecified"
@@ -62,12 +64,40 @@ extension NETunnelProviderProtocol {
     @discardableResult
     func migrateConfigurationIfNeeded(with name: String) -> Bool {
         if let oldConfig = providerConfiguration?["WireGuardConfig"] as? String {
+#if os(macOS)
+            providerConfiguration = ["UID": getuid()]
+#elseif os(iOS)
             providerConfiguration = nil
+#endif
             guard passwordReference == nil else { return true }
             log.debug("Migrating tunnel configuration '\(name)'")
             passwordReference = Keychain.makeReference(containing: oldConfig, with: name)
             return true
         }
+#if os(macOS)
+        if passwordReference != nil && providerConfiguration?["UID"] == nil && verifyConfigurationReference() {
+            providerConfiguration = ["UID": getuid()]
+            return true
+        }
+#elseif os(iOS)
+        if #available(iOS 15, *) {
+            if passwordReference != nil && passwordReference!.count == 12 {
+                var result: CFTypeRef?
+                let ret = SecItemCopyMatching([kSecValuePersistentRef: passwordReference!,
+                                              kSecReturnPersistentRef: true] as CFDictionary,
+                                              &result)
+                if ret != errSecSuccess || result == nil {
+                    return false
+                }
+                guard let newReference = result as? Data else { return false }
+                if !newReference.elementsEqual(passwordReference!) {
+                    log.info("Migrating iOS 14-style keychain reference to iOS 15-style keychain reference for '\(name)'")
+                    passwordReference = newReference
+                    return true
+                }
+            }
+        }
+#endif
         return false
     }
 }

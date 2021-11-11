@@ -71,6 +71,11 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
                 log.error("Failed to stop WireGuard adapter: \(error.localizedDescription)")
             }
             completionHandler()
+            
+#if os(macOS)
+            // HACK: This is a hack to work around Apple bug 32073323(47526107).
+            exit(0)
+#endif
         }
     }
 
