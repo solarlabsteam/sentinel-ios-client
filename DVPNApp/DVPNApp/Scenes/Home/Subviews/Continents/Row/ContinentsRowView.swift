@@ -41,6 +41,7 @@ struct ContinentsRowView: View {
                 }
             }
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

@@ -56,8 +56,7 @@ struct NodeSelectionView: View {
     }
     
     var continentsView: some View {
-        Text("Hello")
-//        ContinentsView(viewModel: viewModel)
+        ContinentsView(viewModel: viewModel)
     }
 
     var body: some View {
@@ -85,6 +84,7 @@ struct NodeSelectionView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
                 }
+                .buttonStyle(PlainButtonStyle())
                 .frame(width: 60, height: 60)
                 .background(viewModel.connectionStatus.powerColor)
                 .cornerRadius(30)

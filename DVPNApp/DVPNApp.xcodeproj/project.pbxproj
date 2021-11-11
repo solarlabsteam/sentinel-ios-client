@@ -268,6 +268,8 @@
 		92074C8C273D53C300CEA689 /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF72715633A00DA76F8 /* ScaleView.swift */; };
 		92074C8D273D58B900CEA689 /* NodeSelectionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF82715633A00DA76F8 /* NodeSelectionRowViewModel.swift */; };
 		92074C8E273D5A1300CEA689 /* NodeSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF92715633A00DA76F8 /* NodeSelectionRowView.swift */; };
+		92074C8F273D683900CEA689 /* ContinentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56A271882B2006EBC65 /* ContinentsView.swift */; };
+		92074C90273D688400CEA689 /* ContinentsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */; };
 		9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA60270316880062AFD3 /* TunnelManager.swift */; };
 		9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */; };
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
@@ -1982,6 +1984,7 @@
 				222D8C1D273C221A00542407 /* MnemonicLineView.swift in Sources */,
 				7511626A273AB042005F9133 /* Persistable.swift in Sources */,
 				75116253273AAFA4005F9133 /* DVPNNodeInfo+Ext.swift in Sources */,
+				92074C90273D688400CEA689 /* ContinentsRowView.swift in Sources */,
 				75116279273AB05E005F9133 /* TunnelStatus.swift in Sources */,
 				75116217273A910F005F9133 /* main.swift in Sources */,
 				75116218273A97FE005F9133 /* OnboardingStepView.swift in Sources */,
@@ -2035,6 +2038,7 @@
 				75116272273AB054005F9133 /* PeersModel.swift in Sources */,
 				92074C87273D517900CEA689 /* ExtraView.swift in Sources */,
 				92074C8C273D53C300CEA689 /* ScaleView.swift in Sources */,
+				92074C8F273D683900CEA689 /* ContinentsView.swift in Sources */,
 				75116278273AB05E005F9133 /* TunnelsService.swift in Sources */,
 				7511628A273ABB0D005F9133 /* Serializer.swift in Sources */,
 			);
