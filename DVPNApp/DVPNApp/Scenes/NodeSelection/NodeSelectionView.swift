@@ -48,10 +48,17 @@ struct NodeSelectionView: View {
                 .listStyle(PlainListStyle())
             }
 
-//            ActivityIndicator(
-//                isAnimating: $viewModel.isLoadingSubscriptions,
-//                style: .medium
-//            )
+            #if os(iOS)
+            ActivityIndicator(
+                isAnimating: $viewModel.isLoadingSubscriptions,
+                style: .medium
+            )
+            #elseif os(macOS)
+            ActivityIndicator(
+                isAnimating: $viewModel.isLoadingSubscriptions,
+                controlSize: .large
+            )
+            #endif
         }
     }
     
