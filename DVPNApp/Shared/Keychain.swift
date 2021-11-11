@@ -51,9 +51,38 @@ final class Keychain {
             kSecValueData: value.data(using: .utf8) as Any,
             kSecReturnPersistentRef: true
         ]
-
+        
+#if os(iOS)
         items[kSecAttrAccessGroup] = Keychain.appGroupId
         items[kSecAttrAccessible] = kSecAttrAccessibleAfterFirstUnlock
+#elseif os(macOS)
+        items[kSecAttrSynchronizable] = false
+        items[kSecAttrAccessible] = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+        
+        guard let extensionPath = Bundle.main.builtInPlugInsURL?.appendingPathComponent("DVPNAppNetworkExtension.appex", isDirectory: true).path else {
+            log.error("Unable to determine app extension path")
+            return nil
+        }
+        var extensionApp: SecTrustedApplication?
+        var mainApp: SecTrustedApplication?
+        status = SecTrustedApplicationCreateFromPath(extensionPath, &extensionApp)
+        if status != kOSReturnSuccess || extensionApp == nil {
+            log.error("Unable to create keychain extension trusted application object: \(status)")
+            return nil
+        }
+        status = SecTrustedApplicationCreateFromPath(nil, &mainApp)
+        if status != errSecSuccess || mainApp == nil {
+            log.error("Unable to create keychain local trusted application object: \(status)")
+            return nil
+        }
+        var access: SecAccess?
+        status = SecAccessCreate(itemLabel as CFString, [extensionApp!, mainApp!] as CFArray, &access)
+        if status != errSecSuccess || access == nil {
+            log.error("Unable to create keychain ACL object: \(status)")
+            return nil
+        }
+        items[kSecAttrAccess] = access!
+#endif
 
         var reference: CFTypeRef?
         status = SecItemAdd(items as CFDictionary, &reference)
