@@ -22,6 +22,23 @@ final class ModulesFactory {
 }
 
 extension ModulesFactory {
+    func detectStartModule(for window: NSWindow) {
+        context.nodesService.loadAllNodes { [weak self] result in
+            if case let .success(nodes) = result {
+                self?.context.nodesService.loadNodesInfo(for: nodes)
+            }
+        }
+
+        guard context.generalInfoStorage.didPassOnboarding() else {
+            makeOnboardingModule(for: window)
+            return
+        }
+
+        context.preloadService.loadData { [weak self] in
+            self?.makeHomeModule(for: window)
+        }
+    }
+
     func makeOnboardingModule(for window: NSWindow) {
         OnboardingCoordinator(context: context, window: window).start()
     }
@@ -31,6 +48,9 @@ extension ModulesFactory {
     }
     
     func makeHomeModule(for window: NSWindow) {
+        if !context.generalInfoStorage.didPassOnboarding() {
+            context.generalInfoStorage.set(didPassOnboarding: true)
+        }
         HomeCoordinator(context: context, window: window).start()
     }
 }

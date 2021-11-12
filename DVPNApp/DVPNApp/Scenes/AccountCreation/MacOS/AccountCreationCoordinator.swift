@@ -32,5 +32,21 @@ final class AccountCreationCoordinator: CoordinatorType {
 
 extension AccountCreationCoordinator: RouterType {
     func play(event: AccountCreationViewModel.Route) {
+        switch event {
+        case .error(let error):
+#warning("handle error properly on macOS")
+            log.error(error)
+        case .privacy:
+            if let url = UserConstants.privacyURL {
+                NSWorkspace.shared.open(url)
+            }
+        case .openNodes:
+            if let window = window {
+                ModulesFactory.shared.makeHomeModule(for: window)
+            }
+        case let .title(title):
+#warning("handle titles properly on macOS")
+            break
+        }
     }
 }

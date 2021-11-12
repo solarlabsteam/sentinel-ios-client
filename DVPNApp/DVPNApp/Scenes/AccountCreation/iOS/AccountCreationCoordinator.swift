@@ -9,12 +9,6 @@ import UIKit
 import SwiftUI
 import SentinelWallet
 
-private struct Constants {
-    let privacyURL = URL(string: "https://sentinel.co/privacy")
-}
-
-private let constants = Constants()
-
 final class AccountCreationCoordinator: CoordinatorType {
     private weak var navigation: UINavigationController?
     private weak var rootController: UIViewController?
@@ -53,7 +47,7 @@ extension AccountCreationCoordinator: RouterType {
         case .error(let error):
             show(message: error.localizedDescription)
         case .privacy:
-            if let url = constants.privacyURL, UIApplication.shared.canOpenURL(url) {
+            if let url = UserConstants.privacyURL, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:])
             }
         case .openNodes:

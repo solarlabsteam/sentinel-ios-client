@@ -13,6 +13,7 @@
 		222D8C1B273C200200542407 /* AccountCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */; };
 		222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E1270B72D2000CD59B /* AccountCreationView.swift */; };
 		222D8C1D273C221A00542407 /* MnemonicLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */; };
+		222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C7A273D44CB00CEA689 /* UserConstants.swift */; };
 		7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CA267A183D00023D42 /* AppDelegate.swift */; };
 		7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CC267A183D00023D42 /* SceneDelegate.swift */; };
 		7504E9D7267A184000023D42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7504E9D5267A184000023D42 /* LaunchScreen.storyboard */; };
@@ -390,6 +391,7 @@
 /* Begin PBXFileReference section */
 		222D8C13273C1BB500542407 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		222D8C18273C1FC900542407 /* AccountCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationCoordinator.swift; sourceTree = "<group>"; };
+		222D8C52273D7D5900542407 /* MacOS_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MacOS_Info.plist; path = DVPNApp/MacOS_Info.plist; sourceTree = SOURCE_ROOT; };
 		22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		7504E9C7267A183D00023D42 /* DVPNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVPNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7504E9CA267A183D00023D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 				75116209273A8839005F9133 /* SentinelDVPNmacOS.entitlements */,
 				75359CE326FC7EC100CFEBCD /* Generated */,
 				7504E9D8267A184000023D42 /* Info.plist */,
+				222D8C52273D7D5900542407 /* MacOS_Info.plist */,
 				7504EA6D267B4E7B00023D42 /* Resources */,
 				C64B495426B8B3F70004A692 /* Scenes */,
 				755FBF0726AF0F0100E9D408 /* Services */,
@@ -1980,6 +1983,7 @@
 				75116230273AAEFE005F9133 /* Int64+Ext.swift in Sources */,
 				75116284273AB83E005F9133 /* NotificationToken.swift in Sources */,
 				222D8C15273C1BC400542407 /* OnboardingView.swift in Sources */,
+				222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */,
 				7511626F273AB054005F9133 /* TunnelModel.swift in Sources */,
 				7511621F273A98BE005F9133 /* Assets.swift in Sources */,
 				75116249273AAF82005F9133 /* ContextBuilder.swift in Sources */,
@@ -2411,6 +2415,7 @@
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DVPNApp/MacOS_Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2442,6 +2447,7 @@
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DVPNApp/MacOS_Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (

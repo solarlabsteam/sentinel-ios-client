@@ -11,4 +11,5 @@ enum UserConstants {
     static let sentinelURL = URL(string: "https://sentinel.co/")
     static let solarLabsURL = URL(string: "http://labs.solar")
     static let accessGroup = "group.co.sentinel.dvpn"
+    static let privacyURL = URL(string: "https://sentinel.co/privacy")
 }

@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
         window.center()
         window.title = "Sentinel DVPN"
-        ModulesFactory.shared.makeHomeModule(for: window)
+        ModulesFactory.shared.detectStartModule(for: window)
         window.makeKeyAndOrderFront(nil)
         self.window = window
     }
