@@ -30,8 +30,7 @@ final public class SecurityService: SecurityServiceType {
         let status = SecItemAdd(query as CFDictionary, nil)
 
         if status == errSecDuplicateItem {
-            log.error("errSecDuplicateItem while saving mnemonic")
-            return false
+            return mnemonicsExists(for: account)
         }
 
         return status == errSecSuccess
