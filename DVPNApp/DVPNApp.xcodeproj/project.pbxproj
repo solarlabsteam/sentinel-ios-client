@@ -132,7 +132,6 @@
 		7511626A273AB042005F9133 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5612717D302006EBC65 /* Persistable.swift */; };
 		7511626B273AB042005F9133 /* RealmStorage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CDA2721203200A35BCA /* RealmStorage+Ext.swift */; };
 		7511626C273AB042005F9133 /* AutoRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD8272117EF00A35BCA /* AutoRealmObject.swift */; };
-		7511626D273AB045005F9133 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FBF0826AF0F1600E9D408 /* SecurityService.swift */; };
 		7511626E273AB04C005F9133 /* SentinelNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843B462724993000CE6D34 /* SentinelNode+Ext.swift */; };
 		7511626F273AB054005F9133 /* TunnelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA4A267A37FB00023D42 /* TunnelModel.swift */; };
 		75116270273AB054005F9133 /* TunnelSavingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA8E267B7BB200023D42 /* TunnelSavingError.swift */; };
@@ -225,6 +224,9 @@
 		759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */; };
 		759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */; };
 		759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5C327158B1E00DC7757 /* DNSServerType.swift */; };
+		75A53BF6273E5E5E0003F54A /* SecurityServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */; };
+		75A53BF7273E5E6A0003F54A /* SecurityServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */; };
+		75A53BFA273E5EB60003F54A /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF8273E5EB30003F54A /* SecurityService.swift */; };
 		75B0D55426CB9A85009ECAFC /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
 		75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */; };
 		75B0D55E26CBB633009ECAFC /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */; };
@@ -490,6 +492,8 @@
 		759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsViewModel.swift; sourceTree = "<group>"; };
 		759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsView.swift; sourceTree = "<group>"; };
 		759DE5C327158B1E00DC7757 /* DNSServerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSServerType.swift; sourceTree = "<group>"; };
+		75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityServiceError.swift; sourceTree = "<group>"; };
+		75A53BF8273E5EB30003F54A /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
 		75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlan.swift; sourceTree = "<group>"; };
 		75B0D55B26CBB370009ECAFC /* UINavigationBar+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Styles.swift"; sourceTree = "<group>"; };
 		75B0D55D26CBB633009ECAFC /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
@@ -1035,12 +1039,12 @@
 		755FBF0726AF0F0100E9D408 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9312CA662704609B0062AFD3 /* NetworkService */,
 				93DBF5522716DBE7006EBC65 /* NodesService */,
 				932D0AFB272176520064AEE4 /* PreloadService */,
-				932D0AF62721743F0064AEE4 /* UserService */,
-				9312CA662704609B0062AFD3 /* NetworkService */,
+				75A53BF2273E5E220003F54A /* SecurityService */,
 				75B0D56126CD26F6009ECAFC /* Storage */,
-				755FBF0826AF0F1600E9D408 /* SecurityService.swift */,
+				932D0AF62721743F0064AEE4 /* UserService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1074,6 +1078,32 @@
 				759DE5B82715754800DC7757 /* ExtraRowViewType.swift */,
 			);
 			path = Row;
+			sourceTree = "<group>";
+		};
+		75A53BF2273E5E220003F54A /* SecurityService */ = {
+			isa = PBXGroup;
+			children = (
+				75A53BF4273E5E470003F54A /* iOS */,
+				75A53BF3273E5E360003F54A /* macOS */,
+				75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */,
+			);
+			path = SecurityService;
+			sourceTree = "<group>";
+		};
+		75A53BF3273E5E360003F54A /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				75A53BF8273E5EB30003F54A /* SecurityService.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		75A53BF4273E5E470003F54A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				755FBF0826AF0F1600E9D408 /* SecurityService.swift */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		75B0D55726CBB341009ECAFC /* UIKit */ = {
@@ -1821,6 +1851,7 @@
 				93DBF5602717CF80006EBC65 /* AutoRealmObject.generated.swift in Sources */,
 				93D29CDB2721203200A35BCA /* RealmStorage+Ext.swift in Sources */,
 				753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */,
+				75A53BF6273E5E5E0003F54A /* SecurityServiceError.swift in Sources */,
 				755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */,
 				75B0D56026CD265E009ECAFC /* UserDefaultsStorageStrategy.swift in Sources */,
 				92074C84273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */,
@@ -1939,6 +1970,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75116254273AAFA4005F9133 /* GRPCError+Ext.swift in Sources */,
+				75A53BFA273E5EB60003F54A /* SecurityService.swift in Sources */,
 				222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */,
 				7511621C273A98B0005F9133 /* Fonts.swift in Sources */,
 				75116259273AB011005F9133 /* RealmStorage.swift in Sources */,
@@ -2006,7 +2038,6 @@
 				75116263273AB036005F9133 /* StoresConnectInfo.swift in Sources */,
 				7511628B273ABB28005F9133 /* ContinentDecoder.swift in Sources */,
 				75116276273AB05E005F9133 /* TunnelsServiceStatusDelegate.swift in Sources */,
-				7511626D273AB045005F9133 /* SecurityService.swift in Sources */,
 				92074C7F273D4CFB00CEA689 /* ConnectionStatus.swift in Sources */,
 				7511626B273AB042005F9133 /* RealmStorage+Ext.swift in Sources */,
 				222D8C1B273C200200542407 /* AccountCreationViewModel.swift in Sources */,
@@ -2017,6 +2048,7 @@
 				75116215273A8B93005F9133 /* AppDelegate.swift in Sources */,
 				75116270273AB054005F9133 /* TunnelSavingError.swift in Sources */,
 				75116274273AB059005F9133 /* TunnelManager.swift in Sources */,
+				75A53BF7273E5E6A0003F54A /* SecurityServiceError.swift in Sources */,
 				7511622E273AAEFB005F9133 /* Array+Ext.swift in Sources */,
 				75116255273AAFAA005F9133 /* CoordinatorType.swift in Sources */,
 				75116273273AB054005F9133 /* TunnelInterfaceModel.swift in Sources */,

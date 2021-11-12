@@ -10,22 +10,7 @@ import SentinelWallet
 import HDWallet
 import SwiftKeychainWrapper
 
-enum SecurityServiceError: LocalizedError {
-    case emptyInput
-    case invalidInput  
-
-    var errorDescription: String? {
-        switch self {
-        case .emptyInput:
-            return L10n.SecurityService.Error.emptyInput
-        case .invalidInput:
-            return L10n.SecurityService.Error.invalidInput
-        }
-    }
-}
-
 private struct Constants {
-    let key = "password"
     let mnemonicsCount = 24
 }
 private let constants = Constants()
@@ -36,7 +21,7 @@ final public class SecurityService: SecurityServiceType {
     public init(
         keychain: KeychainWrapper = .init(
             serviceName: "SecurityService",
-            accessGroup: "group.co.sentinel.dvpn"
+            accessGroup: UserConstants.accessGroup
         )
     ) {
         self.keychain = keychain
@@ -46,7 +31,7 @@ final public class SecurityService: SecurityServiceType {
         let mnemonicString = mnemonics.joined(separator: " ")
         return keychain.set(
             mnemonicString,
-            forKey: account.sha1(),
+            forKey: account.sha1()
             withAccessibility: .afterFirstUnlockThisDeviceOnly
         )
     }
