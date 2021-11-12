@@ -5,7 +5,6 @@
 //  Created by Victoria Kostyleva on 18.10.2021.
 //
 
-import UIKit
 import SwiftUI
 import SwiftMessages
 

@@ -9,7 +9,6 @@ import Foundation
 import FlagKit
 import SentinelWallet
 import Combine
-import UIKit.UIImage
 import NetworkExtension
 
 final class AvailableNodesViewModel: ObservableObject {
@@ -73,7 +72,9 @@ final class AvailableNodesViewModel: ObservableObject {
 
 extension AvailableNodesViewModel {
     func toggleLocation(with id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }),
               let node = sentinelNode.node else {
                   router.play(event: .error(HomeViewModelError.unavailableNode))
@@ -84,7 +85,9 @@ extension AvailableNodesViewModel {
     }
     
     func openDetails(for id: String) {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }),
               let node = sentinelNode.node else {
                   router.play(event: .error(HomeViewModelError.unavailableNode))
@@ -96,7 +99,9 @@ extension AvailableNodesViewModel {
     
     @objc
     func didTapAccountInfoButton() {
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
+#endif
         router.play(event: .accountInfo)
     }
 }
@@ -132,10 +137,17 @@ extension AvailableNodesViewModel {
             }
             
             let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
-
+            
+            let flagImage: ImageAsset.Image?
+#if os(iOS)
+            flagImage = Flag(countryCode: countryCode)?.image(style: .roundedRect)
+#elseif os(macOS)
+            #warning("replace all the original images on macOS with rounded")
+            flagImage = Flag(countryCode: countryCode)?.originalImage
+#endif
             return NodeSelectionRowViewModel(
                 from: node,
-                icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
+                icon: flagImage ?? Asset.Tokens.dvpn.image
             )
         }.compactMap { $0 }
         

@@ -57,6 +57,19 @@ extension ModulesFactory {
     func makeConnectionModule(for window: NSWindow) {
         ConnectionCoordinator(context: context, window: window).start()
     }
+    
+    func makeAvailableNodesModule(
+        continent: Continent,
+        delegate: PlansViewModelDelegate?,
+        for window: NSWindow
+    ) {
+        AvailableNodesCoordinator(
+            context: context,
+            delegate: delegate,
+            window: window,
+            continent: continent
+        ).start()
+    }
 }
 
 /// Scenes previews

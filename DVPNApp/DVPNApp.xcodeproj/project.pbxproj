@@ -347,6 +347,10 @@
 		93DBF56D2718889A006EBC65 /* ContinentsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */; };
 		93DBF570271888B8006EBC65 /* ContinentsRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */; };
 		93DBF574271939EF006EBC65 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 93DBF576271939EF006EBC65 /* Localizable.stringsdict */; };
+		93DC529B273EE5A4006C0989 /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931636D3271DC62B00A8C18C /* AvailableNodesView.swift */; };
+		93DC529C273EE5C2006C0989 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
+		93DC529D273EE5C4006C0989 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
+		93DC52A2273EE893006C0989 /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52A0273EE6B3006C0989 /* AvailableNodesCoordinator.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -614,6 +618,7 @@
 		93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowView.swift; sourceTree = "<group>"; };
 		93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowViewType.swift; sourceTree = "<group>"; };
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		93DC52A0273EE6B3006C0989 /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
 		93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
@@ -1390,7 +1395,8 @@
 		932EEBD3271D4B5C0098A2D7 /* AvailableNodes */ = {
 			isa = PBXGroup;
 			children = (
-				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
+				93DC529F273EE5D3006C0989 /* macOS */,
+				93DC529E273EE5CA006C0989 /* iOS */,
 				932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */,
 				931636D3271DC62B00A8C18C /* AvailableNodesView.swift */,
 				932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */,
@@ -1489,6 +1495,22 @@
 				93DBF576271939EF006EBC65 /* Localizable.stringsdict */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		93DC529E273EE5CA006C0989 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		93DC529F273EE5D3006C0989 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				93DC52A0273EE6B3006C0989 /* AvailableNodesCoordinator.swift */,
+			);
+			path = macOS;
 			sourceTree = "<group>";
 		};
 		93FA0685270B340A0006A765 /* NodeDetails */ = {
@@ -2132,6 +2154,7 @@
 				75116230273AAEFE005F9133 /* Int64+Ext.swift in Sources */,
 				75116284273AB83E005F9133 /* NotificationToken.swift in Sources */,
 				222D8C15273C1BC400542407 /* OnboardingView.swift in Sources */,
+				93DC529C273EE5C2006C0989 /* AvailableNodesViewModel.swift in Sources */,
 				222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */,
 				7511626F273AB054005F9133 /* TunnelModel.swift in Sources */,
 				7511621F273A98BE005F9133 /* Assets.swift in Sources */,
@@ -2140,6 +2163,7 @@
 				75116264273AB036005F9133 /* StoresGeneralInfo.swift in Sources */,
 				7511626C273AB042005F9133 /* AutoRealmObject.swift in Sources */,
 				222D8C5A273E6DF500542407 /* CheckmarkToggleStyle.swift in Sources */,
+				93DC529B273EE5A4006C0989 /* AvailableNodesView.swift in Sources */,
 				222D8C62273E771900542407 /* NodeInfoView.swift in Sources */,
 				75116267273AB03A005F9133 /* UserDefaultsStorageStrategy.swift in Sources */,
 				7511622F273AAEFE005F9133 /* Double+Ext.swift in Sources */,
@@ -2159,8 +2183,10 @@
 				7511624E273AAF90005F9133 /* NETunnelProviderProtocol+Extension.swift in Sources */,
 				92074C85273D4EF600CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */,
 				75116251273AAFA2005F9133 /* NEVPNStatus+Ext.swift in Sources */,
+				93DC529D273EE5C4006C0989 /* AvailableNodesModel.swift in Sources */,
 				7511629F273AC3A8005F9133 /* OnboardingCoordinator.swift in Sources */,
 				92074C79273D412100CEA689 /* HomeView.swift in Sources */,
+				93DC52A2273EE893006C0989 /* AvailableNodesCoordinator.swift in Sources */,
 				75116277273AB05E005F9133 /* TunnelContainer.swift in Sources */,
 				75116275273AB059005F9133 /* TunnelManagerType.swift in Sources */,
 				75116252273AAFA4005F9133 /* WalletErros+Ext.swift in Sources */,

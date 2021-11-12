@@ -33,7 +33,7 @@ struct AvailableNodesView: View {
                     .padding()
                     .multilineTextAlignment(.center)
                 
-                Image(uiImage: Asset.LocationSelector.empty.image)
+                Asset.LocationSelector.empty.image.asImage
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300, height: 250)
@@ -61,11 +61,17 @@ struct AvailableNodesView: View {
                 }
                 .listStyle(PlainListStyle())
             }
-
+#if os(iOS)
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingNodes,
                 style: .medium
-            ).padding()
+            )
+#elseif os(macOS)
+            ActivityIndicator(
+                isAnimating: $viewModel.isLoadingNodes,
+                controlSize: .large
+            )
+#endif
         }
         .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
