@@ -198,6 +198,8 @@ extension ConnectionViewModel {
             return
         }
         
+        timer?.upstream.connect().cancel()
+        
         timer = Timer.publish(every: 1, on: .main, in: .default)
             .autoconnect()
         
