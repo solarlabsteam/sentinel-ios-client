@@ -29,7 +29,6 @@
 		222D8C62273E771900542407 /* NodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068F270B4C5E0006A765 /* NodeInfoView.swift */; };
 		222D8C63273E774200542407 /* NodeInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0693270B4C770006A765 /* NodeInfoType.swift */; };
 		222D8C6D273E7B5000542407 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751161F5273A86E0005F9133 /* NetworkExtension.framework */; };
-		222D8C70273E7B5000542407 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C6F273E7B5000542407 /* PacketTunnelProvider.swift */; };
 		222D8C75273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 222D8C6C273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CA267A183D00023D42 /* AppDelegate.swift */; };
 		7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CC267A183D00023D42 /* SceneDelegate.swift */; };
@@ -188,6 +187,15 @@
 		752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */; };
 		752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */; };
 		752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF326F3286B001EA78D /* ConnectionStatus.swift */; };
+		75302FCC273EA72B00B4F784 /* String+ArrayConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA28267A2DCA00023D42 /* String+ArrayConversion.swift */; };
+		75302FCD273EA72E00B4F784 /* TunnelConfiguration+WireGuardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA26267A2DCA00023D42 /* TunnelConfiguration+WireGuardConfig.swift */; };
+		75302FCE273EA73100B4F784 /* NETunnelProviderProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA9F267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift */; };
+		75302FCF273EA73300B4F784 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
+		75302FD0273EA73600B4F784 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA23267A2DCA00023D42 /* Keychain.swift */; };
+		75302FD1273EA73800B4F784 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA55267B408D00023D42 /* Config.swift */; };
+		75302FD2273EA73F00B4F784 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9E7267A196900023D42 /* PacketTunnelProvider.swift */; };
+		75302FD4273EA77300B4F784 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 75302FD3273EA77200B4F784 /* SwiftyBeaver */; };
+		75302FD6273EA77700B4F784 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 75302FD5273EA77700B4F784 /* WireGuardKit */; };
 		75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE426FC7EC100CFEBCD /* Strings.swift */; };
 		75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE526FC7EC100CFEBCD /* Assets.swift */; };
 		75359D3126FCA41600CFEBCD /* UIColor+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359D3026FCA41600CFEBCD /* UIColor+SwiftUI.swift */; };
@@ -430,8 +438,6 @@
 		222D8C52273D7D5900542407 /* MacOS_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MacOS_Info.plist; path = DVPNApp/MacOS_Info.plist; sourceTree = SOURCE_ROOT; };
 		222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCoordinator.swift; sourceTree = "<group>"; };
 		222D8C6C273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SentinelDVPNmacOSNetworkExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		222D8C6F273E7B5000542407 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
-		222D8C71273E7B5000542407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		222D8C72273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelDVPNmacOSNetworkExtension.entitlements; sourceTree = "<group>"; };
 		22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		7504E9C7267A183D00023D42 /* DVPNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVPNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -638,6 +644,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				222D8C6D273E7B5000542407 /* NetworkExtension.framework in Frameworks */,
+				75302FD4273EA77300B4F784 /* SwiftyBeaver in Frameworks */,
+				75302FD6273EA77700B4F784 /* WireGuardKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,23 +727,12 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		222D8C6E273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension */ = {
-			isa = PBXGroup;
-			children = (
-				222D8C6F273E7B5000542407 /* PacketTunnelProvider.swift */,
-				222D8C71273E7B5000542407 /* Info.plist */,
-				222D8C72273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension.entitlements */,
-			);
-			path = SentinelDVPNmacOSNetworkExtension;
-			sourceTree = "<group>";
-		};
 		7504E9BE267A183D00023D42 = {
 			isa = PBXGroup;
 			children = (
 				7504EA21267A2DCA00023D42 /* Shared */,
 				7504E9C9267A183D00023D42 /* DVPNApp */,
 				7504E9E6267A196900023D42 /* DVPNAppNetworkExtension */,
-				222D8C6E273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension */,
 				7504E9E3267A196900023D42 /* Frameworks */,
 				7504E9C8267A183D00023D42 /* Products */,
 			);
@@ -786,6 +783,7 @@
 				7504E9E7267A196900023D42 /* PacketTunnelProvider.swift */,
 				7504E9E9267A196900023D42 /* Info.plist */,
 				7504E9EA267A196900023D42 /* DVPNAppNetworkExtension.entitlements */,
+				222D8C72273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension.entitlements */,
 			);
 			path = DVPNAppNetworkExtension;
 			sourceTree = "<group>";
@@ -1633,6 +1631,10 @@
 			dependencies = (
 			);
 			name = SentinelDVPNmacOSNetworkExtension;
+			packageProductDependencies = (
+				75302FD3273EA77200B4F784 /* SwiftyBeaver */,
+				75302FD5273EA77700B4F784 /* WireGuardKit */,
+			);
 			productName = SentinelDVPNmacOSNetworkExtension;
 			productReference = 222D8C6C273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1924,7 +1926,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				222D8C70273E7B5000542407 /* PacketTunnelProvider.swift in Sources */,
+				75302FCC273EA72B00B4F784 /* String+ArrayConversion.swift in Sources */,
+				75302FCF273EA73300B4F784 /* ConfigurationParseError.swift in Sources */,
+				75302FCE273EA73100B4F784 /* NETunnelProviderProtocol+Extension.swift in Sources */,
+				75302FD1273EA73800B4F784 /* Config.swift in Sources */,
+				75302FCD273EA72E00B4F784 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
+				75302FD2273EA73F00B4F784 /* PacketTunnelProvider.swift in Sources */,
+				75302FD0273EA73600B4F784 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2283,15 +2291,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = SentinelDVPNmacOSNetworkExtension/SentinelDVPNmacOSNetworkExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DVPNAppNetworkExtension/SentinelDVPNmacOSNetworkExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SentinelDVPNmacOSNetworkExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SentinelDVPNmacOSNetworkExtension;
+				INFOPLIST_FILE = DVPNAppNetworkExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DVPNAppNetworkExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2300,7 +2308,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extention";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -2313,15 +2321,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = SentinelDVPNmacOSNetworkExtension/SentinelDVPNmacOSNetworkExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DVPNAppNetworkExtension/SentinelDVPNmacOSNetworkExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SentinelDVPNmacOSNetworkExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = SentinelDVPNmacOSNetworkExtension;
+				INFOPLIST_FILE = DVPNAppNetworkExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DVPNAppNetworkExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2330,7 +2338,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extention";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -2871,6 +2879,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */;
 			productName = FlagKit;
+		};
+		75302FD3273EA77200B4F784 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7504EA16267A26C800023D42 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+		75302FD5273EA77700B4F784 /* WireGuardKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7504E9F4267A1AFD00023D42 /* XCRemoteSwiftPackageReference "wireguard-apple" */;
+			productName = WireGuardKit;
 		};
 		755FBF0526AF0E6F00E9D408 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
