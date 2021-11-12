@@ -59,7 +59,7 @@ final class Keychain {
         items[kSecAttrSynchronizable] = false
         items[kSecAttrAccessible] = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
         
-        guard let extensionPath = Bundle.main.builtInPlugInsURL?.appendingPathComponent("SentinelDVPNmacOSNetworkExtension.appex", isDirectory: true).path else {
+        guard let extensionPath = Bundle.main.builtInPlugInsURL?.appendingPathComponent("DVPNAppNetworkExtension_macOS.appex", isDirectory: true).path else {
             log.error("Unable to determine app extension path")
             return nil
         }
