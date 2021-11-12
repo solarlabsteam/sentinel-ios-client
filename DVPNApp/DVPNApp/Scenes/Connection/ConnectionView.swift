@@ -16,10 +16,10 @@ struct ConnectionView: View {
             viewModel:
                     .init(
                         id: "0",
-                        icon: viewModel.countryImage ?? UIImage(),
+                        icon: viewModel.countryImage ?? ImageAsset.Image(),
                         title: viewModel.countryName,
                         subtitle: viewModel.moniker ?? "",
-                        speed: viewModel.speedImage ?? UIImage()
+                        speed: viewModel.speedImage ?? ImageAsset.Image()
                     )
         )
             .padding(.horizontal, 16)
@@ -88,9 +88,11 @@ struct ConnectionView: View {
                 .background(Asset.Colors.accentColor.color.asColor)
             }
             .onAppear { viewModel.viewWillAppear() }
+#if os(iOS)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 viewModel.didEnterForeground()
             }
+#endif
             .edgesIgnoringSafeArea(.bottom)
         }
     }

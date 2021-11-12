@@ -5,8 +5,6 @@
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
 
-import UIKit
-
 enum ConnectionInfoType {
     case download
     case upload
@@ -17,7 +15,7 @@ enum ConnectionInfoType {
 // MARK: - ConnectionInfoType
 
 extension ConnectionInfoType {
-    var icon: UIImage {
+    var icon: ImageAsset.Image {
         switch self {
         case .download:
             return Asset.Icons.downArrow.image

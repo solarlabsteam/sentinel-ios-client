@@ -17,7 +17,7 @@ struct ConnectionInfoView: View {
     }
     
     var icon: some View {
-        Image(uiImage: viewModel.type.icon)
+        viewModel.type.icon.asImage
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 26, height: 26)

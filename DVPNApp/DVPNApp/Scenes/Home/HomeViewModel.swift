@@ -273,6 +273,7 @@ extension HomeViewModel {
 #if os(iOS)
             flagImage = Flag(countryCode: countryCode)?.image(style: .roundedRect)
 #elseif os(macOS)
+            #warning("replace all the original images on macOS with rounded")
             flagImage = Flag(countryCode: countryCode)?.originalImage
 #endif
             let model = NodeSelectionRowViewModel(

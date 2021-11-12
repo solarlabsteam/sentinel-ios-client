@@ -19,7 +19,7 @@ struct NodeInfoView: View {
     // MARK: - Common view
     
     var icon: some View {
-        Image(uiImage: viewModel.type.icon)
+        viewModel.type.icon.asImage
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 26, height: 26)
@@ -44,7 +44,7 @@ struct NodeInfoView: View {
         var asset: ImageAsset
         
         var body: some View {
-            Image(uiImage: asset.image)
+            asset.image.asImage
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 26, height: 26)

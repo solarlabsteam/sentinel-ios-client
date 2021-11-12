@@ -14,7 +14,7 @@ struct CountryTileView: View {
     
     var countryViewFlag: some View {
         HStack(alignment: .center) {
-            Image(uiImage: viewModel.icon)
+            viewModel.icon.asImage
                 .resizable()
                 .frame(width: 50, height: 41)
             
@@ -28,7 +28,7 @@ struct CountryTileView: View {
             
             Spacer()
             
-            Image(uiImage: viewModel.speedImage)
+            viewModel.speedImage.asImage
                 .frame(width: 20, height: viewHeight)
         }
     }
@@ -40,7 +40,7 @@ struct CountryTileView: View {
             
             Spacer()
             
-            Image(uiImage: Asset.Connection.Wifi.scales1.image)
+            Asset.Connection.Wifi.scales1.image.asImage
                 .frame(width: 20, height: viewHeight)
         }
     }
@@ -56,7 +56,7 @@ struct CountryTileView: View {
 }
 
 // swiftlint:disable force_unwrapping
-
+#if os(iOS)
 struct CountryTileView_Previews: PreviewProvider {
     static var previews: some View {
         CountryTileView(
@@ -72,4 +72,20 @@ struct CountryTileView_Previews: PreviewProvider {
     }
 }
 
-// swiftlint:enable force_unwrapping
+#elseif os(macOS)
+struct CountryTileView_Previews: PreviewProvider {
+    static var previews: some View {
+        CountryTileView(
+            viewModel:
+                    .init(
+                        id: "id",
+                        icon: Flag(countryCode: "EE")!.originalImage,
+                        title: "Test",
+                        subtitle: "8.8.8.8",
+                        speed: Asset.Connection.Wifi.scales3.image
+                    )
+        )
+    }
+}
+
+#endif

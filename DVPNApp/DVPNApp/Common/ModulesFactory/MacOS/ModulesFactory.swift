@@ -53,6 +53,10 @@ extension ModulesFactory {
         }
         HomeCoordinator(context: context, window: window).start()
     }
+    
+    func makeConnectionModule(for window: NSWindow) {
+        ConnectionCoordinator(context: context, window: window).start()
+    }
 }
 
 /// Scenes previews
@@ -90,6 +94,17 @@ extension ModulesFactory {
         let model = HomeModel(context: context)
         let viewModel = HomeViewModel(model: model, router: coordinator)
         let view = HomeView(viewModel: viewModel)
+
+        return view
+    }
+    
+    func getConnectionScene() -> ConnectionView {
+        let coordinator = ConnectionCoordinator(context: context, window: NSWindow())
+        let viewModel = ConnectionViewModel(
+            model: ConnectionModel(context: context),
+            router: coordinator.asRouter()
+        )
+        let view = ConnectionView(viewModel: viewModel)
 
         return view
     }

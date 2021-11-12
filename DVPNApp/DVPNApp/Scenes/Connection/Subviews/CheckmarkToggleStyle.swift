@@ -19,11 +19,22 @@ struct ConnectionToggleStyle: ToggleStyle {
                     VStack {
                         if !configuration.isOn {
                             if isLoading {
-                                ActivityIndicator(isAnimating: $isLoading, style: .medium)
+#if os(iOS)
+                                ActivityIndicator(
+                                    isAnimating: $isLoadingn,
+                                    style: .medium
+                                )
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
+#elseif os(macOS)
+                                ActivityIndicator(
+                                    isAnimating: $isLoading,
+                                    controlSize: .small
+                                )
+#endif
+                                   
                             } else {
-                                Image(uiImage: Asset.Connection.Toggle.Arrow.up.image)
+                                Asset.Connection.Toggle.Arrow.up.image.asImage
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
                             }
@@ -48,11 +59,21 @@ struct ConnectionToggleStyle: ToggleStyle {
 
                         if configuration.isOn {
                             if isLoading {
-                                ActivityIndicator(isAnimating: $isLoading, style: .medium)
+#if os(iOS)
+                                ActivityIndicator(
+                                    isAnimating: $isLoadingn,
+                                    style: .medium
+                                )
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
+#elseif os(macOS)
+                                ActivityIndicator(
+                                    isAnimating: $isLoading,
+                                    controlSize: .small
+                                )
+#endif
                             } else {
-                                Image(uiImage: Asset.Connection.Toggle.Arrow.down.image)
+                                Asset.Connection.Toggle.Arrow.down.image.asImage
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
                             }
