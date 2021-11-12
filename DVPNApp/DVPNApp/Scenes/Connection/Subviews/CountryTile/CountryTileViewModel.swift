@@ -5,23 +5,22 @@
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
 
-import UIKit
 import SentinelWallet
 import FlagKit
 
 struct CountryTileViewModel: Hashable, Identifiable {
     let id: String
-    let icon: UIImage
+    let icon: ImageAsset.Image
     let title: String?
     let subtitle: String
-    let speedImage: UIImage
+    let speedImage: ImageAsset.Image
     
     init(
         id: String,
-        icon: UIImage,
+        icon: ImageAsset.Image,
         title: String?,
         subtitle: String,
-        speed: UIImage
+        speed: ImageAsset.Image
     ) {
         self.id = id
         self.icon = icon
@@ -30,7 +29,7 @@ struct CountryTileViewModel: Hashable, Identifiable {
         self.speedImage = speed
     }
 
-    init(from node: Node, icon: UIImage) {
+    init(from node: Node, icon: ImageAsset.Image) {
         self.init(
             id: node.info.address,
             icon: icon,

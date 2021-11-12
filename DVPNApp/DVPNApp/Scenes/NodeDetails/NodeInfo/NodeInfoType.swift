@@ -5,8 +5,6 @@
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
 
-import UIKit
-
 enum NodeInfoType {
     case address
     case peers
@@ -21,7 +19,7 @@ enum NodeInfoType {
 }
 
 extension NodeInfoType {
-    var icon: UIImage {
+    var icon: ImageAsset.Image {
         switch self {
         case .address:
             return Asset.Node.wiFi.image
@@ -42,7 +40,7 @@ extension NodeInfoType {
         case .city:
             return Asset.Node.city.image
         case .features:
-            return UIImage()
+            return ImageAsset.Image()
         }
     }
     

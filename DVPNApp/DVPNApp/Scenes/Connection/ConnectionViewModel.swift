@@ -23,10 +23,10 @@ final class ConnectionViewModel: ObservableObject {
     }
     
     // Location Selector
-    @Published private(set) var countryImage: UIImage?
+    @Published private(set) var countryImage: ImageAsset.Image?
     @Published private(set) var countryName: String?
     @Published private(set) var moniker: String?
-    @Published private(set) var speedImage: UIImage?
+    @Published private(set) var speedImage: ImageAsset.Image?
     
     // Connection Status
     @Published private(set) var isConnected: Bool = false
@@ -160,10 +160,18 @@ extension ConnectionViewModel {
     private func updateLocation(countryName: String, moniker: String) {
         self.countryName = countryName
         self.moniker = moniker
+#if os(iOS)
         if let countryCode = CountryFormatter.code(for: countryName),
            let image = Flag(countryCode: countryCode)?.image(style: .roundedRect) {
             self.countryImage = image
         }
+#elseif os(macOS)
+        if let countryCode = CountryFormatter.code(for: countryName),
+           let image = Flag(countryCode: countryCode)?.originalImage {
+            self.countryImage = image
+        }
+#endif
+        
     }
     
     private func updateBandwidth(bandwidth: Bandwidth) {
