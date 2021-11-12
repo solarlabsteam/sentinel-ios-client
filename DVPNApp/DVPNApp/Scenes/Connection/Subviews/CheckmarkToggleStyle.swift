@@ -29,7 +29,7 @@ struct ConnectionToggleStyle: ToggleStyle {
 #elseif os(macOS)
                                 ActivityIndicator(
                                     isAnimating: $isLoading,
-                                    controlSize: .large
+                                    controlSize: .small
                                 )
 #endif
                                    
@@ -69,7 +69,7 @@ struct ConnectionToggleStyle: ToggleStyle {
 #elseif os(macOS)
                                 ActivityIndicator(
                                     isAnimating: $isLoading,
-                                    controlSize: .large
+                                    controlSize: .small
                                 )
 #endif
                             } else {
