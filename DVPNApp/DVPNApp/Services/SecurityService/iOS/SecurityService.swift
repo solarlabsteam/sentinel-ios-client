@@ -31,7 +31,7 @@ final public class SecurityService: SecurityServiceType {
         let mnemonicString = mnemonics.joined(separator: " ")
         return keychain.set(
             mnemonicString,
-            forKey: account.sha1()
+            forKey: account.sha1(),
             withAccessibility: .afterFirstUnlockThisDeviceOnly
         )
     }

@@ -21,7 +21,7 @@ struct ConnectionToggleStyle: ToggleStyle {
                             if isLoading {
 #if os(iOS)
                                 ActivityIndicator(
-                                    isAnimating: $isLoadingn,
+                                    isAnimating: $isLoading,
                                     style: .medium
                                 )
                                     .frame(width: 15, height: 15)
@@ -61,7 +61,7 @@ struct ConnectionToggleStyle: ToggleStyle {
                             if isLoading {
 #if os(iOS)
                                 ActivityIndicator(
-                                    isAnimating: $isLoadingn,
+                                    isAnimating: $isLoading,
                                     style: .medium
                                 )
                                     .frame(width: 15, height: 15)

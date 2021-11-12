@@ -5,6 +5,10 @@
 //  Created by Victoria Kostyleva on 18.10.2021.
 //
 
+#if os(iOS)
+import UIKit
+#endif
+
 import Foundation
 import FlagKit
 import SentinelWallet
