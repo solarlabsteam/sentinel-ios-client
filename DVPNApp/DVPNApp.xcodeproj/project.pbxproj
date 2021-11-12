@@ -196,6 +196,7 @@
 		75302FD2273EA73F00B4F784 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9E7267A196900023D42 /* PacketTunnelProvider.swift */; };
 		75302FD4273EA77300B4F784 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 75302FD3273EA77200B4F784 /* SwiftyBeaver */; };
 		75302FD6273EA77700B4F784 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 75302FD5273EA77700B4F784 /* WireGuardKit */; };
+		75302FD9273EB3B000B4F784 /* TunnelSavingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA8E267B7BB200023D42 /* TunnelSavingError.swift */; };
 		75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE426FC7EC100CFEBCD /* Strings.swift */; };
 		75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE526FC7EC100CFEBCD /* Assets.swift */; };
 		75359D3126FCA41600CFEBCD /* UIColor+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359D3026FCA41600CFEBCD /* UIColor+SwiftUI.swift */; };
@@ -384,13 +385,6 @@
 			remoteGlobalIDString = 222D8C6B273E7B5000542407;
 			remoteInfo = SentinelDVPNmacOSNetworkExtension;
 		};
-		22DD3CE62731908A00E1925C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 22DD3CE227318FA900E1925C;
-			remoteInfo = WireGuardGoBridgeMacOS;
-		};
 		7504E9EB267A196900023D42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
@@ -404,6 +398,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7504E9F7267A1B2100023D42;
 			remoteInfo = WireGuardGoBridgeiOS;
+		};
+		75302FD7273EB38A00B4F784 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22DD3CE227318FA900E1925C;
+			remoteInfo = WireGuardGoBridgeMacOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1629,6 +1630,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				75302FD8273EB38A00B4F784 /* PBXTargetDependency */,
 			);
 			name = SentinelDVPNmacOSNetworkExtension;
 			packageProductDependencies = (
@@ -1683,7 +1685,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				22DD3CE72731908A00E1925C /* PBXTargetDependency */,
 				7504E9FC267A1B5E00023D42 /* PBXTargetDependency */,
 			);
 			name = DVPNAppNetworkExtension;
@@ -1780,9 +1781,9 @@
 				7504E9C6267A183D00023D42 /* DVPNApp */,
 				751161FD273A8837005F9133 /* SentinelDVPNmacOS */,
 				7504E9E1267A196900023D42 /* DVPNAppNetworkExtension */,
+				222D8C6B273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension */,
 				7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */,
 				22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */,
-				222D8C6B273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1926,12 +1927,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75302FD2273EA73F00B4F784 /* PacketTunnelProvider.swift in Sources */,
 				75302FCC273EA72B00B4F784 /* String+ArrayConversion.swift in Sources */,
 				75302FCF273EA73300B4F784 /* ConfigurationParseError.swift in Sources */,
+				75302FD9273EB3B000B4F784 /* TunnelSavingError.swift in Sources */,
 				75302FCE273EA73100B4F784 /* NETunnelProviderProtocol+Extension.swift in Sources */,
 				75302FD1273EA73800B4F784 /* Config.swift in Sources */,
 				75302FCD273EA72E00B4F784 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
-				75302FD2273EA73F00B4F784 /* PacketTunnelProvider.swift in Sources */,
 				75302FD0273EA73600B4F784 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2250,11 +2252,6 @@
 			target = 222D8C6B273E7B5000542407 /* SentinelDVPNmacOSNetworkExtension */;
 			targetProxy = 222D8C73273E7B5000542407 /* PBXContainerItemProxy */;
 		};
-		22DD3CE72731908A00E1925C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */;
-			targetProxy = 22DD3CE62731908A00E1925C /* PBXContainerItemProxy */;
-		};
 		7504E9EC267A196900023D42 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7504E9E1267A196900023D42 /* DVPNAppNetworkExtension */;
@@ -2264,6 +2261,11 @@
 			isa = PBXTargetDependency;
 			target = 7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */;
 			targetProxy = 7504E9FB267A1B5E00023D42 /* PBXContainerItemProxy */;
+		};
+		75302FD8273EB38A00B4F784 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */;
+			targetProxy = 75302FD7273EB38A00B4F784 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
