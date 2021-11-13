@@ -10,6 +10,7 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var window: NSWindow?
+    private var navigation: NavigationHelper?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         Config.setup()
@@ -22,8 +23,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
         window.center()
         window.title = "Sentinel DVPN"
-        ModulesFactory.shared.detectStartModule(for: window)
         window.makeKeyAndOrderFront(nil)
+        
+        navigation = NavigationHelper(window: window)
+        if let navigation = navigation {
+            ModulesFactory.shared.detectStartModule(for: navigation)
+        }
+        
         self.window = window
     }
 

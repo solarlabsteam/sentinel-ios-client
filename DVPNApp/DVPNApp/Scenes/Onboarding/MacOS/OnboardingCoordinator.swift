@@ -10,13 +10,13 @@ import Cocoa
 import SwiftUI
 
 final class OnboardingCoordinator: CoordinatorType {
-    private weak var window: NSWindow?
+    private weak var navigation: NavigationHelper?
 
     private let context: OnboardingModel.Context
 
-    init(context: OnboardingModel.Context, window: NSWindow) {
+    init(context: OnboardingModel.Context, navigation: NavigationHelper) {
         self.context = context
-        self.window = window
+        self.navigation = navigation
     }
 
     func start() {
@@ -24,7 +24,7 @@ final class OnboardingCoordinator: CoordinatorType {
         let viewModel = OnboardingViewModel(model: model, router: asRouter())
         let view = OnboardingView(viewModel: viewModel)
         let controller = NSHostingView(rootView: view)
-        window?.contentView = controller
+        navigation?.switchSubView(to: controller)
     }
 }
 
@@ -33,8 +33,8 @@ extension OnboardingCoordinator: RouterType {
         switch event {
         case let .createAccount(mode):
 #warning("Find a macOS navigation replacement")
-            if let window = window {
-                ModulesFactory.shared.makeAccountCreationModule(mode: mode, window: window)
+            if let navigation = navigation {
+                ModulesFactory.shared.makeAccountCreationModule(mode: mode, navigation: navigation)
             }
         }
     }

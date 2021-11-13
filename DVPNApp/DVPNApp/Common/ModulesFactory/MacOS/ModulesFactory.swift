@@ -22,7 +22,7 @@ final class ModulesFactory {
 }
 
 extension ModulesFactory {
-    func detectStartModule(for window: NSWindow) {
+    func detectStartModule(for navigation: NavigationHelper) {
         context.nodesService.loadAllNodes { [weak self] result in
             if case let .success(nodes) = result {
                 self?.context.nodesService.loadNodesInfo(for: nodes)
@@ -30,21 +30,21 @@ extension ModulesFactory {
         }
 
         guard context.generalInfoStorage.didPassOnboarding() else {
-            makeOnboardingModule(for: window)
+            makeOnboardingModule(for: navigation)
             return
         }
 
         context.preloadService.loadData { [weak self] in
-            self?.makeHomeModule(for: window)
+//            self?.makeHomeModule(for: window)
         }
     }
 
-    func makeOnboardingModule(for window: NSWindow) {
-        OnboardingCoordinator(context: context, window: window).start()
+    func makeOnboardingModule(for navigation: NavigationHelper) {
+        OnboardingCoordinator(context: context, navigation: navigation).start()
     }
     
-    func makeAccountCreationModule(mode: CreationMode, window: NSWindow) {
-        AccountCreationCoordinator(context: context, mode: mode, window: window).start()
+    func makeAccountCreationModule(mode: CreationMode, navigation: NavigationHelper) {
+        AccountCreationCoordinator(context: context, mode: mode, navigation: navigation).start()
     }
     
     func makeHomeModule(for window: NSWindow) {
@@ -64,7 +64,7 @@ extension ModulesFactory {
     func getOnboardingScene() -> OnboardingView {
         let coordinator = OnboardingCoordinator(
             context: context,
-            window: NSWindow()
+            navigation: NavigationHelper(window: NSWindow())
         ).asRouter()
         let model = OnboardingModel(context: context)
         let viewModel = OnboardingViewModel(model: model, router: coordinator)
@@ -77,7 +77,7 @@ extension ModulesFactory {
         let coordinator = AccountCreationCoordinator(
             context: context,
             mode: mode,
-            window: NSWindow()
+            navigation: NavigationHelper(window: NSWindow())
         ).asRouter()
         let model = AccountCreationModel(context: context)
         let viewModel = AccountCreationViewModel(model: model, mode: mode, router: coordinator)
