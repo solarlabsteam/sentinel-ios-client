@@ -5,12 +5,16 @@
 //  Created by Lika Vorobyeva on 23.08.2021.
 //
 
+#if os(iOS)
+import UIKit
+#endif
+
 import Foundation
 import FlagKit
 import SentinelWallet
 import Combine
-import UIKit.UIImage
 import EFQRCode
+import AppKit
 
 final class AccountInfoViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
@@ -21,12 +25,12 @@ final class AccountInfoViewModel: ObservableObject {
         case info(String)
     }
     
-    @Published private(set) var qrCode: UIImage
+    @Published private(set) var qrCode: ImageAsset.Image
     @Published private(set) var address: String
     @Published private(set) var balance: String?
     @Published private(set) var currentPrice: String?
     @Published private(set) var lastPriceUpdateInfo: String?
-    @Published private(set) var priceArrowImage: UIImage?
+    @Published private(set) var priceArrowImage: ImageAsset.Image = .init()
     
     private let model: AccountInfoModel
     private var cancellables = Set<AnyCancellable>()
@@ -36,12 +40,24 @@ final class AccountInfoViewModel: ObservableObject {
         self.router = router
         
         // swiftlint:disable force_unwrapping
+        
+#if os(iOS)
         self.qrCode = UIImage(
             cgImage: EFQRCode.generate(
                 for: model.address,
                    backgroundColor: CGColor.init(gray: 0, alpha: 0)
             )!
         )
+#elseif os(macOS)
+        
+        let code = EFQRCode.generate(
+            for: model.address,
+               backgroundColor: CGColor.init(gray: 0, alpha: 0)
+        )!
+        
+        self.qrCode = NSImage(cgImage: code, size: .init(width: 150, height: 150))
+#endif
+        
         // swiftlint:enable force_unwrapping
         
         self.address = model.address
@@ -86,16 +102,27 @@ extension AccountInfoViewModel {
 #if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
 #endif
+        
+#if os(iOS)
         UIPasteboard.general.string = model.address
+#elseif os(macOS)
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(model.address, forType: .string)
+ #endif
     }
     
     func didTapShare() {
 #if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
 #endif
+        
+#if os(iOS)
         let activityVC = UIActivityViewController(activityItems: [address], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?
             .present(activityVC, animated: true, completion: nil)
+#endif
+#warning("Make share button work in macOS")
     }
 }
 
@@ -119,6 +146,7 @@ extension AccountInfoViewModel {
         currentPrice = "\(denom) \(roundedPriceString)"
         lastPriceUpdateInfo = "\(roundedPercentString)% (24h)"
         
-        priceArrowImage = roundedPercent >= 0 ? Asset.Icons.upArrow.image : Asset.Icons.downArrow.image
+        priceArrowImage = roundedPercent >= 0 ? Asset.Icons.upArrow.image
+            : Asset.Icons.downArrow.image
     }
 }
