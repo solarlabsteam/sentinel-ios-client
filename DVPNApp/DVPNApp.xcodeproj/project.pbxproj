@@ -39,6 +39,8 @@
 		22A8D6AC273EC6FC00E78784 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		22A8D6AE273EC73000E78784 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 22A8D6AD273EC73000E78784 /* SwiftyBeaver */; };
 		22A8D6B0273EC73300E78784 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A8D6AF273EC73300E78784 /* WireGuardKit */; };
+		22BAC37E27455FAA00DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37D27455FAA00DC0BCE /* SnapKit */; };
+		22BAC38027455FB800DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37F27455FB800DC0BCE /* SnapKit */; };
 		22D3437F273EC78B00E72A7B /* TunnelSavingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA8E267B7BB200023D42 /* TunnelSavingError.swift */; };
 		7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CA267A183D00023D42 /* AppDelegate.swift */; };
 		7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CC267A183D00023D42 /* SceneDelegate.swift */; };
@@ -664,6 +666,7 @@
 				93D29CE0272127BF00A35BCA /* RealmSwift in Frameworks */,
 				7504E9F3267A1AA700023D42 /* NetworkExtension.framework in Frameworks */,
 				7504EA18267A26C800023D42 /* SwiftyBeaver in Frameworks */,
+				22BAC37E27455FAA00DC0BCE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +693,7 @@
 				75116281273AB074005F9133 /* FlagKit in Frameworks */,
 				7511627D273AB06B005F9133 /* SwiftKeychainWrapper in Frameworks */,
 				7511622D273AAEDA005F9133 /* SentinelWallet in Frameworks */,
+				22BAC38027455FB800DC0BCE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1681,6 +1685,7 @@
 				C680E89B270DE0E90042453D /* SentinelWallet */,
 				93D29CDD272127BF00A35BCA /* Realm */,
 				93D29CDF272127BF00A35BCA /* RealmSwift */,
+				22BAC37D27455FAA00DC0BCE /* SnapKit */,
 			);
 			productName = DVPNApp;
 			productReference = 7504E9C7267A183D00023D42 /* DVPNApp.app */;
@@ -1732,6 +1737,7 @@
 				7511627C273AB06B005F9133 /* SwiftKeychainWrapper */,
 				7511627E273AB070005F9133 /* EFQRCode */,
 				75116280273AB074005F9133 /* FlagKit */,
+				22BAC37F27455FB800DC0BCE /* SnapKit */,
 			);
 			productName = SentinelDVPNmacOS;
 			productReference = 751161FE273A8837005F9133 /* SentinelDVPNmacOS.app */;
@@ -1784,6 +1790,7 @@
 				C64ED33226C5B26800222CA4 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */,
 				93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -2769,6 +2776,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		7504E9F4267A1AFD00023D42 /* XCRemoteSwiftPackageReference "wireguard-apple" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://git.zx2c4.com/wireguard-apple";
@@ -2845,6 +2860,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7504E9F4267A1AFD00023D42 /* XCRemoteSwiftPackageReference "wireguard-apple" */;
 			productName = WireGuardKit;
+		};
+		22BAC37D27455FAA00DC0BCE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		22BAC37F27455FB800DC0BCE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		7504E9F5267A1AFD00023D42 /* WireGuardKit */ = {
 			isa = XCSwiftPackageProductDependency;

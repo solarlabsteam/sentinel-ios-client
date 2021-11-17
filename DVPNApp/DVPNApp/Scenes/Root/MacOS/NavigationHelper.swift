@@ -7,6 +7,7 @@
 
 import Cocoa
 import SwiftUI
+import SnapKit
 
 protocol ListNavigationControllerType: AnyObject {
     associatedtype T: NSView
@@ -66,5 +67,10 @@ final class NavigationHelper: ListNavigationControllerType {
         
         window.contentView?.addSubview(oldContent)
         window.contentView?.addSubview(barHostingView)
+        
+        oldContent.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.leading.top.equalToSuperview()
+        }
     }
 }
