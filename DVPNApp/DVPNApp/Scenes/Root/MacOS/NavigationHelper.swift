@@ -25,6 +25,10 @@ final class NavigationHelper: ListNavigationControllerType {
         self.window = window
     }
     
+    deinit {
+        log.debug("Lost reference")
+    }
+    
     func switchSubView<T>(to view: T) where T: NSView {
         items.append(view)
         
@@ -51,9 +55,16 @@ final class NavigationHelper: ListNavigationControllerType {
             self?.pop()
         })
         
+        let containerView = NSView()
+        guard let oldContent = window.contentView else {
+            fatalError("Failed to get window's contentView")
+        }
+        window.contentView = containerView
+        
         let barHostingView = NSHostingView(rootView: barView)
         barHostingView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: 100)
         
-        window.contentView = barHostingView
+        window.contentView?.addSubview(oldContent)
+        window.contentView?.addSubview(barHostingView)
     }
 }
