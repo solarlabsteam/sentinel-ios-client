@@ -100,7 +100,8 @@ extension ConnectionModel {
             
             switch response {
             case .failure(let error):
-                self.show(error: error)
+                log.error(error)
+                self.show(error: ConnectionModelError.nodeIsOffline)
             case .success(let sentinelNode):
                 guard let node = sentinelNode.node else {
                     log.error("Loaded sentinelNode do not contain node")
@@ -243,7 +244,8 @@ extension ConnectionModel {
                 ) { [weak self] result in
                     switch result {
                     case .failure(let error):
-                        self?.show(error: error)
+                        log.error(error)
+                        self?.show(error: ConnectionModelError.nodeIsOffline)
                     case .success(let node):
                         self?.createNewSession(subscription: subscription, nodeURL: node.remoteURL)
                     }
