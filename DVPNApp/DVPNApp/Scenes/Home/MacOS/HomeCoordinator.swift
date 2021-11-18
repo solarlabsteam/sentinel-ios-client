@@ -64,7 +64,7 @@ extension HomeCoordinator: RouterType {
             if let url = UserConstants.solarLabsURL {
                 NSWorkspace.shared.open(url)
             }
-        case let .title(title):
+        case .title:
             break
         case let .dns(delegate, server):
             ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)

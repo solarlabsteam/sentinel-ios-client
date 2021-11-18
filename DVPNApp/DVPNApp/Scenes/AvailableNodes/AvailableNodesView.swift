@@ -56,10 +56,9 @@ struct AvailableNodesView: View {
                                     viewModel.setLoadingNodes()
                                 }
                             }
-                            .listRowBackground(Color.clear)
                     }
                 }
-                .listStyle(PlainListStyle())
+                .removeBackground()
             }
 #if os(iOS)
             ActivityIndicator(

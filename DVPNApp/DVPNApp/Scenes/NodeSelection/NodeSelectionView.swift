@@ -42,10 +42,9 @@ struct NodeSelectionView: View {
                                 viewModel.openDetails(for: vm.id)
                             }
                         )
-                        .listRowBackground(Color.clear)
                     }
                 }
-                .listStyle(PlainListStyle())
+                .removeBackground()
             }
 
             #if os(iOS)
@@ -104,4 +103,3 @@ struct NodeSelectionView: View {
     }
 }
 
-// TODO: @Lika add preview

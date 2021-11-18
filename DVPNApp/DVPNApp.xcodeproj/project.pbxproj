@@ -260,6 +260,9 @@
 		757F7FA32746FBA5005E031E /* DNSSettingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */; };
 		757F7FA42746FBA5005E031E /* DNSSettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */; };
 		757F7FA72746FC28005E031E /* DNSSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7FA52746FC06005E031E /* DNSSettingsCoordinator.swift */; };
+		757F7FAA27470351005E031E /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 757F7FA927470351005E031E /* Introspect */; };
+		757F7FAC27470360005E031E /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 757F7FAB27470360005E031E /* Introspect */; };
+		757F7FAF274703F6005E031E /* List+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7FAD274703EC005E031E /* List+Ext.swift */; };
 		758B261226AFEC4A00BD711E /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B261126AFEC4A00BD711E /* RouterType.swift */; };
 		758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */; };
 		758DD9CE270A1269000CD59B /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */; };
@@ -560,6 +563,7 @@
 		757F7F982746D4F4005E031E /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		757F7F9B2746F8E9005E031E /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		757F7FA52746FC06005E031E /* DNSSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsCoordinator.swift; sourceTree = "<group>"; };
+		757F7FAD274703EC005E031E /* List+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Ext.swift"; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
@@ -685,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75D6561D26C358F8000056B4 /* FlagKit in Frameworks */,
+				757F7FAA27470351005E031E /* Introspect in Frameworks */,
 				C64ED33426C5B26800222CA4 /* SwiftMessages in Frameworks */,
 				7504E9F6267A1AFD00023D42 /* WireGuardKit in Frameworks */,
 				75D6561626C02897000056B4 /* EFQRCode in Frameworks */,
@@ -716,6 +721,7 @@
 				7511620F273A8852005F9133 /* NetworkExtension.framework in Frameworks */,
 				75116224273AA924005F9133 /* Realm in Frameworks */,
 				75116213273A89BB005F9133 /* SwiftyBeaver in Frameworks */,
+				757F7FAC27470360005E031E /* Introspect in Frameworks */,
 				7511627F273AB070005F9133 /* EFQRCode in Frameworks */,
 				7511627B273AB066005F9133 /* WireGuardKit in Frameworks */,
 				75116281273AB074005F9133 /* FlagKit in Frameworks */,
@@ -1406,6 +1412,7 @@
 			children = (
 				755F5F13270DE77800D416ED /* Font+Ext.swift */,
 				75E5BE0126DE2FA400C345B9 /* View+Ext.swift */,
+				757F7FAD274703EC005E031E /* List+Ext.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1783,6 +1790,7 @@
 				93D29CDD272127BF00A35BCA /* Realm */,
 				93D29CDF272127BF00A35BCA /* RealmSwift */,
 				22BAC37D27455FAA00DC0BCE /* SnapKit */,
+				757F7FA927470351005E031E /* Introspect */,
 			);
 			productName = DVPNApp;
 			productReference = 7504E9C7267A183D00023D42 /* DVPNApp.app */;
@@ -1835,6 +1843,7 @@
 				7511627E273AB070005F9133 /* EFQRCode */,
 				75116280273AB074005F9133 /* FlagKit */,
 				22BAC37F27455FB800DC0BCE /* SnapKit */,
+				757F7FAB27470360005E031E /* Introspect */,
 			);
 			productName = SentinelDVPNmacOS;
 			productReference = 751161FE273A8837005F9133 /* SentinelDVPNmacOS.app */;
@@ -1888,6 +1897,7 @@
 				C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */,
 				93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				757F7FA827470351005E031E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -2241,6 +2251,7 @@
 				222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */,
 				7511621C273A98B0005F9133 /* Fonts.swift in Sources */,
 				75116259273AB011005F9133 /* RealmStorage.swift in Sources */,
+				757F7FAF274703F6005E031E /* List+Ext.swift in Sources */,
 				93C8AA81273D7F0B00B6BD72 /* ActivityIndicator.swift in Sources */,
 				92074C88273D51A500CEA689 /* ExtraRowView.swift in Sources */,
 				7511625D273AB026005F9133 /* PreloadServiceType.swift in Sources */,
@@ -2928,6 +2939,14 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		757F7FA827470351005E031E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 		75D6561426C02896000056B4 /* XCRemoteSwiftPackageReference "EFQRCode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/EFPrefix/EFQRCode.git";
@@ -3050,6 +3069,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 755FBF0426AF0E6E00E9D408 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
+		};
+		757F7FA927470351005E031E /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 757F7FA827470351005E031E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+		757F7FAB27470360005E031E /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 757F7FA827470351005E031E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 		75D6561526C02897000056B4 /* EFQRCode */ = {
 			isa = XCSwiftPackageProductDependency;
