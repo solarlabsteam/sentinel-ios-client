@@ -25,6 +25,7 @@ enum ConnectionModelEvent {
     
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
+    case resubscribe(to: DVPNNodeInfo)
 }
 
 final class ConnectionModel {
@@ -328,6 +329,13 @@ extension ConnectionModel {
             switch result {
             case .failure(let error):
                 self?.set(sessionStart: nil)
+
+                if error.asAFError?.responseCode == 400, let selectedNode = self?.selectedNode {
+                    self?.eventSubject.send(.resubscribe(to: selectedNode))
+                    self?.stopLoading()
+                    return
+                }
+
                 self?.show(error: error)
 
             case .success(let id):

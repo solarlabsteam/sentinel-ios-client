@@ -124,6 +124,12 @@ internal enum L10n {
       /// Fetching the node info
       internal static let fetching = L10n.tr("Localizable", "Connection.LocationSelector.Fetching")
     }
+    internal enum Resubscribe {
+      /// Data update is pending, but it seems you used all data. Do you want to resubscribe?
+      internal static let subtitle = L10n.tr("Localizable", "Connection.Resubscribe.Subtitle")
+      /// All data used
+      internal static let title = L10n.tr("Localizable", "Connection.Resubscribe.Title")
+    }
     internal enum Status {
       internal enum Connection {
         /// Checking balance

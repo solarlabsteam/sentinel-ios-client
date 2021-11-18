@@ -42,6 +42,7 @@ final class ConnectionViewModel: ObservableObject {
         case openPlans(for: DVPNNodeInfo, delegate: PlansViewModelDelegate?)
         case accountInfo
         case dismiss(isEnabled: Bool)
+        case resubscribe(completion: (Bool) -> Void)
     }
     
     private let model: ConnectionModel
@@ -82,6 +83,16 @@ final class ConnectionViewModel: ObservableObject {
                     router.play(event: .openPlans(for: node, delegate: self))
                 case let .warning(error):
                     router.play(event: .warning(error))
+                case let .resubscribe(node):
+                    router.play(
+                        event: .resubscribe { [weak self] result in
+                            guard let self = self, result else {
+                                return
+                            }
+                            
+                            router.play(event: .openPlans(for: node, delegate: self))
+                        }
+                    )
                 }
             }
             .store(in: &cancellables)
