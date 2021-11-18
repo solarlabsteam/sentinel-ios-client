@@ -176,6 +176,8 @@ internal enum L10n {
     /// Selected node is temporary unavailable. Please, try later or select another node
     internal static let unavailableNode = L10n.tr("Localizable", "Error.UnavailableNode")
     internal enum GRPCError {
+      /// Request was cancelled.
+      internal static let rpcCancelled = L10n.tr("Localizable", "Error.GRPCError.RPCCancelled")
       /// Request timed-out. No internet connection.
       internal static let rpcTimedOut = L10n.tr("Localizable", "Error.GRPCError.RPCTimedOut")
     }
