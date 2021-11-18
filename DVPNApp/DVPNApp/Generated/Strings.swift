@@ -73,6 +73,13 @@ internal enum L10n {
     }
   }
 
+  internal enum Action {
+    /// Cancel
+    internal static let cancel = L10n.tr("Localizable", "Action.Cancel")
+    /// OK
+    internal static let ok = L10n.tr("Localizable", "Action.OK")
+  }
+
   internal enum AvailableNodes {
     /// Nodes in %@
     internal static func title(_ p1: Any) -> String {
@@ -92,6 +99,14 @@ internal enum L10n {
     internal enum Dvpn {
       /// DVPN
       internal static let title = L10n.tr("Localizable", "Common.DVPN.Title")
+    }
+    internal enum Error {
+      /// Error
+      internal static let title = L10n.tr("Localizable", "Common.Error.title")
+    }
+    internal enum Warning {
+      /// Warning
+      internal static let title = L10n.tr("Localizable", "Common.Warning.title")
     }
   }
 

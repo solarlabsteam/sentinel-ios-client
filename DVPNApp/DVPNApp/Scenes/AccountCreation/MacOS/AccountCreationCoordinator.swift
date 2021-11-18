@@ -34,8 +34,7 @@ extension AccountCreationCoordinator: RouterType {
     func play(event: AccountCreationViewModel.Route) {
         switch event {
         case .error(let error):
-#warning("handle error properly on macOS")
-            log.error(error)
+            showErrorAlert(message: error.localizedDescription)
         case .privacy:
             if let url = UserConstants.privacyURL {
                 NSWorkspace.shared.open(url)
