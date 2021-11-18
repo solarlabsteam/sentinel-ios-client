@@ -9,22 +9,20 @@ import SwiftUI
 import SentinelWallet
 
 final class ConnectionCoordinator: CoordinatorType {
-    private weak var window: NSWindow?
-
+    private weak var navigation: NavigationHelper?
     private let context: ConnectionModel.Context
 
-    init(context: ConnectionModel.Context, window: NSWindow) {
+    init(context: ConnectionModel.Context, navigation: NavigationHelper) {
         self.context = context
-        self.window = window
+        self.navigation = navigation
     }
-
 
     func start() {
         let homeModel = ConnectionModel(context: context)
         let homeViewModel = ConnectionViewModel(model: homeModel, router: asRouter())
         let homeView = ConnectionView(viewModel: homeViewModel)
         let controller = NSHostingView(rootView: homeView)
-        window?.contentView = controller
+        navigation?.switchSubview(to: controller)
     }
 }
 

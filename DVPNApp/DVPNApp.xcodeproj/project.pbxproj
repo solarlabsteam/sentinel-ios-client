@@ -39,6 +39,8 @@
 		22A8D6AC273EC6FC00E78784 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		22A8D6AE273EC73000E78784 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 22A8D6AD273EC73000E78784 /* SwiftyBeaver */; };
 		22A8D6B0273EC73300E78784 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A8D6AF273EC73300E78784 /* WireGuardKit */; };
+		22BAC37E27455FAA00DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37D27455FAA00DC0BCE /* SnapKit */; };
+		22BAC38027455FB800DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37F27455FB800DC0BCE /* SnapKit */; };
 		22D3437F273EC78B00E72A7B /* TunnelSavingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA8E267B7BB200023D42 /* TunnelSavingError.swift */; };
 		7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CA267A183D00023D42 /* AppDelegate.swift */; };
 		7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CC267A183D00023D42 /* SceneDelegate.swift */; };
@@ -326,6 +328,8 @@
 		93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3A270AF19400B9CA4D /* GridView.swift */; };
 		93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */; };
 		93C8AA81273D7F0B00B6BD72 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8AA7F273D7F0900B6BD72 /* ActivityIndicator.swift */; };
+		93C8AA84273EC08100B6BD72 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8AA82273EC00800B6BD72 /* NavigationBar.swift */; };
+		93C8AA85273ED4B500B6BD72 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8AA82273EC00800B6BD72 /* NavigationBar.swift */; };
 		93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD4272036C800A35BCA /* Double+Ext.swift */; };
 		93D29CD9272117EF00A35BCA /* AutoRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD8272117EF00A35BCA /* AutoRealmObject.swift */; };
 		93D29CDB2721203200A35BCA /* RealmStorage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CDA2721203200A35BCA /* RealmStorage+Ext.swift */; };
@@ -347,10 +351,7 @@
 		93DBF56D2718889A006EBC65 /* ContinentsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */; };
 		93DBF570271888B8006EBC65 /* ContinentsRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */; };
 		93DBF574271939EF006EBC65 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 93DBF576271939EF006EBC65 /* Localizable.stringsdict */; };
-		93DC529B273EE5A4006C0989 /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931636D3271DC62B00A8C18C /* AvailableNodesView.swift */; };
-		93DC529C273EE5C2006C0989 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
-		93DC529D273EE5C4006C0989 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
-		93DC52A2273EE893006C0989 /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52A0273EE6B3006C0989 /* AvailableNodesCoordinator.swift */; };
+		93DC52A5274000DE006C0989 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52A3274000B4006C0989 /* NavigationHelper.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -599,6 +600,7 @@
 		93C3EC3A270AF19400B9CA4D /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		93C8AA7F273D7F0900B6BD72 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		93C8AA82273EC00800B6BD72 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		93D29CD4272036C800A35BCA /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		93D29CD8272117EF00A35BCA /* AutoRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoRealmObject.swift; sourceTree = "<group>"; };
 		93D29CDA2721203200A35BCA /* RealmStorage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmStorage+Ext.swift"; sourceTree = "<group>"; };
@@ -618,7 +620,7 @@
 		93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowView.swift; sourceTree = "<group>"; };
 		93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowViewType.swift; sourceTree = "<group>"; };
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		93DC52A0273EE6B3006C0989 /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
+		93DC52A3274000B4006C0989 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
@@ -664,6 +666,7 @@
 				93D29CE0272127BF00A35BCA /* RealmSwift in Frameworks */,
 				7504E9F3267A1AA700023D42 /* NetworkExtension.framework in Frameworks */,
 				7504EA18267A26C800023D42 /* SwiftyBeaver in Frameworks */,
+				22BAC37E27455FAA00DC0BCE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +693,7 @@
 				75116281273AB074005F9133 /* FlagKit in Frameworks */,
 				7511627D273AB06B005F9133 /* SwiftKeychainWrapper in Frameworks */,
 				7511622D273AAEDA005F9133 /* SentinelWallet in Frameworks */,
+				22BAC38027455FB800DC0BCE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +938,7 @@
 		751161FF273A8837005F9133 /* MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				93DC52A3274000B4006C0989 /* NavigationHelper.swift */,
 				75116200273A8837005F9133 /* AppDelegate.swift */,
 				75116216273A910F005F9133 /* main.swift */,
 			);
@@ -1345,6 +1350,7 @@
 			isa = PBXGroup;
 			children = (
 				93C8AA7F273D7F0900B6BD72 /* ActivityIndicator.swift */,
+				93C8AA82273EC00800B6BD72 /* NavigationBar.swift */,
 			);
 			path = MacOS;
 			sourceTree = "<group>";
@@ -1395,8 +1401,7 @@
 		932EEBD3271D4B5C0098A2D7 /* AvailableNodes */ = {
 			isa = PBXGroup;
 			children = (
-				93DC529F273EE5D3006C0989 /* macOS */,
-				93DC529E273EE5CA006C0989 /* iOS */,
+				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
 				932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */,
 				931636D3271DC62B00A8C18C /* AvailableNodesView.swift */,
 				932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */,
@@ -1495,22 +1500,6 @@
 				93DBF576271939EF006EBC65 /* Localizable.stringsdict */,
 			);
 			path = Localization;
-			sourceTree = "<group>";
-		};
-		93DC529E273EE5CA006C0989 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		93DC529F273EE5D3006C0989 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				93DC52A0273EE6B3006C0989 /* AvailableNodesCoordinator.swift */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		93FA0685270B340A0006A765 /* NodeDetails */ = {
@@ -1696,6 +1685,7 @@
 				C680E89B270DE0E90042453D /* SentinelWallet */,
 				93D29CDD272127BF00A35BCA /* Realm */,
 				93D29CDF272127BF00A35BCA /* RealmSwift */,
+				22BAC37D27455FAA00DC0BCE /* SnapKit */,
 			);
 			productName = DVPNApp;
 			productReference = 7504E9C7267A183D00023D42 /* DVPNApp.app */;
@@ -1747,6 +1737,7 @@
 				7511627C273AB06B005F9133 /* SwiftKeychainWrapper */,
 				7511627E273AB070005F9133 /* EFQRCode */,
 				75116280273AB074005F9133 /* FlagKit */,
+				22BAC37F27455FB800DC0BCE /* SnapKit */,
 			);
 			productName = SentinelDVPNmacOS;
 			productReference = 751161FE273A8837005F9133 /* SentinelDVPNmacOS.app */;
@@ -1799,6 +1790,7 @@
 				C64ED33226C5B26800222CA4 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */,
 				93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -2036,6 +2028,7 @@
 				93DBF5622717D302006EBC65 /* Persistable.swift in Sources */,
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				931636D4271DC62B00A8C18C /* AvailableNodesView.swift in Sources */,
+				93C8AA85273ED4B500B6BD72 /* NavigationBar.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
 				75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */,
 				751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */,
@@ -2154,7 +2147,6 @@
 				75116230273AAEFE005F9133 /* Int64+Ext.swift in Sources */,
 				75116284273AB83E005F9133 /* NotificationToken.swift in Sources */,
 				222D8C15273C1BC400542407 /* OnboardingView.swift in Sources */,
-				93DC529C273EE5C2006C0989 /* AvailableNodesViewModel.swift in Sources */,
 				222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */,
 				7511626F273AB054005F9133 /* TunnelModel.swift in Sources */,
 				7511621F273A98BE005F9133 /* Assets.swift in Sources */,
@@ -2163,7 +2155,6 @@
 				75116264273AB036005F9133 /* StoresGeneralInfo.swift in Sources */,
 				7511626C273AB042005F9133 /* AutoRealmObject.swift in Sources */,
 				222D8C5A273E6DF500542407 /* CheckmarkToggleStyle.swift in Sources */,
-				93DC529B273EE5A4006C0989 /* AvailableNodesView.swift in Sources */,
 				222D8C62273E771900542407 /* NodeInfoView.swift in Sources */,
 				75116267273AB03A005F9133 /* UserDefaultsStorageStrategy.swift in Sources */,
 				7511622F273AAEFE005F9133 /* Double+Ext.swift in Sources */,
@@ -2183,10 +2174,8 @@
 				7511624E273AAF90005F9133 /* NETunnelProviderProtocol+Extension.swift in Sources */,
 				92074C85273D4EF600CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */,
 				75116251273AAFA2005F9133 /* NEVPNStatus+Ext.swift in Sources */,
-				93DC529D273EE5C4006C0989 /* AvailableNodesModel.swift in Sources */,
 				7511629F273AC3A8005F9133 /* OnboardingCoordinator.swift in Sources */,
 				92074C79273D412100CEA689 /* HomeView.swift in Sources */,
-				93DC52A2273EE893006C0989 /* AvailableNodesCoordinator.swift in Sources */,
 				75116277273AB05E005F9133 /* TunnelContainer.swift in Sources */,
 				75116275273AB059005F9133 /* TunnelManagerType.swift in Sources */,
 				75116252273AAFA4005F9133 /* WalletErros+Ext.swift in Sources */,
@@ -2258,10 +2247,12 @@
 				75116211273A88FC005F9133 /* Config.swift in Sources */,
 				222D8C5D273E6E0200542407 /* ConnectionInfoViewModel.swift in Sources */,
 				75116295273ABFC1005F9133 /* CreationMode.swift in Sources */,
+				93C8AA84273EC08100B6BD72 /* NavigationBar.swift in Sources */,
 				92074C7D273D45C200CEA689 /* HomeViewModel.swift in Sources */,
 				222D8C1A273C200000542407 /* AccountCreationModel.swift in Sources */,
 				75116272273AB054005F9133 /* PeersModel.swift in Sources */,
 				92074C87273D517900CEA689 /* ExtraView.swift in Sources */,
+				93DC52A5274000DE006C0989 /* NavigationHelper.swift in Sources */,
 				92074C8C273D53C300CEA689 /* ScaleView.swift in Sources */,
 				92074C8F273D683900CEA689 /* ContinentsView.swift in Sources */,
 				75116278273AB05E005F9133 /* TunnelsService.swift in Sources */,
@@ -2785,6 +2776,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		7504E9F4267A1AFD00023D42 /* XCRemoteSwiftPackageReference "wireguard-apple" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://git.zx2c4.com/wireguard-apple";
@@ -2861,6 +2860,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7504E9F4267A1AFD00023D42 /* XCRemoteSwiftPackageReference "wireguard-apple" */;
 			productName = WireGuardKit;
+		};
+		22BAC37D27455FAA00DC0BCE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		22BAC37F27455FB800DC0BCE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		7504E9F5267A1AFD00023D42 /* WireGuardKit */ = {
 			isa = XCSwiftPackageProductDependency;

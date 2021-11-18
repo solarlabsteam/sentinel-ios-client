@@ -10,14 +10,14 @@ import Cocoa
 import SwiftUI
 
 final class AccountCreationCoordinator: CoordinatorType {
-    private weak var window: NSWindow?
+    private weak var navigation: NavigationHelper?
 
     private let context: AccountCreationModel.Context
     private let mode: CreationMode
 
-    init(context: AccountCreationModel.Context, mode: CreationMode, window: NSWindow) {
+    init(context: AccountCreationModel.Context, mode: CreationMode, navigation: NavigationHelper) {
         self.context = context
-        self.window = window
+        self.navigation = navigation
         self.mode = mode
     }
 
@@ -26,7 +26,7 @@ final class AccountCreationCoordinator: CoordinatorType {
         let viewModel = AccountCreationViewModel(model: model, mode: mode, router: asRouter())
         let view = AccountCreationView(viewModel: viewModel)
         let controller = NSHostingView(rootView: view)
-        window?.contentView = controller
+        navigation?.switchSubview(to: controller)
     }
 }
 
@@ -41,8 +41,8 @@ extension AccountCreationCoordinator: RouterType {
                 NSWorkspace.shared.open(url)
             }
         case .openNodes:
-            if let window = window {
-                ModulesFactory.shared.makeHomeModule(for: window)
+            if let navigation = navigation {
+                ModulesFactory.shared.makeHomeModule(for: navigation)
             }
         case let .title(title):
 #warning("handle titles properly on macOS")
