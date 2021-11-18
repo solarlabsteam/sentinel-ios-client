@@ -36,7 +36,14 @@ struct HomeView: View {
         .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
         .onAppear(perform: viewModel.viewWillAppear)
+        .toolbar {
+            Button(action: {}) {
+                        Label("Record Progress", systemImage: "book.circle")
+                    }
+                }
+        
     }
+
 }
 
 extension HomeView {

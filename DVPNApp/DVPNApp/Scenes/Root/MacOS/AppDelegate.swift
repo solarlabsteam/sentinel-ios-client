@@ -24,10 +24,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.title = "Sentinel DVPN"
         window.makeKeyAndOrderFront(nil)
-        
+
         navigation = NavigationHelper(window: window)
         if let navigation = navigation {
-            ModulesFactory.shared.detectStartModule(for: navigation)
+            ModulesFactory.shared.detectStartModule(for: navigation, window: window)
         }
         
         self.window = window

@@ -253,6 +253,7 @@
 		757F7F962746D210005E031E /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32426C57FE900222CA4 /* PlansView.swift */; };
 		757F7F972746D210005E031E /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
 		757F7F992746D4F4005E031E /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F982746D4F4005E031E /* PlansCoordinator.swift */; };
+		757F7F9D2746F955005E031E /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F9B2746F8E9005E031E /* Toolbar.swift */; };
 		758B261226AFEC4A00BD711E /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B261126AFEC4A00BD711E /* RouterType.swift */; };
 		758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */; };
 		758DD9CE270A1269000CD59B /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */; };
@@ -551,6 +552,7 @@
 		755FBF0826AF0F1600E9D408 /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
 		757F0B7D26D8D6CE000C0865 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		757F7F982746D4F4005E031E /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
+		757F7F9B2746F8E9005E031E /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
@@ -1414,6 +1416,7 @@
 			isa = PBXGroup;
 			children = (
 				93C8AA7F273D7F0900B6BD72 /* ActivityIndicator.swift */,
+				757F7F9B2746F8E9005E031E /* Toolbar.swift */,
 				93C8AA82273EC00800B6BD72 /* NavigationBar.swift */,
 			);
 			path = MacOS;
@@ -2227,6 +2230,7 @@
 				222D8C60273E74CB00542407 /* GridView.swift in Sources */,
 				22BAC3972746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */,
 				75116264273AB036005F9133 /* StoresGeneralInfo.swift in Sources */,
+				757F7F9D2746F955005E031E /* Toolbar.swift in Sources */,
 				7511626C273AB042005F9133 /* AutoRealmObject.swift in Sources */,
 				222D8C5A273E6DF500542407 /* CheckmarkToggleStyle.swift in Sources */,
 				222D8C62273E771900542407 /* NodeInfoView.swift in Sources */,
