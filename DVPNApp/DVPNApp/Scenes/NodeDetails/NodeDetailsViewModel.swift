@@ -5,7 +5,8 @@
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
 
-import UIKit
+//import UIKit
+import Foundation
 import FlagKit
 import SentinelWallet
 import Combine
@@ -62,11 +63,17 @@ extension NodeDetailsViewModel {
         let nodeInfo = node.info
         
         let countryCode = CountryFormatter.code(for: nodeInfo.location.country) ?? ""
-        let icon = Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
+        let flagImage: ImageAsset.Image?
+#if os(iOS)
+        flagImage = Flag(countryCode: countryCode)?.image(style: .roundedRect)
+#elseif os(macOS)
+        #warning("replace all the original images on macOS with rounded")
+        flagImage = Flag(countryCode: countryCode)?.originalImage
+#endif
         
         countryTileModel = .init(
             id: "0",
-            icon: icon,
+            icon: flagImage ?? Asset.Tokens.dvpn.image,
             title: nodeInfo.moniker,
             subtitle: String(nodeInfo.address.suffix(6)),
             speed: node.info.bandwidth.speedImage

@@ -58,11 +58,10 @@ extension AvailableNodesCoordinator: RouterType {
             log.debug("TODO macos implement")
 //            ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
-            log.debug("TODO macos implement")
-//            ModulesFactory.shared.makeNodeDetailsModule(
-//                for: navigation,
-//                configuration: .init(node: node, isSubscribed: isSubscribed)
-//            )
+            ModulesFactory.shared.makeNodeDetailsModule(
+                for: navigation,
+                configuration: .init(node: node, isSubscribed: isSubscribed)
+            )
         case .accountInfo:
             log.debug("TODO macos implement")
 //            ModulesFactory.shared.makeAccountInfoModule(for: navigation)

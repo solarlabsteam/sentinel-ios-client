@@ -19,10 +19,10 @@ struct NodeDetailsView: View {
         CountryTileView(
             viewModel: .init(
                 id: viewModel.countryTileModel?.id ?? "",
-                icon: viewModel.countryTileModel?.icon ?? UIImage(),
+                icon: viewModel.countryTileModel?.icon ?? ImageAsset.Image(),
                 title: viewModel.countryTileModel?.title ?? "",
                 subtitle: viewModel.countryTileModel?.subtitle ?? "",
-                speed: viewModel.countryTileModel?.speedImage ?? UIImage()
+                speed: viewModel.countryTileModel?.speedImage ?? ImageAsset.Image()
             )
         )
         .padding(.horizontal, 16)
@@ -46,6 +46,7 @@ struct NodeDetailsView: View {
         .padding()
         .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
+        .buttonStyle(PlainButtonStyle())
     }
     
     var body: some View {

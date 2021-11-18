@@ -83,6 +83,13 @@ extension ModulesFactory {
     ) {
         PlansCoordinator(context: context, navigation: navigation, node: node, delegate: delegate).start()
     }
+    
+    func makeNodeDetailsModule(
+        for navigation: NavigationHelper,
+        configuration: NodeDetailsCoordinator.Configuration
+    ) {
+        NodeDetailsCoordinator(context: context, navigation: navigation, configuration: configuration).start()
+    }
 }
 
 /// Scenes previews

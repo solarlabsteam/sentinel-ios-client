@@ -58,6 +58,19 @@ final class NavigationHelper: ListNavigationControllerType {
         backButtonView?.isHidden = items.count == 1
     }
     
+    func popToRoot() {
+        let lastIndex = items.count - 1
+        
+        items.reversed().enumerated().forEach { index, item in
+            if index != lastIndex {
+                item.removeFromSuperview()
+                items.removeLast()
+            }
+        }
+        
+        backButtonView?.isHidden = items.count == 1
+    }
+    
     private func addBackButton() {
         let barView = NavigationBar(toggleBack: { [weak self] in self?.pop() })
         let barHostingView = NSHostingView(rootView: barView)
