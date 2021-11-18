@@ -57,7 +57,7 @@ extension RouterType {
         alert.messageText = type == .critical ? L10n.Common.Error.title : L10n.Common.Warning.title
         alert.informativeText = message
         alert.alertStyle = type
-        alert.addButton(withTitle: L10n.Action.ok)
+        alert.addButton(withTitle: L10n.Common.ok)
         alert.runModal()
     }
 }

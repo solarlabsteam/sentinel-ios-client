@@ -1192,12 +1192,12 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		757F7F912746D1F1005E031E /* macOS */ = {
+		757F7F912746D1F1005E031E /* MacOS */ = {
 			isa = PBXGroup;
 			children = (
 				757F7F982746D4F4005E031E /* PlansCoordinator.swift */,
 			);
-			path = macOS;
+			path = MacOS;
 			sourceTree = "<group>";
 		};
 		757F7F922746D1FB005E031E /* iOS */ = {
@@ -1652,13 +1652,13 @@
 			isa = PBXGroup;
 			children = (
 				757F7F922746D1FB005E031E /* iOS */,
-				757F7F912746D1F1005E031E /* macOS */,
-				C64ED32626C57FE900222CA4 /* Subviews */,
+				757F7F912746D1F1005E031E /* MacOS */,
 				C64ED32B26C57FE900222CA4 /* PlansModel.swift */,
 				C64ED32426C57FE900222CA4 /* PlansView.swift */,
 				C64ED32526C57FE900222CA4 /* PlansViewModel.swift */,
-				75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */,
 				92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */,
+				75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */,
+				C64ED32626C57FE900222CA4 /* Subviews */,
 			);
 			path = Plans;
 			sourceTree = "<group>";

@@ -1,11 +1,9 @@
-"Action.Cancel" = "Cancel";
-"Action.OK" = "OK";
-
 "Common.Error.title" = "Error";
 "Common.Warning.title" = "Warning";
 "Common.DVPN.Title" = "DVPN";
 "Common.Cancel" = "Cancel";
 "Common.Yes" = "Yes";
+"Common.OK" = "OK";
 "Common.Crypto" = "Crypto";
 "Common.GB" = "GB";
 

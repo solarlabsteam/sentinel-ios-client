@@ -42,12 +42,11 @@ extension PlansCoordinator: RouterType {
     func play(event: PlansViewModel.Route) {
         switch event {
         case let .error(error):
-#warning("handle error properly on macOS")
-            log.error(error)
+            showErrorAlert(message: error.localizedDescription)
         case let .addTokensAlert(completion: completion):
 #warning("add alerts on macOS")
         case let .subscribe(node, completion):
-#warning("add alerts on macOS")
+            showSubscribeAlert(name: node, completion: completion)
         case .accountInfo:
             if let navigation = navigation {
                 ModulesFactory.shared.makeAccountInfoModule(for: navigation)
@@ -55,5 +54,37 @@ extension PlansCoordinator: RouterType {
         case .close:
             navigation?.pop()
         }
+    }
+}
+
+// MARK: - Private
+
+extension PlansCoordinator {
+    private func showSubscribeAlert(
+        name: String,
+        completion: @escaping (Bool) -> Void
+    ) {
+        let alert = NSAlert()
+        alert.messageText = L10n.Plans.Subscribe.title(name)
+        alert.alertStyle = .informational
+        
+        alert.addButton(withTitle: L10n.Common.yes)
+        alert.addButton(withTitle: L10n.Common.cancel)
+        
+        let modalResult = alert.runModal() == .alertFirstButtonReturn
+        completion(modalResult)
+    }
+
+    private func showNotEnoughTokensAlert(completion: @escaping (Bool) -> Void) {
+        let alert = NSAlert()
+        alert.messageText = L10n.Plans.AddTokens.title
+        alert.informativeText = L10n.Plans.AddTokens.subtitle
+        alert.alertStyle = .informational
+        
+        alert.addButton(withTitle: L10n.Common.yes)
+        alert.addButton(withTitle: L10n.Common.cancel)
+        
+        let modalResult = alert.runModal() == .alertFirstButtonReturn
+        completion(modalResult)
     }
 }

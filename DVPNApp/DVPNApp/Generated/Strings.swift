@@ -73,13 +73,6 @@ internal enum L10n {
     }
   }
 
-  internal enum Action {
-    /// Cancel
-    internal static let cancel = L10n.tr("Localizable", "Action.Cancel")
-    /// OK
-    internal static let ok = L10n.tr("Localizable", "Action.OK")
-  }
-
   internal enum AvailableNodes {
     /// Nodes in %@
     internal static func title(_ p1: Any) -> String {
@@ -94,6 +87,8 @@ internal enum L10n {
     internal static let crypto = L10n.tr("Localizable", "Common.Crypto")
     /// GB
     internal static let gb = L10n.tr("Localizable", "Common.GB")
+    /// OK
+    internal static let ok = L10n.tr("Localizable", "Common.OK")
     /// Yes
     internal static let yes = L10n.tr("Localizable", "Common.Yes")
     internal enum Dvpn {
