@@ -13,3 +13,9 @@ extension GRPCError.RPCTimedOut: LocalizedError {
         L10n.Error.GRPCError.rpcTimedOut
     }
 }
+
+extension GRPCError.RPCCancelledByClient: LocalizedError {
+    public var errorDescription: String? {
+        L10n.Error.GRPCError.rpcCancelled
+    }
+}
