@@ -30,8 +30,7 @@ extension AccountInfoCoordinator: RouterType {
     func play(event: AccountInfoViewModel.Route) {
         switch event {
         case let .error(error):
-#warning("Find a macOS replacement")
-//            show(message: error.localizedDescription)
+            showErrorAlert(message: error.localizedDescription)
         case let .info(message):
 #warning("Find a macOS replacement")
 //            show(message: message, theme: .success)

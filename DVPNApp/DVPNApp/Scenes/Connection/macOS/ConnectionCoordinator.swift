@@ -31,11 +31,9 @@ extension ConnectionCoordinator: RouterType {
 //        guard let navigation = navigation else { return }
         switch event {
         case .error(let error):
-#warning("handle error properly on macOS")
-            log.error(error)
+            showErrorAlert(message: error.localizedDescription)
         case .warning(let error):
-#warning("handle warning properly on macOS")
-            log.error(error)
+            showErrorAlert(message: error.localizedDescription, type: .warning)
         case let .openPlans(node, delegate):
             log.debug("TODO macos implement openPlans")
 //            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)

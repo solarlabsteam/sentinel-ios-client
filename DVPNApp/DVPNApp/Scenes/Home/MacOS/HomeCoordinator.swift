@@ -43,8 +43,7 @@ extension HomeCoordinator: RouterType {
         guard let navigation = navigation else { return }
         switch event {
         case let .error(error):
-#warning("handle error properly on macOS")
-            log.error(error)
+            showErrorAlert(message: error.localizedDescription)
         case .accountInfo:
             log.debug("TODO macos implement accountInfo")
 //            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
