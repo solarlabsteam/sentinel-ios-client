@@ -15,19 +15,20 @@ struct NavigationBar: View {
     }
 
     var body: some View {
-        ZStack(alignment: .leading) {
-        Color.green
-            .ignoresSafeArea()
-            
+        HStack {
             Button(action: toggleBack) {
                 Image(systemName: "chevron.backward")
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .foregroundColor(Asset.Colors.navyBlue.color.asColor)
             }
-            .frame(width: 60, height: 60)
+            .frame(width: 30, height: 30)
             .buttonStyle(PlainButtonStyle())
+            
+            Spacer()
         }
-        .padding()
+        .padding(.all, 10)
+        .background(Asset.Colors.accentColor.color.asColor)
     }
 }
 

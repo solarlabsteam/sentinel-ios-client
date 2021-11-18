@@ -9,13 +9,13 @@ import Cocoa
 import SwiftUI
 
 final class HomeCoordinator: CoordinatorType {
-    private weak var window: NSWindow?
+    private weak var navigation: NavigationHelper?
 
     private let context: HomeModel.Context
 
-    init(context: HomeModel.Context, window: NSWindow) {
+    init(context: HomeModel.Context, navigation: NavigationHelper) {
         self.context = context
-        self.window = window
+        self.navigation = navigation
     }
 
     func start() {
@@ -27,7 +27,7 @@ final class HomeCoordinator: CoordinatorType {
 //        controller.makeNavigationBar(hidden: false, animated: false)
 //        controller.title = L10n.Home.Node.title
         
-        window?.contentView = controller
+        navigation?.switchSubview(to: controller, clearStack: true)
 
 //        navigation?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
 //            image: Asset.Navigation.account.image,
@@ -40,7 +40,7 @@ final class HomeCoordinator: CoordinatorType {
 
 extension HomeCoordinator: RouterType {
     func play(event: HomeViewModel.Route) {
-        guard let window = window else { return }
+        guard let navigation = navigation else { return }
         switch event {
         case let .error(error):
 #warning("handle error properly on macOS")
@@ -49,7 +49,7 @@ extension HomeCoordinator: RouterType {
             log.debug("TODO macos implement accountInfo")
 //            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case .connect:
-            ModulesFactory.shared.makeConnectionModule(for: window)
+            ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
             log.debug("TODO macos implement details")
 //            ModulesFactory.shared.makeNodeDetailsModule(

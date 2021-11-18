@@ -26,7 +26,7 @@ final class AccountCreationCoordinator: CoordinatorType {
         let viewModel = AccountCreationViewModel(model: model, mode: mode, router: asRouter())
         let view = AccountCreationView(viewModel: viewModel)
         let controller = NSHostingView(rootView: view)
-        navigation?.switchSubView(to: controller)
+        navigation?.switchSubview(to: controller)
     }
 }
 
@@ -41,11 +41,9 @@ extension AccountCreationCoordinator: RouterType {
                 NSWorkspace.shared.open(url)
             }
         case .openNodes:
-            break
-#warning("implement on macOS")
-//            if let window = window {
-//                ModulesFactory.shared.makeHomeModule(for: window)
-//            }
+            if let navigation = navigation {
+                ModulesFactory.shared.makeHomeModule(for: navigation)
+            }
         case let .title(title):
 #warning("handle titles properly on macOS")
             break

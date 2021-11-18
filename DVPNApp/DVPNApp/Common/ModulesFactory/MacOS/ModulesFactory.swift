@@ -35,7 +35,7 @@ extension ModulesFactory {
         }
 
         context.preloadService.loadData { [weak self] in
-//            self?.makeHomeModule(for: window)
+            self?.makeHomeModule(for: navigation)
         }
     }
 
@@ -47,15 +47,15 @@ extension ModulesFactory {
         AccountCreationCoordinator(context: context, mode: mode, navigation: navigation).start()
     }
     
-    func makeHomeModule(for window: NSWindow) {
+    func makeHomeModule(for navigation: NavigationHelper) {
         if !context.generalInfoStorage.didPassOnboarding() {
             context.generalInfoStorage.set(didPassOnboarding: true)
         }
-        HomeCoordinator(context: context, window: window).start()
+        HomeCoordinator(context: context, navigation: navigation).start()
     }
     
-    func makeConnectionModule(for window: NSWindow) {
-        ConnectionCoordinator(context: context, window: window).start()
+    func makeConnectionModule(for navigation: NavigationHelper) {
+        ConnectionCoordinator(context: context, navigation: navigation).start()
     }
 }
 
@@ -89,7 +89,7 @@ extension ModulesFactory {
     func getHomeScene() -> HomeView {
         let coordinator = HomeCoordinator(
             context: context,
-            window: NSWindow()
+            navigation: NavigationHelper(window: NSWindow())
         ).asRouter()
         let model = HomeModel(context: context)
         let viewModel = HomeViewModel(model: model, router: coordinator)
@@ -99,7 +99,7 @@ extension ModulesFactory {
     }
     
     func getConnectionScene() -> ConnectionView {
-        let coordinator = ConnectionCoordinator(context: context, window: NSWindow())
+        let coordinator = ConnectionCoordinator(context: context, navigation: NavigationHelper(window: NSWindow()))
         let viewModel = ConnectionViewModel(
             model: ConnectionModel(context: context),
             router: coordinator.asRouter()

@@ -21,56 +21,62 @@ final class NavigationHelper: ListNavigationControllerType {
     private(set) var items: [Item] = []
     
     private let window: NSWindow
+    private let containerView: NSView
+    private var backButtonView: NSView?
     
     init(window: NSWindow) {
         self.window = window
+        
+        containerView = NSView()
+        window.contentView = containerView
+        
+        addBackButton()
     }
     
-    deinit {
-        log.debug("Lost reference")
-    }
-    
-    func switchSubView<T>(to view: T) where T: NSView {
-        items.append(view)
-        
-        window.contentView = view
-        
-        if items.count > 1 {
-            addBackButton()
+    func switchSubview<T>(to view: T, clearStack: Bool = false) where T: NSView {
+        if clearStack {
+            items.forEach { $0.removeFromSuperview() }
+            items = []
         }
+        items.append(view)
+        backButtonView?.isHidden = items.count == 1
+        
+        add(subview: view)
     }
     
     func pop() {
-        items.removeLast()
+        let item = items.removeLast()
+        item.removeFromSuperview()
         
-        self.window.contentView = items.last
-        
-        if items.count > 1 {
-            addBackButton()
-        }
+        backButtonView?.isHidden = items.count == 1
     }
     
     private func addBackButton() {
-        let barView = NavigationBar(toggleBack: { [weak self] in
-            print("Did tap navigation bar")
-            self?.pop()
-        })
-        
-        let containerView = NSView()
-        guard let oldContent = window.contentView else {
-            fatalError("Failed to get window's contentView")
-        }
-        window.contentView = containerView
-        
+        let barView = NavigationBar(toggleBack: { [weak self] in self?.pop() })
         let barHostingView = NSHostingView(rootView: barView)
-        barHostingView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: 100)
         
-        window.contentView?.addSubview(oldContent)
-        window.contentView?.addSubview(barHostingView)
+        containerView.addSubview(barHostingView)
         
-        oldContent.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.leading.top.equalToSuperview()
+        barHostingView.snp.makeConstraints { make in
+            make.top.leading.width.equalToSuperview()
+        }
+        
+        barHostingView.isHidden = true
+        
+        backButtonView = barHostingView
+    }
+    
+    private func add(subview: NSView) {
+        containerView.addSubview(subview, positioned: .below, relativeTo: backButtonView)
+        
+        subview.snp.makeConstraints { make in
+            make.centerX.bottom.leading.equalToSuperview()
+            
+            guard let backButtonView = backButtonView, !backButtonView.isHidden else {
+                make.top.equalToSuperview()
+                return
+            }
+            make.top.equalTo(backButtonView.snp.bottom)
         }
     }
 }
