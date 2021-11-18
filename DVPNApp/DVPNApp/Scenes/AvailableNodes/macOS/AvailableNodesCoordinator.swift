@@ -51,8 +51,7 @@ extension AvailableNodesCoordinator: RouterType {
         guard let navigation = navigation else { return }
         switch event {
         case let .error(error):
-#warning("handle error properly on macOS")
-            log.error(error)
+            showErrorAlert(message: error.localizedDescription)
         case let .subscribe(nodeInfo):
             ModulesFactory.shared.makePlansModule(node: nodeInfo, delegate: delegate, for: navigation)
         case .connect:

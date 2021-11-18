@@ -87,11 +87,21 @@ internal enum L10n {
     internal static let crypto = L10n.tr("Localizable", "Common.Crypto")
     /// GB
     internal static let gb = L10n.tr("Localizable", "Common.GB")
+    /// OK
+    internal static let ok = L10n.tr("Localizable", "Common.OK")
     /// Yes
     internal static let yes = L10n.tr("Localizable", "Common.Yes")
     internal enum Dvpn {
       /// DVPN
       internal static let title = L10n.tr("Localizable", "Common.DVPN.Title")
+    }
+    internal enum Error {
+      /// Error
+      internal static let title = L10n.tr("Localizable", "Common.Error.title")
+    }
+    internal enum Warning {
+      /// Warning
+      internal static let title = L10n.tr("Localizable", "Common.Warning.title")
     }
   }
 

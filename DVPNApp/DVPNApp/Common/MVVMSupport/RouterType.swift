@@ -7,7 +7,7 @@
 
 import Foundation
 #if os(macOS)
-#warning("handle messages on MacOS")
+import Cocoa
 #elseif os(iOS)
 import SwiftMessages
 import class UIKit.UIViewController
@@ -45,6 +45,20 @@ extension RouterType {
         config.presentationContext = presentationContext
 
         SwiftMessages.show(config: config, view: view)
+    }
+}
+#elseif os(macOS)
+extension RouterType {
+    func showErrorAlert(
+        message: String,
+        type: NSAlert.Style = .critical
+    ) {
+        let alert = NSAlert()
+        alert.messageText = type == .critical ? L10n.Common.Error.title : L10n.Common.Warning.title
+        alert.informativeText = message
+        alert.alertStyle = type
+        alert.addButton(withTitle: L10n.Common.ok)
+        alert.runModal()
     }
 }
 #endif

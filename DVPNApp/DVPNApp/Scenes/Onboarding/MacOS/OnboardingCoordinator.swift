@@ -32,7 +32,6 @@ extension OnboardingCoordinator: RouterType {
     func play(event: OnboardingViewModel.Route) {
         switch event {
         case let .createAccount(mode):
-#warning("Find a macOS navigation replacement")
             if let navigation = navigation {
                 ModulesFactory.shared.makeAccountCreationModule(mode: mode, navigation: navigation)
             }
