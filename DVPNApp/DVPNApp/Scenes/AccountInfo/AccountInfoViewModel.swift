@@ -9,12 +9,15 @@
 import UIKit
 #endif
 
+#if os(macOS)
+import AppKit
+#endif
+
 import Foundation
 import FlagKit
 import SentinelWallet
 import Combine
 import EFQRCode
-import AppKit
 
 final class AccountInfoViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
