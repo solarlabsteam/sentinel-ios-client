@@ -90,6 +90,7 @@ struct NodeSelectionView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
+                        .foregroundColor(.accentColor)
                 }
                 .buttonStyle(PlainButtonStyle())
                 .frame(width: 60, height: 60)

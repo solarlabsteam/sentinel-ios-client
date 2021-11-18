@@ -65,7 +65,7 @@ extension HomeCoordinator: RouterType {
                 NSWorkspace.shared.open(url)
             }
         case let .title(title):
-            log.debug("TODO macos implement title")
+            break
         case let .dns(delegate, server):
             ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)
         case let .openNodes(continent, delegate):

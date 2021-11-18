@@ -18,11 +18,12 @@ struct HomeView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            #warning("Find a macOS replacement")
-            
             TabView(selection: $viewModel.currentPage) {
                 NodeSelectionView(viewModel: viewModel)
                     .tag(HomeViewModel.PageType.selector)
+                    .tabItem {
+                        Text(HomeViewModel.PageType.selector.title)
+                    }
                 
                 ExtraView(
                     openServers: viewModel.openDNSServersSelection,
@@ -31,17 +32,14 @@ struct HomeView: View {
                     server: $viewModel.server
                 )
                     .tag(HomeViewModel.PageType.extra)
+                    .tabItem {
+                        Text(HomeViewModel.PageType.extra.title)
+                    }
             }
         }
         .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
         .onAppear(perform: viewModel.viewWillAppear)
-        .toolbar {
-            Button(action: {}) {
-                        Label("Record Progress", systemImage: "book.circle")
-                    }
-                }
-        
     }
 
 }
