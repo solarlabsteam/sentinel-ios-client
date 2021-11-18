@@ -10,18 +10,18 @@ import SwiftUI
 final class AvailableNodesCoordinator: CoordinatorType {
     private let context: AvailableNodesModel.Context
     private weak var delegate: PlansViewModelDelegate?
-    private weak var window: NSWindow?
+    private weak var navigation: NavigationHelper?
     private let continent: Continent
 
     init(
         context: AvailableNodesModel.Context,
         delegate: PlansViewModelDelegate?,
-        window: NSWindow,
+        navigation: NavigationHelper,
         continent: Continent
     ) {
         self.context = context
         self.delegate = delegate
-        self.window = window
+        self.navigation = navigation
         self.continent = continent
     }
 
@@ -30,7 +30,7 @@ final class AvailableNodesCoordinator: CoordinatorType {
         let viewModel = AvailableNodesViewModel(continent: continent, model: model, router: asRouter())
         let view = AvailableNodesView(viewModel: viewModel)
         let controller = NSHostingView(rootView: view)
-        window?.contentView = controller
+        navigation?.switchSubview(to: controller)
         
 #warning("add buttons on macOS")
 //        controller.makeNavigationBar(hidden: false, animated: false)
@@ -48,7 +48,6 @@ final class AvailableNodesCoordinator: CoordinatorType {
 
 extension AvailableNodesCoordinator: RouterType {
     func play(event: AvailableNodesViewModel.Route) {
-        
         switch event {
         case let .error(error):
 #warning("handle error properly on macOS")

@@ -41,6 +41,14 @@
 		22A8D6B0273EC73300E78784 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A8D6AF273EC73300E78784 /* WireGuardKit */; };
 		22BAC37E27455FAA00DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37D27455FAA00DC0BCE /* SnapKit */; };
 		22BAC38027455FB800DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37F27455FB800DC0BCE /* SnapKit */; };
+		22BAC38E2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */; };
+		22BAC38F2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */; };
+		22BAC3912746B16A00DC0BCE /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */; };
+		22BAC3942746B16A00DC0BCE /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */; };
+		22BAC3952746B16A00DC0BCE /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */; };
+		22BAC3962746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */; };
+		22BAC3972746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */; };
+		22BAC3982746B18600DC0BCE /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38B2746B16A00DC0BCE /* AvailableNodesCoordinator.swift */; };
 		22D3437F273EC78B00E72A7B /* TunnelSavingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA8E267B7BB200023D42 /* TunnelSavingError.swift */; };
 		7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CA267A183D00023D42 /* AppDelegate.swift */; };
 		7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504E9CC267A183D00023D42 /* SceneDelegate.swift */; };
@@ -305,15 +313,11 @@
 		9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */; };
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
 		9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA67270461D20062AFD3 /* NetworkServiceType.swift */; };
-		931636D4271DC62B00A8C18C /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931636D3271DC62B00A8C18C /* AvailableNodesView.swift */; };
 		932D0AF8272174560064AEE4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AF7272174560064AEE4 /* UserService.swift */; };
 		932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFC272176620064AEE4 /* PreloadService.swift */; };
 		932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */; };
 		932D0B04272197D10064AEE4 /* EmptyScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */; };
 		932D0B082721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */; };
-		932EEBD5271D4D800098A2D7 /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */; };
-		932EEBD7271D4D980098A2D7 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
-		932EEBD9271D4DAA0098A2D7 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
 		9378543F270ECA400004483C /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93785441270ECC810004483C /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
@@ -440,6 +444,11 @@
 		22A8D69B273EC6F200E78784 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		22A8D69D273EC6F200E78784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A8D69E273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DVPNAppNetworkExtension_macOS.entitlements; sourceTree = "<group>"; };
+		22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
+		22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesView.swift; sourceTree = "<group>"; };
+		22BAC38B2746B16A00DC0BCE /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
+		22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
+		22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
 		22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		7504E9C7267A183D00023D42 /* DVPNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVPNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7504E9CA267A183D00023D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -577,15 +586,11 @@
 		9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
 		9312CA642704608D0062AFD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9312CA67270461D20062AFD3 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
-		931636D3271DC62B00A8C18C /* AvailableNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesView.swift; sourceTree = "<group>"; };
 		932D0AF7272174560064AEE4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		932D0AFC272176620064AEE4 /* PreloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadService.swift; sourceTree = "<group>"; };
 		932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadServiceType.swift; sourceTree = "<group>"; };
 		932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyScreen.storyboard; sourceTree = "<group>"; };
 		932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = co.sentinel.sentinellite.regional.countries_extras.json; sourceTree = "<group>"; };
-		932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
-		932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
-		932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		9378543E270ECA400004483C /* FramedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramedButton.swift; sourceTree = "<group>"; };
 		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
@@ -740,6 +745,34 @@
 				22A8D69E273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.entitlements */,
 			);
 			path = DVPNAppNetworkExtension_macOS;
+			sourceTree = "<group>";
+		};
+		22BAC3862746B16A00DC0BCE /* AvailableNodes */ = {
+			isa = PBXGroup;
+			children = (
+				22BAC38A2746B16A00DC0BCE /* iOS */,
+				22BAC3872746B16A00DC0BCE /* macOS */,
+				22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */,
+				22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */,
+				22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */,
+			);
+			path = AvailableNodes;
+			sourceTree = "<group>";
+		};
+		22BAC3872746B16A00DC0BCE /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		22BAC38A2746B16A00DC0BCE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				22BAC38B2746B16A00DC0BCE /* AvailableNodesCoordinator.swift */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		7504E9BE267A183D00023D42 = {
@@ -1398,17 +1431,6 @@
 			path = Empty;
 			sourceTree = "<group>";
 		};
-		932EEBD3271D4B5C0098A2D7 /* AvailableNodes */ = {
-			isa = PBXGroup;
-			children = (
-				932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */,
-				932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */,
-				931636D3271DC62B00A8C18C /* AvailableNodesView.swift */,
-				932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */,
-			);
-			path = AvailableNodes;
-			sourceTree = "<group>";
-		};
 		93843B45272498F200CE6D34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1529,7 +1551,7 @@
 			children = (
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
-				932EEBD3271D4B5C0098A2D7 /* AvailableNodes */,
+				22BAC3862746B16A00DC0BCE /* AvailableNodes */,
 				C64B495526B8B3F70004A692 /* Connection */,
 				75BF4A402715721800DBC427 /* DNSSettings */,
 				932D0B002721977D0064AEE4 /* Empty */,
@@ -1971,7 +1993,6 @@
 				93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */,
 				93FA0690270B4C5E0006A765 /* NodeInfoView.swift in Sources */,
 				93DBF570271888B8006EBC65 /* ContinentsRowViewType.swift in Sources */,
-				932EEBD7271D4D980098A2D7 /* AvailableNodesModel.swift in Sources */,
 				93785441270ECC810004483C /* AccentButton.swift in Sources */,
 				75D6561026BE8818000056B4 /* ActivityIndicator.swift in Sources */,
 				C64B495E26B8B3F70004A692 /* ConnectionModel.swift in Sources */,
@@ -1979,6 +2000,7 @@
 				75E5BDFF26DE16FC00C345B9 /* CheckmarkToggleStyle.swift in Sources */,
 				C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */,
 				C64ED2FE26C50CAE00222CA4 /* HomeModel.swift in Sources */,
+				22BAC3962746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */,
 				7504EA79267B5B4600023D42 /* TunnelStatus.swift in Sources */,
 				75E5BE0226DE2FA400C345B9 /* View+Ext.swift in Sources */,
 				758DD9E7270B72D2000CD59B /* AccountCreationView.swift in Sources */,
@@ -2009,12 +2031,14 @@
 				93FA068D270B34530006A765 /* NodeDetailsViewModel.swift in Sources */,
 				C64ED32C26C57FE900222CA4 /* PlansView.swift in Sources */,
 				93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */,
+				22BAC3942746B16A00DC0BCE /* AvailableNodesViewModel.swift in Sources */,
 				759DE5C02715866C00DC7757 /* DNSSettingsViewModel.swift in Sources */,
 				7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */,
 				93D29CD9272117EF00A35BCA /* AutoRealmObject.swift in Sources */,
 				75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */,
 				93DBF5602717CF80006EBC65 /* AutoRealmObject.generated.swift in Sources */,
 				93D29CDB2721203200A35BCA /* RealmStorage+Ext.swift in Sources */,
+				22BAC3982746B18600DC0BCE /* AvailableNodesCoordinator.swift in Sources */,
 				753EDE022715633A00DA76F8 /* ExtraView.swift in Sources */,
 				75A53BF6273E5E5E0003F54A /* SecurityServiceError.swift in Sources */,
 				755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */,
@@ -2027,7 +2051,6 @@
 				93C3EC35270ACD6700B9CA4D /* ConnectionInfoView.swift in Sources */,
 				93DBF5622717D302006EBC65 /* Persistable.swift in Sources */,
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
-				931636D4271DC62B00A8C18C /* AvailableNodesView.swift in Sources */,
 				93C8AA85273ED4B500B6BD72 /* NavigationBar.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
 				75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */,
@@ -2054,7 +2077,6 @@
 				9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */,
 				93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */,
 				753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */,
-				932EEBD9271D4DAA0098A2D7 /* AvailableNodesViewModel.swift in Sources */,
 				759DE5C427158B1E00DC7757 /* DNSServerType.swift in Sources */,
 				93DBF54B2716D121006EBC65 /* StoresDNSServers.swift in Sources */,
 				932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */,
@@ -2101,7 +2123,6 @@
 				753EDDFF2715633A00DA76F8 /* NodeSelectionRowViewModel.swift in Sources */,
 				75E5BDFD26DCDBDA00C345B9 /* OnboardingStepModel.swift in Sources */,
 				7504EA88267B715800023D42 /* PeersModel.swift in Sources */,
-				932EEBD5271D4D800098A2D7 /* AvailableNodesCoordinator.swift in Sources */,
 				75BF4A422715742300DBC427 /* ExtraRowView.swift in Sources */,
 				755F5F19270DE78600D416ED /* TextStyle.swift in Sources */,
 				75B0D56726CD27EC009ECAFC /* GeneralSettingsStorage.swift in Sources */,
@@ -2112,6 +2133,7 @@
 				932D0AF8272174560064AEE4 /* UserService.swift in Sources */,
 				752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */,
 				755F5F18270DE78600D416ED /* TextStyles.swift in Sources */,
+				22BAC38E2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */,
 				752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2152,11 +2174,13 @@
 				7511621F273A98BE005F9133 /* Assets.swift in Sources */,
 				75116249273AAF82005F9133 /* ContextBuilder.swift in Sources */,
 				222D8C60273E74CB00542407 /* GridView.swift in Sources */,
+				22BAC3972746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */,
 				75116264273AB036005F9133 /* StoresGeneralInfo.swift in Sources */,
 				7511626C273AB042005F9133 /* AutoRealmObject.swift in Sources */,
 				222D8C5A273E6DF500542407 /* CheckmarkToggleStyle.swift in Sources */,
 				222D8C62273E771900542407 /* NodeInfoView.swift in Sources */,
 				75116267273AB03A005F9133 /* UserDefaultsStorageStrategy.swift in Sources */,
+				22BAC3952746B16A00DC0BCE /* AvailableNodesViewModel.swift in Sources */,
 				7511622F273AAEFE005F9133 /* Double+Ext.swift in Sources */,
 				7511624C273AAF90005F9133 /* Keychain.swift in Sources */,
 				92074C8D273D58B900CEA689 /* NodeSelectionRowViewModel.swift in Sources */,
@@ -2167,6 +2191,7 @@
 				7511625B273AB020005F9133 /* NodesServiceType.swift in Sources */,
 				92074C76273D411200CEA689 /* HomeCoordinator.swift in Sources */,
 				7511628E273ABD30005F9133 /* OnboardingViewModel.swift in Sources */,
+				22BAC3912746B16A00DC0BCE /* AvailableNodesView.swift in Sources */,
 				75116256273AAFAD005F9133 /* RouterType.swift in Sources */,
 				222D8C56273E69CE00542407 /* ConnectionCoordinator.swift in Sources */,
 				7511621A273A983D005F9133 /* TextStyle.swift in Sources */,
@@ -2241,6 +2266,7 @@
 				7511625E273AB029005F9133 /* UserService.swift in Sources */,
 				92074C82273D4E8400CEA689 /* PlansViewModelDelegate.swift in Sources */,
 				7511625C273AB023005F9133 /* PreloadService.swift in Sources */,
+				22BAC38F2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */,
 				75116286273AB8B6005F9133 /* Formatters.swift in Sources */,
 				75116271273AB054005F9133 /* TunnelChanges.swift in Sources */,
 				75116219273A9801005F9133 /* OnboardingStepModel.swift in Sources */,

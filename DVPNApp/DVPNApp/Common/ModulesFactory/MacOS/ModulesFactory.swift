@@ -61,12 +61,12 @@ extension ModulesFactory {
     func makeAvailableNodesModule(
         continent: Continent,
         delegate: PlansViewModelDelegate?,
-        for window: NSWindow
+        for navigation: NavigationHelper
     ) {
         AvailableNodesCoordinator(
             context: context,
             delegate: delegate,
-            window: window,
+            navigation: navigation,
             continent: continent
         ).start()
     }

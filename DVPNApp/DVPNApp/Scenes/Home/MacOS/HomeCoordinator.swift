@@ -74,7 +74,7 @@ extension HomeCoordinator: RouterType {
 //            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)
         case let .openNodes(continent, delegate):
             ModulesFactory.shared.makeAvailableNodesModule(
-                continent: continent, delegate: delegate, for: window
+                continent: continent, delegate: delegate, for: navigation
             )
         }
     }
