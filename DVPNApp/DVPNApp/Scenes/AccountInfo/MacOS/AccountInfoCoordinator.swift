@@ -22,7 +22,7 @@ final class AccountInfoCoordinator: CoordinatorType {
         let viewModel = AccountInfoViewModel(model: model, router: asRouter())
         let view = AccountInfoView(viewModel: viewModel)
         let controller = NSHostingView(rootView: view)
-        navigation?.switchSubView(to: controller)
+        navigation?.switchSubview(to: controller)
     }
 }
 
