@@ -41,7 +41,6 @@
 		22A8D6B0273EC73300E78784 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22A8D6AF273EC73300E78784 /* WireGuardKit */; };
 		22BAC37E27455FAA00DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37D27455FAA00DC0BCE /* SnapKit */; };
 		22BAC38027455FB800DC0BCE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22BAC37F27455FB800DC0BCE /* SnapKit */; };
-		22BAC38E2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */; };
 		22BAC38F2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */; };
 		22BAC3912746B16A00DC0BCE /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */; };
 		22BAC3942746B16A00DC0BCE /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */; };
@@ -362,6 +361,7 @@
 		93DC52AB27402C34006C0989 /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93DC52AC27402C37006C0989 /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
 		93DC52AF27402E83006C0989 /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */; };
+		93DC52B02746D280006C0989 /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -2077,6 +2077,7 @@
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				93C8AA85273ED4B500B6BD72 /* NavigationBar.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
+				93DC52B02746D280006C0989 /* AvailableNodesView.swift in Sources */,
 				75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */,
 				751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */,
 				93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */,
@@ -2157,7 +2158,6 @@
 				932D0AF8272174560064AEE4 /* UserService.swift in Sources */,
 				752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */,
 				755F5F18270DE78600D416ED /* TextStyles.swift in Sources */,
-				22BAC38E2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */,
 				752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
