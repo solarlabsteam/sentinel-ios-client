@@ -5,7 +5,7 @@
 //  Created by Lika Vorobyeva on 23.08.2021.
 //
 
-import UIKit
+import Foundation
 import Combine
 
 final class DNSSettingsViewModel: ObservableObject {

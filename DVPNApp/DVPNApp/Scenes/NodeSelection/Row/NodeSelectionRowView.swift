@@ -61,7 +61,8 @@ struct NodeSelectionRowView: View {
                 }
                 .padding(.bottom)
             }
-        }.buttonStyle(PlainButtonStyle())
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

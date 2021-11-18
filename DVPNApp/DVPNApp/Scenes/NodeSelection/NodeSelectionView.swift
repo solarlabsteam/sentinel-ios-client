@@ -42,10 +42,9 @@ struct NodeSelectionView: View {
                                 viewModel.openDetails(for: vm.id)
                             }
                         )
-                        .listRowBackground(Color.clear)
                     }
                 }
-                .listStyle(PlainListStyle())
+                .removeBackground()
             }
 
             #if os(iOS)
@@ -90,6 +89,7 @@ struct NodeSelectionView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
+                        .foregroundColor(.accentColor)
                 }
                 .buttonStyle(PlainButtonStyle())
                 .frame(width: 60, height: 60)
@@ -103,4 +103,3 @@ struct NodeSelectionView: View {
     }
 }
 
-// TODO: @Lika add preview

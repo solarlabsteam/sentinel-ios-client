@@ -20,7 +20,7 @@ struct DNSSettingsRowView: View {
         Button(action: toggleSelection) {
             VStack {
                 HStack {
-                    Image(uiImage: model.type.image)
+                    model.type.image.asImage
                         .frame(width: 25, height: 25)
                         .padding(3)
                         .background(Color.white)
@@ -45,6 +45,7 @@ struct DNSSettingsRowView: View {
                 }
             }
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

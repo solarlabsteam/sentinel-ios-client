@@ -12,6 +12,7 @@ import SentinelWallet
 final class ModulesFactory {
     private(set) static var shared = ModulesFactory()
     private let context: CommonContext
+    private weak var window: NSWindow?
 
     private init() {
         context = ContextBuilder().buildContext()
@@ -23,7 +24,9 @@ final class ModulesFactory {
 }
 
 extension ModulesFactory {
-    func detectStartModule(for navigation: NavigationHelper) {
+    func detectStartModule(for navigation: NavigationHelper, window: NSWindow) {
+        self.window = window
+
         context.nodesService.loadAllNodes { [weak self] result in
             if case let .success(nodes) = result {
                 self?.context.nodesService.loadNodesInfo(for: nodes)
@@ -53,6 +56,9 @@ extension ModulesFactory {
             context.generalInfoStorage.set(didPassOnboarding: true)
         }
         HomeCoordinator(context: context, navigation: navigation).start()
+
+        guard let window = window else { return }
+        addToolbar(with: navigation, window: window)
     }
     
     func makeConnectionModule(for navigation: NavigationHelper) {
@@ -82,6 +88,28 @@ extension ModulesFactory {
         for navigation: NavigationHelper
     ) {
         PlansCoordinator(context: context, navigation: navigation, node: node, delegate: delegate).start()
+    }
+
+    func makeDNSSettingsModule(
+        delegate: DNSSettingsViewModelDelegate?,
+        server: DNSServerType,
+        for navigation: NavigationHelper
+    ) {
+        DNSSettingsCoordinator(context: context, delegate: delegate, server: server, navigation: navigation).start()
+    }
+
+    func addToolbar(with navigation: NavigationHelper, window: NSWindow) {
+        let toolbar = NSHostingView(
+            rootView: Toolbar(
+                toggleButton: { [weak self] in
+                    self?.makeAccountInfoModule(for: navigation)
+                }
+            )
+        )
+        toolbar.frame.size = toolbar.fittingSize
+        let toolbarController = NSTitlebarAccessoryViewController()
+        toolbarController.view = toolbar
+        window.addTitlebarAccessoryViewController(toolbarController)
     }
     
     func makeNodeDetailsModule(
@@ -150,6 +178,20 @@ extension ModulesFactory {
         let model = AccountInfoModel(context: context)
         let viewModel = AccountInfoViewModel(model: model, router: coordinator)
         let view = AccountInfoView(viewModel: viewModel)
+
+        return view
+    }
+
+    func getDNSSettingsScene(delegate: DNSSettingsViewModelDelegate? = nil) -> DNSSettingsView {
+        let coordinator = DNSSettingsCoordinator(
+            context: context,
+            delegate: delegate,
+            server: .default,
+            navigation: NavigationHelper(window: NSWindow())
+        ).asRouter()
+        let model = DNSSettingsModel(context: context)
+        let viewModel = DNSSettingsViewModel(model: model, server: .default, delegate: delegate, router: coordinator)
+        let view = DNSSettingsView(viewModel: viewModel)
 
         return view
     }
