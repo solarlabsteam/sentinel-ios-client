@@ -124,6 +124,12 @@ internal enum L10n {
       /// Fetching the node info
       internal static let fetching = L10n.tr("Localizable", "Connection.LocationSelector.Fetching")
     }
+    internal enum Resubscribe {
+      /// Data update is pending, but it seems you used all data. Do you want to resubscribe?
+      internal static let subtitle = L10n.tr("Localizable", "Connection.Resubscribe.Subtitle")
+      /// All data used
+      internal static let title = L10n.tr("Localizable", "Connection.Resubscribe.Title")
+    }
     internal enum Status {
       internal enum Connection {
         /// Checking balance
@@ -173,9 +179,13 @@ internal enum L10n {
   internal enum Error {
     /// Failed to start a session. Please, try again or select another node
     internal static let connectionParsingFailed = L10n.tr("Localizable", "Error.ConnectionParsingFailed")
+    /// Please allow the tunnel creation to connect to your session
+    internal static let tunnelCreationDenied = L10n.tr("Localizable", "Error.TunnelCreationDenied")
     /// Selected node is temporary unavailable. Please, try later or select another node
     internal static let unavailableNode = L10n.tr("Localizable", "Error.UnavailableNode")
     internal enum GRPCError {
+      /// Request was cancelled.
+      internal static let rpcCancelled = L10n.tr("Localizable", "Error.GRPCError.RPCCancelled")
       /// Request timed-out. No internet connection.
       internal static let rpcTimedOut = L10n.tr("Localizable", "Error.GRPCError.RPCTimedOut")
     }

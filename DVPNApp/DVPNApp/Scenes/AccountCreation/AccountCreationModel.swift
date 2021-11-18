@@ -84,6 +84,8 @@ final class AccountCreationModel {
     }
 
     func saveWallet(mnemonic: [String]) {
+        let mnemonic = mnemonic.map { $0.trimmingCharacters(in: .whitespaces) }
+        
         switch context.securityService.restore(from: mnemonic) {
         case .failure(let error):
             eventSubject.send(.error(error))

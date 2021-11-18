@@ -25,6 +25,7 @@ enum ConnectionModelEvent {
     
     /// When the quota is over
     case openPlans(for: DVPNNodeInfo)
+    case resubscribe(to: DVPNNodeInfo)
 }
 
 final class ConnectionModel {
@@ -100,7 +101,8 @@ extension ConnectionModel {
             
             switch response {
             case .failure(let error):
-                self.show(error: error)
+                log.error(error)
+                self.show(error: ConnectionModelError.nodeIsOffline)
             case .success(let sentinelNode):
                 guard let node = sentinelNode.node else {
                     log.error("Loaded sentinelNode do not contain node")
@@ -243,7 +245,8 @@ extension ConnectionModel {
                 ) { [weak self] result in
                     switch result {
                     case .failure(let error):
-                        self?.show(error: error)
+                        log.error(error)
+                        self?.show(error: ConnectionModelError.nodeIsOffline)
                     case .success(let node):
                         self?.createNewSession(subscription: subscription, nodeURL: node.remoteURL)
                     }
@@ -326,6 +329,13 @@ extension ConnectionModel {
             switch result {
             case .failure(let error):
                 self?.set(sessionStart: nil)
+
+                if error.asAFError?.responseCode == 400, let selectedNode = self?.selectedNode {
+                    self?.eventSubject.send(.resubscribe(to: selectedNode))
+                    self?.stopLoading()
+                    return
+                }
+
                 self?.show(error: error)
 
             case .success(let id):

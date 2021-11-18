@@ -54,6 +54,8 @@ extension ConnectionCoordinator: RouterType {
             ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case let .dismiss(isEnabled):
             setBackNavigationEnability(isEnabled: isEnabled)
+        case let .resubscribe(completion):
+            showResubscribeAlert(completion: completion)
         }
     }
 }
@@ -65,5 +67,28 @@ extension ConnectionCoordinator {
         navigation?.interactivePopGestureRecognizer?.isEnabled = isEnabled
         navigation?.navigationBar.isUserInteractionEnabled = isEnabled
         navigation?.navigationBar.tintColor = isEnabled ? .white : .gray
+    }
+    
+    private func showResubscribeAlert(completion: @escaping (Bool) -> Void) {
+        let alert = UIAlertController(
+            title: L10n.Connection.Resubscribe.title,
+            message: L10n.Connection.Resubscribe.subtitle,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: L10n.Common.yes, style: .default) { _ in
+            UIImpactFeedbackGenerator.lightFeedback()
+            completion(true)
+        }
+
+        let cancelAction = UIAlertAction(title: L10n.Common.cancel, style: .destructive) { _ in
+            UIImpactFeedbackGenerator.lightFeedback()
+            completion(false)
+        }
+
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+
+        rootController?.present(alert, animated: true, completion: nil)
     }
 }

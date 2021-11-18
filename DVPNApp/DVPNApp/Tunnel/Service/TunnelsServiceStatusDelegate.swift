@@ -8,12 +8,27 @@
 import Foundation
 import WireGuardKit
 
-enum TunnelsServiceError: Error {
+enum TunnelsServiceError: LocalizedError {
     case emptyName
     case nameAlreadyExists
 
     case loadTunnelsFailed(systemError: Error)
     case addTunnelFailed(systemError: Error)
+}
+
+extension TunnelsServiceError {
+    public var errorDescription: String? {
+        switch self {
+        case .emptyName:
+            return "The name of tunnel is empty"
+        case .nameAlreadyExists:
+            return "The name of tunnel already exist"
+        case .loadTunnelsFailed:
+            return "Fail to load tunnel"
+        case .addTunnelFailed:
+            return L10n.Error.tunnelCreationDenied
+        }
+    }
 }
 
 enum TunnelActivationError: Error {
