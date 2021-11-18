@@ -45,6 +45,8 @@ extension ConnectionCoordinator: RouterType {
         case let .dismiss(isEnabled):
             log.debug("TODO macos implement dismiss")
 //            setBackNavigationEnability(isEnabled: isEnabled)
+        case .resubscribe(let completion):
+            log.debug("TODO macos implement resubscribe")
         }
     }
 }
