@@ -25,8 +25,8 @@ final class AccountCreationCoordinator: CoordinatorType {
         let model = AccountCreationModel(context: context)
         let viewModel = AccountCreationViewModel(model: model, mode: mode, router: asRouter())
         let view = AccountCreationView(viewModel: viewModel)
-        let controller = NSHostingView(rootView: view)
-        navigation?.switchSubview(to: controller)
+        let container = NSHostingView(rootView: view)
+        navigation?.push(view: container)
     }
 }
 

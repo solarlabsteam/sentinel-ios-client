@@ -23,8 +23,8 @@ final class OnboardingCoordinator: CoordinatorType {
         let model = OnboardingModel(context: context)
         let viewModel = OnboardingViewModel(model: model, router: asRouter())
         let view = OnboardingView(viewModel: viewModel)
-        let controller = NSHostingView(rootView: view)
-        navigation?.switchSubview(to: controller)
+        let container = NSHostingView(rootView: view)
+        navigation?.push(view: container)
     }
 }
 

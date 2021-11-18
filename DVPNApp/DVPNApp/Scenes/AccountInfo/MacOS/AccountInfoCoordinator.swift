@@ -21,8 +21,8 @@ final class AccountInfoCoordinator: CoordinatorType {
         let model = AccountInfoModel(context: context)
         let viewModel = AccountInfoViewModel(model: model, router: asRouter())
         let view = AccountInfoView(viewModel: viewModel)
-        let controller = NSHostingView(rootView: view)
-        navigation?.switchSubview(to: controller)
+        let container = NSHostingView(rootView: view)
+        navigation?.push(view: container)
     }
 }
 

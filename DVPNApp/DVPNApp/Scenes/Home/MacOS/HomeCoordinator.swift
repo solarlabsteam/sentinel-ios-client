@@ -22,12 +22,12 @@ final class HomeCoordinator: CoordinatorType {
         let model = HomeModel(context: context)
         let viewModel = HomeViewModel(model: model, router: asRouter())
         let view = HomeView(viewModel: viewModel)
-        let controller = NSHostingView(rootView: view)
+        let container = NSHostingView(rootView: view)
 
 //        controller.makeNavigationBar(hidden: false, animated: false)
 //        controller.title = L10n.Home.Node.title
         
-        navigation?.switchSubview(to: controller, clearStack: true)
+        navigation?.push(view: container, clearStack: true)
 
 //        navigation?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
 //            image: Asset.Navigation.account.image,
@@ -46,8 +46,7 @@ extension HomeCoordinator: RouterType {
 #warning("handle error properly on macOS")
             log.error(error)
         case .accountInfo:
-            log.debug("TODO macos implement accountInfo")
-//            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
+            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case .connect:
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):
@@ -57,8 +56,7 @@ extension HomeCoordinator: RouterType {
 //                configuration: .init(node: node, isSubscribed: isSubscribed)
 //            )
         case let .subscribe(node, delegate):
-            log.debug("TODO macos implement subscribe")
-//            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
+            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .sentinel:
             if let url = UserConstants.sentinelURL {
                 NSWorkspace.shared.open(url)

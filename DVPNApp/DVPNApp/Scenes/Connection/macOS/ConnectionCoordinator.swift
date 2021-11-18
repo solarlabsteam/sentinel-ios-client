@@ -21,14 +21,14 @@ final class ConnectionCoordinator: CoordinatorType {
         let homeModel = ConnectionModel(context: context)
         let homeViewModel = ConnectionViewModel(model: homeModel, router: asRouter())
         let homeView = ConnectionView(viewModel: homeViewModel)
-        let controller = NSHostingView(rootView: homeView)
-        navigation?.switchSubview(to: controller)
+        let container = NSHostingView(rootView: homeView)
+        navigation?.push(view: container)
     }
 }
 
 extension ConnectionCoordinator: RouterType {
     func play(event: ConnectionViewModel.Route) {
-//        guard let navigation = navigation else { return }
+        guard let navigation = navigation else { return }
         switch event {
         case .error(let error):
 #warning("handle error properly on macOS")
@@ -37,11 +37,9 @@ extension ConnectionCoordinator: RouterType {
 #warning("handle warning properly on macOS")
             log.error(error)
         case let .openPlans(node, delegate):
-            log.debug("TODO macos implement openPlans")
-//            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
+            ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .accountInfo:
-            log.debug("TODO macos implement accountInfo")
-//            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
+            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case let .dismiss(isEnabled):
             log.debug("TODO macos implement dismiss")
 //            setBackNavigationEnability(isEnabled: isEnabled)

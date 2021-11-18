@@ -34,8 +34,18 @@ struct PlansView: View {
         Button(action: viewModel.didTapSubscribe) {
             ZStack(alignment: .leading) {
                 if viewModel.isLoading {
-                    ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+#if os(iOS)
+                    ActivityIndicator(
+                        isAnimating: $viewModel.isLoading,
+                        style: .medium
+                    )
                         .frame(width: 15, height: 15)
+#elseif os(macOS)
+                    ActivityIndicator(
+                        isAnimating: $viewModel.isLoading,
+                        controlSize: .regular
+                    )
+#endif
                 }
                 HStack {
                     Spacer()
@@ -50,6 +60,7 @@ struct PlansView: View {
         .padding()
         .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
+        .buttonStyle(PlainButtonStyle())
         .disabled(viewModel.isLoading)
     }
 
@@ -63,6 +74,7 @@ struct PlansView: View {
                     .frame(width: 18, height: 18)
                     .foregroundColor(.white)
             }
+            .buttonStyle(PlainButtonStyle())
 
             VStack(spacing: 0) {
                 VStack {
@@ -96,7 +108,11 @@ struct PlansView: View {
             .padding(.all, 28)
             .padding(.bottom)
         }
+#if os(macOS)
+        .frame(maxWidth: .infinity, maxHeight: 880)
+#elseif os(iOS)
         .frame(maxWidth: .infinity)
+#endif
         .background(Asset.Colors.accentColor.color.asColor.opacity(0.85))
         .edgesIgnoringSafeArea(.bottom)
     }

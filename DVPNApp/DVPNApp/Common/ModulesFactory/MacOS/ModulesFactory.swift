@@ -7,6 +7,7 @@
 
 import Cocoa
 import SwiftUI
+import SentinelWallet
 
 final class ModulesFactory {
     private(set) static var shared = ModulesFactory()
@@ -73,6 +74,14 @@ extension ModulesFactory {
     
     func makeAccountInfoModule(for navigation: NavigationHelper) {
         AccountInfoCoordinator(context: context, navigation: navigation).start()
+    }
+
+    func makePlansModule(
+        node: DVPNNodeInfo,
+        delegate: PlansViewModelDelegate?,
+        for navigation: NavigationHelper
+    ) {
+        PlansCoordinator(context: context, navigation: navigation, node: node, delegate: delegate).start()
     }
 }
 

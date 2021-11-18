@@ -248,6 +248,12 @@
 		755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 755FBF0526AF0E6F00E9D408 /* SwiftKeychainWrapper */; };
 		755FBF0926AF0F1600E9D408 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FBF0826AF0F1600E9D408 /* SecurityService.swift */; };
 		757F0B7E26D8D6CE000C0865 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F0B7D26D8D6CE000C0865 /* Connectivity.swift */; };
+		757F7F932746D205005E031E /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
+		757F7F942746D20A005E031E /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
+		757F7F952746D210005E031E /* PlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32B26C57FE900222CA4 /* PlansModel.swift */; };
+		757F7F962746D210005E031E /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32426C57FE900222CA4 /* PlansView.swift */; };
+		757F7F972746D210005E031E /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
+		757F7F992746D4F4005E031E /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F982746D4F4005E031E /* PlansCoordinator.swift */; };
 		758B261226AFEC4A00BD711E /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B261126AFEC4A00BD711E /* RouterType.swift */; };
 		758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */; };
 		758DD9CE270A1269000CD59B /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */; };
@@ -544,6 +550,7 @@
 		755F5F17270DE78600D416ED /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		755FBF0826AF0F1600E9D408 /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
 		757F0B7D26D8D6CE000C0865 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		757F7F982746D4F4005E031E /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
@@ -1185,6 +1192,22 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		757F7F912746D1F1005E031E /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				757F7F982746D4F4005E031E /* PlansCoordinator.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		757F7F922746D1FB005E031E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				755A4F2326C581F10057704C /* PlansCoordinator.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		758DD9DB270B72D2000CD59B /* AccountCreation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1628,8 +1651,9 @@
 		C64ED32326C57FE900222CA4 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
+				757F7F922746D1FB005E031E /* iOS */,
+				757F7F912746D1F1005E031E /* macOS */,
 				C64ED32626C57FE900222CA4 /* Subviews */,
-				755A4F2326C581F10057704C /* PlansCoordinator.swift */,
 				C64ED32B26C57FE900222CA4 /* PlansModel.swift */,
 				C64ED32426C57FE900222CA4 /* PlansView.swift */,
 				C64ED32526C57FE900222CA4 /* PlansViewModel.swift */,
@@ -2195,6 +2219,7 @@
 				75116230273AAEFE005F9133 /* Int64+Ext.swift in Sources */,
 				75116284273AB83E005F9133 /* NotificationToken.swift in Sources */,
 				222D8C15273C1BC400542407 /* OnboardingView.swift in Sources */,
+				757F7F972746D210005E031E /* PlansViewModel.swift in Sources */,
 				222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */,
 				7511626F273AB054005F9133 /* TunnelModel.swift in Sources */,
 				7511621F273A98BE005F9133 /* Assets.swift in Sources */,
@@ -2220,6 +2245,7 @@
 				22BAC3912746B16A00DC0BCE /* AvailableNodesView.swift in Sources */,
 				75116256273AAFAD005F9133 /* RouterType.swift in Sources */,
 				222D8C56273E69CE00542407 /* ConnectionCoordinator.swift in Sources */,
+				757F7F932746D205005E031E /* SelectedPlan.swift in Sources */,
 				7511621A273A983D005F9133 /* TextStyle.swift in Sources */,
 				222D8C5B273E6DFB00542407 /* ConnectionInfoType.swift in Sources */,
 				7511624E273AAF90005F9133 /* NETunnelProviderProtocol+Extension.swift in Sources */,
@@ -2238,6 +2264,7 @@
 				75116250273AAFA2005F9133 /* TunnelConfiguration+Ext.swift in Sources */,
 				7511624B273AAF90005F9133 /* ConfigurationParseError.swift in Sources */,
 				75116261273AB036005F9133 /* StoresNodes.swift in Sources */,
+				757F7F992746D4F4005E031E /* PlansCoordinator.swift in Sources */,
 				92074C7C273D45BE00CEA689 /* HomeModel.swift in Sources */,
 				75116220273A98C1005F9133 /* AutoRealmObject.generated.swift in Sources */,
 				222D8C1D273C221A00542407 /* MnemonicLineView.swift in Sources */,
@@ -2295,15 +2322,18 @@
 				7511625E273AB029005F9133 /* UserService.swift in Sources */,
 				92074C82273D4E8400CEA689 /* PlansViewModelDelegate.swift in Sources */,
 				7511625C273AB023005F9133 /* PreloadService.swift in Sources */,
+				757F7F962746D210005E031E /* PlansView.swift in Sources */,
 				22BAC38F2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */,
 				75116286273AB8B6005F9133 /* Formatters.swift in Sources */,
 				75116271273AB054005F9133 /* TunnelChanges.swift in Sources */,
 				75116219273A9801005F9133 /* OnboardingStepModel.swift in Sources */,
 				75116211273A88FC005F9133 /* Config.swift in Sources */,
 				222D8C5D273E6E0200542407 /* ConnectionInfoViewModel.swift in Sources */,
+				757F7F942746D20A005E031E /* CounterView.swift in Sources */,
 				75116295273ABFC1005F9133 /* CreationMode.swift in Sources */,
 				93C8AA84273EC08100B6BD72 /* NavigationBar.swift in Sources */,
 				92074C7D273D45C200CEA689 /* HomeViewModel.swift in Sources */,
+				757F7F952746D210005E031E /* PlansModel.swift in Sources */,
 				222D8C1A273C200000542407 /* AccountCreationModel.swift in Sources */,
 				75116272273AB054005F9133 /* PeersModel.swift in Sources */,
 				92074C87273D517900CEA689 /* ExtraView.swift in Sources */,
@@ -2380,7 +2410,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2410,7 +2440,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";

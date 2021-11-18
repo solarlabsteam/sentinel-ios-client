@@ -5,7 +5,7 @@
 //  Created by Aleksandr Litreev on 12.08.2021.
 //
 
-import UIKit
+import Foundation
 import FlagKit
 import SentinelWallet
 import Combine

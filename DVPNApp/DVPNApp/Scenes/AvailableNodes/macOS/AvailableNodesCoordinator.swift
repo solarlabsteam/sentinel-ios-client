@@ -29,8 +29,8 @@ final class AvailableNodesCoordinator: CoordinatorType {
         let model = AvailableNodesModel(context: context, continent: continent)
         let viewModel = AvailableNodesViewModel(continent: continent, model: model, router: asRouter())
         let view = AvailableNodesView(viewModel: viewModel)
-        let controller = NSHostingView(rootView: view)
-        navigation?.switchSubview(to: controller)
+        let container = NSHostingView(rootView: view)
+        navigation?.push(view: container)
         
 #warning("add buttons on macOS")
 //        controller.makeNavigationBar(hidden: false, animated: false)
@@ -48,13 +48,13 @@ final class AvailableNodesCoordinator: CoordinatorType {
 
 extension AvailableNodesCoordinator: RouterType {
     func play(event: AvailableNodesViewModel.Route) {
+        guard let navigation = navigation else { return }
         switch event {
         case let .error(error):
 #warning("handle error properly on macOS")
             log.error(error)
         case let .subscribe(nodeInfo):
-            log.debug("TODO macos implement openPlans")
-//            ModulesFactory.shared.makePlansModule(node: nodeInfo, delegate: delegate, for: navigation)
+            ModulesFactory.shared.makePlansModule(node: nodeInfo, delegate: delegate, for: navigation)
         case .connect:
             log.debug("TODO macos implement")
 //            ModulesFactory.shared.makeConnectionModule(for: navigation)

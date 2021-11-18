@@ -28,7 +28,7 @@ struct CounterView: View {
     }
 
     var icon: some View {
-        Image(uiImage: Asset.Tokens.dvpnBlue.image)
+        Asset.Tokens.dvpnBlue.image.asImage
             .resizable()
             .frame(width: 24, height: 26)
             .aspectRatio(contentMode: .fit)
@@ -58,12 +58,13 @@ struct CounterView: View {
 
             VStack(spacing: 15) {
                 Button(action: togglePlus) {
-                    Image(uiImage: Asset.Counter.plus.image)
+                    Asset.Counter.plus.image.asImage
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 14)
                         .foregroundColor(constants.navyColor)
                 }
+                .buttonStyle(PlainButtonStyle())
                 .padding(.horizontal, 20)
 
                 Rectangle()
@@ -72,12 +73,13 @@ struct CounterView: View {
                     .edgesIgnoringSafeArea(.horizontal)
 
                 Button(action: toggleMinus) {
-                    Image(uiImage: Asset.Counter.minus.image)
+                    Asset.Counter.minus.image.asImage
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 14)
                         .foregroundColor(constants.navyColor)
                 }
+                .buttonStyle(PlainButtonStyle())
                 .padding(.horizontal, 20)
             }
             .fixedSize()

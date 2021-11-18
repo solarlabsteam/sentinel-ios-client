@@ -10,15 +10,11 @@ import SwiftUI
 import SnapKit
 
 protocol ListNavigationControllerType: AnyObject {
-    associatedtype T: NSView
-    typealias Item = T
-    
-    var items: [Item] { get }
+    var items: [NSView] { get }
 }
 
 final class NavigationHelper: ListNavigationControllerType {
-    typealias T = NSView
-    private(set) var items: [Item] = []
+    private(set) var items: [NSView] = []
     
     private let window: NSWindow
     private let containerView: NSView
@@ -33,7 +29,7 @@ final class NavigationHelper: ListNavigationControllerType {
         addBackButton()
     }
     
-    func switchSubview<T>(to view: T, clearStack: Bool = false) where T: NSView {
+    func push(view: NSView, clearStack: Bool = false) {
         if clearStack {
             items.forEach { $0.removeFromSuperview() }
             items = []
@@ -43,7 +39,18 @@ final class NavigationHelper: ListNavigationControllerType {
         
         add(subview: view)
     }
-    
+
+    func present(view: NSView) {
+        items.append(view)
+        backButtonView?.isHidden = true
+
+        containerView.addSubview(view)
+
+        view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+
     func pop() {
         let item = items.removeLast()
         item.removeFromSuperview()
