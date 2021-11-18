@@ -7,7 +7,9 @@
 
 import Foundation
 import SwiftUI
+#if os(iOS)
 import UIKit
+#endif
 import FlagKit
 
 struct DNSSettingsView: View {
@@ -17,7 +19,9 @@ struct DNSSettingsView: View {
     init(viewModel: DNSSettingsViewModel) {
         self.viewModel = viewModel
 
+#if os(iOS)
         UITableViewCell.appearance().selectionStyle = .none
+#endif
     }
 
     var body: some View {
@@ -30,6 +34,7 @@ struct DNSSettingsView: View {
                     .frame(width: 18, height: 18)
                     .foregroundColor(.white)
             }
+            .buttonStyle(PlainButtonStyle())
 
             VStack {
                 Text(L10n.Dns.title)

@@ -254,6 +254,12 @@
 		757F7F972746D210005E031E /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
 		757F7F992746D4F4005E031E /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F982746D4F4005E031E /* PlansCoordinator.swift */; };
 		757F7F9D2746F955005E031E /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F9B2746F8E9005E031E /* Toolbar.swift */; };
+		757F7FA02746FBA1005E031E /* DNSSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */; };
+		757F7FA12746FBA1005E031E /* DNSSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */; };
+		757F7FA22746FBA1005E031E /* DNSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */; };
+		757F7FA32746FBA5005E031E /* DNSSettingsRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AD5F32715A33A004F5717 /* DNSSettingsRowViewModel.swift */; };
+		757F7FA42746FBA5005E031E /* DNSSettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */; };
+		757F7FA72746FC28005E031E /* DNSSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7FA52746FC06005E031E /* DNSSettingsCoordinator.swift */; };
 		758B261226AFEC4A00BD711E /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B261126AFEC4A00BD711E /* RouterType.swift */; };
 		758DD9CC270A0E73000CD59B /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */; };
 		758DD9CE270A1269000CD59B /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */; };
@@ -553,6 +559,7 @@
 		757F0B7D26D8D6CE000C0865 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		757F7F982746D4F4005E031E /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		757F7F9B2746F8E9005E031E /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		757F7FA52746FC06005E031E /* DNSSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsCoordinator.swift; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		758DD9CB270A0E73000CD59B /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
@@ -562,7 +569,7 @@
 		758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationCoordinator.swift; sourceTree = "<group>"; };
 		758DD9E1270B72D2000CD59B /* AccountCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationView.swift; sourceTree = "<group>"; };
 		759DE5B82715754800DC7757 /* ExtraRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraRowViewType.swift; sourceTree = "<group>"; };
-		759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsCoordinator.swift; sourceTree = "<group>"; };
+		759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DNSSettingsCoordinator.swift; path = ../DNSSettingsCoordinator.swift; sourceTree = "<group>"; };
 		759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsViewModel.swift; sourceTree = "<group>"; };
 		759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNSSettingsView.swift; sourceTree = "<group>"; };
 		759DE5C327158B1E00DC7757 /* DNSServerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSServerType.swift; sourceTree = "<group>"; };
@@ -1210,6 +1217,22 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		757F7F9E2746FB85005E031E /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				757F7FA52746FC06005E031E /* DNSSettingsCoordinator.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		757F7F9F2746FB8E005E031E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		758DD9DB270B72D2000CD59B /* AccountCreation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1316,8 +1339,9 @@
 		75BF4A402715721800DBC427 /* DNSSettings */ = {
 			isa = PBXGroup;
 			children = (
+				757F7F9F2746FB8E005E031E /* iOS */,
+				757F7F9E2746FB85005E031E /* macOS */,
 				75BF4A412715723200DBC427 /* Subviews */,
-				759DE5BA2715866C00DC7757 /* DNSSettingsCoordinator.swift */,
 				751AD5F52715CB14004F5717 /* DNSSettingsModel.swift */,
 				759DE5BD2715866C00DC7757 /* DNSSettingsView.swift */,
 				759DE5BC2715866C00DC7757 /* DNSSettingsViewModel.swift */,
@@ -2210,8 +2234,10 @@
 			files = (
 				75116254273AAFA4005F9133 /* GRPCError+Ext.swift in Sources */,
 				75A53BFA273E5EB60003F54A /* SecurityService.swift in Sources */,
+				757F7FA32746FBA5005E031E /* DNSSettingsRowViewModel.swift in Sources */,
 				93DC52A9274013E6006C0989 /* AccountInfoViewModel.swift in Sources */,
 				93DC52AA274013EA006C0989 /* AccountInfoView.swift in Sources */,
+				757F7FA12746FBA1005E031E /* DNSSettingsViewModel.swift in Sources */,
 				222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */,
 				7511621C273A98B0005F9133 /* Fonts.swift in Sources */,
 				75116259273AB011005F9133 /* RealmStorage.swift in Sources */,
@@ -2244,6 +2270,7 @@
 				222D8C59273E6DEC00542407 /* ConnectionViewModel.swift in Sources */,
 				7511624F273AAFA2005F9133 /* NETunnelProviderManager+Ext.swift in Sources */,
 				7511625B273AB020005F9133 /* NodesServiceType.swift in Sources */,
+				757F7FA22746FBA1005E031E /* DNSSettingsView.swift in Sources */,
 				92074C76273D411200CEA689 /* HomeCoordinator.swift in Sources */,
 				7511628E273ABD30005F9133 /* OnboardingViewModel.swift in Sources */,
 				22BAC3912746B16A00DC0BCE /* AvailableNodesView.swift in Sources */,
@@ -2265,6 +2292,7 @@
 				7511621E273A98BC005F9133 /* Strings.swift in Sources */,
 				75116260273AB031005F9133 /* NetworkServiceType.swift in Sources */,
 				222D8C5F273E6E0900542407 /* CountryTileView.swift in Sources */,
+				757F7FA42746FBA5005E031E /* DNSSettingsRowView.swift in Sources */,
 				75116250273AAFA2005F9133 /* TunnelConfiguration+Ext.swift in Sources */,
 				7511624B273AAF90005F9133 /* ConfigurationParseError.swift in Sources */,
 				75116261273AB036005F9133 /* StoresNodes.swift in Sources */,
@@ -2276,7 +2304,9 @@
 				222D8C57273E6DE500542407 /* ConnectionModel.swift in Sources */,
 				75116253273AAFA4005F9133 /* DVPNNodeInfo+Ext.swift in Sources */,
 				92074C90273D688400CEA689 /* ContinentsRowView.swift in Sources */,
+				757F7FA02746FBA1005E031E /* DNSSettingsModel.swift in Sources */,
 				75116279273AB05E005F9133 /* TunnelStatus.swift in Sources */,
+				757F7FA72746FC28005E031E /* DNSSettingsCoordinator.swift in Sources */,
 				75116217273A910F005F9133 /* main.swift in Sources */,
 				75116218273A97FE005F9133 /* OnboardingStepView.swift in Sources */,
 				75116262273AB036005F9133 /* StoresWallet.swift in Sources */,

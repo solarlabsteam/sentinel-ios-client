@@ -67,8 +67,7 @@ extension HomeCoordinator: RouterType {
         case let .title(title):
             log.debug("TODO macos implement title")
         case let .dns(delegate, server):
-            log.debug("TODO macos implement dns")
-//            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)
+            ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)
         case let .openNodes(continent, delegate):
             ModulesFactory.shared.makeAvailableNodesModule(
                 continent: continent, delegate: delegate, for: navigation

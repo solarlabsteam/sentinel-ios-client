@@ -90,6 +90,14 @@ extension ModulesFactory {
         PlansCoordinator(context: context, navigation: navigation, node: node, delegate: delegate).start()
     }
 
+    func makeDNSSettingsModule(
+        delegate: DNSSettingsViewModelDelegate?,
+        server: DNSServerType,
+        for navigation: NavigationHelper
+    ) {
+        DNSSettingsCoordinator(context: context, delegate: delegate, server: server, navigation: navigation).start()
+    }
+
     func addToolbar(with navigation: NavigationHelper, window: NSWindow) {
         let toolbar = NSHostingView(
             rootView: Toolbar(
@@ -163,6 +171,20 @@ extension ModulesFactory {
         let model = AccountInfoModel(context: context)
         let viewModel = AccountInfoViewModel(model: model, router: coordinator)
         let view = AccountInfoView(viewModel: viewModel)
+
+        return view
+    }
+
+    func getDNSSettingsScene(delegate: DNSSettingsViewModelDelegate? = nil) -> DNSSettingsView {
+        let coordinator = DNSSettingsCoordinator(
+            context: context,
+            delegate: delegate,
+            server: .default,
+            navigation: NavigationHelper(window: NSWindow())
+        ).asRouter()
+        let model = DNSSettingsModel(context: context)
+        let viewModel = DNSSettingsViewModel(model: model, server: .default, delegate: delegate, router: coordinator)
+        let view = DNSSettingsView(viewModel: viewModel)
 
         return view
     }
