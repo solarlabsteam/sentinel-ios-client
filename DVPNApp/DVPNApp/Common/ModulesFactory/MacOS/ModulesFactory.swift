@@ -70,6 +70,10 @@ extension ModulesFactory {
             continent: continent
         ).start()
     }
+    
+    func makeAccountInfoModule(for navigation: NavigationHelper) {
+        AccountInfoCoordinator(context: context, navigation: navigation).start()
+    }
 }
 
 /// Scenes previews
@@ -118,6 +122,18 @@ extension ModulesFactory {
             router: coordinator.asRouter()
         )
         let view = ConnectionView(viewModel: viewModel)
+
+        return view
+    }
+    
+    func getAccountInfoScene() -> AccountInfoView {
+        let coordinator = AccountInfoCoordinator(
+            context: context,
+            navigation: NavigationHelper(window: NSWindow())
+        ).asRouter()
+        let model = AccountInfoModel(context: context)
+        let viewModel = AccountInfoViewModel(model: model, router: coordinator)
+        let view = AccountInfoView(viewModel: viewModel)
 
         return view
     }

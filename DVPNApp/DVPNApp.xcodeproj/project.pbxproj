@@ -356,6 +356,12 @@
 		93DBF570271888B8006EBC65 /* ContinentsRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */; };
 		93DBF574271939EF006EBC65 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 93DBF576271939EF006EBC65 /* Localizable.stringsdict */; };
 		93DC52A5274000DE006C0989 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52A3274000B4006C0989 /* NavigationHelper.swift */; };
+		93DC52A8274013E1006C0989 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */; };
+		93DC52A9274013E6006C0989 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */; };
+		93DC52AA274013EA006C0989 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BA26D4B810001355F7 /* AccountInfoView.swift */; };
+		93DC52AB27402C34006C0989 /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
+		93DC52AC27402C37006C0989 /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
+		93DC52AF27402E83006C0989 /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */; };
 		93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */; };
 		93FA0689270B343B0006A765 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -626,6 +632,7 @@
 		93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowViewType.swift; sourceTree = "<group>"; };
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		93DC52A3274000B4006C0989 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
 		93FA0686270B34270006A765 /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
@@ -1104,11 +1111,12 @@
 		7554E2B826D4B7ED001355F7 /* AccountInfo */ = {
 			isa = PBXGroup;
 			children = (
-				7554E2C226D4BAE9001355F7 /* Subviews */,
-				758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */,
 				7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */,
 				7554E2BA26D4B810001355F7 /* AccountInfoView.swift */,
 				7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */,
+				93DC52A62740139D006C0989 /* iOS */,
+				93DC52A7274013A5006C0989 /* MacOS */,
+				7554E2C226D4BAE9001355F7 /* Subviews */,
 			);
 			path = AccountInfo;
 			sourceTree = "<group>";
@@ -1522,6 +1530,22 @@
 				93DBF576271939EF006EBC65 /* Localizable.stringsdict */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		93DC52A62740139D006C0989 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				758DD9CD270A1269000CD59B /* AccountInfoCoordinator.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		93DC52A7274013A5006C0989 /* MacOS */ = {
+			isa = PBXGroup;
+			children = (
+				93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */,
+			);
+			path = MacOS;
 			sourceTree = "<group>";
 		};
 		93FA0685270B340A0006A765 /* NodeDetails */ = {
@@ -2159,6 +2183,8 @@
 			files = (
 				75116254273AAFA4005F9133 /* GRPCError+Ext.swift in Sources */,
 				75A53BFA273E5EB60003F54A /* SecurityService.swift in Sources */,
+				93DC52A9274013E6006C0989 /* AccountInfoViewModel.swift in Sources */,
+				93DC52AA274013EA006C0989 /* AccountInfoView.swift in Sources */,
 				222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */,
 				7511621C273A98B0005F9133 /* Fonts.swift in Sources */,
 				75116259273AB011005F9133 /* RealmStorage.swift in Sources */,
@@ -2200,6 +2226,7 @@
 				92074C85273D4EF600CEA689 /* DNSSettingsViewModelDelegate.swift in Sources */,
 				75116251273AAFA2005F9133 /* NEVPNStatus+Ext.swift in Sources */,
 				7511629F273AC3A8005F9133 /* OnboardingCoordinator.swift in Sources */,
+				93DC52AC27402C37006C0989 /* AccentButton.swift in Sources */,
 				92074C79273D412100CEA689 /* HomeView.swift in Sources */,
 				75116277273AB05E005F9133 /* TunnelContainer.swift in Sources */,
 				75116275273AB059005F9133 /* TunnelManagerType.swift in Sources */,
@@ -2232,6 +2259,7 @@
 				7511622A273AAE11005F9133 /* Font+Ext.swift in Sources */,
 				75116289273ABA11005F9133 /* Image+Ext.swift in Sources */,
 				7511626E273AB04C005F9133 /* SentinelNode+Ext.swift in Sources */,
+				93DC52AB27402C34006C0989 /* FramedButton.swift in Sources */,
 				75116265273AB036005F9133 /* StoresDNSServers.swift in Sources */,
 				75116229273AAD29005F9133 /* UIColor+SwiftU.swift in Sources */,
 				7511624D273AAF90005F9133 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
@@ -2240,6 +2268,7 @@
 				75116263273AB036005F9133 /* StoresConnectInfo.swift in Sources */,
 				222D8C5E273E6E0600542407 /* CountryTileViewModel.swift in Sources */,
 				7511628B273ABB28005F9133 /* ContinentDecoder.swift in Sources */,
+				93DC52AF27402E83006C0989 /* AccountInfoCoordinator.swift in Sources */,
 				75116276273AB05E005F9133 /* TunnelsServiceStatusDelegate.swift in Sources */,
 				92074C7F273D4CFB00CEA689 /* ConnectionStatus.swift in Sources */,
 				7511626B273AB042005F9133 /* RealmStorage+Ext.swift in Sources */,
@@ -2280,6 +2309,7 @@
 				92074C87273D517900CEA689 /* ExtraView.swift in Sources */,
 				93DC52A5274000DE006C0989 /* NavigationHelper.swift in Sources */,
 				92074C8C273D53C300CEA689 /* ScaleView.swift in Sources */,
+				93DC52A8274013E1006C0989 /* AccountInfoModel.swift in Sources */,
 				92074C8F273D683900CEA689 /* ContinentsView.swift in Sources */,
 				75116278273AB05E005F9133 /* TunnelsService.swift in Sources */,
 				7511628A273ABB0D005F9133 /* Serializer.swift in Sources */,

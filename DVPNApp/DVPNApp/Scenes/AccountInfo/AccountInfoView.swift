@@ -18,7 +18,7 @@ struct AccountInfoView: View {
     }
     
     var accountImage: some View {
-        Image(uiImage: Asset.Navigation.account.image)
+        Asset.Navigation.account.image.asImage
             .antialiased(true)
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -42,6 +42,7 @@ struct AccountInfoView: View {
                 Spacer()
             }
         }
+        .buttonStyle(PlainButtonStyle())
         .padding(.vertical, 16)
         .overlay(
             RoundedRectangle(cornerRadius: 2)
@@ -72,9 +73,9 @@ struct AccountInfoView: View {
 
     var qrCode: some View {
         VStack(alignment: .center, spacing: nil) {
-            Color(UIColor.white)
+            Color.white
                 .mask(
-                    Image(uiImage: viewModel.qrCode)
+                    viewModel.qrCode.asImage
                         .antialiased(true)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -93,7 +94,7 @@ struct AccountInfoView: View {
             
             Spacer()
             
-            Image(uiImage: viewModel.priceArrowImage ?? UIImage())
+            viewModel.priceArrowImage.asImage
                 .antialiased(true)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -165,9 +166,11 @@ struct AccountInfoView: View {
                 .padding(.horizontal, 20)
             
         }
+#if os(iOS)
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             viewModel.refresh()
         }
+#endif
         .padding(.bottom, 30)
         .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
