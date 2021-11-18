@@ -135,7 +135,7 @@ extension ConnectionViewModel {
 
 extension ConnectionViewModel: PlansViewModelDelegate {
     func openConnection() {
-        model.connect()
+        model.checkNodeForUpdate()
     }
 }
 
