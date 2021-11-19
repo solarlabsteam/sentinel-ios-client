@@ -85,9 +85,6 @@ internal enum Asset {
   internal enum Launch {
     internal static let exidiolBig = ImageAsset(name: "launch/exidiolBig")
   }
-  internal enum LocationSelector {
-    internal static let empty = ImageAsset(name: "locationSelector/empty")
-  }
   internal enum Logo {
     internal static let exidio = ImageAsset(name: "logo/exidio")
     internal static let solarLabs = ImageAsset(name: "logo/solarLabs")

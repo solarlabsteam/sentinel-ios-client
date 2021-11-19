@@ -16,29 +16,11 @@ struct AvailableNodesView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text(L10n.AvailableNodes.title(viewModel.continent.title))
-                    .applyTextStyle(.grayPoppins(ofSize: 12, weight: .medium))
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal)
-                
-                Spacer()
-            }
-            
             if viewModel.locations.isEmpty {
-                Spacer()
-                
                 Text(L10n.Home.Node.All.notFound)
                     .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
-                    .padding()
                     .multilineTextAlignment(.center)
-                
-                Image(uiImage: Asset.LocationSelector.empty.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 250)
-
-                Spacer()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 List {
                     ForEach(Array(zip(viewModel.locations.indices, viewModel.locations)), id: \.0) { index, vm in

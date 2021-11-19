@@ -24,11 +24,6 @@ struct NodeSelectionView: View {
                     .padding()
                     .multilineTextAlignment(.center)
 
-                Image(uiImage: Asset.LocationSelector.empty.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 250)
-
                 Spacer()
             } else {
                 List {

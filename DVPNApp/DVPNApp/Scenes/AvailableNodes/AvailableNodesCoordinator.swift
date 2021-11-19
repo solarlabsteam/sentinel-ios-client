@@ -35,6 +35,7 @@ final class AvailableNodesCoordinator: CoordinatorType {
         navigation?.pushViewController(controller, animated: true)
         
         controller.makeNavigationBar(hidden: false, animated: false)
+        controller.title = continent.title
         
         controller.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: Asset.Navigation.account.image,
