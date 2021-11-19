@@ -9,9 +9,7 @@ import UIKit
 import Combine
 import SentinelWallet
 
-enum OnboardingModelEvent {
-    case error(Error)
-}
+enum OnboardingModelEvent {}
 
 final class OnboardingModel {
     typealias Context = HasSecurityService

@@ -18,26 +18,6 @@ struct OnboardingView: View {
         self.viewModel = viewModel
     }
 
-    var skipButton: some View {
-        Button(action: viewModel.didTapCreateButton) {
-            Text(L10n.Onboarding.Button.skip)
-                .applyTextStyle(.secondaryButton)
-                .padding(.horizontal)
-        }
-        .padding()
-    }
-
-    var nextButton: some View {
-        Button(action: viewModel.didTapNextButton) {
-            Text(L10n.Onboarding.Button.next.uppercased())
-                .applyTextStyle(.mainButton)
-                .padding(.horizontal)
-        }
-        .padding()
-        .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
-    }
-
     var mainButton: some View {
         Button(action: viewModel.didTapCreateButton) {
             HStack {
@@ -66,53 +46,31 @@ struct OnboardingView: View {
         }
     }
 
-    var tabView: some View {
-        TabView(selection: $viewModel.currentPage,
-                content: {
-                    ForEach(viewModel.steps, id: \.self) { model in
-                        OnboardingStepView(model: model)
-                            .tag(model.tag)
-                            .padding()
-                    }
-                })
-            .tabViewStyle(.page(indexDisplayMode: .never))
-    }
-
     var body: some View {
-        GeometryReader { geo in
-            VStack(spacing: 0) {
-                Spacer()
-                tabView
-                    .frame(
-                        width: geo.size.width,
-                        height: geo.size.height * 2 / 3
-                    )
+        VStack(spacing: 0) {
+            Spacer()
 
-                Spacer()
+            Image(viewModel.step.imageName)
 
-                PageIndicator(pages: [Int](0...viewModel.steps.count - 1), currentPage: $viewModel.currentPage)
+            Text(viewModel.step.title)
+                .applyTextStyle(.whitePoppins(ofSize: 25, weight: .bold))
+                .padding()
 
-                Spacer()
+            Text(viewModel.step.description)
+                .applyTextStyle(.whitePoppins(ofSize: 15))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
 
-                if viewModel.isLastPage {
-                    mainButton
-                        .padding()
-                    importView
-                        .padding()
-                } else {
-                    HStack {
-                        Spacer()
-                        skipButton
-                        Spacer()
-                        nextButton
-                        Spacer()
-                    }
-                    .padding(.vertical)
-                }
-            }
-            .padding(.vertical)
-            .background(Asset.Colors.accentColor.color.asColor)
+
+            Spacer()
+
+            mainButton
+                .padding()
+            importView
+                .padding()
         }
+        .padding(.vertical)
+        .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.all)
     }
 }

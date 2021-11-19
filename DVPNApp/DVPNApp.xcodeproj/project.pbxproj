@@ -128,7 +128,6 @@
 		75D6564126C526CC000056B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75D6564026C526CC000056B4 /* Localizable.strings */; };
 		75D6564526C5493F000056B4 /* DVPNNodeInfo+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6564426C5493F000056B4 /* DVPNNodeInfo+Ext.swift */; };
 		75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDF526D78FFB00C345B9 /* GRPCError+Ext.swift */; };
-		75E5BDF926DCCF4B00C345B9 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDF826DCCF4B00C345B9 /* OnboardingStepView.swift */; };
 		75E5BDFD26DCDBDA00C345B9 /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */; };
 		75E5BDFF26DE16FC00C345B9 /* CheckmarkToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */; };
 		75E5BE0226DE2FA400C345B9 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BE0126DE2FA400C345B9 /* View+Ext.swift */; };
@@ -345,7 +344,6 @@
 		75D6564026C526CC000056B4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		75D6564426C5493F000056B4 /* DVPNNodeInfo+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DVPNNodeInfo+Ext.swift"; sourceTree = "<group>"; };
 		75E5BDF526D78FFB00C345B9 /* GRPCError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRPCError+Ext.swift"; sourceTree = "<group>"; };
-		75E5BDF826DCCF4B00C345B9 /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepModel.swift; sourceTree = "<group>"; };
 		75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkToggleStyle.swift; sourceTree = "<group>"; };
 		75E5BE0126DE2FA400C345B9 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -908,7 +906,6 @@
 		75E5BDF726DCCF2C00C345B9 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				75E5BDF826DCCF4B00C345B9 /* OnboardingStepView.swift */,
 				75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */,
 			);
 			path = Subviews;
@@ -1355,7 +1352,7 @@
 		};
 		936C645527384A550007840A /* Run Script [SwiftLint] */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1367,7 +1364,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if ! [ $CI ]\nthen\n    \"$SRCROOT\"/Tools/swiftlint/swiftlint --config \"$SRCROOT/.swiftlint.yml\" --path \"$SRCROOT\"\nelse\n    echo \"SwiftLint is inactive for CI\"\nfi\n";
 		};
@@ -1519,7 +1516,6 @@
 				752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */,
 				93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */,
 				7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */,
-				75E5BDF926DCCF4B00C345B9 /* OnboardingStepView.swift in Sources */,
 				932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */,
 				9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */,
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,

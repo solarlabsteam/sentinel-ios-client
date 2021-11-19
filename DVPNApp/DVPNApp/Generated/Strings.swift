@@ -266,11 +266,11 @@ internal enum L10n {
   }
 
   internal enum Onboarding {
+    /// Decentralized VPN based on Sentinel Blockchain
+    internal static let description = L10n.tr("Localizable", "Onboarding.Description")
+    /// Exidio dVPN
+    internal static let title = L10n.tr("Localizable", "Onboarding.Title")
     internal enum Button {
-      /// Next
-      internal static let next = L10n.tr("Localizable", "Onboarding.Button.Next")
-      /// Skip
-      internal static let skip = L10n.tr("Localizable", "Onboarding.Button.Skip")
       /// Create an account
       internal static let start = L10n.tr("Localizable", "Onboarding.Button.Start")
       internal enum ImportNow {
@@ -279,22 +279,6 @@ internal enum L10n {
         /// Already have an account?
         internal static let text = L10n.tr("Localizable", "Onboarding.Button.ImportNow.Text")
       }
-    }
-    internal enum Description {
-      /// Sentinel is not just a VPN, it's a 'decentralized' open-source provable VPN or a 'dVPN'.
-      internal static let _1 = L10n.tr("Localizable", "Onboarding.Description.1")
-      /// The Sentinel dVPN can prove that your connection is being end-to-end encrypted with no exceptions
-      internal static let _2 = L10n.tr("Localizable", "Onboarding.Description.2")
-      /// The Sentinel dVPN doesn't control and own the exit-servers that you trust to safely and securely browse the internet.
-      internal static let _3 = L10n.tr("Localizable", "Onboarding.Description.3")
-    }
-    internal enum Title {
-      /// Join VPN Quickly
-      internal static let _1 = L10n.tr("Localizable", "Onboarding.Title.1")
-      /// Secure Safely
-      internal static let _2 = L10n.tr("Localizable", "Onboarding.Title.2")
-      /// Enjoy Simply
-      internal static let _3 = L10n.tr("Localizable", "Onboarding.Title.3")
     }
   }
 
