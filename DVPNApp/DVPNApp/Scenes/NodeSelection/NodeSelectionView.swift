@@ -35,9 +35,6 @@ struct NodeSelectionView: View {
                     ForEach(viewModel.subscriptions, id: \.self) { vm in
                         NodeSelectionRowView(
                             viewModel: vm,
-                            toggleLocation: {
-                                viewModel.toggleLocation(with: vm.id)
-                            },
                             openDetails: {
                                 viewModel.openDetails(for: vm.id)
                             }

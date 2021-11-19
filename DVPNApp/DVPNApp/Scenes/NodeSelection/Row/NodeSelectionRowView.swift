@@ -10,16 +10,13 @@ import FlagKit
 
 struct NodeSelectionRowView: View {
     private let viewModel: NodeSelectionRowViewModel
-    private let toggleLocation: () -> Void
     private let openDetails: () -> Void
     
     init(
         viewModel: NodeSelectionRowViewModel,
-        toggleLocation: @escaping () -> Void,
         openDetails: @escaping () -> Void
     ) {
         self.viewModel = viewModel
-        self.toggleLocation = toggleLocation
         self.openDetails = openDetails
     }
 
@@ -39,26 +36,11 @@ struct NodeSelectionRowView: View {
                     }
 
                     Spacer()
-
-                    Image(uiImage: viewModel.speed)
-                        .padding(.all, 5)
+                    
+                    Image(systemName: "chevron.forward")
+                        .foregroundColor(.white)
                 }
                 .padding(.vertical)
-
-                HStack {
-                    ForEach(viewModel.scales, id: \.self) { type in
-                        ScaleView(type: type)
-                            .frame(maxWidth: .infinity)
-                    }
-
-                    Button(action: toggleLocation) {
-                        Image(systemName: "link")
-                            .frame(width: 38, height: 38)
-                            .background(Rectangle().foregroundColor(Asset.Colors.navyBlue.color.asColor))
-                    }
-                    .cornerRadius(4)
-                }
-                .padding(.bottom)
             }
         }
     }
@@ -75,12 +57,8 @@ struct HomeRowView_Previews: PreviewProvider {
                         icon: Flag(countryCode: "EE")!.image(style: .roundedRect),
                         title: "Test",
                         subtitle: "mfq9rph",
-                        price: 100,
-                        speed: Asset.Connection.Wifi.scales1.image,
-                        latency: 300,
-                        peers: 4
+                        latency: 3
                     ),
-            toggleLocation: {},
             openDetails: {}
         )
     }

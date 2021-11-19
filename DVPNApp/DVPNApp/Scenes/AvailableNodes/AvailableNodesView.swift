@@ -44,9 +44,6 @@ struct AvailableNodesView: View {
                     ForEach(Array(zip(viewModel.locations.indices, viewModel.locations)), id: \.0) { index, vm in
                         NodeSelectionRowView(
                             viewModel: vm,
-                            toggleLocation: {
-                                viewModel.toggleLocation(with: vm.id)
-                            },
                             openDetails: {
                                 viewModel.openDetails(for: vm.id)
                             }

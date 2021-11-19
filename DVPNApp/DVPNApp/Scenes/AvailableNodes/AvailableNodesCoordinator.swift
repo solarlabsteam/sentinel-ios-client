@@ -54,8 +54,6 @@ extension AvailableNodesCoordinator: RouterType {
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)
-        case let .subscribe(nodeInfo):
-            ModulesFactory.shared.makePlansModule(node: nodeInfo, delegate: delegate, for: navigation)
         case .connect:
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):

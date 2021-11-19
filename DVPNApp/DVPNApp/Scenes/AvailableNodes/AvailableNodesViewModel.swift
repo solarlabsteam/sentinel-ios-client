@@ -19,7 +19,6 @@ final class AvailableNodesViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case connect
-        case subscribe(node: DVPNNodeInfo)
         case details(SentinelNode, isSubscribed: Bool)
         case accountInfo
     }
@@ -72,17 +71,6 @@ final class AvailableNodesViewModel: ObservableObject {
 // MARK: - Buttons actions
 
 extension AvailableNodesViewModel {
-    func toggleLocation(with id: String) {
-        UIImpactFeedbackGenerator.lightFeedback()
-        guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }),
-              let node = sentinelNode.node else {
-                  router.play(event: .error(HomeViewModelError.unavailableNode))
-                  return
-              }
-        
-        toggle(node: node)
-    }
-    
     func openDetails(for id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }),
@@ -141,17 +129,6 @@ extension AvailableNodesViewModel {
         
         locations.append(contentsOf: newLocations)
         self.nodes.formUnion(nodes)
-    }
-
-    private func toggle(node: Node) {
-        let isSubscribedToNode = model.isSubscribed(to: node.info.address)
-        
-        guard isSubscribedToNode else {
-            router.play(event: .subscribe(node: node.info))
-            return
-        }
-
-        model.save(nodeAddress: node.info.address)
     }
     
     private func set(loadedNodesCount: Int) {
