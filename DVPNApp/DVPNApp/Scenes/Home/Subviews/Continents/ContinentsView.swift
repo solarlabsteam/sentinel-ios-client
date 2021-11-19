@@ -9,31 +9,34 @@ import SwiftUI
 
 struct ContinentsView: View {
     @ObservedObject private var viewModel: HomeViewModel
+    
+    let chunkedModels: [[Dictionary<Continent, Int>.Element]]
 
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
+        
+        chunkedModels = viewModel.numberOfNodesInContinent.sorted { $0.key.index < $1.key.index }
+            .chunked(into: 2)
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            ForEach(
-                viewModel.numberOfNodesInContinent.sorted { $0.key.index < $1.key.index },
-                id: \.key
-            ) { key, value in
-                ContinentsRowView(
-                    type: key,
-                    count: .constant(value),
-                    action: {
-                        viewModel.openNodes(for: key)
-                    })
-                    .padding()
-                
-                Divider()
-                    .background(Asset.Colors.lightBlue.color.asColor)
-                    .padding(.horizontal)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 6) {
+                ForEach(Array(zip(chunkedModels.indices, chunkedModels)), id: \.0) { index, models in
+                    HStack(spacing: 6) {
+                        ForEach(models, id: \.0) { model in
+                            ContinentsRowView(
+                                type: model.key,
+                                count: .constant(model.value),
+                                action: {
+                                    viewModel.openNodes(for: model.key)
+                                })
+                        }
+                    }
+                }
+                Spacer()
             }
-            
-            Spacer()
+            .padding(.horizontal, 20)
         }
     }
 }

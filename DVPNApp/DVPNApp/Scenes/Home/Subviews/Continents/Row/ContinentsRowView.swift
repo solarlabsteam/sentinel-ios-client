@@ -20,27 +20,32 @@ struct ContinentsRowView: View {
 
     var body: some View {
         Button(action: action) {
-            VStack {
-                HStack {
+            HStack {
+                Spacer()
+                
+                VStack {
+                    Spacer()
+                    
                     type.image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
-
-                    VStack(alignment: .leading) {
+                    
+                    VStack(alignment: .center) {
                         Text(type.title)
                             .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
                         Text(L10n.Continents.availableNodes(count))
                             .applyTextStyle(.grayPoppins(ofSize: 11))
                     }
-
                     Spacer()
-
-                    Image(systemName: "chevron.forward")
-                        .foregroundColor(.white)
                 }
+                Spacer()
             }
+            .padding()
+            .background(Asset.Colors.purple.color.asColor)
+            .cornerRadius(5)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
