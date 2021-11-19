@@ -44,10 +44,11 @@ extension PlansCoordinator: RouterType {
         case let .error(error):
             showErrorAlert(message: error.localizedDescription)
         case let .addTokensAlert(completion: completion):
-#warning("add alerts on macOS")
+            showNotEnoughTokensAlert(completion: completion)
         case let .subscribe(node, completion):
             showSubscribeAlert(name: node, completion: completion)
         case .accountInfo:
+            navigation?.pop()
             if let navigation = navigation {
                 ModulesFactory.shared.makeAccountInfoModule(for: navigation)
             }
