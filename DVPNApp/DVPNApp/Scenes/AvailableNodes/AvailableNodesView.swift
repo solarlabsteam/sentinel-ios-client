@@ -58,7 +58,6 @@ struct AvailableNodesView: View {
                             }
                     }
                 }
-                .removeBackground()
             }
 #if os(iOS)
             ActivityIndicator(

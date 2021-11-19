@@ -44,7 +44,6 @@ struct NodeSelectionView: View {
                         )
                     }
                 }
-                .removeBackground()
             }
 
             #if os(iOS)
@@ -102,4 +101,3 @@ struct NodeSelectionView: View {
         }
     }
 }
-
