@@ -33,7 +33,7 @@ final class DNSSettingsCoordinator: CoordinatorType {
         let viewModel = DNSSettingsViewModel(model: model, server: server, delegate: delegate, router: asRouter())
         let view = DNSSettingsView(viewModel: viewModel)
         let container = NSHostingView(rootView: view)
-        navigation?.push(view: container)
+        navigation?.present(view: container)
     }
 }
 
