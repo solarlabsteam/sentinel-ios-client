@@ -1,81 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fpv-OT-Hac">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="UOp-mQ-rdd">
+        <scene sceneID="GhR-0E-WCQ">
             <objects>
-                <viewController storyboardIdentifier="EmptyViewController" id="1aB-dG-buf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cav-cB-mla">
+                <viewController storyboardIdentifier="EmptyViewController" id="fpv-OT-Hac" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g6H-pD-BYh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch/sentinelBig" translatesAutoresizingMaskIntoConstraints="NO" id="FC2-ux-LSP">
-                                <rect key="frame" x="148.5" y="163.5" width="117" height="126"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch/exidiolBig" translatesAutoresizingMaskIntoConstraints="NO" id="8Pl-6K-L9S">
+                                <rect key="frame" x="158" y="177.5" width="98" height="98"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="TfB-Tj-jUE">
-                                <rect key="frame" x="83" y="359.5" width="248" height="63"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Uz4-cf-aDv">
+                                <rect key="frame" x="83" y="345.5" width="248" height="81"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentinel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ue-0d-KHM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exidio dVPN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho0-Ua-QAQ">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World’s first truly decentralized VPN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F52-7q-JVu">
-                                        <rect key="frame" x="0.0" y="45" width="248" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decentralized VPN based on Sentinel Blockchain" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edm-WM-Fzf">
+                                        <rect key="frame" x="0.0" y="45" width="248" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" name="colors/lightGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch/wave" translatesAutoresizingMaskIntoConstraints="NO" id="yMQ-Fy-46T">
-                                <rect key="frame" x="0.0" y="628" width="414" height="268"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch/exidio-logo" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-rC-5nW">
-                                <rect key="frame" x="147" y="822" width="120" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="OH3-se-1E2"/>
-                                    <constraint firstAttribute="height" constant="40" id="uQN-na-BS3"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="kYX-0L-alr">
+                                <rect key="frame" x="140.5" y="827" width="133.5" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-wD-Q8I">
+                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" name="colors/lightGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo/exidio" translatesAutoresizingMaskIntoConstraints="NO" id="MTn-X3-rac">
+                                        <rect key="frame" x="59.5" y="0.0" width="74" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="KsS-7j-n6i"/>
+                                            <constraint firstAttribute="width" constant="74" id="fIn-3Q-krC"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="2h7-40-qZG"/>
-                        <color key="backgroundColor" red="0.0078431372550000003" green="0.024630473930000001" blue="0.1137338951" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="uIJ-cp-7yi"/>
+                        <color key="backgroundColor" name="colors/accentColor"/>
                         <constraints>
-                            <constraint firstItem="2h7-40-qZG" firstAttribute="bottom" secondItem="BaF-rC-5nW" secondAttribute="bottom" id="7Gu-sz-RhY"/>
-                            <constraint firstItem="yMQ-Fy-46T" firstAttribute="centerX" secondItem="2h7-40-qZG" secondAttribute="centerX" id="7KN-yZ-vjS"/>
-                            <constraint firstItem="BaF-rC-5nW" firstAttribute="centerX" secondItem="2h7-40-qZG" secondAttribute="centerX" id="8gL-vv-HX9"/>
-                            <constraint firstItem="2h7-40-qZG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FC2-ux-LSP" secondAttribute="trailing" id="Dxg-c9-MQ6"/>
-                            <constraint firstAttribute="bottom" secondItem="yMQ-Fy-46T" secondAttribute="bottom" id="a0R-EL-jkT"/>
-                            <constraint firstItem="TfB-Tj-jUE" firstAttribute="top" secondItem="FC2-ux-LSP" secondAttribute="bottom" constant="70" id="eXA-0d-tXV"/>
-                            <constraint firstItem="FC2-ux-LSP" firstAttribute="centerX" secondItem="2h7-40-qZG" secondAttribute="centerX" id="ogc-LS-7S5"/>
-                            <constraint firstItem="2h7-40-qZG" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FC2-ux-LSP" secondAttribute="bottom" id="s1a-Zg-ACd"/>
-                            <constraint firstItem="FC2-ux-LSP" firstAttribute="centerY" secondItem="2h7-40-qZG" secondAttribute="centerY" multiplier="0.5" id="t9v-pm-5tO"/>
-                            <constraint firstItem="yMQ-Fy-46T" firstAttribute="leading" secondItem="2h7-40-qZG" secondAttribute="leading" id="vZ1-Ju-kC5"/>
-                            <constraint firstItem="TfB-Tj-jUE" firstAttribute="centerX" secondItem="FC2-ux-LSP" secondAttribute="centerX" id="zA4-78-EKq"/>
+                            <constraint firstItem="8Pl-6K-L9S" firstAttribute="centerY" secondItem="uIJ-cp-7yi" secondAttribute="centerY" multiplier="0.5" id="IEX-nt-f64"/>
+                            <constraint firstItem="Uz4-cf-aDv" firstAttribute="centerX" secondItem="8Pl-6K-L9S" secondAttribute="centerX" id="KPW-Pf-LZq"/>
+                            <constraint firstItem="kYX-0L-alr" firstAttribute="centerX" secondItem="uIJ-cp-7yi" secondAttribute="centerX" id="LLT-I0-8Sj"/>
+                            <constraint firstItem="Uz4-cf-aDv" firstAttribute="width" secondItem="g6H-pD-BYh" secondAttribute="width" multiplier="0.6" id="Vsc-R2-2RW"/>
+                            <constraint firstItem="uIJ-cp-7yi" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Pl-6K-L9S" secondAttribute="bottom" id="Vzz-QX-fle"/>
+                            <constraint firstItem="8Pl-6K-L9S" firstAttribute="centerX" secondItem="uIJ-cp-7yi" secondAttribute="centerX" id="XGx-Ga-doR"/>
+                            <constraint firstItem="uIJ-cp-7yi" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Pl-6K-L9S" secondAttribute="trailing" id="gwy-yp-QSv"/>
+                            <constraint firstItem="uIJ-cp-7yi" firstAttribute="bottom" secondItem="kYX-0L-alr" secondAttribute="bottom" constant="10" id="npt-ks-RrW"/>
+                            <constraint firstItem="Uz4-cf-aDv" firstAttribute="top" secondItem="8Pl-6K-L9S" secondAttribute="bottom" constant="70" id="tqx-nB-DXx"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TKe-oL-UZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0Y-mp-ulR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launch/exidio-logo" width="329" height="86"/>
-        <image name="launch/sentinelBig" width="117" height="126"/>
-        <image name="launch/wave" width="374" height="268"/>
+        <image name="launch/exidiolBig" width="98" height="98"/>
+        <image name="logo/exidio" width="92" height="31"/>
+        <namedColor name="colors/accentColor">
+            <color red="0.12156862745098039" green="0.019607843137254902" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="colors/lightGray">
-            <color red="0.75300002098083496" green="0.78799998760223389" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.75294117647058822" green="0.78823529411764703" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

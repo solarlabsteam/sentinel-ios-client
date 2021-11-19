@@ -82,9 +82,7 @@ internal enum Asset {
     internal static let upArrow = ImageAsset(name: "icons/upArrow")
   }
   internal enum Launch {
-    internal static let exidioLogo = ImageAsset(name: "launch/exidio-logo")
-    internal static let sentinelBig = ImageAsset(name: "launch/sentinelBig")
-    internal static let wave = ImageAsset(name: "launch/wave")
+    internal static let exidiolBig = ImageAsset(name: "launch/exidiolBig")
   }
   internal enum LocationSelector {
     internal static let empty = ImageAsset(name: "locationSelector/empty")
