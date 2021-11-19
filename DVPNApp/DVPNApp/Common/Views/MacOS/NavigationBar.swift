@@ -22,7 +22,7 @@ struct NavigationBar: View {
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(Asset.Colors.navyBlue.color.asColor)
             }
-            .frame(width: 30, height: 30)
+            .frame(width: 20, height: 20)
             .buttonStyle(PlainButtonStyle())
             
             Spacer()
