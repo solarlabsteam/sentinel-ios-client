@@ -1,6 +1,6 @@
 //
 //  NodeSelectionRowView.swift
-//  Test
+//  DVPNApp
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
 //
@@ -23,12 +23,12 @@ struct NodeSelectionRowView: View {
     var body: some View {
         Button(action: openDetails) {
             VStack {
-                HStack(alignment: .bottom) {
+                HStack(alignment: .center) {
                     Image(uiImage: viewModel.icon)
                         .resizable()
                         .frame(width: 50, height: 41)
                     
-                    VStack(alignment: .leading, spacing: 6) {
+                    VStack(alignment: .leading, spacing: 0) {
                         Text(viewModel.title)
                             .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
                         Text(viewModel.subtitle)
