@@ -59,7 +59,7 @@ struct AccountCreationView: View {
         }
         .padding()
         .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
+        .cornerRadius(5)
     }
 
     var termsView: some View {
