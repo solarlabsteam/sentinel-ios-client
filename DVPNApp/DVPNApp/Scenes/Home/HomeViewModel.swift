@@ -46,7 +46,6 @@ final class HomeViewModel: ObservableObject {
         case connect
         case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
         case details(SentinelNode, isSubscribed: Bool)
-        case accountInfo
         case sentinel
         case solarLabs
         case title(String)
@@ -165,12 +164,6 @@ extension HomeViewModel {
         }
 
         toggleLocation(with: nodeId)
-    }
-
-    @objc
-    func didTapAccountInfoButton() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .accountInfo)
     }
 
     func openDetails(for id: String) {

@@ -26,9 +26,10 @@ final class AccountInfoCoordinator: CoordinatorType {
         let view = AccountInfoView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         rootController = controller
-        navigation?.pushViewController(controller, animated: true)
+        navigation?.viewControllers = [controller]
 
         controller.makeNavigationBar(hidden: false, animated: false)
+        controller.title = L10n.TabBar.Item.account
     }
 }
 
