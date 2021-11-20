@@ -35,7 +35,7 @@ final class DNSSettingsCoordinator: CoordinatorType {
         let view = DNSSettingsView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         controller.view.backgroundColor = .clear
-        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalPresentationStyle = .overFullScreen
 
         rootController = controller
 

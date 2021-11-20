@@ -34,7 +34,7 @@ final class PlansCoordinator: CoordinatorType {
         let addTokensView = PlansView(viewModel: addTokensViewModel)
         let controller = UIHostingController(rootView: addTokensView)
         controller.view.backgroundColor = .clear
-        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalPresentationStyle = .overFullScreen
 
         rootController = controller
 
@@ -54,10 +54,7 @@ extension PlansCoordinator: RouterType {
         case let .subscribe(node, completion):
             showSubscribeAlert(name: node, completion: completion)
         case .accountInfo:
-            navigation?.dismiss(animated: true)
-            if let navigation = navigation {
-                ModulesFactory.shared.makeAccountInfoModule(for: navigation)
-            }
+            navigation?.dismiss(animated: true) { ModulesFactory.shared.switchTo(tab: .account) }
         case .close:
             navigation?.dismiss(animated: true)
         }

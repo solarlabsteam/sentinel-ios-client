@@ -19,6 +19,7 @@ import Combine
 final class ModulesFactory {
     private(set) static var shared = ModulesFactory()
     private let context: CommonContext
+    private var tabSwitcher: TabSwitcher?
 
     private init() {
         context = ContextBuilder().buildContext()
@@ -66,7 +67,9 @@ extension ModulesFactory {
     }
 
     func makeTabbar(for window: UIWindow) {
-        TabBarCoordinator(window: window).start()
+        let coordinator = TabBarCoordinator(window: window)
+        tabSwitcher = coordinator
+        coordinator.start()
     }
 
     func makeHomeModule(for navigation: UINavigationController) {
@@ -122,6 +125,10 @@ extension ModulesFactory {
             navigation: navigation,
             continent: continent
         ).start()
+    }
+
+    func switchTo(tab: TabType) {
+        tabSwitcher?.switchTo(tab: tab)
     }
 }
 

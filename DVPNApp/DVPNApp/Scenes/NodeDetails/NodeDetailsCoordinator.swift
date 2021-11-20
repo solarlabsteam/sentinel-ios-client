@@ -59,7 +59,7 @@ extension NodeDetailsCoordinator: RouterType {
         case let .error(error):
             show(message: error.localizedDescription)
         case .account:
-            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
+            ModulesFactory.shared.switchTo(tab: .account)
         case let .subscribe(node, delegate):
             ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .connect:

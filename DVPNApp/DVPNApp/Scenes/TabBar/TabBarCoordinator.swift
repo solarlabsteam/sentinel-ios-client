@@ -41,7 +41,7 @@ enum TabType: Int, CaseIterable {
     }
 }
 
-protocol TabSwitcher {
+protocol TabSwitcher: AnyObject {
     func switchTo(tab: TabType)
 }
 

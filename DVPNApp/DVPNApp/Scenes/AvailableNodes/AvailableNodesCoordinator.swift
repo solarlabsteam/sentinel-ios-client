@@ -63,7 +63,7 @@ extension AvailableNodesCoordinator: RouterType {
                 configuration: .init(node: node, isSubscribed: isSubscribed)
             )
         case .accountInfo:
-            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
+            ModulesFactory.shared.switchTo(tab: .account)
         }
     }
 }
