@@ -18,7 +18,6 @@ final class NodeDetailsViewModel: ObservableObject {
 
     enum Route {
         case error(Error)
-        case account
         case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
         case dismiss
         case connect
@@ -102,12 +101,6 @@ extension NodeDetailsViewModel {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let node = node else { return }
         toggle(node: node)
-    }
-    
-    @objc
-    func didTapAccountButton() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .account)
     }
 }
 

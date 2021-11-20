@@ -16,18 +16,6 @@ struct AccountInfoView: View {
     init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
     }
-    
-    var accountImage: some View {
-        Image(uiImage: Asset.Navigation.account.image)
-            .antialiased(true)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .padding()
-            .frame(
-                width: 100,
-                height: 100
-            )
-    }
 
     var addressView: some View {
         Button(action: viewModel.didTapCopy) {
@@ -121,10 +109,9 @@ struct AccountInfoView: View {
     var body: some View {
         ScrollView {
             VStack {
-                accountImage
-                
                 Text(L10n.AccountInfo.Wallet.title)
                     .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
+                    .padding(.top, 20)
                 
                 HStack {
                     Text(viewModel.balance ?? "-")

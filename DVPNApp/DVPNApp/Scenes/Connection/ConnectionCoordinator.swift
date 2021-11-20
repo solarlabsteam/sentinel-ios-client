@@ -45,8 +45,6 @@ extension ConnectionCoordinator: RouterType {
             show(message: error.localizedDescription, theme: .warning)
         case let .openPlans(node, delegate):
             ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
-        case .accountInfo:
-            ModulesFactory.shared.switchTo(tab: .account)
         case let .dismiss(isEnabled):
             setBackNavigationEnability(isEnabled: isEnabled)
         case let .resubscribe(completion):

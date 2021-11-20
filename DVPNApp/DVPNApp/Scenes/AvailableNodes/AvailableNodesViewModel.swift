@@ -20,7 +20,6 @@ final class AvailableNodesViewModel: ObservableObject {
         case error(Error)
         case connect
         case details(SentinelNode, isSubscribed: Bool)
-        case accountInfo
     }
 
     @Published private(set) var locations: [NodeSelectionRowViewModel] = []
@@ -80,12 +79,6 @@ extension AvailableNodesViewModel {
               }
         
         router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
-    }
-    
-    @objc
-    func didTapAccountInfoButton() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .accountInfo)
     }
 }
 

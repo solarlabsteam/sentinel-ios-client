@@ -36,13 +36,6 @@ final class AvailableNodesCoordinator: CoordinatorType {
         
         controller.makeNavigationBar(hidden: false, animated: false)
         controller.title = continent.title
-        
-        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: Asset.Navigation.account.image,
-            style: .plain,
-            target: viewModel,
-            action: #selector(viewModel.didTapAccountInfoButton)
-        )
     }
 }
 
@@ -62,8 +55,6 @@ extension AvailableNodesCoordinator: RouterType {
                 for: navigation,
                 configuration: .init(node: node, isSubscribed: isSubscribed)
             )
-        case .accountInfo:
-            ModulesFactory.shared.switchTo(tab: .account)
         }
     }
 }

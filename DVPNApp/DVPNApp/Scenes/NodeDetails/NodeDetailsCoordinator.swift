@@ -41,13 +41,6 @@ final class NodeDetailsCoordinator: CoordinatorType {
         navigation?.pushViewController(controller, animated: true)
         
         controller.makeNavigationBar(hidden: false, animated: false)
-        
-        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: Asset.Navigation.account.image,
-            style: .plain,
-            target: viewModel,
-            action: #selector(viewModel.didTapAccountButton)
-        )
     }
 }
 
@@ -58,8 +51,6 @@ extension NodeDetailsCoordinator: RouterType {
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)
-        case .account:
-            ModulesFactory.shared.switchTo(tab: .account)
         case let .subscribe(node, delegate):
             ModulesFactory.shared.makePlansModule(node: node, delegate: delegate, for: navigation)
         case .connect:

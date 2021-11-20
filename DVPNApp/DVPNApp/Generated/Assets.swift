@@ -91,7 +91,6 @@ internal enum Asset {
     internal static let solarLabs = ImageAsset(name: "logo/solarLabs")
   }
   internal enum Navigation {
-    internal static let account = ImageAsset(name: "navigation/account")
     internal static let back = ImageAsset(name: "navigation/back")
     internal static let sentinel = ImageAsset(name: "navigation/sentinel")
   }

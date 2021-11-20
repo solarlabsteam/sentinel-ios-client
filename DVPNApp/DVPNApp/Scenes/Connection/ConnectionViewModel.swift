@@ -34,7 +34,6 @@ final class ConnectionViewModel: ObservableObject {
         case error(Error)
         case warning(Error)
         case openPlans(for: DVPNNodeInfo, delegate: PlansViewModelDelegate?)
-        case accountInfo
         case dismiss(isEnabled: Bool)
         case resubscribe(completion: (Bool) -> Void)
     }
@@ -111,12 +110,6 @@ extension ConnectionViewModel {
 
     func didEnterForeground() {
         model.refreshNodeState()
-    }
-
-    @objc
-    func didTapAccountInfoButton() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .accountInfo)
     }
 }
 
