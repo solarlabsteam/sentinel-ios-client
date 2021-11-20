@@ -141,7 +141,7 @@ struct ConnectionView: View {
                         connectionButton
                     }.padding()
                 }
-                .padding(.bottom, 10)
+                .padding(.bottom, 44)
                 .background(Asset.Colors.accentColor.color.asColor)
             }
             .onAppear { viewModel.viewWillAppear() }

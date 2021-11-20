@@ -21,6 +21,7 @@ struct ExtraRowView: View {
             VStack {
                 HStack {
                     type.image
+                        .foregroundColor(Asset.Colors.navyBlue.color.asColor)
 
                     VStack(alignment: .leading) {
                         Text(type.title)
