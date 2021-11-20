@@ -45,7 +45,7 @@ extension ModulesFactory {
         makeEmptyModule(for: window)
         
         context.preloadService.loadData { [weak self] in
-            self?.makeHomeModule(for: window)
+            self?.makeTabbar(for: window)
         }
     }
 
@@ -65,10 +65,11 @@ extension ModulesFactory {
         ConnectionCoordinator(context: context, navigation: navigation).start()
     }
 
-    func makeHomeModule(for window: UIWindow) {
-        let navigation = UINavigationController()
-        window.rootViewController = navigation
+    func makeTabbar(for window: UIWindow) {
+        TabBarCoordinator(window: window).start()
+    }
 
+    func makeHomeModule(for navigation: UINavigationController) {
         if !context.generalInfoStorage.didPassOnboarding() {
             context.generalInfoStorage.set(didPassOnboarding: true)
         }

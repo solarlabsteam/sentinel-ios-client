@@ -120,6 +120,12 @@ internal enum Asset {
     internal static let success = ImageAsset(name: "payment/success")
     internal static let ticket = ImageAsset(name: "payment/ticket")
   }
+  internal enum Tabbar {
+    internal static let account = ImageAsset(name: "tabbar/account")
+    internal static let continents = ImageAsset(name: "tabbar/continents")
+    internal static let extra = ImageAsset(name: "tabbar/extra")
+    internal static let subscribed = ImageAsset(name: "tabbar/subscribed")
+  }
   internal enum Tokens {
     internal static let dvpnBlue = ImageAsset(name: "tokens/dvpn-blue")
     internal static let dvpn = ImageAsset(name: "tokens/dvpn")
