@@ -35,7 +35,7 @@
 "Connection.Status.Connection.Lost" = "Poor or no internet connection";
 "Connection.Status.Connection.Connected" = "Connected";
 "Connection.Status.Connection.Disconnected" = "Disconnected";
-"Connection.Status.Connection.SessionStatus" = "Checking last session status";
+"Connection.Status.Connection.SessionStatus" = "Checking status";
 "Connection.Status.Connection.NodeStatus" = "Checking node status";
 "Connection.Status.Connection.SubscriptionStatus" = "Fetching the subscription";
 "Connection.Status.Connection.BalanceCheck" = "Checking balance";

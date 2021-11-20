@@ -16,20 +16,24 @@ struct ConnectionInfoView: View {
         self.viewModel = viewModel
     }
     
+    @ViewBuilder
     var icon: some View {
-        Image(uiImage: viewModel.type.icon ?? UIImage())
+        if let image = viewModel.type.icon {
+            Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 26, height: 26)
             .foregroundColor(.white)
+        } else {
+            EmptyView()
+        }
     }
     
     var textContentView: some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(alignment: viewModel.type == .bandwidth ? .trailing : .leading, spacing: 2) {
             HStack(alignment: .bottom, spacing: 2) {
                 Text(viewModel.value)
                     .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
-                    .frame(alignment: viewModel.type == .bandwidth ? .trailing : .leading)
                 
                 Text(viewModel.symbols ?? "")
                     .applyTextStyle(.lightGrayPoppins(ofSize: 14, weight: .light))

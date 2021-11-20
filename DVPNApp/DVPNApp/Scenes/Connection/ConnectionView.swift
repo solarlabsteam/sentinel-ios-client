@@ -127,20 +127,21 @@ struct ConnectionView: View {
                         .foregroundColor(.white)
                         .padding(.all, 60)
                     
+                    VStack {
+                    
                     bandwidthView
                         .padding(.top, 20)
                     
                     connectionStatus
-                        .padding(.vertical, 50)
-                    
-                    VStack {
+                        .padding(.top, 10)
+                        
                         locationSelector
                         Spacer()
                         speedView
                         connectionButton
                     }.padding()
                 }
-                .padding(.bottom, 44)
+                .padding(.bottom, 10)
                 .background(Asset.Colors.accentColor.color.asColor)
             }
             .onAppear { viewModel.viewWillAppear() }

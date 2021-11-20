@@ -39,9 +39,6 @@ struct CountryTileView: View {
                 .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
             
             Spacer()
-            
-            Image(uiImage: Asset.Connection.Wifi.scales1.image)
-                .frame(width: 20, height: viewHeight)
         }
     }
     

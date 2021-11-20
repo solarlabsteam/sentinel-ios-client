@@ -152,7 +152,7 @@ internal enum L10n {
         internal static let nodeStatus = L10n.tr("Localizable", "Connection.Status.Connection.NodeStatus")
         /// Waiting for confirmation
         internal static let sessionBroadcast = L10n.tr("Localizable", "Connection.Status.Connection.SessionBroadcast")
-        /// Checking last session status
+        /// Checking status
         internal static let sessionStatus = L10n.tr("Localizable", "Connection.Status.Connection.SessionStatus")
         /// Fetching the subscription
         internal static let subscriptionStatus = L10n.tr("Localizable", "Connection.Status.Connection.SubscriptionStatus")
