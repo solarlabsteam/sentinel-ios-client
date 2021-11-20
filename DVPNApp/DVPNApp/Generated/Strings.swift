@@ -323,6 +323,19 @@ internal enum L10n {
     }
   }
 
+  internal enum TabBar {
+    internal enum Item {
+      /// My Account
+      internal static let account = L10n.tr("Localizable", "TabBar.Item.Account")
+      /// All nodes
+      internal static let continents = L10n.tr("Localizable", "TabBar.Item.Continents")
+      /// Extras
+      internal static let extra = L10n.tr("Localizable", "TabBar.Item.Extra")
+      /// Subscribed
+      internal static let subscribedNodes = L10n.tr("Localizable", "TabBar.Item.SubscribedNodes")
+    }
+  }
+
   internal enum WalletService {
     internal enum Error {
       /// Self-sending is not supported

@@ -4,6 +4,11 @@
 "Common.Crypto" = "Crypto";
 "Common.GB" = "GB";
 
+"TabBar.Item.Continents" = "All nodes";
+"TabBar.Item.SubscribedNodes" = "Subscribed";
+"TabBar.Item.Account" = "My Account";
+"TabBar.Item.Extra" = "Extras";
+
 "Onboarding.Title" = "Exidio dVPN";
 "Onboarding.Description" = "Decentralized VPN based on Sentinel Blockchain";
 "Onboarding.Button.Start" = "Create an account";
