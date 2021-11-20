@@ -23,7 +23,7 @@ struct FramedButton: View {
         .buttonStyle(PlainButtonStyle())
         .padding(.horizontal)
         .overlay(
-            RoundedRectangle(cornerRadius: 25)
+            RoundedRectangle(cornerRadius: 5)
                 .stroke(Asset.Colors.navyBlue.color.asColor, lineWidth: 1)
         )
     }

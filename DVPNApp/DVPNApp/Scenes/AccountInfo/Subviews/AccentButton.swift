@@ -25,6 +25,6 @@ struct AccentButton: View {
         .padding(.horizontal)
         .frame(maxWidth: .infinity)
         .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
+        .cornerRadius(5)
     }
 }

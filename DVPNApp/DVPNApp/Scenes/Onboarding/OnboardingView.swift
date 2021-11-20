@@ -30,7 +30,7 @@ struct OnboardingView: View {
         }
         .padding()
         .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
+        .cornerRadius(5)
     }
 
     var importView: some View {
