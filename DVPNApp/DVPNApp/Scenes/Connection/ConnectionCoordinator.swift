@@ -26,6 +26,7 @@ final class ConnectionCoordinator: CoordinatorType {
         let homeViewModel = ConnectionViewModel(model: homeModel, router: asRouter())
         let homeView = ConnectionView(viewModel: homeViewModel)
         let controller = UIHostingController(rootView: homeView)
+        controller.hidesBottomBarWhenPushed = true
         rootController = controller
         navigation?.pushViewController(controller, animated: true)
 

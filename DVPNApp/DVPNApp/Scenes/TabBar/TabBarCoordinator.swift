@@ -79,8 +79,6 @@ extension TabBarCoordinator {
         controller.tabBar.tintColor = Asset.Colors.navyBlue.color
         controller.tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.8)
 
-        controller.hidesBottomBarWhenPushed = true
-
         controller.tabBar.itemSpacing = 5
 
         return controller
