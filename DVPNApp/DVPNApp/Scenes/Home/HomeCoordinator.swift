@@ -37,13 +37,6 @@ final class HomeCoordinator: CoordinatorType {
 
         controller.makeNavigationBar(hidden: false, animated: false)
         controller.title = L10n.Home.Node.title
-
-        navigation?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
-            image: Asset.Navigation.account.image,
-            style: .plain,
-            target: viewModel,
-            action: #selector(viewModel.didTapAccountInfoButton)
-        )
     }
 }
 
@@ -53,8 +46,6 @@ extension HomeCoordinator: RouterType {
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)
-        case .accountInfo:
-            ModulesFactory.shared.makeAccountInfoModule(for: navigation)
         case .connect:
             ModulesFactory.shared.makeConnectionModule(for: navigation)
         case let .details(node, isSubscribed):

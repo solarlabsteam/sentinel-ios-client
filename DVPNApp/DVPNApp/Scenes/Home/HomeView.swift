@@ -31,7 +31,6 @@ struct HomeView: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
         .background(Asset.Colors.accentColor.color.asColor)
-        .edgesIgnoringSafeArea(.bottom)
         .onAppear(perform: viewModel.viewWillAppear)
     }
 }

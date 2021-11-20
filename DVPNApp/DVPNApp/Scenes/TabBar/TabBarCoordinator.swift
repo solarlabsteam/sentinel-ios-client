@@ -77,7 +77,9 @@ extension TabBarCoordinator {
         controller.tabBar.backgroundColor = Asset.Colors.gridBorder.color
 
         controller.tabBar.tintColor = Asset.Colors.navyBlue.color
-        controller.tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.6)
+        controller.tabBar.unselectedItemTintColor = UIColor.white.withAlphaComponent(0.8)
+
+        controller.hidesBottomBarWhenPushed = true
 
         controller.tabBar.itemSpacing = 5
 
@@ -103,6 +105,7 @@ extension TabBarCoordinator {
             return navigationController
         case .account:
             let navigationController = UINavigationController()
+            ModulesFactory.shared.makeAccountInfoModule(for: navigationController)
             return navigationController
         case .extra:
             let navigationController = UINavigationController()
