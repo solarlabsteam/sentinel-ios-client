@@ -8,7 +8,6 @@
 import SwiftUI
 
 enum GridViewModelType: Hashable {
-    case connectionInfo(ConnectionInfoViewModel)
     case nodeInfo(NodeInfoViewModel)
 }
 
@@ -65,10 +64,10 @@ struct GridView_Previews: PreviewProvider {
     static var previews: some View {
         GridView(
             models: [
-                .connectionInfo(.init(type: .download, value: "59.8", symbols: "KB/s")),
-                .connectionInfo(.init(type: .upload, value: "19.8", symbols: "MB/s")),
-                .connectionInfo(.init(type: .bandwidth, value: "300", symbols: "GB")),
-                .connectionInfo(.init(type: .duration, value: "22 m 30 s", symbols: ""))
+                .nodeInfo(.init(type: .downloadSpeed, value: "59.8")),
+                .nodeInfo(.init(type: .uploadSpeed, value: "40")),
+                .nodeInfo(.init(type: .type, value: "Wireguard")),
+                .nodeInfo(.init(type: .provider, value: "Unknown"))
             ]
         )
     }
@@ -78,8 +77,6 @@ extension GridView {
     @ViewBuilder
     private func getItemView(from gridViewModel: GridViewModelType) -> some View {
         switch gridViewModel {
-        case let .connectionInfo(model):
-            ConnectionInfoView(viewModel: model)
         case let .nodeInfo(model):
             NodeInfoView(viewModel: model)
         }

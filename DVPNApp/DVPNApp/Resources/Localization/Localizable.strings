@@ -24,6 +24,9 @@
 "AccountCreation.Error.CreationFailed" = "Misconfigured wallet. Please, re-check your mnemonic and try again";
 "AccountCreation.Error.TermsUnchecked" = "Please read and accept terms and conditions";
 
+"Connection.Title" = "Connection State";
+"Connection.Button.Connect" = "CONNECT";
+"Connection.Button.Disconnect" = "DISCONNECT";
 "Connection.Status.Connection.Lost" = "Poor or no internet connection";
 "Connection.Status.Connection.Connected" = "Connected";
 "Connection.Status.Connection.Disconnected" = "Disconnected";
@@ -37,10 +40,10 @@
 "Connection.InfoType.Download" = "Download";
 "Connection.InfoType.Upload" = "Upload";
 "Connection.InfoType.Bandwidth" = "Bandwidth";
+"Connection.InfoType.Consumed" = "Consumed";
 "Connection.InfoType.Duration" = "Duration";
 "Connection.LocationSelector.Change" = "CHANGE";
 "Connection.LocationSelector.Fetching" = "Fetching the node info";
-"Connection.Info.DataUsed" = "DATA USED";
 "Connection.Error.SignatureGenerationFailed" = "Misconfigured wallet. Please, try again or re-import your mnemonic";
 "Connection.Error.InvalidURL" = "Misconfigured nodes. Please, try again or select another node";
 "Connection.Error.NotEnoughTokens" = "Not enough tokens to broadcast - you'll need at least 0.01 DVPN on your account. Please, check your balance and try again later";

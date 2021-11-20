@@ -17,7 +17,7 @@ struct ConnectionInfoView: View {
     }
     
     var icon: some View {
-        Image(uiImage: viewModel.type.icon)
+        Image(uiImage: viewModel.type.icon ?? UIImage())
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 26, height: 26)
@@ -29,6 +29,7 @@ struct ConnectionInfoView: View {
             HStack(alignment: .bottom, spacing: 2) {
                 Text(viewModel.value)
                     .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
+                    .frame(alignment: viewModel.type == .bandwidth ? .trailing : .leading)
                 
                 Text(viewModel.symbols ?? "")
                     .applyTextStyle(.lightGrayPoppins(ofSize: 14, weight: .light))
@@ -44,7 +45,6 @@ struct ConnectionInfoView: View {
             icon
             textContentView
         }
-        .frame(width: 164, height: 80)
     }
 }
 

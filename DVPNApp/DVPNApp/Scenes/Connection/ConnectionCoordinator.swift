@@ -30,13 +30,7 @@ final class ConnectionCoordinator: CoordinatorType {
         navigation?.pushViewController(controller, animated: true)
 
         controller.makeNavigationBar(hidden: false, animated: false)
-        
-        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: Asset.Navigation.account.image,
-            style: .plain,
-            target: homeViewModel,
-            action: #selector(homeViewModel.didTapAccountInfoButton)
-        )
+        controller.title = L10n.Connection.title
     }
 }
 

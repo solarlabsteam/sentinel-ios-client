@@ -14,14 +14,14 @@ struct CountryTileViewModel: Hashable, Identifiable {
     let icon: UIImage
     let title: String?
     let subtitle: String
-    let speedImage: UIImage
+    let speedImage: UIImage?
     
     init(
         id: String,
         icon: UIImage,
         title: String?,
         subtitle: String,
-        speed: UIImage
+        speed: UIImage?
     ) {
         self.id = id
         self.icon = icon

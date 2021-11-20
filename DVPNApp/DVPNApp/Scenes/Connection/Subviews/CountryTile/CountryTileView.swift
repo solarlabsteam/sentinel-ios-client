@@ -28,7 +28,7 @@ struct CountryTileView: View {
             
             Spacer()
             
-            Image(uiImage: viewModel.speedImage)
+            Image(uiImage: viewModel.speedImage ?? UIImage())
                 .frame(width: 20, height: viewHeight)
         }
     }

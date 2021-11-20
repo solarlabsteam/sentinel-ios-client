@@ -11,20 +11,23 @@ enum ConnectionInfoType {
     case download
     case upload
     case bandwidth
+    case consumed
     case duration
 }
 
 // MARK: - ConnectionInfoType
 
 extension ConnectionInfoType {
-    var icon: UIImage {
+    var icon: UIImage? {
         switch self {
         case .download:
             return Asset.Icons.downArrow.image
         case .upload:
             return Asset.Icons.upArrow.image
         case .bandwidth:
-            return Asset.Icons.bandwidth.image
+            return nil
+        case .consumed:
+            return nil
         case .duration:
             return Asset.Icons.duration.image
         }
@@ -38,6 +41,8 @@ extension ConnectionInfoType {
             return L10n.Connection.InfoType.upload
         case .bandwidth:
             return L10n.Connection.InfoType.bandwidth
+        case .consumed:
+            return L10n.Connection.InfoType.consumed
         case .duration:
             return L10n.Connection.InfoType.duration
         }

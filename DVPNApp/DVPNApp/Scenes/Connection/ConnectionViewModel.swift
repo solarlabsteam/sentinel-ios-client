@@ -10,17 +10,13 @@ final class ConnectionViewModel: ObservableObject {
     
     @Published private(set) var bandwidthConsumedGB: String?
     
-    @Published private var downloadSpeed: String?
-    @Published private var downloadSpeedUnits: String?
-    @Published private var uploadSpeed: String?
-    @Published private var uploadSpeedUnits: String?
+    @Published private(set) var downloadSpeed: String?
+    @Published private(set) var downloadSpeedUnits: String?
+    @Published private(set) var uploadSpeed: String?
+    @Published private(set) var uploadSpeedUnits: String?
     
-    @Published private var initialBandwidthGB: String?
-    @Published private var duration: String? {
-        didSet {
-            connectionInfoViewModels[3] = .init(type: .duration, value: duration ?? "-s", symbols: "")
-        }
-    }
+    @Published private(set) var initialBandwidthGB: String?
+    @Published private(set) var duration: String?
     
     // Location Selector
     @Published private(set) var countryImage: UIImage?
@@ -31,8 +27,6 @@ final class ConnectionViewModel: ObservableObject {
     // Connection Status
     @Published private(set) var isConnected: Bool = false
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
-    
-    @Published private(set) var connectionInfoViewModels: [ConnectionInfoViewModel] = []
 
     @Published var isLoading: Bool = false
 
@@ -97,7 +91,6 @@ final class ConnectionViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        setConnectionInfoViewModels()
         model.setInitNodeInfo()
     }
     
@@ -111,13 +104,9 @@ final class ConnectionViewModel: ObservableObject {
 }
 
 extension ConnectionViewModel {
-    var gridViewModels: [GridViewModelType] {
-        connectionInfoViewModels.map { GridViewModelType.connectionInfo($0) }
-    }
-    
-    func toggleConnection(_ newState: Bool) {
+    func toggleConnection() {
         UIImpactFeedbackGenerator.lightFeedback()
-        newState ? model.connect() : model.disconnect()
+        !isConnected ? model.connect() : model.disconnect()
     }
 
     func didEnterForeground() {
@@ -145,15 +134,6 @@ extension ConnectionViewModel {
     private func show(error: Error) {
         router.play(event: .error(error))
     }
-    
-    private func setConnectionInfoViewModels() {
-        connectionInfoViewModels = [
-            .init(type: .download, value: downloadSpeed ?? "-", symbols: downloadSpeedUnits ?? "KB/s"),
-            .init(type: .upload, value: uploadSpeed ?? "-", symbols: uploadSpeedUnits ?? "KB/s"),
-            .init(type: .bandwidth, value: initialBandwidthGB ?? "-", symbols: L10n.Common.gb),
-            .init(type: .duration, value: duration ?? "-s", symbols: "")
-        ]
-    }
 
     private func updateConnection(isConnected: Bool) {
         self.isConnected = isConnected
@@ -177,7 +157,6 @@ extension ConnectionViewModel {
         (downloadSpeed, downloadSpeedUnits) = bandwidth.download.getBandwidthKBorMB
         (uploadSpeed, uploadSpeedUnits) = bandwidth.upload.getBandwidthKBorMB
         speedImage = bandwidth.speedImage
-        setConnectionInfoViewModels()
     }
 
     private func updateButton(isLoading: Bool) {
@@ -187,7 +166,6 @@ extension ConnectionViewModel {
     private func updateSubscription(initialBandwidth: String, bandwidthConsumed: String) {
         self.initialBandwidthGB = (Int64(initialBandwidth) ?? 0).bandwidthGBString
         self.bandwidthConsumedGB = (Int64(bandwidthConsumed) ?? 0).bandwidthGBString
-        setConnectionInfoViewModels()
     }
     
     func startDurationTracking(initialDate: Date?) {

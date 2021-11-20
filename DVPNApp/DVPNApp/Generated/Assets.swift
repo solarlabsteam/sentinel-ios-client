@@ -37,6 +37,7 @@ internal enum Asset {
   }
   internal enum Connection {
     internal static let background = ImageAsset(name: "connection/background")
+    internal static let power = ImageAsset(name: "connection/power")
     internal enum Toggle {
       internal enum Arrow {
         internal static let down = ImageAsset(name: "connection/toggle/arrow/down")

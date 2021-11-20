@@ -12,77 +12,133 @@ struct ConnectionView: View {
     }
     
     var locationSelector: some View {
-        CountryTileView(
-            viewModel:
-                    .init(
-                        id: "0",
-                        icon: viewModel.countryImage ?? UIImage(),
-                        title: viewModel.countryName,
-                        subtitle: viewModel.moniker ?? "",
-                        speed: viewModel.speedImage ?? UIImage()
-                    )
-        )
-            .padding(.horizontal, 16)
+        HStack {
+            CountryTileView(
+                viewModel:
+                        .init(
+                            id: "0",
+                            icon: viewModel.countryImage ?? UIImage(),
+                            title: viewModel.countryName,
+                            subtitle: viewModel.moniker ?? "",
+                            speed: nil
+                        )
+            ).padding(.horizontal, 16)
+            
+            
+            ConnectionInfoView(
+                viewModel: .init(
+                    type: .duration,
+                    value: viewModel.duration ?? "-s",
+                    symbols: ""
+                )
+            )
+        }
     }
     
-    var bandwidthConsumedView: some View {
-        VStack(spacing: 10) {
-            VStack(spacing: 4) {
-                Text(viewModel.bandwidthConsumedGB ?? "-")
-                    .applyTextStyle(.whitePoppins(ofSize: 30, weight: .bold))
-                
-                Text(L10n.Common.gb)
-                    .applyTextStyle(.lightGrayPoppins(ofSize: 16, weight: .regular))
-            }
-            .frame(width: 160, height: 160)
-            .overlay(
-                RoundedRectangle(cornerRadius: 80)
-                    .stroke(viewModel.isConnected ?
-                                navyColor.asColor : navyColor.withAlphaComponent(0.2).asColor, lineWidth: 8)
+    var bandwidthView: some View {
+        HStack(spacing: 0) {
+            ConnectionInfoView(
+                viewModel: .init(
+                    type: .bandwidth,
+                    value: viewModel.initialBandwidthGB ?? "-",
+                    symbols: L10n.Common.gb
+                )
             )
-            .padding(.bottom, 10)
             
-            Text(L10n.Connection.Info.dataUsed)
-                .applyTextStyle(.grayPoppins(ofSize: 13, weight: .light))
+            Image(uiImage: Asset.Icons.bandwidth.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 26, height: 26)
+                .foregroundColor(.white)
+                .padding()
+            
+            ConnectionInfoView(
+                viewModel: .init(
+                    type: .consumed,
+                    value: viewModel.bandwidthConsumedGB ?? "-",
+                    symbols: L10n.Common.gb
+                )
+            )
+        }
+    }
+    
+    var speedView: some View {
+        HStack(spacing: 0) {
+            ConnectionInfoView(
+                viewModel: .init(
+                    type: .download,
+                    value: viewModel.downloadSpeed ?? "-",
+                    symbols: viewModel.downloadSpeedUnits ?? "KB/s"
+                )
+            )
+            
+            Spacer()
+            
+            ConnectionInfoView(
+                viewModel: .init(
+                    type: .upload,
+                    value: viewModel.uploadSpeed ?? "-",
+                    symbols: viewModel.uploadSpeedUnits ?? "KB/s"
+                )
+            )
         }
     }
     
     var connectionStatus: some View {
-        Text(viewModel.connectionStatus.title)
-            .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
+        Text(viewModel.connectionStatus.title.uppercased())
+            .applyTextStyle(.whitePoppins(ofSize: 22, weight: .bold))
+    }
+    
+    var connectionButton: some View {
+        Button(action: viewModel.toggleConnection) {
+            ZStack(alignment: .leading) {
+                if viewModel.isLoading {
+                    ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+                        .frame(width: 15, height: 15)
+                        .padding(.leading, 30)
+                }
+                
+                HStack {
+                    Spacer()
+                    
+                    Text(!viewModel.isConnected ? L10n.Connection.Button.connect : L10n.Connection.Button.disconnect)
+                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .bold))
+                    
+                    Spacer()
+                }
+            }
+        }
+        .disabled(viewModel.isLoading)
+        .padding(.vertical, 20)
+        .frame(maxWidth: .infinity)
+        .background(Asset.Colors.navyBlue.color.asColor)
+        .cornerRadius(5)
     }
 
     var body: some View {
         GeometryReader { gProxy in
             VStack {
                 VStack(spacing: 0) {
-                    locationSelector
-                        .padding(.horizontal, 10)
                     
-                    bandwidthConsumedView
+                    Image(uiImage: Asset.Connection.power.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.white)
+                        .padding(.all, 60)
+                    
+                    bandwidthView
                         .padding(.top, 20)
-                        .padding(.bottom, 50)
                     
-                    GridView(models: viewModel.gridViewModels)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 1)
-                        )
+                    connectionStatus
+                        .padding(.vertical, 50)
                     
-                    Spacer()
-                    
-                    VStack(spacing: 10) {
-                        Toggle(
-                            "",
-                            isOn: .init(get: { return viewModel.isConnected }, set: viewModel.toggleConnection(_:))
-                        )
-                        .labelsHidden()
-                        .toggleStyle(ConnectionToggleStyle(isLoading: $viewModel.isLoading))
-                        .disabled(viewModel.isLoading)
-                        .padding(.bottom, 10)
-                        
-                        connectionStatus
-                    }
+                    VStack {
+                        locationSelector
+                        Spacer()
+                        speedView
+                        connectionButton
+                    }.padding()
                 }
                 .padding(.bottom, 44)
                 .background(Asset.Colors.accentColor.color.asColor)

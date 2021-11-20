@@ -96,6 +96,14 @@ internal enum L10n {
   }
 
   internal enum Connection {
+    /// Connection State
+    internal static let title = L10n.tr("Localizable", "Connection.Title")
+    internal enum Button {
+      /// CONNECT
+      internal static let connect = L10n.tr("Localizable", "Connection.Button.Connect")
+      /// DISCONNECT
+      internal static let disconnect = L10n.tr("Localizable", "Connection.Button.Disconnect")
+    }
     internal enum Error {
       /// Misconfigured nodes. Please, try again or select another node
       internal static let invalidURL = L10n.tr("Localizable", "Connection.Error.InvalidURL")
@@ -104,13 +112,11 @@ internal enum L10n {
       /// Misconfigured wallet. Please, try again or re-import your mnemonic
       internal static let signatureGenerationFailed = L10n.tr("Localizable", "Connection.Error.SignatureGenerationFailed")
     }
-    internal enum Info {
-      /// DATA USED
-      internal static let dataUsed = L10n.tr("Localizable", "Connection.Info.DataUsed")
-    }
     internal enum InfoType {
       /// Bandwidth
       internal static let bandwidth = L10n.tr("Localizable", "Connection.InfoType.Bandwidth")
+      /// Consumed
+      internal static let consumed = L10n.tr("Localizable", "Connection.InfoType.Consumed")
       /// Download
       internal static let download = L10n.tr("Localizable", "Connection.InfoType.Download")
       /// Duration
