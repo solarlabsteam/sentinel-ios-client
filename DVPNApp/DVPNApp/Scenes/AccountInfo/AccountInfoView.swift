@@ -71,40 +71,6 @@ struct AccountInfoView: View {
                 .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
         }
     }
-    
-    var currentPrice: some View {
-        HStack {
-            Text(L10n.AccountInfo.currentPrice)
-                .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
-            
-            Spacer()
-            
-            Image(uiImage: viewModel.priceArrowImage ?? UIImage())
-                .antialiased(true)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(
-                    width: 15,
-                    height: 20
-                )
-                .padding(.vertical, 16)
-            
-            VStack(spacing: 5) {
-                Text(viewModel.currentPrice ?? "")
-                    .applyTextStyle(.whitePoppins(ofSize: 16, weight: .bold))
-                Text(viewModel.lastPriceUpdateInfo ?? "")
-                    .font(.system(size: 12, weight: .regular))
-                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .regular))
-            }
-            .frame(width: 80, height: 30, alignment: .center)
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 4)
-                .stroke(Asset.Colors.lightGray.color.asColor, lineWidth: 0.5)
-        )
-    }
 
     var body: some View {
         ScrollView {
@@ -144,11 +110,6 @@ struct AccountInfoView: View {
             .fixedSize()
             
             Spacer()
-            
-            currentPrice
-                .padding(.vertical, 20)
-                .padding(.horizontal, 20)
-            
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             viewModel.refresh()

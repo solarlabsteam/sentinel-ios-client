@@ -94,7 +94,7 @@
 "AccountInfo.Copy" = "Copy";
 "AccountInfo.TextCopied" = "Copied";
 "AccountInfo.Share" = "Share";
-"AccountInfo.TopUp" = "TOP-UP WITH SOLAR PAY";
+"AccountInfo.TopUp" = "TOP-UP";
 "AccountInfo.CurrentPrice" = "Current price";
 
 "Plans.Title" = "How much DVPN do you want to spend?";
