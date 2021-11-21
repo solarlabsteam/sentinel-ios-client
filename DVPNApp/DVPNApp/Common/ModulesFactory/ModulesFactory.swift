@@ -97,6 +97,10 @@ extension ModulesFactory {
     func makeAccountInfoModule(for navigation: UINavigationController) {
         AccountInfoCoordinator(context: context, navigation: navigation).start()
     }
+    
+    func makeExtraModule(for navigation: UINavigationController) {
+        ExtraCoordinator(context: context, navigation: navigation).start()
+    }
 
     func makePlansModule(
         node: DVPNNodeInfo,
@@ -189,6 +193,15 @@ extension ModulesFactory {
         let model = AccountInfoModel(context: context)
         let viewModel = AccountInfoViewModel(model: model, router: coordinator)
         let view = AccountInfoView(viewModel: viewModel)
+
+        return view
+    }
+    
+    func getExtraScene() -> ExtraView  {
+        let coordinator = ExtraCoordinator(context: context, navigation: UINavigationController()).asRouter()
+        let model = ExtraModel(context: context)
+        let viewModel = ExtraViewModel(model: model, router: coordinator)
+        let view = ExtraView(viewModel: viewModel)
 
         return view
     }

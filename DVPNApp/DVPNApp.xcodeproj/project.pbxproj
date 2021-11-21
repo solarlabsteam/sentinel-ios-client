@@ -186,6 +186,9 @@
 		93FA0692270B4C690006A765 /* NodeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */; };
 		93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0693270B4C770006A765 /* NodeInfoType.swift */; };
 		93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0695270B5A800006A765 /* Collection+Ext.swift */; };
+		93FB6F0B27495EE200819A6C /* ExtraCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB6F0A27495EE200819A6C /* ExtraCoordinator.swift */; };
+		93FB6F0D27495EEE00819A6C /* ExtraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB6F0C27495EEE00819A6C /* ExtraModel.swift */; };
+		93FB6F0F27495F5600819A6C /* ExtraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB6F0E27495F5600819A6C /* ExtraViewModel.swift */; };
 		C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */; };
 		C64B495C26B8B3F70004A692 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495726B8B3F70004A692 /* ConnectionView.swift */; };
 		C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495926B8B3F70004A692 /* CountryTileView.swift */; };
@@ -400,6 +403,9 @@
 		93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfoViewModel.swift; sourceTree = "<group>"; };
 		93FA0693270B4C770006A765 /* NodeInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfoType.swift; sourceTree = "<group>"; };
 		93FA0695270B5A800006A765 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
+		93FB6F0A27495EE200819A6C /* ExtraCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraCoordinator.swift; sourceTree = "<group>"; };
+		93FB6F0C27495EEE00819A6C /* ExtraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraModel.swift; sourceTree = "<group>"; };
+		93FB6F0E27495F5600819A6C /* ExtraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraViewModel.swift; sourceTree = "<group>"; };
 		C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
 		C64B495726B8B3F70004A692 /* ConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		C64B495926B8B3F70004A692 /* CountryTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTileView.swift; sourceTree = "<group>"; };
@@ -666,7 +672,6 @@
 			isa = PBXGroup;
 			children = (
 				93DBF5632718827A006EBC65 /* Continents */,
-				753EDDFB2715633A00DA76F8 /* Extra */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -688,15 +693,6 @@
 				753EDDF72715633A00DA76F8 /* ScaleView.swift */,
 			);
 			path = Row;
-			sourceTree = "<group>";
-		};
-		753EDDFB2715633A00DA76F8 /* Extra */ = {
-			isa = PBXGroup;
-			children = (
-				759DE5B72715753000DC7757 /* Row */,
-				753EDDFC2715633A00DA76F8 /* ExtraView.swift */,
-			);
-			path = Extra;
 			sourceTree = "<group>";
 		};
 		7554E2B826D4B7ED001355F7 /* AccountInfo */ = {
@@ -1096,9 +1092,22 @@
 			path = NodeInfo;
 			sourceTree = "<group>";
 		};
+		93FB6F0927495EBB00819A6C /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				759DE5B72715753000DC7757 /* Row */,
+				93FB6F0A27495EE200819A6C /* ExtraCoordinator.swift */,
+				93FB6F0C27495EEE00819A6C /* ExtraModel.swift */,
+				753EDDFC2715633A00DA76F8 /* ExtraView.swift */,
+				93FB6F0E27495F5600819A6C /* ExtraViewModel.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
 		C64B495426B8B3F70004A692 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				93FB6F0927495EBB00819A6C /* Extra */,
 				757F7FB0274815D4005E031E /* TabBar */,
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
@@ -1432,6 +1441,7 @@
 				753EDE002715633A00DA76F8 /* NodeSelectionRowView.swift in Sources */,
 				C64B495C26B8B3F70004A692 /* ConnectionView.swift in Sources */,
 				75D6560826BBF436000056B4 /* Context.swift in Sources */,
+				93FB6F0F27495F5600819A6C /* ExtraViewModel.swift in Sources */,
 				758DD9E4270B72D2000CD59B /* AccountCreationViewModel.swift in Sources */,
 				75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */,
 				93FA0692270B4C690006A765 /* NodeInfoViewModel.swift in Sources */,
@@ -1446,6 +1456,7 @@
 				93DBF54D2716D3B4006EBC65 /* StoresWallet.swift in Sources */,
 				93C3EC39270ACED500B9CA4D /* ConnectionInfoType.swift in Sources */,
 				9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */,
+				93FB6F0B27495EE200819A6C /* ExtraCoordinator.swift in Sources */,
 				93FA068D270B34530006A765 /* NodeDetailsViewModel.swift in Sources */,
 				C64ED32C26C57FE900222CA4 /* PlansView.swift in Sources */,
 				93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */,
@@ -1537,6 +1548,7 @@
 				932EEBD5271D4D800098A2D7 /* AvailableNodesCoordinator.swift in Sources */,
 				75BF4A422715742300DBC427 /* ExtraRowView.swift in Sources */,
 				755F5F19270DE78600D416ED /* TextStyle.swift in Sources */,
+				93FB6F0D27495EEE00819A6C /* ExtraModel.swift in Sources */,
 				75B0D56726CD27EC009ECAFC /* GeneralSettingsStorage.swift in Sources */,
 				75359D3126FCA41600CFEBCD /* UIColor+SwiftUI.swift in Sources */,
 				759DE5B92715754800DC7757 /* ExtraRowViewType.swift in Sources */,

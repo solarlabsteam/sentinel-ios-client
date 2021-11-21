@@ -197,6 +197,11 @@ internal enum L10n {
     }
   }
 
+  internal enum Extra {
+    /// Extra
+    internal static let title = L10n.tr("Localizable", "Extra.Title")
+  }
+
   internal enum Home {
     internal enum Extra {
       /// Built by

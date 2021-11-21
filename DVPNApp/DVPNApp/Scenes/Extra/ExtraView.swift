@@ -8,34 +8,23 @@
 import SwiftUI
 
 struct ExtraView: View {
-    private let openMore: () -> Void
-    private let openServers: () -> Void
-    private let openSolarLabs: () -> Void
-    @Binding private var server: DNSServerType
-
-    init(
-        openServers: @escaping () -> Void,
-        openMore: @escaping () -> Void,
-        openSolarLabs: @escaping () -> Void,
-        server: Binding<DNSServerType>
-    ) {
-        self.openMore = openMore
-        self.openServers = openServers
-        self.openSolarLabs = openSolarLabs
-        self._server = server
+    @ObservedObject private var viewModel: ExtraViewModel
+    
+    init(viewModel: ExtraViewModel) {
+        self.viewModel = viewModel
     }
 
     var body: some View {
         VStack(spacing: 0) {
             VStack {
-                ExtraRowView(type: .dns(server.title), action: openServers)
+                ExtraRowView(type: .dns(viewModel.server.title), action: viewModel.openDNSServersSelection)
                     .padding()
 
                 Divider()
                     .background(Asset.Colors.lightBlue.color.asColor)
                     .padding(.horizontal)
 
-                ExtraRowView(type: .more, action: openMore)
+                ExtraRowView(type: .more, action: viewModel.openMore)
                     .padding()
 
                 Divider()
@@ -58,7 +47,7 @@ struct ExtraView: View {
             .padding(.bottom, 5)
 
             HStack {
-                Button(action: openSolarLabs) {
+                Button(action: viewModel.openSolarLabs) {
                     Image(uiImage: Asset.Logo.solarLabs.image)
                 }
                 Spacer()
@@ -68,11 +57,12 @@ struct ExtraView: View {
             .padding(.bottom, 10)
             .background(Asset.Colors.prussianBlue.color.asColor)
         }
+        .background(Asset.Colors.accentColor.color.asColor)
     }
 }
 
 struct ExtraView_Previews: PreviewProvider {
     static var previews: some View {
-        ExtraView(openServers: {}, openMore: {}, openSolarLabs: {}, server: .constant(.default))
+        ModulesFactory.shared.getExtraScene()
     }
 }

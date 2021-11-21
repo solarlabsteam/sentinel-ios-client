@@ -107,6 +107,7 @@ extension TabBarCoordinator {
             return navigationController
         case .extra:
             let navigationController = UINavigationController()
+            ModulesFactory.shared.makeExtraModule(for: navigationController)
             return navigationController
         }
     }

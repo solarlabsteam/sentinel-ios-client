@@ -14,14 +14,6 @@ struct HomeView: View {
             PageIndicator(pages: HomeViewModel.PageType.allCases, currentPage: $viewModel.currentPage)
 
             TabView(selection: $viewModel.currentPage) {
-                ExtraView(
-                    openServers: viewModel.openDNSServersSelection,
-                    openMore: viewModel.openMore,
-                    openSolarLabs: viewModel.openSolarLabs,
-                    server: $viewModel.server
-                )
-                    .tag(HomeViewModel.PageType.extra)
-                    .rotationEffect(.degrees(-180))
 
                 NodeSelectionView(viewModel: viewModel)
                     .tag(HomeViewModel.PageType.selector)
