@@ -46,10 +46,7 @@ final class HomeViewModel: ObservableObject {
         case connect
         case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
         case details(SentinelNode, isSubscribed: Bool)
-        case sentinel
-        case solarLabs
         case title(String)
-        case dns(DNSSettingsViewModelDelegate?, DNSServerType)
         case openNodes(Continent, delegate: PlansViewModelDelegate)
     }
 
@@ -77,7 +74,6 @@ final class HomeViewModel: ObservableObject {
 
     @Published var currentPage: PageType = .selector
     @Published var selectedTab: NodeType = .subscribed
-    @Published var server: DNSServerType = .default
     
     @Published var numberOfNodesInContinent: [Continent: Int] = [:]
 
@@ -105,22 +101,13 @@ final class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
         
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
-
-        model.refreshDNS()
+        
         model.subscribeToEvents()
         model.setNodes()
     }
     
     func viewWillAppear() {
         model.connectIfNeeded()
-    }
-}
-
-// MARK: - DNSSettingsViewModelDelegate
-
-extension HomeViewModel: DNSSettingsViewModelDelegate {
-    func update(to server: DNSServerType) {
-        self.server = server
     }
 }
 
@@ -182,21 +169,6 @@ extension HomeViewModel {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .openNodes(continent, delegate: self))
     }
-
-    func openMore() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .sentinel)
-    }
-
-    func openSolarLabs() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .solarLabs)
-    }
-
-    func openDNSServersSelection() {
-        UIImpactFeedbackGenerator.lightFeedback()
-        router.play(event: .dns(self, server))
-    }
 }
 
 extension HomeViewModel {
@@ -220,8 +192,6 @@ extension HomeViewModel {
                 case .reloadSubscriptions:
                     self?.subscriptions = []
                     self?.isLoadingSubscriptions = true
-                case let .select(server):
-                    self?.update(to: server)
                 case let .setNumberOfNodesInContinent(numberOfNodesInContinent):
                     self?.numberOfNodesInContinent = numberOfNodesInContinent
                 }

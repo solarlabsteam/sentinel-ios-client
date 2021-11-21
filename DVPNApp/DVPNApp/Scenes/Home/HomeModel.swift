@@ -34,8 +34,7 @@ enum HomeModelEvent {
     case reloadSubscriptions
 
     case connect
-
-    case select(server: DNSServerType)
+    
     case setNumberOfNodesInContinent([Continent: Int])
 }
 
@@ -87,10 +86,6 @@ final class HomeModel {
         }
         
         return numberOfNodesInContinent
-    }
-    
-    func refreshDNS() {
-        eventSubject.send(.select(server: context.dnsServersStorage.selectedDNS()))
     }
 
     func setNodes() {
