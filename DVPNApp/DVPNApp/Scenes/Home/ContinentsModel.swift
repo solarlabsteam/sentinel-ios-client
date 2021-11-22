@@ -1,6 +1,6 @@
 //
-//  HomeModel.swift
-//  Test
+//  ContinentsModel.swift
+//  DVPNApp
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
 //
@@ -9,28 +9,20 @@ import Foundation
 import Combine
 import SentinelWallet
 
-enum HomeModelEvent {
+enum ContinentsModelEvent {
     case error(Error)
-    
-    case showLoadingSubscriptions(state: Bool)
-    
     case update(locations: [SentinelNode])
-    case set(subscribedNodes: [SentinelNode])
-    case setSubscriptionsState(SubscriptionsState)
-    case reloadSubscriptions
-
     case connect
-    
     case setNumberOfNodesInContinent([Continent: Int])
 }
 
-final class HomeModel {
+final class ContinentsModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
         & HasDNSServersStorage & HasTunnelManager & HasNodesService
     private let context: Context
 
-    private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
-    var eventPublisher: AnyPublisher<HomeModelEvent, Never> {
+    private let eventSubject = PassthroughSubject<ContinentsModelEvent, Never>()
+    var eventPublisher: AnyPublisher<ContinentsModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 
@@ -41,8 +33,7 @@ final class HomeModel {
 
     init(context: Context) {
         self.context = context
-
-        loadSubscriptions()
+        
         fetchWalletInfo()
         
         context.nodesService.loadAllNodesIfNeeded { result in
@@ -50,18 +41,6 @@ final class HomeModel {
                 context.nodesService.loadNodesInfo(for: nodes)
             }
         }
-    }
-    
-    func subscribeToEvents() {
-        context.nodesService.isLoadingSubscriptions
-            .map { .showLoadingSubscriptions(state: $0) }
-            .subscribe(eventSubject)
-            .store(in: &cancellables)
-        
-        context.nodesService.subscribedNodes
-            .map { .set(subscribedNodes: $0) }
-            .subscribe(eventSubject)
-            .store(in: &cancellables)
     }
     
     func setNumberOfNodesInContinent() -> [Continent: Int] {
@@ -91,14 +70,6 @@ final class HomeModel {
     func connectIfNeeded() {
         if context.connectionInfoStorage.shouldConnect() {
             eventSubject.send(.connect)
-            reloadOnNextAppear = true
-        }
-
-        if reloadOnNextAppear {
-            eventSubject.send(.reloadSubscriptions)
-            loadSubscriptions()
-            
-            reloadOnNextAppear = false
         }
     }
 
@@ -109,21 +80,10 @@ final class HomeModel {
 
 // MARK: - Private Methods
 
-extension HomeModel {
+extension ContinentsModel {
     private func show(error: Error) {
         log.error(error)
         eventSubject.send(.error(error))
-    }
-    
-    private func loadSubscriptions() {
-        context.nodesService.loadSubscriptions { [weak self] result in
-            switch result {
-            case let .success(subscriptions):
-                self?.subscriptions = subscriptions
-            case .failure:
-                self?.eventSubject.send(.setSubscriptionsState(.noConnection))
-            }
-        }
     }
 
     private func fetchWalletInfo() {

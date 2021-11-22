@@ -167,6 +167,8 @@ internal enum L10n {
     internal static func availableNodes(_ p1: Int) -> String {
       return L10n.tr("Localizable", "Continents.AvailableNodes", p1)
     }
+    /// Nodes
+    internal static let title = L10n.tr("Localizable", "Continents.Title")
   }
 
   internal enum Dns {
@@ -208,8 +210,6 @@ internal enum L10n {
       internal static let build = L10n.tr("Localizable", "Home.Extra.Build")
       /// Default DNS
       internal static let dns = L10n.tr("Localizable", "Home.Extra.DNS")
-      /// Extra
-      internal static let title = L10n.tr("Localizable", "Home.Extra.Title")
       internal enum Button {
         /// Learn more
         internal static let more = L10n.tr("Localizable", "Home.Extra.Button.More")
@@ -222,8 +222,6 @@ internal enum L10n {
       }
     }
     internal enum Node {
-      /// Nodes
-      internal static let title = L10n.tr("Localizable", "Home.Node.Title")
       internal enum All {
         /// No available nodes found
         internal static let notFound = L10n.tr("Localizable", "Home.Node.All.NotFound")

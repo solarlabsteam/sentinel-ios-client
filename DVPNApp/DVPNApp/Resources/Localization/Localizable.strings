@@ -63,14 +63,13 @@
 "Home.Node.Subscribed.Title" = "Subscribed";
 "Home.Node.All.NotFound" = "No available nodes found";
 "Home.Node.All.Title" = "All nodes";
-"Home.Node.Title" = "Nodes";
-"Home.Extra.Title" = "Extra";
 "Home.Extra.DNS" = "Default DNS";
 "Home.Extra.More.Title" = "Learn More";
 "Home.Extra.More.Subtitle" = "Sentinel P2P bandwidth market place";
 "Home.Extra.Button.More" = "Learn more";
 "Home.Extra.Build" = "Built by";
 
+"Continents.Title" = "Nodes";
 "Continents.AvailableNodes" = "%d available nodes";
 
 "AvailableNodes.Title" = "Nodes in %@";

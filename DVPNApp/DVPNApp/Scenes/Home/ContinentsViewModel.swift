@@ -1,6 +1,6 @@
 //
-//  HomeViewModel.swift
-//  Test
+//  ContinentsViewModel.swift
+//  DVPNApp
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
 //
@@ -12,7 +12,7 @@ import Combine
 import UIKit.UIImage
 import NetworkExtension
 
-enum HomeViewModelError: LocalizedError {
+enum NodeError: LocalizedError {
     case unavailableNode
 
     var errorDescription: String? {
@@ -23,7 +23,7 @@ enum HomeViewModelError: LocalizedError {
     }
 }
 
-final class HomeViewModel: ObservableObject {
+final class ContinentsViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
     private let router: Router
 
@@ -31,59 +31,29 @@ final class HomeViewModel: ObservableObject {
         case error(Error)
         case connect
         case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
-        case details(SentinelNode, isSubscribed: Bool)
-        case title(String)
         case openNodes(Continent, delegate: PlansViewModelDelegate)
-    }
-
-    enum PageType: Int, CaseIterable, Equatable {
-        case selector
-        case extra
-
-        var title: String {
-            switch self {
-            case .extra:
-                return L10n.Home.Extra.title
-            case .selector:
-                return L10n.Home.Node.title
-            }
-        }
     }
     
     @Published private(set) var subscriptions: [NodeSelectionRowViewModel] = []
     private(set) var nodes: Set<SentinelNode> = []
     
-    private let model: HomeModel
+    private let model: ContinentsModel
     private var cancellables = Set<AnyCancellable>()
-    
-    @Published var isLoadingSubscriptions: Bool = true
-
-    @Published var currentPage: PageType = .selector
     
     @Published var numberOfNodesInContinent: [Continent: Int] = [:]
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
-    
-    @Published private(set) var subscriptionsState: SubscriptionsState = .empty
 
-    init(model: HomeModel, router: Router) {
+    init(model: ContinentsModel, router: Router) {
         self.model = model
         self.router = router
 
         handeEvents()
         startObservingStatuses()
-
-        $currentPage
-            .sink(receiveValue: {
-                UIImpactFeedbackGenerator.lightFeedback()
-                router.play(event: .title($0.title))
-            })
-            .store(in: &cancellables)
         
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()
         
-        model.subscribeToEvents()
         model.setNodes()
     }
     
@@ -94,7 +64,7 @@ final class HomeViewModel: ObservableObject {
 
 // MARK: - PlansViewModelDelegate
 
-extension HomeViewModel: PlansViewModelDelegate {
+extension ContinentsViewModel: PlansViewModelDelegate {
     func openConnection() {
         model.connectIfNeeded()
     }
@@ -102,12 +72,12 @@ extension HomeViewModel: PlansViewModelDelegate {
 
 // MARK: - Buttons actions
 
-extension HomeViewModel {
+extension ContinentsViewModel {
     func toggleLocation(with id: String) {
         UIImpactFeedbackGenerator.lightFeedback()
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
               let node = sentinelNode.node else {
-                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  router.play(event: .error(NodeError.unavailableNode))
                   return
               }
         
@@ -133,18 +103,6 @@ extension HomeViewModel {
 
         toggleLocation(with: nodeId)
     }
-
-    func openDetails(for id: String) {
-        UIImpactFeedbackGenerator.lightFeedback()
-        
-        guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
-              let node = sentinelNode.node else {
-                  router.play(event: .error(HomeViewModelError.unavailableNode))
-                  return
-              }
-        
-        router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
-    }
     
     func openNodes(for continent: Continent) {
         UIImpactFeedbackGenerator.lightFeedback()
@@ -152,7 +110,7 @@ extension HomeViewModel {
     }
 }
 
-extension HomeViewModel {
+extension ContinentsViewModel {
     private func handeEvents() {
         model.eventPublisher
             .receive(on: DispatchQueue.main)
@@ -162,41 +120,13 @@ extension HomeViewModel {
                     self?.router.play(event: .error(error))
                 case let .update(nodes):
                     self?.nodes.formUnion(nodes)
-                case let .showLoadingSubscriptions(state):
-                    self?.isLoadingSubscriptions = state
-                case let .set(subscribedNodes):
-                    self?.set(subscribedNodes: subscribedNodes)
-                case let .setSubscriptionsState(state):
-                    self?.subscriptionsState = state
                 case .connect:
                     self?.router.play(event: .connect)
-                case .reloadSubscriptions:
-                    self?.subscriptions = []
-                    self?.isLoadingSubscriptions = true
                 case let .setNumberOfNodesInContinent(numberOfNodesInContinent):
                     self?.numberOfNodesInContinent = numberOfNodesInContinent
                 }
             }
             .store(in: &cancellables)
-    }
-    
-    private func set(subscribedNodes: [SentinelNode]) {
-        subscribedNodes.forEach { subscribedNode in
-            nodes.insert(subscribedNode)
-            
-            guard let node = subscribedNode.node else { return }
-            
-            let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
-
-            let model = NodeSelectionRowViewModel(
-                from: node,
-                icon: Flag(countryCode: countryCode)?.image(style: .roundedRect) ?? Asset.Tokens.dvpn.image
-            )
-            
-            if !subscriptions.contains(where: { $0.id == model.id }) {
-                subscriptions.append(model)
-            }
-        }
     }
 
     private func startObservingStatuses() {
@@ -214,7 +144,7 @@ extension HomeViewModel {
     private func connectToRandomNode() {
         guard let sentinelNode = nodes.filter({ $0.node?.latency ?? 0 < 1 }).randomElement() ?? nodes.first,
               let node = sentinelNode.node else {
-                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  router.play(event: .error(NodeError.unavailableNode))
                   return
               }
         
