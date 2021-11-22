@@ -12,20 +12,6 @@ import Combine
 import UIKit.UIImage
 import NetworkExtension
 
-enum NodeType: CaseIterable {
-    case subscribed
-    case available
-
-    var title: String {
-        switch self {
-        case .subscribed:
-            return L10n.Home.Node.Subscribed.title.uppercased()
-        case .available:
-            return L10n.Home.Node.All.title.uppercased()
-        }
-    }
-}
-
 enum HomeViewModelError: LocalizedError {
     case unavailableNode
 
@@ -73,7 +59,6 @@ final class HomeViewModel: ObservableObject {
     @Published var isLoadingSubscriptions: Bool = true
 
     @Published var currentPage: PageType = .selector
-    @Published var selectedTab: NodeType = .subscribed
     
     @Published var numberOfNodesInContinent: [Continent: Int] = [:]
 
@@ -94,10 +79,6 @@ final class HomeViewModel: ObservableObject {
                 UIImpactFeedbackGenerator.lightFeedback()
                 router.play(event: .title($0.title))
             })
-            .store(in: &cancellables)
-
-        $selectedTab
-            .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback() })
             .store(in: &cancellables)
         
         numberOfNodesInContinent = model.setNumberOfNodesInContinent()

@@ -100,6 +100,7 @@ extension TabBarCoordinator {
             return navigationController
         case .subscribedNodes:
             let navigationController = UINavigationController()
+            ModulesFactory.shared.makeSubscribedNodesModule(for: navigationController)
             return navigationController
         case .account:
             let navigationController = UINavigationController()

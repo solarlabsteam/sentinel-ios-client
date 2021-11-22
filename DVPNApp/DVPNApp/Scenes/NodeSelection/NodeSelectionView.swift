@@ -13,39 +13,6 @@ struct NodeSelectionView: View {
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
-
-    var subscribedNodes: some View {
-        VStack {
-            if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
-                Spacer()
-
-                Text(viewModel.subscriptionsState.title)
-                    .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
-                    .padding()
-                    .multilineTextAlignment(.center)
-
-                Spacer()
-            } else {
-                List {
-                    ForEach(viewModel.subscriptions, id: \.self) { vm in
-                        NodeSelectionRowView(
-                            viewModel: vm,
-                            openDetails: {
-                                viewModel.openDetails(for: vm.id)
-                            }
-                        )
-                        .listRowBackground(Color.clear)
-                    }
-                }
-                .listStyle(PlainListStyle())
-            }
-
-            ActivityIndicator(
-                isAnimating: $viewModel.isLoadingSubscriptions,
-                style: .medium
-            )
-        }
-    }
     
     var continentsView: some View {
         ContinentsView(viewModel: viewModel)
@@ -54,22 +21,10 @@ struct NodeSelectionView: View {
     var body: some View {
         VStack {
             HStack {
-                switch viewModel.selectedTab {
-                case .subscribed:
-                    subscribedNodes
-                case .available:
-                    continentsView
-                }
+                continentsView
             }
 
             ZStack {
-                Picker("", selection: $viewModel.selectedTab) {
-                    ForEach(NodeType.allCases, id: \.self) {
-                        Text($0.title)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-
                 Button(action: viewModel.toggleRandomLocation) {
                     Image(systemName: "power")
                         .resizable()

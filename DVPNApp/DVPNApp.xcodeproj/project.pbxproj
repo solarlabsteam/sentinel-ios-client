@@ -144,6 +144,10 @@
 		932EEBD5271D4D800098A2D7 /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */; };
 		932EEBD7271D4D980098A2D7 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
 		932EEBD9271D4DAA0098A2D7 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
+		933FB9C3274B89220086A48D /* SubscribedNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933FB9C2274B89220086A48D /* SubscribedNodesCoordinator.swift */; };
+		933FB9C5274B89330086A48D /* SubscribedNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933FB9C4274B89330086A48D /* SubscribedNodesModel.swift */; };
+		933FB9C7274B89400086A48D /* SubscribedNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933FB9C6274B89400086A48D /* SubscribedNodesViewModel.swift */; };
+		933FB9C9274B894D0086A48D /* SubscribedNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933FB9C8274B894D0086A48D /* SubscribedNodesView.swift */; };
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
 		9378543F270ECA400004483C /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93785441270ECC810004483C /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
@@ -363,6 +367,10 @@
 		932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
 		932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
 		932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
+		933FB9C2274B89220086A48D /* SubscribedNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedNodesCoordinator.swift; sourceTree = "<group>"; };
+		933FB9C4274B89330086A48D /* SubscribedNodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedNodesModel.swift; sourceTree = "<group>"; };
+		933FB9C6274B89400086A48D /* SubscribedNodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedNodesViewModel.swift; sourceTree = "<group>"; };
+		933FB9C8274B894D0086A48D /* SubscribedNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedNodesView.swift; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		9378543E270ECA400004483C /* FramedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramedButton.swift; sourceTree = "<group>"; };
 		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
@@ -977,6 +985,17 @@
 			path = AvailableNodes;
 			sourceTree = "<group>";
 		};
+		933FB9C1274B88DE0086A48D /* SubscribedNodes */ = {
+			isa = PBXGroup;
+			children = (
+				933FB9C2274B89220086A48D /* SubscribedNodesCoordinator.swift */,
+				933FB9C4274B89330086A48D /* SubscribedNodesModel.swift */,
+				933FB9C8274B894D0086A48D /* SubscribedNodesView.swift */,
+				933FB9C6274B89400086A48D /* SubscribedNodesViewModel.swift */,
+			);
+			path = SubscribedNodes;
+			sourceTree = "<group>";
+		};
 		93843B45272498F200CE6D34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1107,6 +1126,7 @@
 		C64B495426B8B3F70004A692 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				933FB9C1274B88DE0086A48D /* SubscribedNodes */,
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				932EEBD3271D4B5C0098A2D7 /* AvailableNodes */,
@@ -1475,6 +1495,7 @@
 				93DBF5492716C0B6006EBC65 /* RealmStorage+ProtocolImplementations.swift in Sources */,
 				93C3EC35270ACD6700B9CA4D /* ConnectionInfoView.swift in Sources */,
 				93DBF5622717D302006EBC65 /* Persistable.swift in Sources */,
+				933FB9C5274B89330086A48D /* SubscribedNodesModel.swift in Sources */,
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				931636D4271DC62B00A8C18C /* AvailableNodesView.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
@@ -1498,6 +1519,7 @@
 				755FBF0926AF0F1600E9D408 /* SecurityService.swift in Sources */,
 				758DD9E6270B72D2000CD59B /* AccountCreationCoordinator.swift in Sources */,
 				75B0D55E26CBB633009ECAFC /* UIViewController+NavigationBar.swift in Sources */,
+				933FB9C7274B89400086A48D /* SubscribedNodesViewModel.swift in Sources */,
 				7504EA4B267A37FB00023D42 /* TunnelModel.swift in Sources */,
 				9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */,
 				93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */,
@@ -1510,6 +1532,7 @@
 				7504EA56267B408D00023D42 /* Config.swift in Sources */,
 				C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */,
 				7504EA52267A391700023D42 /* String+ArrayConversion.swift in Sources */,
+				933FB9C9274B894D0086A48D /* SubscribedNodesView.swift in Sources */,
 				9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */,
 				93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */,
 				93843B472724993000CE6D34 /* SentinelNode+Ext.swift in Sources */,
@@ -1527,6 +1550,7 @@
 				7504EA92267B822A00023D42 /* TunnelContainer.swift in Sources */,
 				93DBF56D2718889A006EBC65 /* ContinentsRowView.swift in Sources */,
 				93DBF5512716D626006EBC65 /* StoresGeneralInfo.swift in Sources */,
+				933FB9C3274B89220086A48D /* SubscribedNodesCoordinator.swift in Sources */,
 				7504EA8F267B7BB200023D42 /* TunnelSavingError.swift in Sources */,
 				759DE5C12715866C00DC7757 /* DNSSettingsView.swift in Sources */,
 				7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */,

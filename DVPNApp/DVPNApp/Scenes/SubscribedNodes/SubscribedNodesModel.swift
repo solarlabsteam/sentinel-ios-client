@@ -1,15 +1,29 @@
 //
-//  HomeModel.swift
-//  Test
+//  SubscribedNodesModel.swift
+//  DVPNApp
 //
-//  Created by Aleksandr Litreev on 12.08.2021.
+//  Created by Victoria Kostyleva on 22.11.2021.
 //
 
 import Foundation
 import Combine
 import SentinelWallet
 
-enum HomeModelEvent {
+enum SubscriptionsState {
+    case empty
+    case noConnection
+    
+    var title: String {
+        switch self {
+        case .empty:
+            return L10n.SubscribedNodes.notFound
+        case .noConnection:
+            return L10n.SubscribedNodes.noConnection
+        }
+    }
+}
+
+enum SubscribedNodesModelEvent {
     case error(Error)
     
     case showLoadingSubscriptions(state: Bool)
@@ -18,24 +32,19 @@ enum HomeModelEvent {
     case set(subscribedNodes: [SentinelNode])
     case setSubscriptionsState(SubscriptionsState)
     case reloadSubscriptions
-
-    case connect
-    
-    case setNumberOfNodesInContinent([Continent: Int])
 }
 
-final class HomeModel {
+final class SubscribedNodesModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
         & HasDNSServersStorage & HasTunnelManager & HasNodesService
     private let context: Context
 
-    private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
-    var eventPublisher: AnyPublisher<HomeModelEvent, Never> {
+    private let eventSubject = PassthroughSubject<SubscribedNodesModelEvent, Never>()
+    var eventPublisher: AnyPublisher<SubscribedNodesModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 
     private var subscriptions: [SentinelWallet.Subscription] = []
-    private var reloadOnNextAppear = false
     
     private var cancellables = Set<AnyCancellable>()
 
@@ -63,53 +72,19 @@ final class HomeModel {
             .subscribe(eventSubject)
             .store(in: &cancellables)
     }
-    
-    func setNumberOfNodesInContinent() -> [Continent: Int] {
-        var numberOfNodesInContinent: [Continent: Int] = [:]
-        
-        Continent.allCases.forEach {
-            numberOfNodesInContinent[$0] = context.nodesService.nodesCount(for: $0)
-        }
-        
-        return numberOfNodesInContinent
-    }
 
     func setNodes() {
         eventSubject.send(.update(locations: context.nodesService.nodes))
     }
 
-    func save(nodeAddress: String) {
-        context.connectionInfoStorage.set(lastSelectedNode: nodeAddress)
-        context.connectionInfoStorage.set(shouldConnect: true)
-        eventSubject.send(.connect)
-    }
-
     func isSubscribed(to node: String) -> Bool {
         subscriptions.contains(where: { $0.node == node })
-    }
-
-    func connectIfNeeded() {
-        if context.connectionInfoStorage.shouldConnect() {
-            eventSubject.send(.connect)
-            reloadOnNextAppear = true
-        }
-
-        if reloadOnNextAppear {
-            eventSubject.send(.reloadSubscriptions)
-            loadSubscriptions()
-            
-            reloadOnNextAppear = false
-        }
-    }
-
-    func disconnect() {
-        context.tunnelManager.startDeactivationOfActiveTunnel()
     }
 }
 
 // MARK: - Private Methods
 
-extension HomeModel {
+extension SubscribedNodesModel {
     private func show(error: Error) {
         log.error(error)
         eventSubject.send(.error(error))

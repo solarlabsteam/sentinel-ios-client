@@ -60,8 +60,6 @@
 "Home.Node.Details.Price" = "Price";
 "Home.Node.Details.Latency" = "Latency";
 "Home.Node.Details.Peers" = "Peers";
-"Home.Node.Subscribed.NotFound" = "You are not subscribed to any nodes";
-"Home.Node.Subscribed.NoConnection" = "Fail to load nodes";
 "Home.Node.Subscribed.Title" = "Subscribed";
 "Home.Node.All.NotFound" = "No available nodes found";
 "Home.Node.All.Title" = "All nodes";
@@ -76,6 +74,10 @@
 "Continents.AvailableNodes" = "%d available nodes";
 
 "AvailableNodes.Title" = "Nodes in %@";
+
+"SubscribedNodes.Title" = "Subscribed nodes";
+"SubscribedNodes.NotFound" = "You are not subscribed to any nodes";
+"SubscribedNodes.NoConnection" = "Fail to load nodes";
 
 "NodeDetails.Connect" = "CONNECT NOW";
 "NodeDetails.InfoType.Address" = "Node Address";

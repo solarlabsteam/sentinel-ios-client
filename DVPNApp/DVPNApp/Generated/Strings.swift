@@ -239,10 +239,6 @@ internal enum L10n {
         internal static let price = L10n.tr("Localizable", "Home.Node.Details.Price")
       }
       internal enum Subscribed {
-        /// Fail to load nodes
-        internal static let noConnection = L10n.tr("Localizable", "Home.Node.Subscribed.NoConnection")
-        /// You are not subscribed to any nodes
-        internal static let notFound = L10n.tr("Localizable", "Home.Node.Subscribed.NotFound")
         /// Subscribed
         internal static let title = L10n.tr("Localizable", "Home.Node.Subscribed.Title")
       }
@@ -332,6 +328,15 @@ internal enum L10n {
       /// Couldn't process the broadcast. Please, check your balance and try again later
       internal static let broadcastFailed = L10n.tr("Localizable", "SentinelService.Error.BroadcastFailed")
     }
+  }
+
+  internal enum SubscribedNodes {
+    /// Fail to load nodes
+    internal static let noConnection = L10n.tr("Localizable", "SubscribedNodes.NoConnection")
+    /// You are not subscribed to any nodes
+    internal static let notFound = L10n.tr("Localizable", "SubscribedNodes.NotFound")
+    /// Subscribed nodes
+    internal static let title = L10n.tr("Localizable", "SubscribedNodes.Title")
   }
 
   internal enum TabBar {

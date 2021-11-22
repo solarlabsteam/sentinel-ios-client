@@ -130,6 +130,10 @@ extension ModulesFactory {
             continent: continent
         ).start()
     }
+    
+    func makeSubscribedNodesModule(for navigation: UINavigationController) {
+        SubscribedNodesCoordinator(context: context, navigation: navigation).start()
+    }
 
     func switchTo(tab: TabType) {
         tabSwitcher?.switchTo(tab: tab)
@@ -184,6 +188,18 @@ extension ModulesFactory {
         let model = HomeModel(context: context)
         let viewModel = HomeViewModel(model: model, router: coordinator)
         let view = HomeView(viewModel: viewModel)
+
+        return view
+    }
+    
+    func getSubscribedNodesScene() -> SubscribedNodesView {
+        let coordinator = SubscribedNodesCoordinator(
+            context: context,
+            navigation: UINavigationController()
+        ).asRouter()
+        let model = SubscribedNodesModel(context: context)
+        let viewModel = SubscribedNodesViewModel(model: model, router: coordinator)
+        let view = SubscribedNodesView(viewModel: viewModel)
 
         return view
     }
