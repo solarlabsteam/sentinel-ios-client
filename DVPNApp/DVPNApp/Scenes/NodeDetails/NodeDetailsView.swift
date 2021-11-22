@@ -61,7 +61,7 @@ struct NodeDetailsView: View {
             Spacer()
             
             mainButton
-                .padding(30)
+                .padding(20)
             
         }
         .background(Asset.Colors.accentColor.color.asColor)

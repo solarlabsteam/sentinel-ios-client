@@ -80,6 +80,7 @@
 "SubscribedNodes.NotFound" = "You are not subscribed to any nodes";
 "SubscribedNodes.NoConnection" = "Fail to load nodes";
 
+"NodeDetails.Title" = "Details";
 "NodeDetails.Connect" = "CONNECT NOW";
 "NodeDetails.InfoType.Address" = "Node Address";
 "NodeDetails.InfoType.Peers" = "Connected peers count";

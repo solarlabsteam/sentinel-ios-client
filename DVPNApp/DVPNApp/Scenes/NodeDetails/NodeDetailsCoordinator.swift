@@ -37,6 +37,8 @@ final class NodeDetailsCoordinator: CoordinatorType {
         let viewModel = NodeDetailsViewModel(model: model, router: asRouter())
         let view = NodeDetailsView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
+        controller.title = L10n.NodeDetails.title
+        
         rootController = controller
         navigation?.pushViewController(controller, animated: true)
         
