@@ -51,7 +51,10 @@ struct ExtraView: View {
                     Image(uiImage: Asset.Logo.solarLabs.image)
                 }
                 Spacer()
-                Image(uiImage: Asset.Logo.exidio.image)
+                
+                Button(action: viewModel.openExidio) {
+                    Image(uiImage: Asset.Logo.exidio.image)
+                }
             }
             .padding()
             .padding(.bottom, 10)

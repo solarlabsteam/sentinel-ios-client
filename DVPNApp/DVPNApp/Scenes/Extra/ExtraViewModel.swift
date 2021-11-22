@@ -18,6 +18,7 @@ final class ExtraViewModel: ObservableObject {
     enum Route {
         case sentinel
         case solarLabs
+        case exidio
         case dns(DNSSettingsViewModelDelegate?, DNSServerType)
     }
     
@@ -55,6 +56,11 @@ extension ExtraViewModel {
     func openSolarLabs() {
         UIImpactFeedbackGenerator.lightFeedback()
         router.play(event: .solarLabs)
+    }
+    
+    func openExidio() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .exidio)
     }
 
     func openDNSServersSelection() {

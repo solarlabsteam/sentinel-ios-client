@@ -9,7 +9,7 @@
 "TabBar.Item.Account" = "My Account";
 "TabBar.Item.Extra" = "Extras";
 
-"Extra.Title" = "Extra";
+"Extras.Title" = "Extras";
 
 "Onboarding.Title" = "Exidio dVPN";
 "Onboarding.Description" = "Decentralized VPN based on Sentinel Blockchain";

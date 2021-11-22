@@ -11,6 +11,7 @@ import SwiftUI
 private struct Constants {
     let sentinelURL = URL(string: "https://sentinel.co/")
     let solarLabsURL = URL(string: "http://labs.solar")
+    let exidioURL = URL(string: "http://exidio.co")
 }
 
 private let constants = Constants()
@@ -35,7 +36,7 @@ final class ExtraCoordinator: CoordinatorType {
         navigation?.viewControllers = [controller]
 
         controller.makeNavigationBar(hidden: false, animated: false)
-        controller.title = L10n.Extra.title
+        controller.title = L10n.Extras.title
     }
 }
 
@@ -44,15 +45,21 @@ extension ExtraCoordinator: RouterType {
         guard let navigation = navigation else { return }
         switch event {
         case .sentinel:
-            if let url = constants.sentinelURL, UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:])
-            }
+            open(url: constants.sentinelURL)
         case .solarLabs:
-            if let url = constants.solarLabsURL, UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:])
-            }
+            open(url: constants.solarLabsURL)
+        case .exidio:
+            open(url: constants.exidioURL)
         case let .dns(delegate, server):
             ModulesFactory.shared.makeDNSSettingsModule(delegate: delegate, server: server, for: navigation)
+        }
+    }
+}
+
+extension ExtraCoordinator {
+    private func open(url: URL?) {
+        if let url = url, UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:])
         }
     }
 }

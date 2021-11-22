@@ -197,9 +197,9 @@ internal enum L10n {
     }
   }
 
-  internal enum Extra {
-    /// Extra
-    internal static let title = L10n.tr("Localizable", "Extra.Title")
+  internal enum Extras {
+    /// Extras
+    internal static let title = L10n.tr("Localizable", "Extras.Title")
   }
 
   internal enum Home {
