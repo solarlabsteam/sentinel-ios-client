@@ -25,7 +25,7 @@ struct SubscribedNodesView: View {
                     Spacer()
                     
                     Text(viewModel.subscriptionsState.title)
-                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                        .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
                         .padding()
                         .multilineTextAlignment(.center)
                     

@@ -18,10 +18,10 @@ struct PlansView: View {
     var bandwidthView: some View {
         VStack(spacing: 0) {
             Text("\(viewModel.gbToBuy)")
-                .applyTextStyle(.whitePoppins(ofSize: 44, weight: .bold))
+                .applyTextStyle(.whiteMain(ofSize: 44, weight: .bold))
             
             Text(L10n.Common.gb)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 18, weight: .regular))
+                .applyTextStyle(.lightGrayMain(ofSize: 18, weight: .regular))
         }
         .frame(width: 140, height: 140)
         .overlay(
@@ -67,7 +67,7 @@ struct PlansView: View {
             VStack(spacing: 0) {
                 VStack {
                     Text(L10n.Plans.title)
-                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                        .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .padding()

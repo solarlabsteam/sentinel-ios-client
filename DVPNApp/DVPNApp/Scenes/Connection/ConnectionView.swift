@@ -86,7 +86,7 @@ struct ConnectionView: View {
     
     var connectionStatus: some View {
         Text(viewModel.connectionStatus.title.uppercased())
-            .applyTextStyle(.whitePoppins(ofSize: 22, weight: .bold))
+            .applyTextStyle(.whiteMain(ofSize: 22, weight: .bold))
     }
     
     var connectionButton: some View {
@@ -102,7 +102,7 @@ struct ConnectionView: View {
                     Spacer()
                     
                     Text(!viewModel.isConnected ? L10n.Connection.Button.connect : L10n.Connection.Button.disconnect)
-                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .bold))
+                        .applyTextStyle(.whiteMain(ofSize: 18, weight: .bold))
                     
                     Spacer()
                 }

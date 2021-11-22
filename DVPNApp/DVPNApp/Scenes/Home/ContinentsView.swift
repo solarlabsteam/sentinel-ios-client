@@ -54,7 +54,7 @@ struct ContinentsView: View {
                             .frame(width: 30, height: 30)
                         
                         Text(viewModel.connectionStatus == .disconnected ? L10n.Continents.Button.connect : L10n.Continents.Button.disconnect)
-                            .applyTextStyle(.whitePoppins(ofSize: 12, weight: .bold))
+                            .applyTextStyle(.whiteMain(ofSize: 12, weight: .bold))
                     }
                     .padding(.vertical, 10)
                     

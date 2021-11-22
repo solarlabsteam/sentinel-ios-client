@@ -15,7 +15,7 @@ struct FramedButton: View {
         Button(action: clicked) {
             HStack {
                 Text(title)
-                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .regular))
+                    .applyTextStyle(.whiteMain(ofSize: 12, weight: .regular))
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 16)

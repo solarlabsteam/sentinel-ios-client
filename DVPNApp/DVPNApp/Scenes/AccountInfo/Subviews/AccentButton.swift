@@ -16,7 +16,7 @@ struct AccentButton: View {
             HStack {
                 Text(title)
                     .foregroundColor(Asset.Colors.accentColor.color.asColor)
-                    .applyTextStyle(.darkPoppins(ofSize: 11, weight: .semibold))
+                    .applyTextStyle(.darkMain(ofSize: 11, weight: .semibold))
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 16)

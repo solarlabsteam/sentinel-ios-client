@@ -33,7 +33,7 @@ struct DNSSettingsView: View {
 
             VStack {
                 Text(L10n.Dns.title)
-                    .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                    .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
                     .padding()
 
                 ForEach(Array(zip(viewModel.items.indices, viewModel.items)), id: \.0) { index, model in

@@ -33,14 +33,14 @@ struct ConnectionInfoView: View {
         VStack(alignment: viewModel.type == .bandwidth ? .trailing : .leading, spacing: 2) {
             HStack(alignment: .bottom, spacing: 2) {
                 Text(viewModel.value)
-                    .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
+                    .applyTextStyle(.whiteMain(ofSize: 16, weight: .medium))
                 
                 Text(viewModel.symbols ?? "")
-                    .applyTextStyle(.lightGrayPoppins(ofSize: 14, weight: .light))
+                    .applyTextStyle(.lightGrayMain(ofSize: 14, weight: .light))
             }
             
             Text(viewModel.type.title)
-                .applyTextStyle(.grayPoppins(ofSize: 13, weight: .light))
+                .applyTextStyle(.grayMain(ofSize: 13, weight: .light))
         }
     }
     

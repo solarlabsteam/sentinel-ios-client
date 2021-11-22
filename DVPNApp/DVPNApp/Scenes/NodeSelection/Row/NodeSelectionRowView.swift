@@ -30,9 +30,9 @@ struct NodeSelectionRowView: View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                         Text(viewModel.title)
-                            .applyTextStyle(.whitePoppins(ofSize: 16, weight: .medium))
+                            .applyTextStyle(.whiteMain(ofSize: 16, weight: .medium))
                         Text(viewModel.subtitle)
-                            .applyTextStyle(.lightGrayPoppins(ofSize: 10))
+                            .applyTextStyle(.lightGrayMain(ofSize: 10))
                     }
 
                     Spacer()
