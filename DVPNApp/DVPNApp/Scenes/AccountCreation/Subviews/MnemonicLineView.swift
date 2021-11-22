@@ -19,7 +19,7 @@ struct MnemonicLineView: View {
             ForEach(range, id: \.self) { value in
                 ZStack(alignment: .leading) {
                     TextField("", text: $mnemonic[value])
-                        .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
+                        .applyTextStyle(.whiteMain(ofSize: 11, weight: .medium))
                         .textCase(.lowercase)
                         .autocapitalization(.none)
                         .padding(.bottom, 10)

@@ -77,7 +77,7 @@ extension ModulesFactory {
             context.generalInfoStorage.set(didPassOnboarding: true)
         }
 
-        HomeCoordinator(context: context, navigation: navigation).start()
+        ContinentsCoordinator(context: context, navigation: navigation).start()
     }
     
     func makeEmptyModule(for window: UIWindow) {
@@ -180,14 +180,14 @@ extension ModulesFactory {
         return view
     }
 
-    func getHomeScene() -> HomeView {
-        let coordinator = HomeCoordinator(
+    func getContinentsScene() -> ContinentsView {
+        let coordinator = ContinentsCoordinator(
             context: context,
             navigation: UINavigationController()
         ).asRouter()
-        let model = HomeModel(context: context)
-        let viewModel = HomeViewModel(model: model, router: coordinator)
-        let view = HomeView(viewModel: viewModel)
+        let model = ContinentsModel(context: context)
+        let viewModel = ContinentsViewModel(model: model, router: coordinator)
+        let view = ContinentsView(viewModel: viewModel)
 
         return view
     }

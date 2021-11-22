@@ -57,17 +57,6 @@ enum ConnectionStatus {
         }
     }
 
-    var powerColor: Color {
-        switch self {
-        case .connected:
-            return Asset.Colors.navyBlue.color.asColor
-        case .disconnected:
-            return .white
-        default:
-            return .white
-        }
-    }
-
     var isLoading: Bool {
         !(self == .connected || self == .disconnected)
     }

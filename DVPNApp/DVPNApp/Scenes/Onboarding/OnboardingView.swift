@@ -36,11 +36,11 @@ struct OnboardingView: View {
     var importView: some View {
         HStack(spacing: 2) {
             Text(L10n.Onboarding.Button.ImportNow.text)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+                .applyTextStyle(.lightGrayMain(ofSize: 12, weight: .light))
 
             Button(action: viewModel.didTapImportButton) {
                 Text(L10n.Onboarding.Button.ImportNow.action)
-                    .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
+                    .applyTextStyle(.navyBlueMain(ofSize: 12, weight: .semibold))
                     .underline()
             }
         }
@@ -53,11 +53,11 @@ struct OnboardingView: View {
             Image(viewModel.step.imageName)
 
             Text(viewModel.step.title)
-                .applyTextStyle(.whitePoppins(ofSize: 25, weight: .bold))
+                .applyTextStyle(.whiteMain(ofSize: 25, weight: .bold))
                 .padding()
 
             Text(viewModel.step.description)
-                .applyTextStyle(.whitePoppins(ofSize: 15))
+                .applyTextStyle(.whiteMain(ofSize: 15))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
 

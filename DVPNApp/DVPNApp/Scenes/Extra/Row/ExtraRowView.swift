@@ -25,9 +25,9 @@ struct ExtraRowView: View {
 
                     VStack(alignment: .leading) {
                         Text(type.title)
-                            .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
+                            .applyTextStyle(.whiteMain(ofSize: 14, weight: .medium))
                         Text(type.subtitle)
-                            .applyTextStyle(.grayPoppins(ofSize: 11))
+                            .applyTextStyle(.grayMain(ofSize: 11))
                     }
 
                     Spacer()

@@ -45,7 +45,7 @@ struct CounterView: View {
             
             HStack(spacing: 0) {
                 Text(text)
-                    .applyTextStyle(.whitePoppins(ofSize: 22, weight: .light))
+                    .applyTextStyle(.whiteMain(ofSize: 22, weight: .light))
                     .padding(.trailing, 30)
             }
             

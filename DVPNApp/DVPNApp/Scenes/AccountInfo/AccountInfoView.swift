@@ -15,6 +15,8 @@ struct AccountInfoView: View {
 
     init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
+        
+        UIScrollView.appearance().bounces = false
     }
 
     var addressView: some View {
@@ -23,7 +25,7 @@ struct AccountInfoView: View {
                 Spacer()
                 
                 Text(viewModel.address)
-                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
+                    .applyTextStyle(.whiteMain(ofSize: 12, weight: .medium))
                     .lineLimit(1)
                     .truncationMode(.middle)
                 
@@ -68,7 +70,7 @@ struct AccountInfoView: View {
                 .frame(width: 150, height: 150)
             
             Text(L10n.AccountInfo.qr)
-                .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
+                .applyTextStyle(.grayMain(ofSize: 12, weight: .regular))
         }
     }
 
@@ -76,17 +78,17 @@ struct AccountInfoView: View {
         ScrollView {
             VStack {
                 Text(L10n.AccountInfo.Wallet.title)
-                    .applyTextStyle(.grayPoppins(ofSize: 12, weight: .regular))
+                    .applyTextStyle(.grayMain(ofSize: 12, weight: .regular))
                     .padding(.top, 20)
                 
                 HStack {
                     Text(viewModel.balance ?? "-")
-                        .applyTextStyle(.whitePoppins(ofSize: 22, weight: .bold))
+                        .applyTextStyle(.whiteMain(ofSize: 22, weight: .bold))
                     
                     Text(" " + L10n.Common.Dvpn.title)
                         .font(.system(size: 20, weight: .medium))
                         .foregroundColor(.white)
-                        .applyTextStyle(.whitePoppins(ofSize: 22, weight: .regular))
+                        .applyTextStyle(.whiteMain(ofSize: 22, weight: .regular))
                 }
             }
             .padding(.bottom, 8)

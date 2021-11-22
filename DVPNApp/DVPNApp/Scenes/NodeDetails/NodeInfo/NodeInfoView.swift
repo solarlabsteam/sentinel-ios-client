@@ -30,10 +30,10 @@ struct NodeInfoView: View {
         VStack(alignment: .center, spacing: 4) {
             Text(viewModel.type.title)
                 .font(.system(size: 10, weight: .light))
-                .applyTextStyle(.grayPoppins(ofSize: 10, weight: .medium))
+                .applyTextStyle(.grayMain(ofSize: 10, weight: .medium))
             
             Text(viewModel.value)
-                .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
+                .applyTextStyle(.whiteMain(ofSize: 12, weight: .medium))
         }
         .frame(width: 174, height: 60)
     }

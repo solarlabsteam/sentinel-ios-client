@@ -18,7 +18,7 @@ struct AvailableNodesView: View {
         VStack {
             if viewModel.locations.isEmpty {
                 Text(L10n.Home.Node.All.notFound)
-                    .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                    .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {

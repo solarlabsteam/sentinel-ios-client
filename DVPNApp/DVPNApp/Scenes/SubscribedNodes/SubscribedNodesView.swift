@@ -25,7 +25,7 @@ struct SubscribedNodesView: View {
                     Spacer()
                     
                     Text(viewModel.subscriptionsState.title)
-                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                        .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
                         .padding()
                         .multilineTextAlignment(.center)
                     
@@ -60,24 +60,6 @@ extension SubscribedNodesView {
     private func customize() {
         UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
-
-        UIScrollView.appearance().bounces = false
-
-        let controlAppearance = UISegmentedControl.appearance()
-
-        controlAppearance.selectedSegmentTintColor = Asset.Colors.accentColor.color
-        controlAppearance.setTitleTextAttributes(
-            [.foregroundColor: Asset.Colors.navyBlue.color],
-            for: .selected
-        )
-        controlAppearance.setTitleTextAttributes(
-            [
-                .font: FontFamily.Poppins.semiBold.font(size: 10),
-                .foregroundColor: UIColor.white,
-                .kern: 2.5
-            ],
-            for: .normal
-        )
     }
 }
 

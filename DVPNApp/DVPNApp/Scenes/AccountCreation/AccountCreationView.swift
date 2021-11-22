@@ -21,7 +21,7 @@ struct AccountCreationView: View {
     var walletAddress: some View {
         ZStack(alignment: .leading) {
             Text(viewModel.address ?? "")
-                .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
+                .applyTextStyle(.whiteMain(ofSize: 11, weight: .medium))
                 .padding(.bottom, 10)
                 .padding([.horizontal, .top], 8)
                 .border(Asset.Colors.borderGray.color.asColor, width: 1)
@@ -76,11 +76,11 @@ struct AccountCreationView: View {
             
             HStack(alignment: .top, spacing: 5) {
                 Text(L10n.AccountCreation.Terms.text)
-                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+                    .applyTextStyle(.lightGrayMain(ofSize: 12, weight: .light))
                 
                 Button(action: viewModel.didTapTerms) {
                     Text(L10n.AccountCreation.Terms.button)
-                        .applyTextStyle(.whitePoppins(ofSize: 12, weight: .semibold))
+                        .applyTextStyle(.whiteMain(ofSize: 12, weight: .semibold))
                 }
             }
 
@@ -91,11 +91,11 @@ struct AccountCreationView: View {
     var importView: some View {
         HStack(spacing: 2) {
             Text(L10n.AccountCreation.Button.ImportNow.text)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+                .applyTextStyle(.lightGrayMain(ofSize: 12, weight: .light))
 
             Button(action: viewModel.didTapChangeMode) {
                 Text(L10n.AccountCreation.Button.ImportNow.action)
-                    .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
+                    .applyTextStyle(.navyBlueMain(ofSize: 12, weight: .semibold))
                     .underline()
             }
         }
@@ -113,7 +113,7 @@ struct AccountCreationView: View {
                 HStack {
                     Button(action: viewModel.didTapPaste) {
                         Text(L10n.AccountCreation.Import.Button.paste)
-                            .applyTextStyle(.whitePoppins(ofSize: 12))
+                            .applyTextStyle(.whiteMain(ofSize: 12))
                             .padding(.horizontal, 15)
                             .padding(.vertical, 10)
                             .border(Asset.Colors.navyBlue.color.asColor, width: 1)

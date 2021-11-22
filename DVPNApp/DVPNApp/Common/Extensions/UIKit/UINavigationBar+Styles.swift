@@ -22,7 +22,7 @@ extension UINavigationBar {
         
         tintColor = .white
         titleTextAttributes = [
-            .font: FontFamily.Poppins.semiBold.font(size: 18),
+            .font: UIFont.systemFont(ofSize: 18, weight: .semibold),
             .foregroundColor: UIColor.white
         ]
 

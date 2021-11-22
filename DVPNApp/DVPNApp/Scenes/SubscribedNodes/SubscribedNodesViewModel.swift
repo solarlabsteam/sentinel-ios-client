@@ -63,7 +63,7 @@ extension SubscribedNodesViewModel {
         
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
               let node = sentinelNode.node else {
-                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  router.play(event: .error(NodeError.unavailableNode))
                   return
               }
         

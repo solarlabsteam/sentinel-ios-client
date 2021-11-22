@@ -33,15 +33,15 @@ struct ContinentsRowView: View {
                     
                     VStack(alignment: .center) {
                         Text(type.title)
-                            .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
+                            .applyTextStyle(.whiteMain(ofSize: 14, weight: .medium))
                         Text(L10n.Continents.availableNodes(count))
-                            .applyTextStyle(.grayPoppins(ofSize: 11))
+                            .applyTextStyle(.grayMain(ofSize: 11))
                     }
                     Spacer()
                 }
                 Spacer()
             }
-            .padding()
+            .padding(.all, 11)
             .background(Asset.Colors.purple.color.asColor)
             .cornerRadius(5)
         }

@@ -36,12 +36,12 @@ struct ExtraView: View {
 
             HStack {
                 Text(L10n.Home.Extra.build)
-                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .bold))
+                    .applyTextStyle(.lightGrayMain(ofSize: 12, weight: .bold))
 
                 Spacer()
 
                 Text("V\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1")")
-                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+                    .applyTextStyle(.lightGrayMain(ofSize: 12, weight: .light))
             }
             .padding(.horizontal)
             .padding(.bottom, 5)
