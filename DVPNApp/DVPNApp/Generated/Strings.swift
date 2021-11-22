@@ -169,6 +169,12 @@ internal enum L10n {
     }
     /// Nodes
     internal static let title = L10n.tr("Localizable", "Continents.Title")
+    internal enum Button {
+      /// QUICK CONNECT
+      internal static let connect = L10n.tr("Localizable", "Continents.Button.Connect")
+      /// DISCONNECT
+      internal static let disconnect = L10n.tr("Localizable", "Continents.Button.Disconnect")
+    }
   }
 
   internal enum Dns {

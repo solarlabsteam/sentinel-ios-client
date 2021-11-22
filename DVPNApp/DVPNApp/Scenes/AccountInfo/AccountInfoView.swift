@@ -15,6 +15,8 @@ struct AccountInfoView: View {
 
     init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
+        
+        UIScrollView.appearance().bounces = false
     }
 
     var addressView: some View {

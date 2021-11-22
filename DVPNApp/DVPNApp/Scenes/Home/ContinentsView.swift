@@ -15,15 +15,18 @@ struct ContinentsView: View {
     init(viewModel: ContinentsViewModel) {
         self.viewModel = viewModel
         
-        UIScrollView.appearance().alwaysBounceVertical = false
+        UIScrollView.appearance().bounces = false
         
-        chunkedModels = viewModel.numberOfNodesInContinent.sorted { $0.key.index < $1.key.index }
+        chunkedModels = viewModel.numberOfNodesInContinent
+            .sorted { $0.key.index < $1.key.index }
             .chunked(into: 2)
     }
     
     var body: some View {
         VStack {
             ScrollView {
+                Spacer()
+                
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(Array(zip(chunkedModels.indices, chunkedModels)), id: \.0) { index, models in
                         HStack(spacing: 6) {
@@ -37,23 +40,32 @@ struct ContinentsView: View {
                             }
                         }
                     }
-                    
-                    Spacer()
-                    
                 }
-                .padding(.horizontal, 20)
             }
             
             Button(action: viewModel.toggleRandomLocation) {
-                Image(systemName: "power")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
+                HStack {
+                    Spacer()
+                    
+                    VStack {
+                        Image(uiImage: Asset.Connection.power.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30, height: 30)
+                        
+                        Text(viewModel.connectionStatus == .disconnected ? L10n.Continents.Button.connect : L10n.Continents.Button.disconnect)
+                            .applyTextStyle(.whitePoppins(ofSize: 12, weight: .bold))
+                    }
+                    .padding(.vertical, 10)
+                    
+                    Spacer()
+                }
             }
-            .frame(width: 60, height: 60)
-            .background(viewModel.connectionStatus.powerColor)
-            .cornerRadius(30)
+            .background(Asset.Colors.navyBlue.color.asColor)
+            .cornerRadius(5)
         }
+        .padding(.horizontal, 20)
+        .padding(.bottom, 20)
         .background(Asset.Colors.accentColor.color.asColor)
     }
 }

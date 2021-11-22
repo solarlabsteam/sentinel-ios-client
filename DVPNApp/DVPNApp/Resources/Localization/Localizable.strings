@@ -71,6 +71,8 @@
 
 "Continents.Title" = "Nodes";
 "Continents.AvailableNodes" = "%d available nodes";
+"Continents.Button.Connect" = "QUICK CONNECT";
+"Continents.Button.Disconnect" = "DISCONNECT";
 
 "AvailableNodes.Title" = "Nodes in %@";
 
