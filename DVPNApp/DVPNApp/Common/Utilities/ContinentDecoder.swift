@@ -16,7 +16,7 @@ final class ContinentDecoder {
     private var countryCodeToContinent: [String: String] = [:]
     
     init() {
-        let fileName = "co.sentinel.sentinellite.regional.countries_extras"
+        let fileName = "co.exidio.sentinellite.regional.countries_extras"
         guard let countriesExtraURL = Bundle.main.url(forResource: fileName, withExtension: "json") else {
             return
         }

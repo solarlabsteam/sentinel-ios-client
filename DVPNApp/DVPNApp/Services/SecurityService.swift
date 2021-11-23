@@ -36,7 +36,7 @@ final public class SecurityService: SecurityServiceType {
     public init(
         keychain: KeychainWrapper = .init(
             serviceName: "SecurityService",
-            accessGroup: "group.co.sentinel.dvpn"
+            accessGroup: "group.co.exidio.sentinel.dvpn"
         )
     ) {
         self.keychain = keychain
