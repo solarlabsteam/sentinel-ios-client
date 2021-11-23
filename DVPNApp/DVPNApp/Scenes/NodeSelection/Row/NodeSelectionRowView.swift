@@ -32,7 +32,7 @@ struct NodeSelectionRowView: View {
                         Text(viewModel.title)
                             .applyTextStyle(.whiteMain(ofSize: 16, weight: .medium))
                         Text(viewModel.subtitle)
-                            .applyTextStyle(.lightGrayMain(ofSize: 10))
+                            .applyTextStyle(.grayMain(ofSize: 10))
                     }
 
                     Spacer()

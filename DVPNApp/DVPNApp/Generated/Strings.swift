@@ -252,6 +252,8 @@ internal enum L10n {
   internal enum NodeDetails {
     /// CONNECT NOW
     internal static let connect = L10n.tr("Localizable", "NodeDetails.Connect")
+    /// Details
+    internal static let title = L10n.tr("Localizable", "NodeDetails.Title")
     internal enum InfoType {
       /// Node Address
       internal static let address = L10n.tr("Localizable", "NodeDetails.InfoType.Address")

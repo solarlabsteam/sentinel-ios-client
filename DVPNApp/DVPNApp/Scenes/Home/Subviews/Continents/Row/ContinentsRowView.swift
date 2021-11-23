@@ -41,7 +41,7 @@ struct ContinentsRowView: View {
                 }
                 Spacer()
             }
-            .padding(.all, 11)
+            .padding(.all, 15)
             .background(Asset.Colors.purple.color.asColor)
             .cornerRadius(5)
         }

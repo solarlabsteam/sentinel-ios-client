@@ -35,7 +35,7 @@ struct NodeInfoView: View {
             Text(viewModel.value)
                 .applyTextStyle(.whiteMain(ofSize: 12, weight: .medium))
         }
-        .frame(width: 174, height: 60)
+        .frame(width: 174, height: 55)
     }
     
     // MARK: - Feature view
@@ -70,7 +70,7 @@ struct NodeInfoView: View {
     
     @ViewBuilder
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 0) {
             if viewModel.type != .features {
                 icon
                 textContentView
