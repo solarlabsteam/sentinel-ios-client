@@ -129,3 +129,7 @@
 "DNS.Cloudflare" = "Cloudflare";
 "DNS.Google" = "Google";
 "DNS.Freenom" = "Freenom";
+
+"Purchases.Title" = "Buy more DVPN";
+"Purchases.Description" = "The payment of %@ will be charged to your iTunes account at confirmation of purchase. DVPN points will be credited to your account within few minutes after purchase.";
+"Purchases.Button.Buy" = "Buy now";

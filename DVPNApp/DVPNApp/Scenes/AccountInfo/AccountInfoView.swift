@@ -53,8 +53,7 @@ struct AccountInfoView: View {
     
     var solarPayButton: some View {
         AccentButton(title: L10n.AccountInfo.topUp) {
-            UIImpactFeedbackGenerator.lightFeedback()
-            openURL(viewModel.solarPayURL)
+            viewModel.didTapTopUp()
         }
     }
 

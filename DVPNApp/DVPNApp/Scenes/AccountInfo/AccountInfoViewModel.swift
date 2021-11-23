@@ -19,6 +19,7 @@ final class AccountInfoViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case info(String)
+        case purchases
     }
     
     @Published private(set) var qrCode: UIImage
@@ -80,6 +81,12 @@ extension AccountInfoViewModel {
         
         UIImpactFeedbackGenerator.lightFeedback()
         UIPasteboard.general.string = model.address
+    }
+
+    func didTapTopUp() {
+        router.play(event: .purchases)
+
+        UIImpactFeedbackGenerator.lightFeedback()
     }
     
     func didTapShare() {
