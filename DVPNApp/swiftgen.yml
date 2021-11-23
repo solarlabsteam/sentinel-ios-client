@@ -9,9 +9,3 @@ xcassets:
     outputs:
       - templatePath: DVPNApp/Generated/templates/xcassets/swift5.stencil
         output: DVPNApp/Generated/Assets.swift
-
-fonts:
-    inputs: DVPNApp/Resources/Fonts
-    outputs:
-        templatePath: DVPNApp/Generated/templates/fonts/swift5.stencil
-        output: DVPNApp/Generated/Fonts.swift

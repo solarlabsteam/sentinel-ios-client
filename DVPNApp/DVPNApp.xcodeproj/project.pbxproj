@@ -536,7 +536,6 @@
 			children = (
 				7504E9D3267A184000023D42 /* Assets.xcassets */,
 				932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */,
-				93E56157274C04D800C4F707 /* Fonts */,
 				93DBF57327193035006EBC65 /* Localization */,
 			);
 			path = Resources;
@@ -1009,13 +1008,6 @@
 				93DBF576271939EF006EBC65 /* Localizable.stringsdict */,
 			);
 			path = Localization;
-			sourceTree = "<group>";
-		};
-		93E56157274C04D800C4F707 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		93FA0685270B340A0006A765 /* NodeDetails */ = {
