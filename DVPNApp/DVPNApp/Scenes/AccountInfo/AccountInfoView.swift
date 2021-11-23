@@ -17,8 +17,6 @@ private let constants = Constants()
 struct AccountInfoView: View {
 
     @ObservedObject private var viewModel: AccountInfoViewModel
-    
-    @Environment(\.openURL) var openURL
 
     init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
@@ -58,8 +56,7 @@ struct AccountInfoView: View {
     
     var solarPayButton: some View {
         AccentButton(title: L10n.AccountInfo.topUp) {
-            UIImpactFeedbackGenerator.lightFeedback()
-            openURL(viewModel.solarPayURL)
+            viewModel.didTapTopUp()
         }
     }
 

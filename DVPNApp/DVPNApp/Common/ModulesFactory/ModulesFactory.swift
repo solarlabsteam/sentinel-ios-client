@@ -135,6 +135,10 @@ extension ModulesFactory {
         SubscribedNodesCoordinator(context: context, navigation: navigation).start()
     }
 
+    func makePurchasesModule(for navigation: UINavigationController) {
+        PurchasesCoordinator(context: context, navigation: navigation).start()
+    }
+
     func switchTo(tab: TabType) {
         tabSwitcher?.switchTo(tab: tab)
     }
@@ -232,6 +236,15 @@ extension ModulesFactory {
         let model = DNSSettingsModel(context: context)
         let viewModel = DNSSettingsViewModel(model: model, server: .default, delegate: delegate, router: coordinator)
         let view = DNSSettingsView(viewModel: viewModel)
+
+        return view
+    }
+
+    func getPurchasesScene() -> PurchasesView {
+        let coordinator = PurchasesCoordinator(context: context, navigation: UINavigationController()).asRouter()
+        let model = PurchasesModel(context: context)
+        let viewModel = PurchasesViewModel(model: model, router: coordinator)
+        let view = PurchasesView(viewModel: viewModel)
 
         return view
     }

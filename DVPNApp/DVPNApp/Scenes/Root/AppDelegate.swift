@@ -6,6 +6,15 @@
 //
 
 import UIKit
+import RevenueCat
+
+
+private struct Constants {
+    let purchasesAPIKey = "VuFNBdQJOUDGYPjJmFTeamGmRBqRAMcp"
+}
+
+private let constants = Constants()
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         Config.setup()
+
+        #if DEBUG
+        Purchases.logLevel = .debug
+        #else
+        Purchases.logLevel = .info
+        #endif
+
+        Purchases.configure(withAPIKey: constants.purchasesAPIKey)
+
         return true
     }
 

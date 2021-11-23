@@ -34,7 +34,6 @@ final class ContinentsViewModel: ObservableObject {
         case openNodes(Continent, delegate: PlansViewModelDelegate)
     }
     
-    @Published private(set) var subscriptions: [NodeSelectionRowViewModel] = []
     private(set) var nodes: Set<SentinelNode> = []
     
     private let model: ContinentsModel
@@ -91,12 +90,12 @@ extension ContinentsViewModel {
             return
         }
         guard !nodes.isEmpty else { return }
-        guard !subscriptions.isEmpty else {
+        guard !model.subscriptions.isEmpty else {
             connectToRandomNode()
             return
         }
 
-        guard let nodeId = subscriptions.sorted(by: { $0.latency < $1.latency }).first?.id else {
+        guard let nodeId = model.subscriptions.randomElement()?.node else {
             connectToRandomNode()
             return
         }

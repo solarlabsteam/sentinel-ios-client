@@ -65,6 +65,13 @@
 		7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */; };
 		75568D7226E5C62100166E5F /* ConnectionModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75568D7126E5C62100166E5F /* ConnectionModelError.swift */; };
 		755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A4F2326C581F10057704C /* PlansCoordinator.swift */; };
+		755B3AA4274BE8A6009E2D75 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 755B3AA3274BE8A6009E2D75 /* RevenueCat */; };
+		755B3AAD274BE8DE009E2D75 /* PurchasesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B3AA6274BE8DE009E2D75 /* PurchasesViewModel.swift */; };
+		755B3AAE274BE8DE009E2D75 /* PurchasesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B3AA7274BE8DE009E2D75 /* PurchasesModel.swift */; };
+		755B3AAF274BE8DE009E2D75 /* PurchaseOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B3AA9274BE8DE009E2D75 /* PurchaseOptionView.swift */; };
+		755B3AB0274BE8DE009E2D75 /* PurchaseOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B3AAA274BE8DE009E2D75 /* PurchaseOptionViewModel.swift */; };
+		755B3AB1274BE8DE009E2D75 /* PurchasesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B3AAB274BE8DE009E2D75 /* PurchasesCoordinator.swift */; };
+		755B3AB2274BE8DE009E2D75 /* PurchasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B3AAC274BE8DE009E2D75 /* PurchasesView.swift */; };
 		755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5EE2270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift */; };
 		755F5F0B270DB5B200D416ED /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F0A270DB5B200D416ED /* Fonts.swift */; };
 		755F5F14270DE77800D416ED /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F13270DE77800D416ED /* Font+Ext.swift */; };
@@ -271,6 +278,12 @@
 		7554E2C326D4BB03001355F7 /* DNSSettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsRowView.swift; sourceTree = "<group>"; };
 		75568D7126E5C62100166E5F /* ConnectionModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModelError.swift; sourceTree = "<group>"; };
 		755A4F2326C581F10057704C /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
+		755B3AA6274BE8DE009E2D75 /* PurchasesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesViewModel.swift; sourceTree = "<group>"; };
+		755B3AA7274BE8DE009E2D75 /* PurchasesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesModel.swift; sourceTree = "<group>"; };
+		755B3AA9274BE8DE009E2D75 /* PurchaseOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseOptionView.swift; sourceTree = "<group>"; };
+		755B3AAA274BE8DE009E2D75 /* PurchaseOptionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseOptionViewModel.swift; sourceTree = "<group>"; };
+		755B3AAB274BE8DE009E2D75 /* PurchasesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesCoordinator.swift; sourceTree = "<group>"; };
+		755B3AAC274BE8DE009E2D75 /* PurchasesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesView.swift; sourceTree = "<group>"; };
 		755F5EE2270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Ext.swift"; sourceTree = "<group>"; };
 		755F5F0A270DB5B200D416ED /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		755F5F13270DE77800D416ED /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
@@ -399,6 +412,7 @@
 				7504EA71267B4FD000023D42 /* SnapKit in Frameworks */,
 				755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */,
 				C680E89C270DE0E90042453D /* SentinelWallet in Frameworks */,
+				755B3AA4274BE8A6009E2D75 /* RevenueCat in Frameworks */,
 				93D29CE0272127BF00A35BCA /* RealmSwift in Frameworks */,
 				7504E9F3267A1AA700023D42 /* NetworkExtension.framework in Frameworks */,
 				7504EA18267A26C800023D42 /* SwiftyBeaver in Frameworks */,
@@ -677,6 +691,27 @@
 			children = (
 				93785440270ECC810004483C /* AccentButton.swift */,
 				9378543E270ECA400004483C /* FramedButton.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		755B3AA5274BE8DE009E2D75 /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				755B3AA8274BE8DE009E2D75 /* Subviews */,
+				755B3AAB274BE8DE009E2D75 /* PurchasesCoordinator.swift */,
+				755B3AA7274BE8DE009E2D75 /* PurchasesModel.swift */,
+				755B3AAC274BE8DE009E2D75 /* PurchasesView.swift */,
+				755B3AA6274BE8DE009E2D75 /* PurchasesViewModel.swift */,
+			);
+			path = Purchases;
+			sourceTree = "<group>";
+		};
+		755B3AA8274BE8DE009E2D75 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				755B3AA9274BE8DE009E2D75 /* PurchaseOptionView.swift */,
+				755B3AAA274BE8DE009E2D75 /* PurchaseOptionViewModel.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -1050,20 +1085,21 @@
 		C64B495426B8B3F70004A692 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				933FB9C1274B88DE0086A48D /* SubscribedNodes */,
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				932EEBD3271D4B5C0098A2D7 /* AvailableNodes */,
 				C64B495526B8B3F70004A692 /* Connection */,
+				C64ED2F326C50CAE00222CA4 /* Continents */,
 				75BF4A402715721800DBC427 /* DNSSettings */,
 				932D0B002721977D0064AEE4 /* Empty */,
 				93FB6F0927495EBB00819A6C /* Extra */,
-				C64ED2F326C50CAE00222CA4 /* Home */,
 				93FA0685270B340A0006A765 /* NodeDetails */,
 				753EDDF42715633A00DA76F8 /* NodeSelection */,
 				75D6563326C4CEB8000056B4 /* Onboarding */,
 				C64ED32326C57FE900222CA4 /* Plans */,
+				755B3AA5274BE8DE009E2D75 /* Purchases */,
 				7504EA6C267B4E6700023D42 /* Root */,
+				933FB9C1274B88DE0086A48D /* SubscribedNodes */,
 				757F7FB0274815D4005E031E /* TabBar */,
 			);
 			path = Scenes;
@@ -1091,7 +1127,7 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		C64ED2F326C50CAE00222CA4 /* Home */ = {
+		C64ED2F326C50CAE00222CA4 /* Continents */ = {
 			isa = PBXGroup;
 			children = (
 				753EDDF32715633A00DA76F8 /* Subviews */,
@@ -1100,7 +1136,7 @@
 				93DBF56A271882B2006EBC65 /* ContinentsView.swift */,
 				C64ED2F526C50CAE00222CA4 /* ContinentsViewModel.swift */,
 			);
-			path = Home;
+			path = Continents;
 			sourceTree = "<group>";
 		};
 		C64ED32326C57FE900222CA4 /* Plans */ = {
@@ -1173,6 +1209,7 @@
 				C680E89B270DE0E90042453D /* SentinelWallet */,
 				93D29CDD272127BF00A35BCA /* Realm */,
 				93D29CDF272127BF00A35BCA /* RealmSwift */,
+				755B3AA3274BE8A6009E2D75 /* RevenueCat */,
 			);
 			productName = DVPNApp;
 			productReference = 7504E9C7267A183D00023D42 /* DVPNApp.app */;
@@ -1239,6 +1276,7 @@
 				C64ED33226C5B26800222CA4 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 				C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */,
 				93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				755B3AA2274BE8A6009E2D75 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -1361,6 +1399,7 @@
 				75D655D926BAAAF4000056B4 /* ConnectionCoordinator.swift in Sources */,
 				7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */,
 				93DBF55A2717C395006EBC65 /* MarkerProtocols.swift in Sources */,
+				755B3AAF274BE8DE009E2D75 /* PurchaseOptionView.swift in Sources */,
 				C64ED2FB26C50CAE00222CA4 /* ContinentsViewModel.swift in Sources */,
 				7504EA66267B4D0200023D42 /* CoordinatorType.swift in Sources */,
 				758DD9E3270B72D2000CD59B /* MnemonicLineView.swift in Sources */,
@@ -1406,8 +1445,11 @@
 				9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */,
 				931636D4271DC62B00A8C18C /* AvailableNodesView.swift in Sources */,
 				755F5EE3270D7EF500D416ED /* UIImpactFeedbackGenerator+Ext.swift in Sources */,
+				755B3AAD274BE8DE009E2D75 /* PurchasesViewModel.swift in Sources */,
 				75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */,
 				751AD5F62715CB14004F5717 /* DNSSettingsModel.swift in Sources */,
+				755B3AAE274BE8DE009E2D75 /* PurchasesModel.swift in Sources */,
+				755B3AB1274BE8DE009E2D75 /* PurchasesCoordinator.swift in Sources */,
 				93FA068B270B34470006A765 /* NodeDetailsView.swift in Sources */,
 				75B0D56326CD2717009ECAFC /* SettingsStorageStrategyType.swift in Sources */,
 				93BFB0FC2722960400848912 /* ContinentDecoder.swift in Sources */,
@@ -1435,6 +1477,7 @@
 				75B0D55C26CBB370009ECAFC /* UINavigationBar+Styles.swift in Sources */,
 				7504EA56267B408D00023D42 /* Config.swift in Sources */,
 				C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */,
+				755B3AB0274BE8DE009E2D75 /* PurchaseOptionViewModel.swift in Sources */,
 				7504EA52267A391700023D42 /* String+ArrayConversion.swift in Sources */,
 				933FB9C9274B894D0086A48D /* SubscribedNodesView.swift in Sources */,
 				9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */,
@@ -1460,6 +1503,7 @@
 				7554E2C126D4B82A001355F7 /* AccountInfoModel.swift in Sources */,
 				758DD9CC270A0E73000CD59B /* ContinentsCoordinator.swift in Sources */,
 				93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */,
+				755B3AB2274BE8DE009E2D75 /* PurchasesView.swift in Sources */,
 				752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */,
 				93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */,
 				7554E2C426D4BB03001355F7 /* DNSSettingsRowView.swift in Sources */,
@@ -1850,6 +1894,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		755B3AA2274BE8A6009E2D75 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		755FBF0426AF0E6E00E9D408 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -1920,6 +1972,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7504EA6F267B4FD000023D42 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		755B3AA3274BE8A6009E2D75 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 755B3AA2274BE8A6009E2D75 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
 		};
 		755FBF0526AF0E6F00E9D408 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
