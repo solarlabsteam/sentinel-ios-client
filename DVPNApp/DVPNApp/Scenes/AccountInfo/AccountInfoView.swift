@@ -10,8 +10,6 @@ import SwiftUI
 struct AccountInfoView: View {
 
     @ObservedObject private var viewModel: AccountInfoViewModel
-    
-    @Environment(\.openURL) var openURL
 
     init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
