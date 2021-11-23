@@ -67,7 +67,7 @@ extension SubscribedNodesViewModel {
                   return
               }
         
-        router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
+        router.play(event: .details(sentinelNode, isSubscribed: true))
     }
 }
 

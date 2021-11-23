@@ -64,6 +64,7 @@ struct ContinentsView: View {
             .background(Asset.Colors.navyBlue.color.asColor)
             .cornerRadius(5)
         }
+        .onAppear { viewModel.openConnection() }
         .padding(.horizontal, 20)
         .padding(.bottom, 20)
         .background(Asset.Colors.accentColor.color.asColor)

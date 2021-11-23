@@ -26,7 +26,7 @@ final class ContinentsModel {
         eventSubject.eraseToAnyPublisher()
     }
 
-    private var subscriptions: [SentinelWallet.Subscription] = []
+    private(set) var subscriptions: [SentinelWallet.Subscription] = []
     private var reloadOnNextAppear = false
     
     private var cancellables = Set<AnyCancellable>()
@@ -35,12 +35,19 @@ final class ContinentsModel {
         self.context = context
         
         fetchWalletInfo()
+        loadSubscriptions()
         
         context.nodesService.loadAllNodesIfNeeded { result in
             if case let .success(nodes) = result {
                 context.nodesService.loadNodesInfo(for: nodes)
             }
         }
+        
+        context.nodesService.subscriptions
+            .sink(receiveValue: { [weak self] subscriptions in
+                self?.subscriptions = subscriptions
+            })
+            .store(in: &cancellables)
     }
     
     func setNumberOfNodesInContinent() -> [Continent: Int] {
@@ -100,6 +107,17 @@ extension ContinentsModel {
             case .success(let info):
                 log.debug(info)
             case .failure(let error):
+                self?.show(error: error)
+            }
+        }
+    }
+    
+    private func loadSubscriptions() {
+        context.nodesService.loadSubscriptions { [weak self] result in
+            switch result {
+            case let .success(subscriptions):
+                self?.subscriptions = subscriptions
+            case let .failure(error):
                 self?.show(error: error)
             }
         }

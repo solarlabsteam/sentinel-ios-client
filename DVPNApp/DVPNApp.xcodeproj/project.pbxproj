@@ -1086,10 +1086,10 @@
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				932EEBD3271D4B5C0098A2D7 /* AvailableNodes */,
 				C64B495526B8B3F70004A692 /* Connection */,
+				C64ED2F326C50CAE00222CA4 /* Continents */,
 				75BF4A402715721800DBC427 /* DNSSettings */,
 				932D0B002721977D0064AEE4 /* Empty */,
 				93FB6F0927495EBB00819A6C /* Extra */,
-				C64ED2F326C50CAE00222CA4 /* Home */,
 				93FA0685270B340A0006A765 /* NodeDetails */,
 				753EDDF42715633A00DA76F8 /* NodeSelection */,
 				75D6563326C4CEB8000056B4 /* Onboarding */,
@@ -1124,7 +1124,7 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		C64ED2F326C50CAE00222CA4 /* Home */ = {
+		C64ED2F326C50CAE00222CA4 /* Continents */ = {
 			isa = PBXGroup;
 			children = (
 				753EDDF32715633A00DA76F8 /* Subviews */,
@@ -1133,7 +1133,7 @@
 				93DBF56A271882B2006EBC65 /* ContinentsView.swift */,
 				C64ED2F526C50CAE00222CA4 /* ContinentsViewModel.swift */,
 			);
-			path = Home;
+			path = Continents;
 			sourceTree = "<group>";
 		};
 		C64ED32326C57FE900222CA4 /* Plans */ = {

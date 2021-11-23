@@ -29,7 +29,7 @@ enum PlansModelError: LocalizedError {
 }
 
 final class PlansModel {
-    typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
+    typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage & HasNodesService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<PlansModelEvent, Never>()
@@ -115,6 +115,8 @@ extension PlansModel {
                     self?.eventSubject.send(.processPayment(.failure(PlansModelError.paymentFailed)))
                     return
                 }
+                
+                self?.context.nodesService.loadSubscriptions(completion: { _ in })
                 self?.context.connectionInfoStorage.set(lastSelectedNode: selectedPlan.node.address)
                 self?.context.connectionInfoStorage.set(shouldConnect: true)
                 self?.eventSubject.send(.processPayment(.success(response)))

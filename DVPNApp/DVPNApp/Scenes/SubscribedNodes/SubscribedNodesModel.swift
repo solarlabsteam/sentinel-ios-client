@@ -73,10 +73,6 @@ final class SubscribedNodesModel {
     func setNodes() {
         eventSubject.send(.update(locations: context.nodesService.nodes))
     }
-
-    func isSubscribed(to node: String) -> Bool {
-        subscriptions.contains(where: { $0.node == node })
-    }
 }
 
 // MARK: - Private Methods

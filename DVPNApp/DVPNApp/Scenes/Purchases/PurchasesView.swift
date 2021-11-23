@@ -30,7 +30,7 @@ struct PurchasesView: View {
     }
 
     var body: some View {
-        VStack {
+        ScrollView {
             VStack(alignment: .leading, spacing: 15) {
                 ForEach(Array(zip(viewModel.options.chunked(into: 2).indices, viewModel.options.chunked(into: 2))), id: \.0) { index, models in
                     HStack(spacing: 15) {
