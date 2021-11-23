@@ -19,19 +19,13 @@ struct SubscribedNodesView: View {
     var body: some View {
         VStack {
             if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
-                Spacer()
-
                 HStack {
-                    Spacer()
-                    
                     Text(viewModel.subscriptionsState.title)
                         .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
                         .padding()
                         .multilineTextAlignment(.center)
-                    
-                    Spacer()
                 }
-                Spacer()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 List {
                     ForEach(viewModel.subscriptions, id: \.self) { vm in

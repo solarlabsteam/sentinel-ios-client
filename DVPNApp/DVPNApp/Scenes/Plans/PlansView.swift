@@ -38,13 +38,10 @@ struct PlansView: View {
                         .frame(width: 15, height: 15)
                 }
                 HStack {
-                    Spacer()
-                    
                     Text(L10n.Plans.subscribe)
                         .applyTextStyle(.mainButton)
-                    
-                    Spacer()
                 }
+                .frame(maxWidth: .infinity)
             }
         }
         .padding()

@@ -129,13 +129,12 @@ struct AccountCreationView: View {
 
             if viewModel.mode == .create {
                 HStack {
-                    Spacer()
                     Text(L10n.AccountCreation.warning)
                         .applyTextStyle(.textBody)
                         .padding(.vertical)
                         .multilineTextAlignment(.center)
-                    Spacer()
                 }
+                .frame(maxWidth: .infinity)
                 .border(Asset.Colors.borderGray.color.asColor, width: 1)
                 .cornerRadius(2)
                 .padding(.vertical)

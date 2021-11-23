@@ -99,13 +99,10 @@ struct ConnectionView: View {
                 }
                 
                 HStack {
-                    Spacer()
-                    
                     Text(!viewModel.isConnected ? L10n.Connection.Button.connect : L10n.Connection.Button.disconnect)
                         .applyTextStyle(.whiteMain(ofSize: 18, weight: .bold))
-                    
-                    Spacer()
                 }
+                .frame(maxWidth: .infinity)
             }
         }
         .disabled(viewModel.isLoading)
