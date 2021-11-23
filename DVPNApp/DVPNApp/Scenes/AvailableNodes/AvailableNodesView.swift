@@ -40,13 +40,7 @@ struct AvailableNodesView: View {
                 }
                 .listStyle(PlainListStyle())
             }
-
-            ActivityIndicator(
-                isAnimating: $viewModel.isLoadingNodes,
-                style: .medium
-            ).padding()
         }
         .background(Asset.Colors.accentColor.color.asColor)
-        .edgesIgnoringSafeArea(.bottom)
     }
 }

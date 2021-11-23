@@ -36,6 +36,15 @@ final class AvailableNodesCoordinator: CoordinatorType {
         
         controller.makeNavigationBar(hidden: false, animated: false)
         controller.title = continent.title
+        
+        let activityIndicator = UIActivityIndicatorView.init(style: .medium)
+        controller.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+        
+        if viewModel.isLoadingNodes {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
 }
 
