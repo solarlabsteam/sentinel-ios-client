@@ -36,7 +36,7 @@ struct ConnectionInfoView: View {
                     .applyTextStyle(.whiteMain(ofSize: 16, weight: .medium))
                 
                 Text(viewModel.symbols ?? "")
-                    .applyTextStyle(.lightGrayMain(ofSize: 14, weight: .light))
+                    .applyTextStyle(.whiteMain(ofSize: 12, weight: .light))
             }
             
             Text(viewModel.type.title)
