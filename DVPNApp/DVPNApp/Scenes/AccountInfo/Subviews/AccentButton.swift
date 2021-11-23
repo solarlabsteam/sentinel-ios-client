@@ -20,10 +20,9 @@ struct AccentButton: View {
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 16)
+            .frame(maxWidth: .infinity)
         }
-        .buttonStyle(PlainButtonStyle())
         .padding(.horizontal)
-        .frame(maxWidth: .infinity)
         .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(5)
     }
