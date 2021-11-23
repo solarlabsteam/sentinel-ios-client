@@ -11,8 +11,6 @@ import SwiftyBeaver
 let log = SwiftyBeaver.self
 
 public struct Config {
-    static let sharedContainerIdentifier: String = "group.\(Bundle.main.bundleIdentifier!)"
-
     static func setup() {
         LogsConfig.setupConsole()
         LogsConfig.setupFile()

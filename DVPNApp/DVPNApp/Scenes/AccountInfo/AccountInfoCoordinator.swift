@@ -35,11 +35,14 @@ final class AccountInfoCoordinator: CoordinatorType {
 
 extension AccountInfoCoordinator: RouterType {
     func play(event: AccountInfoViewModel.Route) {
+        guard let navigation = navigation else { return }
         switch event {
         case let .error(error):
             show(message: error.localizedDescription)
         case let .info(message):
             show(message: message, theme: .success)
+        case .purchases:
+            ModulesFactory.shared.makePurchasesModule(for: navigation)
         }
     }
 }

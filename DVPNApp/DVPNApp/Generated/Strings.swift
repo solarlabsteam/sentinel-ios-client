@@ -320,6 +320,19 @@ internal enum L10n {
     }
   }
 
+  internal enum Purchases {
+    /// The payment of %@ will be charged to your iTunes account at confirmation of purchase. DVPN points will be credited to your account within few minutes after purchase.
+    internal static func description(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "Purchases.Description", String(describing: p1))
+    }
+    /// Buy more DVPN
+    internal static let title = L10n.tr("Localizable", "Purchases.Title")
+    internal enum Button {
+      /// Buy now
+      internal static let buy = L10n.tr("Localizable", "Purchases.Button.Buy")
+    }
+  }
+
   internal enum SecurityService {
     internal enum Error {
       /// Empty mnemonic. Please, enter valid ones and try again
