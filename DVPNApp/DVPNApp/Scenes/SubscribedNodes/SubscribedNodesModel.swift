@@ -24,8 +24,6 @@ enum SubscriptionsState {
 }
 
 enum SubscribedNodesModelEvent {
-    case error(Error)
-    
     case showLoadingSubscriptions(state: Bool)
     
     case update(locations: [SentinelNode])
@@ -52,7 +50,6 @@ final class SubscribedNodesModel {
         self.context = context
 
         loadSubscriptions()
-        fetchWalletInfo()
         
         context.nodesService.loadAllNodesIfNeeded { result in
             if case let .success(nodes) = result {
@@ -85,11 +82,6 @@ final class SubscribedNodesModel {
 // MARK: - Private Methods
 
 extension SubscribedNodesModel {
-    private func show(error: Error) {
-        log.error(error)
-        eventSubject.send(.error(error))
-    }
-    
     private func loadSubscriptions() {
         context.nodesService.loadSubscriptions { [weak self] result in
             switch result {
@@ -97,25 +89,6 @@ extension SubscribedNodesModel {
                 self?.subscriptions = subscriptions
             case .failure:
                 self?.eventSubject.send(.setSubscriptionsState(.noConnection))
-            }
-        }
-    }
-
-    private func fetchWalletInfo() {
-        context.walletService.fetchAuthorization { error in
-            guard let error = error else {
-                return
-            }
-
-            log.error(error)
-        }
-
-        context.walletService.fetchTendermintNodeInfo { [weak self] result in
-            switch result {
-            case .success(let info):
-                log.debug(info)
-            case .failure(let error):
-                self?.show(error: error)
             }
         }
     }

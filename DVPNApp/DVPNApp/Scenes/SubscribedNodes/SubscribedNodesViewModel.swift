@@ -77,8 +77,6 @@ extension SubscribedNodesViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
                 switch event {
-                case let .error(error):
-                    self?.router.play(event: .error(error))
                 case let .update(nodes):
                     self?.nodes.formUnion(nodes)
                 case let .showLoadingSubscriptions(state):
