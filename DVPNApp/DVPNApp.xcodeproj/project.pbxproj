@@ -135,6 +135,7 @@
 		938FBA5E27056A320059469B /* TunnelManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FBA5D27056A320059469B /* TunnelManagerType.swift */; };
 		939FA140270C3D960013ED75 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
 		93A6C0B8270A97B0009F1029 /* CountryTileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */; };
+		93B1FD55274D0B5900ED4AD6 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B1FD54274D0B5900ED4AD6 /* PullToRefresh.swift */; };
 		93BFB0FC2722960400848912 /* ContinentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BFB0FB2722960400848912 /* ContinentDecoder.swift */; };
 		93C3EC35270ACD6700B9CA4D /* ConnectionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC34270ACD6700B9CA4D /* ConnectionInfoView.swift */; };
 		93C3EC37270ACE7200B9CA4D /* ConnectionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */; };
@@ -337,6 +338,7 @@
 		938FBA5D27056A320059469B /* TunnelManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManagerType.swift; sourceTree = "<group>"; };
 		939FA13F270C3D960013ED75 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTileViewModel.swift; sourceTree = "<group>"; };
+		93B1FD54274D0B5900ED4AD6 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		93BFB0FB2722960400848912 /* ContinentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentDecoder.swift; sourceTree = "<group>"; };
 		93C3EC34270ACD6700B9CA4D /* ConnectionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoView.swift; sourceTree = "<group>"; };
 		93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionInfoViewModel.swift; sourceTree = "<group>"; };
@@ -821,6 +823,7 @@
 				75D6560F26BE8817000056B4 /* ActivityIndicator.swift */,
 				93C3EC3A270AF19400B9CA4D /* GridView.swift */,
 				7517DF1727218BFA007E56CA /* PageIndicator.swift */,
+				93B1FD54274D0B5900ED4AD6 /* PullToRefresh.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1376,6 +1379,7 @@
 				7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */,
 				938FBA5E27056A320059469B /* TunnelManagerType.swift in Sources */,
 				7504EAA2267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift in Sources */,
+				93B1FD55274D0B5900ED4AD6 /* PullToRefresh.swift in Sources */,
 				93DBF54D2716D3B4006EBC65 /* StoresWallet.swift in Sources */,
 				93C3EC39270ACED500B9CA4D /* ConnectionInfoType.swift in Sources */,
 				9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */,

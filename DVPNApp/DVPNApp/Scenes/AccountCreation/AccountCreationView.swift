@@ -14,8 +14,6 @@ struct AccountCreationView: View {
 
     init(viewModel: AccountCreationViewModel) {
         self.viewModel = viewModel
-
-        UIScrollView.appearance().bounces = false
     }
 
     var walletAddress: some View {

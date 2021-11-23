@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+
+private struct Constants {
+    let coordinateSpaceName = "pullToRefresh"
+}
+
+private let constants = Constants()
+
 struct AccountInfoView: View {
 
     @ObservedObject private var viewModel: AccountInfoViewModel
@@ -15,8 +22,6 @@ struct AccountInfoView: View {
 
     init(viewModel: AccountInfoViewModel) {
         self.viewModel = viewModel
-        
-        UIScrollView.appearance().bounces = false
     }
 
     var addressView: some View {
@@ -76,6 +81,10 @@ struct AccountInfoView: View {
 
     var body: some View {
         ScrollView {
+            PullToRefresh(coordinateSpaceName: constants.coordinateSpaceName) {
+                viewModel.refresh()
+            }
+            
             VStack {
                 Text(L10n.AccountInfo.Wallet.title)
                     .applyTextStyle(.grayMain(ofSize: 12, weight: .regular))

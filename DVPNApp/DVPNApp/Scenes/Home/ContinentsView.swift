@@ -15,8 +15,6 @@ struct ContinentsView: View {
     init(viewModel: ContinentsViewModel) {
         self.viewModel = viewModel
         
-        UIScrollView.appearance().bounces = false
-        
         chunkedModels = viewModel.numberOfNodesInContinent
             .sorted { $0.key.index < $1.key.index }
             .chunked(into: 2)
