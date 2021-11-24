@@ -329,6 +329,12 @@ internal enum L10n {
       /// Buy now
       internal static let buy = L10n.tr("Localizable", "Purchases.Button.Buy")
     }
+    internal enum Terms {
+      /// terms of service.
+      internal static let button = L10n.tr("Localizable", "Purchases.Terms.Button")
+      /// By continuing you agree to
+      internal static let title = L10n.tr("Localizable", "Purchases.Terms.Title")
+    }
   }
 
   internal enum SecurityService {

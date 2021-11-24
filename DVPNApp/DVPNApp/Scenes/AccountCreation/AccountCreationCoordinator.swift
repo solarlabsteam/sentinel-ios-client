@@ -10,7 +10,7 @@ import SwiftUI
 import SentinelWallet
 
 private struct Constants {
-    let privacyURL = URL(string: "https://sentinel.co/privacy")
+    let privacyURL = URL(string: "https://dvpn.exidio.co/legal/privacy")
 }
 
 private let constants = Constants()

@@ -14,6 +14,7 @@ final class PurchasesViewModel: ObservableObject {
 
     enum Route {
         case error(Error)
+        case terms
     }
 
     private let model: PurchasesModel
@@ -42,6 +43,7 @@ final class PurchasesViewModel: ObservableObject {
     }
 
     func togglePurchase(vm: PurchaseOptionViewModel) {
+        UIImpactFeedbackGenerator.lightFeedback()
         selectedOption = vm
         guard let index = options.firstIndex(where: { $0.amount == vm.amount }), !options[index].isSelected else { return }
 
@@ -50,8 +52,14 @@ final class PurchasesViewModel: ObservableObject {
     }
 
     func didTapBuy() {
+        UIImpactFeedbackGenerator.lightFeedback()
         isLoading = true
 #warning("TODO purchase")
+    }
+    
+    func didTapTerms() {
+        UIImpactFeedbackGenerator.lightFeedback()
+        router.play(event: .terms)
     }
 }
 

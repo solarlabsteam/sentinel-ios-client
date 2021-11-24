@@ -10,7 +10,7 @@ import RevenueCat
 
 
 private struct Constants {
-    let purchasesAPIKey = "VuFNBdQJOUDGYPjJmFTeamGmRBqRAMcp"
+    let purchasesAPIKey = "ZuGZuOCAdDnKHMTwRWdEaNtjjZVmSoTg"
 }
 
 private let constants = Constants()

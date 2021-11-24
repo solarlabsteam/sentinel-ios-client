@@ -28,6 +28,19 @@ struct PurchasesView: View {
         .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(5)
     }
+    
+    var termsView: some View {
+        HStack(alignment: .top, spacing: 5) {
+            Text(L10n.Purchases.Terms.title)
+                .applyTextStyle(.lightGrayMain(ofSize: 10, weight: .light))
+            
+            Button(action: viewModel.didTapTerms) {
+                Text(L10n.Purchases.Terms.button)
+                    .applyTextStyle(.whiteMain(ofSize: 10, weight: .semibold))
+            }
+        }
+    }
+
 
     var body: some View {
         ScrollView {
@@ -45,6 +58,8 @@ struct PurchasesView: View {
                 }
             }
             .padding()
+            
+            termsView
 
             buyButton
                 .padding()

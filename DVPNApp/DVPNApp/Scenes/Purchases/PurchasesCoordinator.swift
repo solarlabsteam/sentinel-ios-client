@@ -9,6 +9,12 @@ import UIKit
 import SwiftUI
 import SentinelWallet
 
+private struct Constants {
+    let privacyURL = URL(string: "https://dvpn.exidio.co/legal/tos")
+}
+
+private let constants = Constants()
+
 final class PurchasesCoordinator: CoordinatorType {
     private weak var navigation: UINavigationController?
     private weak var rootController: UIViewController?
@@ -37,6 +43,10 @@ extension PurchasesCoordinator: RouterType {
         switch event {
         case .error(let error):
             show(message: error.localizedDescription)
+        case .terms:
+            if let url = constants.privacyURL, UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:])
+            }
         }
     }
 }

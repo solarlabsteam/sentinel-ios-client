@@ -132,4 +132,6 @@
 
 "Purchases.Title" = "Buy more points";
 "Purchases.Description" = "The payment of %@ will be charged to your iTunes account at confirmation of purchase. Points will be credited to your account within few minutes after purchase.";
+"Purchases.Terms.Title" = "By continuing you agree to";
+"Purchases.Terms.Button" = "terms of service.";
 "Purchases.Button.Buy" = "Buy now";
