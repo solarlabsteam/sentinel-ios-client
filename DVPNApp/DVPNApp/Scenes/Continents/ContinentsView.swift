@@ -9,15 +9,9 @@ import SwiftUI
 
 struct ContinentsView: View {
     @ObservedObject private var viewModel: ContinentsViewModel
-    
-    let chunkedModels: [[Dictionary<Continent, Int>.Element]]
 
     init(viewModel: ContinentsViewModel) {
         self.viewModel = viewModel
-        
-        chunkedModels = viewModel.numberOfNodesInContinent
-            .sorted { $0.key.index < $1.key.index }
-            .chunked(into: 2)
     }
     
     var body: some View {
@@ -26,7 +20,7 @@ struct ContinentsView: View {
                 Spacer()
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    ForEach(Array(zip(chunkedModels.indices, chunkedModels)), id: \.0) { index, models in
+                    ForEach(Array(zip(viewModel.chunkedModels.indices, viewModel.chunkedModels)), id: \.0) { index, models in
                         HStack(spacing: 6) {
                             ForEach(models, id: \.0) { model in
                                 ContinentsRowView(

@@ -39,7 +39,14 @@ final class ContinentsViewModel: ObservableObject {
     private let model: ContinentsModel
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var numberOfNodesInContinent: [Continent: Int] = [:]
+    @Published private var numberOfNodesInContinent: [Continent: Int] = [:] {
+        didSet {
+            chunkedModels = numberOfNodesInContinent
+                .sorted { $0.key.index < $1.key.index }
+                .chunked(into: 2)
+        }
+    }
+    @Published private(set) var chunkedModels: [[Dictionary<Continent, Int>.Element]] = []
 
     private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
@@ -47,7 +54,7 @@ final class ContinentsViewModel: ObservableObject {
     init(model: ContinentsModel, router: Router) {
         self.model = model
         self.router = router
-
+        
         handeEvents()
         startObservingStatuses()
         
@@ -114,15 +121,17 @@ extension ContinentsViewModel {
         model.eventPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
+                guard let self = self else { return }
+                
                 switch event {
                 case let .error(error):
-                    self?.router.play(event: .error(error))
+                    self.router.play(event: .error(error))
                 case let .update(nodes):
-                    self?.nodes.formUnion(nodes)
+                    self.nodes.formUnion(nodes)
                 case .connect:
-                    self?.router.play(event: .connect)
-                case let .setNumberOfNodesInContinent(numberOfNodesInContinent):
-                    self?.numberOfNodesInContinent = numberOfNodesInContinent
+                    self.router.play(event: .connect)
+                case .setNumberOfNodesInContinent:
+                    self.numberOfNodesInContinent = self.model.setNumberOfNodesInContinent()
                 }
             }
             .store(in: &cancellables)

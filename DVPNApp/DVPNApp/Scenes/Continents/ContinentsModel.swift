@@ -13,7 +13,7 @@ enum ContinentsModelEvent {
     case error(Error)
     case update(locations: [SentinelNode])
     case connect
-    case setNumberOfNodesInContinent([Continent: Int])
+    case setNumberOfNodesInContinent
 }
 
 final class ContinentsModel {
@@ -48,6 +48,13 @@ final class ContinentsModel {
                 self?.subscriptions = subscriptions
             })
             .store(in: &cancellables)
+        
+        context.nodesService.isAllLoaded
+            .sink(receiveValue: { [weak self] isAllLoaded in
+                if isAllLoaded {
+                    self?.eventSubject.send(.setNumberOfNodesInContinent)
+                }
+            }).store(in: &cancellables)
     }
     
     func setNumberOfNodesInContinent() -> [Continent: Int] {
