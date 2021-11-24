@@ -7,6 +7,7 @@
 
 import Foundation
 import SentinelWallet
+import RevenueCat
 
 protocol NoContext {}
 
@@ -48,6 +49,13 @@ final class CommonContext {
     func resetWalletContext() {
         guard let walletAddress = storage.walletAddress(), !walletAddress.isEmpty else {
            return
+        }
+        Purchases.shared.logIn(walletAddress) { (purchaserInfo, created, error) in
+            log.debug(purchaserInfo)
+            log.debug(created)
+            if let error = error {
+                log.error(error)
+            }
         }
         walletService = WalletService(for: walletAddress, securityService: securityService)
         sentinelService = SentinelService(walletService: walletService)

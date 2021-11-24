@@ -54,3 +54,9 @@ extension Int64 {
         return formatter.string(from: Double(self)) ?? ""
     }
 }
+
+extension Int {
+    static func parse(from string: String) -> Int? {
+        return Int(string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+    }
+}

@@ -14,7 +14,7 @@ struct PurchaseOptionViewModel: Hashable {
     let price: String
 
     var bandwidth: String {
-        "~ \(amount / 2) GB"
+        "~ \(Double(amount) / 2) GB"
     }
 
     var isSelected: Bool

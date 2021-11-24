@@ -83,7 +83,14 @@ extension PurchasesViewModel {
     private func update(packages: [Package]) {
         guard !packages.isEmpty else { return }
         
-        options = packages.map { PurchaseOptionViewModel(package: $0, amount: Int($0.description) ?? 1, price: $0.productDetails.localizedPriceString, isSelected: false) }
+        options = packages.map {
+            PurchaseOptionViewModel(
+                package: $0,
+                amount: Int.parse(from: $0.identifier) ?? 1,
+                price: $0.localizedPriceString,
+                isSelected: false
+            )
+        }
 
         options[0].isSelected = true
         selectedOption = options.first

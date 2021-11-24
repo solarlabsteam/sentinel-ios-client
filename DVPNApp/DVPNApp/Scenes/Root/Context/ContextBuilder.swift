@@ -7,6 +7,7 @@
 
 import Foundation
 import SentinelWallet
+import RevenueCat
 
 /// This class should configure all required services and inject them into a Context
 final class ContextBuilder {
@@ -52,6 +53,15 @@ final class ContextBuilder {
                 return walletService
             }
         }
+        
+        Purchases.shared.logIn(walletAddress) { (purchaserInfo, created, error) in
+            log.debug(purchaserInfo)
+            log.debug(created)
+            if let error = error {
+                log.error(error)
+            }
+        }
+        
         return WalletService(for: walletAddress, securityService: securityService)
     }
 
