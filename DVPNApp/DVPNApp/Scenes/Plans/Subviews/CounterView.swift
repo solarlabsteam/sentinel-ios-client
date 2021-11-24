@@ -92,6 +92,6 @@ struct CounterView: View {
 
 struct CounterView_Previews: PreviewProvider {
     static var previews: some View {
-        CounterView(text: .constant("50 DVPN"), togglePlus: {}, toggleMinus: {})
+        CounterView(text: .constant("50 points"), togglePlus: {}, toggleMinus: {})
     }
 }

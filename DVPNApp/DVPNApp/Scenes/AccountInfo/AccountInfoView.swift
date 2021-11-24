@@ -70,9 +70,6 @@ struct AccountInfoView: View {
                         .aspectRatio(contentMode: .fit)
                 )
                 .frame(width: 150, height: 150)
-            
-            Text(L10n.AccountInfo.qr)
-                .applyTextStyle(.grayMain(ofSize: 12, weight: .regular))
         }
     }
 
@@ -91,7 +88,7 @@ struct AccountInfoView: View {
                     Text(viewModel.balance ?? "-")
                         .applyTextStyle(.whiteMain(ofSize: 22, weight: .bold))
                     
-                    Text(" " + L10n.Common.Dvpn.title)
+                    Text(" " + L10n.Common.Points.title)
                         .font(.system(size: 20, weight: .medium))
                         .foregroundColor(.white)
                         .applyTextStyle(.whiteMain(ofSize: 22, weight: .regular))

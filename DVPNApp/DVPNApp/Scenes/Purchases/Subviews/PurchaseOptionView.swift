@@ -26,7 +26,7 @@ struct PurchaseOptionView: View {
                     HStack(alignment: .bottom, spacing: 5) {
                         Text("\(model.amount)")
                             .applyTextStyle(.whiteMain(ofSize: 20, weight: .bold))
-                        Text(GlobalConstants.mainDenom)
+                        Text(L10n.Common.Points.title)
                             .applyTextStyle(.whiteMain(ofSize: 10))
                             .padding(.bottom, 2)
                         Text(model.bandwidth)

@@ -1,4 +1,4 @@
-"Common.DVPN.Title" = "DVPN";
+"Common.Points.Title" = "points";
 "Common.Cancel" = "Cancel";
 "Common.Yes" = "Yes";
 "Common.Crypto" = "Crypto";
@@ -53,7 +53,7 @@
 "Connection.LocationSelector.Fetching" = "Fetching the node info";
 "Connection.Error.SignatureGenerationFailed" = "Misconfigured wallet. Please, try again or re-import your mnemonic";
 "Connection.Error.InvalidURL" = "Misconfigured nodes. Please, try again or select another node";
-"Connection.Error.NotEnoughTokens" = "Not enough tokens to broadcast - you'll need at least 0.01 DVPN on your account. Please, check your balance and try again later";
+"Connection.Error.NotEnoughTokens" = "Not enough points to broadcast - you'll need at least 0.01 points on your account. Please, check your balance and try again later";
 "Connection.Resubscribe.Title" = "All data used";
 "Connection.Resubscribe.Subtitle" = "Data update is pending, but it seems you used all data. Do you want to resubscribe?";
 
@@ -94,18 +94,17 @@
 "NodeDetails.InfoType.Features" = "Features";
 
 "AccountInfo.Wallet.Title" = "Account Balance";
-"AccountInfo.QR" = "Scan QR code to receive";
 "AccountInfo.Copy" = "Copy";
 "AccountInfo.TextCopied" = "Copied";
 "AccountInfo.Share" = "Share";
 "AccountInfo.TopUp" = "TOP-UP";
 "AccountInfo.CurrentPrice" = "Current price";
 
-"Plans.Title" = "How much DVPN do you want to spend?";
+"Plans.Title" = "How much points do you want to spend?";
 "Plans.Subscribe" = "SUBSCRIBE";
 "Plans.Subscribe.Title" = "Subscribe to %@?";
 "Plans.Error.Payment.Failed" = "Your transaction was unsuccessful. Please try again.";
-"Plans.AddTokens.Title" = "Not enough tokens to subcribe";
+"Plans.AddTokens.Title" = "Not enough points to subcribe";
 "Plans.AddTokens.Subtitle" = "Top-up your wallet?";
 
 "Error.GRPCError.RPCTimedOut" = "Request timed-out. No internet connection.";
@@ -121,7 +120,7 @@
 "WalletService.Error.AccountMatchesDestination" = "Self-sending is not supported";
 "WalletService.Error.MissingMnemonics" = "Misconfigured wallet: missing mnemonic. Please, try again or re-import your mnemonic";
 "WalletService.Error.MissingAuthorization" = "Misconfigured wallet: failed to fetch authorization. Please, try again or re-import your mnemonic";
-"WalletService.Error.NotEnoughTokens" = "Not enough tokens to broadcast. Please, check your balance and try again later";
+"WalletService.Error.NotEnoughTokens" = "Not enough points to broadcast. Please, check your balance and try again later";
 "WalletService.Error.MnemonicsDoNotMatch" = "Misconfigured wallet: mnemonic mismatch. Please, try again or re-import your mnemonic";
 "WalletService.Error.SavingError" = "Couldn't save wallet. Please, try again.";
 
@@ -131,6 +130,6 @@
 "DNS.Google" = "Google";
 "DNS.Freenom" = "Freenom";
 
-"Purchases.Title" = "Buy more DVPN";
-"Purchases.Description" = "The payment of %@ will be charged to your iTunes account at confirmation of purchase. DVPN points will be credited to your account within few minutes after purchase.";
+"Purchases.Title" = "Buy more points";
+"Purchases.Description" = "The payment of %@ will be charged to your iTunes account at confirmation of purchase. Points will be credited to your account within few minutes after purchase.";
 "Purchases.Button.Buy" = "Buy now";

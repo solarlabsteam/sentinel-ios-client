@@ -59,8 +59,6 @@ internal enum L10n {
     internal static let copy = L10n.tr("Localizable", "AccountInfo.Copy")
     /// Current price
     internal static let currentPrice = L10n.tr("Localizable", "AccountInfo.CurrentPrice")
-    /// Scan QR code to receive
-    internal static let qr = L10n.tr("Localizable", "AccountInfo.QR")
     /// Share
     internal static let share = L10n.tr("Localizable", "AccountInfo.Share")
     /// Copied
@@ -89,9 +87,9 @@ internal enum L10n {
     internal static let gb = L10n.tr("Localizable", "Common.GB")
     /// Yes
     internal static let yes = L10n.tr("Localizable", "Common.Yes")
-    internal enum Dvpn {
-      /// DVPN
-      internal static let title = L10n.tr("Localizable", "Common.DVPN.Title")
+    internal enum Points {
+      /// points
+      internal static let title = L10n.tr("Localizable", "Common.Points.Title")
     }
   }
 
@@ -107,7 +105,7 @@ internal enum L10n {
     internal enum Error {
       /// Misconfigured nodes. Please, try again or select another node
       internal static let invalidURL = L10n.tr("Localizable", "Connection.Error.InvalidURL")
-      /// Not enough tokens to broadcast - you'll need at least 0.01 DVPN on your account. Please, check your balance and try again later
+      /// Not enough points to broadcast - you'll need at least 0.01 points on your account. Please, check your balance and try again later
       internal static let notEnoughTokens = L10n.tr("Localizable", "Connection.Error.NotEnoughTokens")
       /// Misconfigured wallet. Please, try again or re-import your mnemonic
       internal static let signatureGenerationFailed = L10n.tr("Localizable", "Connection.Error.SignatureGenerationFailed")
@@ -298,12 +296,12 @@ internal enum L10n {
   internal enum Plans {
     /// SUBSCRIBE
     internal static let subscribe = L10n.tr("Localizable", "Plans.Subscribe")
-    /// How much DVPN do you want to spend?
+    /// How much points do you want to spend?
     internal static let title = L10n.tr("Localizable", "Plans.Title")
     internal enum AddTokens {
       /// Top-up your wallet?
       internal static let subtitle = L10n.tr("Localizable", "Plans.AddTokens.Subtitle")
-      /// Not enough tokens to subcribe
+      /// Not enough points to subcribe
       internal static let title = L10n.tr("Localizable", "Plans.AddTokens.Title")
     }
     internal enum Error {
@@ -321,11 +319,11 @@ internal enum L10n {
   }
 
   internal enum Purchases {
-    /// The payment of %@ will be charged to your iTunes account at confirmation of purchase. DVPN points will be credited to your account within few minutes after purchase.
+    /// The payment of %@ will be charged to your iTunes account at confirmation of purchase. Points will be credited to your account within few minutes after purchase.
     internal static func description(_ p1: Any) -> String {
       return L10n.tr("Localizable", "Purchases.Description", String(describing: p1))
     }
-    /// Buy more DVPN
+    /// Buy more points
     internal static let title = L10n.tr("Localizable", "Purchases.Title")
     internal enum Button {
       /// Buy now
@@ -381,7 +379,7 @@ internal enum L10n {
       internal static let missingMnemonics = L10n.tr("Localizable", "WalletService.Error.MissingMnemonics")
       /// Misconfigured wallet: mnemonic mismatch. Please, try again or re-import your mnemonic
       internal static let mnemonicsDoNotMatch = L10n.tr("Localizable", "WalletService.Error.MnemonicsDoNotMatch")
-      /// Not enough tokens to broadcast. Please, check your balance and try again later
+      /// Not enough points to broadcast. Please, check your balance and try again later
       internal static let notEnoughTokens = L10n.tr("Localizable", "WalletService.Error.NotEnoughTokens")
       /// Couldn't save wallet. Please, try again.
       internal static let savingError = L10n.tr("Localizable", "WalletService.Error.SavingError")
