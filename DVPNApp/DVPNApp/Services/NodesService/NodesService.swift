@@ -71,7 +71,7 @@ extension NodesService: NodesServiceType {
     func loadAllNodes(
         completion: ((Result<[SentinelNode], Error>) -> Void)?
     ) {
-        sentinelService.queryNodes { [weak self] result in
+        sentinelService.queryNodes(limit: 10000) { [weak self] result in
             switch result {
             case .failure(let error):
                 log.error(error)
