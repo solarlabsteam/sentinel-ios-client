@@ -146,6 +146,7 @@
 		932EEBD7271D4D980098A2D7 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
 		932EEBD9271D4DAA0098A2D7 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
+		9374A6A8274E6EBA0010E4A6 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */; };
 		9378543F270ECA400004483C /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93785441270ECC810004483C /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
 		93843B472724993000CE6D34 /* SentinelNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843B462724993000CE6D34 /* SentinelNode+Ext.swift */; };
@@ -363,6 +364,7 @@
 		932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
 		932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		9378543E270ECA400004483C /* FramedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramedButton.swift; sourceTree = "<group>"; };
 		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		93843B462724993000CE6D34 /* SentinelNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SentinelNode+Ext.swift"; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 				75D6560F26BE8817000056B4 /* ActivityIndicator.swift */,
 				93C3EC3A270AF19400B9CA4D /* GridView.swift */,
 				7517DF1727218BFA007E56CA /* PageIndicator.swift */,
+				9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1523,6 +1526,7 @@
 				932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */,
 				9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */,
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,
+				9374A6A8274E6EBA0010E4A6 /* PullToRefresh.swift in Sources */,
 				759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */,
 				C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */,
 				755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */,

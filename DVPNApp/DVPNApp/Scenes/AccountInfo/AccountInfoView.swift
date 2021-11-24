@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+private struct Constants {
+    let coordinateSpaceName = "pullToRefresh"
+}
+
+private let constants = Constants()
+
 struct AccountInfoView: View {
 
     @ObservedObject private var viewModel: AccountInfoViewModel
@@ -120,6 +126,10 @@ struct AccountInfoView: View {
 
     var body: some View {
         ScrollView {
+            PullToRefresh(coordinateSpaceName: constants.coordinateSpaceName) {
+                 viewModel.refresh()
+             }
+            
             VStack {
                 accountImage
                 
