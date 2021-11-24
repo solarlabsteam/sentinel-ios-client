@@ -52,7 +52,6 @@ extension ModulesFactory {
     func makeOnboardingModule(for window: UIWindow) {
         let navigation = UINavigationController()
         window.rootViewController = navigation
-        navigation.navigationBar.isHidden = true
 
         OnboardingCoordinator(context: context, navigation: navigation, window: window).start()
     }

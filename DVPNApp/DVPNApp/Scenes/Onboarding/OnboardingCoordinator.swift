@@ -30,7 +30,7 @@ final class OnboardingCoordinator: CoordinatorType {
         rootController = controller
         navigation?.viewControllers = [controller]
 
-        controller.makeNavigationBar(hidden: true, animated: false)
+        controller.makeNavigationBar(hidden: false, animated: false)
     }
 }
 
