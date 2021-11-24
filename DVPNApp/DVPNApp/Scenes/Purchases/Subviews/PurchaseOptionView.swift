@@ -48,15 +48,15 @@ struct PurchaseOptionView: View {
     }
 }
 
-struct PurchaseOptionView_Previews: PreviewProvider {
-    static var previews: some View {
-        PurchaseOptionView(
-            model: .init(
-                amount: 50,
-                price: "$19.99",
-                isSelected: true
-            ),
-            action: {}
-        )
-    }
-}
+//struct PurchaseOptionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PurchaseOptionView(
+//            model: .init(
+//                package: <#Package#>, amount: 50,
+//                price: "$19.99",
+//                isSelected: true
+//            ),
+//            action: {}
+//        )
+//    }
+//}

@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import RevenueCat
 
 final class PurchasesViewModel: ObservableObject {
     typealias Router = AnyRouter<Route>
@@ -14,6 +15,8 @@ final class PurchasesViewModel: ObservableObject {
 
     enum Route {
         case error(Error)
+        case info(Error)
+        case purchaseCompleted
         case terms
     }
 
@@ -33,12 +36,20 @@ final class PurchasesViewModel: ObservableObject {
             .sink { [weak self] event in
                 switch event {
                 case let .error(error):
+                    self?.isLoading = false
                     self?.router.play(event: .error(error))
+                case let .info(error):
+                    self?.isLoading = false
+                    self?.router.play(event: .info(error))
+                case .purchaseCompleted:
+                    self?.isLoading = false
+                    self?.router.play(event: .purchaseCompleted)
+                case let .packages(packages):
+                    self?.update(packages: packages)
                 }
             }
             .store(in: &cancellables)
 
-        updatePayment()
         self.model.refresh()
     }
 
@@ -54,7 +65,12 @@ final class PurchasesViewModel: ObservableObject {
     func didTapBuy() {
         UIImpactFeedbackGenerator.lightFeedback()
         isLoading = true
-#warning("TODO purchase")
+        
+        guard let package = selectedOption?.package else {
+            return
+        }
+        
+        model.purchase(package: package)
     }
     
     func didTapTerms() {
@@ -64,13 +80,12 @@ final class PurchasesViewModel: ObservableObject {
 }
 
 extension PurchasesViewModel {
-    private func updatePayment() {
-        let optionsUnits = [1, 5, 10, 50, 100, 500]
+    private func update(packages: [Package]) {
+        guard !packages.isEmpty else { return }
+        
+        options = packages.map { PurchaseOptionViewModel(package: $0, amount: Int($0.description) ?? 1, price: $0.productDetails.localizedPriceString, isSelected: false) }
 
-        options = optionsUnits.map {
-            PurchaseOptionViewModel(amount: $0, price: "$\(Double($0) - 0.01)", isSelected: $0 == 1)
-        }
-
+        options[0].isSelected = true
         selectedOption = options.first
     }
 }

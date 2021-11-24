@@ -135,3 +135,5 @@
 "Purchases.Terms.Title" = "By continuing you agree to";
 "Purchases.Terms.Button" = "terms of service.";
 "Purchases.Button.Buy" = "Buy now";
+"Purchases.Warning.Cancelled" = "Purchase was canceled.";
+"Purchases.Info.Completed" = "Purchase is succefully made.";

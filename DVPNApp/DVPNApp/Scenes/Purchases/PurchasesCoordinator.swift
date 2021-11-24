@@ -43,6 +43,11 @@ extension PurchasesCoordinator: RouterType {
         switch event {
         case .error(let error):
             show(message: error.localizedDescription)
+        case .info(let error):
+            show(message: error.localizedDescription, theme: .info)
+        case .purchaseCompleted:
+            show(message: L10n.Purchases.Info.completed, theme: .success)
+            navigation?.popViewController(animated: true)
         case .terms:
             if let url = constants.privacyURL, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:])

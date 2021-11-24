@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import RevenueCat
 
 struct PurchaseOptionViewModel: Hashable {
-    var amount: Int
-    var price: String
+    let package: Package
+    let amount: Int
+    let price: String
 
     var bandwidth: String {
         "~ \(amount / 2) GB"

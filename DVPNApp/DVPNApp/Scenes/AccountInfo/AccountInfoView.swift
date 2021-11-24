@@ -119,6 +119,7 @@ struct AccountInfoView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             viewModel.refresh()
         }
+        .onAppear { viewModel.refresh() }
         .background(Asset.Colors.accentColor.color.asColor)
     }
 }
