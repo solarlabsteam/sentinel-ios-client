@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>App GroupID</key>
-	<string>group.co.sentinel.dvpn</string>
+	<string>group.co.exidio.sentinel.dvpn</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Sentinel</string>
+	<string>Exidio dVPN</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

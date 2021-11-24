@@ -8,7 +8,7 @@ import Security
 
 final class Keychain {
     static var appGroupId: String? {
-        return "group.co.sentinel.dvpn"
+        return "group.co.exidio.sentinel.dvpn"
     }
 
     static func openReference(with data: Data) -> String? {

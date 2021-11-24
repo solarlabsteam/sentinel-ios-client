@@ -127,7 +127,7 @@
 		932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFC272176620064AEE4 /* PreloadService.swift */; };
 		932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */; };
 		932D0B04272197D10064AEE4 /* EmptyScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */; };
-		932D0B082721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */; };
+		932D0B082721B2570064AEE4 /* co.exidio.sentinellite.regional.countries_extras.json in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B072721B2570064AEE4 /* co.exidio.sentinellite.regional.countries_extras.json */; };
 		932EEBD5271D4D800098A2D7 /* AvailableNodesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */; };
 		932EEBD7271D4D980098A2D7 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */; };
 		932EEBD9271D4DAA0098A2D7 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */; };
@@ -336,7 +336,7 @@
 		932D0AFC272176620064AEE4 /* PreloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadService.swift; sourceTree = "<group>"; };
 		932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadServiceType.swift; sourceTree = "<group>"; };
 		932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyScreen.storyboard; sourceTree = "<group>"; };
-		932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = co.sentinel.sentinellite.regional.countries_extras.json; sourceTree = "<group>"; };
+		932D0B072721B2570064AEE4 /* co.exidio.sentinellite.regional.countries_extras.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = co.exidio.sentinellite.regional.countries_extras.json; sourceTree = "<group>"; };
 		932EEBD4271D4D800098A2D7 /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
 		932EEBD6271D4D980098A2D7 /* AvailableNodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
 		932EEBD8271D4DAA0098A2D7 /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
@@ -551,7 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				7504E9D3267A184000023D42 /* Assets.xcassets */,
-				932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */,
+				932D0B072721B2570064AEE4 /* co.exidio.sentinellite.regional.countries_extras.json */,
 				93DBF57327193035006EBC65 /* Localization */,
 			);
 			path = Resources;
@@ -1297,7 +1297,7 @@
 				93DBF574271939EF006EBC65 /* Localizable.stringsdict in Resources */,
 				932D0B04272197D10064AEE4 /* EmptyScreen.storyboard in Resources */,
 				7504E9D7267A184000023D42 /* LaunchScreen.storyboard in Resources */,
-				932D0B082721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */,
+				932D0B082721B2570064AEE4 /* co.exidio.sentinellite.regional.countries_extras.json in Resources */,
 				75D6564126C526CC000056B4 /* Localizable.strings in Resources */,
 				7504E9D4267A184000023D42 /* Assets.xcassets in Resources */,
 			);
@@ -1711,7 +1711,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DVPNApp/DVPNApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DVPNApp/Info.plist;
@@ -1721,7 +1721,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn;
+				PRODUCT_BUNDLE_IDENTIFIER = co.exidio.sentinel.dvpn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1736,7 +1736,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DVPNApp/DVPNApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DVPNApp/Info.plist;
@@ -1746,7 +1746,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn;
+				PRODUCT_BUNDLE_IDENTIFIER = co.exidio.sentinel.dvpn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1758,7 +1758,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DVPNAppNetworkExtension/DVPNAppNetworkExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DVPNAppNetworkExtension/Info.plist;
@@ -1769,7 +1769,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.network-extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.exidio.sentinel.dvpn.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1782,7 +1782,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DVPNAppNetworkExtension/DVPNAppNetworkExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DVPNAppNetworkExtension/Info.plist;
@@ -1793,7 +1793,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.network-extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.exidio.sentinel.dvpn.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1812,6 +1812,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PATH = "${PATH}:/usr/local/bin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1824,6 +1825,7 @@
 				DEVELOPMENT_TEAM = FVU6756987;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PATH = "${PATH}:/usr/local/bin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
