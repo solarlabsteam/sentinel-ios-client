@@ -83,6 +83,7 @@ struct PurchasesView: View {
             Spacer()
         }
         .background(Asset.Colors.accentColor.color.asColor)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

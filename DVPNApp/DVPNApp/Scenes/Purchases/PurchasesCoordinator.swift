@@ -32,8 +32,8 @@ final class PurchasesCoordinator: CoordinatorType {
         let view = PurchasesView(viewModel: viewModel)
         let controller = UIHostingController(rootView: view)
         rootController = controller
-        navigation?.pushViewController(controller, animated: true)
         controller.hidesBottomBarWhenPushed = true
+        navigation?.pushViewController(controller, animated: true)
         controller.title = L10n.Purchases.title
     }
 }
