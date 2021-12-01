@@ -20,11 +20,22 @@ struct PurchasesView: View {
 
     var buyButton: some View {
         Button(action: viewModel.didTapBuy) {
-            Text(L10n.Purchases.Button.buy.capitalized)
-                .applyTextStyle(.whiteMain(ofSize: 20, weight: .bold))
-                .padding(.vertical, 25)
+            ZStack(alignment: .leading) {
+                if viewModel.isLoading {
+                    ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+                        .frame(width: 15, height: 15)
+                        .padding()
+                }
+                HStack {
+                    Text(L10n.Purchases.Button.buy.capitalized)
+                        .applyTextStyle(.whiteMain(ofSize: 20, weight: .bold))
+                        .padding(.vertical, 25)
+                        .frame(maxWidth: .infinity)
+                }
                 .frame(maxWidth: .infinity)
+            }
         }
+        .disabled(viewModel.isLoading)
         .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(5)
     }

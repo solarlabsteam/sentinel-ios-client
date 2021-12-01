@@ -30,7 +30,7 @@ enum PurchasesModelError: LocalizedError {
 }
 
 final class PurchasesModel {
-    typealias Context = NoContext
+    typealias Context = HasWalletService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<PurchasesModelEvent, Never>()
@@ -61,20 +61,36 @@ final class PurchasesModel {
     }
     
     func purchase(package: Package) {
+        Purchases.shared.logIn(context.walletService.accountAddress) { [weak self] (purchaserInfo, created, error) in
+            log.debug(purchaserInfo)
+            log.debug(created)
+
+            if let error = error {
+                log.error(error)
+                self?.eventSubject.send(.error(error))
+                return
+            }
+
+            self?.make(purchase: package)
+        }
+    }
+}
+
+extension PurchasesModel {
+    private func make(purchase package: Package) {
         Purchases.shared.purchase(package: package) { [weak self] (transaction, purchaserInfo, error, userCancelled) in
             guard !userCancelled else {
                 self?.eventSubject.send(.info(PurchasesModelError.purchaseCancelled))
                 return
             }
-            
+
             guard let error = error else {
                 self?.eventSubject.send(.purchaseCompleted)
                 return
             }
-            
+
             log.error(error)
             self?.eventSubject.send(.error(error))
         }
     }
 }
-
