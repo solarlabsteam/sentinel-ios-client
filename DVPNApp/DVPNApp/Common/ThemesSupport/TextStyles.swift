@@ -16,7 +16,7 @@ extension TextStyle {
         kern: 0
     )
     static let textBody = TextStyle(
-        font: .systemFont(ofSize: 16, weight: .regular),
+        font: .systemFont(ofSize: 10, weight: .regular),
         color: .white,
         kern: 0
     )
