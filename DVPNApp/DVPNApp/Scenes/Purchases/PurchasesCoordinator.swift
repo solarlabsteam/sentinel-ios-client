@@ -52,6 +52,14 @@ extension PurchasesCoordinator: RouterType {
             if let url = constants.privacyURL, UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:])
             }
+        case let .back(isEnabled):
+            setBackNavigation(isEnabled: isEnabled)
         }
+    }
+
+    private func setBackNavigation(isEnabled: Bool) {
+        navigation?.interactivePopGestureRecognizer?.isEnabled = isEnabled
+        navigation?.navigationBar.isUserInteractionEnabled = isEnabled
+        navigation?.navigationBar.tintColor = isEnabled ? .white : .gray
     }
 }

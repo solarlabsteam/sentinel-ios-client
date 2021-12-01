@@ -18,6 +18,7 @@ final class PurchasesViewModel: ObservableObject {
         case info(Error)
         case purchaseCompleted
         case terms
+        case back(isEnabled: Bool)
     }
 
     private let model: PurchasesModel
@@ -36,14 +37,16 @@ final class PurchasesViewModel: ObservableObject {
             .sink { [weak self] event in
                 switch event {
                 case let .error(error):
-                    self?.isLoading = false
+                    self?.updateState(isLoading: false)
                     self?.router.play(event: .error(error))
                 case let .info(error):
-                    self?.isLoading = false
+                    self?.updateState(isLoading: false)
                     self?.router.play(event: .info(error))
                 case .purchaseCompleted:
-                    self?.isLoading = false
-                    self?.router.play(event: .purchaseCompleted)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                        self?.updateState(isLoading: false)
+                        self?.router.play(event: .purchaseCompleted)
+                    }
                 case let .packages(packages):
                     self?.update(packages: packages)
                 }
@@ -64,7 +67,7 @@ final class PurchasesViewModel: ObservableObject {
 
     func didTapBuy() {
         UIImpactFeedbackGenerator.lightFeedback()
-        isLoading = true
+        updateState(isLoading: true)
         
         guard let package = selectedOption?.package else {
             return
@@ -94,5 +97,10 @@ extension PurchasesViewModel {
 
         options[0].isSelected = true
         selectedOption = options.first
+    }
+
+    private func updateState(isLoading: Bool) {
+        self.isLoading = isLoading
+        router.play(event: .back(isEnabled: !isLoading))
     }
 }
