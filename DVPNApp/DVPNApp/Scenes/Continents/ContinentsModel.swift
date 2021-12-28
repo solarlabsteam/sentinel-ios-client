@@ -56,15 +56,11 @@ final class ContinentsModel {
                 }
             }).store(in: &cancellables)
     }
-    
-    func setNumberOfNodesInContinent() -> [Continent: Int] {
-        var numberOfNodesInContinent: [Continent: Int] = [:]
-        
-        Continent.allCases.forEach {
-            numberOfNodesInContinent[$0] = context.nodesService.nodesCount(for: $0)
-        }
-        
-        return numberOfNodesInContinent
+}
+
+extension ContinentsModel {
+    var numberOfNodesInContinent: [Continent: Int] {
+        context.nodesService.nodesInContinentsCount
     }
 
     func setNodes() {
