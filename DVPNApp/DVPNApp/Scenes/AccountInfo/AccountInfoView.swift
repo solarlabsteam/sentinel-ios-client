@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 private struct Constants {
     let coordinateSpaceName = "pullToRefresh"
 }
