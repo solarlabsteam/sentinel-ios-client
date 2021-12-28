@@ -58,7 +58,7 @@ final class ContinentsViewModel: ObservableObject {
         handeEvents()
         startObservingStatuses()
         
-        numberOfNodesInContinent = model.setNumberOfNodesInContinent()
+        numberOfNodesInContinent = model.numberOfNodesInContinent
         
         model.setNodes()
     }
@@ -131,7 +131,7 @@ extension ContinentsViewModel {
                 case .connect:
                     self.router.play(event: .connect)
                 case .setNumberOfNodesInContinent:
-                    self.numberOfNodesInContinent = self.model.setNumberOfNodesInContinent()
+                    self.numberOfNodesInContinent = self.numberOfNodesInContinent
                 }
             }
             .store(in: &cancellables)

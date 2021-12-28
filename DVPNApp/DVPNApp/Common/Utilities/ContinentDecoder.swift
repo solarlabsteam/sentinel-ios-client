@@ -37,6 +37,18 @@ final class ContinentDecoder {
         
         return countryCode == continent.rawValue
     }
+    
+    func getContinent(for node: Node) -> Continent? {
+        let continentCode = countryCodeToContinent[
+            CountryFormatter.code(for: node.info.location.country) ?? ""
+        ]
+        
+        guard let continentCode = continentCode else {
+            return nil
+        }
+        
+        return Continent(rawValue: continentCode)
+    }
 }
 
 // MARK: - CountryExtra

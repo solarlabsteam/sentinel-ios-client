@@ -123,12 +123,24 @@ extension NodesService: NodesServiceType {
         }
     }
     
-    func nodesCount(for continent: Continent) -> Int {
+    var nodesInContinentsCount: [Continent: Int] {
+        var nodesInContinents: [Continent: Int] = [:]
+        
+        Continent.allCases.forEach {
+            nodesInContinents[$0] = 0
+        }
+        
         nodesStorage.sentinelNodes
-            .map { $0.node }
-            .compactMap { $0 }
-            .filter { ContinentDecoder().isInContinent(node: $0, continent: continent) }
-            .count
+            .forEach { node in
+                guard let node = node.node else { return }
+                
+                if let continent = ContinentDecoder().getContinent(for: node),
+                   let count = nodesInContinents[continent] {
+                    nodesInContinents[continent] = count + 1
+                }
+            }
+        
+        return nodesInContinents
     }
     
     var nodes: [SentinelNode] {

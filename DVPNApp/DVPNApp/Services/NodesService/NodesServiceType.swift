@@ -20,7 +20,7 @@ protocol NodesServiceType {
     func loadAllNodes(completion: ((Result<[SentinelNode], Error>) -> Void)?)
     func loadNodesInfo(for continent: Continent)
     func loadNodesInfo(for nodes: [SentinelNode])
-    func nodesCount(for continent: Continent) -> Int
+    var nodesInContinentsCount: [Continent: Int] { get }
     func loadSubscriptions(completion: @escaping ((Result<[Subscription], Error>) -> Void))
     
     var subscriptions: Published<[Subscription]>.Publisher { get }
