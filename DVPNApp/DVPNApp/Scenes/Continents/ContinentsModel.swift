@@ -8,17 +8,18 @@
 import Foundation
 import Combine
 import SentinelWallet
+import NetworkExtension
 
 enum ContinentsModelEvent {
     case error(Error)
     case update(locations: [SentinelNode])
     case connect
     case setNumberOfNodesInContinent
+    case setTunnelStatus(ConnectionStatus)
 }
 
 final class ContinentsModel {
-    typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
-        & HasDNSServersStorage & HasTunnelManager & HasNodesService
+    typealias Context =  HasWalletService & HasConnectionInfoStorage & HasTunnelManager & HasNodesService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<ContinentsModelEvent, Never>()
@@ -28,6 +29,7 @@ final class ContinentsModel {
 
     private(set) var subscriptions: [SentinelWallet.Subscription] = []
     private var reloadOnNextAppear = false
+    private var statusObservationToken: NotificationToken?
     
     private var cancellables = Set<AnyCancellable>()
 
@@ -55,6 +57,9 @@ final class ContinentsModel {
                     self?.eventSubject.send(.setNumberOfNodesInContinent)
                 }
             }).store(in: &cancellables)
+        
+        
+        startObservingStatuses()
     }
 }
 
@@ -77,6 +82,10 @@ extension ContinentsModel {
         subscriptions.contains(where: { $0.node == node })
     }
 
+    func refreshStatus() {
+        eventSubject.send(.setTunnelStatus(.init(from: context.tunnelManager.isTunnelActive)))
+    }
+    
     func connectIfNeeded() {
         if context.connectionInfoStorage.shouldConnect() {
             eventSubject.send(.connect)
@@ -122,6 +131,18 @@ extension ContinentsModel {
                 self?.subscriptions = subscriptions
             case let .failure(error):
                 self?.show(error: error)
+            }
+        }
+    }
+    
+    private func startObservingStatuses() {
+        statusObservationToken = NotificationCenter.default.observe(
+            name: .NEVPNStatusDidChange,
+            object: nil,
+            queue: OperationQueue.main
+        ) { [weak self] statusChangeNotification in
+            if let session = statusChangeNotification.object as? NETunnelProviderSession {
+                self?.eventSubject.send(.setTunnelStatus(.init(from: session.status == .connected)))
             }
         }
     }
