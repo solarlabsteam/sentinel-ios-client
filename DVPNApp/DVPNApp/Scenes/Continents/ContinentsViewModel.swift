@@ -10,7 +10,6 @@ import FlagKit
 import SentinelWallet
 import Combine
 import UIKit.UIImage
-import NetworkExtension
 
 enum NodeError: LocalizedError {
     case unavailableNode
@@ -47,8 +46,6 @@ final class ContinentsViewModel: ObservableObject {
         }
     }
     @Published private(set) var chunkedModels: [[Dictionary<Continent, Int>.Element]] = []
-
-    private var statusObservationToken: NotificationToken?
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
 
     init(model: ContinentsModel, router: Router) {
@@ -56,15 +53,16 @@ final class ContinentsViewModel: ObservableObject {
         self.router = router
         
         handeEvents()
-        startObservingStatuses()
         
         numberOfNodesInContinent = model.numberOfNodesInContinent
         
         model.setNodes()
+        model.refreshStatus()
     }
     
     func viewWillAppear() {
         model.connectIfNeeded()
+        model.refreshStatus()
     }
 }
 
@@ -132,21 +130,11 @@ extension ContinentsViewModel {
                     self.router.play(event: .connect)
                 case .setNumberOfNodesInContinent:
                     self.numberOfNodesInContinent = self.numberOfNodesInContinent
+                case let .setTunnelStatus(status):
+                    self.connectionStatus = status
                 }
             }
             .store(in: &cancellables)
-    }
-
-    private func startObservingStatuses() {
-        statusObservationToken = NotificationCenter.default.observe(
-            name: .NEVPNStatusDidChange,
-            object: nil,
-            queue: OperationQueue.main
-        ) { [weak self] statusChangeNotification in
-            if let session = statusChangeNotification.object as? NETunnelProviderSession {
-                self?.connectionStatus = .init(from: session.status == .connected)
-            }
-        }
     }
 
     private func connectToRandomNode() {
