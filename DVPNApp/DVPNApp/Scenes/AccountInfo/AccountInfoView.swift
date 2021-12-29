@@ -115,6 +115,7 @@ struct AccountInfoView: View {
             
             Spacer()
         }
+        .coordinateSpace(name: constants.coordinateSpaceName)
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             viewModel.refresh()
         }
