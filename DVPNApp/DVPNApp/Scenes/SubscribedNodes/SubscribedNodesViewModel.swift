@@ -55,6 +55,12 @@ final class SubscribedNodesViewModel: ObservableObject {
     }
 }
 
+extension SubscribedNodesViewModel {
+    func refresh() {
+        model.loadSubscriptions()
+    }
+}
+
 // MARK: - Buttons actions
 
 extension SubscribedNodesViewModel {
@@ -62,7 +68,7 @@ extension SubscribedNodesViewModel {
         UIImpactFeedbackGenerator.lightFeedback()
         
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
-              let node = sentinelNode.node else {
+              let _ = sentinelNode.node else {
                   router.play(event: .error(NodeError.unavailableNode))
                   return
               }

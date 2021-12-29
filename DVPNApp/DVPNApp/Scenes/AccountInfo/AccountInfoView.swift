@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 private struct Constants {
     let coordinateSpaceName = "pullToRefresh"
 }
@@ -88,7 +87,7 @@ struct AccountInfoView: View {
                     Text(viewModel.balance ?? "-")
                         .applyTextStyle(.whiteMain(ofSize: 22, weight: .bold))
                     
-                    Text(" " + L10n.Common.Points.title)
+                    Text(L10n.Common.Points.title)
                         .font(.system(size: 20, weight: .medium))
                         .foregroundColor(.white)
                         .applyTextStyle(.whiteMain(ofSize: 22, weight: .regular))
@@ -116,6 +115,7 @@ struct AccountInfoView: View {
             
             Spacer()
         }
+        .coordinateSpace(name: constants.coordinateSpaceName)
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             viewModel.refresh()
         }

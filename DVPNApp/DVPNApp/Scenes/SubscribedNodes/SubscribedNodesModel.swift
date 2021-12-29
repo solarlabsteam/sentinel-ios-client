@@ -57,7 +57,9 @@ final class SubscribedNodesModel {
             }
         }
     }
-    
+}
+
+extension SubscribedNodesModel {
     func subscribeToEvents() {
         context.nodesService.isLoadingSubscriptions
             .map { .showLoadingSubscriptions(state: $0) }
@@ -69,16 +71,12 @@ final class SubscribedNodesModel {
             .subscribe(eventSubject)
             .store(in: &cancellables)
     }
-
+    
     func setNodes() {
         eventSubject.send(.update(locations: context.nodesService.nodes))
     }
-}
-
-// MARK: - Private Methods
-
-extension SubscribedNodesModel {
-    private func loadSubscriptions() {
+    
+    func loadSubscriptions() {
         context.nodesService.loadSubscriptions { [weak self] result in
             switch result {
             case let .success(subscriptions):

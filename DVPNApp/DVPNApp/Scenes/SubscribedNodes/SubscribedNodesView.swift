@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+private struct Constants {
+    let coordinateSpaceName = "pullToRefresh1"
+}
+
+private let constants = Constants()
+
 struct SubscribedNodesView: View {
     @ObservedObject private var viewModel: SubscribedNodesViewModel
 
@@ -15,32 +21,15 @@ struct SubscribedNodesView: View {
 
         customize()
     }
-
+    
     var body: some View {
         VStack {
             if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
-                HStack {
-                    Text(viewModel.subscriptionsState.title)
-                        .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
-                        .padding()
-                        .multilineTextAlignment(.center)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                noSubscriptionsView
             } else {
-                List {
-                    ForEach(viewModel.subscriptions, id: \.self) { vm in
-                        NodeSelectionRowView(
-                            viewModel: vm,
-                            openDetails: {
-                                viewModel.openDetails(for: vm.id)
-                            }
-                        )
-                        .listRowBackground(Color.clear)
-                    }
-                }
-                .listStyle(PlainListStyle())
+                subscriptionsView
             }
-
+            
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingSubscriptions,
                 style: .medium
@@ -50,12 +39,54 @@ struct SubscribedNodesView: View {
     }
 }
 
+// MARK: - Subviews
+
+extension SubscribedNodesView {
+    var noSubscriptionsView: some View {
+        GeometryReader { geometry in
+            ScrollView(showsIndicators: false) {
+                PullToRefresh(coordinateSpaceName: constants.coordinateSpaceName) {
+                    viewModel.refresh()
+                }
+                
+                Text(viewModel.subscriptionsState.title)
+                    .applyTextStyle(.whiteMain(ofSize: 18, weight: .semibold))
+                    .padding()
+                    .multilineTextAlignment(.center)
+                    .frame(width: geometry.size.width)
+                    .frame(minHeight: geometry.size.height)
+            }
+            .coordinateSpace(name: constants.coordinateSpaceName)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+    
+    var subscriptionsView: some View {
+        List {
+            ForEach(viewModel.subscriptions, id: \.self) { vm in
+                NodeSelectionRowView(
+                    viewModel: vm,
+                    openDetails: {
+                        viewModel.openDetails(for: vm.id)
+                    }
+                )
+                .listRowBackground(Color.clear)
+            }
+        }
+        .listStyle(PlainListStyle())
+    }
+}
+
+// MARK: - Private func
+
 extension SubscribedNodesView {
     private func customize() {
         UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
     }
 }
+
+// MARK: - Preview
 
 struct SubscribedNodesView_Previews: PreviewProvider {
     static var previews: some View {
