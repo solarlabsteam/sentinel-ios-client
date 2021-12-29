@@ -55,6 +55,12 @@ final class SubscribedNodesViewModel: ObservableObject {
     }
 }
 
+extension SubscribedNodesViewModel {
+    func refresh() {
+        model.loadSubscriptions()
+    }
+}
+
 // MARK: - Buttons actions
 
 extension SubscribedNodesViewModel {
