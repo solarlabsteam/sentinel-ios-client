@@ -37,7 +37,6 @@ final class ContinentsModel {
         self.context = context
         
         fetchWalletInfo()
-        loadSubscriptions()
         
         context.nodesService.loadAllNodesIfNeeded { result in
             if case let .success(nodes) = result {
@@ -57,7 +56,6 @@ final class ContinentsModel {
                     self?.eventSubject.send(.setNumberOfNodesInContinent)
                 }
             }).store(in: &cancellables)
-        
         
         startObservingStatuses()
     }
@@ -119,17 +117,6 @@ extension ContinentsModel {
             case .success(let info):
                 log.debug(info)
             case .failure(let error):
-                self?.show(error: error)
-            }
-        }
-    }
-    
-    private func loadSubscriptions() {
-        context.nodesService.loadSubscriptions { [weak self] result in
-            switch result {
-            case let .success(subscriptions):
-                self?.subscriptions = subscriptions
-            case let .failure(error):
                 self?.show(error: error)
             }
         }
