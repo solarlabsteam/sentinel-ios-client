@@ -78,7 +78,7 @@
 
 "SubscribedNodes.Title" = "Subscribed nodes";
 "SubscribedNodes.NotFound" = "You are not subscribed to any nodes";
-"SubscribedNodes.NoConnection" = "Fail to load nodes";
+"SubscribedNodes.NoConnection" = "Failed to load nodes";
 
 "NodeDetails.Title" = "Details";
 "NodeDetails.Connect" = "CONNECT NOW";

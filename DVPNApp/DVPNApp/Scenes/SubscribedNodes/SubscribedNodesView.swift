@@ -23,7 +23,7 @@ struct SubscribedNodesView: View {
     }
     
     var body: some View {
-        VStack {
+        ZStack(alignment: .bottom) {
             if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
                 noSubscriptionsView
             } else {

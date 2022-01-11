@@ -362,7 +362,7 @@ internal enum L10n {
   }
 
   internal enum SubscribedNodes {
-    /// Fail to load nodes
+    /// Failed to load nodes
     internal static let noConnection = L10n.tr("Localizable", "SubscribedNodes.NoConnection")
     /// You are not subscribed to any nodes
     internal static let notFound = L10n.tr("Localizable", "SubscribedNodes.NotFound")
