@@ -23,6 +23,9 @@
 "AccountCreation.Terms.Button" = "terms and conditions";
 "AccountCreation.Create.Title" = "Create a new Account";
 "AccountCreation.Create.Button" = "Create an Account";
+"AccountCreation.Create.Button.Copy" = "Copy mnemonic";
+"AccountCreation.Copied.Mnemonic" = "Mnemonic is copied";
+"AccountCreation.Copied.Address" = "Address is copied";
 "AccountCreation.Import.Title" = "Import security Phrases";
 "AccountCreation.Import.Button" = "Import Account";
 "AccountCreation.Import.Button.Paste" = "Paste";

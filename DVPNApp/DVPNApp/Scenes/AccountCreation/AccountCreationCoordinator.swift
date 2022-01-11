@@ -62,6 +62,8 @@ extension AccountCreationCoordinator: RouterType {
             }
         case let .title(title):
             rootController?.title = title
+        case let .info(message):
+            show(message: message, theme: .success)
         }
     }
 }
