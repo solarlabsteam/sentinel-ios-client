@@ -129,7 +129,7 @@ extension ContinentsViewModel {
                 case .connect:
                     self.router.play(event: .connect)
                 case .setNumberOfNodesInContinent:
-                    self.numberOfNodesInContinent = self.numberOfNodesInContinent
+                    self.numberOfNodesInContinent = self.model.numberOfNodesInContinent
                 case let .setTunnelStatus(status):
                     self.connectionStatus = status
                 }
