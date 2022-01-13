@@ -238,7 +238,7 @@ internal enum L10n {
         internal static let price = L10n.tr("Localizable", "Home.Node.Details.Price")
       }
       internal enum Subscribed {
-        /// Fail to load nodes
+        /// Failed to load nodes
         internal static let noConnection = L10n.tr("Localizable", "Home.Node.Subscribed.NoConnection")
         /// You are not subscribed to any nodes
         internal static let notFound = L10n.tr("Localizable", "Home.Node.Subscribed.NotFound")

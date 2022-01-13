@@ -15,39 +15,41 @@ struct NodeSelectionView: View {
     }
 
     var subscribedNodes: some View {
-        VStack {
-            if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
-                Spacer()
-
-                Text(viewModel.subscriptionsState.title)
-                    .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
-                    .padding()
-                    .multilineTextAlignment(.center)
-
-                Image(uiImage: Asset.LocationSelector.empty.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 250)
-
-                Spacer()
-            } else {
-                List {
-                    ForEach(viewModel.subscriptions, id: \.self) { vm in
-                        NodeSelectionRowView(
-                            viewModel: vm,
-                            toggleLocation: {
-                                viewModel.toggleLocation(with: vm.id)
-                            },
-                            openDetails: {
-                                viewModel.openDetails(for: vm.id)
-                            }
-                        )
-                        .listRowBackground(Color.clear)
+        ZStack(alignment: .bottom) {
+            VStack {
+                if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
+                    Spacer()
+                    
+                    Text(viewModel.subscriptionsState.title)
+                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                        .padding()
+                        .multilineTextAlignment(.center)
+                    
+                    Image(uiImage: Asset.LocationSelector.empty.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 250)
+                    
+                    Spacer()
+                } else {
+                    List {
+                        ForEach(viewModel.subscriptions, id: \.self) { vm in
+                            NodeSelectionRowView(
+                                viewModel: vm,
+                                toggleLocation: {
+                                    viewModel.toggleLocation(with: vm.id)
+                                },
+                                openDetails: {
+                                    viewModel.openDetails(for: vm.id)
+                                }
+                            )
+                                .listRowBackground(Color.clear)
+                        }
                     }
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
             }
-
+            
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingSubscriptions,
                 style: .medium
