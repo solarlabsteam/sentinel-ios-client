@@ -105,7 +105,7 @@ final class HomeViewModel: ObservableObject {
             .sink(receiveValue: { _ in UIImpactFeedbackGenerator.lightFeedback() })
             .store(in: &cancellables)
         
-        numberOfNodesInContinent = model.setNumberOfNodesInContinent()
+        numberOfNodesInContinent = model.numberOfNodesInContinent
 
         model.refreshDNS()
         model.subscribeToEvents()
@@ -211,26 +211,28 @@ extension HomeViewModel {
         model.eventPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
+                guard let self = self else { return }
+                
                 switch event {
                 case let .error(error):
-                    self?.router.play(event: .error(error))
+                    self.router.play(event: .error(error))
                 case let .update(nodes):
-                    self?.nodes.formUnion(nodes)
+                    self.nodes.formUnion(nodes)
                 case let .showLoadingSubscriptions(state):
-                    self?.isLoadingSubscriptions = state
+                    self.isLoadingSubscriptions = state
                 case let .set(subscribedNodes):
-                    self?.set(subscribedNodes: subscribedNodes)
+                    self.set(subscribedNodes: subscribedNodes)
                 case let .setSubscriptionsState(state):
-                    self?.subscriptionsState = state
+                    self.subscriptionsState = state
                 case .connect:
-                    self?.router.play(event: .connect)
+                    self.router.play(event: .connect)
                 case .reloadSubscriptions:
-                    self?.subscriptions = []
-                    self?.isLoadingSubscriptions = true
+                    self.subscriptions = []
+                    self.isLoadingSubscriptions = true
                 case let .select(server):
-                    self?.update(to: server)
-                case let .setNumberOfNodesInContinent(numberOfNodesInContinent):
-                    self?.numberOfNodesInContinent = numberOfNodesInContinent
+                    self.update(to: server)
+                case .setNumberOfNodesInContinent:
+                    self.numberOfNodesInContinent = self.model.numberOfNodesInContinent
                 }
             }
             .store(in: &cancellables)
