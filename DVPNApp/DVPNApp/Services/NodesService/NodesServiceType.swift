@@ -9,8 +9,6 @@ import Foundation
 import SentinelWallet
 
 protocol NodesServiceType {
-    func update(sentinelService: SentinelService)
-    
     var availableNodesOfSelectedContinent: Published<[SentinelNode]>.Publisher { get }
     var loadedNodesCount: Published<Int>.Publisher { get }
     var isAllLoaded: Published<Bool>.Publisher { get }
