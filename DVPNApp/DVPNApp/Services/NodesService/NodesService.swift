@@ -17,7 +17,7 @@ private let constants = Constants()
 
 final class NodesService {
     private let nodesStorage: StoresNodes
-    private var sentinelService: SentinelService
+    private let sentinelService: SentinelService
     
     @Published private(set) var _availableNodesOfSelectedContinent: [SentinelNode] = []
     @Published private(set) var _loadedNodesCount: Int = 0
@@ -27,17 +27,13 @@ final class NodesService {
     @Published private(set) var _subscribedNodes: [SentinelNode] = []
     @Published private(set) var _isLoadingSubscriptions: Bool = true
     
-    init(nodesStorage: StoresNodes, sentinelService: SentinelService) {
+    init(nodesStorage: StoresNodes = RealmStorage(), sentinelService: SentinelService) {
         self.nodesStorage = nodesStorage
         self.sentinelService = sentinelService
     }
 }
 
 extension NodesService: NodesServiceType {
-    func update(sentinelService: SentinelService) {
-        self.sentinelService = sentinelService
-    }
-    
     var availableNodesOfSelectedContinent: Published<[SentinelNode]>.Publisher {
         $_availableNodesOfSelectedContinent
     }
