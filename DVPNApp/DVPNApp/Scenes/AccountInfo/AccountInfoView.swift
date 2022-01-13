@@ -140,7 +140,7 @@ struct AccountInfoView: View {
                     Text(viewModel.balance ?? "-")
                         .applyTextStyle(.whitePoppins(ofSize: 22, weight: .bold))
                     
-                    Text(" " + L10n.Common.Dvpn.title)
+                    Text(L10n.Common.Dvpn.title)
                         .font(.system(size: 20, weight: .medium))
                         .foregroundColor(.white)
                         .applyTextStyle(.whitePoppins(ofSize: 22, weight: .regular))
