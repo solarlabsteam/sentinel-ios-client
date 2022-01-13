@@ -41,6 +41,7 @@ final class AccountCreationViewModel: ObservableObject {
         case privacy
         case openNodes
         case title(String)
+        case info(String)
     }
 
     private let model: AccountCreationModel
@@ -81,16 +82,28 @@ final class AccountCreationViewModel: ObservableObject {
 
         model.change(to: mode)
     }
+}
 
-    func didTapPaste() {
+// MARK: - Buttons actions
+
+extension AccountCreationViewModel {
+    func didTapMnemonicActionButton() {
         UIImpactFeedbackGenerator.lightFeedback()
-        UIPasteboard.general.string?.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
-            mnemonic[index] = value
+        if mode == .restore {
+            didTapPasteMnemonic()
+        } else {
+            didTapCopyMnemonic()
         }
-
-        model.check(mnemonic: mnemonic)
     }
 
+    func didTapCopyAddress() {
+        guard let address = address else { return }
+        router.play(event: .info(L10n.AccountCreation.Copied.address))
+        
+        UIImpactFeedbackGenerator.lightFeedback()
+        UIPasteboard.general.string = address
+    }
+    
     func didTapMainButton() {
         UIImpactFeedbackGenerator.lightFeedback()
 
@@ -122,5 +135,24 @@ final class AccountCreationViewModel: ObservableObject {
         let newMode: CreationMode = mode == .create ? .restore : .create
 
         model.change(to: newMode)
+    }
+}
+
+// MARK: - Private methods
+
+extension AccountCreationViewModel {
+    private func didTapPasteMnemonic() {
+        UIPasteboard.general.string?.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
+            mnemonic[index] = value
+        }
+
+        model.check(mnemonic: mnemonic)
+    }
+    
+    private func didTapCopyMnemonic() {
+        router.play(event: .info(L10n.AccountCreation.Copied.mnemonic))
+        
+        UIImpactFeedbackGenerator.lightFeedback()
+        UIPasteboard.general.string = mnemonic.joined(separator: " ")
     }
 }
