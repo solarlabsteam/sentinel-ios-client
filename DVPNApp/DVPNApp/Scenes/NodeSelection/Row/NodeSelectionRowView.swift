@@ -29,6 +29,7 @@ struct NodeSelectionRowView: View {
                 HStack(alignment: .bottom) {
                     Image(uiImage: viewModel.icon)
                         .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 41)
                     
                     VStack(alignment: .leading, spacing: 6) {
