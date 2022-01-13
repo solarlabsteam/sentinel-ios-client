@@ -173,6 +173,7 @@ struct AccountInfoView: View {
                 .padding(.horizontal, 20)
             
         }
+        .coordinateSpace(name: constants.coordinateSpaceName)
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             viewModel.refresh()
         }
