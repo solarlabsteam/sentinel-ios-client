@@ -15,48 +15,45 @@ struct NodeSelectionView: View {
     }
 
     var subscribedNodes: some View {
-        VStack {
-            if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
-                Spacer()
-
-                Text(viewModel.subscriptionsState.title)
-                    .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
-                    .padding()
-                    .multilineTextAlignment(.center)
-
-                Asset.LocationSelector.empty.image.asImage
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 250)
-
-                Spacer()
-            } else {
-                List {
-                    ForEach(viewModel.subscriptions, id: \.self) { vm in
-                        NodeSelectionRowView(
-                            viewModel: vm,
-                            toggleLocation: {
-                                viewModel.toggleLocation(with: vm.id)
-                            },
-                            openDetails: {
-                                viewModel.openDetails(for: vm.id)
-                            }
-                        )
+        ZStack(alignment: .bottom) {
+            VStack {
+                if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
+                    Spacer()
+                    
+                    Text(viewModel.subscriptionsState.title)
+                        .applyTextStyle(.whitePoppins(ofSize: 18, weight: .semibold))
+                        .padding()
+                        .multilineTextAlignment(.center)
+                    
+                    Image(uiImage: Asset.LocationSelector.empty.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 250)
+                    
+                    Spacer()
+                } else {
+                    List {
+                        ForEach(viewModel.subscriptions, id: \.self) { vm in
+                            NodeSelectionRowView(
+                                viewModel: vm,
+                                toggleLocation: {
+                                    viewModel.toggleLocation(with: vm.id)
+                                },
+                                openDetails: {
+                                    viewModel.openDetails(for: vm.id)
+                                }
+                            )
+                                .listRowBackground(Color.clear)
+                        }
                     }
+                    .listStyle(PlainListStyle())
                 }
             }
-
-            #if os(iOS)
+            
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingSubscriptions,
                 style: .medium
             )
-            #elseif os(macOS)
-            ActivityIndicator(
-                isAnimating: $viewModel.isLoadingSubscriptions,
-                controlSize: .large
-            )
-            #endif
         }
     }
     
@@ -88,9 +85,7 @@ struct NodeSelectionView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30, height: 30)
-                        .foregroundColor(.accentColor)
                 }
-                .buttonStyle(PlainButtonStyle())
                 .frame(width: 60, height: 60)
                 .background(viewModel.connectionStatus.powerColor)
                 .cornerRadius(30)
@@ -101,3 +96,5 @@ struct NodeSelectionView: View {
         }
     }
 }
+
+// TODO: @Lika add preview

@@ -36,7 +36,7 @@ enum HomeModelEvent {
     case connect
 
     case select(server: DNSServerType)
-    case setNumberOfNodesInContinent([Continent: Int])
+    case setNumberOfNodesInContinent
 }
 
 final class HomeModel {
@@ -66,7 +66,9 @@ final class HomeModel {
             }
         }
     }
-    
+}
+
+extension HomeModel {
     func subscribeToEvents() {
         context.nodesService.isLoadingSubscriptions
             .map { .showLoadingSubscriptions(state: $0) }
@@ -79,14 +81,8 @@ final class HomeModel {
             .store(in: &cancellables)
     }
     
-    func setNumberOfNodesInContinent() -> [Continent: Int] {
-        var numberOfNodesInContinent: [Continent: Int] = [:]
-        
-        Continent.allCases.forEach {
-            numberOfNodesInContinent[$0] = context.nodesService.nodesCount(for: $0)
-        }
-        
-        return numberOfNodesInContinent
+    var numberOfNodesInContinent: [Continent: Int] {
+        context.nodesService.nodesInContinentsCount
     }
     
     func refreshDNS() {

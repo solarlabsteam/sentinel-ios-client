@@ -20,24 +20,26 @@ struct AccountCreationView: View {
     }
 
     var walletAddress: some View {
-        ZStack(alignment: .leading) {
-            Text(viewModel.address ?? "")
-                .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
-                .padding(.bottom, 10)
-                .padding([.horizontal, .top], 8)
-                .border(Asset.Colors.borderGray.color.asColor, width: 1)
-                .cornerRadius(2)
-                .padding(.top, 20)
-
-            HStack {
-                Spacer().frame(width: 10, height: 10)
-                Text(L10n.AccountCreation.walletAddress)
-                    .applyTextStyle(.textBody)
-                    .padding([.horizontal], 5)
-                    .background(Asset.Colors.accentColor.color.asColor)
+        Button(action: viewModel.didTapCopyAddress) {
+            ZStack(alignment: .leading) {
+                Text(viewModel.address ?? "")
+                    .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
+                    .padding(.bottom, 10)
+                    .padding([.horizontal, .top], 8)
+                    .border(Asset.Colors.borderGray.color.asColor, width: 1)
+                    .cornerRadius(2)
+                    .padding(.top, 20)
+                
+                HStack {
+                    Spacer().frame(width: 10, height: 10)
+                    Text(L10n.AccountCreation.walletAddress)
+                        .applyTextStyle(.textBody)
+                        .padding([.horizontal], 5)
+                        .background(Asset.Colors.accentColor.color.asColor)
+                }
             }
-            .padding(.bottom, 12)
         }
+        .buttonStyle(PlainButtonStyle())
     }
 
     var mnemonicFields: some View {
@@ -113,40 +115,38 @@ struct AccountCreationView: View {
             }
 
             mnemonicFields
-
-            if viewModel.mode == .restore {
-                HStack {
-                    Button(action: viewModel.didTapPaste) {
-                        Text(L10n.AccountCreation.Import.Button.paste)
-                            .applyTextStyle(.whitePoppins(ofSize: 12))
-                            .padding(.horizontal, 15)
-                            .padding(.vertical, 10)
-                            .border(Asset.Colors.navyBlue.color.asColor, width: 1)
-                            .cornerRadius(2)
-                            .padding()
-                    }
-                    .buttonStyle(PlainButtonStyle())
-
-                    Spacer()
+            
+            HStack {
+                Button(action: viewModel.didTapMnemonicActionButton) {
+                    Text(
+                        viewModel.mode == .restore ?
+                        L10n.AccountCreation.Import.Button.paste : L10n.AccountCreation.Create.Button.copy)
+                        .applyTextStyle(.whitePoppins(ofSize: 12))
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 10)
+                        .border(Asset.Colors.navyBlue.color.asColor, width: 1)
+                        .cornerRadius(2)
                 }
+                .buttonStyle(PlainButtonStyle())
                 
-                if viewModel.address != nil {
-                    walletAddress
-                }
+                Spacer()
+            }
+            .padding(.vertical, 10)
+            
+            if viewModel.mode == .restore && viewModel.address != nil {
+                walletAddress
             }
 
             if viewModel.mode == .create {
                 HStack {
-                    Spacer()
                     Text(L10n.AccountCreation.warning)
                         .applyTextStyle(.textBody)
-                        .padding(.vertical)
+                        .padding(.all, 10)
                         .multilineTextAlignment(.center)
-                    Spacer()
                 }
+                .frame(maxWidth: .infinity)
                 .border(Asset.Colors.borderGray.color.asColor, width: 1)
                 .cornerRadius(2)
-                .padding(.vertical)
             }
 
             Spacer()
@@ -156,7 +156,7 @@ struct AccountCreationView: View {
                     .padding()
 
                 mainButton
-                    .padding()
+                    .padding(.horizontal)
 
                 importView
                     .padding()
@@ -172,8 +172,14 @@ struct AccountCreationView: View {
     }
 }
 
-struct AccountCreationView_Previews: PreviewProvider {
+struct AccountCreationView_Previews_Restore: PreviewProvider {
     static var previews: some View {
         ModulesFactory.shared.getAccountCreationScene(mode: .restore)
+    }
+}
+
+struct AccountCreationView_Previews_Create: PreviewProvider {
+    static var previews: some View {
+        ModulesFactory.shared.getAccountCreationScene(mode: .create)
     }
 }

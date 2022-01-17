@@ -23,6 +23,7 @@ final class AccountCreationViewModel: ObservableObject {
         case privacy
         case openNodes
         case title(String)
+        case info(String)
     }
 
     private let model: AccountCreationModel
@@ -65,21 +66,30 @@ final class AccountCreationViewModel: ObservableObject {
         
         model.change(to: mode)
     }
+}
 
-    func didTapPaste() {
-#if os(iOS)
+// MARK: - Buttons actions
+
+extension AccountCreationViewModel {
+    func didTapMnemonicActionButton() {
         UIImpactFeedbackGenerator.lightFeedback()
-        let pasteboard = UIPasteboard.general.string
-#elseif os(macOS)
-        let pasteboard = NSPasteboard.general.string(forType: .string)
-#endif
-        pasteboard.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
-            mnemonic[index] = value
+        if mode == .restore {
+            didTapPasteMnemonic()
+        } else {
+            didTapCopyMnemonic()
         }
-
-        model.check(mnemonic: mnemonic)
     }
 
+    func didTapCopyAddress() {
+        guard let address = address else { return }
+        router.play(event: .info(L10n.AccountCreation.Copied.address))
+
+    #if os(iOS)
+        UIImpactFeedbackGenerator.lightFeedback()
+    #endif
+        UIPasteboard.general.string = address
+    }
+    
     func didTapMainButton() {
 #if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
@@ -119,5 +129,29 @@ final class AccountCreationViewModel: ObservableObject {
         let newMode: CreationMode = mode == .create ? .restore : .create
 
         model.change(to: newMode)
+    }
+}
+
+// MARK: - Private methods
+
+extension AccountCreationViewModel {
+    private func didTapPasteMnemonic() {
+#if os(iOS)
+        UIImpactFeedbackGenerator.lightFeedback()
+        let pasteboard = UIPasteboard.general.string
+#elseif os(macOS)
+        let pasteboard = NSPasteboard.general.string(forType: .string)
+#endif
+        pasteboard.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
+            mnemonic[index] = value
+            
+        model.check(mnemonic: mnemonic)
+    }
+    
+    private func didTapCopyMnemonic() {
+        router.play(event: .info(L10n.AccountCreation.Copied.mnemonic))
+        
+        UIImpactFeedbackGenerator.lightFeedback()
+        UIPasteboard.general.string = mnemonic.joined(separator: " ")
     }
 }

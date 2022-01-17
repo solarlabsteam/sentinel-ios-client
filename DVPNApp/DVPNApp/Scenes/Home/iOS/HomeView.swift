@@ -41,8 +41,6 @@ extension HomeView {
         UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
 
-        UIScrollView.appearance().bounces = false
-
         let controlAppearance = UISegmentedControl.appearance()
 
         controlAppearance.selectedSegmentTintColor = Asset.Colors.accentColor.color

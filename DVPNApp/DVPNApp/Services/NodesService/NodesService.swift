@@ -17,7 +17,7 @@ private let constants = Constants()
 
 final class NodesService {
     private let nodesStorage: StoresNodes
-    private var sentinelService: SentinelService
+    private let sentinelService: SentinelService
     
     @Published private(set) var _availableNodesOfSelectedContinent: [SentinelNode] = []
     @Published private(set) var _loadedNodesCount: Int = 0
@@ -27,17 +27,13 @@ final class NodesService {
     @Published private(set) var _subscribedNodes: [SentinelNode] = []
     @Published private(set) var _isLoadingSubscriptions: Bool = true
     
-    init(nodesStorage: StoresNodes, sentinelService: SentinelService) {
+    init(nodesStorage: StoresNodes = RealmStorage(), sentinelService: SentinelService) {
         self.nodesStorage = nodesStorage
         self.sentinelService = sentinelService
     }
 }
 
 extension NodesService: NodesServiceType {
-    func update(sentinelService: SentinelService) {
-        self.sentinelService = sentinelService
-    }
-    
     var availableNodesOfSelectedContinent: Published<[SentinelNode]>.Publisher {
         $_availableNodesOfSelectedContinent
     }
@@ -71,7 +67,7 @@ extension NodesService: NodesServiceType {
     func loadAllNodes(
         completion: ((Result<[SentinelNode], Error>) -> Void)?
     ) {
-        sentinelService.queryNodes { [weak self] result in
+        sentinelService.queryNodes(limit: 10000) { [weak self] result in
             switch result {
             case .failure(let error):
                 log.error(error)
@@ -123,12 +119,24 @@ extension NodesService: NodesServiceType {
         }
     }
     
-    func nodesCount(for continent: Continent) -> Int {
+    var nodesInContinentsCount: [Continent: Int] {
+        var nodesInContinents: [Continent: Int] = [:]
+        
+        Continent.allCases.forEach {
+            nodesInContinents[$0] = 0
+        }
+        
         nodesStorage.sentinelNodes
-            .map { $0.node }
-            .compactMap { $0 }
-            .filter { ContinentDecoder().isInContinent(node: $0, continent: continent) }
-            .count
+            .forEach { node in
+                guard let node = node.node else { return }
+                
+                if let continent = ContinentDecoder().getContinent(for: node),
+                   let count = nodesInContinents[continent] {
+                    nodesInContinents[continent] = count + 1
+                }
+            }
+        
+        return nodesInContinents
     }
     
     var nodes: [SentinelNode] {

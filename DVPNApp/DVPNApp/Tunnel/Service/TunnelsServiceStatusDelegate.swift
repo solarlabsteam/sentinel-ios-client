@@ -24,7 +24,7 @@ extension TunnelsServiceError {
         case .nameAlreadyExists:
             return "The name of tunnel already exist"
         case .loadTunnelsFailed:
-            return "Fail to load tunnel"
+            return L10n.Home.Node.Subscribed.noConnection
         case .addTunnelFailed:
             return L10n.Error.tunnelCreationDenied
         }

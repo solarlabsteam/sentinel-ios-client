@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+private struct Constants {
+    let coordinateSpaceName = "pullToRefresh"
+}
+
+private let constants = Constants()
+
 struct AccountInfoView: View {
 
     @ObservedObject private var viewModel: AccountInfoViewModel
@@ -123,6 +129,10 @@ struct AccountInfoView: View {
 
     var body: some View {
         ScrollView {
+            PullToRefresh(coordinateSpaceName: constants.coordinateSpaceName) {
+                 viewModel.refresh()
+             }
+            
             VStack {
                 accountImage
                 
@@ -133,7 +143,7 @@ struct AccountInfoView: View {
                     Text(viewModel.balance ?? "-")
                         .applyTextStyle(.whitePoppins(ofSize: 22, weight: .bold))
                     
-                    Text(" " + L10n.Common.Dvpn.title)
+                    Text(L10n.Common.Dvpn.title)
                         .font(.system(size: 20, weight: .medium))
                         .foregroundColor(.white)
                         .applyTextStyle(.whitePoppins(ofSize: 22, weight: .regular))
@@ -167,6 +177,7 @@ struct AccountInfoView: View {
             
         }
 #if os(iOS)
+        .coordinateSpace(name: constants.coordinateSpaceName)
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
             viewModel.refresh()
         }

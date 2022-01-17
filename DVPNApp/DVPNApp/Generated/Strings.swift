@@ -24,11 +24,21 @@ internal enum L10n {
         internal static let text = L10n.tr("Localizable", "AccountCreation.Button.ImportNow.Text")
       }
     }
+    internal enum Copied {
+      /// Address is copied
+      internal static let address = L10n.tr("Localizable", "AccountCreation.Copied.Address")
+      /// Mnemonic is copied
+      internal static let mnemonic = L10n.tr("Localizable", "AccountCreation.Copied.Mnemonic")
+    }
     internal enum Create {
       /// Create an Account
       internal static let button = L10n.tr("Localizable", "AccountCreation.Create.Button")
       /// Create a new Account
       internal static let title = L10n.tr("Localizable", "AccountCreation.Create.Title")
+      internal enum Button {
+        /// Copy mnemonic
+        internal static let copy = L10n.tr("Localizable", "AccountCreation.Create.Button.Copy")
+      }
     }
     internal enum Error {
       /// Misconfigured wallet. Please, re-check your mnemonic and try again
@@ -238,7 +248,7 @@ internal enum L10n {
         internal static let price = L10n.tr("Localizable", "Home.Node.Details.Price")
       }
       internal enum Subscribed {
-        /// Fail to load nodes
+        /// Failed to load nodes
         internal static let noConnection = L10n.tr("Localizable", "Home.Node.Subscribed.NoConnection")
         /// You are not subscribed to any nodes
         internal static let notFound = L10n.tr("Localizable", "Home.Node.Subscribed.NotFound")

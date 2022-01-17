@@ -7,21 +7,22 @@
 
 import Foundation
 import SentinelWallet
-
 protocol NoContext {}
 
 final class CommonContext {
     typealias Storage = StoresGeneralInfo & StoresConnectInfo & StoresWallet & StoresDNSServers
     
     let storage: Storage
-    private(set) var walletService: WalletService
-    private(set) var sentinelService: SentinelService
     let securityService: SecurityService
     let tunnelManager: TunnelManagerType
     let networkService: NetworkServiceType
-    let userService: UserService
-    let preloadService: PreloadServiceType
-    let nodesService: NodesServiceType
+    
+    /// Wallet-dependent services
+    private(set) var walletService: WalletService
+    private(set) var sentinelService: SentinelService
+    private(set) var userService: UserService
+    private(set) var preloadService: PreloadServiceType
+    private(set) var nodesService: NodesServiceType
 
     init(
         storage: Storage,
@@ -51,7 +52,10 @@ final class CommonContext {
         }
         walletService = WalletService(for: walletAddress, securityService: securityService)
         sentinelService = SentinelService(walletService: walletService)
-        nodesService.update(sentinelService: sentinelService)
+        
+        userService = UserService(walletService: walletService)
+        nodesService = NodesService(sentinelService: sentinelService)
+        preloadService = PreloadService(userService: userService)
     }
 }
 

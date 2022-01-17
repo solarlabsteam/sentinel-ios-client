@@ -332,6 +332,7 @@
 		932D0B04272197D10064AEE4 /* EmptyScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */; };
 		932D0B082721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */; };
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
+		9374A6A8274E6EBA0010E4A6 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */; };
 		9378543F270ECA400004483C /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93785441270ECC810004483C /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
 		93843B472724993000CE6D34 /* SentinelNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843B462724993000CE6D34 /* SentinelNode+Ext.swift */; };
@@ -620,6 +621,7 @@
 		932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyScreen.storyboard; sourceTree = "<group>"; };
 		932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = co.sentinel.sentinellite.regional.countries_extras.json; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		9378543E270ECA400004483C /* FramedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramedButton.swift; sourceTree = "<group>"; };
 		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		93843B462724993000CE6D34 /* SentinelNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SentinelNode+Ext.swift"; sourceTree = "<group>"; };
@@ -1384,6 +1386,7 @@
 				7517DF1727218BFA007E56CA /* PageIndicator.swift */,
 				930099CE273D7E3800654D6C /* iOS */,
 				930099D3273D7EB000654D6C /* MacOS */,
+				9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2217,6 +2220,8 @@
 				932D0AFD272176620064AEE4 /* PreloadService.swift in Sources */,
 				9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */,
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,
+				9374A6A8274E6EBA0010E4A6 /* PullToRefresh.swift in Sources */,
+				759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */,
 				C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */,
 				92074C81273D4E8000CEA689 /* PlansViewModelDelegate.swift in Sources */,
 				755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */,
