@@ -5,6 +5,9 @@
 //  Created by Lika Vorobyeva on 23.08.2021.
 //
 
+#if os(iOS)
+import UIKit
+#endif
 import Foundation
 import Combine
 
