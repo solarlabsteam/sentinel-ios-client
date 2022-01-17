@@ -72,7 +72,6 @@ final class AccountCreationViewModel: ObservableObject {
 
 extension AccountCreationViewModel {
     func didTapMnemonicActionButton() {
-        UIImpactFeedbackGenerator.lightFeedback()
         if mode == .restore {
             didTapPasteMnemonic()
         } else {
@@ -86,8 +85,12 @@ extension AccountCreationViewModel {
 
     #if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
-    #endif
         UIPasteboard.general.string = address
+#elseif os(macOS)
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(address, forType: .string)
+ #endif
     }
     
     func didTapMainButton() {
@@ -145,13 +148,20 @@ extension AccountCreationViewModel {
         pasteboard.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
             mnemonic[index] = value
             
-        model.check(mnemonic: mnemonic)
+            model.check(mnemonic: mnemonic)
+        }
     }
     
     private func didTapCopyMnemonic() {
         router.play(event: .info(L10n.AccountCreation.Copied.mnemonic))
         
+#if os(iOS)
         UIImpactFeedbackGenerator.lightFeedback()
         UIPasteboard.general.string = mnemonic.joined(separator: " ")
+#elseif os(macOS)
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(mnemonic.joined(separator: " "), forType: .string)
+#endif
     }
 }

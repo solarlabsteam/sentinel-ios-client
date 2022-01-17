@@ -25,11 +25,13 @@ struct ConnectionView: View {
                         )
                     })
                     .onAppear { viewModel.viewWillAppear() }
+#if os(iOS)
                     .onReceive(
                         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
                     ) { _ in
                         viewModel.didEnterForeground()
                     }
+#endif
             }
             .onPreferenceChange(ViewHeightKey.self) {
                 self.fitInScreen = $0 < gProxy.size.height
@@ -49,10 +51,10 @@ extension ConnectionView {
             viewModel:
                     .init(
                         id: "0",
-                        icon: viewModel.countryImage ?? UIImage(),
+                        icon: viewModel.countryImage ?? ImageAsset.Image(),
                         title: viewModel.countryName,
                         subtitle: viewModel.moniker ?? "",
-                        speed: viewModel.speedImage ?? UIImage()
+                        speed: viewModel.speedImage ?? ImageAsset.Image()
                     )
         )
             .padding(.horizontal, 16)

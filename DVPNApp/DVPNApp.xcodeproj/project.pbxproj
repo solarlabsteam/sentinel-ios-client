@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2224D82427958368005342D7 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */; };
 		222D8C15273C1BC400542407 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C13273C1BB500542407 /* OnboardingView.swift */; };
 		222D8C19273C1FC900542407 /* AccountCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C18273C1FC900542407 /* AccountCreationCoordinator.swift */; };
 		222D8C1A273C200000542407 /* AccountCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */; };
@@ -2221,7 +2222,6 @@
 				9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */,
 				7504E9CD267A183D00023D42 /* SceneDelegate.swift in Sources */,
 				9374A6A8274E6EBA0010E4A6 /* PullToRefresh.swift in Sources */,
-				759DE5BE2715866C00DC7757 /* DNSSettingsCoordinator.swift in Sources */,
 				C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */,
 				92074C81273D4E8000CEA689 /* PlansViewModelDelegate.swift in Sources */,
 				755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */,
@@ -2392,6 +2392,7 @@
 				92074C82273D4E8400CEA689 /* PlansViewModelDelegate.swift in Sources */,
 				7511625C273AB023005F9133 /* PreloadService.swift in Sources */,
 				757F7F962746D210005E031E /* PlansView.swift in Sources */,
+				2224D82427958368005342D7 /* PullToRefresh.swift in Sources */,
 				22BAC38F2746B16A00DC0BCE /* AvailableNodesCoordinator.swift in Sources */,
 				75116286273AB8B6005F9133 /* Formatters.swift in Sources */,
 				75116271273AB054005F9133 /* TunnelChanges.swift in Sources */,

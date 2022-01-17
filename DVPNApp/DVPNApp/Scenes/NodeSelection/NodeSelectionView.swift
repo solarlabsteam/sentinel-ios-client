@@ -25,7 +25,7 @@ struct NodeSelectionView: View {
                         .padding()
                         .multilineTextAlignment(.center)
                     
-                    Image(uiImage: Asset.LocationSelector.empty.image)
+                    Asset.LocationSelector.empty.image.asImage
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 300, height: 250)
@@ -49,11 +49,17 @@ struct NodeSelectionView: View {
                     .listStyle(PlainListStyle())
                 }
             }
-            
+#if os(iOS)
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingSubscriptions,
                 style: .medium
             )
+#elseif os(macOS)
+            ActivityIndicator(
+                isAnimating: $viewModel.isLoadingSubscriptions,
+                controlSize: .large
+            )
+#endif
         }
     }
     

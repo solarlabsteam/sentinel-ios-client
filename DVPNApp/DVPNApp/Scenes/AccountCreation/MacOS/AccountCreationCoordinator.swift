@@ -46,6 +46,8 @@ extension AccountCreationCoordinator: RouterType {
         case let .title(title):
 #warning("handle titles properly on macOS")
             break
+        case .info(let info):
+            showErrorAlert(message: info, type: .informational)
         }
     }
 }
