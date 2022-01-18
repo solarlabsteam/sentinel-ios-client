@@ -1,6 +1,6 @@
 //
 //  DateFormatterCache.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 29.09.2021.
 //

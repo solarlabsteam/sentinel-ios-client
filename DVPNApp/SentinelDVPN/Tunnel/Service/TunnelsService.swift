@@ -1,6 +1,6 @@
 //
 //  TunnelsService.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 16.06.2021.
 //

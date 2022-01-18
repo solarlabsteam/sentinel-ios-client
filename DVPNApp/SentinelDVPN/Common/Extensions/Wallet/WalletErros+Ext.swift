@@ -1,6 +1,6 @@
 //
 //  WalletErros+Ext.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 06.09.2021.
 //

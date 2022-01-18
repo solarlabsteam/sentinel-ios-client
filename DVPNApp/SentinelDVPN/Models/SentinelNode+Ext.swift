@@ -1,6 +1,6 @@
 //
 //  SentinelNode+Ext.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 23.10.2021.
 //

@@ -1,6 +1,6 @@
 //
 //  SecurityServiceError.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 12.11.2021.
 //

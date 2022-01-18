@@ -1,6 +1,6 @@
 //
 //  StorageService.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 18.08.2021.
 //

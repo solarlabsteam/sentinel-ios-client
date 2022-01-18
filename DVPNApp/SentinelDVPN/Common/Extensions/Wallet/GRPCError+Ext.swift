@@ -1,6 +1,6 @@
 //
 //  GRPCError+Ext.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 26.08.2021.
 //

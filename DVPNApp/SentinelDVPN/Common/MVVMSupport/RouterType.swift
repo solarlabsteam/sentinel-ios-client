@@ -1,6 +1,6 @@
 //
 //  RouterType.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 27.07.2021.
 //

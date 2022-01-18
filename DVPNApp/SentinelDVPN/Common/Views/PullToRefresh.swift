@@ -1,6 +1,6 @@
 //
 //  PullToRefresh.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 24.11.2021.
 //

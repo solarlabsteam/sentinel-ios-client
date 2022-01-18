@@ -1,6 +1,6 @@
 //
 //  ContinentDecoder.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 22.10.2021.
 //

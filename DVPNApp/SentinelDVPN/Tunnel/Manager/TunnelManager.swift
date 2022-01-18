@@ -1,6 +1,6 @@
 //
 //  TunnelManager.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 28.09.2021.
 //

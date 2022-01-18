@@ -1,17 +1,13 @@
 //
 //  DVPNNodeInfo+Ext.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 12.08.2021.
 //
 
 import Foundation
 import SentinelWallet
-#if os(macOS)
 import Cocoa
-#elseif os(iOS)
-import UIKit
-#endif
 
 
 extension Node: Hashable {

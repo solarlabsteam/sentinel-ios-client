@@ -1,6 +1,6 @@
 //
 //  RealmStorage+Ext.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 21.10.2021.
 //

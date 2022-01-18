@@ -1,6 +1,6 @@
 //
 //  NSTableView+Ext.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobeva on 19.11.2021.
 //
