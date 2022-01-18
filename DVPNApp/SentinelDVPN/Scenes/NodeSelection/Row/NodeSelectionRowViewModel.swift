@@ -1,3 +1,10 @@
+//
+//  NodeSelectionRowViewModel.swift
+//  SentinelDVPN
+//
+//  Created by Victoria Kostyleva on 14.10.2021.
+//
+
 import SentinelWallet
 import FlagKit
 

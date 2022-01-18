@@ -1,6 +1,6 @@
 //
 //  ConnectionStatus.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 16.09.2021.
 //

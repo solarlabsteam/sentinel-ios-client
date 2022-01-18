@@ -1,6 +1,6 @@
 //
 //  NodeSelectionView.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 12.10.2021.
 //
@@ -49,17 +49,11 @@ struct NodeSelectionView: View {
                     .listStyle(PlainListStyle())
                 }
             }
-#if os(iOS)
-            ActivityIndicator(
-                isAnimating: $viewModel.isLoadingSubscriptions,
-                style: .medium
-            )
-#elseif os(macOS)
+            
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingSubscriptions,
                 controlSize: .large
             )
-#endif
         }
     }
     

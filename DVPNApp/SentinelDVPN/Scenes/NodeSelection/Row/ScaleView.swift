@@ -1,8 +1,8 @@
 //
 //  ScaleView.swift
-//  DVPNApp
+//  SentinelDVPN
 //
-//  Created by Lika Vorobyeva on 07.10.2021.
+//  Created by Victoria Kostyleva on 14.10.2021.
 //
 
 import SwiftUI

@@ -1,8 +1,8 @@
 //
 //  NodeSelectionRowView.swift
-//  Test
+//  SentinelDVPN
 //
-//  Created by Aleksandr Litreev on 12.08.2021.
+//  Created by Victoria Kostyleva on 14.10.2021.
 //
 
 import SwiftUI

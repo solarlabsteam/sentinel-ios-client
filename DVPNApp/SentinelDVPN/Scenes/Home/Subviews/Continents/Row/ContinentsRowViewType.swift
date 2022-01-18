@@ -1,6 +1,6 @@
 //
 //  ContinentsRowViewType.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 14.10.2021.
 //
@@ -18,6 +18,7 @@ enum Continent: String, CaseIterable {
 }
 
 extension Continent {
+    // TODO: localize
     var title: String {
         switch self {
         case .AF: return "Africa"
