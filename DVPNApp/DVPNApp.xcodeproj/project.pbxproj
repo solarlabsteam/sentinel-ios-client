@@ -526,20 +526,6 @@
 			remoteGlobalIDString = 7504E9F7267A1B2100023D42;
 			remoteInfo = WireGuardGoBridgeiOS;
 		};
-		9263A43E2796D9D6003DF3A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9263A42C2796D9D4003DF3A4;
-			remoteInfo = SentinelDVPN;
-		};
-		9263A4482796D9D6003DF3A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9263A42C2796D9D4003DF3A4;
-			remoteInfo = SentinelDVPN;
-		};
 		9263A4942796E5C4003DF3A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
@@ -742,8 +728,6 @@
 		9263A4332796D9D6003DF3A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelDVPN.entitlements; sourceTree = "<group>"; };
-		9263A43D2796D9D6003DF3A4 /* SentinelDVPNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentinelDVPNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9263A4472796D9D6003DF3A4 /* SentinelDVPNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentinelDVPNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		9312CA60270316880062AFD3 /* TunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManager.swift; sourceTree = "<group>"; };
 		9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
@@ -884,20 +868,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9263A43A2796D9D6003DF3A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9263A4442796D9D6003DF3A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1000,8 +970,6 @@
 				751161FE273A8837005F9133 /* SentinelDVPNmacOS.app */,
 				22A8D698273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.appex */,
 				9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */,
-				9263A43D2796D9D6003DF3A4 /* SentinelDVPNTests.xctest */,
-				9263A4472796D9D6003DF3A4 /* SentinelDVPNUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2086,42 +2054,6 @@
 			productReference = 9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9263A43C2796D9D6003DF3A4 /* SentinelDVPNTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9263A4562796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNTests" */;
-			buildPhases = (
-				9263A4392796D9D6003DF3A4 /* Sources */,
-				9263A43A2796D9D6003DF3A4 /* Frameworks */,
-				9263A43B2796D9D6003DF3A4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9263A43F2796D9D6003DF3A4 /* PBXTargetDependency */,
-			);
-			name = SentinelDVPNTests;
-			productName = SentinelDVPNTests;
-			productReference = 9263A43D2796D9D6003DF3A4 /* SentinelDVPNTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		9263A4462796D9D6003DF3A4 /* SentinelDVPNUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9263A4572796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNUITests" */;
-			buildPhases = (
-				9263A4432796D9D6003DF3A4 /* Sources */,
-				9263A4442796D9D6003DF3A4 /* Frameworks */,
-				9263A4452796D9D6003DF3A4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9263A4492796D9D6003DF3A4 /* PBXTargetDependency */,
-			);
-			name = SentinelDVPNUITests;
-			productName = SentinelDVPNUITests;
-			productReference = 9263A4472796D9D6003DF3A4 /* SentinelDVPNUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2151,14 +2083,6 @@
 					};
 					9263A42C2796D9D4003DF3A4 = {
 						CreatedOnToolsVersion = 13.1;
-					};
-					9263A43C2796D9D6003DF3A4 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 9263A42C2796D9D4003DF3A4;
-					};
-					9263A4462796D9D6003DF3A4 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 9263A42C2796D9D4003DF3A4;
 					};
 				};
 			};
@@ -2193,8 +2117,6 @@
 				22A8D697273EC6F200E78784 /* DVPNAppNetworkExtension_macOS */,
 				7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */,
 				22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */,
-				9263A43C2796D9D6003DF3A4 /* SentinelDVPNTests */,
-				9263A4462796D9D6003DF3A4 /* SentinelDVPNUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2302,20 +2224,6 @@
 				9263A4BA2796EA03003DF3A4 /* Poppins-Medium.ttf in Resources */,
 				9263A4B92796EA00003DF3A4 /* Poppins-Light.ttf in Resources */,
 				9263A4B82796E9FD003DF3A4 /* Poppins-BoldItalic.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9263A43B2796D9D6003DF3A4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9263A4452796D9D6003DF3A4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2793,20 +2701,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9263A4392796D9D6003DF3A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9263A4432796D9D6003DF3A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2829,16 +2723,6 @@
 			isa = PBXTargetDependency;
 			target = 7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */;
 			targetProxy = 7504E9FB267A1B5E00023D42 /* PBXContainerItemProxy */;
-		};
-		9263A43F2796D9D6003DF3A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9263A42C2796D9D4003DF3A4 /* SentinelDVPN */;
-			targetProxy = 9263A43E2796D9D6003DF3A4 /* PBXContainerItemProxy */;
-		};
-		9263A4492796D9D6003DF3A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9263A42C2796D9D4003DF3A4 /* SentinelDVPN */;
-			targetProxy = 9263A4482796D9D6003DF3A4 /* PBXContainerItemProxy */;
 		};
 		9263A4952796E5C4003DF3A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3329,112 +3213,6 @@
 			};
 			name = Release;
 		};
-		9263A4512796D9D6003DF3A4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FVU6756987;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SentinelDVPN.app/Contents/MacOS/SentinelDVPN";
-			};
-			name = Debug;
-		};
-		9263A4522796D9D6003DF3A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FVU6756987;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SentinelDVPN.app/Contents/MacOS/SentinelDVPN";
-			};
-			name = Release;
-		};
-		9263A4532796D9D6003DF3A4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FVU6756987;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SentinelDVPN;
-			};
-			name = Debug;
-		};
-		9263A4542796D9D6003DF3A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FVU6756987;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SentinelDVPN;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3506,24 +3284,6 @@
 			buildConfigurations = (
 				9263A44F2796D9D6003DF3A4 /* Debug */,
 				9263A4502796D9D6003DF3A4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9263A4562796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9263A4512796D9D6003DF3A4 /* Debug */,
-				9263A4522796D9D6003DF3A4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9263A4572796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9263A4532796D9D6003DF3A4 /* Debug */,
-				9263A4542796D9D6003DF3A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
