@@ -323,6 +323,10 @@
 		92074C8E273D5A1300CEA689 /* NodeSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF92715633A00DA76F8 /* NodeSelectionRowView.swift */; };
 		92074C8F273D683900CEA689 /* ContinentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56A271882B2006EBC65 /* ContinentsView.swift */; };
 		92074C90273D688400CEA689 /* ContinentsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */; };
+		9263A4302796D9D4003DF3A4 /* SentinelDVPNApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */; };
+		9263A4322796D9D4003DF3A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A4312796D9D4003DF3A4 /* ContentView.swift */; };
+		9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4332796D9D6003DF3A4 /* Assets.xcassets */; };
+		9263A4372796D9D6003DF3A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */; };
 		9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA60270316880062AFD3 /* TunnelManager.swift */; };
 		9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */; };
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
@@ -433,6 +437,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7504E9F7267A1B2100023D42;
 			remoteInfo = WireGuardGoBridgeiOS;
+		};
+		9263A43E2796D9D6003DF3A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9263A42C2796D9D4003DF3A4;
+			remoteInfo = SentinelDVPN;
+		};
+		9263A4482796D9D6003DF3A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9263A42C2796D9D4003DF3A4;
+			remoteInfo = SentinelDVPN;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -612,6 +630,14 @@
 		92074C7A273D44CB00CEA689 /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
 		92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModelDelegate.swift; sourceTree = "<group>"; };
 		92074C83273D4EF400CEA689 /* DNSSettingsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSSettingsViewModelDelegate.swift; sourceTree = "<group>"; };
+		9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentinelDVPN.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelDVPNApp.swift; sourceTree = "<group>"; };
+		9263A4312796D9D4003DF3A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9263A4332796D9D6003DF3A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelDVPN.entitlements; sourceTree = "<group>"; };
+		9263A43D2796D9D6003DF3A4 /* SentinelDVPNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentinelDVPNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9263A4472796D9D6003DF3A4 /* SentinelDVPNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentinelDVPNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9312CA60270316880062AFD3 /* TunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManager.swift; sourceTree = "<group>"; };
 		9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
 		9312CA642704608D0062AFD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -735,6 +761,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9263A42A2796D9D4003DF3A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A43A2796D9D6003DF3A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A4442796D9D6003DF3A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -823,6 +870,7 @@
 				7504E9C9267A183D00023D42 /* DVPNApp */,
 				7504E9E6267A196900023D42 /* DVPNAppNetworkExtension */,
 				22A8D69A273EC6F200E78784 /* DVPNAppNetworkExtension_macOS */,
+				9263A42E2796D9D4003DF3A4 /* SentinelDVPN */,
 				7504E9E3267A196900023D42 /* Frameworks */,
 				7504E9C8267A183D00023D42 /* Products */,
 			);
@@ -835,6 +883,9 @@
 				7504E9E2267A196900023D42 /* DVPNAppNetworkExtension.appex */,
 				751161FE273A8837005F9133 /* SentinelDVPNmacOS.app */,
 				22A8D698273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.appex */,
+				9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */,
+				9263A43D2796D9D6003DF3A4 /* SentinelDVPNTests.xctest */,
+				9263A4472796D9D6003DF3A4 /* SentinelDVPNUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1440,6 +1491,26 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		9263A42E2796D9D4003DF3A4 /* SentinelDVPN */ = {
+			isa = PBXGroup;
+			children = (
+				9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */,
+				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
+				9263A4332796D9D6003DF3A4 /* Assets.xcassets */,
+				9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */,
+				9263A4352796D9D6003DF3A4 /* Preview Content */,
+			);
+			path = SentinelDVPN;
+			sourceTree = "<group>";
+		};
+		9263A4352796D9D6003DF3A4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		930099CE273D7E3800654D6C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1869,13 +1940,66 @@
 			productReference = 751161FE273A8837005F9133 /* SentinelDVPNmacOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9263A42C2796D9D4003DF3A4 /* SentinelDVPN */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9263A4552796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPN" */;
+			buildPhases = (
+				9263A4292796D9D4003DF3A4 /* Sources */,
+				9263A42A2796D9D4003DF3A4 /* Frameworks */,
+				9263A42B2796D9D4003DF3A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SentinelDVPN;
+			productName = SentinelDVPN;
+			productReference = 9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9263A43C2796D9D6003DF3A4 /* SentinelDVPNTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9263A4562796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNTests" */;
+			buildPhases = (
+				9263A4392796D9D6003DF3A4 /* Sources */,
+				9263A43A2796D9D6003DF3A4 /* Frameworks */,
+				9263A43B2796D9D6003DF3A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9263A43F2796D9D6003DF3A4 /* PBXTargetDependency */,
+			);
+			name = SentinelDVPNTests;
+			productName = SentinelDVPNTests;
+			productReference = 9263A43D2796D9D6003DF3A4 /* SentinelDVPNTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9263A4462796D9D6003DF3A4 /* SentinelDVPNUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9263A4572796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNUITests" */;
+			buildPhases = (
+				9263A4432796D9D6003DF3A4 /* Sources */,
+				9263A4442796D9D6003DF3A4 /* Frameworks */,
+				9263A4452796D9D6003DF3A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9263A4492796D9D6003DF3A4 /* PBXTargetDependency */,
+			);
+			name = SentinelDVPNUITests;
+			productName = SentinelDVPNUITests;
+			productReference = 9263A4472796D9D6003DF3A4 /* SentinelDVPNUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		7504E9BF267A183D00023D42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					22A8D697273EC6F200E78784 = {
@@ -1895,6 +2019,17 @@
 					};
 					751161FD273A8837005F9133 = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					9263A42C2796D9D4003DF3A4 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					9263A43C2796D9D6003DF3A4 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 9263A42C2796D9D4003DF3A4;
+					};
+					9263A4462796D9D6003DF3A4 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 9263A42C2796D9D4003DF3A4;
 					};
 				};
 			};
@@ -1924,10 +2059,13 @@
 			targets = (
 				7504E9C6267A183D00023D42 /* DVPNApp */,
 				751161FD273A8837005F9133 /* SentinelDVPNmacOS */,
+				9263A42C2796D9D4003DF3A4 /* SentinelDVPN */,
 				7504E9E1267A196900023D42 /* DVPNAppNetworkExtension */,
 				22A8D697273EC6F200E78784 /* DVPNAppNetworkExtension_macOS */,
 				7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */,
 				22DD3CE227318FA900E1925C /* WireGuardGoBridgeMacOS */,
+				9263A43C2796D9D6003DF3A4 /* SentinelDVPNTests */,
+				9263A4462796D9D6003DF3A4 /* SentinelDVPNUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2004,6 +2142,29 @@
 				75116234273AAF64005F9133 /* Localizable.stringsdict in Resources */,
 				75116245273AAF6F005F9133 /* Poppins-Italic.ttf in Resources */,
 				75116239273AAF6F005F9133 /* Poppins-LightItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A42B2796D9D4003DF3A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9263A4372796D9D6003DF3A4 /* Preview Assets.xcassets in Resources */,
+				9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A43B2796D9D6003DF3A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A4452796D9D6003DF3A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2416,6 +2577,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9263A4292796D9D4003DF3A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9263A4322796D9D4003DF3A4 /* ContentView.swift in Sources */,
+				9263A4302796D9D4003DF3A4 /* SentinelDVPNApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A4392796D9D6003DF3A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A4432796D9D6003DF3A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2438,6 +2622,16 @@
 			isa = PBXTargetDependency;
 			target = 7504E9F7267A1B2100023D42 /* WireGuardGoBridgeiOS */;
 			targetProxy = 7504E9FB267A1B5E00023D42 /* PBXContainerItemProxy */;
+		};
+		9263A43F2796D9D6003DF3A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9263A42C2796D9D4003DF3A4 /* SentinelDVPN */;
+			targetProxy = 9263A43E2796D9D6003DF3A4 /* PBXContainerItemProxy */;
+		};
+		9263A4492796D9D6003DF3A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9263A42C2796D9D4003DF3A4 /* SentinelDVPN */;
+			targetProxy = 9263A4482796D9D6003DF3A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2863,6 +3057,172 @@
 			};
 			name = Release;
 		};
+		9263A44F2796D9D6003DF3A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = SentinelDVPN/SentinelDVPN.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SentinelDVPN/Preview Content\"";
+				DEVELOPMENT_TEAM = FVU6756987;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.macOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9263A4502796D9D6003DF3A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = SentinelDVPN/SentinelDVPN.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SentinelDVPN/Preview Content\"";
+				DEVELOPMENT_TEAM = FVU6756987;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.macOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9263A4512796D9D6003DF3A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FVU6756987;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SentinelDVPN.app/Contents/MacOS/SentinelDVPN";
+			};
+			name = Debug;
+		};
+		9263A4522796D9D6003DF3A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FVU6756987;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SentinelDVPN.app/Contents/MacOS/SentinelDVPN";
+			};
+			name = Release;
+		};
+		9263A4532796D9D6003DF3A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FVU6756987;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SentinelDVPN;
+			};
+			name = Debug;
+		};
+		9263A4542796D9D6003DF3A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FVU6756987;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.SentinelDVPNUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SentinelDVPN;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2925,6 +3285,33 @@
 			buildConfigurations = (
 				7511620B273A8839005F9133 /* Debug */,
 				7511620C273A8839005F9133 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9263A4552796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9263A44F2796D9D6003DF3A4 /* Debug */,
+				9263A4502796D9D6003DF3A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9263A4562796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9263A4512796D9D6003DF3A4 /* Debug */,
+				9263A4522796D9D6003DF3A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9263A4572796D9D6003DF3A4 /* Build configuration list for PBXNativeTarget "SentinelDVPNUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9263A4532796D9D6003DF3A4 /* Debug */,
+				9263A4542796D9D6003DF3A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
