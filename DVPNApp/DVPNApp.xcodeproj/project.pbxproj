@@ -979,7 +979,6 @@
 				7504EA63267B4CE900023D42 /* Common */,
 				7504E9F2267A1A9800023D42 /* DVPNApp.entitlements */,
 				75116209273A8839005F9133 /* SentinelDVPNmacOS.entitlements */,
-				75359CE326FC7EC100CFEBCD /* Generated */,
 				7504E9D8267A184000023D42 /* Info.plist */,
 				222D8C52273D7D5900542407 /* MacOS_Info.plist */,
 				7504EA6D267B4E7B00023D42 /* Resources */,
@@ -1073,10 +1072,7 @@
 		7504EA6D267B4E7B00023D42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */,
 				7504E9D3267A184000023D42 /* Assets.xcassets */,
-				755F5EE4270DB51B00D416ED /* Fonts */,
-				93DBF57327193035006EBC65 /* Localization */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1558,10 +1554,11 @@
 		9263A42E2796D9D4003DF3A4 /* SentinelDVPN */ = {
 			isa = PBXGroup;
 			children = (
-				9263A4332796D9D6003DF3A4 /* Assets.xcassets */,
 				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
+				75359CE326FC7EC100CFEBCD /* Generated */,
 				93843B45272498F200CE6D34 /* Models */,
 				9263A4352796D9D6003DF3A4 /* Preview Content */,
+				93D304A027974A3400469A75 /* Resources */,
 				9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */,
 				9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */,
 				755FBF0726AF0F0100E9D408 /* Services */,
@@ -1664,6 +1661,17 @@
 				93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */,
 			);
 			path = ConnectionInfo;
+			sourceTree = "<group>";
+		};
+		93D304A027974A3400469A75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93DBF57327193035006EBC65 /* Localization */,
+				755F5EE4270DB51B00D416ED /* Fonts */,
+				932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */,
+				9263A4332796D9D6003DF3A4 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		93DBF53E271693B5006EBC65 /* GeneralSettingsStorage */ = {
@@ -2015,6 +2023,7 @@
 				9263A42A2796D9D4003DF3A4 /* Frameworks */,
 				9263A42B2796D9D4003DF3A4 /* Resources */,
 				9263A4962796E5C4003DF3A4 /* Embed App Extensions */,
+				93D304A127974A7400469A75 /* Run Script [SwiftGen] */,
 			);
 			buildRules = (
 			);
@@ -2247,6 +2256,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if ! [ $CI ]\nthen\n    \"$SRCROOT\"/Tools/swiftlint/swiftlint --config \"$SRCROOT/.swiftlint.yml\" --path \"$SRCROOT\"\nelse\n    echo \"SwiftLint is inactive for CI\"\nfi\n";
+		};
+		93D304A127974A7400469A75 /* Run Script [SwiftGen] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script [SwiftGen]";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nswift run -c release --package-path Tools/SwiftGenerator swiftgen\n";
 		};
 		93DBF5582717BE21006EBC65 /* Run Script [Sourcery] */ = {
 			isa = PBXShellScriptBuildPhase;
