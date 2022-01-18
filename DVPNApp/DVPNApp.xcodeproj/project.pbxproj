@@ -248,7 +248,6 @@
 		755F5F18270DE78600D416ED /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F16270DE78600D416ED /* TextStyles.swift */; };
 		755F5F19270DE78600D416ED /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F17270DE78600D416ED /* TextStyle.swift */; };
 		755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 755FBF0526AF0E6F00E9D408 /* SwiftKeychainWrapper */; };
-		755FBF0926AF0F1600E9D408 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FBF0826AF0F1600E9D408 /* SecurityService.swift */; };
 		757F0B7E26D8D6CE000C0865 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F0B7D26D8D6CE000C0865 /* Connectivity.swift */; };
 		757F7F932746D205005E031E /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
 		757F7F942746D20A005E031E /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
@@ -415,6 +414,7 @@
 		9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		9263A4D32796ED64003DF3A4 /* NEVPNStatus+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */; };
 		9263A4D42796ED6E003DF3A4 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6562826C3A9FF000056B4 /* Formatters.swift */; };
+		9263A4D52797067D003DF3A4 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF8273E5EB30003F54A /* SecurityService.swift */; };
 		9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA60270316880062AFD3 /* TunnelManager.swift */; };
 		9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */; };
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
@@ -674,7 +674,6 @@
 		755F5F13270DE77800D416ED /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		755F5F16270DE78600D416ED /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		755F5F17270DE78600D416ED /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
-		755FBF0826AF0F1600E9D408 /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
 		757F0B7D26D8D6CE000C0865 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		757F7F982746D4F4005E031E /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		757F7F9B2746F8E9005E031E /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
@@ -985,7 +984,6 @@
 				222D8C52273D7D5900542407 /* MacOS_Info.plist */,
 				7504EA6D267B4E7B00023D42 /* Resources */,
 				C64B495426B8B3F70004A692 /* Scenes */,
-				755FBF0726AF0F0100E9D408 /* Services */,
 			);
 			path = DVPNApp;
 			sourceTree = "<group>";
@@ -1412,27 +1410,10 @@
 		75A53BF2273E5E220003F54A /* SecurityService */ = {
 			isa = PBXGroup;
 			children = (
-				75A53BF4273E5E470003F54A /* iOS */,
-				75A53BF3273E5E360003F54A /* macOS */,
+				75A53BF8273E5EB30003F54A /* SecurityService.swift */,
 				75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */,
 			);
 			path = SecurityService;
-			sourceTree = "<group>";
-		};
-		75A53BF3273E5E360003F54A /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				75A53BF8273E5EB30003F54A /* SecurityService.swift */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		75A53BF4273E5E470003F54A /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				755FBF0826AF0F1600E9D408 /* SecurityService.swift */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		75B0D55726CBB341009ECAFC /* UIKit */ = {
@@ -1577,13 +1558,14 @@
 		9263A42E2796D9D4003DF3A4 /* SentinelDVPN */ = {
 			isa = PBXGroup;
 			children = (
-				93843B45272498F200CE6D34 /* Models */,
-				7504EA49267A37E400023D42 /* Tunnel */,
-				9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */,
-				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
 				9263A4332796D9D6003DF3A4 /* Assets.xcassets */,
-				9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */,
+				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
+				93843B45272498F200CE6D34 /* Models */,
 				9263A4352796D9D6003DF3A4 /* Preview Content */,
+				9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */,
+				9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */,
+				755FBF0726AF0F0100E9D408 /* Services */,
+				7504EA49267A37E400023D42 /* Tunnel */,
 			);
 			path = SentinelDVPN;
 			sourceTree = "<group>";
@@ -2349,6 +2331,7 @@
 				7504E9CB267A183D00023D42 /* AppDelegate.swift in Sources */,
 				938FBA5E27056A320059469B /* TunnelManagerType.swift in Sources */,
 				7504EAA2267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift in Sources */,
+				9263A4D52797067D003DF3A4 /* SecurityService.swift in Sources */,
 				93DBF54D2716D3B4006EBC65 /* StoresWallet.swift in Sources */,
 				93C3EC39270ACED500B9CA4D /* ConnectionInfoType.swift in Sources */,
 				9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */,
@@ -2395,7 +2378,6 @@
 				7554E2BD26D4B817001355F7 /* AccountInfoViewModel.swift in Sources */,
 				939FA140270C3D960013ED75 /* CounterView.swift in Sources */,
 				C64ED2FA26C50CAE00222CA4 /* HomeView.swift in Sources */,
-				755FBF0926AF0F1600E9D408 /* SecurityService.swift in Sources */,
 				758DD9E6270B72D2000CD59B /* AccountCreationCoordinator.swift in Sources */,
 				75B0D55E26CBB633009ECAFC /* UIViewController+NavigationBar.swift in Sources */,
 				7504EA4B267A37FB00023D42 /* TunnelModel.swift in Sources */,
