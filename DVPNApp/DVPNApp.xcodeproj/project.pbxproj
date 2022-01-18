@@ -327,6 +327,94 @@
 		9263A4322796D9D4003DF3A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A4312796D9D4003DF3A4 /* ContentView.swift */; };
 		9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4332796D9D6003DF3A4 /* Assets.xcassets */; };
 		9263A4372796D9D6003DF3A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */; };
+		9263A46E2796E4C1003DF3A4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
+		9263A46F2796E4C4003DF3A4 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA67270461D20062AFD3 /* NetworkServiceType.swift */; };
+		9263A4702796E4C7003DF3A4 /* NodesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5532716DBFB006EBC65 /* NodesService.swift */; };
+		9263A4712796E4CA003DF3A4 /* NodesServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5552716DC08006EBC65 /* NodesServiceType.swift */; };
+		9263A4722796E4CE003DF3A4 /* PreloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFC272176620064AEE4 /* PreloadService.swift */; };
+		9263A4732796E4D1003DF3A4 /* PreloadServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */; };
+		9263A4742796E4D8003DF3A4 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF8273E5EB30003F54A /* SecurityService.swift */; };
+		9263A4752796E4DC003DF3A4 /* SecurityServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */; };
+		9263A4762796E4E3003DF3A4 /* StoresConnectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF54E2716D593006EBC65 /* StoresConnectInfo.swift */; };
+		9263A4772796E4E6003DF3A4 /* StoresDNSServers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF54A2716D121006EBC65 /* StoresDNSServers.swift */; };
+		9263A4782796E4E9003DF3A4 /* StoresGeneralInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5502716D626006EBC65 /* StoresGeneralInfo.swift */; };
+		9263A4792796E4EC003DF3A4 /* StoresWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF54C2716D3B4006EBC65 /* StoresWallet.swift */; };
+		9263A47A2796E4F0003DF3A4 /* StoresNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5422716A6B6006EBC65 /* StoresNodes.swift */; };
+		9263A47B2796E4F4003DF3A4 /* GeneralSettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56626CD27EC009ECAFC /* GeneralSettingsStorage.swift */; };
+		9263A47C2796E4F7003DF3A4 /* UserDefaultsStorageStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55F26CD265E009ECAFC /* UserDefaultsStorageStrategy.swift */; };
+		9263A47D2796E4FB003DF3A4 /* SettingsStorageStrategyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56226CD2717009ECAFC /* SettingsStorageStrategyType.swift */; };
+		9263A47E2796E506003DF3A4 /* AutoRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CD8272117EF00A35BCA /* AutoRealmObject.swift */; };
+		9263A47F2796E509003DF3A4 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5612717D302006EBC65 /* Persistable.swift */; };
+		9263A4802796E50C003DF3A4 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5402716940A006EBC65 /* RealmStorage.swift */; };
+		9263A4812796E50E003DF3A4 /* RealmStorage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D29CDA2721203200A35BCA /* RealmStorage+Ext.swift */; };
+		9263A4822796E512003DF3A4 /* RealmStorage+ProtocolImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */; };
+		9263A4832796E515003DF3A4 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C7A273D44CB00CEA689 /* UserConstants.swift */; };
+		9263A4842796E519003DF3A4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D0AF7272174560064AEE4 /* UserService.swift */; };
+		9263A4852796E520003DF3A4 /* SentinelNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843B462724993000CE6D34 /* SentinelNode+Ext.swift */; };
+		9263A4862796E527003DF3A4 /* PeersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA87267B715800023D42 /* PeersModel.swift */; };
+		9263A4872796E52B003DF3A4 /* TunnelChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA8B267B71C800023D42 /* TunnelChanges.swift */; };
+		9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA84267B70F700023D42 /* TunnelInterfaceModel.swift */; };
+		9263A4892796E531003DF3A4 /* TunnelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA4A267A37FB00023D42 /* TunnelModel.swift */; };
+		9263A48A2796E534003DF3A4 /* TunnelSavingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA8E267B7BB200023D42 /* TunnelSavingError.swift */; };
+		9263A48B2796E53A003DF3A4 /* TunnelManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FBA5D27056A320059469B /* TunnelManagerType.swift */; };
+		9263A48C2796E53E003DF3A4 /* TunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA60270316880062AFD3 /* TunnelManager.swift */; };
+		9263A48D2796E543003DF3A4 /* TunnelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA91267B822A00023D42 /* TunnelContainer.swift */; };
+		9263A48E2796E545003DF3A4 /* TunnelsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA53267A3AF800023D42 /* TunnelsService.swift */; };
+		9263A48F2796E548003DF3A4 /* TunnelsServiceStatusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA75267B570A00023D42 /* TunnelsServiceStatusDelegate.swift */; };
+		9263A4902796E54B003DF3A4 /* TunnelStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA78267B5B4600023D42 /* TunnelStatus.swift */; };
+		9263A4922796E593003DF3A4 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4912796E593003DF3A4 /* WireGuardKit */; };
+		9263A4932796E5C4003DF3A4 /* DVPNAppNetworkExtension_macOS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 22A8D698273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9263A4982796E613003DF3A4 /* SentinelWallet in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4972796E613003DF3A4 /* SentinelWallet */; };
+		9263A49A2796E654003DF3A4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4992796E654003DF3A4 /* RealmSwift */; };
+		9263A49C2796E660003DF3A4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A49B2796E660003DF3A4 /* Realm */; };
+		9263A49D2796E6D2003DF3A4 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56426CD2753009ECAFC /* Serializer.swift */; };
+		9263A49E2796E6D9003DF3A4 /* DNSServerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DE5C327158B1E00DC7757 /* DNSServerType.swift */; };
+		9263A49F2796E6E3003DF3A4 /* ContinentsRowViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */; };
+		9263A4A02796E6E9003DF3A4 /* ConnectionModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75568D7126E5C62100166E5F /* ConnectionModelError.swift */; };
+		9263A4A12796E6F8003DF3A4 /* NETunnelProviderManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA72267B554C00023D42 /* NETunnelProviderManager+Ext.swift */; };
+		9263A4A22796E758003DF3A4 /* NETunnelProviderProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA9F267B97E700023D42 /* NETunnelProviderProtocol+Extension.swift */; };
+		9263A4A32796E7E2003DF3A4 /* String+ArrayConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA28267A2DCA00023D42 /* String+ArrayConversion.swift */; };
+		9263A4A42796E7F1003DF3A4 /* NotificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA24267A2DCA00023D42 /* NotificationToken.swift */; };
+		9263A4A52796E805003DF3A4 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE526FC7EC100CFEBCD /* Assets.swift */; };
+		9263A4A62796E810003DF3A4 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE426FC7EC100CFEBCD /* Strings.swift */; };
+		9263A4A72796E89B003DF3A4 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75116287273AB925005F9133 /* Image+Ext.swift */; };
+		9263A4A92796E907003DF3A4 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B261126AFEC4A00BD711E /* RouterType.swift */; };
+		9263A4AA2796E913003DF3A4 /* CreationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75116293273ABFC1005F9133 /* CreationMode.swift */; };
+		9263A4AC2796E93D003DF3A4 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4AB2796E93D003DF3A4 /* SwiftKeychainWrapper */; };
+		9263A4AF2796E968003DF3A4 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4AE2796E968003DF3A4 /* FlagKit */; };
+		9263A4B02796E9BB003DF3A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75D6564026C526CC000056B4 /* Localizable.strings */; };
+		9263A4B12796E9BF003DF3A4 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 93DBF576271939EF006EBC65 /* Localizable.stringsdict */; };
+		9263A4B22796E9C4003DF3A4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */; };
+		9263A4B32796E9C8003DF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7504E9D3267A184000023D42 /* Assets.xcassets */; };
+		9263A4B52796E9F6003DF3A4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE6270DB51B00D416ED /* Poppins-ExtraLight.ttf */; };
+		9263A4B62796E9F8003DF3A4 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE7270DB51B00D416ED /* Poppins-ThinItalic.ttf */; };
+		9263A4B72796E9FB003DF3A4 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE8270DB51B00D416ED /* Poppins-ExtraLightItalic.ttf */; };
+		9263A4B82796E9FD003DF3A4 /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE9270DB51B00D416ED /* Poppins-BoldItalic.ttf */; };
+		9263A4B92796EA00003DF3A4 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EEA270DB51B00D416ED /* Poppins-Light.ttf */; };
+		9263A4BA2796EA03003DF3A4 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EEB270DB51B00D416ED /* Poppins-Medium.ttf */; };
+		9263A4BB2796EA06003DF3A4 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EEC270DB51B00D416ED /* Poppins-SemiBoldItalic.ttf */; };
+		9263A4BC2796EA08003DF3A4 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EED270DB51B00D416ED /* Poppins-ExtraBoldItalic.ttf */; };
+		9263A4BD2796EA0B003DF3A4 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EEE270DB51B00D416ED /* Poppins-ExtraBold.ttf */; };
+		9263A4BE2796EA0E003DF3A4 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EEF270DB51B00D416ED /* Poppins-BlackItalic.ttf */; };
+		9263A4BF2796EA11003DF3A4 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF0270DB51B00D416ED /* Poppins-Regular.ttf */; };
+		9263A4C02796EA14003DF3A4 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF1270DB51B00D416ED /* Poppins-LightItalic.ttf */; };
+		9263A4C12796EA16003DF3A4 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF2270DB51B00D416ED /* Poppins-Bold.ttf */; };
+		9263A4C22796EA19003DF3A4 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF3270DB51B00D416ED /* Poppins-Black.ttf */; };
+		9263A4C32796EA1B003DF3A4 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF4270DB51B00D416ED /* Poppins-Thin.ttf */; };
+		9263A4C42796EA1E003DF3A4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF5270DB51B00D416ED /* Poppins-SemiBold.ttf */; };
+		9263A4C52796EA22003DF3A4 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF6270DB51B00D416ED /* Poppins-Italic.ttf */; };
+		9263A4C62796EA24003DF3A4 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF7270DB51B00D416ED /* Poppins-MediumItalic.ttf */; };
+		9263A4C82796EA41003DF3A4 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */; platformFilter = maccatalyst; };
+		9263A4CA2796EA4D003DF3A4 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4C92796EA4D003DF3A4 /* EFQRCode */; };
+		9263A4CC2796EABA003DF3A4 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4CB2796EABA003DF3A4 /* SwiftyBeaver */; };
+		9263A4CD2796EBC3003DF3A4 /* TunnelConfiguration+WireGuardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA26267A2DCA00023D42 /* TunnelConfiguration+WireGuardConfig.swift */; };
+		9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BFB0FB2722960400848912 /* ContinentDecoder.swift */; };
+		9263A4CF2796EC14003DF3A4 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3C270AF7A300B9CA4D /* Array+Ext.swift */; };
+		9263A4D02796ECDB003DF3A4 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA23267A2DCA00023D42 /* Keychain.swift */; };
+		9263A4D12796ECDD003DF3A4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA55267B408D00023D42 /* Config.swift */; };
+		9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
+		9263A4D32796ED64003DF3A4 /* NEVPNStatus+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */; };
+		9263A4D42796ED6E003DF3A4 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6562826C3A9FF000056B4 /* Formatters.swift */; };
 		9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA60270316880062AFD3 /* TunnelManager.swift */; };
 		9312CA6327045BC40062AFD3 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */; };
 		9312CA652704608D0062AFD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
@@ -452,6 +540,13 @@
 			remoteGlobalIDString = 9263A42C2796D9D4003DF3A4;
 			remoteInfo = SentinelDVPN;
 		};
+		9263A4942796E5C4003DF3A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7504E9BF267A183D00023D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22A8D697273EC6F200E78784;
+			remoteInfo = DVPNAppNetworkExtension_macOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -473,6 +568,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				7504E9ED267A196900023D42 /* DVPNAppNetworkExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9263A4962796E5C4003DF3A4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9263A4932796E5C4003DF3A4 /* DVPNAppNetworkExtension_macOS.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,6 +744,7 @@
 		9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelDVPN.entitlements; sourceTree = "<group>"; };
 		9263A43D2796D9D6003DF3A4 /* SentinelDVPNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentinelDVPNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9263A4472796D9D6003DF3A4 /* SentinelDVPNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentinelDVPNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		9312CA60270316880062AFD3 /* TunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManager.swift; sourceTree = "<group>"; };
 		9312CA6227045BC40062AFD3 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
 		9312CA642704608D0062AFD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -765,6 +872,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9263A49A2796E654003DF3A4 /* RealmSwift in Frameworks */,
+				9263A4CA2796EA4D003DF3A4 /* EFQRCode in Frameworks */,
+				9263A4922796E593003DF3A4 /* WireGuardKit in Frameworks */,
+				9263A4AC2796E93D003DF3A4 /* SwiftKeychainWrapper in Frameworks */,
+				9263A4AF2796E968003DF3A4 /* FlagKit in Frameworks */,
+				9263A49C2796E660003DF3A4 /* Realm in Frameworks */,
+				9263A4982796E613003DF3A4 /* SentinelWallet in Frameworks */,
+				9263A4C82796EA41003DF3A4 /* NetworkExtension.framework in Frameworks */,
+				9263A4CC2796EABA003DF3A4 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +1027,7 @@
 		7504E9E3267A196900023D42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */,
 				751161F5273A86E0005F9133 /* NetworkExtension.framework */,
 				22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */,
 				7504E9E4267A196900023D42 /* NetworkExtension.framework */,
@@ -1947,12 +2064,24 @@
 				9263A4292796D9D4003DF3A4 /* Sources */,
 				9263A42A2796D9D4003DF3A4 /* Frameworks */,
 				9263A42B2796D9D4003DF3A4 /* Resources */,
+				9263A4962796E5C4003DF3A4 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9263A4952796E5C4003DF3A4 /* PBXTargetDependency */,
 			);
 			name = SentinelDVPN;
+			packageProductDependencies = (
+				9263A4912796E593003DF3A4 /* WireGuardKit */,
+				9263A4972796E613003DF3A4 /* SentinelWallet */,
+				9263A4992796E654003DF3A4 /* RealmSwift */,
+				9263A49B2796E660003DF3A4 /* Realm */,
+				9263A4AB2796E93D003DF3A4 /* SwiftKeychainWrapper */,
+				9263A4AE2796E968003DF3A4 /* FlagKit */,
+				9263A4C92796EA4D003DF3A4 /* EFQRCode */,
+				9263A4CB2796EABA003DF3A4 /* SwiftyBeaver */,
+			);
 			productName = SentinelDVPN;
 			productReference = 9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */;
 			productType = "com.apple.product-type.application";
@@ -2150,7 +2279,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				9263A4372796D9D6003DF3A4 /* Preview Assets.xcassets in Resources */,
+				9263A4C62796EA24003DF3A4 /* Poppins-MediumItalic.ttf in Resources */,
+				9263A4BD2796EA0B003DF3A4 /* Poppins-ExtraBold.ttf in Resources */,
+				9263A4B62796E9F8003DF3A4 /* Poppins-ThinItalic.ttf in Resources */,
+				9263A4B12796E9BF003DF3A4 /* Localizable.stringsdict in Resources */,
+				9263A4C22796EA19003DF3A4 /* Poppins-Black.ttf in Resources */,
+				9263A4C52796EA22003DF3A4 /* Poppins-Italic.ttf in Resources */,
+				9263A4BB2796EA06003DF3A4 /* Poppins-SemiBoldItalic.ttf in Resources */,
+				9263A4BF2796EA11003DF3A4 /* Poppins-Regular.ttf in Resources */,
+				9263A4C12796EA16003DF3A4 /* Poppins-Bold.ttf in Resources */,
+				9263A4B72796E9FB003DF3A4 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				9263A4C02796EA14003DF3A4 /* Poppins-LightItalic.ttf in Resources */,
+				9263A4B02796E9BB003DF3A4 /* Localizable.strings in Resources */,
+				9263A4B22796E9C4003DF3A4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */,
+				9263A4B32796E9C8003DF3A4 /* Assets.xcassets in Resources */,
+				9263A4C42796EA1E003DF3A4 /* Poppins-SemiBold.ttf in Resources */,
 				9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */,
+				9263A4B52796E9F6003DF3A4 /* Poppins-ExtraLight.ttf in Resources */,
+				9263A4C32796EA1B003DF3A4 /* Poppins-Thin.ttf in Resources */,
+				9263A4BC2796EA08003DF3A4 /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				9263A4BE2796EA0E003DF3A4 /* Poppins-BlackItalic.ttf in Resources */,
+				9263A4BA2796EA03003DF3A4 /* Poppins-Medium.ttf in Resources */,
+				9263A4B92796EA00003DF3A4 /* Poppins-Light.ttf in Resources */,
+				9263A4B82796E9FD003DF3A4 /* Poppins-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2581,8 +2732,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9263A4762796E4E3003DF3A4 /* StoresConnectInfo.swift in Sources */,
+				9263A4872796E52B003DF3A4 /* TunnelChanges.swift in Sources */,
+				9263A4852796E520003DF3A4 /* SentinelNode+Ext.swift in Sources */,
+				9263A4A12796E6F8003DF3A4 /* NETunnelProviderManager+Ext.swift in Sources */,
+				9263A4842796E519003DF3A4 /* UserService.swift in Sources */,
+				9263A4752796E4DC003DF3A4 /* SecurityServiceError.swift in Sources */,
+				9263A4902796E54B003DF3A4 /* TunnelStatus.swift in Sources */,
+				9263A48B2796E53A003DF3A4 /* TunnelManagerType.swift in Sources */,
+				9263A4802796E50C003DF3A4 /* RealmStorage.swift in Sources */,
+				9263A47E2796E506003DF3A4 /* AutoRealmObject.swift in Sources */,
+				9263A4702796E4C7003DF3A4 /* NodesService.swift in Sources */,
+				9263A4712796E4CA003DF3A4 /* NodesServiceType.swift in Sources */,
+				9263A48E2796E545003DF3A4 /* TunnelsService.swift in Sources */,
+				9263A4862796E527003DF3A4 /* PeersModel.swift in Sources */,
+				9263A4A32796E7E2003DF3A4 /* String+ArrayConversion.swift in Sources */,
+				9263A4772796E4E6003DF3A4 /* StoresDNSServers.swift in Sources */,
+				9263A47A2796E4F0003DF3A4 /* StoresNodes.swift in Sources */,
+				9263A46F2796E4C4003DF3A4 /* NetworkServiceType.swift in Sources */,
+				9263A4A22796E758003DF3A4 /* NETunnelProviderProtocol+Extension.swift in Sources */,
+				9263A4A62796E810003DF3A4 /* Strings.swift in Sources */,
+				9263A4CF2796EC14003DF3A4 /* Array+Ext.swift in Sources */,
+				9263A47C2796E4F7003DF3A4 /* UserDefaultsStorageStrategy.swift in Sources */,
 				9263A4322796D9D4003DF3A4 /* ContentView.swift in Sources */,
+				9263A4A42796E7F1003DF3A4 /* NotificationToken.swift in Sources */,
+				9263A47D2796E4FB003DF3A4 /* SettingsStorageStrategyType.swift in Sources */,
+				9263A4822796E512003DF3A4 /* RealmStorage+ProtocolImplementations.swift in Sources */,
+				9263A4A52796E805003DF3A4 /* Assets.swift in Sources */,
+				9263A46E2796E4C1003DF3A4 /* NetworkService.swift in Sources */,
+				9263A4812796E50E003DF3A4 /* RealmStorage+Ext.swift in Sources */,
+				9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */,
+				9263A4792796E4EC003DF3A4 /* StoresWallet.swift in Sources */,
+				9263A48F2796E548003DF3A4 /* TunnelsServiceStatusDelegate.swift in Sources */,
+				9263A49F2796E6E3003DF3A4 /* ContinentsRowViewType.swift in Sources */,
+				9263A4A92796E907003DF3A4 /* RouterType.swift in Sources */,
+				9263A48D2796E543003DF3A4 /* TunnelContainer.swift in Sources */,
+				9263A49E2796E6D9003DF3A4 /* DNSServerType.swift in Sources */,
+				9263A4A02796E6E9003DF3A4 /* ConnectionModelError.swift in Sources */,
+				9263A4732796E4D1003DF3A4 /* PreloadServiceType.swift in Sources */,
+				9263A4D42796ED6E003DF3A4 /* Formatters.swift in Sources */,
+				9263A4D12796ECDD003DF3A4 /* Config.swift in Sources */,
+				9263A4892796E531003DF3A4 /* TunnelModel.swift in Sources */,
+				9263A49D2796E6D2003DF3A4 /* Serializer.swift in Sources */,
+				9263A47F2796E509003DF3A4 /* Persistable.swift in Sources */,
+				9263A4832796E515003DF3A4 /* UserConstants.swift in Sources */,
+				9263A4D02796ECDB003DF3A4 /* Keychain.swift in Sources */,
+				9263A47B2796E4F4003DF3A4 /* GeneralSettingsStorage.swift in Sources */,
+				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
+				9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */,
+				9263A4A72796E89B003DF3A4 /* Image+Ext.swift in Sources */,
+				9263A4782796E4E9003DF3A4 /* StoresGeneralInfo.swift in Sources */,
+				9263A4742796E4D8003DF3A4 /* SecurityService.swift in Sources */,
+				9263A48A2796E534003DF3A4 /* TunnelSavingError.swift in Sources */,
+				9263A4AA2796E913003DF3A4 /* CreationMode.swift in Sources */,
+				9263A48C2796E53E003DF3A4 /* TunnelManager.swift in Sources */,
 				9263A4302796D9D4003DF3A4 /* SentinelDVPNApp.swift in Sources */,
+				9263A4D32796ED64003DF3A4 /* NEVPNStatus+Ext.swift in Sources */,
+				9263A4CD2796EBC3003DF3A4 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
+				9263A4722796E4CE003DF3A4 /* PreloadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2632,6 +2839,11 @@
 			isa = PBXTargetDependency;
 			target = 9263A42C2796D9D4003DF3A4 /* SentinelDVPN */;
 			targetProxy = 9263A4482796D9D6003DF3A4 /* PBXContainerItemProxy */;
+		};
+		9263A4952796E5C4003DF3A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22A8D697273EC6F200E78784 /* DVPNAppNetworkExtension_macOS */;
+			targetProxy = 9263A4942796E5C4003DF3A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3068,7 +3280,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SentinelDVPN/Preview Content\"";
-				DEVELOPMENT_TEAM = FVU6756987;
+				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3098,7 +3310,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SentinelDVPN/Preview Content\"";
-				DEVELOPMENT_TEAM = FVU6756987;
+				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -3483,6 +3695,46 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */;
 			productName = FlagKit;
+		};
+		9263A4912796E593003DF3A4 /* WireGuardKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7504E9F4267A1AFD00023D42 /* XCRemoteSwiftPackageReference "wireguard-apple" */;
+			productName = WireGuardKit;
+		};
+		9263A4972796E613003DF3A4 /* SentinelWallet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */;
+			productName = SentinelWallet;
+		};
+		9263A4992796E654003DF3A4 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		9263A49B2796E660003DF3A4 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		9263A4AB2796E93D003DF3A4 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 755FBF0426AF0E6E00E9D408 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+		9263A4AE2796E968003DF3A4 /* FlagKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */;
+			productName = FlagKit;
+		};
+		9263A4C92796EA4D003DF3A4 /* EFQRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75D6561426C02896000056B4 /* XCRemoteSwiftPackageReference "EFQRCode" */;
+			productName = EFQRCode;
+		};
+		9263A4CB2796EABA003DF3A4 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7504EA16267A26C800023D42 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
 		};
 		93D29CDD272127BF00A35BCA /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
