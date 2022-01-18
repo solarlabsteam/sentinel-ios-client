@@ -91,7 +91,6 @@
 		7504EAAB267B983800023D42 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */; };
 		7511620F273A8852005F9133 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751161F5273A86E0005F9133 /* NetworkExtension.framework */; };
-		75116210273A885E005F9133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7504E9D3267A184000023D42 /* Assets.xcassets */; };
 		75116211273A88FC005F9133 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA55267B408D00023D42 /* Config.swift */; };
 		75116213273A89BB005F9133 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 75116212273A89BB005F9133 /* SwiftyBeaver */; };
 		75116215273A8B93005F9133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75116200273A8837005F9133 /* AppDelegate.swift */; };
@@ -212,7 +211,6 @@
 		75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE426FC7EC100CFEBCD /* Strings.swift */; };
 		75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359CE526FC7EC100CFEBCD /* Assets.swift */; };
 		75359D3126FCA41600CFEBCD /* UIColor+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75359D3026FCA41600CFEBCD /* UIColor+SwiftUI.swift */; };
-		753783CC273862EF00CF83CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7504E9D3267A184000023D42 /* Assets.xcassets */; };
 		753EDDFD2715633A00DA76F8 /* NodeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF52715633A00DA76F8 /* NodeSelectionView.swift */; };
 		753EDDFE2715633A00DA76F8 /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF72715633A00DA76F8 /* ScaleView.swift */; };
 		753EDDFF2715633A00DA76F8 /* NodeSelectionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF82715633A00DA76F8 /* NodeSelectionRowViewModel.swift */; };
@@ -384,7 +382,6 @@
 		9263A4B02796E9BB003DF3A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75D6564026C526CC000056B4 /* Localizable.strings */; };
 		9263A4B12796E9BF003DF3A4 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 93DBF576271939EF006EBC65 /* Localizable.stringsdict */; };
 		9263A4B22796E9C4003DF3A4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */ = {isa = PBXBuildFile; fileRef = 932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */; };
-		9263A4B32796E9C8003DF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7504E9D3267A184000023D42 /* Assets.xcassets */; };
 		9263A4B52796E9F6003DF3A4 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE6270DB51B00D416ED /* Poppins-ExtraLight.ttf */; };
 		9263A4B62796E9F8003DF3A4 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE7270DB51B00D416ED /* Poppins-ThinItalic.ttf */; };
 		9263A4B72796E9FB003DF3A4 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE8270DB51B00D416ED /* Poppins-ExtraLightItalic.ttf */; };
@@ -591,7 +588,6 @@
 		7504E9C7267A183D00023D42 /* DVPNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DVPNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7504E9CA267A183D00023D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7504E9CC267A183D00023D42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7504E9D3267A184000023D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DVPNApp/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7504E9D6267A184000023D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7504E9D8267A184000023D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DVPNApp/Info.plist; sourceTree = SOURCE_ROOT; };
 		7504E9E2267A196900023D42 /* DVPNAppNetworkExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DVPNAppNetworkExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -981,7 +977,6 @@
 				75116209273A8839005F9133 /* SentinelDVPNmacOS.entitlements */,
 				7504E9D8267A184000023D42 /* Info.plist */,
 				222D8C52273D7D5900542407 /* MacOS_Info.plist */,
-				7504EA6D267B4E7B00023D42 /* Resources */,
 				C64B495426B8B3F70004A692 /* Scenes */,
 			);
 			path = DVPNApp;
@@ -1067,14 +1062,6 @@
 				75D6560626BBF42B000056B4 /* Context */,
 			);
 			path = Root;
-			sourceTree = "<group>";
-		};
-		7504EA6D267B4E7B00023D42 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7504E9D3267A184000023D42 /* Assets.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		7504EA82267B70D000023D42 /* Service */ = {
@@ -2146,7 +2133,6 @@
 				755F5EFD270DB51B00D416ED /* Poppins-Medium.ttf in Resources */,
 				75D6564126C526CC000056B4 /* Localizable.strings in Resources */,
 				755F5F08270DB51B00D416ED /* Poppins-Italic.ttf in Resources */,
-				753783CC273862EF00CF83CD /* Assets.xcassets in Resources */,
 				755F5F09270DB51B00D416ED /* Poppins-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2169,7 +2155,6 @@
 				75116236273AAF6F005F9133 /* Poppins-ExtraLight.ttf in Resources */,
 				7511623A273AAF6F005F9133 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				75116244273AAF6F005F9133 /* Poppins-Bold.ttf in Resources */,
-				75116210273A885E005F9133 /* Assets.xcassets in Resources */,
 				7511623B273AAF6F005F9133 /* Poppins-SemiBold.ttf in Resources */,
 				7511623F273AAF6F005F9133 /* Poppins-Light.ttf in Resources */,
 				75116235273AAF6F005F9133 /* Poppins-MediumItalic.ttf in Resources */,
@@ -2205,7 +2190,6 @@
 				9263A4C02796EA14003DF3A4 /* Poppins-LightItalic.ttf in Resources */,
 				9263A4B02796E9BB003DF3A4 /* Localizable.strings in Resources */,
 				9263A4B22796E9C4003DF3A4 /* co.sentinel.sentinellite.regional.countries_extras.json in Resources */,
-				9263A4B32796E9C8003DF3A4 /* Assets.xcassets in Resources */,
 				9263A4C42796EA1E003DF3A4 /* Poppins-SemiBold.ttf in Resources */,
 				9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */,
 				9263A4B52796E9F6003DF3A4 /* Poppins-ExtraLight.ttf in Resources */,
