@@ -1541,6 +1541,7 @@
 		9263A42E2796D9D4003DF3A4 /* SentinelDVPN */ = {
 			isa = PBXGroup;
 			children = (
+				93D304A327974DAF00469A75 /* Scenes */,
 				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
 				75359CE326FC7EC100CFEBCD /* Generated */,
 				93843B45272498F200CE6D34 /* Models */,
@@ -1659,6 +1660,13 @@
 				9263A4332796D9D6003DF3A4 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		93D304A327974DAF00469A75 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		93DBF53E271693B5006EBC65 /* GeneralSettingsStorage */ = {
@@ -3149,7 +3157,7 @@
 		9263A44F2796D9D6003DF3A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = SentinelDVPN/SentinelDVPN.entitlements;
@@ -3166,7 +3174,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3179,7 +3187,7 @@
 		9263A4502796D9D6003DF3A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = SentinelDVPN/SentinelDVPN.entitlements;
@@ -3196,7 +3204,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
