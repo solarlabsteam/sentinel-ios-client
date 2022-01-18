@@ -986,8 +986,6 @@
 				7504EA6D267B4E7B00023D42 /* Resources */,
 				C64B495426B8B3F70004A692 /* Scenes */,
 				755FBF0726AF0F0100E9D408 /* Services */,
-				93843B45272498F200CE6D34 /* Models */,
-				7504EA49267A37E400023D42 /* Tunnel */,
 			);
 			path = DVPNApp;
 			sourceTree = "<group>";
@@ -1579,6 +1577,8 @@
 		9263A42E2796D9D4003DF3A4 /* SentinelDVPN */ = {
 			isa = PBXGroup;
 			children = (
+				93843B45272498F200CE6D34 /* Models */,
+				7504EA49267A37E400023D42 /* Tunnel */,
 				9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */,
 				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
 				9263A4332796D9D6003DF3A4 /* Assets.xcassets */,
