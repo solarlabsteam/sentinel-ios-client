@@ -67,8 +67,6 @@ internal enum L10n {
   internal enum AccountInfo {
     /// Copy
     internal static let copy = L10n.tr("Localizable", "AccountInfo.Copy")
-    /// Current price
-    internal static let currentPrice = L10n.tr("Localizable", "AccountInfo.CurrentPrice")
     /// Scan QR code to receive
     internal static let qr = L10n.tr("Localizable", "AccountInfo.QR")
     /// Share

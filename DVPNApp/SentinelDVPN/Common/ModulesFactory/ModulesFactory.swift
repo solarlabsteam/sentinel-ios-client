@@ -53,6 +53,14 @@ extension ModulesFactory {
 
         return view
     }
+    
+    func makeAccountInfoScene() -> AccountInfoView {
+        let model = AccountInfoModel(context: context)
+        let viewModel = AccountInfoViewModel(model: model)
+        let view = AccountInfoView(viewModel: viewModel)
+        
+        return view
+    }
 }
 
 // MARK: - Scenes previews
@@ -62,6 +70,14 @@ extension ModulesFactory {
         let model = NodeSelectionModel(context: context)
         let viewModel = NodeSelectionViewModel(model: model)
         let view = NodeSelectionView(viewModel: viewModel)
+
+        return view
+    }
+    
+    func getAccountInfoScene() -> AccountInfoView {
+        let model = AccountInfoModel(context: context)
+        let viewModel = AccountInfoViewModel(model: model)
+        let view = AccountInfoView(viewModel: viewModel)
 
         return view
     }

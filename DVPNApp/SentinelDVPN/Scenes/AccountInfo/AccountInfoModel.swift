@@ -7,11 +7,9 @@
 
 import Foundation
 import Combine
-import SentinelWallet
 
 enum AccountInfoModelEvent {
     case update(balance: String)
-    case set(exchangeRates: [ExchangeRates])
     case error(Error)
 }
 
@@ -53,22 +51,5 @@ extension AccountInfoModel {
                     self?.eventSubject.send(.update(balance: balance))
                 }
             ).store(in: &cancellables)
-        
-        loadPriceInfo()
-    }
-}
-
-extension AccountInfoModel {
-    private func loadPriceInfo() {
-        // Warning: We use only udvpn for this moment.
-        context.walletService.getPrices(for: "udvpn") { [weak self] result in
-            switch result {
-            case .failure(let error):
-                log.error(error)
-                self?.eventSubject.send(.error(error))
-            case .success(let exchangeRates):
-                self?.eventSubject.send(.set(exchangeRates: exchangeRates))
-            }
-        }
     }
 }
