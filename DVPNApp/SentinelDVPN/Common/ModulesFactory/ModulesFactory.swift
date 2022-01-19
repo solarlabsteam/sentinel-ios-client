@@ -61,6 +61,14 @@ extension ModulesFactory {
         
         return view
     }
+    
+    func getConnectionScene() -> ConnectionView {
+        let model = ConnectionModel(context: context)
+        let viewModel = ConnectionViewModel(model: model)
+        let view = ConnectionView(viewModel: viewModel)
+        
+        return view
+    }
 }
 
 // MARK: - Scenes previews
@@ -79,6 +87,14 @@ extension ModulesFactory {
         let viewModel = AccountInfoViewModel(model: model)
         let view = AccountInfoView(viewModel: viewModel)
 
+        return view
+    }
+    
+    func makeConnectionScene() -> ConnectionView {
+        let model = ConnectionModel(context: context)
+        let viewModel = ConnectionViewModel(model: model)
+        let view = ConnectionView(viewModel: viewModel)
+        
         return view
     }
 }

@@ -1,6 +1,6 @@
 //
 //  ConnectionInfoView.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
@@ -16,6 +16,18 @@ struct ConnectionInfoView: View {
         self.viewModel = viewModel
     }
     
+    var body: some View {
+        HStack(alignment: .center) {
+            icon
+            textContentView
+        }
+        .frame(width: 164, height: 80)
+    }
+}
+
+// MARK: - Subviews
+
+extension ConnectionInfoView {
     var icon: some View {
         viewModel.type.icon.asImage
             .resizable()
@@ -37,14 +49,6 @@ struct ConnectionInfoView: View {
             Text(viewModel.type.title)
                 .applyTextStyle(.grayPoppins(ofSize: 13, weight: .light))
         }
-    }
-    
-    var body: some View {
-        HStack(alignment: .center) {
-            icon
-            textContentView
-        }
-        .frame(width: 164, height: 80)
     }
 }
 

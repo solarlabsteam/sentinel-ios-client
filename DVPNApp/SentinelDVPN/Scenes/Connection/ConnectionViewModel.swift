@@ -5,8 +5,8 @@ import FlagKit
 import GRPC
 
 final class ConnectionViewModel: ObservableObject {
-    typealias Router = AnyRouter<Route>
-    private let router: Router
+//    typealias Router = AnyRouter<Route>
+//    private let router: Router
     
     @Published private(set) var bandwidthConsumedGB: String?
     
@@ -39,7 +39,7 @@ final class ConnectionViewModel: ObservableObject {
     enum Route {
         case error(Error)
         case warning(Error)
-        case openPlans(for: DVPNNodeInfo, delegate: PlansViewModelDelegate?)
+//        case openPlans(for: DVPNNodeInfo, delegate: PlansViewModelDelegate?)
         case accountInfo
         case dismiss(isEnabled: Bool)
         case resubscribe(completion: (Bool) -> Void)
@@ -50,9 +50,8 @@ final class ConnectionViewModel: ObservableObject {
     
     private var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     
-    init(model: ConnectionModel, router: Router) {
+    init(model: ConnectionModel) {
         self.model = model
-        self.router = router
         
         self.model.eventPublisher
             .receive(on: DispatchQueue.main)
@@ -76,23 +75,27 @@ final class ConnectionViewModel: ObservableObject {
                     )
                 case let .setButton(isLoading):
                     self?.updateButton(isLoading: isLoading)
-                    self?.router.play(event: .dismiss(isEnabled: !isLoading))
+                    #warning("TODO")
+//                    self?.router.play(event: .dismiss(isEnabled: !isLoading))
                 case let .error(error):
                     self?.show(error: error)
                 case let .openPlans(node):
-                    router.play(event: .openPlans(for: node, delegate: self))
+                    #warning("TODO")
+//                    router.play(event: .openPlans(for: node, delegate: self))
                 case let .warning(error):
-                    router.play(event: .warning(error))
+                    #warning("TODO")
+//                    router.play(event: .warning(error))
                 case let .resubscribe(node):
-                    router.play(
-                        event: .resubscribe { [weak self] result in
-                            guard let self = self, result else {
-                                return
-                            }
-                            
-                            router.play(event: .openPlans(for: node, delegate: self))
-                        }
-                    )
+                    #warning("TODO")
+//                    router.play(
+//                        event: .resubscribe { [weak self] result in
+//                            guard let self = self, result else {
+//                                return
+//                            }
+//
+//                            router.play(event: .openPlans(for: node, delegate: self))
+//                        }
+//                    )
                 }
             }
             .store(in: &cancellables)
@@ -116,9 +119,6 @@ extension ConnectionViewModel {
     }
     
     func toggleConnection(_ newState: Bool) {
-#if os(iOS)
-        UIImpactFeedbackGenerator.lightFeedback()
-#endif
         newState ? model.connect() : model.disconnect()
     }
 
@@ -128,26 +128,24 @@ extension ConnectionViewModel {
 
     @objc
     func didTapAccountInfoButton() {
-#if os(iOS)
-        UIImpactFeedbackGenerator.lightFeedback()
-#endif
-        router.play(event: .accountInfo)
+//        router.play(event: .accountInfo)
     }
 }
 
 // MARK: - PlansViewModelDelegate
 
-extension ConnectionViewModel: PlansViewModelDelegate {
-    func openConnection() {
-        model.checkNodeForUpdate()
-    }
-}
+#warning("TODO")
+//extension ConnectionViewModel: PlansViewModelDelegate {
+//    func openConnection() {
+//        model.checkNodeForUpdate()
+//    }
+//}
 
 // MARK: - Private
 
 extension ConnectionViewModel {
     private func show(error: Error) {
-        router.play(event: .error(error))
+//        router.play(event: .error(error))
     }
     
     private func setConnectionInfoViewModels() {
@@ -171,18 +169,11 @@ extension ConnectionViewModel {
     private func updateLocation(countryName: String, moniker: String) {
         self.countryName = countryName
         self.moniker = moniker
-#if os(iOS)
-        if let countryCode = CountryFormatter.code(for: countryName),
-           let image = Flag(countryCode: countryCode)?.image(style: .roundedRect) {
-            self.countryImage = image
-        }
-#elseif os(macOS)
+        
         if let countryCode = CountryFormatter.code(for: countryName),
            let image = Flag(countryCode: countryCode)?.originalImage {
             self.countryImage = image
         }
-#endif
-        
     }
     
     private func updateBandwidth(bandwidth: Bandwidth) {

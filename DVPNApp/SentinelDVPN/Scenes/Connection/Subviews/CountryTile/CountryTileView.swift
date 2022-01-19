@@ -1,3 +1,10 @@
+//
+//  CountryTileView.swift
+//  SentinelDVPN
+//
+//  Created by Victoria Kostyleva on 04.10.2021.
+//
+
 import SwiftUI
 import FlagKit
 
@@ -11,7 +18,11 @@ struct CountryTileView: View {
     ) {
         self.viewModel = viewModel
     }
-    
+}
+
+// MARK: - Subviews
+
+extension CountryTileView {
     var countryViewFlag: some View {
         HStack(alignment: .center) {
             viewModel.icon.asImage
@@ -26,11 +37,6 @@ struct CountryTileView: View {
                 Text(viewModel.subtitle)
                     .applyTextStyle(.grayPoppins(ofSize: 10, weight: .medium))
             }
-            
-            Spacer()
-            
-            viewModel.speedImage.asImage
-                .frame(width: 20, height: viewHeight)
         }
     }
     
@@ -57,23 +63,7 @@ struct CountryTileView: View {
 }
 
 // swiftlint:disable force_unwrapping
-#if os(iOS)
-struct CountryTileView_Previews: PreviewProvider {
-    static var previews: some View {
-        CountryTileView(
-            viewModel:
-                    .init(
-                        id: "id",
-                        icon: Flag(countryCode: "EE")!.image(style: .roundedRect),
-                        title: "Test",
-                        subtitle: "8.8.8.8",
-                        speed: Asset.Connection.Wifi.scales3.image
-                    )
-        )
-    }
-}
 
-#elseif os(macOS)
 struct CountryTileView_Previews: PreviewProvider {
     static var previews: some View {
         CountryTileView(
@@ -82,11 +72,10 @@ struct CountryTileView_Previews: PreviewProvider {
                         id: "id",
                         icon: Flag(countryCode: "EE")!.originalImage,
                         title: "Test",
-                        subtitle: "8.8.8.8",
-                        speed: Asset.Connection.Wifi.scales3.image
+                        subtitle: "8.8.8.8"
                     )
         )
     }
 }
 
-#endif
+// swiftlint:enable force_unwrapping

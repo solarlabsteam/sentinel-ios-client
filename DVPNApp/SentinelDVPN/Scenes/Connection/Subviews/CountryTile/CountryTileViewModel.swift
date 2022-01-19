@@ -1,6 +1,6 @@
 //
 //  CountryTileViewModel.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
@@ -13,20 +13,17 @@ struct CountryTileViewModel: Hashable, Identifiable {
     let icon: ImageAsset.Image
     let title: String?
     let subtitle: String
-    let speedImage: ImageAsset.Image
     
     init(
         id: String,
         icon: ImageAsset.Image,
         title: String?,
-        subtitle: String,
-        speed: ImageAsset.Image
+        subtitle: String
     ) {
         self.id = id
         self.icon = icon
         self.title = title
         self.subtitle = subtitle
-        self.speedImage = speed
     }
 
     init(from node: Node, icon: ImageAsset.Image) {
@@ -34,8 +31,7 @@ struct CountryTileViewModel: Hashable, Identifiable {
             id: node.info.address,
             icon: icon,
             title: node.info.moniker,
-            subtitle: String(node.info.address.suffix(6)),
-            speed: node.info.bandwidth.speedImage
+            subtitle: String(node.info.address.suffix(6))
         )
     }
 }

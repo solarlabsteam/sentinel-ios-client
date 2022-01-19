@@ -25,13 +25,6 @@ struct ConnectionView: View {
                         )
                     })
                     .onAppear { viewModel.viewWillAppear() }
-#if os(iOS)
-                    .onReceive(
-                        NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
-                    ) { _ in
-                        viewModel.didEnterForeground()
-                    }
-#endif
             }
             .onPreferenceChange(ViewHeightKey.self) {
                 self.fitInScreen = $0 < gProxy.size.height
@@ -53,8 +46,7 @@ extension ConnectionView {
                         id: "0",
                         icon: viewModel.countryImage ?? ImageAsset.Image(),
                         title: viewModel.countryName,
-                        subtitle: viewModel.moniker ?? "",
-                        speed: viewModel.speedImage ?? ImageAsset.Image()
+                        subtitle: viewModel.moniker ?? ""
                     )
         )
             .padding(.horizontal, 16)
@@ -64,7 +56,7 @@ extension ConnectionView {
         VStack(spacing: 10) {
             VStack(spacing: 4) {
                 Text(viewModel.bandwidthConsumedGB ?? "-")
-                    .applyTextStyle(.whitePoppins(ofSize: 30, weight: .bold))
+                    .applyTextStyle(.whitePoppins(ofSize: 30, weight: .regular))
                 
                 Text(L10n.Common.gb)
                     .applyTextStyle(.lightGrayPoppins(ofSize: 16, weight: .regular))
@@ -88,38 +80,32 @@ extension ConnectionView {
     }
     
     var contentView: some View {
-        VStack {
-            VStack(spacing: 0) {
-                locationSelector
-                    .padding(.horizontal, 10)
+        VStack(spacing: 30) {
+            locationSelector
+                .padding(.top, 40)
+                .padding(.horizontal, 10)
+            
+            bandwidthConsumedView
+            
+            GridView(models: viewModel.gridViewModels)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 1)
+                )
+            
+            VStack(spacing: 10) {
+                Toggle(
+                    "",
+                    isOn: .init(get: { return viewModel.isConnected }, set: viewModel.toggleConnection(_:))
+                )
+                    .labelsHidden()
+                    .toggleStyle(ConnectionToggleStyle(isLoading: $viewModel.isLoading))
+                    .disabled(viewModel.isLoading)
+                    .padding(.bottom, 10)
                 
-                bandwidthConsumedView
-                    .padding(.top, 20)
-                    .padding(.bottom, 50)
-                
-                GridView(models: viewModel.gridViewModels)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 1)
-                    )
-                
-                Spacer()
-                
-                VStack(spacing: 10) {
-                    Toggle(
-                        "",
-                        isOn: .init(get: { return viewModel.isConnected }, set: viewModel.toggleConnection(_:))
-                    )
-                        .labelsHidden()
-                        .toggleStyle(ConnectionToggleStyle(isLoading: $viewModel.isLoading))
-                        .disabled(viewModel.isLoading)
-                        .padding(.bottom, 10)
-                    
-                    connectionStatus
-                }
+                connectionStatus
             }
-            .padding(.bottom, 44)
-        }
+        }.frame(maxWidth: .infinity)
     }
 }
 

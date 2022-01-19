@@ -19,7 +19,7 @@
 		222D8C57273E6DE500542407 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495A26B8B3F70004A692 /* ConnectionModel.swift */; };
 		222D8C58273E6DE900542407 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495726B8B3F70004A692 /* ConnectionView.swift */; };
 		222D8C59273E6DEC00542407 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */; };
-		222D8C5A273E6DF500542407 /* CheckmarkToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */; };
+		222D8C5A273E6DF500542407 /* ConnectionToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */; };
 		222D8C5B273E6DFB00542407 /* ConnectionInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */; };
 		222D8C5C273E6E0000542407 /* ConnectionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC34270ACD6700B9CA4D /* ConnectionInfoView.swift */; };
 		222D8C5D273E6E0200542407 /* ConnectionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */; };
@@ -251,7 +251,6 @@
 		75B0D56326CD2717009ECAFC /* SettingsStorageStrategyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56226CD2717009ECAFC /* SettingsStorageStrategyType.swift */; };
 		75B0D56526CD2753009ECAFC /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56426CD2753009ECAFC /* Serializer.swift */; };
 		75B0D56726CD27EC009ECAFC /* GeneralSettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56626CD27EC009ECAFC /* GeneralSettingsStorage.swift */; };
-		75D655D926BAAAF4000056B4 /* ConnectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D655D826BAAAF4000056B4 /* ConnectionCoordinator.swift */; };
 		75D6560826BBF436000056B4 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6560726BBF436000056B4 /* Context.swift */; };
 		75D6560A26BBF521000056B4 /* ContextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6560926BBF521000056B4 /* ContextBuilder.swift */; };
 		75D6561626C02897000056B4 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 75D6561526C02897000056B4 /* EFQRCode */; };
@@ -266,7 +265,7 @@
 		75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDF526D78FFB00C345B9 /* GRPCError+Ext.swift */; };
 		75E5BDF926DCCF4B00C345B9 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDF826DCCF4B00C345B9 /* OnboardingStepView.swift */; };
 		75E5BDFD26DCDBDA00C345B9 /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */; };
-		75E5BDFF26DE16FC00C345B9 /* CheckmarkToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */; };
+		75E5BDFF26DE16FC00C345B9 /* ConnectionToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */; };
 		92074C7B273D44CB00CEA689 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C7A273D44CB00CEA689 /* UserConstants.swift */; };
 		92074C7F273D4CFB00CEA689 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF326F3286B001EA78D /* ConnectionStatus.swift */; };
 		92074C81273D4E8000CEA689 /* PlansViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */; };
@@ -432,6 +431,20 @@
 		93D304E7279833CC00469A75 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */; };
 		93D304E8279834CF00469A75 /* FramedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378543E270ECA400004483C /* FramedButton.swift */; };
 		93D304E9279834D300469A75 /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93785440270ECC810004483C /* AccentButton.swift */; };
+		93D304EA27983C6100469A75 /* ConnectionToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */; };
+		93D304EB27983C6900469A75 /* ConnectionInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC38270ACED500B9CA4D /* ConnectionInfoType.swift */; };
+		93D304EC27983C6F00469A75 /* ConnectionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC34270ACD6700B9CA4D /* ConnectionInfoView.swift */; };
+		93D304ED27983C9900469A75 /* ConnectionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC36270ACE7200B9CA4D /* ConnectionInfoViewModel.swift */; };
+		93D304EE27983CA000469A75 /* CountryTileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */; };
+		93D304EF27983CA800469A75 /* CountryTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495926B8B3F70004A692 /* CountryTileView.swift */; };
+		93D304F027983DC400469A75 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495726B8B3F70004A692 /* ConnectionView.swift */; };
+		93D304F127983DC800469A75 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */; };
+		93D304F227983DCA00469A75 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495A26B8B3F70004A692 /* ConnectionModel.swift */; };
+		93D304F327983DCD00469A75 /* ConnectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */; };
+		93D304F427983EDE00469A75 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3A270AF19400B9CA4D /* GridView.swift */; };
+		93D304F627983F2300469A75 /* NodeInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0693270B4C770006A765 /* NodeInfoType.swift */; };
+		93D304F727983F2900469A75 /* NodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068F270B4C5E0006A765 /* NodeInfoView.swift */; };
+		93D304F827983F2B00469A75 /* NodeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */; };
 		93DBF5412716940A006EBC65 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5402716940A006EBC65 /* RealmStorage.swift */; };
 		93DBF5432716A6B6006EBC65 /* StoresNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5422716A6B6006EBC65 /* StoresNodes.swift */; };
 		93DBF5492716C0B6006EBC65 /* RealmStorage+ProtocolImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5482716C0B5006EBC65 /* RealmStorage+ProtocolImplementations.swift */; };
@@ -461,10 +474,7 @@
 		93FB6F062746F75600819A6C /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		93FB6F072746F75900819A6C /* NodeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */; };
 		93FB6F082746F75D00819A6C /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
-		C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */; };
-		C64B495C26B8B3F70004A692 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495726B8B3F70004A692 /* ConnectionView.swift */; };
 		C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495926B8B3F70004A692 /* CountryTileView.swift */; };
-		C64B495E26B8B3F70004A692 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495A26B8B3F70004A692 /* ConnectionModel.swift */; };
 		C64ED32C26C57FE900222CA4 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32426C57FE900222CA4 /* PlansView.swift */; };
 		C64ED32D26C57FE900222CA4 /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
 		C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32B26C57FE900222CA4 /* PlansModel.swift */; };
@@ -654,7 +664,6 @@
 		75B0D56226CD2717009ECAFC /* SettingsStorageStrategyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorageStrategyType.swift; sourceTree = "<group>"; };
 		75B0D56426CD2753009ECAFC /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
 		75B0D56626CD27EC009ECAFC /* GeneralSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsStorage.swift; sourceTree = "<group>"; };
-		75D655D826BAAAF4000056B4 /* ConnectionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionCoordinator.swift; sourceTree = "<group>"; };
 		75D6560726BBF436000056B4 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		75D6560926BBF521000056B4 /* ContextBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextBuilder.swift; sourceTree = "<group>"; };
 		75D6562826C3A9FF000056B4 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
@@ -667,7 +676,7 @@
 		75E5BDF526D78FFB00C345B9 /* GRPCError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRPCError+Ext.swift"; sourceTree = "<group>"; };
 		75E5BDF826DCCF4B00C345B9 /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepModel.swift; sourceTree = "<group>"; };
-		75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkToggleStyle.swift; sourceTree = "<group>"; };
+		75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionToggleStyle.swift; sourceTree = "<group>"; };
 		92074C7A273D44CB00CEA689 /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
 		92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModelDelegate.swift; sourceTree = "<group>"; };
 		9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentinelDVPN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -832,22 +841,6 @@
 			isa = PBXGroup;
 			children = (
 				758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		222D8C53273E69A600542407 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		222D8C54273E69AE00542407 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				75D655D826BAAAF4000056B4 /* ConnectionCoordinator.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1476,6 +1469,7 @@
 		93D304C52797537B00469A75 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				93D304F527983F0400469A75 /* NodeDetails */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				93D304D42797576600469A75 /* Connection */,
 				93D304C62797538500469A75 /* NodeSelection */,
@@ -1506,9 +1500,22 @@
 		93D304D42797576600469A75 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */,
+				C64B495A26B8B3F70004A692 /* ConnectionModel.swift */,
+				C64B495726B8B3F70004A692 /* ConnectionView.swift */,
+				C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */,
 				752FCFF226F3285C001EA78D /* Models */,
+				C64B495826B8B3F70004A692 /* Subviews */,
 			);
 			path = Connection;
+			sourceTree = "<group>";
+		};
+		93D304F527983F0400469A75 /* NodeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				93FA068E270B4C510006A765 /* NodeInfo */,
+			);
+			path = NodeDetails;
 			sourceTree = "<group>";
 		};
 		93DBF53E271693B5006EBC65 /* GeneralSettingsStorage */ = {
@@ -1585,7 +1592,6 @@
 				93FA0688270B343B0006A765 /* NodeDetailsModel.swift */,
 				93FA068A270B34470006A765 /* NodeDetailsView.swift */,
 				93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */,
-				93FA068E270B4C510006A765 /* NodeInfo */,
 			);
 			path = NodeDetails;
 			sourceTree = "<group>";
@@ -1621,7 +1627,6 @@
 			children = (
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				22BAC3862746B16A00DC0BCE /* AvailableNodes */,
-				C64B495526B8B3F70004A692 /* Connection */,
 				932D0B002721977D0064AEE4 /* Empty */,
 				93FA0685270B340A0006A765 /* NodeDetails */,
 				75D6563326C4CEB8000056B4 /* Onboarding */,
@@ -1631,23 +1636,10 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		C64B495526B8B3F70004A692 /* Connection */ = {
-			isa = PBXGroup;
-			children = (
-				222D8C54273E69AE00542407 /* iOS */,
-				222D8C53273E69A600542407 /* macOS */,
-				C64B495826B8B3F70004A692 /* Subviews */,
-				C64B495A26B8B3F70004A692 /* ConnectionModel.swift */,
-				C64B495726B8B3F70004A692 /* ConnectionView.swift */,
-				C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */,
-			);
-			path = Connection;
-			sourceTree = "<group>";
-		};
 		C64B495826B8B3F70004A692 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				75E5BDFE26DE16FC00C345B9 /* CheckmarkToggleStyle.swift */,
+				75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */,
 				93C3EC33270ACB9200B9CA4D /* ConnectionInfo */,
 				93C3EC32270ACB8300B9CA4D /* CountryTile */,
 			);
@@ -2122,21 +2114,18 @@
 				93C3EC3B270AF19400B9CA4D /* GridView.swift in Sources */,
 				93FA0690270B4C5E0006A765 /* NodeInfoView.swift in Sources */,
 				93DBF570271888B8006EBC65 /* ContinentsRowViewType.swift in Sources */,
-				C64B495E26B8B3F70004A692 /* ConnectionModel.swift in Sources */,
 				C64ED32D26C57FE900222CA4 /* PlansViewModel.swift in Sources */,
-				75E5BDFF26DE16FC00C345B9 /* CheckmarkToggleStyle.swift in Sources */,
+				75E5BDFF26DE16FC00C345B9 /* ConnectionToggleStyle.swift in Sources */,
 				C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */,
 				22BAC3962746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */,
 				7504EA79267B5B4600023D42 /* TunnelStatus.swift in Sources */,
 				758DD9E7270B72D2000CD59B /* AccountCreationView.swift in Sources */,
 				7504EA73267B554C00023D42 /* NETunnelProviderManager+Ext.swift in Sources */,
-				75D655D926BAAAF4000056B4 /* ConnectionCoordinator.swift in Sources */,
 				7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */,
 				93DBF55A2717C395006EBC65 /* MarkerProtocols.swift in Sources */,
 				7504EA66267B4D0200023D42 /* CoordinatorType.swift in Sources */,
 				758DD9E3270B72D2000CD59B /* MnemonicLineView.swift in Sources */,
 				753EDE002715633A00DA76F8 /* NodeSelectionRowView.swift in Sources */,
-				C64B495C26B8B3F70004A692 /* ConnectionView.swift in Sources */,
 				75D6560826BBF436000056B4 /* Context.swift in Sources */,
 				758DD9E4270B72D2000CD59B /* AccountCreationViewModel.swift in Sources */,
 				75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */,
@@ -2194,7 +2183,6 @@
 				932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */,
 				75116288273AB925005F9133 /* Image+Ext.swift in Sources */,
 				7504EA56267B408D00023D42 /* Config.swift in Sources */,
-				C64B495B26B8B3F70004A692 /* ConnectionViewModel.swift in Sources */,
 				7504EA52267A391700023D42 /* String+ArrayConversion.swift in Sources */,
 				9312CA68270461D20062AFD3 /* NetworkServiceType.swift in Sources */,
 				93FA0687270B34270006A765 /* NodeDetailsCoordinator.swift in Sources */,
@@ -2280,7 +2268,7 @@
 				22BAC3972746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */,
 				75116264273AB036005F9133 /* StoresGeneralInfo.swift in Sources */,
 				7511626C273AB042005F9133 /* AutoRealmObject.swift in Sources */,
-				222D8C5A273E6DF500542407 /* CheckmarkToggleStyle.swift in Sources */,
+				222D8C5A273E6DF500542407 /* ConnectionToggleStyle.swift in Sources */,
 				222D8C62273E771900542407 /* NodeInfoView.swift in Sources */,
 				75116267273AB03A005F9133 /* UserDefaultsStorageStrategy.swift in Sources */,
 				22BAC3952746B16A00DC0BCE /* AvailableNodesViewModel.swift in Sources */,
@@ -2394,6 +2382,7 @@
 				9263A4872796E52B003DF3A4 /* TunnelChanges.swift in Sources */,
 				93D304CC279753F300469A75 /* NodeSelectionModel.swift in Sources */,
 				9263A4852796E520003DF3A4 /* SentinelNode+Ext.swift in Sources */,
+				93D304F127983DC800469A75 /* ConnectionViewModel.swift in Sources */,
 				93D304CA279753D100469A75 /* NodeSelectionViewModel.swift in Sources */,
 				9263A4A12796E6F8003DF3A4 /* NETunnelProviderManager+Ext.swift in Sources */,
 				9263A4842796E519003DF3A4 /* UserService.swift in Sources */,
@@ -2405,7 +2394,9 @@
 				9263A47E2796E506003DF3A4 /* AutoRealmObject.swift in Sources */,
 				9263A4702796E4C7003DF3A4 /* NodesService.swift in Sources */,
 				9263A4712796E4CA003DF3A4 /* NodesServiceType.swift in Sources */,
+				93D304F727983F2900469A75 /* NodeInfoView.swift in Sources */,
 				93D304AD279751AE00469A75 /* Collection+Ext.swift in Sources */,
+				93D304F827983F2B00469A75 /* NodeInfoViewModel.swift in Sources */,
 				93D304E4279833C100469A75 /* AccountInfoCoordinator.swift in Sources */,
 				93D304A6279750F000469A75 /* TextStyles.swift in Sources */,
 				93D304E9279834D300469A75 /* AccentButton.swift in Sources */,
@@ -2418,12 +2409,17 @@
 				93D304D0279754E800469A75 /* ContextBuilder.swift in Sources */,
 				93D304CE2797546000469A75 /* ContinentsRowView.swift in Sources */,
 				9263A47A2796E4F0003DF3A4 /* StoresNodes.swift in Sources */,
+				93D304F327983DCD00469A75 /* ConnectionCoordinator.swift in Sources */,
 				93D304AE279751B300469A75 /* Date+Ext.swift in Sources */,
 				9263A46F2796E4C4003DF3A4 /* NetworkServiceType.swift in Sources */,
 				9263A4A22796E758003DF3A4 /* NETunnelProviderProtocol+Extension.swift in Sources */,
+				93D304ED27983C9900469A75 /* ConnectionInfoViewModel.swift in Sources */,
+				93D304F427983EDE00469A75 /* GridView.swift in Sources */,
 				93D304A8279750FA00469A75 /* PageIndicator.swift in Sources */,
+				93D304EB27983C6900469A75 /* ConnectionInfoType.swift in Sources */,
 				93D304A92797512D00469A75 /* PullToRefresh.swift in Sources */,
 				9263A4A62796E810003DF3A4 /* Strings.swift in Sources */,
+				93D304F627983F2300469A75 /* NodeInfoType.swift in Sources */,
 				93D304B42797520A00469A75 /* DVPNNodeInfo+Ext.swift in Sources */,
 				9263A4CF2796EC14003DF3A4 /* Array+Ext.swift in Sources */,
 				9263A47C2796E4F7003DF3A4 /* UserDefaultsStorageStrategy.swift in Sources */,
@@ -2437,8 +2433,12 @@
 				93D304E6279833C900469A75 /* AccountInfoView.swift in Sources */,
 				93D304D32797574B00469A75 /* ConnectionStatus.swift in Sources */,
 				93D304B32797520500469A75 /* TunnelConfiguration+Ext.swift in Sources */,
+				93D304EF27983CA800469A75 /* CountryTileView.swift in Sources */,
+				93D304F027983DC400469A75 /* ConnectionView.swift in Sources */,
 				93D304B52797520C00469A75 /* GRPCError+Ext.swift in Sources */,
+				93D304F227983DCA00469A75 /* ConnectionModel.swift in Sources */,
 				9263A4812796E50E003DF3A4 /* RealmStorage+Ext.swift in Sources */,
+				93D304EC27983C6F00469A75 /* ConnectionInfoView.swift in Sources */,
 				9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */,
 				93D304AB2797517B00469A75 /* UIColor+SwiftU.swift in Sources */,
 				93D304CF279754E500469A75 /* Context.swift in Sources */,
@@ -2450,6 +2450,7 @@
 				93D304E8279834CF00469A75 /* FramedButton.swift in Sources */,
 				9263A4A92796E907003DF3A4 /* RouterType.swift in Sources */,
 				93D304B1279751C500469A75 /* Font+Ext.swift in Sources */,
+				93D304EE27983CA000469A75 /* CountryTileViewModel.swift in Sources */,
 				9263A48D2796E543003DF3A4 /* TunnelContainer.swift in Sources */,
 				9263A4A02796E6E9003DF3A4 /* ConnectionModelError.swift in Sources */,
 				9263A4732796E4D1003DF3A4 /* PreloadServiceType.swift in Sources */,
@@ -2465,6 +2466,7 @@
 				9263A4832796E515003DF3A4 /* UserConstants.swift in Sources */,
 				9263A4D02796ECDB003DF3A4 /* Keychain.swift in Sources */,
 				9263A47B2796E4F4003DF3A4 /* GeneralSettingsStorage.swift in Sources */,
+				93D304EA27983C6100469A75 /* ConnectionToggleStyle.swift in Sources */,
 				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
 				9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */,
 				9263A4A72796E89B003DF3A4 /* Image+Ext.swift in Sources */,

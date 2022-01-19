@@ -1,6 +1,6 @@
 //
-//  CheckmarkToggleStyle.swift
-//  DVPNApp
+//  ConnectionToggleStyle.swift
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 30.08.2021.
 //
@@ -19,19 +19,10 @@ struct ConnectionToggleStyle: ToggleStyle {
                     VStack {
                         if !configuration.isOn {
                             if isLoading {
-#if os(iOS)
-                                ActivityIndicator(
-                                    isAnimating: $isLoading,
-                                    style: .medium
-                                )
-                                    .frame(width: 15, height: 15)
-                                    .padding(.vertical, 20)
-#elseif os(macOS)
                                 ActivityIndicator(
                                     isAnimating: $isLoading,
                                     controlSize: .small
                                 )
-#endif
                                    
                             } else {
                                 Asset.Connection.Toggle.Arrow.up.image.asImage
@@ -59,19 +50,10 @@ struct ConnectionToggleStyle: ToggleStyle {
 
                         if configuration.isOn {
                             if isLoading {
-#if os(iOS)
-                                ActivityIndicator(
-                                    isAnimating: $isLoading,
-                                    style: .medium
-                                )
-                                    .frame(width: 15, height: 15)
-                                    .padding(.vertical, 20)
-#elseif os(macOS)
                                 ActivityIndicator(
                                     isAnimating: $isLoading,
                                     controlSize: .small
                                 )
-#endif
                             } else {
                                 Asset.Connection.Toggle.Arrow.down.image.asImage
                                     .frame(width: 15, height: 15)
