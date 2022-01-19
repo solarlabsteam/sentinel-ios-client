@@ -1,28 +1,22 @@
 //
 //  NodeDetailsViewModel.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
 
-#if os(iOS)
-import UIKit
-#endif
 import Foundation
 import FlagKit
 import SentinelWallet
 import Combine
 
 final class NodeDetailsViewModel: ObservableObject {
-    typealias Router = AnyRouter<Route>
-    
     private let model: NodeDetailsModel
-    private let router: Router
 
     enum Route {
         case error(Error)
         case account
-        case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
+//        case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
         case dismiss
         case connect
     }
@@ -34,16 +28,16 @@ final class NodeDetailsViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(model: NodeDetailsModel, router: Router) {
+    init(model: NodeDetailsModel) {
         self.model = model
-        self.router = router
 
         self.model.eventPublisher
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
                 switch event {
                 case let .error(error):
-                    self?.router.play(event: .error(error))
+                    return
+//                    self?.router.play(event: .error(error))
                 case let .update(node):
                     self?.update(sentinelNode: node)
                 }
@@ -66,19 +60,15 @@ extension NodeDetailsViewModel {
         
         let countryCode = CountryFormatter.code(for: nodeInfo.location.country) ?? ""
         let flagImage: ImageAsset.Image?
-#if os(iOS)
-        flagImage = Flag(countryCode: countryCode)?.image(style: .roundedRect)
-#elseif os(macOS)
+
         #warning("replace all the original images on macOS with rounded")
         flagImage = Flag(countryCode: countryCode)?.originalImage
-#endif
         
         countryTileModel = .init(
             id: "0",
             icon: flagImage ?? Asset.Tokens.dvpn.image,
             title: nodeInfo.moniker,
-            subtitle: String(nodeInfo.address.suffix(6)),
-            speed: node.info.bandwidth.speedImage
+            subtitle: String(nodeInfo.address.suffix(6))
         )
         
         let domain = URL(string: sentinelNode.remoteURL)?.host ?? ""
@@ -108,41 +98,35 @@ extension NodeDetailsViewModel {
 
 extension NodeDetailsViewModel {
     func didTapConnect() {
-#if os(iOS)
-        UIImpactFeedbackGenerator.lightFeedback()
-#endif
         guard let node = node else { return }
         toggle(node: node)
     }
     
     @objc
     func didTapAccountButton() {
-#if os(iOS)
-        UIImpactFeedbackGenerator.lightFeedback()
-#endif
-        router.play(event: .account)
+//        router.play(event: .account)
     }
 }
 
 // MARK: - PlansViewModelDelegate
 
-extension NodeDetailsViewModel: PlansViewModelDelegate {
-    func openConnection() {
-        router.play(event: .dismiss)
-    }
-}
+//extension NodeDetailsViewModel: PlansViewModelDelegate {
+//    func openConnection() {
+//        router.play(event: .dismiss)
+//    }
+//}
 
 // MARK: - Private
 
 extension NodeDetailsViewModel {
     private func toggle(node: Node) {
         guard model.isSubscribed else {
-            router.play(event: .subscribe(node: node.info, delegate: self))
+//            router.play(event: .subscribe(node: node.info, delegate: self))
             return
         }
         
         model.save(nodeAddress: node.info.address)
-        router.play(event: .connect)
+//        router.play(event: .connect)
     }
     
     private func makeString(from tuple: (String, String)) -> String {

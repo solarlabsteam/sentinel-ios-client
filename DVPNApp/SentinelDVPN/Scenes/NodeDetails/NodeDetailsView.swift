@@ -1,6 +1,6 @@
 //
 //  NodeDetailsView.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NodeDetailsView: View {
-    
     @ObservedObject private var viewModel: NodeDetailsViewModel
     
     init(viewModel: NodeDetailsViewModel) {
@@ -21,8 +20,7 @@ struct NodeDetailsView: View {
                 id: viewModel.countryTileModel?.id ?? "",
                 icon: viewModel.countryTileModel?.icon ?? ImageAsset.Image(),
                 title: viewModel.countryTileModel?.title ?? "",
-                subtitle: viewModel.countryTileModel?.subtitle ?? "",
-                speed: viewModel.countryTileModel?.speedImage ?? ImageAsset.Image()
+                subtitle: viewModel.countryTileModel?.subtitle ?? ""
             )
         )
         .padding(.horizontal, 16)

@@ -69,6 +69,18 @@ extension ModulesFactory {
         
         return view
     }
+    
+    func getNodeDetailsScene(node: SentinelNode, isSubscribed: Bool) -> NodeDetailsView {
+        let model = NodeDetailsModel(
+            context: context,
+            node: node,
+            isSubscribed: isSubscribed
+        )
+        let viewModel = NodeDetailsViewModel(model: model)
+        let view = NodeDetailsView(viewModel: viewModel)
+        
+        return view
+    }
 }
 
 // MARK: - Scenes previews
