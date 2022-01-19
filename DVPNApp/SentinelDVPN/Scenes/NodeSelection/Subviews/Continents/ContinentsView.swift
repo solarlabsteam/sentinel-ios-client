@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContinentsView: View {
-    @ObservedObject private var viewModel: HomeViewModel
+    @ObservedObject private var viewModel: NodeSelectionViewModel
 
-    init(viewModel: HomeViewModel) {
+    init(viewModel: NodeSelectionViewModel) {
         self.viewModel = viewModel
     }
     
