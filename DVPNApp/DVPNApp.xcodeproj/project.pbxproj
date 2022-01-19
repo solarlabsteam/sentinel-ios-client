@@ -283,7 +283,6 @@
 		9263A4302796D9D4003DF3A4 /* SentinelDVPNApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */; };
 		9263A4322796D9D4003DF3A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A4312796D9D4003DF3A4 /* ContentView.swift */; };
 		9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4332796D9D6003DF3A4 /* Assets.xcassets */; };
-		9263A4372796D9D6003DF3A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */; };
 		9263A46E2796E4C1003DF3A4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
 		9263A46F2796E4C4003DF3A4 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA67270461D20062AFD3 /* NetworkServiceType.swift */; };
 		9263A4702796E4C7003DF3A4 /* NodesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF5532716DBFB006EBC65 /* NodesService.swift */; };
@@ -682,7 +681,6 @@
 		9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelDVPNApp.swift; sourceTree = "<group>"; };
 		9263A4312796D9D4003DF3A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9263A4332796D9D6003DF3A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelDVPN.entitlements; sourceTree = "<group>"; };
 		9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
 		9312CA60270316880062AFD3 /* TunnelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManager.swift; sourceTree = "<group>"; };
@@ -1388,27 +1386,18 @@
 		9263A42E2796D9D4003DF3A4 /* SentinelDVPN */ = {
 			isa = PBXGroup;
 			children = (
-				93D304C52797537B00469A75 /* Scenes */,
 				7504EA63267B4CE900023D42 /* Common */,
 				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
 				75359CE326FC7EC100CFEBCD /* Generated */,
 				93843B45272498F200CE6D34 /* Models */,
-				9263A4352796D9D6003DF3A4 /* Preview Content */,
 				93D304A027974A3400469A75 /* Resources */,
+				93D304C52797537B00469A75 /* Scenes */,
 				9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */,
 				9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */,
 				755FBF0726AF0F0100E9D408 /* Services */,
 				7504EA49267A37E400023D42 /* Tunnel */,
 			);
 			path = SentinelDVPN;
-			sourceTree = "<group>";
-		};
-		9263A4352796D9D6003DF3A4 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				9263A4362796D9D6003DF3A4 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		9312CA5F270316770062AFD3 /* Manager */ = {
@@ -2028,7 +2017,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9263A4372796D9D6003DF3A4 /* Preview Assets.xcassets in Resources */,
 				9263A4C62796EA24003DF3A4 /* Poppins-MediumItalic.ttf in Resources */,
 				9263A4BD2796EA0B003DF3A4 /* Poppins-ExtraBold.ttf in Resources */,
 				9263A4B62796E9F8003DF3A4 /* Poppins-ThinItalic.ttf in Resources */,
@@ -2994,7 +2982,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SentinelDVPN/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -3024,7 +3012,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SentinelDVPN/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = G49975RHAR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
