@@ -22,7 +22,7 @@ enum AvailableNodesModelEvent {
 
 final class AvailableNodesModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
-        & HasDNSServersStorage & HasTunnelManager & HasNodesService
+        & HasTunnelManager & HasNodesService
     private let context: Context
     private let continent: Continent
 

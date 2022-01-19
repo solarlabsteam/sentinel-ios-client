@@ -63,16 +63,6 @@ internal enum Asset {
     internal static let minus = ImageAsset(name: "counter/minus")
     internal static let plus = ImageAsset(name: "counter/plus")
   }
-  internal enum Dns {
-    internal static let cloudflare = ImageAsset(name: "dns/cloudflare")
-    internal static let freenom = ImageAsset(name: "dns/freenom")
-    internal static let google = ImageAsset(name: "dns/google")
-    internal static let handshake = ImageAsset(name: "dns/handshake")
-  }
-  internal enum Extra {
-    internal static let dns = ImageAsset(name: "extra/dns")
-    internal static let info = ImageAsset(name: "extra/info")
-  }
   internal enum Icons {
     internal static let bandwidth = ImageAsset(name: "icons/bandwidth")
     internal static let copy = ImageAsset(name: "icons/copy")
