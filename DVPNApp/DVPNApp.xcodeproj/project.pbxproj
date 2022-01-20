@@ -1468,9 +1468,9 @@
 		93D304C52797537B00469A75 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				93D304F527983F0400469A75 /* NodeDetails */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				93D304D42797576600469A75 /* Connection */,
+				93D304F527983F0400469A75 /* NodeDetails */,
 				93D304C62797538500469A75 /* NodeSelection */,
 				93D304D22797551600469A75 /* Root */,
 			);

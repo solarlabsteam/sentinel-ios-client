@@ -12,6 +12,16 @@ struct ContentView: View {
         NavigationView {
             ModulesFactory.shared.makeNodeSelectionModule()
         }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {}) {
+                    Asset.Navigation.account.image.asImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+                .frame(width: 25, height: 25)
+            }
+        }
     }
 }
 
