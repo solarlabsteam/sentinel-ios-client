@@ -84,8 +84,4 @@ extension AccountInfoViewModel {
         pasteboard.declareTypes([.string], owner: nil)
         pasteboard.setString(model.address, forType: .string)
     }
-    
-    func didTapShare() {
-        #warning("Make share button work in macOS")
-    }
 }

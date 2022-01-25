@@ -15,6 +15,7 @@ private let constants = Constants()
 
 struct AccountInfoView: View {
     @ObservedObject private var viewModel: AccountInfoViewModel
+    @State private var showPicker = false
     
     @Environment(\.openURL) var openURL
 
@@ -94,8 +95,11 @@ extension AccountInfoView {
     
     var shareButton: some View {
         FramedButton(title: L10n.AccountInfo.share) {
-            viewModel.didTapShare()
+            self.showPicker = true
         }
+        .background(
+            SharingPicker(isPresented: $showPicker, sharingItems: [viewModel.address])
+        )
     }
     
     var copyButton: some View {
