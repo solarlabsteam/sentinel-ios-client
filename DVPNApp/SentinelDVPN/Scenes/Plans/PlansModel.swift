@@ -1,6 +1,6 @@
 //
 //  PlansModel.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
 //

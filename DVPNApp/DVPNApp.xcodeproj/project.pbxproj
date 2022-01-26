@@ -207,7 +207,6 @@
 		753EDDFF2715633A00DA76F8 /* NodeSelectionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF82715633A00DA76F8 /* NodeSelectionRowViewModel.swift */; };
 		753EDE002715633A00DA76F8 /* NodeSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753EDDF92715633A00DA76F8 /* NodeSelectionRowView.swift */; };
 		75568D7226E5C62100166E5F /* ConnectionModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75568D7126E5C62100166E5F /* ConnectionModelError.swift */; };
-		755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A4F2326C581F10057704C /* PlansCoordinator.swift */; };
 		755F5EF8270DB51B00D416ED /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE6270DB51B00D416ED /* Poppins-ExtraLight.ttf */; };
 		755F5EF9270DB51B00D416ED /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE7270DB51B00D416ED /* Poppins-ThinItalic.ttf */; };
 		755F5EFA270DB51B00D416ED /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EE8270DB51B00D416ED /* Poppins-ExtraLightItalic.ttf */; };
@@ -380,6 +379,14 @@
 		9344B7ED27057FB900321AAA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344B7EC27057FB900321AAA /* Date+Ext.swift */; };
 		9374A6A8274E6EBA0010E4A6 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */; };
 		937FE474279AD51500DBFC08 /* SharingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FE473279AD51500DBFC08 /* SharingPicker.swift */; };
+		937FE47627A17B2900DBFC08 /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F982746D4F4005E031E /* PlansCoordinator.swift */; };
+		937FE47727A17C3C00DBFC08 /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F982746D4F4005E031E /* PlansCoordinator.swift */; };
+		937FE47827A17C4F00DBFC08 /* PlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32B26C57FE900222CA4 /* PlansModel.swift */; };
+		937FE47927A17C5200DBFC08 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32426C57FE900222CA4 /* PlansView.swift */; };
+		937FE47A27A17C5500DBFC08 /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
+		937FE47B27A17C5700DBFC08 /* PlansViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */; };
+		937FE47C27A17C6800DBFC08 /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
+		937FE47D27A17C6B00DBFC08 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
 		93843B472724993000CE6D34 /* SentinelNode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93843B462724993000CE6D34 /* SentinelNode+Ext.swift */; };
 		938FBA5E27056A320059469B /* TunnelManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FBA5D27056A320059469B /* TunnelManagerType.swift */; };
 		939FA140270C3D960013ED75 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
@@ -628,7 +635,6 @@
 		7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
 		75568D7126E5C62100166E5F /* ConnectionModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModelError.swift; sourceTree = "<group>"; };
-		755A4F2326C581F10057704C /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		755F5EE6270DB51B00D416ED /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		755F5EE7270DB51B00D416ED /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		755F5EE8270DB51B00D416ED /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -1237,22 +1243,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		757F7F912746D1F1005E031E /* MacOS */ = {
-			isa = PBXGroup;
-			children = (
-				757F7F982746D4F4005E031E /* PlansCoordinator.swift */,
-			);
-			path = MacOS;
-			sourceTree = "<group>";
-		};
-		757F7F922746D1FB005E031E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				755A4F2326C581F10057704C /* PlansCoordinator.swift */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
 		758DD9DB270B72D2000CD59B /* AccountCreation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1430,6 +1420,20 @@
 			path = Empty;
 			sourceTree = "<group>";
 		};
+		937FE47527A176BA00DBFC08 /* Plans */ = {
+			isa = PBXGroup;
+			children = (
+				757F7F982746D4F4005E031E /* PlansCoordinator.swift */,
+				C64ED32B26C57FE900222CA4 /* PlansModel.swift */,
+				C64ED32426C57FE900222CA4 /* PlansView.swift */,
+				C64ED32526C57FE900222CA4 /* PlansViewModel.swift */,
+				92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */,
+				75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */,
+				C64ED32626C57FE900222CA4 /* Subviews */,
+			);
+			path = Plans;
+			sourceTree = "<group>";
+		};
 		93843B45272498F200CE6D34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1471,6 +1475,7 @@
 		93D304C52797537B00469A75 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				937FE47527A176BA00DBFC08 /* Plans */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				93D304D42797576600469A75 /* Connection */,
 				93D304F527983F0400469A75 /* NodeDetails */,
@@ -1607,7 +1612,6 @@
 				22BAC3862746B16A00DC0BCE /* AvailableNodes */,
 				932D0B002721977D0064AEE4 /* Empty */,
 				75D6563326C4CEB8000056B4 /* Onboarding */,
-				C64ED32326C57FE900222CA4 /* Plans */,
 				7504EA6C267B4E6700023D42 /* Root */,
 			);
 			path = Scenes;
@@ -1621,21 +1625,6 @@
 				93C3EC32270ACB8300B9CA4D /* CountryTile */,
 			);
 			path = Subviews;
-			sourceTree = "<group>";
-		};
-		C64ED32326C57FE900222CA4 /* Plans */ = {
-			isa = PBXGroup;
-			children = (
-				757F7F922746D1FB005E031E /* iOS */,
-				757F7F912746D1F1005E031E /* MacOS */,
-				C64ED32B26C57FE900222CA4 /* PlansModel.swift */,
-				C64ED32426C57FE900222CA4 /* PlansView.swift */,
-				C64ED32526C57FE900222CA4 /* PlansViewModel.swift */,
-				92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */,
-				75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */,
-				C64ED32626C57FE900222CA4 /* Subviews */,
-			);
-			path = Plans;
 			sourceTree = "<group>";
 		};
 		C64ED32626C57FE900222CA4 /* Subviews */ = {
@@ -2125,6 +2114,7 @@
 				7504EAAD267B9A1700023D42 /* NEVPNStatus+Ext.swift in Sources */,
 				93D29CD9272117EF00A35BCA /* AutoRealmObject.swift in Sources */,
 				75359D0E26FC7EC200CFEBCD /* Strings.swift in Sources */,
+				937FE47627A17B2900DBFC08 /* PlansCoordinator.swift in Sources */,
 				93DBF5602717CF80006EBC65 /* AutoRealmObject.generated.swift in Sources */,
 				93D29CDB2721203200A35BCA /* RealmStorage+Ext.swift in Sources */,
 				22BAC3982746B18600DC0BCE /* AvailableNodesCoordinator.swift in Sources */,
@@ -2185,7 +2175,6 @@
 				9374A6A8274E6EBA0010E4A6 /* PullToRefresh.swift in Sources */,
 				C64B495D26B8B3F70004A692 /* CountryTileView.swift in Sources */,
 				92074C81273D4E8000CEA689 /* PlansViewModelDelegate.swift in Sources */,
-				755A4F2426C581F10057704C /* PlansCoordinator.swift in Sources */,
 				7504EA4D267A390A00023D42 /* Keychain.swift in Sources */,
 				753EDDFF2715633A00DA76F8 /* NodeSelectionRowViewModel.swift in Sources */,
 				75E5BDFD26DCDBDA00C345B9 /* OnboardingStepModel.swift in Sources */,
@@ -2381,6 +2370,7 @@
 				93D304C32797530A00469A75 /* NavigationBar.swift in Sources */,
 				93D304D0279754E800469A75 /* ContextBuilder.swift in Sources */,
 				93D304CE2797546000469A75 /* ContinentsRowView.swift in Sources */,
+				937FE47927A17C5200DBFC08 /* PlansView.swift in Sources */,
 				9263A47A2796E4F0003DF3A4 /* StoresNodes.swift in Sources */,
 				93D304F327983DCD00469A75 /* ConnectionCoordinator.swift in Sources */,
 				93D304AE279751B300469A75 /* Date+Ext.swift in Sources */,
@@ -2391,6 +2381,7 @@
 				93D304A8279750FA00469A75 /* PageIndicator.swift in Sources */,
 				93D304EB27983C6900469A75 /* ConnectionInfoType.swift in Sources */,
 				93D304A92797512D00469A75 /* PullToRefresh.swift in Sources */,
+				937FE47A27A17C5500DBFC08 /* PlansViewModel.swift in Sources */,
 				9263A4A62796E810003DF3A4 /* Strings.swift in Sources */,
 				93D304F627983F2300469A75 /* NodeInfoType.swift in Sources */,
 				93D304B42797520A00469A75 /* DVPNNodeInfo+Ext.swift in Sources */,
@@ -2402,6 +2393,7 @@
 				93D304B72797525600469A75 /* Fonts.swift in Sources */,
 				9263A4822796E512003DF3A4 /* RealmStorage+ProtocolImplementations.swift in Sources */,
 				9263A4A52796E805003DF3A4 /* Assets.swift in Sources */,
+				937FE47C27A17C6800DBFC08 /* SelectedPlan.swift in Sources */,
 				9263A46E2796E4C1003DF3A4 /* NetworkService.swift in Sources */,
 				93D304E6279833C900469A75 /* AccountInfoView.swift in Sources */,
 				93D304D32797574B00469A75 /* ConnectionStatus.swift in Sources */,
@@ -2416,6 +2408,7 @@
 				9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */,
 				93D304AB2797517B00469A75 /* UIColor+SwiftU.swift in Sources */,
 				93D304CF279754E500469A75 /* Context.swift in Sources */,
+				937FE47B27A17C5700DBFC08 /* PlansViewModelDelegate.swift in Sources */,
 				93D304C12797530400469A75 /* ActivityIndicator.swift in Sources */,
 				9263A4792796E4EC003DF3A4 /* StoresWallet.swift in Sources */,
 				9263A48F2796E548003DF3A4 /* TunnelsServiceStatusDelegate.swift in Sources */,
@@ -2424,6 +2417,7 @@
 				93D304E8279834CF00469A75 /* FramedButton.swift in Sources */,
 				9263A4A92796E907003DF3A4 /* RouterType.swift in Sources */,
 				93D304B1279751C500469A75 /* Font+Ext.swift in Sources */,
+				937FE47D27A17C6B00DBFC08 /* CounterView.swift in Sources */,
 				93D304EE27983CA000469A75 /* CountryTileViewModel.swift in Sources */,
 				9263A48D2796E543003DF3A4 /* TunnelContainer.swift in Sources */,
 				9263A4A02796E6E9003DF3A4 /* ConnectionModelError.swift in Sources */,
@@ -2437,11 +2431,13 @@
 				9263A49D2796E6D2003DF3A4 /* Serializer.swift in Sources */,
 				93D304AF279751B700469A75 /* Double+Ext.swift in Sources */,
 				93D304C22797530700469A75 /* Toolbar.swift in Sources */,
+				937FE47727A17C3C00DBFC08 /* PlansCoordinator.swift in Sources */,
 				9263A47F2796E509003DF3A4 /* Persistable.swift in Sources */,
 				9263A4832796E515003DF3A4 /* UserConstants.swift in Sources */,
 				9263A4D02796ECDB003DF3A4 /* Keychain.swift in Sources */,
 				9263A47B2796E4F4003DF3A4 /* GeneralSettingsStorage.swift in Sources */,
 				93D304EA27983C6100469A75 /* ConnectionToggleStyle.swift in Sources */,
+				937FE47827A17C4F00DBFC08 /* PlansModel.swift in Sources */,
 				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
 				9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */,
 				9263A4A72796E89B003DF3A4 /* Image+Ext.swift in Sources */,

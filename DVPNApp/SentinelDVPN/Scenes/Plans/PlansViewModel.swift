@@ -1,13 +1,9 @@
 //
 //  PlansViewModel.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
 //
-
-#if os(iOS)
-import UIKit
-#endif
 
 import Foundation
 import FlagKit
@@ -23,10 +19,10 @@ private struct Constants {
 private let constants = Constants()
 
 final class PlansViewModel: ObservableObject {
-    typealias Router = AnyRouter<Route>
+//    typealias Router = AnyRouter<Route>
     
     private let model: PlansModel
-    private let router: Router
+//    private let router: Router
 
     private weak var delegate: PlansViewModelDelegate?
 
@@ -46,7 +42,7 @@ final class PlansViewModel: ObservableObject {
 
     @Published private(set) var gbToBuy: Int {
         didSet {
-            prettyTokesToSpend = PriceFormatter.fullFormat(amount: tokesToSpend)
+            prettyTokesToSpend = "\(PriceFormatter.fullFormat(amount: tokesToSpend)) DVPN"
         }
     }
 
@@ -56,9 +52,8 @@ final class PlansViewModel: ObservableObject {
     
     private let formatter = NumberFormatter()
     
-    init(model: PlansModel, router: Router, delegate: PlansViewModelDelegate?) {
+    init(model: PlansModel, delegate: PlansViewModelDelegate?) {
         self.model = model
-        self.router = router
         self.delegate = delegate
         
         selectedLocationName = ""
@@ -124,29 +119,23 @@ extension PlansViewModel {
 
 extension PlansViewModel {
     func didTapSubscribe() {
-#if os(iOS)
-        UIImpactFeedbackGenerator.lightFeedback()
-#endif
-        router.play(
-            event: .subscribe(node: selectedLocationName) { [weak self] result in
-                guard let self = self, result else {
-                    return
-                }
-                self.isLoading = true
-                self.model.checkBalanceAndSubscribe(
-                    deposit: .init(denom: "udvpn", amount: "\(self.price * self.gbToBuy)"),
-                    plan: String(format: "%.1f", self.gbToBuy) + L10n.Common.gb,
-                    price: self.prettyTokesToSpend
-                )
-            }
-        )
+//        router.play(
+//            event: .subscribe(node: selectedLocationName) { [weak self] result in
+//                guard let self = self, result else {
+//                    return
+//                }
+//                self.isLoading = true
+//                self.model.checkBalanceAndSubscribe(
+//                    deposit: .init(denom: "udvpn", amount: "\(self.price * self.gbToBuy)"),
+//                    plan: String(format: "%.1f", self.gbToBuy) + L10n.Common.gb,
+//                    price: self.prettyTokesToSpend
+//                )
+//            }
+//        )
     }
     
     func didTapCrossButton() {
-#if os(iOS)
-        UIImpactFeedbackGenerator.lightFeedback()
-#endif
-        router.play(event: .close)
+//        router.play(event: .close)
     }
 }
 
@@ -156,11 +145,11 @@ extension PlansViewModel {
     private func show(error: Error) {
         isLoading = false
         guard let grpcError = error as? GRPC.GRPCError.RPCTimedOut else {
-            router.play(event: .error(error))
+//            router.play(event: .error(error))
             return
         }
 
-        router.play(event: .error(grpcError))
+//        router.play(event: .error(grpcError))
     }
 
     private func updatePayment(countryName: String, price: String, fee: Int) {
@@ -172,17 +161,14 @@ extension PlansViewModel {
 
     private func openConnection() {
         delegate?.openConnection()
-        router.play(event: .close)
+//        router.play(event: .close)
     }
 
     private func showAddTokens() {
-#if os(iOS)
-        UIImpactFeedbackGenerator.lightFeedback()
-#endif
-        router.play(event: .addTokensAlert { [weak self] result in
-            self?.isLoading = false
-            guard result else { return }
-            self?.router.play(event: .accountInfo)
-        })
+//        router.play(event: .addTokensAlert { [weak self] result in
+//            self?.isLoading = false
+//            guard result else { return }
+//            self?.router.play(event: .accountInfo)
+//        })
     }
 }

@@ -1,6 +1,6 @@
 //
 //  CounterView.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 05.10.2021.
 //
@@ -30,8 +30,8 @@ struct CounterView: View {
     var icon: some View {
         Asset.Tokens.dvpnBlue.image.asImage
             .resizable()
-            .frame(width: 24, height: 26)
             .aspectRatio(contentMode: .fit)
+            .frame(width: 30, height: 35)
     }
     
     var body: some View {

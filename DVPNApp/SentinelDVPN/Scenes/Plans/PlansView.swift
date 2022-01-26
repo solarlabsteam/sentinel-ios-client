@@ -1,6 +1,6 @@
 //
 //  PlansView.swift
-//  Test
+//  SentinelDVPN
 //
 //  Created by Aleksandr Litreev on 12.08.2021.
 //
@@ -18,7 +18,7 @@ struct PlansView: View {
     var bandwidthView: some View {
         VStack(spacing: 0) {
             Text("\(viewModel.gbToBuy)")
-                .applyTextStyle(.whitePoppins(ofSize: 44, weight: .bold))
+                .applyTextStyle(.whitePoppins(ofSize: 44, weight: .regular))
             
             Text(L10n.Common.gb)
                 .applyTextStyle(.lightGrayPoppins(ofSize: 18, weight: .regular))
@@ -34,18 +34,10 @@ struct PlansView: View {
         Button(action: viewModel.didTapSubscribe) {
             ZStack(alignment: .leading) {
                 if viewModel.isLoading {
-#if os(iOS)
-                    ActivityIndicator(
-                        isAnimating: $viewModel.isLoading,
-                        style: .medium
-                    )
-                        .frame(width: 15, height: 15)
-#elseif os(macOS)
                     ActivityIndicator(
                         isAnimating: $viewModel.isLoading,
                         controlSize: .regular
                     )
-#endif
                 }
                 HStack {
                     Spacer()
@@ -108,11 +100,7 @@ struct PlansView: View {
             .padding(.all, 28)
             .padding(.bottom)
         }
-#if os(macOS)
         .frame(maxWidth: .infinity, maxHeight: 880)
-#elseif os(iOS)
-        .frame(maxWidth: .infinity)
-#endif
         .background(Asset.Colors.accentColor.color.asColor.opacity(0.85))
         .edgesIgnoringSafeArea(.bottom)
     }

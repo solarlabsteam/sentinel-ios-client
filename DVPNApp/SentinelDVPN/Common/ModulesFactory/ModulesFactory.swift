@@ -62,7 +62,7 @@ extension ModulesFactory {
         return view
     }
     
-    func getConnectionScene() -> ConnectionView {
+    func makeConnectionScene() -> ConnectionView {
         let model = ConnectionModel(context: context)
         let viewModel = ConnectionViewModel(model: model)
         let view = ConnectionView(viewModel: viewModel)
@@ -70,14 +70,10 @@ extension ModulesFactory {
         return view
     }
     
-    func getNodeDetailsScene(node: SentinelNode, isSubscribed: Bool) -> NodeDetailsView {
-        let model = NodeDetailsModel(
-            context: context,
-            node: node,
-            isSubscribed: isSubscribed
-        )
-        let viewModel = NodeDetailsViewModel(model: model)
-        let view = NodeDetailsView(viewModel: viewModel)
+    func makePlansScene(nodeInfo: DVPNNodeInfo, delegate: PlansViewModelDelegate?) -> PlansView {
+        let model = PlansModel(context: context, node: nodeInfo)
+        let viewModel = PlansViewModel(model: model, delegate: delegate)
+        let view = PlansView(viewModel: viewModel)
         
         return view
     }
@@ -102,10 +98,22 @@ extension ModulesFactory {
         return view
     }
     
-    func makeConnectionScene() -> ConnectionView {
+    func getConnectionScene() -> ConnectionView {
         let model = ConnectionModel(context: context)
         let viewModel = ConnectionViewModel(model: model)
         let view = ConnectionView(viewModel: viewModel)
+        
+        return view
+    }
+    
+    func getNodeDetailsScene(node: SentinelNode, isSubscribed: Bool) -> NodeDetailsView {
+        let model = NodeDetailsModel(
+            context: context,
+            node: node,
+            isSubscribed: isSubscribed
+        )
+        let viewModel = NodeDetailsViewModel(model: model)
+        let view = NodeDetailsView(viewModel: viewModel)
         
         return view
     }
