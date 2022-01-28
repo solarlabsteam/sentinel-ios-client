@@ -23,30 +23,31 @@ struct GridView: View {
         self.chunkedModels = models.chunked(into: 2)
     }
     
-    @ViewBuilder
     var body: some View {
         VStack(spacing: 0) {
             ForEach(Array(zip(chunkedModels.indices, chunkedModels)), id: \.0) { index, modelPair in
                 VStack(spacing: 0) {
-                    if index > 0, index < chunkedModels.count {
-                        Circle()
-                            .strokeBorder(borderColor, lineWidth: 1)
-                            .background(Circle().foregroundColor(Asset.Colors.accentColor.color.asColor))
-                            .frame(width: 16, height: 16)
-                            .padding(.top, -8)
-                    }
-                    
-                    HStack {
-                        if let modelType0 = modelPair[safe: 0] {
-                            getItemView(from: modelType0)
+                    ZStack(alignment: .top) {
+                        HStack {
+                            if let modelType0 = modelPair[safe: 0] {
+                                getItemView(from: modelType0)
+                            }
+                            
+                            Rectangle()
+                                .fill(borderColor)
+                                .frame(width: 1)
+                            
+                            if let modelType1 = modelPair[safe: 1] {
+                                getItemView(from: modelType1)
+                            }
                         }
                         
-                        Rectangle()
-                            .fill(borderColor)
-                            .frame(width: 1)
-                        
-                        if let modelType1 = modelPair[safe: 1] {
-                            getItemView(from: modelType1)
+                        if index > 0, index < chunkedModels.count {
+                            Circle()
+                                .strokeBorder(borderColor, lineWidth: 1)
+                                .background(Circle().foregroundColor(Asset.Colors.accentColor.color.asColor))
+                                .frame(width: 16, height: 16)
+                                .padding(.top, -8)
                         }
                     }
                     

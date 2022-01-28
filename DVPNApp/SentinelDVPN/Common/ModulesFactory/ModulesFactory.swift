@@ -70,6 +70,18 @@ extension ModulesFactory {
         return view
     }
     
+    func makeNodeDetailsScene(node: SentinelNode, isSubscribed: Bool) -> NodeDetailsView {
+        let model = NodeDetailsModel(
+            context: context,
+            node: node,
+            isSubscribed: isSubscribed
+        )
+        let viewModel = NodeDetailsViewModel(model: model)
+        let view = NodeDetailsView(viewModel: viewModel)
+        
+        return view
+    }
+    
     func makePlansScene(nodeInfo: DVPNNodeInfo, delegate: PlansViewModelDelegate?) -> PlansView {
         let model = PlansModel(context: context, node: nodeInfo)
         let viewModel = PlansViewModel(model: model, delegate: delegate)
@@ -102,18 +114,6 @@ extension ModulesFactory {
         let model = ConnectionModel(context: context)
         let viewModel = ConnectionViewModel(model: model)
         let view = ConnectionView(viewModel: viewModel)
-        
-        return view
-    }
-    
-    func getNodeDetailsScene(node: SentinelNode, isSubscribed: Bool) -> NodeDetailsView {
-        let model = NodeDetailsModel(
-            context: context,
-            node: node,
-            isSubscribed: isSubscribed
-        )
-        let viewModel = NodeDetailsViewModel(model: model)
-        let view = NodeDetailsView(viewModel: viewModel)
         
         return view
     }
