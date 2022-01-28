@@ -4,7 +4,6 @@ import Combine
 // MARK: - ConnectionView
 
 struct ConnectionView: View {
-    @State private var fitInScreen = false
     @ObservedObject private var viewModel: ConnectionViewModel
     
     private let navyColor = Asset.Colors.navyBlue.color
@@ -14,25 +13,10 @@ struct ConnectionView: View {
     }
 
     var body: some View {
-        GeometryReader { gProxy in
-            ScrollView {
-                contentView
-                    .background(GeometryReader {
-                        // Calculate height by consumed background and store in view preference
-                        Color.clear.preference(
-                            key: ViewHeightKey.self,
-                            value: $0.frame(in: .local).size.height
-                        )
-                    })
-                    .onAppear { viewModel.viewWillAppear() }
-            }
-            .onPreferenceChange(ViewHeightKey.self) {
-                self.fitInScreen = $0 < gProxy.size.height
-            }
-            .disabled(self.fitInScreen)
-        }
-        .background(Asset.Colors.accentColor.color.asColor)
-        .edgesIgnoringSafeArea(.bottom)
+        contentView
+            .onAppear { viewModel.viewWillAppear() }
+            .background(Asset.Colors.accentColor.color.asColor)
+            .edgesIgnoringSafeArea(.bottom)
     }
 }
 
@@ -106,15 +90,6 @@ extension ConnectionView {
                 connectionStatus
             }
         }.frame(maxWidth: .infinity)
-    }
-}
-
-// MARK: - ViewHeightKey
-
-struct ViewHeightKey: PreferenceKey {
-    static var defaultValue: CGFloat { 0 }
-    static func reduce(value: inout Value, nextValue: () -> Value) {
-        value = value + nextValue()
     }
 }
 
