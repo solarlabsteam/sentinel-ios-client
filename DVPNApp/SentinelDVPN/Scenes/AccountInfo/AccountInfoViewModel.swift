@@ -35,7 +35,7 @@ final class AccountInfoViewModel: ObservableObject {
         
         let code = EFQRCode.generate(
             for: model.address,
-               backgroundColor: CGColor.init(gray: 0, alpha: 0)
+            backgroundColor: CGColor.init(gray: 0, alpha: 0)
         )!
         
         self.qrCode = NSImage(cgImage: code, size: .init(width: 150, height: 150))

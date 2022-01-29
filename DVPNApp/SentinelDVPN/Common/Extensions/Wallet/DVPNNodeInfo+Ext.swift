@@ -9,7 +9,6 @@ import Foundation
 import SentinelWallet
 import Cocoa
 
-
 extension Node: Hashable {
     public static func == (lhs: Node, rhs: Node) -> Bool {
         lhs.info.address == rhs.info.address

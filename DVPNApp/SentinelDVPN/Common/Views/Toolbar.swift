@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 struct Toolbar: View {
     var toggleButton: () -> Void
 
@@ -27,4 +26,3 @@ struct Toolbar: View {
         }
     }
 }
-

@@ -38,7 +38,10 @@ struct SharingPicker: NSViewRepresentable {
             self.owner = owner
         }
 
-        func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChoose service: NSSharingService?) {
+        func sharingServicePicker(
+            _ sharingServicePicker: NSSharingServicePicker,
+            didChoose service: NSSharingService?
+        ) {
             sharingServicePicker.delegate = nil
             self.owner.isPresented = false
         }
