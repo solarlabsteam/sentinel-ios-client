@@ -54,7 +54,7 @@ whitelist_rules:
   - trailing_comma
   - redundant_type_annotation
 included: # paths to include during linting. `--path` is ignored if present.
-  - DVPNApp
+  - SentinelDVPN
 excluded: # paths to ignore during linting. Takes precedence over `included`.
 
 # Rule configuration.
