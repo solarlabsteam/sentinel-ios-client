@@ -86,6 +86,7 @@ internal enum Asset {
   internal enum Navigation {
     internal static let account = ImageAsset(name: "navigation/account")
     internal static let back = ImageAsset(name: "navigation/back")
+    internal static let sentinelBlack = ImageAsset(name: "navigation/sentinel-black")
     internal static let sentinel = ImageAsset(name: "navigation/sentinel")
   }
   internal enum Node {
