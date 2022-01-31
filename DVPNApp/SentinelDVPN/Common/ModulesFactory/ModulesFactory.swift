@@ -41,6 +41,14 @@ extension ModulesFactory {
 //            self?.makeHomeModule(for: navigation)
 //        }
 //    }
+
+    func makeOnboardingScene() -> OnboardingView {
+        let model = OnboardingModel(context: context)
+        let viewModel = OnboardingViewModel(model: model)
+        let view = OnboardingView(viewModel: viewModel)
+
+        return view
+    }
     
     func makeNodeSelectionModule() -> NodeSelectionView {
         if !context.generalInfoStorage.didPassOnboarding() {
