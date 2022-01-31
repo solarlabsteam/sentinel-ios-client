@@ -33,28 +33,25 @@ struct OnboardingView: View {
 
     var mainButton: some View {
         Button(action: viewModel.didTapCreateButton) {
-            HStack {
-                Spacer()
-                Text(L10n.Onboarding.Button.start.uppercased())
-                    .applyTextStyle(.mainButton)
-
-                Spacer()
-            }
+            Text(L10n.Onboarding.Button.start.uppercased())
+                .applyTextStyle(.textBody)
+                .padding()
+                .background(Asset.Colors.dirtyBlue.color.asColor)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
+                .padding(.horizontal)
         }
-        .padding()
-        .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
         .buttonStyle(PlainButtonStyle())
     }
 
     var importView: some View {
-        HStack(spacing: 2) {
+        VStack(spacing: 2) {
             Text(L10n.Onboarding.Button.ImportNow.text)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+                .applyTextStyle(.lightGrayPoppins(ofSize: 8, weight: .light))
 
             Button(action: viewModel.didTapImportButton) {
                 Text(L10n.Onboarding.Button.ImportNow.action)
-                    .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
+                    .applyTextStyle(.navyBluePoppins(ofSize: 8, weight: .semibold))
                     .underline()
             }
             .buttonStyle(PlainButtonStyle())
@@ -62,26 +59,22 @@ struct OnboardingView: View {
     }
 
     var tabView: some View {
-        HStack(alignment: .center, spacing: 20) {
-            Spacer()
-
+        HStack(alignment: .center, spacing: 50) {
             viewModel.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding()
+                
 
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 20) {
                 Text(viewModel.title)
                     .applyTextStyle(.title)
-                    .padding()
-
+                    .multilineTextAlignment(.leading)
+                    
                 Text(viewModel.description)
                     .applyTextStyle(.descriptionText)
-                    .multilineTextAlignment(.center)
-                    .padding()
+                    .multilineTextAlignment(.leading)
             }
-
-            Spacer()
+            .padding()
         }
     }
 
@@ -92,20 +85,22 @@ struct OnboardingView: View {
                 tabView
                     .frame(
                         width: geo.size.width,
-                        height: geo.size.height * 2 / 3
+                        height: geo.size.height / 2
                     )
+                    .padding(.top)
+                
+                Spacer()
 
                 if viewModel.isLastPage {
                     mainButton
-                        .padding()
                     importView
                         .padding()
                 } else {
                     HStack {
                         Spacer()
                         nextButton
+                            .padding()
                     }
-                    .padding(.vertical)
                 }
             }
             .padding(.vertical)
