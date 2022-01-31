@@ -282,19 +282,19 @@ internal enum L10n {
       }
     }
     internal enum Description {
-      /// Sentinel is not just a VPN, it's a 'decentralized' open-source provable VPN or a 'dVPN'.
+      /// You can choose from WireGuard or OpenVPN\nservers which enforce quantum level\nencryption standards such as AES-256.
       internal static let _1 = L10n.tr("Localizable", "Onboarding.Description.1")
-      /// The Sentinel dVPN can prove that your connection is being end-to-end encrypted with no exceptions
+      /// Code behind the Sentinel dVPN is fully revealed\nto the public on Sentinel’s GitHub profile along\nwith the application MD5 Checksums for\nabsolute provability.
       internal static let _2 = L10n.tr("Localizable", "Onboarding.Description.2")
-      /// The Sentinel dVPN doesn't control and own the exit-servers that you trust to safely and securely browse the internet.
+      /// Servers are hosted all over the world by the\ncommunity, for the community. Users can\nchoose the optimal server for the fastest\nbrowsing and download speeds.
       internal static let _3 = L10n.tr("Localizable", "Onboarding.Description.3")
     }
     internal enum Title {
-      /// Join VPN Quickly
+      /// Military Grade Encryption
       internal static let _1 = L10n.tr("Localizable", "Onboarding.Title.1")
-      /// Secure Safely
+      /// Absolute Transparency
       internal static let _2 = L10n.tr("Localizable", "Onboarding.Title.2")
-      /// Enjoy Simply
+      /// Servers Across the Globe
       internal static let _3 = L10n.tr("Localizable", "Onboarding.Title.3")
     }
   }
