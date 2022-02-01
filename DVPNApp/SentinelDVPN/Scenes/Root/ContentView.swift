@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ModulesFactory.shared.makeNodeSelectionModule()
+            ModulesFactory.shared.makeConnectionScene()
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
