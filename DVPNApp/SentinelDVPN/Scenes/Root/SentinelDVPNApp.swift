@@ -27,6 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusItem?.button?.image = NSImage(named: Asset.Navigation.sentinelBlack.name)
         
-        statusItem?.menu = StatusMenu()
+        statusItem?.menu = ModulesFactory.shared.makeStatusMenu()
     }
 }

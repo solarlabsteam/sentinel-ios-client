@@ -9,7 +9,12 @@ import SwiftUI
 import FlagKit
 
 class StatusMenu: NSMenu {
-    init() {
+    typealias Context = HasConnectionInfoStorage & HasNodesService
+    private let context: Context
+        
+    init(context: Context) {
+        self.context = context
+        
         super.init(title: "Status Bar Menu")
         
         addNodeMenuItems()
@@ -24,7 +29,7 @@ class StatusMenu: NSMenu {
 extension StatusMenu {
     // MARK: - Node item
     
-    func addNodeMenuItems() {
+    private func addNodeMenuItems() {
         let nodeInfoItem = NSMenuItem()
         nodeInfoItem.title = "test Russia vpn"
         nodeInfoItem.image = Flag(countryCode: "RU")?.originalImage
@@ -34,7 +39,7 @@ extension StatusMenu {
     
     // MARK: - Connection item
     
-    func addConnectionMenuItems() {
+    private func addConnectionMenuItems() {
         let currentStatusItem = NSMenuItem()
         currentStatusItem.title = "Status: disconnected"
         
