@@ -63,7 +63,6 @@ struct OnboardingView: View {
             viewModel.image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                
 
             VStack(alignment: .leading, spacing: 20) {
                 Text(viewModel.title)
@@ -73,6 +72,20 @@ struct OnboardingView: View {
                 Text(viewModel.description)
                     .applyTextStyle(.descriptionText)
                     .multilineTextAlignment(.leading)
+
+                HStack(spacing: 10) {
+                    ForEach(0...2, id: \.self) { tag in
+                        Image(systemName: "circle.fill")
+                            .resizable()
+                            .tag(tag)
+                            .frame(width: 7, height: 7)
+                            .foregroundColor(
+                                Asset.Colors.navyBlue.color
+                                    .withAlphaComponent(tag == viewModel.currentPage ? 1 : 0.1)
+                                    .asColor
+                            )
+                    }
+                }
             }
             .padding()
         }
