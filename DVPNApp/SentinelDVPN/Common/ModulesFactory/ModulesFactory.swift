@@ -42,10 +42,21 @@ extension ModulesFactory {
 //        }
 //    }
 
-    func makeOnboardingScene() -> OnboardingView {
+    func makeOnboardingScene(delegate: OnboardingViewModelDelegate? = nil) -> OnboardingView {
         let model = OnboardingModel(context: context)
-        let viewModel = OnboardingViewModel(model: model)
+        let viewModel = OnboardingViewModel(model: model, delegate: delegate)
         let view = OnboardingView(viewModel: viewModel)
+
+        return view
+    }
+
+    func makeAccountCreationScene(
+        with mode: CreationMode,
+        delegate: AccountCreationViewModelDelegate? = nil
+    ) -> AccountCreationView {
+        let model = AccountCreationModel(context: context)
+        let viewModel = AccountCreationViewModel(model: model, mode: mode, delegate: delegate)
+        let view = AccountCreationView(viewModel: viewModel)
 
         return view
     }

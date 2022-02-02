@@ -20,9 +20,6 @@ struct MnemonicLineView: View {
                     TextField("", text: $mnemonic[value])
                         .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
                         .textCase(.lowercase)
-#if os(iOS)
-                        .autocapitalization(.none)
-#endif
                         .padding(.bottom, 10)
                         .padding([.horizontal, .top], 8)
                         .border(Asset.Colors.borderGray.color.asColor, width: 1)

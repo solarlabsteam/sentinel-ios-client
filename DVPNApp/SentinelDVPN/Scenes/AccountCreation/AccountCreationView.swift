@@ -14,9 +14,6 @@ struct AccountCreationView: View {
 
     init(viewModel: AccountCreationViewModel) {
         self.viewModel = viewModel
-#if os(iOS)
-        UIScrollView.appearance().bounces = false
-#endif
     }
 
     var walletAddress: some View {
@@ -34,8 +31,9 @@ struct AccountCreationView: View {
                     Spacer().frame(width: 10, height: 10)
                     Text(L10n.AccountCreation.walletAddress)
                         .applyTextStyle(.textBody)
-                        .padding([.horizontal], 5)
+                        .padding(.horizontal, 5)
                         .background(Asset.Colors.accentColor.color.asColor)
+                        .padding(.bottom, 12)
                 }
             }
         }
@@ -174,12 +172,12 @@ struct AccountCreationView: View {
 
 struct AccountCreationView_Previews_Restore: PreviewProvider {
     static var previews: some View {
-        ModulesFactory.shared.getAccountCreationScene(mode: .restore)
+        ModulesFactory.shared.makeAccountCreationScene(with: .restore)
     }
 }
 
 struct AccountCreationView_Previews_Create: PreviewProvider {
     static var previews: some View {
-        ModulesFactory.shared.getAccountCreationScene(mode: .create)
+        ModulesFactory.shared.makeAccountCreationScene(with: .create)
     }
 }
