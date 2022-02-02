@@ -16,6 +16,13 @@ struct SentinelDVPNApp: App {
             ContentView()
                 .frame(minWidth: 1000, minHeight: 500)
         }
+        .commands {
+            // Hide Services from SentinelDVPN command tab
+            CommandGroup(replacing: .systemServices) {}
+            
+            CommandGroup(replacing: .undoRedo) {}
+            CommandGroup(replacing: .newItem) {}
+        }
     }
 }
 
