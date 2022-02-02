@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import FlagKit
 
 struct OnboardingView: View {
 
@@ -17,7 +16,39 @@ struct OnboardingView: View {
         self.viewModel = viewModel
     }
 
-    var nextButton: some View {
+    var body: some View {
+        GeometryReader { geo in
+            VStack(spacing: 0) {
+                Spacer()
+                tabView
+                    .frame(
+                        width: geo.size.width,
+                        height: geo.size.height / 2
+                    )
+                    .padding(.top)
+
+                Spacer()
+
+                if viewModel.isLastPage {
+                    mainButton
+                    importView
+                        .padding()
+                } else {
+                    HStack {
+                        Spacer()
+                        nextButton
+                            .padding()
+                    }
+                }
+            }
+            .padding(.vertical)
+            .background(Asset.Colors.accentColor.color.asColor)
+        }
+    }
+}
+
+extension OnboardingView {
+    private var nextButton: some View {
         Button(action: viewModel.didTapNextButton) {
             Image(systemName: "arrow.forward")
                 .resizable()
@@ -44,7 +75,7 @@ struct OnboardingView: View {
         .buttonStyle(PlainButtonStyle())
     }
 
-    var importView: some View {
+    private var importView: some View {
         VStack(spacing: 2) {
             Text(L10n.Onboarding.Button.ImportNow.text)
                 .applyTextStyle(.lightGrayPoppins(ofSize: 8, weight: .light))
@@ -58,7 +89,7 @@ struct OnboardingView: View {
         }
     }
 
-    var tabView: some View {
+    private var tabView: some View {
         HStack(alignment: .center, spacing: 50) {
             viewModel.image
                 .resizable()
@@ -68,7 +99,7 @@ struct OnboardingView: View {
                 Text(viewModel.title)
                     .applyTextStyle(.title)
                     .multilineTextAlignment(.leading)
-                    
+
                 Text(viewModel.description)
                     .applyTextStyle(.descriptionText)
                     .multilineTextAlignment(.leading)
@@ -89,37 +120,6 @@ struct OnboardingView: View {
             }
             .padding()
         }
-    }
-
-    var body: some View {
-        GeometryReader { geo in
-            VStack(spacing: 0) {
-                Spacer()
-                tabView
-                    .frame(
-                        width: geo.size.width,
-                        height: geo.size.height / 2
-                    )
-                    .padding(.top)
-                
-                Spacer()
-
-                if viewModel.isLastPage {
-                    mainButton
-                    importView
-                        .padding()
-                } else {
-                    HStack {
-                        Spacer()
-                        nextButton
-                            .padding()
-                    }
-                }
-            }
-            .padding(.vertical)
-            .background(Asset.Colors.accentColor.color.asColor)
-        }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 

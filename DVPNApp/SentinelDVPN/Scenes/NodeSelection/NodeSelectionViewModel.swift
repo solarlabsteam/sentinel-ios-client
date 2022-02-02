@@ -67,6 +67,8 @@ final class NodeSelectionViewModel: ObservableObject {
     
     @Published private(set) var subscriptionsState: SubscriptionsState = .empty
 
+    @Published var showAccountPopover = false
+
     init(model: NodeSelectionModel) {
         self.model = model
 

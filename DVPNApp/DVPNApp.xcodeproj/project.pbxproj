@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2224D82427958368005342D7 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */; };
-		222D8C19273C1FC900542407 /* AccountCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C18273C1FC900542407 /* AccountCreationCoordinator.swift */; };
-		222D8C1A273C200000542407 /* AccountCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */; };
-		222D8C1B273C200200542407 /* AccountCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */; };
-		222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E1270B72D2000CD59B /* AccountCreationView.swift */; };
-		222D8C1D273C221A00542407 /* MnemonicLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */; };
 		222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C7A273D44CB00CEA689 /* UserConstants.swift */; };
 		222D8C56273E69CE00542407 /* ConnectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */; };
 		222D8C57273E6DE500542407 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495A26B8B3F70004A692 /* ConnectionModel.swift */; };
@@ -189,8 +184,6 @@
 		7511628A273ABB0D005F9133 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D56426CD2753009ECAFC /* Serializer.swift */; };
 		7511628B273ABB28005F9133 /* ContinentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BFB0FB2722960400848912 /* ContinentDecoder.swift */; };
 		7511628F273ABE79005F9133 /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517DF1727218BFA007E56CA /* PageIndicator.swift */; };
-		75116294273ABFC1005F9133 /* CreationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75116293273ABFC1005F9133 /* CreationMode.swift */; };
-		75116295273ABFC1005F9133 /* CreationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75116293273ABFC1005F9133 /* CreationMode.swift */; };
 		7517DF1827218BFA007E56CA /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517DF1727218BFA007E56CA /* PageIndicator.swift */; };
 		752FCFEE26E5E258001EA78D /* WalletErros+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFED26E5E258001EA78D /* WalletErros+Ext.swift */; };
 		752FCFF126EB5F0D001EA78D /* Int64+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF026EB5F0C001EA78D /* Int64+Ext.swift */; };
@@ -224,6 +217,8 @@
 		755F5F18270DE78600D416ED /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F16270DE78600D416ED /* TextStyles.swift */; };
 		755F5F19270DE78600D416ED /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F17270DE78600D416ED /* TextStyle.swift */; };
 		755FBF0626AF0E6F00E9D408 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 755FBF0526AF0E6F00E9D408 /* SwiftKeychainWrapper */; };
+		75799AB727AAEF7C00C9CE60 /* AppStageSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75799AB627AAEF7C00C9CE60 /* AppStageSwitcherView.swift */; };
+		75799AB927AAEF8300C9CE60 /* AppStageSwitcherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75799AB827AAEF8300C9CE60 /* AppStageSwitcherViewModel.swift */; };
 		757F7F932746D205005E031E /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
 		757F7F942746D20A005E031E /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
 		757F7F952746D210005E031E /* PlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32B26C57FE900222CA4 /* PlansModel.swift */; };
@@ -231,11 +226,10 @@
 		757F7F972746D210005E031E /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
 		757F7F992746D4F4005E031E /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F982746D4F4005E031E /* PlansCoordinator.swift */; };
 		758B261226AFEC4A00BD711E /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B261126AFEC4A00BD711E /* RouterType.swift */; };
-		758DD9E3270B72D2000CD59B /* MnemonicLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */; };
-		758DD9E4270B72D2000CD59B /* AccountCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */; };
-		758DD9E5270B72D2000CD59B /* AccountCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */; };
-		758DD9E6270B72D2000CD59B /* AccountCreationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */; };
-		758DD9E7270B72D2000CD59B /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E1270B72D2000CD59B /* AccountCreationView.swift */; };
+		758FCC0127A9451B00896575 /* AccountCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */; };
+		758FCC0427A9452200896575 /* AccountCreationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */; };
+		758FCC0527A9452200896575 /* AccountCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9E1270B72D2000CD59B /* AccountCreationView.swift */; };
+		758FCC0627A9452200896575 /* MnemonicLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */; };
 		75A53BF6273E5E5E0003F54A /* SecurityServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */; };
 		75A53BF7273E5E6A0003F54A /* SecurityServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */; };
 		75A53BFA273E5EB60003F54A /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53BF8273E5EB30003F54A /* SecurityService.swift */; };
@@ -253,7 +247,6 @@
 		75D6564526C5493F000056B4 /* DVPNNodeInfo+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6564426C5493F000056B4 /* DVPNNodeInfo+Ext.swift */; };
 		75E5BDF626D78FFB00C345B9 /* GRPCError+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDF526D78FFB00C345B9 /* GRPCError+Ext.swift */; };
 		75E5BDFF26DE16FC00C345B9 /* ConnectionToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */; };
-		75EC74BE27A728CF00DC2EAC /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */; };
 		75EC74C027A728D300DC2EAC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6563626C4DB99000056B4 /* OnboardingViewModel.swift */; };
 		75EC74C127A728D300DC2EAC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C13273C1BB500542407 /* OnboardingView.swift */; };
 		75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6563A26C4DBA9000056B4 /* OnboardingModel.swift */; };
@@ -267,7 +260,6 @@
 		92074C8F273D683900CEA689 /* ContinentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56A271882B2006EBC65 /* ContinentsView.swift */; };
 		92074C90273D688400CEA689 /* ContinentsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */; };
 		9263A4302796D9D4003DF3A4 /* SentinelDVPNApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */; };
-		9263A4322796D9D4003DF3A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A4312796D9D4003DF3A4 /* ContentView.swift */; };
 		9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4332796D9D6003DF3A4 /* Assets.xcassets */; };
 		9263A46E2796E4C1003DF3A4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
 		9263A46F2796E4C4003DF3A4 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA67270461D20062AFD3 /* NetworkServiceType.swift */; };
@@ -343,7 +335,7 @@
 		9263A4C42796EA1E003DF3A4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF5270DB51B00D416ED /* Poppins-SemiBold.ttf */; };
 		9263A4C52796EA22003DF3A4 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF6270DB51B00D416ED /* Poppins-Italic.ttf */; };
 		9263A4C62796EA24003DF3A4 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 755F5EF7270DB51B00D416ED /* Poppins-MediumItalic.ttf */; };
-		9263A4C82796EA41003DF3A4 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */; platformFilter = maccatalyst; };
+		9263A4C82796EA41003DF3A4 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */; };
 		9263A4CA2796EA4D003DF3A4 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4C92796EA4D003DF3A4 /* EFQRCode */; };
 		9263A4CC2796EABA003DF3A4 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 9263A4CB2796EABA003DF3A4 /* SwiftyBeaver */; };
 		9263A4CD2796EBC3003DF3A4 /* TunnelConfiguration+WireGuardConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA26267A2DCA00023D42 /* TunnelConfiguration+WireGuardConfig.swift */; };
@@ -559,7 +551,6 @@
 
 /* Begin PBXFileReference section */
 		222D8C13273C1BB500542407 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		222D8C18273C1FC900542407 /* AccountCreationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationCoordinator.swift; sourceTree = "<group>"; };
 		222D8C52273D7D5900542407 /* MacOS_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MacOS_Info.plist; path = DVPNApp/MacOS_Info.plist; sourceTree = SOURCE_ROOT; };
 		222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCoordinator.swift; sourceTree = "<group>"; };
 		22A8D698273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DVPNAppNetworkExtension_macOS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -648,12 +639,13 @@
 		755F5F13270DE77800D416ED /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		755F5F16270DE78600D416ED /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		755F5F17270DE78600D416ED /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		75799AB627AAEF7C00C9CE60 /* AppStageSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStageSwitcherView.swift; sourceTree = "<group>"; };
+		75799AB827AAEF8300C9CE60 /* AppStageSwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStageSwitcherViewModel.swift; sourceTree = "<group>"; };
 		757F7F982746D4F4005E031E /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicLineView.swift; sourceTree = "<group>"; };
 		758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationViewModel.swift; sourceTree = "<group>"; };
 		758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationModel.swift; sourceTree = "<group>"; };
-		758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationCoordinator.swift; sourceTree = "<group>"; };
 		758DD9E1270B72D2000CD59B /* AccountCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationView.swift; sourceTree = "<group>"; };
 		75A53BF5273E5E5E0003F54A /* SecurityServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityServiceError.swift; sourceTree = "<group>"; };
 		75A53BF8273E5EB30003F54A /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
@@ -670,13 +662,11 @@
 		75D6564026C526CC000056B4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		75D6564426C5493F000056B4 /* DVPNNodeInfo+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DVPNNodeInfo+Ext.swift"; sourceTree = "<group>"; };
 		75E5BDF526D78FFB00C345B9 /* GRPCError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRPCError+Ext.swift"; sourceTree = "<group>"; };
-		75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepModel.swift; sourceTree = "<group>"; };
 		75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionToggleStyle.swift; sourceTree = "<group>"; };
 		92074C7A273D44CB00CEA689 /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
 		92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModelDelegate.swift; sourceTree = "<group>"; };
 		9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentinelDVPN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelDVPNApp.swift; sourceTree = "<group>"; };
-		9263A4312796D9D4003DF3A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9263A4332796D9D6003DF3A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9263A4382796D9D6003DF3A4 /* SentinelDVPN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelDVPN.entitlements; sourceTree = "<group>"; };
 		9263A4C72796EA41003DF3A4 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
@@ -824,22 +814,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		222D8C16273C1FAB00542407 /* MacOS */ = {
-			isa = PBXGroup;
-			children = (
-				222D8C18273C1FC900542407 /* AccountCreationCoordinator.swift */,
-			);
-			path = MacOS;
-			sourceTree = "<group>";
-		};
-		222D8C17273C1FB100542407 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				758DD9E0270B72D2000CD59B /* AccountCreationCoordinator.swift */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
 		22A8D69A273EC6F200E78784 /* DVPNAppNetworkExtension_macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1213,11 +1187,18 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		75799AB327AAEF6500C9CE60 /* AppStageSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				75799AB627AAEF7C00C9CE60 /* AppStageSwitcherView.swift */,
+				75799AB827AAEF8300C9CE60 /* AppStageSwitcherViewModel.swift */,
+			);
+			path = AppStageSwitcher;
+			sourceTree = "<group>";
+		};
 		758DD9DB270B72D2000CD59B /* AccountCreation */ = {
 			isa = PBXGroup;
 			children = (
-				222D8C17273C1FB100542407 /* iOS */,
-				222D8C16273C1FAB00542407 /* MacOS */,
 				758DD9DC270B72D2000CD59B /* Subviews */,
 				758DD9DF270B72D2000CD59B /* AccountCreationModel.swift */,
 				758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */,
@@ -1305,7 +1286,6 @@
 			isa = PBXGroup;
 			children = (
 				75D6563A26C4DBA9000056B4 /* OnboardingModel.swift */,
-				75E5BDFC26DCDBDA00C345B9 /* OnboardingStepModel.swift */,
 				222D8C13273C1BB500542407 /* OnboardingView.swift */,
 				75D6563626C4DB99000056B4 /* OnboardingViewModel.swift */,
 			);
@@ -1324,7 +1304,6 @@
 			isa = PBXGroup;
 			children = (
 				7504EA63267B4CE900023D42 /* Common */,
-				9263A4312796D9D4003DF3A4 /* ContentView.swift */,
 				75359CE326FC7EC100CFEBCD /* Generated */,
 				93843B45272498F200CE6D34 /* Models */,
 				93D304A027974A3400469A75 /* Resources */,
@@ -1435,7 +1414,9 @@
 		93D304C52797537B00469A75 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
+				75799AB327AAEF6500C9CE60 /* AppStageSwitcher */,
 				93D304D42797576600469A75 /* Connection */,
 				93D304F527983F0400469A75 /* NodeDetails */,
 				93D304C62797538500469A75 /* NodeSelection */,
@@ -1569,7 +1550,6 @@
 		C64B495426B8B3F70004A692 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				22BAC3862746B16A00DC0BCE /* AvailableNodes */,
 				932D0B002721977D0064AEE4 /* Empty */,
 				7504EA6C267B4E6700023D42 /* Root */,
@@ -2064,15 +2044,12 @@
 				C64ED33126C57FE900222CA4 /* PlansModel.swift in Sources */,
 				22BAC3962746B16A00DC0BCE /* AvailableNodesModel.swift in Sources */,
 				7504EA79267B5B4600023D42 /* TunnelStatus.swift in Sources */,
-				758DD9E7270B72D2000CD59B /* AccountCreationView.swift in Sources */,
 				7504EA73267B554C00023D42 /* NETunnelProviderManager+Ext.swift in Sources */,
 				7504EAAA267B983800023D42 /* ConfigurationParseError.swift in Sources */,
 				93DBF55A2717C395006EBC65 /* MarkerProtocols.swift in Sources */,
 				7504EA66267B4D0200023D42 /* CoordinatorType.swift in Sources */,
-				758DD9E3270B72D2000CD59B /* MnemonicLineView.swift in Sources */,
 				753EDE002715633A00DA76F8 /* NodeSelectionRowView.swift in Sources */,
 				75D6560826BBF436000056B4 /* Context.swift in Sources */,
-				758DD9E4270B72D2000CD59B /* AccountCreationViewModel.swift in Sources */,
 				75359D0F26FC7EC200CFEBCD /* Assets.swift in Sources */,
 				93FA0692270B4C690006A765 /* NodeInfoViewModel.swift in Sources */,
 				75D6564526C5493F000056B4 /* DVPNNodeInfo+Ext.swift in Sources */,
@@ -2116,9 +2093,7 @@
 				93DBF5412716940A006EBC65 /* RealmStorage.swift in Sources */,
 				7504EA76267B570A00023D42 /* TunnelsServiceStatusDelegate.swift in Sources */,
 				939FA140270C3D960013ED75 /* CounterView.swift in Sources */,
-				758DD9E6270B72D2000CD59B /* AccountCreationCoordinator.swift in Sources */,
 				7504EA4B267A37FB00023D42 /* TunnelModel.swift in Sources */,
-				75116294273ABFC1005F9133 /* CreationMode.swift in Sources */,
 				9312CA61270316880062AFD3 /* TunnelManager.swift in Sources */,
 				93D29CD5272036C800A35BCA /* Double+Ext.swift in Sources */,
 				932D0AFF2721766C0064AEE4 /* PreloadServiceType.swift in Sources */,
@@ -2134,7 +2109,6 @@
 				7504EA4F267A391000023D42 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
 				93DBF56B271882B2006EBC65 /* ContinentsView.swift in Sources */,
 				7517DF1827218BFA007E56CA /* PageIndicator.swift in Sources */,
-				758DD9E5270B72D2000CD59B /* AccountCreationModel.swift in Sources */,
 				758B261226AFEC4A00BD711E /* RouterType.swift in Sources */,
 				7504EA92267B822A00023D42 /* TunnelContainer.swift in Sources */,
 				93DBF56D2718889A006EBC65 /* ContinentsRowView.swift in Sources */,
@@ -2184,7 +2158,6 @@
 			files = (
 				75116254273AAFA4005F9133 /* GRPCError+Ext.swift in Sources */,
 				75A53BFA273E5EB60003F54A /* SecurityService.swift in Sources */,
-				222D8C1C273C200900542407 /* AccountCreationView.swift in Sources */,
 				7511621C273A98B0005F9133 /* Fonts.swift in Sources */,
 				75116259273AB011005F9133 /* RealmStorage.swift in Sources */,
 				93FB6F072746F75900819A6C /* NodeDetailsViewModel.swift in Sources */,
@@ -2225,7 +2198,6 @@
 				75116277273AB05E005F9133 /* TunnelContainer.swift in Sources */,
 				75116275273AB059005F9133 /* TunnelManagerType.swift in Sources */,
 				75116252273AAFA4005F9133 /* WalletErros+Ext.swift in Sources */,
-				222D8C19273C1FC900542407 /* AccountCreationCoordinator.swift in Sources */,
 				7511621E273A98BC005F9133 /* Strings.swift in Sources */,
 				75116260273AB031005F9133 /* NetworkServiceType.swift in Sources */,
 				222D8C5F273E6E0900542407 /* CountryTileView.swift in Sources */,
@@ -2234,7 +2206,6 @@
 				75116261273AB036005F9133 /* StoresNodes.swift in Sources */,
 				757F7F992746D4F4005E031E /* PlansCoordinator.swift in Sources */,
 				75116220273A98C1005F9133 /* AutoRealmObject.generated.swift in Sources */,
-				222D8C1D273C221A00542407 /* MnemonicLineView.swift in Sources */,
 				7511626A273AB042005F9133 /* Persistable.swift in Sources */,
 				222D8C57273E6DE500542407 /* ConnectionModel.swift in Sources */,
 				75116253273AAFA4005F9133 /* DVPNNodeInfo+Ext.swift in Sources */,
@@ -2263,7 +2234,6 @@
 				75116276273AB05E005F9133 /* TunnelsServiceStatusDelegate.swift in Sources */,
 				92074C7F273D4CFB00CEA689 /* ConnectionStatus.swift in Sources */,
 				7511626B273AB042005F9133 /* RealmStorage+Ext.swift in Sources */,
-				222D8C1B273C200200542407 /* AccountCreationViewModel.swift in Sources */,
 				92074C8E273D5A1300CEA689 /* NodeSelectionRowView.swift in Sources */,
 				75116248273AAF7F005F9133 /* Context.swift in Sources */,
 				75116225273AAAA0005F9133 /* TextStyles.swift in Sources */,
@@ -2291,9 +2261,7 @@
 				75116211273A88FC005F9133 /* Config.swift in Sources */,
 				222D8C5D273E6E0200542407 /* ConnectionInfoViewModel.swift in Sources */,
 				757F7F942746D20A005E031E /* CounterView.swift in Sources */,
-				75116295273ABFC1005F9133 /* CreationMode.swift in Sources */,
 				757F7F952746D210005E031E /* PlansModel.swift in Sources */,
-				222D8C1A273C200000542407 /* AccountCreationModel.swift in Sources */,
 				75116272273AB054005F9133 /* PeersModel.swift in Sources */,
 				93DC52A5274000DE006C0989 /* NavigationHelper.swift in Sources */,
 				92074C8C273D53C300CEA689 /* ScaleView.swift in Sources */,
@@ -2314,6 +2282,7 @@
 				9263A4852796E520003DF3A4 /* SentinelNode+Ext.swift in Sources */,
 				93D304F127983DC800469A75 /* ConnectionViewModel.swift in Sources */,
 				93D304CA279753D100469A75 /* NodeSelectionViewModel.swift in Sources */,
+				758FCC0127A9451B00896575 /* AccountCreationViewModel.swift in Sources */,
 				9263A4A12796E6F8003DF3A4 /* NETunnelProviderManager+Ext.swift in Sources */,
 				9263A4842796E519003DF3A4 /* UserService.swift in Sources */,
 				9263A4752796E4DC003DF3A4 /* SecurityServiceError.swift in Sources */,
@@ -2321,6 +2290,7 @@
 				9263A48B2796E53A003DF3A4 /* TunnelManagerType.swift in Sources */,
 				93D304D7279757FF00469A75 /* NodeSelectionRowViewModel.swift in Sources */,
 				9263A4802796E50C003DF3A4 /* RealmStorage.swift in Sources */,
+				758FCC0527A9452200896575 /* AccountCreationView.swift in Sources */,
 				9263A47E2796E506003DF3A4 /* AutoRealmObject.swift in Sources */,
 				9263A4702796E4C7003DF3A4 /* NodesService.swift in Sources */,
 				9263A4712796E4CA003DF3A4 /* NodesServiceType.swift in Sources */,
@@ -2355,7 +2325,6 @@
 				93D304B42797520A00469A75 /* DVPNNodeInfo+Ext.swift in Sources */,
 				9263A4CF2796EC14003DF3A4 /* Array+Ext.swift in Sources */,
 				9263A47C2796E4F7003DF3A4 /* UserDefaultsStorageStrategy.swift in Sources */,
-				9263A4322796D9D4003DF3A4 /* ContentView.swift in Sources */,
 				9263A4A42796E7F1003DF3A4 /* NotificationToken.swift in Sources */,
 				9263A47D2796E4FB003DF3A4 /* SettingsStorageStrategyType.swift in Sources */,
 				93D304B72797525600469A75 /* Fonts.swift in Sources */,
@@ -2366,13 +2335,13 @@
 				93D304E6279833C900469A75 /* AccountInfoView.swift in Sources */,
 				93D304D32797574B00469A75 /* ConnectionStatus.swift in Sources */,
 				93D304B32797520500469A75 /* TunnelConfiguration+Ext.swift in Sources */,
+				758FCC0627A9452200896575 /* MnemonicLineView.swift in Sources */,
 				9263A4D627986738003DF3A4 /* NodeDetailsCoordinator.swift in Sources */,
 				93D304EF27983CA800469A75 /* CountryTileView.swift in Sources */,
 				93D304F027983DC400469A75 /* ConnectionView.swift in Sources */,
 				93D304B52797520C00469A75 /* GRPCError+Ext.swift in Sources */,
 				93D304F227983DCA00469A75 /* ConnectionModel.swift in Sources */,
 				9263A4812796E50E003DF3A4 /* RealmStorage+Ext.swift in Sources */,
-				75EC74BE27A728CF00DC2EAC /* OnboardingStepModel.swift in Sources */,
 				93D304EC27983C6F00469A75 /* ConnectionInfoView.swift in Sources */,
 				9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */,
 				93D304AB2797517B00469A75 /* UIColor+SwiftU.swift in Sources */,
@@ -2381,6 +2350,7 @@
 				93D304C12797530400469A75 /* ActivityIndicator.swift in Sources */,
 				9263A4792796E4EC003DF3A4 /* StoresWallet.swift in Sources */,
 				9263A48F2796E548003DF3A4 /* TunnelsServiceStatusDelegate.swift in Sources */,
+				75799AB727AAEF7C00C9CE60 /* AppStageSwitcherView.swift in Sources */,
 				93D304D927975CCC00469A75 /* ModulesFactory.swift in Sources */,
 				9263A49F2796E6E3003DF3A4 /* ContinentsRowViewType.swift in Sources */,
 				93D304E8279834CF00469A75 /* FramedButton.swift in Sources */,
@@ -2397,6 +2367,7 @@
 				9263A4892796E531003DF3A4 /* TunnelModel.swift in Sources */,
 				93D304E5279833C500469A75 /* AccountInfoModel.swift in Sources */,
 				93D304AC2797519C00469A75 /* NSTableView+Ext.swift in Sources */,
+				75799AB927AAEF8300C9CE60 /* AppStageSwitcherViewModel.swift in Sources */,
 				9263A49D2796E6D2003DF3A4 /* Serializer.swift in Sources */,
 				93D304AF279751B700469A75 /* Double+Ext.swift in Sources */,
 				93D304C22797530700469A75 /* Toolbar.swift in Sources */,
@@ -2407,6 +2378,7 @@
 				9263A47B2796E4F4003DF3A4 /* GeneralSettingsStorage.swift in Sources */,
 				93D304EA27983C6100469A75 /* ConnectionToggleStyle.swift in Sources */,
 				937FE47827A17C4F00DBFC08 /* PlansModel.swift in Sources */,
+				758FCC0427A9452200896575 /* AccountCreationModel.swift in Sources */,
 				75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */,
 				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
 				9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */,
@@ -2506,7 +2478,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2536,7 +2508,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.sentinel.dvpn.macOS.network-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2909,7 +2881,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2939,7 +2911,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.sentinel.dvpn.macOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -15,6 +15,31 @@ struct NodeSelectionView: View {
     }
 
     var body: some View {
+        NavigationView {
+            embedBody
+        }
+        .navigationViewStyle(.columns)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: { viewModel.showAccountPopover.toggle() }) {
+                    Asset.Navigation.account.image.asImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+                .popover(isPresented: $viewModel.showAccountPopover, arrowEdge: .bottom) {
+                    ModulesFactory.shared.makeAccountInfoScene()
+                }
+                .buttonStyle(PlainButtonStyle())
+                .frame(width: 25, height: 25)
+            }
+        }
+    }
+}
+
+// MARK: - Subviews
+
+extension NodeSelectionView {
+    private var embedBody: some View {
         VStack {
             ZStack {
                 Picker("", selection: $viewModel.selectedTab) {
@@ -27,7 +52,7 @@ struct NodeSelectionView: View {
             .padding(.horizontal, 40)
             .padding(.bottom, 30)
             .padding(.top, 10)
-            
+
             HStack {
                 switch viewModel.selectedTab {
                 case .subscribed:
@@ -41,12 +66,8 @@ struct NodeSelectionView: View {
         .edgesIgnoringSafeArea(.bottom)
         .onAppear(perform: viewModel.viewWillAppear)
     }
-}
 
-// MARK: - Subviews
-
-extension NodeSelectionView {
-    var subscribedNodes: some View {
+    private var subscribedNodes: some View {
         ZStack(alignment: .bottom) {
             VStack {
                 if !viewModel.isLoadingSubscriptions && viewModel.subscriptions.isEmpty {
@@ -63,7 +84,7 @@ extension NodeSelectionView {
         }
     }
     
-    var emptySubscribedNodes: some View {
+    private var emptySubscribedNodes: some View {
         VStack {
             Spacer()
             
@@ -81,7 +102,7 @@ extension NodeSelectionView {
         }
     }
     
-    var subscribedNodesList: some View {
+    private var subscribedNodesList: some View {
         List {
             ForEach(viewModel.subscriptions, id: \.self) { vm in
                 NodeSelectionRowView(
@@ -99,7 +120,7 @@ extension NodeSelectionView {
         .listStyle(PlainListStyle())
     }
     
-    var continentsView: some View {
+    private var continentsView: some View {
         ContinentsView(viewModel: viewModel)
     }
 }

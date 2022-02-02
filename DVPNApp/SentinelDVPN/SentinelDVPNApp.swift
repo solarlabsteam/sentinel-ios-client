@@ -11,7 +11,7 @@ import SwiftUI
 struct SentinelDVPNApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ModulesFactory.shared.detectStartModule()
                 .frame(minWidth: 1000, minHeight: 500)
         }
     }

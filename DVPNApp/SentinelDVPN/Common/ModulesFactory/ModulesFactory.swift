@@ -23,24 +23,24 @@ final class ModulesFactory {
 }
 
 extension ModulesFactory {
-//    func detectStartModule(for navigation: NavigationHelper, window: NSWindow) {
-//        self.window = window
-//
+    func detectStartModule() -> AppStageSwitcherView {
 //        context.nodesService.loadAllNodes { [weak self] result in
 //            if case let .success(nodes) = result {
 //                self?.context.nodesService.loadNodesInfo(for: nodes)
 //            }
 //        }
-//
-//        guard context.generalInfoStorage.didPassOnboarding() else {
-//            makeOnboardingModule(for: navigation)
-//            return
+
+        let stage: AppStage = context.generalInfoStorage.didPassOnboarding() ? .home : .onboarding
+
+        let viewModel = AppStageSwitcherViewModel(stage: stage)
+        let view = AppStageSwitcherView(viewModel: viewModel)
+
+        return view
+
+//        context.preloadService.loadData {
+//            log.debug("Preloaded data.")
 //        }
-//
-//        context.preloadService.loadData { [weak self] in
-//            self?.makeHomeModule(for: navigation)
-//        }
-//    }
+    }
 
     func makeOnboardingScene(delegate: OnboardingViewModelDelegate? = nil) -> OnboardingView {
         let model = OnboardingModel(context: context)

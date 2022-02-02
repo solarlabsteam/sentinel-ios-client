@@ -40,11 +40,11 @@ private struct Constants {
 
 private let constants = Constants()
 
-final class OnboardingViewModel: ObservableObject {
-    enum Route {
-        case createAccount(mode: CreationMode)
-    }
+protocol OnboardingViewModelDelegate: AnyObject {
+    func didFinish(with mode: CreationMode)
+}
 
+final class OnboardingViewModel: ObservableObject {
     private let model: OnboardingModel
 
     @Published private(set) var title = constants.steps[0].title
@@ -54,10 +54,12 @@ final class OnboardingViewModel: ObservableObject {
     @Published var currentPage = 0
     @Published var isLastPage: Bool = false
 
+    private weak var delegate: OnboardingViewModelDelegate?
     private var cancellables = Set<AnyCancellable>()
 
-    init(model: OnboardingModel) {
+    init(model: OnboardingModel, delegate: OnboardingViewModelDelegate?) {
         self.model = model
+        self.delegate = delegate
 
         $currentPage
             .sink(
@@ -69,13 +71,15 @@ final class OnboardingViewModel: ObservableObject {
             )
             .store(in: &cancellables)
     }
+}
 
+extension OnboardingViewModel {
     func didTapCreateButton() {
-//        router.play(event: .createAccount(mode: .create))
+        delegate?.didFinish(with: .create)
     }
-//
+
     func didTapImportButton() {
-//        router.play(event: .createAccount(mode: .restore))
+        delegate?.didFinish(with: .restore)
     }
 
     func didTapNextButton() {
