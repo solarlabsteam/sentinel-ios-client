@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2224D82427958368005342D7 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */; };
-		222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C7A273D44CB00CEA689 /* UserConstants.swift */; };
 		222D8C56273E69CE00542407 /* ConnectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */; };
 		222D8C57273E6DE500542407 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495A26B8B3F70004A692 /* ConnectionModel.swift */; };
 		222D8C58273E6DE900542407 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495726B8B3F70004A692 /* ConnectionView.swift */; };
@@ -250,7 +249,7 @@
 		75EC74C027A728D300DC2EAC /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6563626C4DB99000056B4 /* OnboardingViewModel.swift */; };
 		75EC74C127A728D300DC2EAC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C13273C1BB500542407 /* OnboardingView.swift */; };
 		75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6563A26C4DBA9000056B4 /* OnboardingModel.swift */; };
-		92074C7B273D44CB00CEA689 /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C7A273D44CB00CEA689 /* UserConstants.swift */; };
+		75F15B8C27AF2C8E00CE6266 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 75F15B8B27AF2C8E00CE6266 /* AlertToast */; };
 		92074C7F273D4CFB00CEA689 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752FCFF326F3286B001EA78D /* ConnectionStatus.swift */; };
 		92074C81273D4E8000CEA689 /* PlansViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */; };
 		92074C82273D4E8400CEA689 /* PlansViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */; };
@@ -802,6 +801,7 @@
 				9263A49A2796E654003DF3A4 /* RealmSwift in Frameworks */,
 				9263A4CA2796EA4D003DF3A4 /* EFQRCode in Frameworks */,
 				9263A4922796E593003DF3A4 /* WireGuardKit in Frameworks */,
+				75F15B8C27AF2C8E00CE6266 /* AlertToast in Frameworks */,
 				9263A4AC2796E93D003DF3A4 /* SwiftKeychainWrapper in Frameworks */,
 				9263A4AF2796E968003DF3A4 /* FlagKit in Frameworks */,
 				9263A49C2796E660003DF3A4 /* Realm in Frameworks */,
@@ -1743,6 +1743,7 @@
 				9263A4AE2796E968003DF3A4 /* FlagKit */,
 				9263A4C92796EA4D003DF3A4 /* EFQRCode */,
 				9263A4CB2796EABA003DF3A4 /* SwiftyBeaver */,
+				75F15B8B27AF2C8E00CE6266 /* AlertToast */,
 			);
 			productName = SentinelDVPN;
 			productReference = 9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */;
@@ -1799,6 +1800,7 @@
 				C680E89A270DE0E90042453D /* XCRemoteSwiftPackageReference "sentinel-wallet-sdk-ios" */,
 				93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				75F15B8A27AF2C8E00CE6266 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -2114,7 +2116,6 @@
 				93DBF56D2718889A006EBC65 /* ContinentsRowView.swift in Sources */,
 				93DBF5512716D626006EBC65 /* StoresGeneralInfo.swift in Sources */,
 				7504EA8F267B7BB200023D42 /* TunnelSavingError.swift in Sources */,
-				92074C7B273D44CB00CEA689 /* UserConstants.swift in Sources */,
 				93C3EC3D270AF7A300B9CA4D /* Array+Ext.swift in Sources */,
 				752FCFF426F3286B001EA78D /* ConnectionStatus.swift in Sources */,
 				93FA0696270B5A800006A765 /* Collection+Ext.swift in Sources */,
@@ -2167,7 +2168,6 @@
 				75116284273AB83E005F9133 /* NotificationToken.swift in Sources */,
 				93FB6F062746F75600819A6C /* NodeDetailsModel.swift in Sources */,
 				757F7F972746D210005E031E /* PlansViewModel.swift in Sources */,
-				222D8C51273D7C0D00542407 /* UserConstants.swift in Sources */,
 				7511626F273AB054005F9133 /* TunnelModel.swift in Sources */,
 				7511621F273A98BE005F9133 /* Assets.swift in Sources */,
 				75116249273AAF82005F9133 /* ContextBuilder.swift in Sources */,
@@ -3047,6 +3047,14 @@
 				minimumVersion = 2.4.0;
 			};
 		};
+		75F15B8A27AF2C8E00CE6266 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
@@ -3163,6 +3171,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75D6561B26C358F8000056B4 /* XCRemoteSwiftPackageReference "FlagKit" */;
 			productName = FlagKit;
+		};
+		75F15B8B27AF2C8E00CE6266 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75F15B8A27AF2C8E00CE6266 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 		9263A4912796E593003DF3A4 /* WireGuardKit */ = {
 			isa = XCSwiftPackageProductDependency;

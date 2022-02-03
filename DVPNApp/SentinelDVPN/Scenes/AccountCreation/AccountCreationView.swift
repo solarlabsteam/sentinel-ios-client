@@ -7,105 +7,16 @@
 
 import Foundation
 import SwiftUI
+import AlertToast
 
 struct AccountCreationView: View {
 
     @ObservedObject private var viewModel: AccountCreationViewModel
+    @State private var showAlert = true
 
     init(viewModel: AccountCreationViewModel) {
         self.viewModel = viewModel
     }
-
-    var walletAddress: some View {
-        Button(action: viewModel.didTapCopyAddress) {
-            ZStack(alignment: .leading) {
-                Text(viewModel.address ?? "")
-                    .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
-                    .padding(.bottom, 10)
-                    .padding([.horizontal, .top], 8)
-                    .border(Asset.Colors.borderGray.color.asColor, width: 1)
-                    .cornerRadius(2)
-                    .padding(.top, 20)
-                
-                HStack {
-                    Spacer().frame(width: 10, height: 10)
-                    Text(L10n.AccountCreation.walletAddress)
-                        .applyTextStyle(.textBody)
-                        .padding(.horizontal, 5)
-                        .background(Asset.Colors.accentColor.color.asColor)
-                        .padding(.bottom, 12)
-                }
-            }
-        }
-        .buttonStyle(PlainButtonStyle())
-    }
-
-    var mnemonicFields: some View {
-        VStack {
-            ForEach(Array(viewModel.mnemonic.indices).chunked(into: 4), id: \.self) { range in
-                MnemonicLineView(range: range, mnemonic: $viewModel.mnemonic, isEnabled: $viewModel.isEnabled)
-            }
-        }
-    }
-
-    var mainButton: some View {
-        Button(action: viewModel.didTapMainButton) {
-            HStack {
-                Spacer()
-                Text(viewModel.mode.buttonTitle.uppercased())
-                    .applyTextStyle(.mainButton)
-
-                Spacer()
-            }
-        }
-        .padding()
-        .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
-        .buttonStyle(PlainButtonStyle())
-    }
-
-    var termsView: some View {
-        HStack(spacing: 2) {
-            Button(action: viewModel.didCheckTerms) {
-                if viewModel.isTermsChecked {
-                    Image(systemName: "checkmark.square.fill")
-                        .foregroundColor(Asset.Colors.navyBlue.color.asColor)
-                } else {
-                    Image(systemName: "square")
-                        .foregroundColor(Asset.Colors.borderGray.color.asColor)
-                }
-            }
-            .buttonStyle(PlainButtonStyle())
-            
-            HStack(alignment: .top, spacing: 5) {
-                Text(L10n.AccountCreation.Terms.text)
-                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
-                
-                Button(action: viewModel.didTapTerms) {
-                    Text(L10n.AccountCreation.Terms.button)
-                        .applyTextStyle(.whitePoppins(ofSize: 12, weight: .semibold))
-                }
-                .buttonStyle(PlainButtonStyle())
-            }
-
-            Spacer()
-        }
-    }
-
-    var importView: some View {
-        HStack(spacing: 2) {
-            Text(L10n.AccountCreation.Button.ImportNow.text)
-                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
-
-            Button(action: viewModel.didTapChangeMode) {
-                Text(L10n.AccountCreation.Button.ImportNow.action)
-                    .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
-                    .underline()
-            }
-            .buttonStyle(PlainButtonStyle())
-        }
-    }
-
     var body: some View {
         ScrollView {
             if viewModel.mode == .create {
@@ -113,7 +24,7 @@ struct AccountCreationView: View {
             }
 
             mnemonicFields
-            
+
             HStack {
                 Button(action: viewModel.didTapMnemonicActionButton) {
                     Text(
@@ -126,11 +37,11 @@ struct AccountCreationView: View {
                         .cornerRadius(2)
                 }
                 .buttonStyle(PlainButtonStyle())
-                
+
                 Spacer()
             }
             .padding(.vertical, 10)
-            
+
             if viewModel.mode == .restore && viewModel.address != nil {
                 walletAddress
             }
@@ -167,6 +78,101 @@ struct AccountCreationView: View {
         .padding()
         .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
+        .toast(isPresenting: $viewModel.alertContent.isShown) {
+            viewModel.alertContent.toast
+        }
+    }
+}
+
+extension AccountCreationView {
+    private var walletAddress: some View {
+        Button(action: viewModel.didTapCopyAddress) {
+            ZStack(alignment: .leading) {
+                Text(viewModel.address ?? "")
+                    .applyTextStyle(.whitePoppins(ofSize: 11, weight: .medium))
+                    .padding(.bottom, 10)
+                    .padding([.horizontal, .top], 8)
+                    .border(Asset.Colors.borderGray.color.asColor, width: 1)
+                    .cornerRadius(2)
+                    .padding(.top, 20)
+                
+                HStack {
+                    Spacer().frame(width: 10, height: 10)
+                    Text(L10n.AccountCreation.walletAddress)
+                        .applyTextStyle(.textBody)
+                        .padding(.horizontal, 5)
+                        .background(Asset.Colors.accentColor.color.asColor)
+                        .padding(.bottom, 12)
+                }
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+
+    private var mnemonicFields: some View {
+        VStack {
+            ForEach(Array(viewModel.mnemonic.indices).chunked(into: 4), id: \.self) { range in
+                MnemonicLineView(range: range, mnemonic: $viewModel.mnemonic, isEnabled: $viewModel.isEnabled)
+            }
+        }
+    }
+
+    private var mainButton: some View {
+        Button(action: viewModel.didTapMainButton) {
+            HStack {
+                Spacer()
+                Text(viewModel.mode.buttonTitle.uppercased())
+                    .applyTextStyle(.mainButton)
+
+                Spacer()
+            }
+        }
+        .padding()
+        .background(Asset.Colors.navyBlue.color.asColor)
+        .cornerRadius(25)
+        .buttonStyle(PlainButtonStyle())
+    }
+
+    private var termsView: some View {
+        HStack(spacing: 2) {
+            Button(action: viewModel.didCheckTerms) {
+                if viewModel.isTermsChecked {
+                    Image(systemName: "checkmark.square.fill")
+                        .foregroundColor(Asset.Colors.navyBlue.color.asColor)
+                } else {
+                    Image(systemName: "square")
+                        .foregroundColor(Asset.Colors.borderGray.color.asColor)
+                }
+            }
+            .buttonStyle(PlainButtonStyle())
+            
+            HStack(alignment: .top, spacing: 5) {
+                Text(L10n.AccountCreation.Terms.text)
+                    .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+                
+                Link(destination: UserConstants.privacyURL) {
+                    Text(L10n.AccountCreation.Terms.button)
+                        .applyTextStyle(.whitePoppins(ofSize: 12, weight: .semibold))
+                }
+                .buttonStyle(PlainButtonStyle())
+            }
+
+            Spacer()
+        }
+    }
+
+    private var importView: some View {
+        HStack(spacing: 2) {
+            Text(L10n.AccountCreation.Button.ImportNow.text)
+                .applyTextStyle(.lightGrayPoppins(ofSize: 12, weight: .light))
+
+            Button(action: viewModel.didTapChangeMode) {
+                Text(L10n.AccountCreation.Button.ImportNow.action)
+                    .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
+                    .underline()
+            }
+            .buttonStyle(PlainButtonStyle())
+        }
     }
 }
 

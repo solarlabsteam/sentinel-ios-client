@@ -30,9 +30,9 @@ extension ModulesFactory {
 //            }
 //        }
 
-        let stage: AppStage = context.generalInfoStorage.didPassOnboarding() ? .home : .onboarding
+//        let stage: AppStage = context.generalInfoStorage.didPassOnboarding() ? .home : .onboarding
 
-        let viewModel = AppStageSwitcherViewModel(stage: stage)
+        let viewModel = AppStageSwitcherViewModel(stage: .onboarding)
         let view = AppStageSwitcherView(viewModel: viewModel)
 
         return view

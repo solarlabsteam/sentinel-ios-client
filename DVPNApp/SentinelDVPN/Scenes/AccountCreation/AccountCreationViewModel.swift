@@ -6,9 +6,11 @@
 //
 
 import Cocoa
+import SwiftUI
 import Combine
 import HDWallet
 import Foundation
+import AlertToast
 
 protocol AccountCreationViewModelDelegate: AnyObject {
     func openNodes()
@@ -26,6 +28,8 @@ final class AccountCreationViewModel: ObservableObject {
 
     @Published private(set) var isTermsChecked: Bool = false
 
+    @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
+
     init(model: AccountCreationModel, mode: CreationMode, delegate: AccountCreationViewModelDelegate?) {
         self.model = model
         self.mode = mode
@@ -36,8 +40,7 @@ final class AccountCreationViewModel: ObservableObject {
             .sink { [weak self] event in
                 switch event {
                 case let .error(error):
-                    break
-//                    self?.router.play(event: .error(error))
+                    self?.show(error: error)
                 case let .address(address):
                     self?.address = address
                 case let .mnemonic(mnemonic):
@@ -45,8 +48,6 @@ final class AccountCreationViewModel: ObservableObject {
                 case let .mode(mode):
                     self?.mode = mode
                     self?.isEnabled = mode == .restore
-
-//                    router.play(event: .title(mode.title))
                 case .updateWallet:
                     self?.delegate?.openNodes()
                 }
@@ -70,7 +71,11 @@ extension AccountCreationViewModel {
 
     func didTapCopyAddress() {
         guard let address = address else { return }
-//        router.play(event: .info(L10n.AccountCreation.Copied.address))
+
+        alertContent = (
+            true,
+            AlertToast(type: .regular, title: L10n.AccountCreation.Copied.address)
+        )
 
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([.string], owner: nil)
@@ -83,7 +88,7 @@ extension AccountCreationViewModel {
             model.saveWallet(mnemonic: mnemonic)
         case .create:
             if !isTermsChecked {
-//                router.play(event: .error(AccountCreationModelError.termsUnchecked))
+                show(error: AccountCreationModelError.termsUnchecked)
                 return
             }
 
@@ -94,11 +99,7 @@ extension AccountCreationViewModel {
     func didCheckTerms() {
         isTermsChecked = !isTermsChecked
     }
-
-    func didTapTerms() {
-//        router.play(event: .privacy)
-    }
-
+    
     func didTapChangeMode() {
         let newMode: CreationMode = mode == .create ? .restore : .create
 
@@ -109,6 +110,13 @@ extension AccountCreationViewModel {
 // MARK: - Private methods
 
 extension AccountCreationViewModel {
+    private func show(error: Error) {
+        alertContent = (
+            true,
+            AlertToast(type: .error(NSColor.systemRed.asColor), title: error.localizedDescription)
+        )
+    }
+
     private func didTapPasteMnemonic() {
         let pasteboard = NSPasteboard.general.string(forType: .string)
         pasteboard.splitToArray(separator: " ").prefix(24).enumerated().forEach { index, value in
@@ -119,7 +127,10 @@ extension AccountCreationViewModel {
     }
     
     private func didTapCopyMnemonic() {
-//        router.play(event: .info(L10n.AccountCreation.Copied.mnemonic))
+        alertContent = (
+            true,
+            AlertToast(type: .regular, title: L10n.AccountCreation.Copied.mnemonic)
+        )
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([.string], owner: nil)
         pasteboard.setString(mnemonic.joined(separator: " "), forType: .string)
