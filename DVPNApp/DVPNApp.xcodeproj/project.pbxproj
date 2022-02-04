@@ -475,6 +475,7 @@
 		93DC52A5274000DE006C0989 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52A3274000B4006C0989 /* NavigationHelper.swift */; };
 		93DC52B02746D280006C0989 /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */; };
 		93E492F127A8915100797906 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E492F027A8915100797906 /* StatusMenu.swift */; };
+		93E492F327A9700600797906 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E492F227A9700600797906 /* ConnectionService.swift */; };
 		93FA0690270B4C5E0006A765 /* NodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068F270B4C5E0006A765 /* NodeInfoView.swift */; };
 		93FA0692270B4C690006A765 /* NodeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */; };
 		93FA0694270B4C770006A765 /* NodeInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0693270B4C770006A765 /* NodeInfoType.swift */; };
@@ -746,6 +747,7 @@
 		93DC52A3274000B4006C0989 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
 		93E492F027A8915100797906 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
+		93E492F227A9700600797906 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
 		93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -1241,6 +1243,7 @@
 				75A53BF2273E5E220003F54A /* SecurityService */,
 				75B0D56126CD26F6009ECAFC /* Storage */,
 				932D0AF62721743F0064AEE4 /* UserService */,
+				93E492F227A9700600797906 /* ConnectionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2463,6 +2466,7 @@
 				937FE47827A17C4F00DBFC08 /* PlansModel.swift in Sources */,
 				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
 				9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */,
+				93E492F327A9700600797906 /* ConnectionService.swift in Sources */,
 				9263A4A72796E89B003DF3A4 /* Image+Ext.swift in Sources */,
 				9263A4782796E4E9003DF3A4 /* StoresGeneralInfo.swift in Sources */,
 				9263A4742796E4D8003DF3A4 /* SecurityService.swift in Sources */,

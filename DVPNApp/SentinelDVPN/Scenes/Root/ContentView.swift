@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ModulesFactory.shared.makeConnectionScene()
+            ModulesFactory.shared.makeAccountInfoScene()
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -22,7 +22,7 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                 }
                 .popover(isPresented: self.$showAccountPopover, arrowEdge: .bottom) {
-                    ModulesFactory.shared.makeAccountInfoScene()
+                    ModulesFactory.shared.makeConnectionScene()
                 }
                 .buttonStyle(PlainButtonStyle())
                 .frame(width: 25, height: 25)

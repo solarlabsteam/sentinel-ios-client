@@ -16,6 +16,7 @@ final class CommonContext {
     let securityService: SecurityService
     let tunnelManager: TunnelManagerType
     let networkService: NetworkServiceType
+    let connectionMenuService: ConnectionMenuService
     
     /// Wallet-dependent services
     private(set) var walletService: WalletService
@@ -33,7 +34,8 @@ final class CommonContext {
         networkService: NetworkServiceType,
         userService: UserService,
         preloadService: PreloadServiceType,
-        nodesService: NodesServiceType
+        nodesService: NodesServiceType,
+        connectionMenuService: ConnectionMenuService
     ) {
         self.storage = storage
         self.securityService = securityService
@@ -44,6 +46,7 @@ final class CommonContext {
         self.userService = userService
         self.preloadService = preloadService
         self.nodesService = nodesService
+        self.connectionMenuService = connectionMenuService
     }
 
     func resetWalletContext() {
@@ -116,3 +119,6 @@ extension CommonContext: HasPreloadService {}
 
 protocol HasNodesService { var nodesService: NodesServiceType { get } }
 extension CommonContext: HasNodesService {}
+
+protocol HasConnectionMenuService { var connectionMenuService: ConnectionMenuService { get } }
+extension CommonContext: HasConnectionMenuService {}

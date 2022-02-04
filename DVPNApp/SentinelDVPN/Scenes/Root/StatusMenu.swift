@@ -7,18 +7,27 @@
 
 import SwiftUI
 import FlagKit
+import Combine
 
 class StatusMenu: NSMenu {
-    typealias Context = HasConnectionInfoStorage & HasNodesService
+    typealias Context = HasConnectionMenuService
     private let context: Context
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    private let nodeInfoItem = NSMenuItem()
+    private let currentStatusItem = NSMenuItem()
+    private let connectionMenuItem = NSMenuItem(
+        title: "", action: #selector(toggleConnection), keyEquivalent: ""
+    )
         
     init(context: Context) {
         self.context = context
         
         super.init(title: "Status Bar Menu")
         
-        addNodeMenuItems()
-        addConnectionMenuItems()
+        subscribeToEvents()
+        addMenuItems()
     }
     
     required init(coder: NSCoder) {
@@ -27,30 +36,39 @@ class StatusMenu: NSMenu {
 }
 
 extension StatusMenu {
-    // MARK: - Node item
-    
-    private func addNodeMenuItems() {
-        let nodeInfoItem = NSMenuItem()
-        nodeInfoItem.title = "test Russia vpn"
-        nodeInfoItem.image = Flag(countryCode: "RU")?.originalImage
+    private func subscribeToEvents() {
+        context.connectionMenuService.$countryName
+            .sink(receiveValue: { [weak self] countryName in
+                if let countryName = countryName,
+                   let countryCode = CountryFormatter.code(for: countryName),
+                   let image = Flag(countryCode: countryCode)?.originalImage {
+                    self?.nodeInfoItem.image = image
+                }
+            }).store(in: &cancellables)
         
-        addItem(nodeInfoItem)
+        context.connectionMenuService.$moniker
+            .sink(receiveValue: { value in
+                self.nodeInfoItem.title = value
+            }).store(in: &cancellables)
+        
+        context.connectionMenuService.$isConnected
+            .sink(receiveValue: { isConnected in
+                self.connectionMenuItem.title = isConnected ? L10n.Menu.Connection.disconnect
+                : L10n.Menu.Connection.connect
+            }).store(in: &cancellables)
+        
+        context.connectionMenuService.$connectionStatus
+            .sink(receiveValue: { connectionStatus in
+                self.currentStatusItem.title = L10n.Menu.Connection.status(connectionStatus.title)
+            }).store(in: &cancellables)
     }
     
-    // MARK: - Connection item
-    
-    private func addConnectionMenuItems() {
-        let currentStatusItem = NSMenuItem()
-        currentStatusItem.title = "Status: disconnected"
-        
-        addItem(currentStatusItem)
-        
-        addItem(NSMenuItem.separator())
-        
-        let connectionMenuItem = NSMenuItem(
-            title: "Connect", action: #selector(toggleConnection), keyEquivalent: ""
-        )
+    private func addMenuItems() {
         connectionMenuItem.target = self
+        
+        addItem(nodeInfoItem)
+        addItem(currentStatusItem)
+        addItem(NSMenuItem.separator())
         addItem(connectionMenuItem)
     }
     
