@@ -45,6 +45,8 @@ final class ConnectionModel {
         eventSubject.eraseToAnyPublisher()
     }
     
+    private var cancellables = Set<AnyCancellable>()
+    
     private var selectedNode: DVPNNodeInfo?
 
     init(context: Context) {
@@ -52,6 +54,8 @@ final class ConnectionModel {
         context.tunnelManager.delegate = self
 
         fetchWalletInfo()
+        
+        subscribeToggleConnectionMenuState()
     }
 }
 
@@ -461,6 +465,13 @@ extension ConnectionModel {
     
     private func setConnectionInfoToService(isConnected: Bool) {
         context.connectionMenuService.isConnected = isConnected
+    }
+    
+    private func subscribeToggleConnectionMenuState() {
+        context.connectionMenuService.$toggleConnectionNewState
+            .sink(receiveValue: { newState in
+                newState ? self.connect() : self.disconnect()
+            }).store(in: &cancellables)
     }
 }
 
