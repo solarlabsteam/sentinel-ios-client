@@ -239,6 +239,19 @@ internal enum L10n {
     }
   }
 
+  internal enum Menu {
+    internal enum Connection {
+      /// Connect
+      internal static let connect = L10n.tr("Localizable", "Menu.Connection.Connect")
+      /// Disconnect
+      internal static let disconnect = L10n.tr("Localizable", "Menu.Connection.Disconnect")
+      /// Status: %@
+      internal static func status(_ p1: Any) -> String {
+        return L10n.tr("Localizable", "Menu.Connection.Status", String(describing: p1))
+      }
+    }
+  }
+
   internal enum NodeDetails {
     /// CONNECT NOW
     internal static let connect = L10n.tr("Localizable", "NodeDetails.Connect")

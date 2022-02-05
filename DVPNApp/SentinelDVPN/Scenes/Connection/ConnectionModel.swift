@@ -30,7 +30,7 @@ enum ConnectionModelEvent {
 
 final class ConnectionModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage & HasTunnelManager
-        & HasNetworkService & HasNodesService
+        & HasNetworkService & HasNodesService & HasConnectionMenuService
     
     private let context: Context
 
@@ -45,6 +45,8 @@ final class ConnectionModel {
         eventSubject.eraseToAnyPublisher()
     }
     
+    private var cancellables = Set<AnyCancellable>()
+    
     private var selectedNode: DVPNNodeInfo?
 
     init(context: Context) {
@@ -52,6 +54,8 @@ final class ConnectionModel {
         context.tunnelManager.delegate = self
 
         fetchWalletInfo()
+        
+        subscribeToggleConnectionMenuState()
     }
 }
 
@@ -72,6 +76,11 @@ extension ConnectionModel {
         eventSubject.send(.updateLocation(
             countryName: node.info.location.country,
             moniker: node.info.moniker)
+        )
+        
+        setCountryInfoToService(
+            countryName: node.info.location.country,
+            moniker: node.info.moniker
         )
         
         eventSubject.send(.updateBandwidth(bandwidth: node.info.bandwidth))
@@ -151,6 +160,7 @@ extension ConnectionModel {
             
             eventSubject.send(.openPlans(for: selectedNode))
             eventSubject.send(.updateConnection(status: .disconnected))
+            setStatusToService(status: .disconnected)
             eventSubject.send(.setButton(isLoading: false))
             return false
         }
@@ -204,6 +214,7 @@ extension ConnectionModel {
     private func update(subscriptionInfo: SentinelWallet.Subscription, status: ConnectionStatus? = nil) {
         if let status = status {
             eventSubject.send(.updateConnection(status: status))
+            setStatusToService(status: status)
         }
         
         context.sentinelService.queryQuota(subscriptionID: subscriptionInfo.id) { [weak self] result in
@@ -227,6 +238,7 @@ extension ConnectionModel {
 
     private func connect(to subscription: SentinelWallet.Subscription) {
         eventSubject.send(.updateConnection(status: .subscriptionStatus))
+        setStatusToService(status: .subscriptionStatus)
         context.sentinelService.queryQuota(subscriptionID: subscription.id) { [weak self] result in
             guard let self = self else { return }
 
@@ -239,6 +251,7 @@ extension ConnectionModel {
                     return
                 }
                 self.eventSubject.send(.updateConnection(status: .nodeStatus))
+                self.setStatusToService(status: .nodeStatus)
                 self.context.sentinelService.queryNodeStatus(
                     address: subscription.node,
                     timeout: constants.timeout
@@ -295,12 +308,18 @@ extension ConnectionModel {
                 self?.eventSubject.send(
                     .updateBandwidth(bandwidth: node.info.bandwidth)
                 )
+                
+                self?.setCountryInfoToService(
+                    countryName: node.info.location.country,
+                    moniker: node.info.moniker
+                )
             }
         }
     }
 
     private func createNewSession(subscription: SentinelWallet.Subscription, nodeURL: String) {
         eventSubject.send(.updateConnection(status: .balanceCheck))
+        setStatusToService(status: .balanceCheck)
         context.walletService.fetchBalance { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -325,6 +344,7 @@ extension ConnectionModel {
 
     private func startSession(on subscription: SentinelWallet.Subscription, nodeURL: String) {
         eventSubject.send(.updateConnection(status: .sessionBroadcast))
+        setStatusToService(status: .sessionBroadcast)
         context.sentinelService.startNewSession(on: subscription) { [weak self] result in
             switch result {
             case .failure(let error):
@@ -385,6 +405,7 @@ extension ConnectionModel {
         completion: @escaping (Result<(Bool, Bool), Error>) -> Void
     ) {
         eventSubject.send(.updateConnection(status: .sessionStatus))
+        setStatusToService(status: .sessionStatus)
         
         var isTunnelActive: Bool
 
@@ -430,11 +451,36 @@ extension ConnectionModel {
     }
 }
 
+extension ConnectionModel {
+    // MARK: - Menu service
+    
+    private func setCountryInfoToService(countryName: String, moniker: String) {
+        context.connectionMenuService.countryName = countryName
+        context.connectionMenuService.moniker = moniker
+    }
+    
+    private func setStatusToService(status: ConnectionStatus) {
+        context.connectionMenuService.connectionStatus = status
+    }
+    
+    private func setConnectionInfoToService(isConnected: Bool) {
+        context.connectionMenuService.isConnected = isConnected
+    }
+    
+    private func subscribeToggleConnectionMenuState() {
+        context.connectionMenuService.$toggleConnectionNewState
+            .sink(receiveValue: { newState in
+                newState ? self.connect() : self.disconnect()
+            }).store(in: &cancellables)
+    }
+}
+
 // MARK: - Events
 
 extension ConnectionModel {
     private func stopLoading() {
         eventSubject.send(.updateConnection(status: .init(from: isTunnelActive)))
+        setStatusToService(status: .init(from: isTunnelActive))
         eventSubject.send(.setButton(isLoading: false))
     }
 
@@ -442,6 +488,7 @@ extension ConnectionModel {
         log.error(error)
         stopLoading()
         eventSubject.send(.update(isTunnelActive: isTunnelActive))
+        setConnectionInfoToService(isConnected: isTunnelActive)
         eventSubject.send(.error(error))
     }
 }
@@ -451,6 +498,7 @@ extension ConnectionModel {
 extension ConnectionModel {
     private func fetchConnectionData(remoteURLString: String, id: UInt64) {
         eventSubject.send(.updateConnection(status: .keysExchange))
+        setStatusToService(status: .keysExchange)
 
         var int = id.bigEndian
         let sessionIdData = Data(bytes: &int, count: 8)
@@ -489,6 +537,7 @@ extension ConnectionModel {
 
     private func setTunnelActivity(stopLoading: Bool = false) {
         eventSubject.send(.update(isTunnelActive: self.isTunnelActive))
+        setConnectionInfoToService(isConnected: isTunnelActive)
         
         if stopLoading {
             self.stopLoading()
@@ -523,6 +572,7 @@ extension ConnectionModel {
 extension ConnectionModel: TunnelManagerDelegate {
     func handleTunnelUpdatingStatus() {
         eventSubject.send(.updateConnection(status: .tunnelUpdating))
+        setStatusToService(status: .tunnelUpdating)
     }
 
     func handleError(_ error: Error) {

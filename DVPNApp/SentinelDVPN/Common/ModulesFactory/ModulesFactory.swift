@@ -20,6 +20,10 @@ final class ModulesFactory {
     func resetWalletContext() {
         context.resetWalletContext()
     }
+    
+    func makeStatusMenu() -> StatusMenu {
+        StatusMenu(context: context)
+    }
 }
 
 extension ModulesFactory {
