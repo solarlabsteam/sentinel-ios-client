@@ -5,11 +5,12 @@
 //  Created by Victoria Kostyleva on 18.01.2022.
 //
 
-import Foundation
+import Cocoa
 import FlagKit
 import SentinelWallet
 import Combine
 import NetworkExtension
+import AlertToast
 
 enum NodeType: CaseIterable {
     case subscribed
@@ -37,18 +38,6 @@ enum NodeSelectionViewModelError: LocalizedError {
 }
 
 final class NodeSelectionViewModel: ObservableObject {
-    enum Route {
-        case error(Error)
-        case connect
-//        case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
-        case details(SentinelNode, isSubscribed: Bool)
-        case accountInfo
-        case sentinel
-        case solarLabs
-//        case dns(DNSSettingsViewModelDelegate?, DNSServerType)
-//        case openNodes(Continent, delegate: PlansViewModelDelegate)
-    }
-    
     @Published private(set) var subscriptions: [NodeSelectionRowViewModel] = []
     private(set) var nodes: Set<SentinelNode> = []
     
@@ -59,7 +48,8 @@ final class NodeSelectionViewModel: ObservableObject {
     
     @Published var selectedTab: NodeType = .subscribed
     @Published var server: DNSServerType = .default
-    
+
+    @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
     @Published var numberOfNodesInContinent: [Continent: Int] = [:]
 
     private var statusObservationToken: NotificationToken?
@@ -74,14 +64,6 @@ final class NodeSelectionViewModel: ObservableObject {
 
         handeEvents()
         startObservingStatuses()
-        
-        $selectedTab
-            .sink(receiveValue: { _ in
-#if os(iOS)
-                UIImpactFeedbackGenerator.lightFeedback()
-#endif
-            })
-            .store(in: &cancellables)
         
         numberOfNodesInContinent = model.numberOfNodesInContinent
 
@@ -165,8 +147,7 @@ extension NodeSelectionViewModel {
                 
                 switch event {
                 case let .error(error):
-                    #warning("TODO")
-//                    self.router.play(event: .error(error))
+                    self.show(error: error)
                 case let .update(nodes):
                     self.nodes.formUnion(nodes)
                 case let .showLoadingSubscriptions(state):
@@ -189,6 +170,13 @@ extension NodeSelectionViewModel {
                 }
             }
             .store(in: &cancellables)
+    }
+
+    private func show(error: Error) {
+        alertContent = (
+            true,
+            AlertToast(type: .error(NSColor.systemRed.asColor), title: error.localizedDescription)
+        )
     }
     
     private func set(subscribedNodes: [SentinelNode]) {

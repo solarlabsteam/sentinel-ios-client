@@ -10,9 +10,7 @@ import SwiftUI
 import AlertToast
 
 struct AccountCreationView: View {
-    
     @ObservedObject private var viewModel: AccountCreationViewModel
-    @State private var showAlert = true
     
     init(viewModel: AccountCreationViewModel) {
         self.viewModel = viewModel

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct NodeSelectionView: View {
     @ObservedObject private var viewModel: NodeSelectionViewModel
@@ -17,6 +18,9 @@ struct NodeSelectionView: View {
     var body: some View {
         NavigationView {
             embedBody
+                .toast(isPresenting: $viewModel.alertContent.isShown) {
+                    viewModel.alertContent.toast
+                }
         }
         .navigationViewStyle(.columns)
         .toolbar {
