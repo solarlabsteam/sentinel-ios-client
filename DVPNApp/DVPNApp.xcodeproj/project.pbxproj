@@ -420,7 +420,6 @@
 		93D304DA27975CD400469A75 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EA65267B4D0200023D42 /* CoordinatorType.swift */; };
 		93D304DF2797EA7F00469A75 /* StoresDNSServers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D304DE2797EA7F00469A75 /* StoresDNSServers.swift */; };
 		93D304E32797EAB700469A75 /* DNSServerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D304E12797EAA900469A75 /* DNSServerType.swift */; };
-		93D304E4279833C100469A75 /* AccountInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */; };
 		93D304E5279833C500469A75 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */; };
 		93D304E6279833C900469A75 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BA26D4B810001355F7 /* AccountInfoView.swift */; };
 		93D304E7279833CC00469A75 /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */; };
@@ -720,7 +719,6 @@
 		93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowViewType.swift; sourceTree = "<group>"; };
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		93DC52A3274000B4006C0989 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
-		93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCoordinator.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
 		93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -1111,11 +1109,10 @@
 		7554E2B826D4B7ED001355F7 /* AccountInfo */ = {
 			isa = PBXGroup;
 			children = (
-				93DC52AD27402DA2006C0989 /* AccountInfoCoordinator.swift */,
+				7554E2C226D4BAE9001355F7 /* Subviews */,
 				7554E2C026D4B82A001355F7 /* AccountInfoModel.swift */,
 				7554E2BA26D4B810001355F7 /* AccountInfoView.swift */,
 				7554E2BC26D4B817001355F7 /* AccountInfoViewModel.swift */,
-				7554E2C226D4BAE9001355F7 /* Subviews */,
 			);
 			path = AccountInfo;
 			sourceTree = "<group>";
@@ -2297,7 +2294,6 @@
 				93D304F727983F2900469A75 /* NodeInfoView.swift in Sources */,
 				93D304AD279751AE00469A75 /* Collection+Ext.swift in Sources */,
 				93D304F827983F2B00469A75 /* NodeInfoViewModel.swift in Sources */,
-				93D304E4279833C100469A75 /* AccountInfoCoordinator.swift in Sources */,
 				93D304A6279750F000469A75 /* TextStyles.swift in Sources */,
 				93D304E9279834D300469A75 /* AccentButton.swift in Sources */,
 				93D304E7279833CC00469A75 /* AccountInfoViewModel.swift in Sources */,

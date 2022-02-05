@@ -11,19 +11,14 @@ import FlagKit
 import SentinelWallet
 import Combine
 import EFQRCode
+import AlertToast
 
 final class AccountInfoViewModel: ObservableObject {
-//    typealias Router = AnyRouter<Route>
-//    private let router: Router
-    
-    enum Route {
-        case error(Error)
-        case info(String)
-    }
-    
     @Published private(set) var qrCode: ImageAsset.Image
     @Published private(set) var address: String
     @Published private(set) var balance: String?
+
+    @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
     
     private let model: AccountInfoModel
     private var cancellables = Set<AnyCancellable>()
@@ -49,8 +44,7 @@ final class AccountInfoViewModel: ObservableObject {
             .sink { [weak self] event in
                 switch event {
                 case let .error(error):
-                    #warning("TODO")
-//                    self?.router.play(event: .error(error))
+                    self?.show(error: error)
                 case let .update(balance):
                     self?.balance = balance
                 }
@@ -78,10 +72,21 @@ extension AccountInfoViewModel {
 
 extension AccountInfoViewModel {
     func didTapCopy() {
-//        router.play(event: .info(L10n.AccountInfo.textCopied))
-        
+        alertContent = (
+            true,
+            AlertToast(type: .regular, title: L10n.AccountInfo.textCopied)
+        )
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([.string], owner: nil)
         pasteboard.setString(model.address, forType: .string)
+    }
+}
+
+extension AccountInfoViewModel {
+    private func show(error: Error) {
+        alertContent = (
+            true,
+            AlertToast(type: .error(NSColor.systemRed.asColor), title: error.localizedDescription)
+        )
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 private struct Constants {
     let coordinateSpaceName = "pullToRefresh"
@@ -66,13 +67,16 @@ struct AccountInfoView: View {
         .padding(.bottom, 30)
         .background(Asset.Colors.accentColor.color.asColor)
         .edgesIgnoringSafeArea(.bottom)
+        .toast(isPresenting: $viewModel.alertContent.isShown) {
+            viewModel.alertContent.toast
+        }
     }
 }
 
 // MARK: - Subviews
 
 extension AccountInfoView {
-    var addressView: some View {
+    private var addressView: some View {
         Button(action: viewModel.didTapCopy) {
             HStack(alignment: .center, spacing: 3) {
                 Spacer()
@@ -93,7 +97,7 @@ extension AccountInfoView {
         )
     }
     
-    var shareButton: some View {
+    private var shareButton: some View {
         FramedButton(title: L10n.AccountInfo.share) {
             self.showPicker = true
         }
@@ -102,19 +106,19 @@ extension AccountInfoView {
         )
     }
     
-    var copyButton: some View {
+    private var copyButton: some View {
         FramedButton(title: L10n.AccountInfo.copy) {
             viewModel.didTapCopy()
         }
     }
     
-    var solarPayButton: some View {
+    private var solarPayButton: some View {
         AccentButton(title: L10n.AccountInfo.topUp) {
             openURL(viewModel.solarPayURL)
         }
     }
 
-    var qrCode: some View {
+    private var qrCode: some View {
         VStack(alignment: .center, spacing: nil) {
             Color.white
                 .mask(
