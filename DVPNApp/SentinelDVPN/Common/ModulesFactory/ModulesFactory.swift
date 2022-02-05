@@ -24,22 +24,22 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule() -> AppStageSwitcherView {
-//        context.nodesService.loadAllNodes { [weak self] result in
-//            if case let .success(nodes) = result {
-//                self?.context.nodesService.loadNodesInfo(for: nodes)
-//            }
-//        }
+        context.nodesService.loadAllNodes { [weak self] result in
+            if case let .success(nodes) = result {
+                self?.context.nodesService.loadNodesInfo(for: nodes)
+            }
+        }
 
-//        let stage: AppStage = context.generalInfoStorage.didPassOnboarding() ? .home : .onboarding
+        context.preloadService.loadData {
+            log.debug("Preloaded data.")
+        }
 
-        let viewModel = AppStageSwitcherViewModel(stage: .onboarding)
+        let stage: AppStage = context.generalInfoStorage.didPassOnboarding() ? .home : .onboarding
+
+        let viewModel = AppStageSwitcherViewModel(stage: stage)
         let view = AppStageSwitcherView(viewModel: viewModel)
 
         return view
-
-//        context.preloadService.loadData {
-//            log.debug("Preloaded data.")
-//        }
     }
 
     func makeOnboardingScene(delegate: OnboardingViewModelDelegate? = nil) -> OnboardingView {
