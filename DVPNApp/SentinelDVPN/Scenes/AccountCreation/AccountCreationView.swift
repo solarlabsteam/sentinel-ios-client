@@ -10,39 +10,50 @@ import SwiftUI
 import AlertToast
 
 struct AccountCreationView: View {
-
+    
     @ObservedObject private var viewModel: AccountCreationViewModel
     @State private var showAlert = true
-
+    
     init(viewModel: AccountCreationViewModel) {
         self.viewModel = viewModel
     }
-    var body: some View {
-        ScrollView {
-            if viewModel.mode == .create {
-                walletAddress
-            }
 
+    var body: some View {
+        HStack(spacing: 30) {
+            leftColumn
+            rightColumn
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Asset.Colors.accentColor.color.asColor)
+        .toast(isPresenting: $viewModel.alertContent.isShown) {
+            viewModel.alertContent.toast
+        }
+    }
+}
+
+extension AccountCreationView {
+    private var leftColumn: some View {
+        VStack(spacing: 10)  {
             mnemonicFields
 
-            HStack {
-                Button(action: viewModel.didTapMnemonicActionButton) {
-                    Text(
-                        viewModel.mode == .restore ?
-                        L10n.AccountCreation.Import.Button.paste : L10n.AccountCreation.Create.Button.copy)
-                        .applyTextStyle(.whitePoppins(ofSize: 12))
-                        .padding(.horizontal, 15)
-                        .padding(.vertical, 10)
-                        .border(Asset.Colors.navyBlue.color.asColor, width: 1)
-                        .cornerRadius(2)
-                }
-                .buttonStyle(PlainButtonStyle())
-
-                Spacer()
+            Button(action: viewModel.didTapMnemonicActionButton) {
+                Text(
+                    viewModel.mode == .restore ?
+                    L10n.AccountCreation.Import.Button.paste : L10n.AccountCreation.Create.Button.copy)
+                    .applyTextStyle(.whitePoppins(ofSize: 12))
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 10)
+                    .border(Asset.Colors.navyBlue.color.asColor, width: 1)
+                    .cornerRadius(2)
             }
-            .padding(.vertical, 10)
+            .buttonStyle(PlainButtonStyle())
+        }
+    }
 
-            if viewModel.mode == .restore && viewModel.address != nil {
+    private var rightColumn: some View {
+        VStack(alignment: .leading, spacing: 10)  {
+            if viewModel.address != nil {
                 walletAddress
             }
 
@@ -56,11 +67,7 @@ struct AccountCreationView: View {
                 .frame(maxWidth: .infinity)
                 .border(Asset.Colors.borderGray.color.asColor, width: 1)
                 .cornerRadius(2)
-            }
 
-            Spacer()
-
-            if viewModel.mode == .create {
                 termsView
                     .padding()
 
@@ -71,20 +78,11 @@ struct AccountCreationView: View {
                     .padding()
             } else {
                 mainButton
-                    .padding()
-                    .padding(.top, 50)
+                    .padding(.horizontal)
             }
         }
-        .padding()
-        .background(Asset.Colors.accentColor.color.asColor)
-        .edgesIgnoringSafeArea(.bottom)
-        .toast(isPresenting: $viewModel.alertContent.isShown) {
-            viewModel.alertContent.toast
-        }
     }
-}
 
-extension AccountCreationView {
     private var walletAddress: some View {
         Button(action: viewModel.didTapCopyAddress) {
             ZStack(alignment: .leading) {
@@ -179,11 +177,13 @@ extension AccountCreationView {
 struct AccountCreationView_Previews_Restore: PreviewProvider {
     static var previews: some View {
         ModulesFactory.shared.makeAccountCreationScene(with: .restore)
+            .frame(minWidth: 1000, minHeight: 500)
     }
 }
 
 struct AccountCreationView_Previews_Create: PreviewProvider {
     static var previews: some View {
         ModulesFactory.shared.makeAccountCreationScene(with: .create)
+            .frame(minWidth: 1000, minHeight: 500)
     }
 }
