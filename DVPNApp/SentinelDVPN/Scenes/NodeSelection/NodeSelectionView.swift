@@ -5,6 +5,7 @@
 //  Created by Victoria Kostyleva on 18.01.2022.
 //
 
+import Cocoa
 import SwiftUI
 import AlertToast
 
@@ -16,27 +17,11 @@ struct NodeSelectionView: View {
     }
 
     var body: some View {
-        NavigationView {
-            embedBody
-                .toast(isPresenting: $viewModel.alertContent.isShown) {
-                    viewModel.alertContent.toast
-                }
-        }
-        .navigationViewStyle(.columns)
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: { viewModel.showAccountPopover.toggle() }) {
-                    Asset.Navigation.account.image.asImage
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                }
-                .popover(isPresented: $viewModel.showAccountPopover, arrowEdge: .bottom) {
-                    ModulesFactory.shared.makeAccountInfoScene()
-                }
-                .buttonStyle(PlainButtonStyle())
-                .frame(width: 25, height: 25)
+        embedBody
+            .background(Asset.Colors.accentColor.color.asColor)
+            .toast(isPresenting: $viewModel.alertContent.isShown) {
+                viewModel.alertContent.toast
             }
-        }
     }
 }
 
@@ -49,9 +34,11 @@ extension NodeSelectionView {
                 Picker("", selection: $viewModel.selectedTab) {
                     ForEach(NodeType.allCases, id: \.self) {
                         Text($0.title)
+                            .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                .foregroundColor(Asset.Colors.navyBlue.color.asColor)
             }
             .padding(.horizontal, 40)
             .padding(.bottom, 30)
@@ -67,7 +54,6 @@ extension NodeSelectionView {
             }
         }
         .background(Asset.Colors.accentColor.color.asColor)
-        .edgesIgnoringSafeArea(.bottom)
         .onAppear(perform: viewModel.viewWillAppear)
     }
 
@@ -83,8 +69,9 @@ extension NodeSelectionView {
             
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingSubscriptions,
-                controlSize: .large
+                controlSize: .small
             )
+                .padding(.bottom)
         }
     }
     
@@ -118,7 +105,6 @@ extension NodeSelectionView {
                         viewModel.openDetails(for: vm.id)
                     }
                 )
-                    .listRowBackground(Color.clear)
             }
         }
         .listStyle(PlainListStyle())

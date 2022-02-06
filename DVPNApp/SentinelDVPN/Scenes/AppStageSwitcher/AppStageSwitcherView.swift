@@ -21,7 +21,25 @@ struct AppStageSwitcherView: View {
         case let .accountCreation(mode):
             ModulesFactory.shared.makeAccountCreationScene(with: mode, delegate: viewModel)
         case .home:
-            ModulesFactory.shared.makeNodeSelectionModule()
+            NavigationView {
+                ModulesFactory.shared.makeConnectionScene()
+                ModulesFactory.shared.makeNodeSelectionModule()
+            }
+            .background(Asset.Colors.accentColor.color.asColor)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(action: { viewModel.showAccountPopover.toggle() }) {
+                        Asset.Navigation.account.image.asImage
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                    .popover(isPresented: $viewModel.showAccountPopover, arrowEdge: .bottom) {
+                        ModulesFactory.shared.makeAccountInfoScene()
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .frame(width: 25, height: 25)
+                }
+            }
         }
     }
 }

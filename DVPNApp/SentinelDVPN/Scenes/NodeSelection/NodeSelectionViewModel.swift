@@ -19,9 +19,9 @@ enum NodeType: CaseIterable {
     var title: String {
         switch self {
         case .subscribed:
-            return L10n.Home.Node.Subscribed.title.uppercased()
+            return L10n.Home.Node.Subscribed.title
         case .available:
-            return L10n.Home.Node.All.title.uppercased()
+            return L10n.Home.Node.All.title
         }
     }
 }
@@ -99,22 +99,17 @@ extension NodeSelectionViewModel {
     func toggleLocation(with id: String) {
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
               let node = sentinelNode.node else {
-//                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  show(error: NodeSelectionViewModelError.unavailableNode)
                   return
               }
         
         toggle(node: node)
     }
 
-    @objc
-    func didTapAccountInfoButton() {
-//        router.play(event: .accountInfo)
-    }
-
     func openDetails(for id: String) {
         guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
               let node = sentinelNode.node else {
-//                  router.play(event: .error(HomeViewModelError.unavailableNode))
+                  show(error: NodeSelectionViewModelError.unavailableNode)
                   return
               }
         

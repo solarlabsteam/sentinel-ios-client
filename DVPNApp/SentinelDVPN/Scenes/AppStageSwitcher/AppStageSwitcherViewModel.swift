@@ -14,6 +14,7 @@ enum AppStage {
 
 final class AppStageSwitcherViewModel: ObservableObject {
     @Published private(set) var stage: AppStage
+    @Published var showAccountPopover = false
 
     init(stage: AppStage) {
         self.stage = stage
