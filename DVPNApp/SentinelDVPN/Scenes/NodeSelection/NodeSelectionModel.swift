@@ -34,7 +34,6 @@ enum HomeModelEvent {
     case reloadSubscriptions
 
     case select(server: DNSServerType)
-    case setNumberOfNodesInContinent
 }
 
 final class NodeSelectionModel {
@@ -63,13 +62,6 @@ final class NodeSelectionModel {
                 context.nodesService.loadNodesInfo(for: nodes)
             }
         }
-        
-        context.nodesService.isAllLoaded
-            .sink(receiveValue: { [weak self] isAllLoaded in
-                if isAllLoaded {
-                    self?.eventSubject.send(.setNumberOfNodesInContinent)
-                }
-            }).store(in: &cancellables)
     }
 }
 

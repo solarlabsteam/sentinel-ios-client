@@ -129,6 +129,7 @@ extension NodeSelectionViewModel {
     }
 
     func closeContinent() {
+        numberOfNodesInContinent = model.numberOfNodesInContinent
         selectedTab = .available(.all)
     }
 }
@@ -157,9 +158,6 @@ extension NodeSelectionViewModel {
                 case let .select(server):
                     #warning("TODO")
 //                    self.update(to: server)
-                case .setNumberOfNodesInContinent:
-                    #warning("TODO handle nodes update the way it won't cause all view to reload")
-//                    self.numberOfNodesInContinent = self.model.numberOfNodesInContinent
                 }
             }
             .store(in: &cancellables)
