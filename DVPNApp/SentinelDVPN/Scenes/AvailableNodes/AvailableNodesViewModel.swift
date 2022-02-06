@@ -9,11 +9,11 @@ import Cocoa
 import FlagKit
 import SentinelWallet
 import Combine
-import NetworkExtension
 import AlertToast
 
 final class AvailableNodesViewModel: ObservableObject {
     @Published private(set) var locations: [NodeSelectionRowViewModel] = []
+    @Published var selectedType: NodesColumnState = .all
     
     private(set) var nodes: Set<SentinelNode> = []
     private(set) var loadedNodesCount: Int = 0
@@ -53,7 +53,7 @@ final class AvailableNodesViewModel: ObservableObject {
     
     func setLoadingNodes() {
         if !isAllLoaded {
-            self.isLoadingNodes = true
+            isLoadingNodes = true
         }
     }
 }
@@ -72,13 +72,15 @@ extension AvailableNodesViewModel {
     }
     
     func openDetails(for id: String) {
-        guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }),
-              let node = sentinelNode.node else {
-                  show(error: NodeSelectionViewModelError.unavailableNode)
-                  return
-              }
-        
-//        router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address == id }) else {
+            show(error: NodeSelectionViewModelError.unavailableNode)
+            return
+        }
+        selectedType = .details(sentinelNode)
+    }
+
+    func closeDetails() {
+        selectedType = .all
     }
 }
 

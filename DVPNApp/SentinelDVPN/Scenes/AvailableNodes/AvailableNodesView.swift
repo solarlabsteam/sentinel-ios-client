@@ -15,21 +15,35 @@ struct AvailableNodesView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            VStack {
-                continentNameTitle
-                
-                if viewModel.locations.isEmpty {
-                    notFoundView
-                } else {
-                    nodesListView
+        VStack(alignment: .leading) {
+            if case let .details(node) = viewModel.selectedType {
+                #warning("TODO add button the way it won't duplicate previous one")
+//                Button(action: viewModel.closeDetails) {
+//                    Text(L10n.Common.back)
+//                        .applyTextStyle(.navyBluePoppins(ofSize: 16))
+//                }
+//                .buttonStyle(PlainButtonStyle())
+//                .padding()
+
+                ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: true)
+            } else {
+                ZStack(alignment: .bottom) {
+                    VStack {
+                        continentNameTitle
+
+                        if viewModel.locations.isEmpty {
+                            notFoundView
+                        } else {
+                            nodesListView
+                        }
+                    }
+
+                    ActivityIndicator(
+                        isAnimating: $viewModel.isLoadingNodes,
+                        controlSize: .regular
+                    ).padding()
                 }
             }
-
-            ActivityIndicator(
-                isAnimating: $viewModel.isLoadingNodes,
-                controlSize: .regular
-            ).padding()
         }
         .background(Asset.Colors.accentColor.color.asColor)
         .toast(isPresenting: $viewModel.alertContent.isShown) {

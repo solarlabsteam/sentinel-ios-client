@@ -11,7 +11,7 @@ import SentinelWallet
 import Combine
 import AlertToast
 
-enum SubscribedNodesState: Hashable {
+enum NodesColumnState: Hashable {
     case all
     case details(SentinelNode)
 }
@@ -35,7 +35,7 @@ enum NodeType: CaseIterable, Hashable {
         [.subscribed(.all), .available(.all)]
     }
 
-    case subscribed(SubscribedNodesState)
+    case subscribed(NodesColumnState)
     case available(ContinentsState)
 
     var title: String {
@@ -62,6 +62,7 @@ enum NodeSelectionViewModelError: LocalizedError {
 final class NodeSelectionViewModel: ObservableObject {
     @Published private(set) var subscriptions: [NodeSelectionRowViewModel] = []
     private(set) var nodes: Set<SentinelNode> = []
+    @Published private(set) var stackExists: Bool = false
     
     private let model: NodeSelectionModel
     private var cancellables = Set<AnyCancellable>()

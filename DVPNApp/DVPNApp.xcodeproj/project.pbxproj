@@ -28,7 +28,6 @@
 		75EC74C127A728D300DC2EAC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C13273C1BB500542407 /* OnboardingView.swift */; };
 		75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6563A26C4DBA9000056B4 /* OnboardingModel.swift */; };
 		75F15B8C27AF2C8E00CE6266 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 75F15B8B27AF2C8E00CE6266 /* AlertToast */; };
-		75F15B8F27AF448700CE6266 /* StackNavigationView in Frameworks */ = {isa = PBXBuildFile; productRef = 75F15B8E27AF448700CE6266 /* StackNavigationView */; };
 		75F15B9027B003DA00CE6266 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */; };
 		75F15B9127B003DA00CE6266 /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */; };
 		75F15B9227B003DA00CE6266 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */; };
@@ -404,7 +403,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F15B8F27AF448700CE6266 /* StackNavigationView in Frameworks */,
 				9263A49A2796E654003DF3A4 /* RealmSwift in Frameworks */,
 				9263A4CA2796EA4D003DF3A4 /* EFQRCode in Frameworks */,
 				9263A4922796E593003DF3A4 /* WireGuardKit in Frameworks */,
@@ -1160,7 +1158,6 @@
 				9263A4C92796EA4D003DF3A4 /* EFQRCode */,
 				9263A4CB2796EABA003DF3A4 /* SwiftyBeaver */,
 				75F15B8B27AF2C8E00CE6266 /* AlertToast */,
-				75F15B8E27AF448700CE6266 /* StackNavigationView */,
 			);
 			productName = SentinelDVPN;
 			productReference = 9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */;
@@ -1206,7 +1203,6 @@
 				93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				22BAC37C27455FAA00DC0BCE /* XCRemoteSwiftPackageReference "SnapKit" */,
 				75F15B8A27AF2C8E00CE6266 /* XCRemoteSwiftPackageReference "AlertToast" */,
-				75F15B8D27AF448700CE6266 /* XCRemoteSwiftPackageReference "StackNavigationView" */,
 			);
 			productRefGroup = 7504E9C8267A183D00023D42 /* Products */;
 			projectDirPath = "";
@@ -1851,14 +1847,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		75F15B8D27AF448700CE6266 /* XCRemoteSwiftPackageReference "StackNavigationView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lbrndnr/StackNavigationView";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		93D29CDC272127BF00A35BCA /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
@@ -1900,11 +1888,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 75F15B8A27AF2C8E00CE6266 /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
-		};
-		75F15B8E27AF448700CE6266 /* StackNavigationView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 75F15B8D27AF448700CE6266 /* XCRemoteSwiftPackageReference "StackNavigationView" */;
-			productName = StackNavigationView;
 		};
 		9263A4912796E593003DF3A4 /* WireGuardKit */ = {
 			isa = XCSwiftPackageProductDependency;
