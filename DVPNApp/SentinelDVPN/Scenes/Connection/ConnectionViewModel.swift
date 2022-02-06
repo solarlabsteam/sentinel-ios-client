@@ -131,15 +131,6 @@ extension ConnectionViewModel {
     }
 }
 
-// MARK: - PlansViewModelDelegate
-
-extension ConnectionViewModel: PlansViewModelDelegate {
-    func openConnection() {
-        model.checkNodeForUpdate()
-        model.connect()
-    }
-}
-
 // MARK: - Handle events
 
 extension ConnectionViewModel {

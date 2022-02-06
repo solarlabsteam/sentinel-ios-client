@@ -14,7 +14,6 @@ enum PlansModelEvent {
     case updatePayment(countryName: String, price: String, fee: Int)
     case processPayment(Result<TransactionResult, Error>)
     case addTokens
-    case openConnection
 }
 
 enum PlansModelError: LocalizedError {
@@ -62,16 +61,6 @@ extension PlansModel {
             }
             .subscribe(eventSubject)
             .store(in: &cancellables)
-    }
-
-    func change(to node: DVPNNodeInfo, isSubscribed: Bool) {
-        guard !isSubscribed else {
-            context.connectionInfoStorage.set(lastSelectedNode: node.address)
-            eventSubject.send(.openConnection)
-            return
-        }
-
-        self.node = node
     }
 
     func checkBalanceAndSubscribe(deposit: CoinToken, plan: String, price: String) {

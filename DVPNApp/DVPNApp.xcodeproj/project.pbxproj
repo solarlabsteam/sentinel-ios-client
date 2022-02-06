@@ -122,11 +122,9 @@
 		9263A4D92798675D003DF3A4 /* NodeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */; };
 		9263A4DA27986A02003DF3A4 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
 		937FE474279AD51500DBFC08 /* SharingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FE473279AD51500DBFC08 /* SharingPicker.swift */; };
-		937FE47727A17C3C00DBFC08 /* PlansCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F7F982746D4F4005E031E /* PlansCoordinator.swift */; };
 		937FE47827A17C4F00DBFC08 /* PlansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32B26C57FE900222CA4 /* PlansModel.swift */; };
 		937FE47927A17C5200DBFC08 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32426C57FE900222CA4 /* PlansView.swift */; };
 		937FE47A27A17C5500DBFC08 /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
-		937FE47B27A17C5700DBFC08 /* PlansViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */; };
 		937FE47C27A17C6800DBFC08 /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
 		937FE47D27A17C6B00DBFC08 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
 		93D304A5279750EE00469A75 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F17270DE78600D416ED /* TextStyle.swift */; };
@@ -292,7 +290,6 @@
 		755F5F17270DE78600D416ED /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		75799AB627AAEF7C00C9CE60 /* AppStageSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStageSwitcherView.swift; sourceTree = "<group>"; };
 		75799AB827AAEF8300C9CE60 /* AppStageSwitcherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStageSwitcherViewModel.swift; sourceTree = "<group>"; };
-		757F7F982746D4F4005E031E /* PlansCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansCoordinator.swift; sourceTree = "<group>"; };
 		758B261126AFEC4A00BD711E /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		758DD9DD270B72D2000CD59B /* MnemonicLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicLineView.swift; sourceTree = "<group>"; };
 		758DD9DE270B72D2000CD59B /* AccountCreationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationViewModel.swift; sourceTree = "<group>"; };
@@ -315,7 +312,6 @@
 		75E5BDF526D78FFB00C345B9 /* GRPCError+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRPCError+Ext.swift"; sourceTree = "<group>"; };
 		75E5BDFE26DE16FC00C345B9 /* ConnectionToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionToggleStyle.swift; sourceTree = "<group>"; };
 		92074C7A273D44CB00CEA689 /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
-		92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModelDelegate.swift; sourceTree = "<group>"; };
 		9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentinelDVPN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelDVPNApp.swift; sourceTree = "<group>"; };
 		9263A4332796D9D6003DF3A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -886,11 +882,9 @@
 			isa = PBXGroup;
 			children = (
 				C64ED32626C57FE900222CA4 /* Subviews */,
-				757F7F982746D4F4005E031E /* PlansCoordinator.swift */,
 				C64ED32B26C57FE900222CA4 /* PlansModel.swift */,
 				C64ED32426C57FE900222CA4 /* PlansView.swift */,
 				C64ED32526C57FE900222CA4 /* PlansViewModel.swift */,
-				92074C80273D4E8000CEA689 /* PlansViewModelDelegate.swift */,
 				75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */,
 			);
 			path = Plans;
@@ -1382,7 +1376,6 @@
 				9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */,
 				93D304AB2797517B00469A75 /* UIColor+SwiftU.swift in Sources */,
 				93D304CF279754E500469A75 /* Context.swift in Sources */,
-				937FE47B27A17C5700DBFC08 /* PlansViewModelDelegate.swift in Sources */,
 				93D304C12797530400469A75 /* ActivityIndicator.swift in Sources */,
 				9263A4792796E4EC003DF3A4 /* StoresWallet.swift in Sources */,
 				9263A48F2796E548003DF3A4 /* TunnelsServiceStatusDelegate.swift in Sources */,
@@ -1408,7 +1401,6 @@
 				93E492F127A8915100797906 /* StatusMenu.swift in Sources */,
 				93D304AF279751B700469A75 /* Double+Ext.swift in Sources */,
 				93D304C22797530700469A75 /* Toolbar.swift in Sources */,
-				937FE47727A17C3C00DBFC08 /* PlansCoordinator.swift in Sources */,
 				9263A47F2796E509003DF3A4 /* Persistable.swift in Sources */,
 				9263A4832796E515003DF3A4 /* UserConstants.swift in Sources */,
 				9263A4D02796ECDB003DF3A4 /* Keychain.swift in Sources */,

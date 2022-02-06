@@ -25,6 +25,7 @@ struct AvailableNodesView: View {
 //                .buttonStyle(PlainButtonStyle())
 //                .padding()
 
+                #warning("TODO pass isSubscribed")
                 ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: true)
             } else {
                 ZStack(alignment: .bottom) {

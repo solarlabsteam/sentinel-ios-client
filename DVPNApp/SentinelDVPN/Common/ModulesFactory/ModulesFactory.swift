@@ -114,9 +114,9 @@ extension ModulesFactory {
         return view
     }
     
-    func makePlansScene(nodeInfo: DVPNNodeInfo, delegate: PlansViewModelDelegate?) -> PlansView {
+    func makePlansScene(nodeInfo: DVPNNodeInfo) -> PlansView {
         let model = PlansModel(context: context, node: nodeInfo)
-        let viewModel = PlansViewModel(model: model, delegate: delegate)
+        let viewModel = PlansViewModel(model: model)
         let view = PlansView(viewModel: viewModel)
         
         return view
