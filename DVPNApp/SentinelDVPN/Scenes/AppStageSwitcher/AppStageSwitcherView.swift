@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppStageSwitcherView: View {
     @ObservedObject private var viewModel: AppStageSwitcherViewModel
+    @State private var showAccountPopover = false
 
     init(viewModel: AppStageSwitcherViewModel) {
         self.viewModel = viewModel
@@ -28,12 +29,12 @@ struct AppStageSwitcherView: View {
             .background(Asset.Colors.accentColor.color.asColor)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button(action: { viewModel.showAccountPopover.toggle() }) {
+                    Button(action: { showAccountPopover.toggle() }) {
                         Asset.Navigation.account.image.asImage
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     }
-                    .popover(isPresented: $viewModel.showAccountPopover, arrowEdge: .bottom) {
+                    .popover(isPresented: $showAccountPopover, arrowEdge: .bottom) {
                         ModulesFactory.shared.makeAccountInfoScene()
                     }
                     .buttonStyle(PlainButtonStyle())
