@@ -67,7 +67,6 @@ extension ConnectionView {
     
     var contentView: some View {
         VStack(spacing: 30) {
-            Spacer()
             locationSelector
                 .padding(.top, 40)
                 .padding(.horizontal, 10)
@@ -94,7 +93,7 @@ extension ConnectionView {
             }
             Spacer()
         }
-        .frame(idealWidth: 350, maxWidth: .infinity)
+        .frame(minWidth: 600, maxWidth: .infinity)
     }
 }
 

@@ -18,20 +18,26 @@ struct NodeSelectionView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            if case let .subscribed(type) = viewModel.selectedTab {
-                if case let .details(node) = type {
-
-                    Button(action: viewModel.closeDetails) {
-                        Text(L10n.Common.back).applyTextStyle(.navyBluePoppins(ofSize: 16))
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding()
-
-                    ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: true)
-
-                } else {
-                    embedBody
+            if case let .subscribed(type) = viewModel.selectedTab,
+               case let .details(node) = type {
+                Button(action: viewModel.closeDetails) {
+                    Text(L10n.Common.back).applyTextStyle(.navyBluePoppins(ofSize: 16))
                 }
+                .buttonStyle(PlainButtonStyle())
+                .padding()
+
+                ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: true)
+
+            } else if case let .available(type) = viewModel.selectedTab,
+                      case let .continent(continent) = type {
+
+                Button(action: viewModel.closeContinent) {
+                    Text(L10n.Common.back).applyTextStyle(.navyBluePoppins(ofSize: 16))
+                }
+                .buttonStyle(PlainButtonStyle())
+                .padding()
+
+                ModulesFactory.shared.makeAvailableNodesScene(for: continent)
             } else {
                 embedBody
             }

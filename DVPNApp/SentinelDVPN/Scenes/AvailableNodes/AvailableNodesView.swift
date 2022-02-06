@@ -28,8 +28,8 @@ struct AvailableNodesView: View {
 
             ActivityIndicator(
                 isAnimating: $viewModel.isLoadingNodes,
-                controlSize: .large
-            )
+                controlSize: .regular
+            ).padding()
         }
         .background(Asset.Colors.accentColor.color.asColor)
         .toast(isPresenting: $viewModel.alertContent.isShown) {

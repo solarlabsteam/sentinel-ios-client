@@ -16,6 +16,11 @@ enum SubscribedNodesState: Hashable {
     case details(SentinelNode)
 }
 
+enum ContinentsState: Hashable {
+    case all
+    case continent(Continent)
+}
+
 enum NodeType: CaseIterable, Hashable {
     static func == (lhs: NodeType, rhs: NodeType) -> Bool {
         switch (lhs, rhs) {
@@ -27,11 +32,11 @@ enum NodeType: CaseIterable, Hashable {
     }
 
     static var allCases: [NodeType] {
-        [.subscribed(.all), .available]
+        [.subscribed(.all), .available(.all)]
     }
 
     case subscribed(SubscribedNodesState)
-    case available
+    case available(ContinentsState)
 
     var title: String {
         switch self {
@@ -92,14 +97,6 @@ final class NodeSelectionViewModel: ObservableObject {
 //        self.server = server
 //    }
 //}
-//
-//// MARK: - PlansViewModelDelegate
-//
-//extension HomeViewModel: PlansViewModelDelegate {
-//    func openConnection() {
-//        model.connectIfNeeded()
-//    }
-//}
 
 // MARK: - Buttons actions
 
@@ -123,12 +120,16 @@ extension NodeSelectionViewModel {
         selectedTab = .subscribed(.details(sentinelNode))
     }
 
+    func openContinent(key: Continent) {
+        selectedTab = .available(.continent(key))
+    }
+
     func closeDetails() {
         selectedTab = .subscribed(.all)
     }
 
-    func openDNSServersSelection() {
-//        router.play(event: .dns(self, server))
+    func closeContinent() {
+        selectedTab = .available(.all)
     }
 }
 
@@ -158,7 +159,6 @@ extension NodeSelectionViewModel {
 //                    self.update(to: server)
                 case .setNumberOfNodesInContinent:
                     #warning("TODO handle nodes update the way it won't cause all view to reload")
-                    break
 //                    self.numberOfNodesInContinent = self.model.numberOfNodesInContinent
                 }
             }
