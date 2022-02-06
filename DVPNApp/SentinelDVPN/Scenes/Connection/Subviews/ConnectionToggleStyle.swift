@@ -22,7 +22,9 @@ struct ConnectionToggleStyle: ToggleStyle {
                                 ActivityIndicator(
                                     isAnimating: $isLoading,
                                     controlSize: .small
-                                )
+                                ).padding()
+
+                                Spacer()
                                    
                             } else {
                                 Asset.Connection.Toggle.Arrow.up.image.asImage
@@ -50,11 +52,13 @@ struct ConnectionToggleStyle: ToggleStyle {
 
                         if configuration.isOn {
                             if isLoading {
+                                Spacer()
+
                                 ActivityIndicator(
                                     isAnimating: $isLoading,
                                     controlSize: .small
-                                )
-                            } else {
+                                ).padding()
+                                                            } else {
                                 Asset.Connection.Toggle.Arrow.down.image.asImage
                                     .frame(width: 15, height: 15)
                                     .padding(.vertical, 20)
