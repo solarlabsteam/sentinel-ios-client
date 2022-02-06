@@ -34,7 +34,7 @@ final class NodeDetailsModel {
 
 extension NodeDetailsModel {
     func refresh() {
-        self.eventSubject.send(.update(node: node))
+        eventSubject.send(.update(node: node))
     }
     
     func save(nodeAddress: String) {

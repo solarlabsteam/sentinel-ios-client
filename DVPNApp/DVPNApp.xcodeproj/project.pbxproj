@@ -119,7 +119,6 @@
 		9263A4D22796ECE6003DF3A4 /* ConfigurationParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAA9267B983800023D42 /* ConfigurationParseError.swift */; };
 		9263A4D32796ED64003DF3A4 /* NEVPNStatus+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */; };
 		9263A4D42796ED6E003DF3A4 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6562826C3A9FF000056B4 /* Formatters.swift */; };
-		9263A4D627986738003DF3A4 /* NodeDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FB6F042746F74C00819A6C /* NodeDetailsCoordinator.swift */; };
 		9263A4D727986752003DF3A4 /* NodeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0688270B343B0006A765 /* NodeDetailsModel.swift */; };
 		9263A4D92798675D003DF3A4 /* NodeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */; };
 		9263A4DA27986A02003DF3A4 /* NodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068A270B34470006A765 /* NodeDetailsView.swift */; };
@@ -381,7 +380,6 @@
 		93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfoViewModel.swift; sourceTree = "<group>"; };
 		93FA0693270B4C770006A765 /* NodeInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeInfoType.swift; sourceTree = "<group>"; };
 		93FA0695270B5A800006A765 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
-		93FB6F042746F74C00819A6C /* NodeDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsCoordinator.swift; sourceTree = "<group>"; };
 		C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
 		C64B495726B8B3F70004A692 /* ConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		C64B495926B8B3F70004A692 /* CountryTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTileView.swift; sourceTree = "<group>"; };
@@ -992,7 +990,6 @@
 			isa = PBXGroup;
 			children = (
 				93FA068E270B4C510006A765 /* NodeInfo */,
-				93FB6F042746F74C00819A6C /* NodeDetailsCoordinator.swift */,
 				93FA0688270B343B0006A765 /* NodeDetailsModel.swift */,
 				93FA068A270B34470006A765 /* NodeDetailsView.swift */,
 				93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */,
@@ -1380,7 +1377,6 @@
 				93D304D32797574B00469A75 /* ConnectionStatus.swift in Sources */,
 				93D304B32797520500469A75 /* TunnelConfiguration+Ext.swift in Sources */,
 				758FCC0627A9452200896575 /* MnemonicLineView.swift in Sources */,
-				9263A4D627986738003DF3A4 /* NodeDetailsCoordinator.swift in Sources */,
 				93D304EF27983CA800469A75 /* CountryTileView.swift in Sources */,
 				93D304F027983DC400469A75 /* ConnectionView.swift in Sources */,
 				93D304B52797520C00469A75 /* GRPCError+Ext.swift in Sources */,

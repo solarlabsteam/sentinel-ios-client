@@ -9,11 +9,28 @@ import Cocoa
 import FlagKit
 import SentinelWallet
 import Combine
-import NetworkExtension
 import AlertToast
 
-enum NodeType: CaseIterable {
-    case subscribed
+enum SubscribedNodesState: Hashable {
+    case all
+    case details(SentinelNode)
+}
+
+enum NodeType: CaseIterable, Hashable {
+    static func == (lhs: NodeType, rhs: NodeType) -> Bool {
+        switch (lhs, rhs) {
+        case (.available, .subscribed), (.subscribed, .available):
+            return false
+        default:
+            return true
+        }
+    }
+
+    static var allCases: [NodeType] {
+        [.subscribed(.all), .available]
+    }
+
+    case subscribed(SubscribedNodesState)
     case available
 
     var title: String {
@@ -45,15 +62,12 @@ final class NodeSelectionViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var isLoadingSubscriptions: Bool = true
-    
-    @Published var selectedTab: NodeType = .subscribed
+
+    @Published var selectedTab: NodeType = .subscribed(.all)
     @Published var server: DNSServerType = .default
 
     @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
     @Published var numberOfNodesInContinent: [Continent: Int] = [:]
-
-    private var statusObservationToken: NotificationToken?
-    @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
     
     @Published private(set) var subscriptionsState: SubscriptionsState = .empty
 
@@ -63,8 +77,6 @@ final class NodeSelectionViewModel: ObservableObject {
         self.model = model
 
         handeEvents()
-        startObservingStatuses()
-        
         numberOfNodesInContinent = model.numberOfNodesInContinent
 
         model.refreshDNS()
@@ -103,19 +115,18 @@ extension NodeSelectionViewModel {
     }
 
     func openDetails(for id: String) {
-        guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }),
-              let node = sentinelNode.node else {
-                  show(error: NodeSelectionViewModelError.unavailableNode)
-                  return
-              }
-        
-//        router.play(event: .details(sentinelNode, isSubscribed: model.isSubscribed(to: node.info.address)))
+        guard let sentinelNode = nodes.first(where: { $0.node?.info.address ?? "" == id }) else {
+            show(error: NodeSelectionViewModelError.unavailableNode)
+            return
+        }
+
+        selectedTab = .subscribed(.details(sentinelNode))
     }
-    
-    func openNodes(for continent: Continent) {
-//        router.play(event: .openNodes(continent, delegate: self))
+
+    func closeDetails() {
+        selectedTab = .subscribed(.all)
     }
-    
+
     func openDNSServersSelection() {
 //        router.play(event: .dns(self, server))
     }
@@ -181,18 +192,6 @@ extension NodeSelectionViewModel {
             
             if !subscriptions.contains(where: { $0.id == model.id }) {
                 subscriptions.append(model)
-            }
-        }
-    }
-
-    private func startObservingStatuses() {
-        statusObservationToken = NotificationCenter.default.observe(
-            name: .NEVPNStatusDidChange,
-            object: nil,
-            queue: OperationQueue.main
-        ) { [weak self] statusChangeNotification in
-            if let session = statusChangeNotification.object as? NETunnelProviderSession {
-                self?.connectionStatus = .init(from: session.status == .connected)
             }
         }
     }

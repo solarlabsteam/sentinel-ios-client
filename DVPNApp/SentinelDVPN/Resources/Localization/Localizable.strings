@@ -2,6 +2,7 @@
 "Common.Warning.title" = "Warning";
 "Common.DVPN.Title" = "DVPN";
 "Common.Cancel" = "Cancel";
+"Common.Back" = "Back";
 "Common.Yes" = "Yes";
 "Common.OK" = "OK";
 "Common.Crypto" = "Crypto";
@@ -53,7 +54,7 @@
 "Connection.Status.Connection.BalanceCheck" = "Checking balance";
 "Connection.Status.Connection.SessionBroadcast" = "Waiting for confirmation";
 "Connection.Status.Connection.KeysExchange" = "Exchanging keys";
-"Connection.Status.Connection.TunnelUpdating" = "Preparing iOS VPN tunnel";
+"Connection.Status.Connection.TunnelUpdating" = "Preparing VPN tunnel";
 "Connection.InfoType.Download" = "Download";
 "Connection.InfoType.Upload" = "Upload";
 "Connection.InfoType.Bandwidth" = "Bandwidth";

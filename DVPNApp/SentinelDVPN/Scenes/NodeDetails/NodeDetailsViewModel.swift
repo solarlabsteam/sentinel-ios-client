@@ -5,26 +5,20 @@
 //  Created by Victoria Kostyleva on 04.10.2021.
 //
 
-import Foundation
+import Cocoa
 import FlagKit
 import SentinelWallet
 import Combine
+import AlertToast
 
 final class NodeDetailsViewModel: ObservableObject {
     private let model: NodeDetailsModel
 
-    enum Route {
-        case error(Error)
-        case account
-//        case subscribe(node: DVPNNodeInfo, delegate: PlansViewModelDelegate)
-        case dismiss
-        case connect
-    }
-    
     @Published private(set) var countryTileModel: CountryTileViewModel?
     @Published private(set) var nodeInfoViewModels: [NodeInfoViewModel] = []
     
     @Published private(set) var node: Node?
+    @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -36,8 +30,7 @@ final class NodeDetailsViewModel: ObservableObject {
             .sink { [weak self] event in
                 switch event {
                 case let .error(error):
-                    return
-//                    self?.router.play(event: .error(error))
+                    self?.show(error: error)
                 case let .update(node):
                     self?.update(sentinelNode: node)
                 }
@@ -101,24 +94,19 @@ extension NodeDetailsViewModel {
         guard let node = node else { return }
         toggle(node: node)
     }
-    
-    @objc
-    func didTapAccountButton() {
-//        router.play(event: .account)
-    }
 }
 
-// MARK: - PlansViewModelDelegate
-
-//extension NodeDetailsViewModel: PlansViewModelDelegate {
-//    func openConnection() {
-//        router.play(event: .dismiss)
-//    }
-//}
 
 // MARK: - Private
 
 extension NodeDetailsViewModel {
+    private func show(error: Error) {
+        alertContent = (
+            true,
+            AlertToast(type: .error(NSColor.systemRed.asColor), title: error.localizedDescription)
+        )
+    }
+
     private func toggle(node: Node) {
         guard model.isSubscribed else {
 //            router.play(event: .subscribe(node: node.info, delegate: self))
@@ -126,7 +114,6 @@ extension NodeDetailsViewModel {
         }
         
         model.save(nodeAddress: node.info.address)
-//        router.play(event: .connect)
     }
     
     private func makeString(from tuple: (String, String)) -> String {

@@ -35,7 +35,7 @@ struct NodeInfoView: View {
             Text(viewModel.value)
                 .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
         }
-        .frame(width: 174, height: 60)
+        .frame(width: 174, height: 45)
     }
     
     // MARK: - Feature view
@@ -45,10 +45,10 @@ struct NodeInfoView: View {
         
         var body: some View {
             asset.image.asImage
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 26, height: 26)
-            .foregroundColor(.white)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 26, height: 26)
+                .foregroundColor(.white)
         }
     }
     

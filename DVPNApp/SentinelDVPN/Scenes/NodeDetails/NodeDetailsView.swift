@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct NodeDetailsView: View {
     @ObservedObject private var viewModel: NodeDetailsViewModel
@@ -64,6 +65,8 @@ struct NodeDetailsView: View {
             
         }
         .background(Asset.Colors.accentColor.color.asColor)
-        .edgesIgnoringSafeArea(.bottom)
+        .toast(isPresenting: $viewModel.alertContent.isShown) {
+            viewModel.alertContent.toast
+        }
     }
 }

@@ -89,6 +89,8 @@ internal enum L10n {
   }
 
   internal enum Common {
+    /// Back
+    internal static let back = L10n.tr("Localizable", "Common.Back")
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "Common.Cancel")
     /// Crypto
@@ -168,7 +170,7 @@ internal enum L10n {
         internal static let sessionStatus = L10n.tr("Localizable", "Connection.Status.Connection.SessionStatus")
         /// Fetching the subscription
         internal static let subscriptionStatus = L10n.tr("Localizable", "Connection.Status.Connection.SubscriptionStatus")
-        /// Preparing iOS VPN tunnel
+        /// Preparing VPN tunnel
         internal static let tunnelUpdating = L10n.tr("Localizable", "Connection.Status.Connection.TunnelUpdating")
       }
     }

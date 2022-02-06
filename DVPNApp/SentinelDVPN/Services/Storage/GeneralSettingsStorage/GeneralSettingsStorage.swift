@@ -55,8 +55,10 @@ extension GeneralSettingsStorage: StoresConnectInfo {
     }
 
     func set(shouldConnect: Bool) {
-        connectionPublished = shouldConnect
         settingsStorageStrategy.setObject(shouldConnect, forKey: Keys.shouldConnect.rawValue)
+        if shouldConnect {
+            connectionPublished = shouldConnect
+        }
     }
 
     func shouldConnect() -> Bool {
