@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import AlertToast
 
 // MARK: - ConnectionView
 
@@ -17,6 +18,9 @@ struct ConnectionView: View {
             .onAppear { viewModel.viewWillAppear() }
             .background(Asset.Colors.accentColor.color.asColor)
             .edgesIgnoringSafeArea(.bottom)
+            .toast(isPresenting: $viewModel.alertContent.isShown) {
+                viewModel.alertContent.toast
+            }
     }
 }
 

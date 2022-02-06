@@ -3,11 +3,9 @@ import SentinelWallet
 import SwiftUI
 import FlagKit
 import GRPC
+import AlertToast
 
 final class ConnectionViewModel: ObservableObject {
-//    typealias Router = AnyRouter<Route>
-//    private let router: Router
-    
     @Published private(set) var bandwidthConsumedGB: String?
     
     @Published private var downloadSpeed: String?
@@ -33,6 +31,7 @@ final class ConnectionViewModel: ObservableObject {
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
     
     @Published private(set) var connectionInfoViewModels: [ConnectionInfoViewModel] = []
+    @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
 
     @Published var isLoading: Bool = false
 
@@ -83,8 +82,7 @@ final class ConnectionViewModel: ObservableObject {
                     #warning("TODO")
 //                    router.play(event: .openPlans(for: node, delegate: self))
                 case let .warning(error):
-                    #warning("TODO")
-//                    router.play(event: .warning(error))
+                    self?.show(error: error)
                 case let .resubscribe(node):
                     #warning("TODO")
 //                    router.play(
@@ -145,7 +143,10 @@ extension ConnectionViewModel {
 
 extension ConnectionViewModel {
     private func show(error: Error) {
-//        router.play(event: .error(error))
+        alertContent = (
+            true,
+            AlertToast(type: .error(NSColor.systemRed.asColor), title: error.localizedDescription)
+        )
     }
     
     private func setConnectionInfoViewModels() {
