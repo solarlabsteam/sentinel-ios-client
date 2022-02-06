@@ -29,6 +29,9 @@
 		75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6563A26C4DBA9000056B4 /* OnboardingModel.swift */; };
 		75F15B8C27AF2C8E00CE6266 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 75F15B8B27AF2C8E00CE6266 /* AlertToast */; };
 		75F15B8F27AF448700CE6266 /* StackNavigationView in Frameworks */ = {isa = PBXBuildFile; productRef = 75F15B8E27AF448700CE6266 /* StackNavigationView */; };
+		75F15B9027B003DA00CE6266 /* AvailableNodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */; };
+		75F15B9127B003DA00CE6266 /* AvailableNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */; };
+		75F15B9227B003DA00CE6266 /* AvailableNodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */; };
 		9263A4302796D9D4003DF3A4 /* SentinelDVPNApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */; };
 		9263A4342796D9D6003DF3A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9263A4332796D9D6003DF3A4 /* Assets.xcassets */; };
 		9263A46E2796E4C1003DF3A4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312CA642704608D0062AFD3 /* NetworkService.swift */; };
@@ -225,17 +228,11 @@
 		22A8D69B273EC6F200E78784 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		22A8D69D273EC6F200E78784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A8D69E273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DVPNAppNetworkExtension_macOS.entitlements; sourceTree = "<group>"; };
-		22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
 		22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesView.swift; sourceTree = "<group>"; };
-		22BAC38B2746B16A00DC0BCE /* AvailableNodesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesCoordinator.swift; sourceTree = "<group>"; };
 		22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesViewModel.swift; sourceTree = "<group>"; };
 		22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableNodesModel.swift; sourceTree = "<group>"; };
 		22BAC39C2747A3A700DC0BCE /* NSTableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Ext.swift"; sourceTree = "<group>"; };
 		22DD3CFB2733CB6A00E1925C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
-		7504E9CA267A183D00023D42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7504E9CC267A183D00023D42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7504E9D6267A184000023D42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7504E9D8267A184000023D42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = DVPNApp/Info.plist; sourceTree = SOURCE_ROOT; };
 		7504E9E4267A196900023D42 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		7504EA23267A2DCA00023D42 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		7504EA24267A2DCA00023D42 /* NotificationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationToken.swift; sourceTree = "<group>"; };
@@ -258,9 +255,6 @@
 		7504EAA9267B983800023D42 /* ConfigurationParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationParseError.swift; sourceTree = "<group>"; };
 		7504EAAC267B9A1700023D42 /* NEVPNStatus+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NEVPNStatus+Ext.swift"; sourceTree = "<group>"; };
 		751161F5273A86E0005F9133 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
-		75116200273A8837005F9133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		75116209273A8839005F9133 /* SentinelDVPNmacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelDVPNmacOS.entitlements; sourceTree = "<group>"; };
-		75116216273A910F005F9133 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		75116227273AAD0E005F9133 /* UIColor+SwiftU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SwiftU.swift"; sourceTree = "<group>"; };
 		75116287273AB925005F9133 /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		75116293273ABFC1005F9133 /* CreationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationMode.swift; sourceTree = "<group>"; };
@@ -338,7 +332,6 @@
 		932D0AF7272174560064AEE4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		932D0AFC272176620064AEE4 /* PreloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadService.swift; sourceTree = "<group>"; };
 		932D0AFE2721766C0064AEE4 /* PreloadServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadServiceType.swift; sourceTree = "<group>"; };
-		932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyScreen.storyboard; sourceTree = "<group>"; };
 		932D0B072721B2570064AEE4 /* co.sentinel.sentinellite.regional.countries_extras.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = co.sentinel.sentinellite.regional.countries_extras.json; sourceTree = "<group>"; };
 		9344B7EC27057FB900321AAA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
@@ -381,7 +374,6 @@
 		93DBF56C2718889A006EBC65 /* ContinentsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowView.swift; sourceTree = "<group>"; };
 		93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowViewType.swift; sourceTree = "<group>"; };
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		93DC52A3274000B4006C0989 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		93E492F027A8915100797906 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		93E492F227A9700600797906 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
@@ -446,8 +438,6 @@
 		22BAC3862746B16A00DC0BCE /* AvailableNodes */ = {
 			isa = PBXGroup;
 			children = (
-				22BAC38A2746B16A00DC0BCE /* iOS */,
-				22BAC3872746B16A00DC0BCE /* macOS */,
 				22BAC38D2746B16A00DC0BCE /* AvailableNodesModel.swift */,
 				22BAC3892746B16A00DC0BCE /* AvailableNodesView.swift */,
 				22BAC38C2746B16A00DC0BCE /* AvailableNodesViewModel.swift */,
@@ -455,27 +445,10 @@
 			path = AvailableNodes;
 			sourceTree = "<group>";
 		};
-		22BAC3872746B16A00DC0BCE /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				22BAC3882746B16A00DC0BCE /* AvailableNodesCoordinator.swift */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		22BAC38A2746B16A00DC0BCE /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				22BAC38B2746B16A00DC0BCE /* AvailableNodesCoordinator.swift */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
 		7504E9BE267A183D00023D42 = {
 			isa = PBXGroup;
 			children = (
 				7504EA21267A2DCA00023D42 /* Shared */,
-				7504E9C9267A183D00023D42 /* DVPNApp */,
 				9263A42E2796D9D4003DF3A4 /* SentinelDVPN */,
 				22A8D69A273EC6F200E78784 /* DVPNAppNetworkExtension_macOS */,
 				7504E9E3267A196900023D42 /* Frameworks */,
@@ -490,16 +463,6 @@
 				9263A42D2796D9D4003DF3A4 /* SentinelDVPN.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		7504E9C9267A183D00023D42 /* DVPNApp */ = {
-			isa = PBXGroup;
-			children = (
-				75116209273A8839005F9133 /* SentinelDVPNmacOS.entitlements */,
-				7504E9D8267A184000023D42 /* Info.plist */,
-				C64B495426B8B3F70004A692 /* Scenes */,
-			);
-			path = DVPNApp;
 			sourceTree = "<group>";
 		};
 		7504E9E3267A196900023D42 /* Frameworks */ = {
@@ -563,15 +526,6 @@
 			path = ModulesFactory;
 			sourceTree = "<group>";
 		};
-		7504EA6C267B4E6700023D42 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				751162AC273ACB30005F9133 /* iOS */,
-				751161FF273A8837005F9133 /* MacOS */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
 		7504EA82267B70D000023D42 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -630,16 +584,6 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
-		751161FF273A8837005F9133 /* MacOS */ = {
-			isa = PBXGroup;
-			children = (
-				93DC52A3274000B4006C0989 /* NavigationHelper.swift */,
-				75116200273A8837005F9133 /* AppDelegate.swift */,
-				75116216273A910F005F9133 /* main.swift */,
-			);
-			path = MacOS;
-			sourceTree = "<group>";
-		};
 		75116226273AACFA005F9133 /* Cocoa */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,16 +592,6 @@
 				22BAC39C2747A3A700DC0BCE /* NSTableView+Ext.swift */,
 			);
 			path = Cocoa;
-			sourceTree = "<group>";
-		};
-		751162AC273ACB30005F9133 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				7504E9CA267A183D00023D42 /* AppDelegate.swift */,
-				7504E9CC267A183D00023D42 /* SceneDelegate.swift */,
-				7504E9D5267A184000023D42 /* LaunchScreen.storyboard */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		752FCFEF26EB5F01001EA78D /* Foundation */ = {
@@ -954,14 +888,6 @@
 			path = PreloadService;
 			sourceTree = "<group>";
 		};
-		932D0B002721977D0064AEE4 /* Empty */ = {
-			isa = PBXGroup;
-			children = (
-				932D0B03272197D10064AEE4 /* EmptyScreen.storyboard */,
-			);
-			path = Empty;
-			sourceTree = "<group>";
-		};
 		937FE47527A176BA00DBFC08 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,6 +946,7 @@
 				758DD9DB270B72D2000CD59B /* AccountCreation */,
 				7554E2B826D4B7ED001355F7 /* AccountInfo */,
 				75799AB327AAEF6500C9CE60 /* AppStageSwitcher */,
+				22BAC3862746B16A00DC0BCE /* AvailableNodes */,
 				93D304D42797576600469A75 /* Connection */,
 				93D304F527983F0400469A75 /* NodeDetails */,
 				93D304C62797538500469A75 /* NodeSelection */,
@@ -1150,16 +1077,6 @@
 				93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */,
 			);
 			path = NodeInfo;
-			sourceTree = "<group>";
-		};
-		C64B495426B8B3F70004A692 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				22BAC3862746B16A00DC0BCE /* AvailableNodes */,
-				932D0B002721977D0064AEE4 /* Empty */,
-				7504EA6C267B4E6700023D42 /* Root */,
-			);
-			path = Scenes;
 			sourceTree = "<group>";
 		};
 		C64B495826B8B3F70004A692 /* Subviews */ = {
@@ -1428,6 +1345,7 @@
 				93D304F727983F2900469A75 /* NodeInfoView.swift in Sources */,
 				93D304AD279751AE00469A75 /* Collection+Ext.swift in Sources */,
 				93D304F827983F2B00469A75 /* NodeInfoViewModel.swift in Sources */,
+				75F15B9127B003DA00CE6266 /* AvailableNodesView.swift in Sources */,
 				93D304A6279750F000469A75 /* TextStyles.swift in Sources */,
 				93D304E9279834D300469A75 /* AccentButton.swift in Sources */,
 				93D304E7279833CC00469A75 /* AccountInfoViewModel.swift in Sources */,
@@ -1509,6 +1427,7 @@
 				9263A47B2796E4F4003DF3A4 /* GeneralSettingsStorage.swift in Sources */,
 				93D304EA27983C6100469A75 /* ConnectionToggleStyle.swift in Sources */,
 				937FE47827A17C4F00DBFC08 /* PlansModel.swift in Sources */,
+				75F15B9027B003DA00CE6266 /* AvailableNodesModel.swift in Sources */,
 				758FCC0427A9452200896575 /* AccountCreationModel.swift in Sources */,
 				75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */,
 				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
@@ -1534,6 +1453,7 @@
 				93D304D82797584100469A75 /* ScaleView.swift in Sources */,
 				9263A4302796D9D4003DF3A4 /* SentinelDVPNApp.swift in Sources */,
 				93D304D6279757F800469A75 /* NodeSelectionRowView.swift in Sources */,
+				75F15B9227B003DA00CE6266 /* AvailableNodesViewModel.swift in Sources */,
 				9263A4D32796ED64003DF3A4 /* NEVPNStatus+Ext.swift in Sources */,
 				9263A4CD2796EBC3003DF3A4 /* TunnelConfiguration+WireGuardConfig.swift in Sources */,
 				9263A4722796E4CE003DF3A4 /* PreloadService.swift in Sources */,
@@ -1557,14 +1477,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7504E9D5267A184000023D42 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7504E9D6267A184000023D42 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		93DBF576271939EF006EBC65 /* Localizable.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
