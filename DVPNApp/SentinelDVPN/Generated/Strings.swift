@@ -179,6 +179,20 @@ internal enum L10n {
     internal static func availableNodes(_ p1: Int) -> String {
       return L10n.tr("Localizable", "Continents.AvailableNodes", p1)
     }
+    internal enum Title {
+      /// Africa
+      internal static let africa = L10n.tr("Localizable", "Continents.Title.Africa")
+      /// Asia
+      internal static let asia = L10n.tr("Localizable", "Continents.Title.Asia")
+      /// Europe
+      internal static let europe = L10n.tr("Localizable", "Continents.Title.Europe")
+      /// North America
+      internal static let northAmerica = L10n.tr("Localizable", "Continents.Title.NorthAmerica")
+      /// Rest of the world
+      internal static let other = L10n.tr("Localizable", "Continents.Title.Other")
+      /// South America
+      internal static let southAmerica = L10n.tr("Localizable", "Continents.Title.SouthAmerica")
+    }
   }
 
   internal enum Error {

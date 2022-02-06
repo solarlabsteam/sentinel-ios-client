@@ -19,6 +19,14 @@
 "Onboarding.Button.ImportNow.Text" = "Already have an account?";
 "Onboarding.Button.ImportNow.Action" = "Import Now";
 
+"Continents.Title.Africa" = "Africa";
+"Continents.Title.SouthAmerica" = "South America";
+"Continents.Title.NorthAmerica" = "North America";
+"Continents.Title.Asia" = "Asia";
+"Continents.Title.Europe" = "Europe";
+"Continents.Title.Other" = "Rest of the world";
+"Continents.AvailableNodes" = "%d available nodes";
+
 "AccountCreation.WalletAddress" = "Wallet Address";
 "AccountCreation.Warning" = "Please keep record of these phrases exactly, this will never be recovered in any condition.";
 "AccountCreation.Terms.Text" = "I understand and agree to";
