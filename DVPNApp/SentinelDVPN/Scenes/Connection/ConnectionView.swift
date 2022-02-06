@@ -93,7 +93,8 @@ extension ConnectionView {
                 connectionStatus
             }
             Spacer()
-        }.frame(maxWidth: .infinity)
+        }
+        .frame(idealWidth: 350, maxWidth: .infinity)
     }
 }
 

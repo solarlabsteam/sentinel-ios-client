@@ -28,15 +28,16 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule() -> AppStageSwitcherView {
-        context.nodesService.loadAllNodes { [weak self] result in
-            if case let .success(nodes) = result {
-                self?.context.nodesService.loadNodesInfo(for: nodes)
-            }
-        }
-
-        context.preloadService.loadData {
-            log.debug("Preloaded data.")
-        }
+        #warning("Preloading data slows app start down, some placeholder is needed")
+//        context.nodesService.loadAllNodes { [weak self] result in
+//            if case let .success(nodes) = result {
+//                self?.context.nodesService.loadNodesInfo(for: nodes)
+//            }
+//        }
+//
+//        context.preloadService.loadData {
+//            log.debug("Preloaded data.")
+//        }
 
         let stage: AppStage = context.generalInfoStorage.didPassOnboarding() ? .home : .onboarding
 
@@ -90,6 +91,14 @@ extension ModulesFactory {
         let viewModel = ConnectionViewModel(model: model)
         let view = ConnectionView(viewModel: viewModel)
         
+        return view
+    }
+
+    func makeAvailableNodesScene(for continent: Continent) -> AvailableNodesView {
+        let model = AvailableNodesModel(context: context, continent: continent)
+        let viewModel = AvailableNodesViewModel(continent: continent, model: model)
+        let view = AvailableNodesView(viewModel: viewModel)
+
         return view
     }
     

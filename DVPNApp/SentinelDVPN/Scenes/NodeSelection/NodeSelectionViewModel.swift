@@ -146,7 +146,9 @@ extension NodeSelectionViewModel {
                     #warning("TODO")
 //                    self.update(to: server)
                 case .setNumberOfNodesInContinent:
-                    self.numberOfNodesInContinent = self.model.numberOfNodesInContinent
+                    #warning("TODO handle nodes update the way it won't cause all view to reload")
+                    break
+//                    self.numberOfNodesInContinent = self.model.numberOfNodesInContinent
                 }
             }
             .store(in: &cancellables)
