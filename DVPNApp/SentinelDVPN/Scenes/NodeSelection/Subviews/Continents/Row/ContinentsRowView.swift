@@ -19,7 +19,7 @@ struct ContinentsRowView: View {
     }
 
     var body: some View {
-        NavigationLink(destination: ModulesFactory.shared.) {
+        Button(action: action) {
             VStack {
                 HStack {
                     type.image

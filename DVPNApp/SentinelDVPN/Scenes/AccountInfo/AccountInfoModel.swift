@@ -1,6 +1,6 @@
 //
 //  AccountInfoModel.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 23.08.2021.
 //

@@ -1,4 +1,4 @@
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 12.06.2021.
 //

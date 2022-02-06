@@ -180,7 +180,6 @@
 		93D304F027983DC400469A75 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495726B8B3F70004A692 /* ConnectionView.swift */; };
 		93D304F127983DC800469A75 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */; };
 		93D304F227983DCA00469A75 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64B495A26B8B3F70004A692 /* ConnectionModel.swift */; };
-		93D304F327983DCD00469A75 /* ConnectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */; };
 		93D304F427983EDE00469A75 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3EC3A270AF19400B9CA4D /* GridView.swift */; };
 		93D304F627983F2300469A75 /* NodeInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0693270B4C770006A765 /* NodeInfoType.swift */; };
 		93D304F727983F2900469A75 /* NodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068F270B4C5E0006A765 /* NodeInfoView.swift */; };
@@ -223,7 +222,6 @@
 /* Begin PBXFileReference section */
 		222D8C13273C1BB500542407 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		222D8C52273D7D5900542407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SentinelDVPN/Info.plist; sourceTree = SOURCE_ROOT; };
-		222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCoordinator.swift; sourceTree = "<group>"; };
 		22A8D698273EC6F200E78784 /* DVPNAppNetworkExtension_macOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DVPNAppNetworkExtension_macOS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A8D69B273EC6F200E78784 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		22A8D69D273EC6F200E78784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -983,7 +981,6 @@
 			children = (
 				752FCFF226F3285C001EA78D /* Models */,
 				C64B495826B8B3F70004A692 /* Subviews */,
-				222D8C55273E69CE00542407 /* ConnectionCoordinator.swift */,
 				C64B495A26B8B3F70004A692 /* ConnectionModel.swift */,
 				C64B495726B8B3F70004A692 /* ConnectionView.swift */,
 				C64B495626B8B3F70004A692 /* ConnectionViewModel.swift */,
@@ -1358,7 +1355,6 @@
 				93D304CE2797546000469A75 /* ContinentsRowView.swift in Sources */,
 				937FE47927A17C5200DBFC08 /* PlansView.swift in Sources */,
 				9263A47A2796E4F0003DF3A4 /* StoresNodes.swift in Sources */,
-				93D304F327983DCD00469A75 /* ConnectionCoordinator.swift in Sources */,
 				93D304AE279751B300469A75 /* Date+Ext.swift in Sources */,
 				9263A46F2796E4C4003DF3A4 /* NetworkServiceType.swift in Sources */,
 				9263A4A22796E758003DF3A4 /* NETunnelProviderProtocol+Extension.swift in Sources */,

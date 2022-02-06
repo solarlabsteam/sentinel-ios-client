@@ -1,6 +1,6 @@
 //
 //  MnemonicLineView.swift
-//  DVPNApp
+//  SentinelDVPN
 //
 //  Created by Lika Vorobyeva on 04.10.2021.
 //

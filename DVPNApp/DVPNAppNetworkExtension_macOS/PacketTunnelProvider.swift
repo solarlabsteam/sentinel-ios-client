@@ -1,6 +1,6 @@
 //
 //  PacketTunnelProvider.swift
-//  DVPNAppNetworkExtension
+//  SentinelDVPNNetworkExtension
 //
 //  Created by Lika Vorobyeva on 10.06.2021.
 //
