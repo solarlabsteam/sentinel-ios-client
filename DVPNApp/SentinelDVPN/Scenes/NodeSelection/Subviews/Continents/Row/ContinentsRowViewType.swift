@@ -1,57 +1,61 @@
 //
-//  ContinentsRowViewType.swift
-//  SentinelDVPN
+//  Continent.swift
+//  SOLARdVPN
 //
-//  Created by Victoria Kostyleva on 14.10.2021.
+//  Created by Lika Vorobeva on 29.11.2021.
 //
 
+import Foundation
 import SwiftUI
 
 enum Continent: String, CaseIterable {
-    case AF
-    case SA
-    case NA
-    case OC
-    case AS
-    case EU
-    case AN
+    case africa = "AF"
+    case southAmerica = "SA"
+    case northAmerica = "NA"
+    case asia = "AS"
+    case europe = "EU"
+    case other
 }
 
 extension Continent {
-    // TODO: localize
+    static var allContinents: [Continent] {
+        var continents = Continent.allCases
+        continents.removeLast()
+        return continents
+    }
+}
+
+extension Continent {
     var title: String {
         switch self {
-        case .AF: return "Africa"
-        case .SA: return "South America"
-        case .NA: return "North America"
-        case .OC: return "Oceania"
-        case .AS: return "Asia"
-        case .EU: return "Europe"
-        case .AN: return "Antarctica"
+        case .africa: return L10n.Continents.Title.africa
+        case .southAmerica: return L10n.Continents.Title.southAmerica
+        case .northAmerica: return L10n.Continents.Title.northAmerica
+        case .asia: return L10n.Continents.Title.asia
+        case .europe: return L10n.Continents.Title.europe
+        case .other: return L10n.Continents.Title.other
         }
     }
-    
-    var image: Image {
-        switch self {
-        case .AF: return Asset.Continents.africa.image.asImage
-        case .SA: return Asset.Continents.southAmerica.image.asImage
-        case .NA: return Asset.Continents.northAmerica.image.asImage
-        case .OC: return Asset.Continents.oceania.image.asImage
-        case .AS: return Asset.Continents.asia.image.asImage
-        case .EU: return Asset.Continents.europe.image.asImage
-        case .AN: return Asset.Continents.antarctica.image.asImage
-        }
-    }
-    
+
     var index: Int {
         switch self {
-        case .AF: return 5
-        case .SA: return 4
-        case .NA: return 0
-        case .OC: return 3
-        case .AS: return 2
-        case .EU: return 1
-        case .AN: return 6
+        case .africa: return 2
+        case .southAmerica: return 4
+        case .northAmerica: return 3
+        case .asia: return 1
+        case .europe: return 0
+        case .other: return 5
+        }
+    }
+
+    var image: Image {
+        switch self {
+        case .africa: return Asset.Continents.africa.image.asImage
+        case .southAmerica: return Asset.Continents.southAmerica.image.asImage
+        case .northAmerica: return Asset.Continents.northAmerica.image.asImage
+        case .asia: return Asset.Continents.asia.image.asImage
+        case .europe: return Asset.Continents.europe.image.asImage
+        case .other: return Image(systemName: "ellipsis")
         }
     }
 }

@@ -23,6 +23,9 @@ private enum Keys: String {
 final class GeneralSettingsStorage {
     private let settingsStorageStrategy: SettingsStorageStrategyType
 
+    @Published private var nodeUpdatePublished: Void = ()
+    @Published private var connectionPublished: Bool = false
+
     init(settingsStorageStrategy: SettingsStorageStrategyType = UserDefaultsStorageStrategy()) {
         self.settingsStorageStrategy = settingsStorageStrategy
     }
@@ -43,7 +46,16 @@ extension GeneralSettingsStorage: StoresGeneralInfo {
 // MARK: - StoresConnectInfo
 
 extension GeneralSettingsStorage: StoresConnectInfo {
+    var nodeUpdatePublisher: Published<Void>.Publisher {
+        $nodeUpdatePublished
+    }
+
+    var connectionPublisher: Published<Bool>.Publisher {
+        $connectionPublished
+    }
+
     func set(shouldConnect: Bool) {
+        connectionPublished = shouldConnect
         settingsStorageStrategy.setObject(shouldConnect, forKey: Keys.shouldConnect.rawValue)
     }
 

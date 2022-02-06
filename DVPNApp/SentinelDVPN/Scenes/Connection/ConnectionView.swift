@@ -15,9 +15,7 @@ struct ConnectionView: View {
 
     var body: some View {
         contentView
-            .onAppear { viewModel.viewWillAppear() }
             .background(Asset.Colors.accentColor.color.asColor)
-            .edgesIgnoringSafeArea(.bottom)
             .toast(isPresenting: $viewModel.alertContent.isShown) {
                 viewModel.alertContent.toast
             }
@@ -34,7 +32,7 @@ extension ConnectionView {
                         id: "0",
                         icon: viewModel.countryImage ?? ImageAsset.Image(),
                         title: viewModel.countryName,
-                        subtitle: viewModel.moniker ?? ""
+                        subtitle: viewModel.ipAddress
                     )
         )
             .padding(.horizontal, 16)
@@ -69,6 +67,7 @@ extension ConnectionView {
     
     var contentView: some View {
         VStack(spacing: 30) {
+            Spacer()
             locationSelector
                 .padding(.top, 40)
                 .padding(.horizontal, 10)
@@ -93,6 +92,7 @@ extension ConnectionView {
                 
                 connectionStatus
             }
+            Spacer()
         }.frame(maxWidth: .infinity)
     }
 }

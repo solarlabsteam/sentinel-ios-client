@@ -19,12 +19,13 @@ struct ContinentsRowView: View {
     }
 
     var body: some View {
-        Button(action: action) {
+        NavigationLink(destination: ModulesFactory.shared.) {
             VStack {
                 HStack {
                     type.image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .foregroundColor(Asset.Colors.navyBlue.color.asColor)
                         .frame(width: 50, height: 50)
 
                     VStack(alignment: .leading) {
@@ -47,6 +48,6 @@ struct ContinentsRowView: View {
 
 struct ContinentsRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ContinentsRowView(type: .AS, count: .constant(60), action: {})
+        ContinentsRowView(type: .africa, count: .constant(60), action: {})
     }
 }

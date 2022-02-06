@@ -13,6 +13,7 @@ protocol NodesServiceType {
     var loadedNodesCount: Published<Int>.Publisher { get }
     var isAllLoaded: Published<Bool>.Publisher { get }
     var nodes: [SentinelNode] { get }
+    func getNode(with: String) -> SentinelNode?
     
     func loadAllNodesIfNeeded(completion: @escaping ((Result<[SentinelNode], Error>) -> Void))
     func loadAllNodes(completion: ((Result<[SentinelNode], Error>) -> Void)?)

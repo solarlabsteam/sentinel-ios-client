@@ -54,7 +54,6 @@ extension NodeSelectionView {
             }
         }
         .background(Asset.Colors.accentColor.color.asColor)
-        .onAppear(perform: viewModel.viewWillAppear)
     }
 
     private var subscribedNodes: some View {

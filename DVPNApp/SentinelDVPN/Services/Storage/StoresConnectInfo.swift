@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol StoresConnectInfo {
     func set(shouldConnect: Bool)
@@ -16,4 +17,7 @@ protocol StoresConnectInfo {
     func lastSessionId() -> Int?
     func set(sessionStart: Date?)
     func lastSessionStart() -> Date?
+
+    var nodeUpdatePublisher: Published<Void>.Publisher  { get }
+    var connectionPublisher: Published<Bool>.Publisher  { get }
 }

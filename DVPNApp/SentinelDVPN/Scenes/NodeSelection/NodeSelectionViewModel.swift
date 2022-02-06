@@ -71,10 +71,6 @@ final class NodeSelectionViewModel: ObservableObject {
         model.subscribeToEvents()
         model.setNodes()
     }
-    
-    func viewWillAppear() {
-        model.connectIfNeeded()
-    }
 }
 
 //// MARK: - DNSSettingsViewModelDelegate
@@ -119,15 +115,7 @@ extension NodeSelectionViewModel {
     func openNodes(for continent: Continent) {
 //        router.play(event: .openNodes(continent, delegate: self))
     }
-
-    func openMore() {
-//        router.play(event: .sentinel)
-    }
-
-    func openSolarLabs() {
-//        router.play(event: .solarLabs)
-    }
-
+    
     func openDNSServersSelection() {
 //        router.play(event: .dns(self, server))
     }
@@ -151,9 +139,6 @@ extension NodeSelectionViewModel {
                     self.set(subscribedNodes: subscribedNodes)
                 case let .setSubscriptionsState(state):
                     self.subscriptionsState = state
-                case .connect:
-                    #warning("TODO")
-//                    self.router.play(event: .connect)
                 case .reloadSubscriptions:
                     self.subscriptions = []
                     self.isLoadingSubscriptions = true

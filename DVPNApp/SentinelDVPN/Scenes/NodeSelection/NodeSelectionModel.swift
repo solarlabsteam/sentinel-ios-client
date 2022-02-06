@@ -33,8 +33,6 @@ enum HomeModelEvent {
     case setSubscriptionsState(SubscriptionsState)
     case reloadSubscriptions
 
-    case connect
-
     case select(server: DNSServerType)
     case setNumberOfNodesInContinent
 }
@@ -103,7 +101,6 @@ extension NodeSelectionModel {
     func save(nodeAddress: String) {
         context.connectionInfoStorage.set(lastSelectedNode: nodeAddress)
         context.connectionInfoStorage.set(shouldConnect: true)
-        eventSubject.send(.connect)
     }
 
     func isSubscribed(to node: String) -> Bool {
@@ -112,7 +109,7 @@ extension NodeSelectionModel {
 
     func connectIfNeeded() {
         if context.connectionInfoStorage.shouldConnect() {
-            eventSubject.send(.connect)
+            context.connectionInfoStorage.set(shouldConnect: true)
             reloadOnNextAppear = true
         }
 
