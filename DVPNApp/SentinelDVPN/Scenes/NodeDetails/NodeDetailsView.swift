@@ -46,11 +46,11 @@ struct NodeDetailsView: View {
         .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
         .buttonStyle(PlainButtonStyle())
-        .popover(isPresented: $viewModel.showPlansPopover, arrowEdge: .top) {
+        .sheet(isPresented: $viewModel.showPlansSheet, onDismiss: nil, content: {
             if let nodeInfo = viewModel.node?.info {
                 ModulesFactory.shared.makePlansScene(nodeInfo: nodeInfo)
             }
-        }
+        })
     }
     
     var body: some View {

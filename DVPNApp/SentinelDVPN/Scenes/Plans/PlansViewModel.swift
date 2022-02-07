@@ -11,6 +11,7 @@ import SentinelWallet
 import Combine
 import GRPC
 import AlertToast
+import SwiftUI
 
 private struct Constants {
     let stepGB = 1
@@ -35,7 +36,11 @@ final class PlansViewModel: ObservableObject {
     }
 
     @Published var isLoading: Bool = false
-    @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
+    @Published var alertToastContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
+    @Published var alertContent: (isShown: Bool, alert: Alert) = (
+        false,
+        Alert(title: Text(""), message: nil, dismissButton: nil)
+    )
 
     private var cancellables = Set<AnyCancellable>()
     private let formatter = NumberFormatter()
@@ -95,23 +100,31 @@ extension PlansViewModel {
 
 extension PlansViewModel {
     func didTapSubscribe() {
-//        router.play(
-//            event: .subscribe(node: selectedLocationName) { [weak self] result in
-//                guard let self = self, result else {
-//                    return
-//                }
-//                self.isLoading = true
-//                self.model.checkBalanceAndSubscribe(
-//                    deposit: .init(denom: "udvpn", amount: "\(self.price * self.gbToBuy)"),
-//                    plan: String(format: "%.1f", self.gbToBuy) + L10n.Common.gb,
-//                    price: self.prettyTokesToSpend
-//                )
-//            }
-//        )
-    }
-    
-    func didTapCrossButton() {
-//        router.play(event: .close)
+        let completion = { [weak self] in
+            guard let self = self else { return }
+            
+            self.isLoading = true
+            self.model.checkBalanceAndSubscribe(
+                deposit: .init(denom: "udvpn", amount: "\(self.price * self.gbToBuy)"),
+                plan: String(format: "%.1f", self.gbToBuy) + L10n.Common.gb,
+                price: self.prettyTokesToSpend
+            )
+        }
+        
+        alertContent = (
+            true,
+            Alert(
+                title: Text(L10n.Plans.Subscribe.title(selectedLocationName)),
+                primaryButton: .default(
+                    Text(L10n.Common.yes),
+                    action: completion
+                ),
+                secondaryButton: .destructive(
+                    Text(L10n.Common.cancel),
+                    action: {}
+                )
+            )
+        )
     }
 }
 
@@ -129,7 +142,7 @@ extension PlansViewModel {
     }
 
     private func show(unwrappedError: Error) {
-        alertContent = (
+        alertToastContent = (
             true,
             AlertToast(
                 type: .error(NSColor.systemRed.asColor),
@@ -146,10 +159,20 @@ extension PlansViewModel {
     }
 
     private func showAddTokens() {
-//        router.play(event: .addTokensAlert { [weak self] result in
-//            self?.isLoading = false
-//            guard result else { return }
-//            self?.router.play(event: .accountInfo)
-//        })
+        alertContent = (
+            true,
+            Alert(
+                title: Text(L10n.Plans.AddTokens.title),
+                message: Text(L10n.Plans.AddTokens.subtitle),
+                primaryButton: .default(
+                    Text(L10n.Common.yes),
+                    action: {}
+                ),
+                secondaryButton: .destructive(
+                    Text(L10n.Common.cancel),
+                    action: {}
+                )
+            )
+        )
     }
 }

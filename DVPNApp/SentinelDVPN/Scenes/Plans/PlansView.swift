@@ -9,6 +9,7 @@ import SwiftUI
 import AlertToast
 
 struct PlansView: View {
+    @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject private var viewModel: PlansViewModel
 
@@ -18,7 +19,7 @@ struct PlansView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Button(action: viewModel.didTapCrossButton) {
+            Button(action: { presentationMode.wrappedValue.dismiss() }) {
                 Image(systemName: "multiply")
                     .resizable()
                     .frame(width: 18, height: 18)
@@ -60,8 +61,11 @@ struct PlansView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: 580)
         .background(Asset.Colors.accentColor.color.asColor.opacity(0.85))
-        .toast(isPresenting: $viewModel.alertContent.isShown) {
-            viewModel.alertContent.toast
+        .toast(isPresenting: $viewModel.alertToastContent.isShown) {
+            viewModel.alertToastContent.toast
+        }
+        .alert(isPresented: $viewModel.alertContent.isShown) {
+            viewModel.alertContent.alert
         }
     }
 }

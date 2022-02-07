@@ -20,7 +20,7 @@ final class NodeDetailsViewModel: ObservableObject {
     @Published private(set) var node: Node?
     @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
     
-    @Published var showPlansPopover = false
+    @Published var showPlansSheet = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -110,10 +110,10 @@ extension NodeDetailsViewModel {
 
     private func toggle(node: Node) {
         guard model.isSubscribed else {
-            showPlansPopover = true
+        showPlansSheet = true
             return
         }
-        
+
         model.save(nodeAddress: node.info.address)
     }
     
