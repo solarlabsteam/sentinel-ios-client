@@ -18,8 +18,6 @@ struct PlansView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Spacer()
-
             Button(action: viewModel.didTapCrossButton) {
                 Image(systemName: "multiply")
                     .resizable()
@@ -60,7 +58,7 @@ struct PlansView: View {
             .padding(.all, 28)
             .padding(.bottom)
         }
-        .frame(maxWidth: .infinity, maxHeight: 880)
+        .frame(maxWidth: .infinity, maxHeight: 580)
         .background(Asset.Colors.accentColor.color.asColor.opacity(0.85))
         .toast(isPresenting: $viewModel.alertContent.isShown) {
             viewModel.alertContent.toast

@@ -20,6 +20,8 @@ final class NodeDetailsViewModel: ObservableObject {
     @Published private(set) var node: Node?
     @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
     
+    @Published var showPlansPopover = false
+    
     private var cancellables = Set<AnyCancellable>()
     
     init(model: NodeDetailsModel) {
@@ -96,7 +98,6 @@ extension NodeDetailsViewModel {
     }
 }
 
-
 // MARK: - Private
 
 extension NodeDetailsViewModel {
@@ -109,7 +110,7 @@ extension NodeDetailsViewModel {
 
     private func toggle(node: Node) {
         guard model.isSubscribed else {
-//            router.play(event: .subscribe(node: node.info, delegate: self))
+            showPlansPopover = true
             return
         }
         
