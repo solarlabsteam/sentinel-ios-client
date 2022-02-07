@@ -69,29 +69,6 @@ struct NodeSelectionRowView: View {
 
 // swiftlint:disable force_unwrapping
 
-#if os(iOS)
-struct HomeRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        NodeSelectionRowView(
-            viewModel:
-                    .init(
-                        id: "id",
-                        icon: Flag(countryCode: "EE")!.image(style: .roundedRect),
-                        title: "Test",
-                        subtitle: "mfq9rph",
-                        price: 100,
-                        speed: Asset.Connection.Wifi.scales1.image,
-                        latency: 300,
-                        peers: 4
-                    ),
-            toggleLocation: {},
-            openDetails: {}
-        )
-    }
-}
-#endif
-
-#if os(macOS)
 struct HomeRowView_Previews: PreviewProvider {
     static var previews: some View {
         NodeSelectionRowView(
@@ -111,6 +88,5 @@ struct HomeRowView_Previews: PreviewProvider {
         )
     }
 }
-#endif
 
 // swiftlint:enable force_unwrapping

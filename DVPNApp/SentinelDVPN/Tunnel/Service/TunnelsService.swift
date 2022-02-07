@@ -71,16 +71,14 @@ final public class TunnelsService {
                 if provider.migrateConfigurationIfNeeded(with: tunnelManager.localizedDescription ?? "unknown") {
                     tunnelManager.saveToPreferences { _ in }
                 }
-#if os(iOS)
-                let passwordRef = provider.verifyConfigurationReference() ? provider.passwordReference : nil
-#elseif os(macOS)
+                
                 let passwordRef: Data?
                 if provider.providerConfiguration?["UID"] as? uid_t == getuid() {
                     passwordRef = provider.verifyConfigurationReference() ? provider.passwordReference : nil
                 } else {
                     passwordRef = provider.passwordReference // To handle multiple users in macOS, we skip verifying
                 }
-#endif
+                
                 if let data = passwordRef {
                     references.insert(data)
                 } else {
@@ -134,19 +132,6 @@ final public class TunnelsService {
             }
 
             guard let self = self else { return }
-
-#if os(iOS)
-            // Adding a tunnel causes deactivation of any currently active tunnel.
-            // This is an hack to reactivate the tunnel that has been deactivated like that.
-            if let activeTunnel = activeTunnel {
-                if activeTunnel.status == .disconnected || activeTunnel.status == .disconnecting {
-                    self.startActivation(of: activeTunnel)
-                }
-                if activeTunnel.status == .connected || activeTunnel.status == .connecting {
-                    activeTunnel.status = .restarting
-                }
-            }
-#endif
 
             let tunnel = TunnelContainer(tunnel: tunnelProviderManager)
             self.tunnels.append(tunnel)

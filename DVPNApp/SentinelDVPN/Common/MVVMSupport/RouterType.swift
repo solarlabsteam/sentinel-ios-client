@@ -6,12 +6,7 @@
 //
 
 import Foundation
-#if os(macOS)
 import Cocoa
-#elseif os(iOS)
-import SwiftMessages
-import class UIKit.UIViewController
-#endif
 
 protocol RouterType {
     associatedtype Event
@@ -20,34 +15,6 @@ protocol RouterType {
     func play(event: Event)
 }
 
-#if os(iOS)
-extension RouterType {
-    func show(
-        message: String,
-        theme: Theme = .error,
-        presentationContext: SwiftMessages.PresentationContext = .automatic
-    ) {
-        let view = MessageView.viewFromNib(layout: .messageView)
-        view.configureTheme(theme)
-        view.button?.backgroundColor = .clear
-        view.configureContent(
-            title: nil,
-            body: message,
-            iconImage: nil,
-            iconText: nil,
-            buttonImage: nil,
-            buttonTitle: nil,
-            buttonTapHandler: nil
-        )
-
-        var config = SwiftMessages.defaultConfig
-        config.duration = .seconds(seconds: 4)
-        config.presentationContext = presentationContext
-
-        SwiftMessages.show(config: config, view: view)
-    }
-}
-#elseif os(macOS)
 extension RouterType {
     func showErrorAlert(
         message: String,
@@ -61,7 +28,6 @@ extension RouterType {
         alert.runModal()
     }
 }
-#endif
 
 final class AnyRouter<Event>: RouterType {
     private let _playEvent: (Event) -> Void
