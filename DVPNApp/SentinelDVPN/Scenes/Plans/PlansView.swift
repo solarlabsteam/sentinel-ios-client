@@ -9,8 +9,6 @@ import SwiftUI
 import AlertToast
 
 struct PlansView: View {
-    @Environment(\.presentationMode) var presentationMode
-    
     @ObservedObject private var viewModel: PlansViewModel
 
     init(viewModel: PlansViewModel) {
@@ -19,7 +17,7 @@ struct PlansView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Button(action: { presentationMode.wrappedValue.dismiss() }) {
+            Button(action: { viewModel.isPresented = false }) {
                 Image(systemName: "multiply")
                     .resizable()
                     .frame(width: 18, height: 18)

@@ -114,9 +114,9 @@ extension ModulesFactory {
         return view
     }
     
-    func makePlansScene(nodeInfo: DVPNNodeInfo) -> PlansView {
+    func makePlansScene(nodeInfo: DVPNNodeInfo, isPresented: Binding<Bool>) -> PlansView {
         let model = PlansModel(context: context, node: nodeInfo)
-        let viewModel = PlansViewModel(model: model)
+        let viewModel = PlansViewModel(model: model, isPresented: isPresented)
         let view = PlansView(viewModel: viewModel)
         
         return view

@@ -48,7 +48,7 @@ struct NodeDetailsView: View {
         .buttonStyle(PlainButtonStyle())
         .sheet(isPresented: $viewModel.showPlansSheet, onDismiss: nil, content: {
             if let nodeInfo = viewModel.node?.info {
-                ModulesFactory.shared.makePlansScene(nodeInfo: nodeInfo)
+                ModulesFactory.shared.makePlansScene(nodeInfo: nodeInfo, isPresented: $viewModel.showPlansSheet)
             }
         })
     }

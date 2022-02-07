@@ -41,12 +41,15 @@ final class PlansViewModel: ObservableObject {
         false,
         Alert(title: Text(""), message: nil, dismissButton: nil)
     )
+    
+    @Binding var isPresented: Bool
 
     private var cancellables = Set<AnyCancellable>()
     private let formatter = NumberFormatter()
     
-    init(model: PlansModel) {
+    init(model: PlansModel, isPresented: Binding<Bool>) {
         self.model = model
+        self._isPresented = isPresented
         
         selectedLocationName = ""
         gbToBuy = 1
@@ -159,6 +162,12 @@ extension PlansViewModel {
     }
 
     private func showAddTokens() {
+        let completion = { [weak self] in
+            guard let self = self else { return }
+            
+            self.isPresented = false
+        }
+        
         alertContent = (
             true,
             Alert(
@@ -166,7 +175,7 @@ extension PlansViewModel {
                 message: Text(L10n.Plans.AddTokens.subtitle),
                 primaryButton: .default(
                     Text(L10n.Common.yes),
-                    action: {}
+                    action: completion
                 ),
                 secondaryButton: .destructive(
                     Text(L10n.Common.cancel),
