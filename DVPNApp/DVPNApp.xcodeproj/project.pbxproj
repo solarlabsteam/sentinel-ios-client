@@ -181,7 +181,7 @@
 		93D304F727983F2900469A75 /* NodeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA068F270B4C5E0006A765 /* NodeInfoView.swift */; };
 		93D304F827983F2B00469A75 /* NodeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */; };
 		93E492F127A8915100797906 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E492F027A8915100797906 /* StatusMenu.swift */; };
-		93E492F327A9700600797906 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E492F227A9700600797906 /* ConnectionService.swift */; };
+		93E492F327A9700600797906 /* ConnectionMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E492F227A9700600797906 /* ConnectionMenuService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,7 +367,7 @@
 		93DBF56F271888B8006EBC65 /* ContinentsRowViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentsRowViewType.swift; sourceTree = "<group>"; };
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		93E492F027A8915100797906 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
-		93E492F227A9700600797906 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
+		93E492F227A9700600797906 /* ConnectionMenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMenuService.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
 		93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -709,7 +709,7 @@
 				75A53BF2273E5E220003F54A /* SecurityService */,
 				75B0D56126CD26F6009ECAFC /* Storage */,
 				932D0AF62721743F0064AEE4 /* UserService */,
-				93E492F227A9700600797906 /* ConnectionService.swift */,
+				93E492F227A9700600797906 /* ConnectionMenuService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1412,7 +1412,7 @@
 				75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */,
 				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
 				9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */,
-				93E492F327A9700600797906 /* ConnectionService.swift in Sources */,
+				93E492F327A9700600797906 /* ConnectionMenuService.swift in Sources */,
 				9263A4A72796E89B003DF3A4 /* Image+Ext.swift in Sources */,
 				9263A4782796E4E9003DF3A4 /* StoresGeneralInfo.swift in Sources */,
 				9263A4742796E4D8003DF3A4 /* SecurityService.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ConnectionService.swift
+//  ConnectionMenuService.swift
 //  SentinelDVPN
 //
 //  Created by Victoria Kostyleva on 01.02.2022.
