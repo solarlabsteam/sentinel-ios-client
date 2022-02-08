@@ -17,15 +17,15 @@ struct AvailableNodesView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if case let .details(node, isSubscribed) = viewModel.selectedType {
-                #warning("TODO add button the way it won't duplicate previous one")
-//                Button(action: viewModel.closeDetails) {
-//                    Text(L10n.Common.back)
-//                        .applyTextStyle(.navyBluePoppins(ofSize: 16))
-//                }
-//                .buttonStyle(PlainButtonStyle())
-//                .padding()
-
-                #warning("TODO pass isSubscribed")
+                #warning("Find better way to add button the way it won't duplicate previous one")
+                Button(action: viewModel.closeDetails) {
+                    Text(L10n.Common.back)
+                        .applyTextStyle(.navyBluePoppins(ofSize: 16))
+                }
+                .buttonStyle(PlainButtonStyle())
+                .padding()
+                .padding(.top, -60)
+                
                 ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: isSubscribed)
             } else {
                 ZStack(alignment: .bottom) {
