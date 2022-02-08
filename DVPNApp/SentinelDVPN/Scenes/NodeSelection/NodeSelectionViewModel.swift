@@ -76,8 +76,16 @@ final class NodeSelectionViewModel: ObservableObject {
     @Published var numberOfNodesInContinent: [Continent: Int] = [:]
     
     @Published private(set) var subscriptionsState: SubscriptionsState = .empty
-
-    @Published var showAccountPopover = false
+    
+    @Published var showPlansSheet = false {
+        didSet {
+            if showPlansSheet == false {
+                nodeToToggle = nil
+            }
+        }
+    }
+    
+    @Published var nodeToToggle: Node?
 
     init(model: NodeSelectionModel) {
         self.model = model
@@ -198,10 +206,11 @@ extension NodeSelectionViewModel {
     private func toggle(node: Node) {
         let isSubscribedToNode = model.isSubscribed(to: node.info.address)
         guard isSubscribedToNode else {
-//            router.play(event: .subscribe(node: node.info, delegate: self))
+            showPlansSheet = true
+            nodeToToggle = node
             return
         }
-
+        
         model.save(nodeAddress: node.info.address)
     }
 }
