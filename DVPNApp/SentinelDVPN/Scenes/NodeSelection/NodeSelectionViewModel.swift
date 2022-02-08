@@ -92,8 +92,7 @@ final class NodeSelectionViewModel: ObservableObject {
 
         handeEvents()
         numberOfNodesInContinent = model.numberOfNodesInContinent
-
-        model.refreshDNS()
+        
         model.subscribeToEvents()
         model.setNodes()
     }
@@ -166,9 +165,6 @@ extension NodeSelectionViewModel {
                 case .reloadSubscriptions:
                     self.subscriptions = []
                     self.isLoadingSubscriptions = true
-                case let .select(server):
-                    #warning("TODO")
-//                    self.update(to: server)
                 }
             }
             .store(in: &cancellables)

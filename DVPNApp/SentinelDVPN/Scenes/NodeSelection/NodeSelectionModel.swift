@@ -32,13 +32,11 @@ enum HomeModelEvent {
     case set(subscribedNodes: [SentinelNode])
     case setSubscriptionsState(SubscriptionsState)
     case reloadSubscriptions
-
-    case select(server: DNSServerType)
 }
 
 final class NodeSelectionModel {
     typealias Context = HasSentinelService & HasWalletService & HasConnectionInfoStorage
-        & HasDNSServersStorage & HasTunnelManager & HasNodesService
+        & HasTunnelManager & HasNodesService
     private let context: Context
 
     private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
@@ -80,10 +78,6 @@ extension NodeSelectionModel {
     
     var numberOfNodesInContinent: [Continent: Int] {
         context.nodesService.nodesInContinentsCount
-    }
-    
-    func refreshDNS() {
-        eventSubject.send(.select(server: context.dnsServersStorage.selectedDNS()))
     }
 
     func setNodes() {
