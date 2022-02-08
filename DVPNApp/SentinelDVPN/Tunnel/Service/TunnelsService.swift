@@ -121,8 +121,6 @@ final public class TunnelsService {
         tunnelProviderManager.onDemandRules = [rule]
         tunnelProviderManager.isOnDemandEnabled = true
 
-        let activeTunnel = tunnels.first { $0.status == .connected || $0.status == .connecting }
-
         tunnelProviderManager.saveToPreferences { [weak self] error in
             if let error = error {
                 log.error( "Add: Saving configuration failed: \(error)")

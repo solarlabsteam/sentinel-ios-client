@@ -98,14 +98,6 @@ final class NodeSelectionViewModel: ObservableObject {
     }
 }
 
-//// MARK: - DNSSettingsViewModelDelegate
-//
-//extension HomeViewModel: DNSSettingsViewModelDelegate {
-//    func update(to server: DNSServerType) {
-//        self.server = server
-//    }
-//}
-
 // MARK: - Buttons actions
 
 extension NodeSelectionViewModel {

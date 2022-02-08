@@ -11,5 +11,8 @@ public enum UserConstants {
     static let sentinelURL = URL(string: "https://sentinel.co/")
     static let solarLabsURL = URL(string: "http://labs.solar")
     public static let accessGroup = "group.co.sentinel.dvpn"
+    
+    // swiftlint:disable force_unwrapping
     static let privacyURL = URL(string: "https://sentinel.co/privacy")!
+    // swiftlint:enable force_unwrapping
 }
