@@ -90,7 +90,7 @@ extension PlansView {
                 if viewModel.isLoading {
                     ActivityIndicator(
                         isAnimating: $viewModel.isLoading,
-                        controlSize: .regular
+                        controlSize: .small
                     )
                 }
                 HStack {
