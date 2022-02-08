@@ -76,7 +76,10 @@ extension AvailableNodesViewModel {
             show(error: NodeSelectionViewModelError.unavailableNode)
             return
         }
-        selectedType = .details(sentinelNode)
+        
+        let isSubscribed = model.isSubscribed(to: sentinelNode.address)
+        
+        selectedType = .details(sentinelNode, isSubscribed: isSubscribed)
     }
 
     func closeDetails() {

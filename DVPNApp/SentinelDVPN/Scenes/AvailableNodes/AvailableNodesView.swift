@@ -16,7 +16,7 @@ struct AvailableNodesView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if case let .details(node) = viewModel.selectedType {
+            if case let .details(node, isSubscribed) = viewModel.selectedType {
                 #warning("TODO add button the way it won't duplicate previous one")
 //                Button(action: viewModel.closeDetails) {
 //                    Text(L10n.Common.back)
@@ -26,7 +26,7 @@ struct AvailableNodesView: View {
 //                .padding()
 
                 #warning("TODO pass isSubscribed")
-                ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: true)
+                ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: isSubscribed)
             } else {
                 ZStack(alignment: .bottom) {
                     VStack {

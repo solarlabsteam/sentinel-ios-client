@@ -13,7 +13,7 @@ import AlertToast
 
 enum NodesColumnState: Hashable {
     case all
-    case details(SentinelNode)
+    case details(SentinelNode, isSubscribed: Bool)
 }
 
 enum ContinentsState: Hashable {
@@ -125,8 +125,10 @@ extension NodeSelectionViewModel {
             show(error: NodeSelectionViewModelError.unavailableNode)
             return
         }
+        
+        let isSubscribed = model.isSubscribed(to: sentinelNode.address)
 
-        selectedTab = .subscribed(.details(sentinelNode))
+        selectedTab = .subscribed(.details(sentinelNode, isSubscribed: isSubscribed))
     }
 
     func openContinent(key: Continent) {

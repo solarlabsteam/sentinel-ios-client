@@ -19,15 +19,14 @@ struct NodeSelectionView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if case let .subscribed(type) = viewModel.selectedTab,
-               case let .details(node) = type {
+               case let .details(node, isSubscribed) = type {
                 Button(action: viewModel.closeDetails) {
                     Text(L10n.Common.back).applyTextStyle(.navyBluePoppins(ofSize: 16))
                 }
                 .buttonStyle(PlainButtonStyle())
                 .padding()
 
-                ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: true)
-
+                ModulesFactory.shared.makeNodeDetailsScene(node: node, isSubscribed: isSubscribed)
             } else if case let .available(type) = viewModel.selectedTab,
                       case let .continent(continent) = type {
 
