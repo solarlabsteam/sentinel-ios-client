@@ -64,8 +64,11 @@ final class PlansViewModel: ObservableObject {
                     self?.updatePayment(countryName: countryName, price: price, fee: fee)
                 case let .processPayment(result):
                     self?.isLoading = false
-                    if case let .failure(error) = result{
+                    if case let .failure(error) = result {
                         self?.show(error: error)
+                    }
+                    if case .success = result {
+                        self?.isPresented = false
                     }
                 case .addTokens:
                     self?.showAddTokens()
