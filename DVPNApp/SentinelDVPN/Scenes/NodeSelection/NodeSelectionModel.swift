@@ -23,7 +23,7 @@ enum SubscriptionsState {
     }
 }
 
-enum HomeModelEvent {
+enum NodeSelectionModelEvent {
     case error(Error)
     
     case showLoadingSubscriptions(state: Bool)
@@ -39,8 +39,8 @@ final class NodeSelectionModel {
         & HasTunnelManager & HasNodesService
     private let context: Context
 
-    private let eventSubject = PassthroughSubject<HomeModelEvent, Never>()
-    var eventPublisher: AnyPublisher<HomeModelEvent, Never> {
+    private let eventSubject = PassthroughSubject<NodeSelectionModelEvent, Never>()
+    var eventPublisher: AnyPublisher<NodeSelectionModelEvent, Never> {
         eventSubject.eraseToAnyPublisher()
     }
 
