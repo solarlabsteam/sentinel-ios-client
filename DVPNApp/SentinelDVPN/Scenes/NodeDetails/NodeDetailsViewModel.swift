@@ -55,8 +55,7 @@ extension NodeDetailsViewModel {
         
         let countryCode = CountryFormatter.code(for: nodeInfo.location.country) ?? ""
         let flagImage: ImageAsset.Image?
-
-        #warning("replace all the original images on macOS with rounded")
+        
         flagImage = Flag(countryCode: countryCode)?.originalImage
         
         countryTileModel = .init(

@@ -28,6 +28,7 @@ extension CountryTileView {
             viewModel.icon.asImage
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .cornerRadius(5)
                 .frame(width: 50, height: 41)
             
             VStack(alignment: .leading, spacing: 6) {

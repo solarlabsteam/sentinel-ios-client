@@ -187,7 +187,6 @@ extension NodeSelectionViewModel {
             
             let flagImage: ImageAsset.Image?
             
-            #warning("replace all the original images on macOS with rounded")
             flagImage = Flag(countryCode: countryCode)?.originalImage
             
             let model = NodeSelectionRowViewModel(
