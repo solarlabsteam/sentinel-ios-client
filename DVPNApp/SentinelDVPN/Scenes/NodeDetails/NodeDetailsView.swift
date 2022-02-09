@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AlertToast
 
 struct NodeDetailsView: View {
     @ObservedObject private var viewModel: NodeDetailsViewModel

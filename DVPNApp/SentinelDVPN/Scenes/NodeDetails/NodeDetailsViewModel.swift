@@ -31,8 +31,6 @@ final class NodeDetailsViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] event in
                 switch event {
-                case let .error(error):
-                    self?.show(error: error)
                 case let .update(node):
                     self?.update(sentinelNode: node)
                 }

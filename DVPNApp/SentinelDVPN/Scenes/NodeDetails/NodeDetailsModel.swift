@@ -10,7 +10,6 @@ import SentinelWallet
 
 enum NodeDetailsModelEvent {
     case update(node: SentinelNode)
-    case error(Error)
 }
 
 final class NodeDetailsModel {
