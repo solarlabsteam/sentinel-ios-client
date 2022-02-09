@@ -115,7 +115,7 @@ extension ConnectionViewModel {
             .store(in: &cancellables)
 
         setConnectionInfoViewModels()
-//        model.setInitNodeInfo()
+        model.setInitNodeInfo()
     }
 }
 

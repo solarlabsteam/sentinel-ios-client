@@ -77,6 +77,27 @@ final class ConnectionModel {
 // MARK: - Connection functions
 
 extension ConnectionModel {
+    func setInitNodeInfo() {
+        guard let sentinelNode = context.nodesService.nodes
+                .first(where: { $0.address == context.connectionInfoStorage.lastSelectedNode() }) else {
+                    return
+                }
+        
+        selectedNode = sentinelNode.node?.info
+        
+        guard let node = sentinelNode.node else {
+            log.error("Fail to set initial node info")
+            return
+        }
+        
+        eventSubject.send(.updateLocation(
+            countryName: node.info.location.country,
+            moniker: node.info.moniker)
+        )
+        
+        eventSubject.send(.updateBandwidth(bandwidth: node.info.bandwidth))
+    }
+    
     /// Refreshes subscriptions. Should be called each time when the app leaves the background state.
     func refreshNodeState() {
         guard subscription != nil else { return }
