@@ -97,6 +97,8 @@ extension AccountInfoView {
         )
     }
     
+    // MARK: - Buttons
+    
     private var shareButton: some View {
         FramedButton(title: L10n.AccountInfo.share) {
             self.showPicker = true
@@ -117,6 +119,8 @@ extension AccountInfoView {
             openURL(viewModel.solarPayURL)
         }
     }
+    
+    // MARK: - QR code
 
     private var qrCode: some View {
         VStack(alignment: .center, spacing: nil) {

@@ -32,13 +32,11 @@ struct NodeDetailsView: View {
     
     var mainButton: some View {
         Button(action: viewModel.didTapConnect) {
-            HStack {
-                Text(L10n.NodeDetails.connect)
-                    .foregroundColor(Asset.Colors.accentColor.color.asColor)
-                    .applyTextStyle(.mainButton)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical)
-            }
+            Text(L10n.NodeDetails.connect)
+                .foregroundColor(Asset.Colors.accentColor.color.asColor)
+                .applyTextStyle(.mainButton)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical)
         }
         .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.navyBlue.color))
         .sheet(isPresented: $viewModel.showPlansSheet, onDismiss: nil, content: {

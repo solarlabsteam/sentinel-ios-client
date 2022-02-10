@@ -115,18 +115,12 @@ extension AccountCreationView {
 
     private var mainButton: some View {
         Button(action: viewModel.didTapMainButton) {
-            HStack {
-                Spacer()
-                Text(viewModel.mode.buttonTitle.uppercased())
-                    .applyTextStyle(.mainButton)
-
-                Spacer()
-            }
+            Text(viewModel.mode.buttonTitle.uppercased())
+                .applyTextStyle(.mainButton)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical)
         }
-        .padding()
-        .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.navyBlue.color))
     }
 
     private var termsView: some View {
