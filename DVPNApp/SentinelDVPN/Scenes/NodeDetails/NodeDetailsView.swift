@@ -33,18 +33,14 @@ struct NodeDetailsView: View {
     var mainButton: some View {
         Button(action: viewModel.didTapConnect) {
             HStack {
-                Spacer()
                 Text(L10n.NodeDetails.connect)
                     .foregroundColor(Asset.Colors.accentColor.color.asColor)
                     .applyTextStyle(.mainButton)
-
-                Spacer()
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
             }
         }
-        .padding()
-        .background(Asset.Colors.navyBlue.color.asColor)
-        .cornerRadius(25)
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.navyBlue.color))
         .sheet(isPresented: $viewModel.showPlansSheet, onDismiss: nil, content: {
             if let nodeInfo = viewModel.node?.info {
                 ModulesFactory.shared.makePlansScene(nodeInfo: nodeInfo, isPresented: $viewModel.showPlansSheet)

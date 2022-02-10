@@ -17,14 +17,12 @@ struct AccentButton: View {
                 Text(title)
                     .foregroundColor(Asset.Colors.accentColor.color.asColor)
                     .applyTextStyle(.darkPoppins(ofSize: 11, weight: .semibold))
+                    .frame(maxWidth: .infinity)
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 16)
         }
-        .buttonStyle(PlainButtonStyle())
-        .padding(.horizontal)
-        .frame(maxWidth: .infinity)
-        .background(Asset.Colors.navyBlue.color.asColor)
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.navyBlue.color))
         .cornerRadius(25)
     }
 }

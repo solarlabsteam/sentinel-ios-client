@@ -182,6 +182,7 @@
 		93D304F827983F2B00469A75 /* NodeInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA0691270B4C690006A765 /* NodeInfoViewModel.swift */; };
 		93E492F127A8915100797906 /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E492F027A8915100797906 /* StatusMenu.swift */; };
 		93E492F327A9700600797906 /* ConnectionMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E492F227A9700600797906 /* ConnectionMenuService.swift */; };
+		93F635AE27B50DBE00B1A3D4 /* CommonButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F635AD27B50DBE00B1A3D4 /* CommonButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +369,7 @@
 		93DBF575271939EF006EBC65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		93E492F027A8915100797906 /* StatusMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		93E492F227A9700600797906 /* ConnectionMenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMenuService.swift; sourceTree = "<group>"; };
+		93F635AD27B50DBE00B1A3D4 /* CommonButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButtonStyle.swift; sourceTree = "<group>"; };
 		93FA0688270B343B0006A765 /* NodeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsModel.swift; sourceTree = "<group>"; };
 		93FA068A270B34470006A765 /* NodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsView.swift; sourceTree = "<group>"; };
 		93FA068C270B34530006A765 /* NodeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -805,6 +807,7 @@
 				7517DF1727218BFA007E56CA /* PageIndicator.swift */,
 				9374A6A7274E6EBA0010E4A6 /* PullToRefresh.swift */,
 				93D304BB279752E600469A75 /* Toolbar.swift */,
+				93F635AD27B50DBE00B1A3D4 /* CommonButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1411,6 +1414,7 @@
 				758FCC0427A9452200896575 /* AccountCreationModel.swift in Sources */,
 				75EC74C327A728D300DC2EAC /* OnboardingModel.swift in Sources */,
 				9263A4CE2796EC0D003DF3A4 /* ContinentDecoder.swift in Sources */,
+				93F635AE27B50DBE00B1A3D4 /* CommonButtonStyle.swift in Sources */,
 				9263A4882796E52E003DF3A4 /* TunnelInterfaceModel.swift in Sources */,
 				93E492F327A9700600797906 /* ConnectionMenuService.swift in Sources */,
 				9263A4A72796E89B003DF3A4 /* Image+Ext.swift in Sources */,
