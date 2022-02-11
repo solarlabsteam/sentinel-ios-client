@@ -50,13 +50,7 @@ struct PlansView: View {
                 }
                 .padding()
             }
-            .background(Asset.Colors.accentColor.color.asColor)
-            .overlay(
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 1)
-            )
             .padding(.all, 28)
-            .padding(.bottom)
         }
         .frame(maxWidth: .infinity, maxHeight: 580)
         .background(Asset.Colors.accentColor.color.asColor)
