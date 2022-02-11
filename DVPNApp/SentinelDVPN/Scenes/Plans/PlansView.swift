@@ -22,8 +22,9 @@ struct PlansView: View {
                     .resizable()
                     .frame(width: 18, height: 18)
                     .foregroundColor(.white)
+                    .padding(.all, 11)
             }
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
 
             VStack(spacing: 0) {
                 VStack {
@@ -58,7 +59,7 @@ struct PlansView: View {
             .padding(.bottom)
         }
         .frame(maxWidth: .infinity, maxHeight: 580)
-        .background(Asset.Colors.accentColor.color.asColor.opacity(0.85))
+        .background(Asset.Colors.accentColor.color.asColor)
         .toast(isPresenting: $viewModel.alertToastContent.isShown) {
             viewModel.alertToastContent.toast
         }

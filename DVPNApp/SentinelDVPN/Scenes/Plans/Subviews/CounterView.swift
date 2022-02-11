@@ -56,16 +56,17 @@ struct CounterView: View {
                 .frame(width: 1)
                 .edgesIgnoringSafeArea(.horizontal)
 
-            VStack(spacing: 15) {
+            VStack(spacing: 0) {
                 Button(action: togglePlus) {
                     Asset.Counter.plus.image.asImage
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 14)
                         .foregroundColor(constants.navyColor)
+                        .padding(.all, 20)
                 }
+                .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
                 .buttonStyle(PlainButtonStyle())
-                .padding(.horizontal, 20)
 
                 Rectangle()
                     .fill(constants.borderColor)
@@ -78,9 +79,9 @@ struct CounterView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 14)
                         .foregroundColor(constants.navyColor)
+                        .padding(.all, 20)
                 }
-                .buttonStyle(PlainButtonStyle())
-                .padding(.horizontal, 20)
+                .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
             }
             .fixedSize()
         }

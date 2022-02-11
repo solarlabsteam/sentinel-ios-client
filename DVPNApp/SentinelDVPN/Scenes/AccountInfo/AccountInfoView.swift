@@ -78,19 +78,15 @@ struct AccountInfoView: View {
 extension AccountInfoView {
     private var addressView: some View {
         Button(action: viewModel.didTapCopy) {
-            HStack(alignment: .center, spacing: 3) {
-                Spacer()
-                
-                Text(viewModel.address)
-                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
-                    .lineLimit(1)
-                    .truncationMode(.middle)
-                
-                Spacer()
-            }
+            Text(viewModel.address)
+                .applyTextStyle(.whitePoppins(ofSize: 12, weight: .medium))
+                .lineLimit(1)
+                .truncationMode(.middle)
+                .frame(maxWidth: .infinity)
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
         .padding(.vertical, 16)
+        .padding(.horizontal, 10)
         .overlay(
             RoundedRectangle(cornerRadius: 2)
                 .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 0.5)
