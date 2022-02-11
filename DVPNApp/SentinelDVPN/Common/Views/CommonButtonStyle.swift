@@ -26,6 +26,7 @@ struct CommonButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
+            .opacity(configuration.isPressed ? 0.7 : 1)
             .foregroundColor(configuration.isPressed ? backgroundColor : highlightedColor)
             .background(configuration.isPressed ? highlightedColor : backgroundColor)
     }

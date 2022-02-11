@@ -45,7 +45,7 @@ extension AccountCreationView {
                     .border(Asset.Colors.navyBlue.color.asColor, width: 1)
                     .cornerRadius(2)
             }
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
         }
     }
 
@@ -102,7 +102,7 @@ extension AccountCreationView {
                 }
             }
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
     }
 
     private var mnemonicFields: some View {
@@ -135,7 +135,7 @@ extension AccountCreationView {
                         .foregroundColor(Asset.Colors.borderGray.color.asColor)
                 }
             }
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
             
             HStack(alignment: .top, spacing: 5) {
                 Text(L10n.AccountCreation.Terms.text)
@@ -162,7 +162,7 @@ extension AccountCreationView {
                     .applyTextStyle(.navyBluePoppins(ofSize: 12, weight: .semibold))
                     .underline()
             }
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
         }
     }
 }
