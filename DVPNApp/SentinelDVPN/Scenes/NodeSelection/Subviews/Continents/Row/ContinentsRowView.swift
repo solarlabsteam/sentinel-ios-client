@@ -42,7 +42,7 @@ struct ContinentsRowView: View {
                 }
             }
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
     }
 }
 

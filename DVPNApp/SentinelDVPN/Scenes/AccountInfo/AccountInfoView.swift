@@ -83,10 +83,10 @@ extension AccountInfoView {
                 .lineLimit(1)
                 .truncationMode(.middle)
                 .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .padding(.horizontal, 10)
         }
         .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
-        .padding(.vertical, 16)
-        .padding(.horizontal, 10)
         .overlay(
             RoundedRectangle(cornerRadius: 2)
                 .stroke(Asset.Colors.lightBlue.color.asColor, lineWidth: 0.5)
