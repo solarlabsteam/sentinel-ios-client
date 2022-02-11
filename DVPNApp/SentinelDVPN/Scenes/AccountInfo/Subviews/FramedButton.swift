@@ -13,14 +13,12 @@ struct FramedButton: View {
     
     var body: some View {
         Button(action: clicked) {
-            HStack {
-                Text(title)
-                    .applyTextStyle(.whitePoppins(ofSize: 12, weight: .regular))
-                    .padding(.horizontal)
-            }
-            .padding(.horizontal, 30)
-            .padding(.vertical, 16)
+            Text(title)
+                .applyTextStyle(.whitePoppins(ofSize: 12, weight: .regular))
+                .padding(.horizontal, 30)
+                .padding(.vertical, 16)
         }
+        .cornerRadius(25)
         .buttonStyle(
             CommonButtonStyle(
                 backgroundColor: Asset.Colors.accentColor.color,

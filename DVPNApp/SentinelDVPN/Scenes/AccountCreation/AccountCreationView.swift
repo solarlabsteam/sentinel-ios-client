@@ -121,6 +121,7 @@ extension AccountCreationView {
                 .padding(.vertical)
         }
         .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.navyBlue.color))
+        .cornerRadius(25)
     }
 
     private var termsView: some View {

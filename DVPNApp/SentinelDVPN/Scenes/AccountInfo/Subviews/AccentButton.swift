@@ -19,6 +19,7 @@ struct AccentButton: View {
                     .applyTextStyle(.darkPoppins(ofSize: 11, weight: .semibold))
                     .frame(maxWidth: .infinity)
             }
+            .cornerRadius(25)
             .padding(.horizontal, 30)
             .padding(.vertical, 16)
         }

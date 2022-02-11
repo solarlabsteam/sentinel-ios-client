@@ -28,6 +28,5 @@ struct CommonButtonStyle: ButtonStyle {
         configuration.label
             .foregroundColor(configuration.isPressed ? backgroundColor : highlightedColor)
             .background(configuration.isPressed ? highlightedColor : backgroundColor)
-            .cornerRadius(25)
     }
 }

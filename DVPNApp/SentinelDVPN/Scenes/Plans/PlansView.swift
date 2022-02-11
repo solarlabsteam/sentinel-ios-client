@@ -93,20 +93,14 @@ extension PlansView {
                         controlSize: .small
                     )
                 }
-                HStack {
-                    Spacer()
-
-                    Text(L10n.Plans.subscribe)
-                        .applyTextStyle(.mainButton)
-
-                    Spacer()
-                }
+                Text(L10n.Plans.subscribe)
+                    .applyTextStyle(.mainButton)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
             }
         }
-        .padding()
-        .background(Asset.Colors.navyBlue.color.asColor)
         .cornerRadius(25)
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.navyBlue.color))
         .disabled(viewModel.isLoading)
     }
 }

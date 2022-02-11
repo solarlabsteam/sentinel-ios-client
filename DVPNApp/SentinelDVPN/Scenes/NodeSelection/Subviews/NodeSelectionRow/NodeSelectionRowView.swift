@@ -64,7 +64,7 @@ struct NodeSelectionRowView: View {
                 .padding(.bottom)
             }
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.accentColor.color))
     }
 }
 

@@ -38,6 +38,7 @@ struct NodeDetailsView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical)
         }
+        .cornerRadius(25)
         .buttonStyle(CommonButtonStyle(backgroundColor: Asset.Colors.navyBlue.color))
         .sheet(isPresented: $viewModel.showPlansSheet, onDismiss: nil, content: {
             if let nodeInfo = viewModel.node?.info {
