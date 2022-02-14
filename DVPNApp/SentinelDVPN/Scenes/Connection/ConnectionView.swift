@@ -16,9 +16,20 @@ struct ConnectionView: View {
     var body: some View {
         contentView
             .background(Asset.Colors.accentColor.color.asColor)
-            .toast(isPresenting: $viewModel.alertContent.isShown) {
-                viewModel.alertContent.toast
+            .toast(isPresenting: $viewModel.alertToastContent.isShown) {
+                viewModel.alertToastContent.toast
             }
+            .alert(isPresented: $viewModel.alertContent.isShown) {
+                viewModel.alertContent.alert
+            }
+            .sheet(isPresented: $viewModel.showPlansSheet, onDismiss: nil, content: {
+                if let nodeInfo = viewModel.nodeToToggle {
+                    ModulesFactory.shared.makePlansScene(
+                        nodeInfo: nodeInfo,
+                        isPresented: $viewModel.showPlansSheet
+                    )
+                }
+            })
     }
 }
 

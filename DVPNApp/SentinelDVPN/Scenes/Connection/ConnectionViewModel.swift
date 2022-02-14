@@ -31,9 +31,22 @@ final class ConnectionViewModel: ObservableObject {
     @Published private(set) var connectionStatus: ConnectionStatus = .disconnected
 
     @Published private(set) var connectionInfoViewModels: [ConnectionInfoViewModel] = []
-    @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
+    @Published var alertToastContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
+    @Published var alertContent: (isShown: Bool, alert: Alert) = (
+        false,
+        Alert(title: Text(""), message: nil, dismissButton: nil)
+    )
 
     @Published var isLoading: Bool = false
+    
+    @Published var showPlansSheet = false {
+        didSet {
+            if showPlansSheet == false {
+                nodeToToggle = nil
+            }
+        }
+    }
+    @Published var nodeToToggle: DVPNNodeInfo?
 
     private let model: ConnectionModel
     private var cancellables = Set<AnyCancellable>()
@@ -87,29 +100,31 @@ extension ConnectionViewModel {
                 case let .updateIpAddress(ipAddress: ipAddress):
                     self.ipAddress = "IP " + ipAddress
                 case let .openPlans(node):
-                    #warning("TODO openPlans")
-//                    self.router.play(
-//                        event: .openPlans(
-//                            configuration: .init(node: node, isTrusted: self.isTrusted),
-//                            delegate: self
-//                        )
-//                    )
+                    self.showPlansSheet = true
+                    self.nodeToToggle = node
                 case let .resubscribe(node):
-#warning("TODO openPlans")
-//                    self.router.play(
-//                        event: .resubscribe { result in
-//                            guard result else {
-//                                return
-//                            }
-//
-//                            self.router.play(
-//                                event: .openPlans(
-//                                    configuration: .init(node: node, isTrusted: self.isTrusted),
-//                                    delegate: self
-//                                )
-//                            )
-//                        }
-//                    )
+                    let completion = { [weak self] in
+                        guard let self = self else { return }
+                        
+                        self.showPlansSheet = true
+                        self.nodeToToggle = node
+                    }
+                    
+                    self.alertContent = (
+                        true,
+                        Alert(
+                            title: Text(L10n.Connection.Resubscribe.title),
+                            message: Text(L10n.Connection.Resubscribe.subtitle),
+                            primaryButton: .default(
+                                Text(L10n.Common.yes),
+                                action: completion
+                            ),
+                            secondaryButton: .destructive(
+                                Text(L10n.Common.cancel),
+                                action: {}
+                            )
+                        )
+                    )
                 }
             }
             .store(in: &cancellables)
@@ -135,7 +150,7 @@ extension ConnectionViewModel {
 
 extension ConnectionViewModel {
     private func show(error: Error) {
-        alertContent = (
+        alertToastContent = (
             true,
             AlertToast(type: .error(NSColor.systemRed.asColor), title: error.localizedDescription)
         )
