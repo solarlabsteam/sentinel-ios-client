@@ -71,6 +71,8 @@ final class ConnectionModel {
             .connectionPublisher
             .sink(receiveValue: { [weak self] _ in self?.checkNodeForUpdate() })
             .store(in: &cancellables)
+        
+        subscribeToggleConnectionMenuState()
     }
 }
 

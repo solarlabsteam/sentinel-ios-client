@@ -16,7 +16,7 @@ final class ConnectionMenuService {
     @Published var isConnected: Bool = false
     @Published var connectionStatus: ConnectionStatus = .disconnected
     
-    @Published var toggleConnectionNewState: Bool = false
+    @Published var toggleConnectionNewState: Bool = false 
     
     init() {
     }

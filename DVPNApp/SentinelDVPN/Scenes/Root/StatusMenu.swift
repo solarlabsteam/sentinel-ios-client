@@ -74,6 +74,6 @@ extension StatusMenu {
     
     @objc
     func toggleConnection() {
-        context.connectionMenuService.toggleConnectionNewState = !context.connectionMenuService.toggleConnectionNewState
+        context.connectionMenuService.toggleConnectionNewState = !context.connectionMenuService.isConnected
     }
 }
