@@ -278,6 +278,7 @@ extension ConnectionModel {
                     return
                 }
                 self.eventSubject.send(.updateTunnelActivity(isActive: self.isTunnelActive))
+                self.setConnectionInfoToService(isConnected: self.isTunnelActive)
                 self.stopLoading()
             }
         }
@@ -531,6 +532,7 @@ extension ConnectionModel {
         log.error(error)
         stopLoading()
         eventSubject.send(.updateTunnelActivity(isActive: isTunnelActive))
+        setConnectionInfoToService(isConnected: isTunnelActive)
         eventSubject.send(.error(error))
     }
 
@@ -609,6 +611,7 @@ extension ConnectionModel {
 
     private func fetchIP(stopLoading: Bool = false) {
         eventSubject.send(.updateTunnelActivity(isActive: self.isTunnelActive))
+        setConnectionInfoToService(isConnected: self.isTunnelActive)
 
         context.networkService.fetchIP { [weak self] ipAddress in
             self?.eventSubject.send(.updateIpAddress(ipAddress))
