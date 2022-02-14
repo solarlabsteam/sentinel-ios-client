@@ -35,6 +35,16 @@ final class AvailableNodesViewModel: ObservableObject {
     private var statusObservationToken: NotificationToken?
     
     @Published var alertContent: (isShown: Bool, toast: AlertToast) = (false, AlertToast(type: .loading))
+    
+    @Published var showPlansSheet = false {
+        didSet {
+            if showPlansSheet == false {
+                nodeToToggle = nil
+            }
+        }
+    }
+    
+    @Published var nodeToToggle: Node?
 
     init(continent: Continent, model: AvailableNodesModel) {
         self.continent = continent
@@ -139,7 +149,8 @@ extension AvailableNodesViewModel {
         let isSubscribedToNode = model.isSubscribed(to: node.info.address)
         
         guard isSubscribedToNode else {
-//            router.play(event: .subscribe(node: node.info))
+            showPlansSheet = true
+            nodeToToggle = node
             return
         }
 

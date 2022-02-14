@@ -50,6 +50,14 @@ struct AvailableNodesView: View {
         .toast(isPresenting: $viewModel.alertContent.isShown) {
             viewModel.alertContent.toast
         }
+        .sheet(isPresented: $viewModel.showPlansSheet, onDismiss: nil, content: {
+            if let nodeInfo = viewModel.nodeToToggle?.info {
+                ModulesFactory.shared.makePlansScene(
+                    nodeInfo: nodeInfo,
+                    isPresented: $viewModel.showPlansSheet
+                )
+            }
+        })
     }
 }
 
