@@ -131,8 +131,18 @@ extension NodeSelectionViewModel {
     }
 
     func closeContinent() {
-        numberOfNodesInContinent = model.numberOfNodesInContinent
         selectedTab = .available(.all)
+        
+        // Counting numberOfNodesInContinent in global queue
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            
+            let numberOfNodesInContinent = self.model.numberOfNodesInContinent
+            
+            DispatchQueue.main.async {
+                self.numberOfNodesInContinent = numberOfNodesInContinent
+            }
+        }
     }
 }
 
