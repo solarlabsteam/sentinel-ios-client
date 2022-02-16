@@ -132,3 +132,6 @@
 "Menu.Connection.Connect" = "Connect";
 "Menu.Connection.Disconnect" = "Disconnect";
 "Menu.Connection.Status" = "Status: %@";
+
+"Launch.Description" = "World’s first truly decentralized VPN";
+"Launch.BuildBy" = "Build by";

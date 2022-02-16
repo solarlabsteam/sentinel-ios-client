@@ -255,6 +255,13 @@ internal enum L10n {
     }
   }
 
+  internal enum Launch {
+    /// Build by
+    internal static let buildBy = L10n.tr("Localizable", "Launch.BuildBy")
+    /// World’s first truly decentralized VPN
+    internal static let description = L10n.tr("Localizable", "Launch.Description")
+  }
+
   internal enum Menu {
     internal enum Connection {
       /// Connect

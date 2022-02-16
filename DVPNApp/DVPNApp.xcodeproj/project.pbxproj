@@ -127,6 +127,7 @@
 		937FE47A27A17C5500DBFC08 /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64ED32526C57FE900222CA4 /* PlansViewModel.swift */; };
 		937FE47C27A17C6800DBFC08 /* SelectedPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0D55326CB9A85009ECAFC /* SelectedPlan.swift */; };
 		937FE47D27A17C6B00DBFC08 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939FA13F270C3D960013ED75 /* CounterView.swift */; };
+		9389F70227BBAD8A00DE0D22 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9389F70127BBAD8A00DE0D22 /* LaunchView.swift */; };
 		93D304A5279750EE00469A75 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F17270DE78600D416ED /* TextStyle.swift */; };
 		93D304A6279750F000469A75 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F5F16270DE78600D416ED /* TextStyles.swift */; };
 		93D304A8279750FA00469A75 /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517DF1727218BFA007E56CA /* PageIndicator.swift */; };
@@ -332,6 +333,7 @@
 		93785440270ECC810004483C /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		937FE473279AD51500DBFC08 /* SharingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingPicker.swift; sourceTree = "<group>"; };
 		93843B462724993000CE6D34 /* SentinelNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SentinelNode+Ext.swift"; sourceTree = "<group>"; };
+		9389F70127BBAD8A00DE0D22 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		938FBA5D27056A320059469B /* TunnelManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelManagerType.swift; sourceTree = "<group>"; };
 		939FA13F270C3D960013ED75 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		93A6C0B7270A97B0009F1029 /* CountryTileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTileViewModel.swift; sourceTree = "<group>"; };
@@ -965,6 +967,7 @@
 				75D6560626BBF42B000056B4 /* Context */,
 				93E492F027A8915100797906 /* StatusMenu.swift */,
 				9263A42F2796D9D4003DF3A4 /* SentinelDVPNApp.swift */,
+				9389F70127BBAD8A00DE0D22 /* LaunchView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -1355,6 +1358,7 @@
 				93D304A92797512D00469A75 /* PullToRefresh.swift in Sources */,
 				937FE47A27A17C5500DBFC08 /* PlansViewModel.swift in Sources */,
 				9263A4A62796E810003DF3A4 /* Strings.swift in Sources */,
+				9389F70227BBAD8A00DE0D22 /* LaunchView.swift in Sources */,
 				93D304F627983F2300469A75 /* NodeInfoType.swift in Sources */,
 				93D304B42797520A00469A75 /* DVPNNodeInfo+Ext.swift in Sources */,
 				9263A4CF2796EC14003DF3A4 /* Array+Ext.swift in Sources */,
