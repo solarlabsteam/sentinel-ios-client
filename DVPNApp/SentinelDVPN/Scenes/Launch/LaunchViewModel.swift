@@ -21,12 +21,6 @@ final class LaunchViewModel: ObservableObject {
         self.context = context
         self.delegate = delegate
         
-        context.nodesService.loadAllNodes { [weak self] result in
-            if case let .success(nodes) = result {
-                self?.context.nodesService.loadNodesInfo(for: nodes)
-            }
-        }
-        
         loadData()
     }
 }
