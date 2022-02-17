@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct LaunchView: View {
+    @ObservedObject private var viewModel: LaunchViewModel
+    
+    init(viewModel: LaunchViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack {
             Spacer()
@@ -56,6 +62,6 @@ extension LaunchView {
 
 struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchView()
+        ModulesFactory.shared.getLaunchView()
     }
 }

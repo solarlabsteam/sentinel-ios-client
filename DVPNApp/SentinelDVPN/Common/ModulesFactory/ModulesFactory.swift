@@ -28,23 +28,18 @@ final class ModulesFactory {
 
 extension ModulesFactory {
     func detectStartModule() -> AppStageSwitcherView {
-        #warning("Preloading data slows app start down, some placeholder is needed")
-//        context.nodesService.loadAllNodes { [weak self] result in
-//            if case let .success(nodes) = result {
-//                self?.context.nodesService.loadNodesInfo(for: nodes)
-//            }
-//        }
-//
-//        context.preloadService.loadData {
-//            log.debug("Preloaded data.")
-//        }
+        let stage: AppStage = .launch
 
-        let stage: AppStage = context.generalInfoStorage.didPassOnboarding() ? .home : .onboarding
-
-        let viewModel = AppStageSwitcherViewModel(stage: stage)
+        let viewModel = AppStageSwitcherViewModel(stage: stage, context: context)
         let view = AppStageSwitcherView(viewModel: viewModel)
 
         return view
+    }
+    
+    func makeLaunchView(delegate: LaunchViewModelDelegate? = nil) -> LaunchView {
+        let viewModel = LaunchViewModel(context: context, delegate: delegate)
+        
+        return LaunchView(viewModel: viewModel)
     }
 
     func makeOnboardingScene(delegate: OnboardingViewModelDelegate? = nil) -> OnboardingView {
@@ -126,6 +121,12 @@ extension ModulesFactory {
 // MARK: - Scenes previews
 
 extension ModulesFactory {
+    func getLaunchView() -> LaunchView {
+        let viewModel = LaunchViewModel(context: context, delegate: nil)
+        
+        return LaunchView(viewModel: viewModel)
+    }
+    
     func getNodeSelectionScene() -> NodeSelectionView {
         let model = NodeSelectionModel(context: context)
         let viewModel = NodeSelectionViewModel(model: model)

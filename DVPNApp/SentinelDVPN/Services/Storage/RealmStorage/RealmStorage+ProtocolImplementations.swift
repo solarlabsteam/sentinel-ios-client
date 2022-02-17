@@ -24,7 +24,7 @@ extension RealmStorage: StoresNodes {
     }
     
     func save(sentinelNodes: [SentinelNode]) {
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let realm = self?.initRealm() else { return }
             
             do {
@@ -38,7 +38,7 @@ extension RealmStorage: StoresNodes {
     }
     
     func save(sentinelNode: SentinelNode) {
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let realm = self?.initRealm() else { return }
             
             do {
@@ -54,7 +54,7 @@ extension RealmStorage: StoresNodes {
     func save(node: Node, for sentinelNode: SentinelNode) {
         let fullSentinelNode = sentinelNode.set(node: node)
         
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let realm = self?.initRealm() else { return }
             
             do {
@@ -68,7 +68,7 @@ extension RealmStorage: StoresNodes {
     }
     
     func remove(sentinelNode: SentinelNode) {
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let realm = self?.initRealm() else { return }
             
             let objectToDelete = realm.objects(SentinelNodeObject.self)

@@ -72,10 +72,14 @@ extension NodesService: NodesServiceType {
             case .failure(let error):
                 log.error(error)
             case .success(let nodes):
-                self?.save(newSentinelNodes: nodes)
+                DispatchQueue.global(qos: .utility).async { [weak self] in
+                    self?.save(newSentinelNodes: nodes)
+                }
             }
 
-            completion?(result)
+            DispatchQueue.main.async {
+                completion?(result)
+            }
         }
     }
 
@@ -98,7 +102,7 @@ extension NodesService: NodesServiceType {
         loadNodesInfo(for: sentinelNodes)
     }
 
-    func loadNodesInfo(for nodes: [SentinelNode]) {
+    func loadNodesInfo(for nodes: [SentinelNode], completion: (() -> Void)?) {
         _isAllLoaded = false
 
         _loadedNodesCount = 0
@@ -121,6 +125,7 @@ extension NodesService: NodesServiceType {
 
         group.notify(queue: .main) { [weak self] in
             self?._isAllLoaded = true
+            completion?()
         }
     }
 

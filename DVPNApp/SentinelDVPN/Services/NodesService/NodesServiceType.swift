@@ -18,7 +18,7 @@ protocol NodesServiceType {
     func loadAllNodesIfNeeded(completion: @escaping ((Result<[SentinelNode], Error>) -> Void))
     func loadAllNodes(completion: ((Result<[SentinelNode], Error>) -> Void)?)
     func loadNodesInfo(for continent: Continent)
-    func loadNodesInfo(for nodes: [SentinelNode])
+    func loadNodesInfo(for nodes: [SentinelNode], completion: (() -> Void)?)
     var nodesInContinentsCount: [Continent: Int] { get }
     func loadSubscriptions(completion: @escaping ((Result<[Subscription], Error>) -> Void))
     
@@ -30,5 +30,9 @@ protocol NodesServiceType {
 extension NodesServiceType {
     func loadAllNodes() {
         loadAllNodes(completion: nil)
+    }
+    
+    func loadNodesInfo(for nodes: [SentinelNode]) {
+        loadNodesInfo(for: nodes, completion: nil)
     }
 }

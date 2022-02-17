@@ -41,6 +41,8 @@ struct AppStageSwitcherView: View {
                     .frame(width: 25, height: 25)
                 }
             }
+        case .launch:
+            ModulesFactory.shared.makeLaunchView(delegate: viewModel)
         }
     }
 }
