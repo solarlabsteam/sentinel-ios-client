@@ -233,7 +233,7 @@ internal enum L10n {
       internal enum All {
         /// No available nodes found
         internal static let notFound = L10n.tr("Localizable", "Home.Node.All.NotFound")
-        /// All nodes
+        /// All Nodes
         internal static let title = L10n.tr("Localizable", "Home.Node.All.Title")
       }
       internal enum Details {

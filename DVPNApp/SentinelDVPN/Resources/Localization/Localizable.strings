@@ -75,7 +75,7 @@
 "Home.Node.Subscribed.NoConnection" = "Failed to load nodes";
 "Home.Node.Subscribed.Title" = "Subscribed";
 "Home.Node.All.NotFound" = "No available nodes found";
-"Home.Node.All.Title" = "All nodes";
+"Home.Node.All.Title" = "All Nodes";
 "Home.Extra.DNS" = "Default DNS";
 "Home.Extra.More.Title" = "Learn More";
 "Home.Extra.More.Subtitle" = "Sentinel P2P bandwidth market place";
