@@ -73,6 +73,12 @@ extension NodeSelectionModel {
             .map { .set(subscribedNodes: $0) }
             .subscribe(eventSubject)
             .store(in: &cancellables)
+        
+        context.nodesService.subscriptions
+            .sink(receiveValue: { [weak self] subscriptions in
+                self?.subscriptions = subscriptions
+            })
+            .store(in: &cancellables)
     }
     
     var numberOfNodesInContinent: [Continent: Int] {
