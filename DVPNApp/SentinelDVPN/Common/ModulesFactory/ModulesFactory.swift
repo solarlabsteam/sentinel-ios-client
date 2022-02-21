@@ -15,7 +15,6 @@ final class ModulesFactory {
 
     private init() {
         context = ContextBuilder().buildContext()
-        context.generalInfoStorage.set(didPassOnboarding: false)
     }
 
     func resetWalletContext() {
