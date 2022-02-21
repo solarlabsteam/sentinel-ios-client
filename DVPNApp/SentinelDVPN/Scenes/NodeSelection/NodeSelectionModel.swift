@@ -52,7 +52,6 @@ final class NodeSelectionModel {
     init(context: Context) {
         self.context = context
 
-        loadSubscriptions()
         fetchWalletInfo()
         
         context.nodesService.loadAllNodesIfNeeded { result in

@@ -189,7 +189,7 @@ extension ConnectionModel {
         }
         return randomNode?.address
     }
-
+    
     private func setInitialNodeInfo(address: String) {
         updateLocation(address: address)
         refreshSubscriptions()
@@ -222,7 +222,7 @@ extension ConnectionModel {
     }
 
     private func loadSubscriptions(selectedAddress: String? = nil, reconnect: Bool = false) {
-        context.sentinelService.fetchSubscriptions { [weak self] result in
+        context.nodesService.loadSubscriptions { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):
