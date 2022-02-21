@@ -61,19 +61,16 @@ struct NodeSelectionView: View {
 extension NodeSelectionView {
     private var embedBody: some View {
         VStack {
-            ZStack {
-                Picker("", selection: $viewModel.selectedTab) {
-                    ForEach(NodeType.allCases, id: \.self) {
-                        Text($0.title)
-                            .applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
-                    }
+            SegmentedPickerView(
+                $viewModel.selectedTab,
+                elements: NodeType.allCases.map { nodeType in
+                    (id: nodeType, view: AnyView(SegmentedPickerElementView {
+                        Text(nodeType.title).applyTextStyle(.whitePoppins(ofSize: 14, weight: .medium))
+                    }))
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                .foregroundColor(Asset.Colors.navyBlue.color.asColor)
-            }
+            )
             .padding(.horizontal, 40)
-            .padding(.bottom, 30)
-            .padding(.top, 10)
+            .padding(.vertical, 20)
 
             HStack {
                 switch viewModel.selectedTab {
