@@ -16,6 +16,7 @@ struct SentinelDVPNApp: App {
             ModulesFactory.shared.detectStartModule()
                 .frame(minWidth: 1000, minHeight: 500)
         }
+        .windowStyle(.hiddenTitleBar)
         .commands {
             // Hide Services from SentinelDVPN command tab
             CommandGroup(replacing: .systemServices) {}

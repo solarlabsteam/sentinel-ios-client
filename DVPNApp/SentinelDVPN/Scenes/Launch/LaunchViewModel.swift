@@ -27,16 +27,20 @@ final class LaunchViewModel: ObservableObject {
 
 extension LaunchViewModel {
     func loadData() {
-        context.preloadService.loadData { [weak self] in
-            self?.context.nodesService.loadAllNodes { [weak self] result in
-                if case let .success(nodes) = result {
-                    self?.context.nodesService.loadNodesInfo(for: nodes, completion: {
-                        DispatchQueue.main.async {
-                            self?.delegate?.dataLoaded()
-                        }
-                    })
-                }
-            }
+        context.preloadService.loadData {
+            log.debug("Balance is loaded")
         }
+        
+       context.nodesService.loadAllNodes { [weak self] result in
+            if case let .success(nodes) = result {
+                self?.context.nodesService.loadNodesInfo(for: nodes) {}
+                
+                self?.context.nodesService.loadSubscriptions(completion: { _ in 
+                    DispatchQueue.main.async {
+                        self?.delegate?.dataLoaded()
+                    }
+                })
+            }
+       }
     }
 }

@@ -189,10 +189,22 @@ extension ConnectionModel {
         }
         return randomNode?.address
     }
-
+    
     private func setInitialNodeInfo(address: String) {
         updateLocation(address: address)
-        refreshSubscriptions()
+        context.nodesService.subscriptions
+            .first()
+            .sink(receiveValue: { subscriptions in
+                guard let subscription = subscriptions.last(where: { $0.node == address }) else {
+                    self.subscription = subscriptions.sorted(by: { $0.id > $1.id }).first
+                    self.handleConnection(reconnect: false)
+                    return
+                }
+                
+                self.subscription = subscription
+                self.handleConnection(reconnect: false)
+            })
+            .store(in: &cancellables)
         fetchIP()
     }
 
@@ -222,7 +234,7 @@ extension ConnectionModel {
     }
 
     private func loadSubscriptions(selectedAddress: String? = nil, reconnect: Bool = false) {
-        context.sentinelService.fetchSubscriptions { [weak self] result in
+        context.nodesService.loadSubscriptions { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):

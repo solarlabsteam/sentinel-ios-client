@@ -52,7 +52,6 @@ final class NodeSelectionModel {
     init(context: Context) {
         self.context = context
 
-        loadSubscriptions()
         fetchWalletInfo()
         
         context.nodesService.loadAllNodesIfNeeded { result in
@@ -73,6 +72,12 @@ extension NodeSelectionModel {
         context.nodesService.subscribedNodes
             .map { .set(subscribedNodes: $0) }
             .subscribe(eventSubject)
+            .store(in: &cancellables)
+        
+        context.nodesService.subscriptions
+            .sink(receiveValue: { [weak self] subscriptions in
+                self?.subscriptions = subscriptions
+            })
             .store(in: &cancellables)
     }
     

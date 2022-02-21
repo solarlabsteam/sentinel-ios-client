@@ -34,7 +34,8 @@ extension AppStageSwitcherViewModel: OnboardingViewModelDelegate {
 
 extension AppStageSwitcherViewModel: AccountCreationViewModelDelegate {
     func openNodes() {
-        stage = .home
+        context.generalInfoStorage.set(didPassOnboarding: true)
+        stage = .launch
     }
 }
 
