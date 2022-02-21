@@ -181,24 +181,19 @@ extension NodeSelectionViewModel {
     
     private func set(subscribedNodes: [SentinelNode]) {
         subscribedNodes.forEach { subscribedNode in
+            guard let node = subscribedNode.node,
+                    !subscriptions.contains(where: { $0.id == node.info.address }) else { return }
             nodes.insert(subscribedNode)
             
-            guard let node = subscribedNode.node else { return }
-            
             let countryCode = CountryFormatter.code(for: node.info.location.country) ?? ""
-            
-            let flagImage: ImageAsset.Image?
-            
-            flagImage = Flag(countryCode: countryCode)?.originalImage
+            let flagImage = Flag(countryCode: countryCode)?.originalImage
             
             let model = NodeSelectionRowViewModel(
                 from: node,
                 icon: flagImage ?? Asset.Tokens.dvpn.image
             )
             
-            if !subscriptions.contains(where: { $0.id == model.id }) {
-                subscriptions.append(model)
-            }
+            subscriptions.append(model)
         }
     }
 

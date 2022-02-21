@@ -28,8 +28,6 @@ struct LaunchView: View {
             .frame(width: 300, height: 300)
             
             Spacer()
-            
-            buildInfoView
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -50,13 +48,6 @@ extension LaunchView {
             Text(L10n.Launch.description)
                 .applyTextStyle(.lightGrayPoppins(ofSize: 15, weight: .regular))
         }
-    }
-    
-    var buildInfoView: some View {
-        Asset.Launch.exidioLogo.image.asImage
-            .resizable()
-            .scaledToFit()
-            .frame(width: 150, height: 100)
     }
 }
 

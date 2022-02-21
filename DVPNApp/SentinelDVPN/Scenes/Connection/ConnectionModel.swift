@@ -192,7 +192,19 @@ extension ConnectionModel {
     
     private func setInitialNodeInfo(address: String) {
         updateLocation(address: address)
-        refreshSubscriptions()
+        context.nodesService.subscriptions
+            .first()
+            .sink(receiveValue: { subscriptions in
+                guard let subscription = subscriptions.last(where: { $0.node == address }) else {
+                    self.subscription = subscriptions.sorted(by: { $0.id > $1.id }).first
+                    self.handleConnection(reconnect: false)
+                    return
+                }
+                
+                self.subscription = subscription
+                self.handleConnection(reconnect: false)
+            })
+            .store(in: &cancellables)
         fetchIP()
     }
 

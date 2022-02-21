@@ -266,25 +266,41 @@ extension NodesService {
             }
         }
     }
-
+    
     /// Use for loading nodes from subscriptions
     private func loadNodes(from addresses: Set<String>) {
-        addresses.enumerated().forEach { index, address in
-            sentinelService.queryNodeStatus(
-                address: address,
-                timeout: constants.timeout
-            ) { [weak self] result in
+        let loadedNodes = nodesStorage.sentinelNodes.filter { addresses.contains($0.address) }
+        _subscribedNodes.append(contentsOf: loadedNodes)
+        let nodesToLoad = addresses.subtracting(Set(loadedNodes.map { $0.address }))
+        
+        let group = DispatchGroup()
+        var loadedPortion: [SentinelNode] = []
+        
+        nodesToLoad.filter { !$0.isEmpty }.enumerated().forEach { index, address in
+            group.enter()
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                if index == addresses.count - 1 {
-                    self._isLoadingSubscriptions = false
-                }
-                switch result {
-                case .failure(let error):
-                    log.error(error)
-                case .success(let node):
-                    self._subscribedNodes.append(node)
+                self.sentinelService.queryNodeStatus(
+                    address: address,
+                    timeout: constants.timeout
+                ) { result in
+                    group.leave()
+                    if index == addresses.count - 1 {
+                        self._isLoadingSubscriptions = false
+                    }
+                    switch result {
+                    case .failure(let error):
+                        log.error(error)
+                    case .success(let node):
+                        loadedPortion.append(node)
+                    }
                 }
             }
+        }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?._isLoadingSubscriptions = false
+            self?._subscribedNodes.append(contentsOf: loadedPortion)
         }
     }
 }
