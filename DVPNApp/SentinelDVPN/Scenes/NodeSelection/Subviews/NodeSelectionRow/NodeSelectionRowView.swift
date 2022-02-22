@@ -12,15 +12,18 @@ struct NodeSelectionRowView: View {
     private let viewModel: NodeSelectionRowViewModel
     private let toggleLocation: () -> Void
     private let openDetails: () -> Void
+    @Binding var isConnectionButtonDisabled: Bool
     
     init(
         viewModel: NodeSelectionRowViewModel,
         toggleLocation: @escaping () -> Void,
-        openDetails: @escaping () -> Void
+        openDetails: @escaping () -> Void,
+        isConnectionButtonDisabled: Binding<Bool>
     ) {
         self.viewModel = viewModel
         self.toggleLocation = toggleLocation
         self.openDetails = openDetails
+        self._isConnectionButtonDisabled = isConnectionButtonDisabled
     }
 
     var body: some View {
@@ -58,6 +61,7 @@ struct NodeSelectionRowView: View {
                             .frame(width: 38, height: 38)
                             .background(Rectangle().foregroundColor(Asset.Colors.navyBlue.color.asColor))
                     }
+                    .disabled(isConnectionButtonDisabled)
                     .buttonStyle(PlainButtonStyle())
                     .cornerRadius(4)
                 }
@@ -85,7 +89,8 @@ struct HomeRowView_Previews: PreviewProvider {
                         peers: 4
                     ),
             toggleLocation: {},
-            openDetails: {}
+            openDetails: {},
+            isConnectionButtonDisabled: .constant(false)
         )
     }
 }

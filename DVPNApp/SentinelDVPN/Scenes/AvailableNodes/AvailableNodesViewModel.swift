@@ -45,6 +45,8 @@ final class AvailableNodesViewModel: ObservableObject {
     }
     
     @Published var nodeToToggle: Node?
+    
+    @Published var isConnectionButtonDisabled = false
 
     init(continent: Continent, model: AvailableNodesModel) {
         self.continent = continent
@@ -120,6 +122,8 @@ extension AvailableNodesViewModel {
                     self?.set(loadedNodesCount: loadedNodesCount)
                 case let .allLoaded(isAllLoaded):
                     self?.isAllLoaded = isAllLoaded
+                case let .isConnecting(isConnecting):
+                     self?.isConnectionButtonDisabled = isConnecting
                 }
             }
             .store(in: &cancellables)

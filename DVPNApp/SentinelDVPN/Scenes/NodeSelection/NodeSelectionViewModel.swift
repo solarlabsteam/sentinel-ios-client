@@ -86,6 +86,8 @@ final class NodeSelectionViewModel: ObservableObject {
     }
     
     @Published var nodeToToggle: Node?
+    
+    @Published var isConnectionButtonDisabled = false
 
     init(model: NodeSelectionModel) {
         self.model = model
@@ -167,6 +169,8 @@ extension NodeSelectionViewModel {
                 case .reloadSubscriptions:
                     self.subscriptions = []
                     self.isLoadingSubscriptions = true
+                case let .isConnecting(isConnecting):
+                    self.isConnectionButtonDisabled = isConnecting
                 }
             }
             .store(in: &cancellables)

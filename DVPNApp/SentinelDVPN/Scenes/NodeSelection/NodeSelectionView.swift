@@ -130,7 +130,8 @@ extension NodeSelectionView {
                     },
                     openDetails: {
                         viewModel.openDetails(for: vm.id)
-                    }
+                    },
+                    isConnectionButtonDisabled: $viewModel.isConnectionButtonDisabled
                 )
             }
         }

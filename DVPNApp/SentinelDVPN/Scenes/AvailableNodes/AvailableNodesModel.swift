@@ -17,6 +17,8 @@ enum AvailableNodesModelEvent {
     case allLoaded(Bool)
     
     case update(locations: [SentinelNode])
+    
+    case isConnecting(Bool)
 }
 
 final class AvailableNodesModel {
@@ -43,6 +45,8 @@ final class AvailableNodesModel {
                 self?.subscriptions = subscriptions
             })
             .store(in: &cancellables)
+        
+        subscribeToEvent()
     }
 }
 
@@ -84,5 +88,12 @@ extension AvailableNodesModel {
     private func show(error: Error) {
         log.error(error)
         eventSubject.send(.error(error))
+    }
+    
+    private func subscribeToEvent() {
+        context.connectionInfoStorage.isConnectingPublisher
+            .map { .isConnecting($0) }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
     }
 }

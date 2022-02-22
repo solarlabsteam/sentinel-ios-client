@@ -103,7 +103,8 @@ extension AvailableNodesView {
                     },
                     openDetails: {
                         viewModel.openDetails(for: vm.id)
-                    }
+                    },
+                    isConnectionButtonDisabled: $viewModel.isConnectionButtonDisabled
                 )
                     .onAppear {
                         if !viewModel.isAllLoaded && index <= viewModel.loadedNodesCount - 1 {

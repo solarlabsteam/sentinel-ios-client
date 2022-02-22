@@ -32,6 +32,7 @@ enum NodeSelectionModelEvent {
     case set(subscribedNodes: [SentinelNode])
     case setSubscriptionsState(SubscriptionsState)
     case reloadSubscriptions
+    case isConnecting(Bool)
 }
 
 final class NodeSelectionModel {
@@ -59,6 +60,8 @@ final class NodeSelectionModel {
                 context.nodesService.loadNodesInfo(for: nodes)
             }
         }
+        
+        subscribeToEvent()
     }
 }
 
@@ -149,5 +152,12 @@ extension NodeSelectionModel {
                 self?.show(error: error)
             }
         }
+    }
+    
+    private func subscribeToEvent() {
+        context.connectionInfoStorage.isConnectingPublisher
+            .map { .isConnecting($0) }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
     }
 }
