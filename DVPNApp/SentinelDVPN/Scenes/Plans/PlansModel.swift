@@ -54,6 +54,7 @@ extension PlansModel {
     var solarPayURL: URL {
         .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
     }
+    // swiftlint:enable force_unwrapping
     
     func refresh() {
         $node.eraseToAnyPublisher()
