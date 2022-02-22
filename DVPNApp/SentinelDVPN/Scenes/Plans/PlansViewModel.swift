@@ -167,7 +167,7 @@ extension PlansViewModel {
     private func showAddTokens() {
         let completion = { [weak self] in
             guard let self = self else { return }
-            
+            NSWorkspace.shared.open(self.model.solarPayURL)
             self.isPresented = false
         }
         

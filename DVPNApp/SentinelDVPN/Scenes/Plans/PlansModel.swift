@@ -50,6 +50,11 @@ extension PlansModel {
         context.walletService.accountAddress
     }
     
+    // swiftlint:disable force_unwrapping
+    var solarPayURL: URL {
+        .init(string: "https://pay.solarlabs.ee/topup?currency=dvpn&wallet=\(address)")!
+    }
+    
     func refresh() {
         $node.eraseToAnyPublisher()
             .map { [context] in
