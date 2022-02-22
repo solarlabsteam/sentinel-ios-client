@@ -28,7 +28,8 @@ struct AppStageSwitcherView: View {
             }
             .background(Asset.Colors.accentColor.color.asColor)
             .toolbar {
-                ToolbarItem(placement: .primaryAction) {
+                ToolbarItemGroup(placement: .automatic) {
+                    Spacer()
                     Button(action: { showAccountPopover.toggle() }) {
                         Asset.Navigation.account.image.asImage
                             .resizable()
@@ -39,6 +40,8 @@ struct AppStageSwitcherView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                     .frame(width: 25, height: 25)
+                    .padding(.top, 10)
+                    .padding(.trailing, 6)
                 }
             }
         case .launch:
