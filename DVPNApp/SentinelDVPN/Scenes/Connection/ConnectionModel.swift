@@ -121,6 +121,7 @@ extension ConnectionModel {
         context.connectionInfoStorage.set(shouldConnect: false)
 
         eventSubject.send(.setButton(isLoading: true))
+        context.connectionInfoStorage.set(isConnecting: true)
 
         context.sentinelService.queryNodeStatus(address: address, timeout: constants.timeout) { [weak self] response in
             guard let self = self else { return }
@@ -136,6 +137,8 @@ extension ConnectionModel {
                 }
 
                 self.eventSubject.send(.setButton(isLoading: true))
+                self.context.connectionInfoStorage.set(isConnecting: true)
+                
                 self.loadSubscriptions(selectedAddress: node.info.address, reconnect: true)
                 self.context.connectionInfoStorage.set(lastSelectedNode: node.info.address)
             }
@@ -149,6 +152,7 @@ extension ConnectionModel {
             return
         }
         eventSubject.send(.setButton(isLoading: true))
+        context.connectionInfoStorage.set(isConnecting: true)
 
         detectConnectionAndHandle(considerStatus: false, reconnect: true, subscription: subscription)
     }
@@ -161,6 +165,8 @@ extension ConnectionModel {
         }
 
         eventSubject.send(.setButton(isLoading: true))
+        context.connectionInfoStorage.set(isConnecting: true)
+        
         context.tunnelManager.startDeactivation(of: tunnel)
     }
 }
@@ -221,6 +227,7 @@ extension ConnectionModel {
             eventSubject.send(.updateConnection(status: .disconnected))
             setStatusToService(status: .disconnected)
             eventSubject.send(.setButton(isLoading: false))
+            context.connectionInfoStorage.set(isConnecting: false)
             return false
         }
 
@@ -229,6 +236,7 @@ extension ConnectionModel {
 
     private func refreshSubscriptions() {
         eventSubject.send(.setButton(isLoading: true))
+        context.connectionInfoStorage.set(isConnecting: true)
 
         loadSubscriptions(selectedAddress: context.connectionInfoStorage.lastSelectedNode())
     }
@@ -554,6 +562,7 @@ extension ConnectionModel {
         eventSubject.send(.updateConnection(status: .init(from: isTunnelActive)))
         setStatusToService(status: .init(from: isTunnelActive))
         eventSubject.send(.setButton(isLoading: false))
+        context.connectionInfoStorage.set(isConnecting: false)
     }
 }
 

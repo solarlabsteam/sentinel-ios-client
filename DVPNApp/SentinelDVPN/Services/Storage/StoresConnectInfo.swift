@@ -17,7 +17,10 @@ protocol StoresConnectInfo {
     func lastSessionId() -> Int?
     func set(sessionStart: Date?)
     func lastSessionStart() -> Date?
+    func set(isConnecting: Bool)
 
     var nodeUpdatePublisher: Published<Void>.Publisher  { get }
     var connectionPublisher: Published<Bool>.Publisher  { get }
+    
+    var isConnectingPublisher: Published<Bool>.Publisher { get }
 }

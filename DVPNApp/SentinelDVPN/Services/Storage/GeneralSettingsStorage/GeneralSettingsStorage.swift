@@ -25,6 +25,8 @@ final class GeneralSettingsStorage {
 
     @Published private var nodeUpdatePublished: Void = ()
     @Published private var connectionPublished: Bool = false
+    
+    @Published var isConnectingPublished: Bool = false
 
     init(settingsStorageStrategy: SettingsStorageStrategyType = UserDefaultsStorageStrategy()) {
         self.settingsStorageStrategy = settingsStorageStrategy
@@ -52,6 +54,14 @@ extension GeneralSettingsStorage: StoresConnectInfo {
 
     var connectionPublisher: Published<Bool>.Publisher {
         $connectionPublished
+    }
+    
+    var isConnectingPublisher: Published<Bool>.Publisher {
+        $isConnectingPublished
+    }
+    
+    func set(isConnecting: Bool) {
+        isConnectingPublished = isConnecting
     }
 
     func set(shouldConnect: Bool) {

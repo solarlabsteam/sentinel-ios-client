@@ -10,6 +10,7 @@ import SentinelWallet
 
 enum NodeDetailsModelEvent {
     case update(node: SentinelNode)
+    case isConnecting(Bool)
 }
 
 final class NodeDetailsModel {
@@ -23,11 +24,15 @@ final class NodeDetailsModel {
     
     private let node: SentinelNode
     let isSubscribed: Bool
+    
+    private var cancellables = Set<AnyCancellable>()
 
     init(context: Context, node: SentinelNode, isSubscribed: Bool) {
         self.context = context
         self.node = node
         self.isSubscribed = isSubscribed
+        
+        subscribeToEvent()
     }
 }
 
@@ -39,5 +44,12 @@ extension NodeDetailsModel {
     func save(nodeAddress: String) {
         context.connectionInfoStorage.set(lastSelectedNode: nodeAddress)
         context.connectionInfoStorage.set(shouldConnect: true)
+    }
+    
+    private func subscribeToEvent() {
+        context.connectionInfoStorage.isConnectingPublisher
+            .map { .isConnecting($0) }
+            .subscribe(eventSubject)
+            .store(in: &cancellables)
     }
 }

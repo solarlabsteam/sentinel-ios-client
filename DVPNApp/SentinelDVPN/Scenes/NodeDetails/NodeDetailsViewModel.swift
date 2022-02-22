@@ -22,6 +22,8 @@ final class NodeDetailsViewModel: ObservableObject {
     
     @Published var showPlansSheet = false
     
+    @Published var isConnectionButtonDisabled = false
+    
     private var cancellables = Set<AnyCancellable>()
     
     init(model: NodeDetailsModel) {
@@ -33,6 +35,8 @@ final class NodeDetailsViewModel: ObservableObject {
                 switch event {
                 case let .update(node):
                     self?.update(sentinelNode: node)
+                case let .isConnecting(isConnecting):
+                    self?.isConnectionButtonDisabled = isConnecting
                 }
             }
             .store(in: &cancellables)
