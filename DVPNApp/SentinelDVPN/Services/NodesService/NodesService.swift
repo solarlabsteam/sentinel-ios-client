@@ -1,6 +1,6 @@
 //
 //  NodesService.swift
-//  SOLAR dVPN
+//  DVPNApp
 //
 //  Created by Victoria Kostyleva on 13.10.2021.
 //
@@ -17,52 +17,60 @@ private let constants = Constants()
 
 final class NodesService {
     private let nodesStorage: StoresNodes
-    private var sentinelService: SentinelService
+    private let sentinelService: SentinelService
 
+    private var loadedNodes: Set<SentinelNode> = []
+    
     @Published private(set) var _availableNodesOfSelectedContinent: [SentinelNode] = []
-    @Published private(set) var _loadedNodesCount: Int = 0
-    @Published private(set) var _isAllLoaded: Bool = false
+    @Published private(set) var _loadedNodesCount = 0
+    @Published private(set) var _isAllLoaded = false
 
     @Published private(set) var _subscriptions: [Subscription] = []
     @Published private(set) var _subscribedNodes: [SentinelNode] = []
-    @Published private(set) var _isLoadingSubscriptions: Bool = true
-
+    @Published private(set) var _isLoadingSubscriptions = true
+    
     init(nodesStorage: StoresNodes = RealmStorage(), sentinelService: SentinelService) {
         self.nodesStorage = nodesStorage
         self.sentinelService = sentinelService
+        
+        loadedNodes = Set(nodesStorage.sentinelNodes)
     }
 }
 
 extension NodesService: NodesServiceType {
+    func getNode(with address: String) -> SentinelNode? {
+        loadedNodes.first(where: { $0.address == address })
+    }
+    
     var availableNodesOfSelectedContinent: Published<[SentinelNode]>.Publisher {
         $_availableNodesOfSelectedContinent
     }
-
+    
     var loadedNodesCount: Published<Int>.Publisher {
         $_loadedNodesCount
     }
-
+    
     var isAllLoaded: Published<Bool>.Publisher {
         $_isAllLoaded
     }
-
+    
     var subscriptions: Published<[Subscription]>.Publisher {
         $_subscriptions
     }
-
+    
     var subscribedNodes: Published<[SentinelNode]>.Publisher {
         $_subscribedNodes
     }
-
+    
     var isLoadingSubscriptions: Published<Bool>.Publisher {
         $_isLoadingSubscriptions
     }
-
+    
     func loadAllNodesIfNeeded(completion: @escaping ((Result<[SentinelNode], Error>) -> Void)) {
-        if nodesStorage.sentinelNodes.isEmpty {
+        if loadedNodes.isEmpty {
             loadAllNodes(completion: completion)
         } else {
-            completion(.success(nodesStorage.sentinelNodes))
+            completion(.success([]))
         }
     }
 
@@ -74,54 +82,56 @@ extension NodesService: NodesServiceType {
             case .failure(let error):
                 log.error(error)
             case .success(let nodes):
-                DispatchQueue.global(qos: .utility).async { [weak self] in
-                    self?.save(newSentinelNodes: nodes)
-                }
+                self?.save(newSentinelNodes: nodes)
             }
-
-            DispatchQueue.main.async {
-                completion?(result)
-            }
+            
+            completion?(result)
         }
     }
-
+    
     func loadNodesInfo(for continent: Continent) {
-        let sentinelNodes = nodesStorage.sentinelNodes
+        let sentinelNodes = Array(loadedNodes)
             .filter { sentinelNode in
                 guard let node = sentinelNode.node else {
                     return false
                 }
-
-                if continent == .other {
-                    return !ContinentDecoder.shared.isInContinents(node: node, continents: Continent.allContinents)
-                }
-
                 return ContinentDecoder.shared.isInContinent(node: node, continent: continent)
             }
-
+        
         _availableNodesOfSelectedContinent = sentinelNodes
 
-        loadNodesInfo(for: sentinelNodes)
+        if _isAllLoaded {
+            loadNodesInfo(for: sentinelNodes)
+        }
     }
 
     func loadNodesInfo(for nodes: [SentinelNode], completion: (() -> Void)?) {
         _isAllLoaded = false
 
         _loadedNodesCount = 0
-
+        
         let chunked = nodes.chunked(into: constants.stepToLoad)
 
+        let queue = DispatchQueue(
+            label: "NodesService",
+            qos: .utility,
+            attributes: .concurrent
+        )
         let group = DispatchGroup()
+        let semaphore = DispatchSemaphore(value: constants.stepToLoad)
 
-        chunked.enumerated().forEach { index, littlePortion in
-            group.enter()
-
-            loadLittlePortion(sentinelNodes: littlePortion) { [weak self] in
+        chunked.forEach { littlePortion in
+            queue.async(group: group) {  [weak self] in
                 guard let self = self else { return }
+                group.enter()
+                semaphore.wait()
 
-                self._loadedNodesCount = self._loadedNodesCount + constants.stepToLoad
+                self.loadLittlePortion(sentinelNodes: littlePortion) {
+                    self._loadedNodesCount = self._loadedNodesCount + constants.stepToLoad
 
-                group.leave()
+                    group.leave()
+                    semaphore.signal()
+                }
             }
         }
 
@@ -130,43 +140,37 @@ extension NodesService: NodesServiceType {
             completion?()
         }
     }
-
+    
     var nodesInContinentsCount: [Continent: Int] {
         var nodesInContinents: [Continent: Int] = [:]
-
+        
         Continent.allCases.forEach {
             nodesInContinents[$0] = 0
         }
-
-        nodesStorage.sentinelNodes
+        
+        loadedNodes
             .forEach { node in
                 guard let node = node.node else { return }
-
+                
                 if let continent = ContinentDecoder().getContinent(for: node),
                    let count = nodesInContinents[continent] {
                     nodesInContinents[continent] = count + 1
-                } else {
-                    nodesInContinents[.other] = (nodesInContinents[.other] ?? 0) + 1
                 }
             }
-
+        
         return nodesInContinents
     }
-
+    
     var nodes: [SentinelNode] {
-        nodesStorage.sentinelNodes
+        Array(loadedNodes)
     }
-
-    func getNode(with address: String) -> SentinelNode? {
-        nodesStorage.sentinelNodes.first(where: { $0.address == address })
-    }
-
-    func loadSubscriptions(
+    
+    func loadActiveSubscriptions(
         completion: @escaping ((Result<[Subscription], Error>) -> Void)
     ) {
         _isLoadingSubscriptions = true
-
-        sentinelService.fetchSubscriptions { [weak self] result in
+        
+        sentinelService.fetchSubscriptions(with: .active) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .failure(let error):
@@ -175,14 +179,16 @@ extension NodesService: NodesServiceType {
                 completion(.failure(error))
             case .success(let subscriptions):
                 self._subscriptions = subscriptions
-
+                
                 completion(.success(subscriptions))
-
+                
                 guard !subscriptions.isEmpty else {
                     self._isLoadingSubscriptions = false
                     return
                 }
-                self.loadNodes(from: Set(subscriptions.map { $0.node }))
+                
+                let addresses = Set(subscriptions.map { $0.node }.filter { !$0.isEmpty })
+                self.loadNodes(from: addresses)
             }
         }
     }
@@ -193,114 +199,119 @@ extension NodesService: NodesServiceType {
 extension NodesService {
     private func save(newSentinelNodes: [SentinelNode]) {
         var newSentinelNodesMutated = newSentinelNodes
-
+        
         nodesStorage.sentinelNodes.forEach { sentinelNodeInDB in
             let index = newSentinelNodesMutated
                 .firstIndex(where: { $0.address == sentinelNodeInDB.address })
-
+            
             if let index = index {
                 let newNode = sentinelNodeInDB.setFields(from: newSentinelNodesMutated[index])
                 nodesStorage.save(sentinelNode: newNode)
-
+                
                 newSentinelNodesMutated.remove(at: index)
             } else {
                 nodesStorage.remove(sentinelNode: sentinelNodeInDB)
             }
         }
 
-        newSentinelNodesMutated.forEach {
-            nodesStorage.save(sentinelNode: $0)
-        }
+        nodesStorage.save(sentinelNodes: newSentinelNodesMutated)
+        loadedNodes.formUnion(nodesStorage.sentinelNodes)
     }
-
+    
     private func loadLittlePortion(
         sentinelNodes: [SentinelNode],
         completion: @escaping () -> Void
     ) {
         let group = DispatchGroup()
-
-        var loadedPortion: [Node] = []
-
+        
+        var loadedPortion: [SentinelNode] = []
+        
         sentinelNodes.forEach { node in
             group.enter()
-
-            loadNodeInfo(for: node) { result in
-                if case let .success(node) = result {
-                    loadedPortion.append(node)
+            
+            loadNodeInfo(for: node) { [weak self] result in
+                guard case let .success(sentinelNode) = result else {
+                    group.leave()
+                    return
                 }
-
+                loadedPortion.append(sentinelNode)
                 group.leave()
+                guard let self = self, let node = sentinelNode.node else { return }
+                guard let row = self._availableNodesOfSelectedContinent
+                        .firstIndex(where: { $0.address == node.info.address }) else { return }
+                let newSentinelNode = self._availableNodesOfSelectedContinent[row].set(node: node)
+                self._availableNodesOfSelectedContinent[row] = newSentinelNode
             }
         }
 
-        loadedPortion.forEach { newNode in
-            if let row = self._availableNodesOfSelectedContinent
-                .firstIndex(where: { $0.address == newNode.info.address }) {
-
-                let newSentinelNode = _availableNodesOfSelectedContinent[row].set(node: newNode)
-                _availableNodesOfSelectedContinent[row] = newSentinelNode
-            }
-        }
-
-        group.notify(queue: .main) {
+        group.notify(queue: .main) { [weak self] in
+            self?.nodesStorage.save(sentinelNodes: loadedPortion)
+            self?.loadedNodes.formUnion(loadedPortion)
             completion()
         }
     }
-
+    
     private func loadNodeInfo(
         for sentinelNode: SentinelNode,
-        completion: @escaping (Result<Node, Error>) -> Void
+        completion: @escaping (Result<SentinelNode, Error>) -> Void
     ) {
-        self.sentinelService.fetchInfo(
+        sentinelService.fetchInfo(
             for: sentinelNode, timeout: constants.timeout
-        ) { [weak self] result in
-            guard let self = self else { return }
-
+        ) { result in
             switch result {
             case .failure(let error):
                 log.error(error)
                 completion(.failure(NodesServiceError.failToLoadData))
             case .success(let node):
-                self.nodesStorage.save(node: node, for: sentinelNode)
-                completion(.success(node))
+                completion(.success(sentinelNode.set(node: node)))
             }
         }
     }
     
     /// Use for loading nodes from subscriptions
     private func loadNodes(from addresses: Set<String>) {
-        let loadedNodes = nodesStorage.sentinelNodes.filter { addresses.contains($0.address) }
-        _subscribedNodes.append(contentsOf: loadedNodes)
-        let nodesToLoad = addresses.subtracting(Set(loadedNodes.map { $0.address }))
+        self._subscribedNodes = []
         
-        let group = DispatchGroup()
-        var loadedPortion: [SentinelNode] = []
-        
-        nodesToLoad.filter { !$0.isEmpty }.enumerated().forEach { index, address in
-            group.enter()
-            DispatchQueue.main.async { [weak self] in
+        addresses.enumerated().forEach { index, address in
+            sentinelService.queryNodeStatus(
+                address: address,
+                timeout: constants.timeout
+            ) { [weak self] result in
                 guard let self = self else { return }
-                self.sentinelService.queryNodeStatus(
-                    address: address,
-                    timeout: constants.timeout
-                ) { result in
-                    group.leave()
-                    if index == addresses.count - 1 {
-                        self._isLoadingSubscriptions = false
-                    }
-                    switch result {
-                    case .failure(let error):
-                        log.error(error)
-                    case .success(let node):
-                        loadedPortion.append(node)
-                    }
+                if index == addresses.count - 1 {
+                    self._isLoadingSubscriptions = false
+                }
+                switch result {
+                case .failure(let error):
+                    log.error(error)
+                case .success(let node):
+                    self._subscribedNodes.append(node)
                 }
             }
         }
-        
-        group.notify(queue: .main) { [weak self] in
-            self?._isLoadingSubscriptions = false
-            self?._subscribedNodes.append(contentsOf: loadedPortion)
+    }
+
+    private func loadInfo(
+        for sentinelNodes: [SentinelNode],
+        completion: @escaping (Result<[SentinelNode], Error>) -> Void
+    ) {
+        let group = DispatchGroup()
+        var loadedNodes: [SentinelNode] = []
+
+        sentinelNodes.forEach { sentinelNode in
+            group.enter()
+
+            sentinelService.fetchInfo(for: sentinelNode, timeout: constants.timeout) { result in
+                if case let .success(node) = result {
+                    loadedNodes.append(sentinelNode.set(node: node))
+                }
+
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            completion(.success(loadedNodes))
         }
     }
 }

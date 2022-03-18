@@ -35,11 +35,11 @@ extension LaunchViewModel {
             if case let .success(nodes) = result {
                 self?.context.nodesService.loadNodesInfo(for: nodes) {}
                 
-                self?.context.nodesService.loadSubscriptions(completion: { _ in 
+                self?.context.nodesService.loadActiveSubscriptions { _ in
                     DispatchQueue.main.async {
                         self?.delegate?.dataLoaded()
                     }
-                })
+                }
             }
        }
     }
